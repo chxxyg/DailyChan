@@ -39,9 +39,8 @@
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
-	
 	<div class="outer">
-        <h1 style="text-align:center";>마이페이지</h1>
+        <h1 style="text-align:center;">마이페이지</h1>
         <br>
         <hr>
 
