@@ -34,13 +34,23 @@
 		font-size:11px;
 	    float:left;
 	}
+	#mypageCategory{
+		width:250px;
+		height:800px;
+		border:1px solid black;
+	}
+	#mypageCategory>table>tr{
+		text-align:center;
+	}
+	
 </style>
 </head>
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
+	
 	<div class="outer">
-        <h1 style="text-align:center;">마이페이지</h1>
+        <h1 style="text-align:center";>마이페이지</h1>
         <br>
         <hr>
 
@@ -55,15 +65,28 @@
                     </td>
                 </tr>
                 <tr>
-                	<td>'로그인한회원이름'님</td>
-                	<td>주문/배송>0건</td>
-                	<td>
-                	</td>
-                	<td>
-                	</td>
+                	<td rowspan="2">'로그인한회원이름'님</td>
+                	<td>주문/배송></td>
+                	<td>쿠폰></td>
+                	<td>적립금></td>
+                </tr>
+                <tr>
+                	<td>0건</td>
+                	<td>0개</td>
+                	<td>0원</td>
                 </tr>
             </table>
+           
         </div>
+       <br>
+       <br>
+
+		<div id="mypageCategory">
+			<table>
+				<tr class="first">주문정보</tr>
+				<tr>주문/배송 조회</tr>
+			</table>
+		</div>
     </div>
 
 </body>
