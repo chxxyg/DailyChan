@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-        /* 메뉴 버튼 */
+        /* 메뉴 버튼eee */
         input[id="menuicon"]{display: none;}
         input[id="menuicon"] + label
         {
