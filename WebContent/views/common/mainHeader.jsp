@@ -196,7 +196,7 @@
                 <div id="header_1">
                     <div id="hd_top">
                         <a href="">회원가입</a>
-                        <button type="button">로그인</button>
+                        <button onclick="loginPop();">로그인</button>
                         <a href="">마이페이지</a>
                         <a href="">고객센터</a>
                     </div>
@@ -336,6 +336,10 @@
                 });
             } );
 
+			function loginPop(){
+	            window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+	        }
+            
           </script>
 </body>
 </html>
