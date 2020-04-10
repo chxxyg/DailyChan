@@ -9,14 +9,14 @@
 .login{
     border: 1px solid black;
     width: 400px;
-    height: 700px;
-    
+    height: 630px; 
 }
 
 #tit{
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
+    margin-top:60px;
    
 }
 #id{
@@ -25,12 +25,12 @@
 
 #id, #pwd{
 
-    width:300px ;
+    width:400px ;
     margin-left: 50px;
-    height: 25px;
+    height: 30px;
 }
 #loginBtn{
-    width:300px ;
+    width:400px ;
     margin-left: 50px;
     height: 40px;
     background-color: rgb(238, 98, 5);
@@ -42,11 +42,18 @@
 }
 
 #joinup{
-        width:300px ;
+        width:400px ;
         margin-left: 50px;
         height: 40px;
         color: hsl(28, 100%, 50%);
         cursor: pointer;
+}
+.bt_set{
+	margin-left:70px;
+	margin-top:10px;
+}
+#no_mem{
+	margin-left:60px;
 }
 
 </style>
@@ -56,8 +63,10 @@
  <div class="login-box">
             
         <!-- <button type="button"  onclick="unBlockUI('layer_login');return false;">닫기</button> -->
-       
-        <h2 id="tit">로그인</h2>
+       	<div id="tit">
+       		<h2>로그인</h2>
+       	</div>
+        
         <div>
             <form id="loginLayerForm" method="post">
 
@@ -76,8 +85,8 @@
 
        <div class="bt_set">
 
-        <a href="" class="find_mem">아이디/비밀번호 찾기</a>
-        <a href="" class="no_mem">비회원 주문조회</a>
+        <a href="" id="find_mem">아이디/비밀번호 찾기</a>
+        <a href="" id="no_mem">비회원 주문조회</a>
        </div>
     </div>
 
