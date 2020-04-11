@@ -30,6 +30,7 @@
 		width:250px;
 		height:50px;
 		margin-top:40px;
+		font-size:18px;
 		text-align:center;
 		font-weight:bold;
 		float:left;
@@ -54,6 +55,7 @@
 	}
 	#deliverySite~div>a{
 		color:tomato;
+		font-size:18px;
 	}
 	
 	/* 마이페이지 카테고리 영역 스타일 */
@@ -68,7 +70,7 @@
 	}
 	#mypageCategory>.myCateFirst{
 		margin-top:25px;
-		font-size:15px;
+		font-size:16px;
 		font-weight:bold;
 		color:black;
 	}
@@ -93,7 +95,8 @@
 	<div class="mypageOuter">
         <h1 style="text-align:center";>마이페이지</h1>
         <br>
-
+		
+		<!-- 마이페이지 간략정보 영역 -->
         <div id="mypageBrief" align="center">
            	<div id="deliverySite">
                 <a href="">기본 배송지 정보 넣을 곳</a>
@@ -104,11 +107,11 @@
 			<div>쿠폰<br><a href="">0</a>장</div>
 			<div>적립금<br><a href="">0</a>원</div>
                 
-           
         </div>
        <br>
        <br>
 
+		<!-- 마이페이지(좌) 카테고리 영역 -->
 		<div id="mypageCategory">
 			<div class="myCateFirst">주문정보</div>
 			<div><a href="">주문/배송 조회</a></div>
