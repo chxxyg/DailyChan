@@ -195,8 +195,8 @@
                 <!-- 헤더_회원가입,로그인,마이페이지,고객센터  -->
                 <div id="header_1">
                     <div id="hd_top">
-                        <a href="">회원가입</a>
                         <button onclick="loginPop();">로그인</button>
+                        <a href="">회원가입</a>
                         <a href="">마이페이지</a>
                         <a href="">고객센터</a>
                     </div>
@@ -216,7 +216,7 @@
 
                 <!-- 헤더(가운데)_브랜드로고 -->
                 <div id="header_3" align="center">
-                    <a href="">
+                    <a href="<%= contextPath %>">
                         <img id="home_logo" src="<%=contextPath%>/resources/img/brandlogo.png" height="120px">
                     </a>
                 </div>

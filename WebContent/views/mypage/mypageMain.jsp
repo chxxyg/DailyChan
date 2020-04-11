@@ -9,7 +9,7 @@
 	.outer{
 	    width:1000px;
 	    margin:auto;
-	    padding-top:50px;
+	    padding-top:70px;
 	}
 	
 	#deliverySite{
@@ -35,12 +35,23 @@
 	    float:left;
 	}
 	#mypageCategory{
-		width:250px;
+		width:200px;
 		height:800px;
 		border:1px solid black;
+		float:left;
 	}
-	#mypageCategory>table>tr{
+	#mypageCategory>table{
+		border:1px solid black;
+		height:40px;
+	}
+	#mypageCategory>table>tr>th, #mypageCategory>table>tr>td{
 		text-align:center;
+		vertical-align:middle;
+		height:40px;
+		border:1px solid black;
+	}
+	#mypageCategory>table>.first{
+		padding-top:20px;
 	}
 	
 </style>
@@ -83,8 +94,42 @@
 
 		<div id="mypageCategory">
 			<table>
-				<tr class="first">주문정보</tr>
-				<tr>주문/배송 조회</tr>
+				<tr class="first">
+					<th>주문정보</th>
+				</tr>
+				<tr>
+					<td>주문/배송 조회</td>
+				</tr>
+				<tr>
+					<td>취소/반품 조회</td>
+				</tr>
+				<tr class="first">
+					<th>구매혜택</th>
+				</tr>
+				<tr>
+					<td>쿠폰/적립금 조회</td>
+				</tr>
+				<tr class="first">
+					<th>활동내역</th>
+				</tr>
+				<tr>
+					<td>최근 본 상품</td>
+				</tr>
+				<tr>
+					<td>고객 후기</td>
+				</tr>
+				<tr>
+					<td>나의 문의 내역</td>
+				</tr>
+				<tr class="first">
+					<th>회원정보</th>
+				</tr>
+				<tr>
+					<td>배송지 관리</td>
+				</tr>
+				<tr>
+					<td>개인정보수정</td>
+				</tr>
 			</table>
 		</div>
     </div>
