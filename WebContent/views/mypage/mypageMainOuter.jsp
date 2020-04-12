@@ -67,7 +67,6 @@
 	}
 	#mypageCategory a{
 	    text-decoration:none;
-	    color: black;
 	}
 	#mypageCategory>div{
 		height:40px;
