@@ -184,7 +184,7 @@
 	}
 </style>
 <title>Insert title here</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <!-- 전체 윤곽 -->
@@ -339,7 +339,7 @@
 			function loginPop(){
 	            window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
 	        }
-            // 아
+
           </script>
 </body>
 </html>

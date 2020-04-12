@@ -9,14 +9,14 @@
 	div{
 		box-sizing:border-box;
 	}
-	/* 주문/배송 조회 영역 */
-	table{
-		margin-top:30px;
-	}
 	.mypageMainDetail{
 		margin:50px 0px 0px 450px;
 		width:800px;
 		height:600px;
+	}
+	/* 주문/배송 조회 영역 */
+	table{
+		margin-top:30px;
 	}
 	.mypageOrderList, .mypageOrderList tr{
 		border-top:1px solid black;
