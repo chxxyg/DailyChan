@@ -4,135 +4,128 @@ import java.sql.Date;
 
 public class Member {
 
-	private int userNo;			// 회원번호
-	private String userId;		// 아이디
-	private String userPwd;		// 비밀번호
-	private String userName;	// 회원명
-	private String phone;		// 전화번호
-	private String email;		// 이메일
-	private String address;		// 주소
-	private Date enrollDate;	// 회원가입일
-	private Date modifyDate;	// 정보수정일
-	private String status;		// 상태값(탈퇴 시 N)
-
+	private String memberId;		// 회원 아이디
+	private String memberName;		// 회원 이름
+	private String gender;			// 성별
+	private String birth;			// 생년월일
+	private String email;			// 이메일
+	private String phone;			// 휴대번호
+	private Date enrollDate;		// 회원가입일
+	private String delMemberYn;		// 회원탈퇴여부
+	private String password;		// 비밀번호
+	private Date modifyDate;		// 회원정보 수정일
+	private String blackListYn;		// 블랙리스트 여부
+	private String memberMn;		// 회원 비회원 구분
+	private int pointSum;			// 적립금 합계
+	/*private int						 누적 신고횟수
+	private String 					 추천인아이디*/
+	
 	public Member() {
 		
 	}
-
-	
-//	로그인 시 사용했던 매개변수 생성자
-	public Member(int userNo, String userId, String userPwd, String userName, String phone, String email,
-			String address, Date enrollDate, Date modifyDate, String status) {
+	public Member(String memberId, String memberName, String gender, String birth, String email, String phone,
+			Date enrollDate, String delMemberYn, String password, Date modifyDate, String blackListYn, String memberMn,
+			int pointSum) {
 		super();
-		this.userNo = userNo;
-		this.userId = userId;
-		this.userPwd = userPwd;
-		this.userName = userName;
-		this.phone = phone;
+		this.memberId = memberId;
+		this.memberName = memberName;
+		this.gender = gender;
+		this.birth = birth;
 		this.email = email;
-		this.address = address;
+		this.phone = phone;
 		this.enrollDate = enrollDate;
+		this.delMemberYn = delMemberYn;
+		this.password = password;
 		this.modifyDate = modifyDate;
-		this.status = status;
+		this.blackListYn = blackListYn;
+		this.memberMn = memberMn;
+		this.pointSum = pointSum;
 	}
-	//회원가입 시 사용하는 매개변수 생성자
-	public Member(String userId, String userPwd, String userName, String phone, String email, String address) {
-		super();
-		this.userId = userId;
-		this.userPwd = userPwd;
-		this.userName = userName;
-		this.phone = phone;
-		this.email = email;
-		this.address = address;
+	public String getMemberId() {
+		return memberId;
 	}
-
-
-	public int getUserNo() {
-		return userNo;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public String getMemberName() {
+		return memberName;
 	}
-
-	public String getUserId() {
-		return userId;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public String getGender() {
+		return gender;
 	}
-
-	public String getUserPwd() {
-		return userPwd;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-
-	public void setUserPwd(String userPwd) {
-		this.userPwd = userPwd;
+	public String getBirth() {
+		return birth;
 	}
-
-	public String getUserName() {
-		return userName;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getAddress() {
-		return address;
+	public String getPhone() {
+		return phone;
 	}
-
-	public void setAddress(String address) {
-		this.address = address;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-
 	public Date getEnrollDate() {
 		return enrollDate;
 	}
-
 	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
-
+	public String getDelMemberYn() {
+		return delMemberYn;
+	}
+	public void setDelMemberYn(String delMemberYn) {
+		this.delMemberYn = delMemberYn;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public Date getModifyDate() {
 		return modifyDate;
 	}
-
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-
-	public String getStatus() {
-		return status;
+	public String getBlackListYn() {
+		return blackListYn;
 	}
-
-	public void setStatus(String status) {
-		this.status = status;
+	public void setBlackListYn(String blackListYn) {
+		this.blackListYn = blackListYn;
 	}
-
+	public String getMemberMn() {
+		return memberMn;
+	}
+	public void setMemberMn(String memberMn) {
+		this.memberMn = memberMn;
+	}
+	public int getPointSum() {
+		return pointSum;
+	}
+	public void setPointSum(int pointSum) {
+		this.pointSum = pointSum;
+	}
 	@Override
 	public String toString() {
-		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName
-				+ ", phone=" + phone + ", email=" + email + ", address=" + address + ", interest=" 
-				+ ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", status=" + status + "]";
+		return "Member [memberId=" + memberId + ", memberName=" + memberName + ", gender=" + gender + ", birth=" + birth
+				+ ", email=" + email + ", phone=" + phone + ", enrollDate=" + enrollDate + ", delMemberYn="
+				+ delMemberYn + ", password=" + password + ", modifyDate=" + modifyDate + ", blackListYn=" + blackListYn
+				+ ", memberMn=" + memberMn + ", pointSum=" + pointSum + "]";
 	}
-
+	
 	
 }

@@ -26,7 +26,9 @@ public class LoginPopServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		
+		
 		request.getRequestDispatcher("views/member/loginView.jsp").forward(request, response);
 	}
 

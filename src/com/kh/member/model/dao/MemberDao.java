@@ -1,6 +1,6 @@
 package com.kh.member.model.dao;
 
-import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -49,16 +49,20 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				loginUser = new Member(rset.getInt("USER_NO"),
-									   rset.getString("USER_ID"),
-									   rset.getString("USER_PWD"),
-									   rset.getString("user_name"),
-										rset.getString("phone"),
+				loginUser = new Member(
+									    rset.getString("member_id"),
+									    rset.getString("member_name"),
+									    rset.getString("gender"),
+										rset.getString("birth"),
 										rset.getString("email"),
-										rset.getString("address"),
-										rset.getDate("enroll_date"),
-										rset.getDate("modify_date"),
-										rset.getString("status"));
+										rset.getString("phone"),
+										rset.getDate("enroll_Date"),
+										rset.getString("del_Member_Yn"),
+										rset.getString("password"),
+										rset.getDate("modify_Date"),
+										rset.getString("blackList_Yn"),
+										rset.getString("member_Mn"),
+										rset.getInt("point_Sum"));
 			}
 			
 			
