@@ -9,14 +9,12 @@
 <meta charset="UTF-8">
 <style>
 	 /* 전체 윤곽 */
-	 div{
-	    /*border:1px solid red;*/
+	#hd_wrap, #hd_wrap div{
 	    box-sizing:border-box;
 	    vertical-align:middle;
-	    margin:auto;
 	}
-	
-	.wrap>div{width:1004px;}
+	#hd_wrap{width:1004px; margin:auto;}
+
 	#hd_navi{
 	    width:1000px;
 	    height:240px;
@@ -31,7 +29,7 @@
 	#header_3{width:400px; height:170px; position:relative;}
 	#header_4{width:296px; height:170px; position:relative;}
 	
-	a{
+	#hd_top>a, #navi a{
 	    text-decoration:none;
 	    color: black;
 	}
@@ -188,6 +186,7 @@
 </head>
 <body>
     <!-- 전체 윤곽 -->
+    <div id="hd_wrap">
         <!-- header + navi  -->
         <div id="hd_navi">
             <!-- header -->
@@ -321,9 +320,11 @@
 
             </div> <!-- navigator 영역 닫힘-->
         </div> <!-- header+navi 닫힘-->
-        <!-- navigator 고정 function  -->
+    </div>    
+        
         <script>
 
+        	<!-- navigator 고정 function  -->
             $( document ).ready( function() {
                 var jbOffset = $( '#navigator' ).offset();
                 $( window ).scroll( function() {
@@ -334,8 +335,9 @@
                     $( '#navigator' ).removeClass( 'naviFixed' );
                 }
                 });
-            } );
+            });
 
+            <!-- 로그인 팝업 function -->
 			function loginPop(){
 	            window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
 	        }
