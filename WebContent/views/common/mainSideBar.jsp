@@ -88,6 +88,7 @@
 		{
 		margin-top: 10px;
 	    display: inline-block;
+	    background-color : white;
 	    width: 64px;
 	    height: 23px;
 	    border: 1px solid #b6d4d0;
@@ -107,6 +108,7 @@
 			font-weight: bold;
 			background: #fe7600;
 			color: white;
+			border: none;
 		}
     </style>
 </head>
