@@ -15,8 +15,6 @@
 <%@ include file="/views/common/mainSideBar.jsp" %>
 
 
-
-
 <%@ include file="/views/common/mainFooter.jsp" %>
 </body>
 </html>

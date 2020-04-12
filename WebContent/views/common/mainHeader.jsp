@@ -184,7 +184,7 @@
 	}
 </style>
 <title>Insert title here</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <!-- 전체 윤곽 -->
@@ -195,8 +195,8 @@
                 <!-- 헤더_회원가입,로그인,마이페이지,고객센터  -->
                 <div id="header_1">
                     <div id="hd_top">
-                        <a href="">회원가입</a>
                         <button onclick="loginPop();">로그인</button>
+                        <a href="">회원가입</a>
                         <a href="">마이페이지</a>
                         <a href="">고객센터</a>
                     </div>
@@ -216,7 +216,7 @@
 
                 <!-- 헤더(가운데)_브랜드로고 -->
                 <div id="header_3" align="center">
-                    <a href="">
+                    <a href="<%= contextPath %>">
                         <img id="home_logo" src="<%=contextPath%>/resources/img/brandlogo.png" height="120px">
                     </a>
                 </div>
@@ -339,7 +339,7 @@
 			function loginPop(){
 	            window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
 	        }
-           
+
           </script>
 </body>
 </html>

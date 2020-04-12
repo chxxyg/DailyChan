@@ -6,88 +6,158 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.outer{
-	    width:1000px;
-	    margin:auto;
-	    padding-top:50px;
+	div{
+		box-sizing:border-box;
 	}
-	
-	#deliverySite{
-		width:320px;
-		float:right;
-		border:1px solid black;
+	.mypageMainDetail{
+		margin:50px 0px 0px 450px;
+		width:800px;
+		height:600px;
 	}
-	
-	#mypageBrief td{
-		width:830px;
-		border:1px solid black;
+	/* 주문/배송 조회 영역 */
+	table{
+		margin-top:30px;
 	}
-
-	#mypageBrief img{
-		width:15px;
-		margin-top:8px;
-		margin-right:3px;
-		float:left;
+	.mypageOrderList, .mypageOrderList tr{
+		border-top:1px solid black;
+		border-bottom:1px solid black;
+		border-collapse: collapse;
 	}
-	#mypageBrief p{
-		width:300px;
-		font-size:11px;
-	    float:left;
+	.mypageOrderList th{
+		font-size:13px;
+		background:#f5f5f5;
 	}
-	#mypageCategory{
-		width:250px;
-		height:800px;
-		border:1px solid black;
-	}
-	#mypageCategory>table>tr{
+	.mypageOrderList td{
+		font-size:12px;
 		text-align:center;
 	}
+	#mypageOrderInfo>img{
+		float:left;
+		margin:5px 5px 5px 20px;
+	}
+	#mypageOrderInfo>div{
+		width:200px;
+		text-align:left;
+		float:left;
+		margin:20px 0px 0px 10px;
+	}
+	#mypageOrderInfo>div>a{
+		font-size:13px;
+	}
+	#orderDetailBtn{
+		width:60px;
+		height:20px;
+		background:white;
+		border:1px solid black;
+		margin-top:2px;
+		font-size:9px;
+	}
 	
+	/* 최근 구매한 상품 영역 */
+	#recentOrder{
+		width:145px;
+		height:220px;
+		margin:20px 5px 0px 8px;
+		float:left;
+	}
+	#recentOrder>a{
+		font-size:13px;
+		font-weight:bold;
+	}
+	#recentOrder>p{
+		font-size:12px;
+	}
 </style>
 </head>
 <body>
 
-	<%@ include file="../common/mainHeader.jsp" %>
+	<%@ include file="mypageMainOuter.jsp" %>
+
+	<div class="mypageMainDetail">
 	
-	<div class="outer">
-        <h1 style="text-align:center";>마이페이지</h1>
-        <br>
-        <hr>
+		<!-- 주문/배송 조회 영역 -->
+		<h3>주문/배송 조회</h3>
+		<hr>
+		<table class="mypageOrderList">
+			<tr height="28px">
+				<th width="130px">주문번호/주문일</th>
+				<th width="450px">상품정보</th>
+				<th width="100px">진행상태</th>
+				<th width="100px">학인</th>
+			</tr>
+			<tr>
+				<td>
+					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+					2020-03-31<br>
+					<button id="orderDetailBtn" type="submit" onclick="">상세확인 ></button>
+				</td>
+				<td id="mypageOrderInfo">
+					<img src="" width="70" height="70"></img>
+					<div>
+						<a href=""><b>데일리찬 상품명</b></a><br>
+						1개 / 12,000원
+					</div>
+				</td>
+				<td>결제완료</td>
+				<td>2020-03-31</td>
+			</tr>
+		</table>
+		<table class="mypageOrderList">
+			<tr height="28px">
+				<th width="130px">주문번호/주문일</th>
+				<th width="450px">상품정보</th>
+				<th width="100px">진행상태</th>
+				<th width="100px">학인</th>
+			</tr>
+			<tr>
+				<td>
+					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+					20200331<br>
+					<button id="orderDetailBtn" type="submit" onclick="">상세확인 ></button>
+				</td>
+				<td id="mypageOrderInfo">
+					<img src="" width="70" height="70"></img>
+					<div>
+						<a href=""><b>데일리찬 상품명</b></a><br>
+						1개 / 12,000원
+					</div>
+				</td>
+				<td>결제완료</td>
+				<td>2020-03-31</td>
+			</tr>
+		</table>
 
-        <div id="mypageBrief" align="center">
-            <table>
-                <tr>
-                    <td colspan="4">
-                    	<div id="deliverySite">
-	                        <img src="../../resources/images/positionlogo.png">
-	                        <p>기본 배송지 정보 넣을 곳</p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                	<td rowspan="2">'로그인한회원이름'님</td>
-                	<td>주문/배송></td>
-                	<td>쿠폰></td>
-                	<td>적립금></td>
-                </tr>
-                <tr>
-                	<td>0건</td>
-                	<td>0개</td>
-                	<td>0원</td>
-                </tr>
-            </table>
-           
-        </div>
-       <br>
-       <br>
-
-		<div id="mypageCategory">
-			<table>
-				<tr class="first">주문정보</tr>
-				<tr>주문/배송 조회</tr>
-			</table>
-		</div>
-    </div>
+		<br><br><br>
+		
+		<!-- 최근 구매한 상품 영역 -->
+		<h3>최근 구매한 상품</h3>
+		<hr>
+			<div id="recentOrder">
+				<a href=""><img src="" width="145" height="145"></img></a>
+				<a href="">데일리찬 상품명</a>
+				<p>12,000원 | 1인분</p>				
+			</div>
+			<div id="recentOrder">
+				<a href=""><img src="" width="145" height="145"></img></a>
+				<a href="">데일리찬 상품명</a>
+				<p>12,000원 | 1인분</p>				
+			</div>
+			<div id="recentOrder">
+				<a href=""><img src="" width="145" height="145"></img></a>
+				<a href="">데일리찬 상품명</a>
+				<p>12,000원 | 1인분</p>				
+			</div>
+			<div id="recentOrder">
+				<a href=""><img src="" width="145" height="145"></img></a>
+				<a href="">데일리찬 상품명</a>
+				<p>12,000원 | 1인분</p>				
+			</div>
+			<div id="recentOrder">
+				<a href=""><img src="" width="145" height="145"></img></a>
+				<a href="">데일리찬 상품명</a>
+				<p>12,000원 | 1인분</p>				
+			</div>
+	</div>
 
 </body>
 </html>
