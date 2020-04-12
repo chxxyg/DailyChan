@@ -339,7 +339,7 @@
 			function loginPop(){
 	            window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
 	        }
-            // 아
+           
           </script>
 </body>
 </html>
