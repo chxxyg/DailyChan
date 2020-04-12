@@ -6,42 +6,40 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	div{
-		box-sizing:border-box;
-	}
 	.mypageMainDetail{
+		box-sizing:border-box;
 		margin:50px 0px 0px 450px;
 		width:800px;
 		height:600px;
 	}
 	/* 주문/배송 조회 영역 */
-	table{
+	.myMainOrderList{
 		margin-top:30px;
 	}
-	.mypageOrderList, .mypageOrderList tr{
+	.myMainOrderList, .myMainOrderList tr{
 		border-top:1px solid black;
 		border-bottom:1px solid black;
 		border-collapse: collapse;
 	}
-	.mypageOrderList th{
+	.myMainOrderList th{
 		font-size:13px;
 		background:#f5f5f5;
 	}
-	.mypageOrderList td{
+	.myMainOrderList td{
 		font-size:12px;
 		text-align:center;
 	}
-	#mypageOrderInfo>img{
+	#myMainOrderInfo>img{
 		float:left;
 		margin:5px 5px 5px 20px;
 	}
-	#mypageOrderInfo>div{
+	#myMainOrderInfo>div{
 		width:200px;
 		text-align:left;
 		float:left;
 		margin:20px 0px 0px 10px;
 	}
-	#mypageOrderInfo>div>a{
+	#myMainOrderInfo>div>a{
 		font-size:13px;
 	}
 	#orderDetailBtn{
@@ -78,7 +76,7 @@
 		<!-- 주문/배송 조회 영역 -->
 		<h3>주문/배송 조회</h3>
 		<hr>
-		<table class="mypageOrderList">
+		<table class="myMainOrderList">
 			<tr height="28px">
 				<th width="130px">주문번호/주문일</th>
 				<th width="450px">상품정보</th>
@@ -91,7 +89,7 @@
 					2020-03-31<br>
 					<button id="orderDetailBtn" type="submit" onclick="">상세확인 ></button>
 				</td>
-				<td id="mypageOrderInfo">
+				<td id="myMainOrderInfo">
 					<img src="" width="70" height="70"></img>
 					<div>
 						<a href=""><b>데일리찬 상품명</b></a><br>
@@ -102,7 +100,7 @@
 				<td>2020-03-31</td>
 			</tr>
 		</table>
-		<table class="mypageOrderList">
+		<table class="myMainOrderList">
 			<tr height="28px">
 				<th width="130px">주문번호/주문일</th>
 				<th width="450px">상품정보</th>
@@ -115,7 +113,7 @@
 					20200331<br>
 					<button id="orderDetailBtn" type="submit" onclick="">상세확인 ></button>
 				</td>
-				<td id="mypageOrderInfo">
+				<td id="myMainOrderInfo">
 					<img src="" width="70" height="70"></img>
 					<div>
 						<a href=""><b>데일리찬 상품명</b></a><br>
