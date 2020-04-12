@@ -13,8 +13,8 @@
 	    box-sizing:border-box;
 	    vertical-align:middle;
 	}
-	
-	.wrap>div{width:1004px;}
+	#hd_wrap{width:1004px; margin:auto;}
+
 	#hd_navi{
 	    width:1000px;
 	    height:240px;
