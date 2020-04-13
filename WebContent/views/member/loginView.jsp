@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +81,7 @@
         <input type="checkbox" id="idSaveCheck">아이디 저장
 
             <br><br>
-            <button id="joinup" type="submit">신규 회원가입<a href=""></a></button>
+            <button id="joinup" type="submit" onclick="enrollForm();">신규 회원가입</button>
             <br><br>
   
 
@@ -90,6 +92,15 @@
        </div>
     </div>
 
+
+	<script>
+		function enrollForm() {
+			
+			opener.parent.location="<%=contextPath%>/enrollForm.me";			
+			window.close();
+		}
+	
+	</script>
 
 </body>
 </html>
