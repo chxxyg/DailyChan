@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
 <%
 	String contextPath = request.getContextPath();
+	String msg = (String)session.getAttribute("msg");
+	Member loginUser = (Member)session.getAttribute("loginUser");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -13,14 +16,15 @@
 	    box-sizing:border-box;
 	    vertical-align:middle;
 	}
-	#hd_wrap{width:1004px; margin:auto;}
+	#hd_wrap{width:1520px; /*margin:auto;*/ border:2px solid yellowgreen; background:white;}
 
 	#hd_navi{
 	    width:1000px;
 	    height:240px;
+	    margin:auto;
 	}
-	#header{height:200px;}
-	#navigator{width:1000px; height:40px; background:white;}
+	#header{width:1000; height:200px; border:2px solid gold;}
+	#navigator{width:1000px; height:40px; background:white; border:1px solid red;}
 	
 	#header>div{float:left;}
 	
@@ -66,7 +70,7 @@
 	    float:left;
 	}
 	
-	/* header : 검색창 폼 관련 스타일 */
+	/* header : 검색창 */
 	#search-form{
 	    width:240px;
 	    height:30px;
@@ -108,7 +112,7 @@
 	    margin-top:20px;
 	}
 	
-	/* header : 장바구니 찜하기 스타일 */
+	/* header : 장바구니 찜하기 */
 	#hd_right{
 	    width:220px;
 	    height:40px;
@@ -128,13 +132,13 @@
 	}
 	
 	/* 네비게이터 */
-	/* navigator관련 스타일 */
 	#navi{
 	    list-style-type:none;
 	    padding:0;
 	    margin:auto;
 	    height:100%;
-	    border-bottom: 1px lightgrey solid;
+	    /*border-bottom: 1px lightgrey solid;*/
+	    border:1px solid blue;
 	}
 	#navi>li{
 	    float: left;

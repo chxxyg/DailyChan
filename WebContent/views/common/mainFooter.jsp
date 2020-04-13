@@ -9,7 +9,7 @@
 <style>
 	#footer{
 		width: 1002px;
-	    height: 200px;
+	    height: 180px;
 	    margin:auto;
 	    margin-top:50px;
 	    box-sizing:border-box;
@@ -21,25 +21,25 @@
 
 	#left-box {
 	    width: 200px;
-	    height: 200px;
+	    height: 180px;
 	    float: left;
 	}
 	#logo{
 	    width: 200px;
-	    margin-top: 40px;
+	    margin-top: 20px;
 	}
 	#center-box {
 	    width: 600px;
 	    text-align: center;
 	    margin: 0 auto;
-	    height: 200px;
+	    height: 180px;
 	    font-size: 12px;
 	    float:left;
 	}
 	#center_1{
-	    width: 600px;
-	    height: 60px;
-	    padding: 30PX;
+	    width: 580px;
+	    height: 30px;
+	    padding: 10PX;
 	    margin-bottom: 0px;
 	}
 	#center_2{
@@ -57,8 +57,8 @@
 	}
 	
 	#right-box {
-	    width: 200px;
-	    height: 200px;
+	    width: 190px;
+	    height:	180px;
 	    float: left;
 	    text-align: right;
 	}
@@ -67,7 +67,6 @@
 	    font-size: 16px;
 	    text-align: center;
 	    height: 10px;
-	    margin-top:25px;
 	}
 	#r2{
 	    font-weight: bold;
@@ -116,8 +115,6 @@
                     (토/일/공휴일은 휴무) <br>
                 </p>
             </div>
-          
-          
-        </div>
+	</div>
 </body>
 </html>
