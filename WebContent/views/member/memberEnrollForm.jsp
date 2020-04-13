@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>신규 회원가입test</title>
+<title>신규 회원가입</title>
  <style>
     .join_box 
     {
@@ -54,8 +54,8 @@
     margin: 0;
     padding: 0;
 }
-.wrap.mem {
-    position: relative;
+ .wrap.mem {
+    /* position: relative; */
     min-height: 480px;
     padding: 120px 0;
     background: #f5f5f5;
@@ -100,27 +100,6 @@
 					<label for="join_name" class="ir">이름</label>
 					<input type="text" id="join_name" name="mbr_nm" class="login_input" maxlength="20" placeholder="이름">
 					
-					
-					<!-- 2017.05.03 수정 순서 변경 및 기본 여자 체크-->
-					<!-- div class="gender_set">
-						<input type="radio" name="gend_cd" id="gender_f" value="" checked="checked"/>
-						<label for="gender_f">여자</label>
-						<input type="radio" name="gend_cd" id="gender_m" value=""/>
-						<label for="gender_m">남자</label>
-					</div-->
-					<!-- //2017.05.03 수정 -->
-					<!-- 2017.06.21 추가 : ie8 대응 스크립트 -->
-					<!-- script type="text/javascript">
-						$('.gender_set input').each(function(){
-							if(this.checked){$(this).attr('checked', true).find('+ label').addClass('on')}
-							$(this).change(function(){
-								if(this.checked){
-									$('.gender_set input').attr('checked', false).find('+ label').removeClass('on');
-									$(this).attr('checked', true).find('+ label').addClass('on')
-								}
-							});
-						});
-					</script-->
 					
 					<!-- 이름/성별 오류시 노출 -->
 					<span class="caution ir" id="caution3"></span>
