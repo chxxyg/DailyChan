@@ -72,8 +72,8 @@
 
                 <input name="userId" id="id" type="text" placeholder="아이디" maxlength="50" required><br><br>
                 <input name="userPwd" id="pwd" type="password" placeholder="비밀번호" maxlength="20" required><br><br>
-                <button id="loginBtn" type="submit" onclick="location.href">로그인</button><br>
-        
+                <button id="loginBtn" type="submit" onclick=<%= location.href = ""; %>>로그인</button><br>
+      			  <!--   location.href = "이동할 페이지 주소"; -->
             </form>
         </div>
         <input type="checkbox" id="idSaveCheck">아이디 저장
