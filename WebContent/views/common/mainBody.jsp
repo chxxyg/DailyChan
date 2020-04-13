@@ -1,183 +1,181 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
- div{
-        /*border: 1px solid red;*/
-        box-sizing: border-box;
-    }
-    body>div{
-        width: 1000px;
-        margin: auto;
-    }
-    .aLabel, .aProductLabel{
-        text-decoration: none;
-        color: black;
-    }
-    .aLabel:hover{
-        color: hsl(28, 100%, 50%);
-    }
-    .aProductLabel:hover{
-        color: black;
-        cursor: pointer;
-    }
-    button{
-        border: none;
-        background: white;
-        cursor: pointer;
-    }
+	#mainBanner, #bestWrap, #newSaleWrap, #instaWrap{
+	    width: 1000px;
+	    margin: auto;
+	    box-sizing: border-box;
+	}
+	
+	/* 메인배너 */
+	#mainBanner{
+	    height: 300px;
+	    margin-bottom: 100px;
+	}
+	
+	/* BEST */
+	#bestWrap{
+	    height: 1000px;
+	    margin-bottom: 100px;
+	}
+	#bestLabel{
+	    height: 100px;
+	    font-size: 40px;
+	    font-weight: 600;
+	    padding: 25px;
+	}
+	#bestTable{
+	    width: 1000px;
+	    text-align: center;
+	}
+	.bestInnerTable{
+	    padding: 10px
+	}
+	.bestImg{
+	    width: 300px;
+	    height: 300px;
+	}
+	.bestName{
+	    width: 300px;
+	    height: 40px;
+	    font-size: 20px;
+	    font-weight: 600;
+	    text-align: left;
+	    padding-left: 20px;
+	    margin-top: 5px;
+	}
+	.bestInfo{
+	    width: 300px;
+	    height: 30px;
+	    font-size: 15px;
+	    font-weight: 600;
+	    text-align: left;
+	    padding-left: 20px;
+	}
+	.bestPrice{padding-right: 5px;}
+	.bestFor{padding-left: 5px;}
+	.bestBtn{
+	    height: 40px;
+	    text-align: right;
+	    padding-right: 30px;
+	}
+	
+	/* NEW/SALE */
+	#newSaleWrap{
+	    height: 870px;
+	    margin-bottom: 100px;
+	}
+	#newLabel, #saleLabel{
+	    height: 100px;
+	    font-size: 40px;
+	    font-weight: 600;
+	    padding: 25px;
+	}
+	#newWrap{
+	    width: 500px;
+	    display: inline-block;
+	}
+	#saleWrap{
+	    width: 500px;
+	    display: inline-block;
+	    position: absolute;
+	}
+	#newTable, #saleTable{
+	    box-sizing: border-box;
+	}
+	.newInnerTable, .saleInnerTable{
+	    padding: 5px;
+	    box-sizing: border-box;
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	}
+	.newImg, .saleImg{
+	    width: 150px;
+	    height: 150px;
+	    padding: 10px;
+	}
+	.newName, .saleName{
+	    width: 300px;
+	    height: 40px;
+	    font-size: 20px;
+	    font-weight: 600;
+	}
+	.newInfo, .saleInfo{
+	    width: 300px;
+	    height: 40px;
+	    font-size: 15px;
+	    font-weight: 600;
+	}
+	.newBtn, .saleBtn{
+	    width: 300px;
+	    height: 40px;
+	    text-align: right;
+	    padding-right: 30px;
+	}
+	
+	/* 공통 */
+	.aLabel, .aProductLabel{
+	    text-decoration: none;
+	    color: black;
+	}
+	.aLabel:hover{
+	    color: hsl(28, 100%, 50%);
+	}
+	.aProductLabel:hover{
+	    color: black;
+	    cursor: pointer;
+	}
+	.bestBtn>button, .newBtn>button, .saleBtn>button{
+	    border: none;
+	    background: white;
+	    cursor: pointer;
+	}
+	.cartLogo, .likeLogo{
+	    width: 30px;
+	    height: 30px;
+	    padding-left: 5px;
+	}
+	
+	/* 인스타그램 */
+	#instaWrap{
+	    height: 600px;
+	    margin-bottom: 100px;
+	}
+	#instaLabel{
+	    width: 300px;
+	    height: 100px;
+	    font-size: 50px;
+	    font-weight: 600;
+	    box-sizing: border-box;
+	    display: inline-block;
+	    vertical-align: top;
+	    padding-bottom: 30px;
+	}
+	#instaLogo{
+	    width: 80px;
+	    height: 80px;
+	}
+	.instaDetail{
+	    width: 500px;
+	    height: 40px;
+	    font-size: 20px;
+	    font-weight: 500;
+	    text-align: right;
+	    padding-right: 10px;
+	}
+	.instaImg{
+	    width: 245px;
+	    height: 245px;
+	}
 
-    /* 메인배너 */
-    #mainBanner{
-        height: 300px;
-        margin-bottom: 100px;
-    }
-
-    /* BEST */
-    #bestWrap{
-        height: 1000px;
-        margin-bottom: 100px;
-    }
-    #bestLabel{
-        height: 100px;
-        font-size: 40px;
-        font-weight: 600;
-        padding: 25px;
-    }
-    #bestTable{
-        width: 1000px;
-        text-align: center;
-    }
-    .bt{
-        padding: 10px
-    }
-    .bestImg{
-        width: 300px;
-        height: 300px;
-    }
-    .bestName{
-        width: 300px;
-        height: 40px;
-        font-size: 20px;
-        font-weight: 600;
-        text-align: left;
-        padding-left: 20px;
-        margin-top: 15px;
-    }
-    .bestInfo{
-        width: 300px;
-        height: 30px;
-        font-size: 15px;
-        font-weight: 600;
-        text-align: left;
-        padding-left: 20px;
-    }
-    .bestPrice{padding-right: 5px;}
-    .bestFor{padding-left: 5px;}
-    .bestBtn{
-    	width: 300px;
-        height: 40px;
-        text-align: right;
-        padding-right: 30px;
-    }
-    .cartLogo,.likeLogo{
-        width: 30px;
-        height: 30px;
-        padding-left: 5px;
-    }
-
-    /* NEW/SALE */
-    #newSaleWrap{
-        height: 870px;
-        margin-bottom: 100px;
-    }
-    #newLabel,#saleLabel{
-    	width: 500px;
-        height: 100px;
-        font-size: 40px;
-        font-weight: 600;
-        padding: 25px;
-    }
-    #new{
-        width: 500px;
-        height: 100px;
-        display: inline-block;
-    }
-    #sale{
-        width: 500px;
-        height: 100px;
-        display: inline-block;
-        position: absolute;
-    }
-    #newTable,#saleTable{
-        box-sizing: border-box;
-    }
-    .nt,.st{
-        padding: 5px;
-        box-sizing: border-box;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .newImg,.saleImg{
-        width: 150px;
-        height: 150px;
-        padding: 10px;
-    }
-    .newName,.saleName{
-        width: 300px;
-        height: 40px;
-        font-size: 20px;
-        font-weight: 600;
-    }
-    .newInfo,.saleInfo{
-        width: 300px;
-        height: 40px;
-        font-size: 15px;
-        font-weight: 600;
-    }
-    .newBtn,.saleBtn{
-        width: 300px;
-        height: 40px;
-        text-align: right;
-        padding-right: 30px;
-    }
-
-    /* 인스타그램 */
-    #insta{
-        height: 600px;
-        margin-bottom: 100px;
-    }
-    #instaLogo{
-        width: 80px;
-        height: 80px;
-    }
-    #instaLabel{
-        width: 300px;
-        height: 100px;
-        font-size: 40px;
-        font-weight: 550;
-        box-sizing: border-box;
-        display: inline-block;
-        vertical-align: top;
-        margin-top:10px;
-        padding-bottom: 10px;
-    }
-    .instaDetail{
-        width: 500px;
-        height: 40px;
-        font-size: 20px;
-        font-weight: 550;
-        text-align: right;
-        padding-right: 10px;
-    }
-    .instaImg{
-        width: 245px;
-        height: 245px;
-    }
 </style>
 </head>
 <body>
@@ -194,7 +192,7 @@
         <table id="bestTable">
             <tr>
                 <td>
-                    <table class="bt">
+                    <table class="bestInnerTable">
                         <tr>
                             <td>
                                 <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src=""></a>
@@ -217,15 +215,15 @@
                         <tr>
                             <td>
                                 <div id="bestBtn1" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td>
-                    <table class="bt">
+                    <table class="bestInnerTable">
                         <tr>
                             <td>
                                 <a class="aProductImg" href=""><img id="bestImg2" class="bestImg" src=""></a>
@@ -248,15 +246,15 @@
                         <tr>
                             <td>
                                 <div id="bestBtn2" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td>
-                    <table class="bt">
+                    <table class="bestInnerTable">
                         <tr>
                             <td>
                                 <a class="aProductImg" href=""><img id="bestImg3" class="bestImg" src=""></a>
@@ -279,8 +277,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn3" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -289,7 +287,7 @@
             </tr>
             <tr>
                 <td>
-                    <table class="bt">
+                    <table class="bestInnerTable">
                         <tr>
                             <td>
                                 <a class="aProductImg" href=""><img id="bestImg4" class="bestImg" src=""></a>
@@ -312,15 +310,15 @@
                         <tr>
                             <td>
                                 <div id="bestBtn4" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td>
-                    <table class="bt">
+                    <table class="bestInnerTable">
                         <tr>
                             <td>
                                 <a class="aProductImg" href=""><img id="bestImg5" class="bestImg" src=""></a>
@@ -343,15 +341,15 @@
                         <tr>
                             <td>
                                 <div id="bestBtn5" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </td>
                 <td>
-                    <table class="bt">
+                    <table class="bestInnerTable">
                         <tr>
                             <td>
                                 <a class="aProductImg" href=""><img id="bestImg6" class="bestImg" src=""></a>
@@ -374,8 +372,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn6" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -386,12 +384,12 @@
     </div>
 
     <div id="newSaleWrap">
-        <div id="new">
+        <div id="newWrap">
             <div id="newLabel"><a class="aLabel" href="">NEW</a></div>
             <table id="newTable">
                 <tr>
                     <td>
-                        <table class="nt">
+                        <table class="newInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="newImg1" class="newImg" src=""></a>
@@ -412,13 +410,13 @@
                             <tr>
                                 <td>
                                     <div id="newBtn1" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-                        <table class="nt">
+                        <table class="newInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="newImg2" class="newImg" src=""></a>
@@ -439,13 +437,13 @@
                             <tr>
                                 <td>
                                     <div id="newBtn2" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-                        <table class="nt">
+                        <table class="newInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="newImg3" class="newImg" src=""></a>
@@ -466,13 +464,13 @@
                             <tr>
                                 <td>
                                     <div id="newBtn3" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-                        <table class="nt">
+                        <table class="newInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="newImg4" class="newImg" src=""></a>
@@ -493,8 +491,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn4" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -504,12 +502,12 @@
             </table>
         </div>
 
-        <div id="sale">
+        <div id="saleWrap">
             <div id="saleLabel"><a class="aLabel" href="">SALE</a></div>
             <table id="saleTable">
                 <tr>
                     <td>
-                        <table class="st">
+                        <table class="saleInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="saleImg1" class="saleImg" src=""></a>
@@ -530,13 +528,13 @@
                             <tr>
                                 <td>
                                     <div id="salevBtn1" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-                        <table class="st">
+                        <table class="saleInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="saleImg2" class="saleImg" src=""></a>
@@ -557,13 +555,13 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn2" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-                        <table class="st">
+                        <table class="saleInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="saleImg3" class="saleImg" src=""></a>
@@ -584,13 +582,13 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn3" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-                        <table class="st">
+                        <table class="saleInnerTable">
                             <tr>
                                 <td rowspan="3">
                                     <a class="aProductImg" href=""><img id="saleImg4" class="saleImg" src=""></a>
@@ -611,8 +609,8 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn4" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=request.getContextPath()%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=request.getContextPath()%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -624,12 +622,12 @@
         </div>
     </div>
 
-    <div id="insta">
+    <div id="instaWrap">
         
         <table id="instaTable">
             <tr>
                 <td colspan="2" style="height: 100px;">
-                <img id="instaLogo" src="<%=request.getContextPath()%>/resources/img/instalogo.png" alt="">
+                <img id="instaLogo" src="<%=contextPath%>/resources/img/instalogo.png" alt="">
                 <div id="instaLabel">&nbsp;Instagram</div>
                 </td>
                 <td colspan="2">
@@ -668,7 +666,5 @@
         </table>
     </div>
     
-
-
 </body>
 </html>
