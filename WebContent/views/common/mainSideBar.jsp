@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사이드바</title>
 <style>
         /* 메뉴 버튼 테스트중 */
         input[id="menuicon"]{display: none;}
