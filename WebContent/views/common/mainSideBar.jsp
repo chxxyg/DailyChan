@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사이드바</title>
 <style>
         /* 메뉴 버튼 테스트중 */
         input[id="menuicon"]{display: none;}
@@ -41,7 +40,7 @@
         input[id="menuicon"]:checked + label
         {
             z-index:2;
-            right: 100px;
+            right: 126px;
         }
         input[id="menuicon"]:checked + label span:nth-child(1)
         {
@@ -58,12 +57,12 @@
         /* 사이드바 숨기기 */
         div[class="sidebar"]
         {
-            width: 100px;
+            width: 126px;
             height: 100%;
             background-color: rgba(194, 187, 187, 0.719);
             position: fixed;
             top: 0;
-            right: -100px;
+            right: -126px;
             z-index: 1;
             transition: all .35s;
         }
@@ -111,6 +110,24 @@
 			color: white;
 			border: none;
 		}
+		#menuicon button
+		{
+			position: fixed;
+			margin-top: 100px;
+		}
+
+		#top_btn
+		{
+		    display: block;
+		    width: 52px;
+		    height: 52px;
+		    background: #fe7600;
+		    position:fixed;
+		    right : 126px;
+		    margin-top: 430px;
+		    cursor: pointer;
+		    border: 0;
+		    color: white;
     </style>
 </head>
 <body>
@@ -136,9 +153,7 @@
             	최근본제품
         </div>
         <div>xxxx</div>
-        <div class="btn_top" id="btn_top">
-            <button id="btn_top_click" type="button" onClick="javascript:window.scrollTo(0,0)">TOP</button>
-        </div>
     </div>
+            <button id="top_btn" type="button" onClick="javascript:window.scrollTo(0,0)"><b>TOP</b></button>
 </body>
 </html>
