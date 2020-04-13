@@ -647,8 +647,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('\n');
       out.write('	');
       out.write('\n');
+<<<<<<< HEAD
 
 	//String contextPath = request.getContextPath();
+=======
+
+	String contextPath = request.getContextPath();
+>>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
 
       out.write("\n");
       out.write("\n");
