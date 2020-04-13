@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+#chandayWrap{
+    width: 1000px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+#chandayWrap a{text-decoration: none;}
+.chandayBtn{
+    width: 200px;
+    height: 40px;
+    border: 1px solid darkgray;
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+.chandaySet{
+    width: 250px;
+    height: 40px;
+    border: 1px solid darkgray;
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 40px;
+}
+.chandayStep{
+    font-size: 22px;
+    font-weight: 540;
+    margin-bottom: 40px;
+}
+#chandayFilter{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+#chandayFilter a{
+    color: black;
+}
+
+.chandayInnerTable{
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.chandayInnerTable a{
+    text-decoration: none;
+    color: black;
+}
+.chandayProductImg{
+    width: 230px;
+    height: 230px;
+}
+.chandayProductName{
+    width: 220px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+.chandayProductInfo{
+    width: 220px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+}
+.chandayProductPrice{padding-right: 5px;}
+.chandayProductFor{padding-left: 5px;}
+.chandayProductBtn{
+    width: 220px;
+    height: 40px;
+    text-align: right;
+    padding-right: 10px;
+}
+.chandayCartLogo, .chandayLikeLogo{
+    width: 30px;
+    height: 30px;
+    padding-left: 5px;
+    padding-top: 10px;
+}
