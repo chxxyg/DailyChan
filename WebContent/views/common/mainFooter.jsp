@@ -12,17 +12,13 @@
 	    height: 200px;
 	    margin:auto;
 	    margin-top:50px;
+	    box-sizing:border-box;
 	}
-	a{
+	#center_1 a{
 	    color: black;
 	    text-decoration: none;
 	}
-	div{
-	    /* border: 1px solid black; */
-	    box-sizing: border-box;
-	    height: 200px;
-	    width: 1004px;
-	}
+
 	#left-box {
 	    width: 200px;
 	    height: 200px;
@@ -86,13 +82,14 @@
 </style>
 </head>
 <body>
+	<
         <div id="footer">
             <!-- footer 왼쪽 로고-->
             <div id='left-box'><a href="">
                 <img id="logo" src="<%=request.getContextPath()%>/resources/img/brandlogo.png">
                 </a>
             </div>
-            <!-- footer 중안부 이용약관웅앵 -->
+            <!-- footer 중안부 이용약관 -->
             <div id='center-box'>
                 <div id="center_1">
                     <a href="">이용약관</a>&nbsp; 
