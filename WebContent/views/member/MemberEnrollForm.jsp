@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>신규 회원가입</title>
+<title>신규 회원가입test</title>
  <style>
     .join_box {
     width: 560px;

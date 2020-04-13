@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+#eventDetailWrap table, #eventDetailWrap div{
+    box-sizing: border-box;
+}
+#eventDetailWrap{
+    width: 1000px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    box-sizing: border-box;
+}
+#eventDetailLabel{
+    width: 1000px;
+    height: 120px;
+    background-color: rgb(241, 241, 241);
+    border-top: 2px solid black;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+#eventDetailTitle{
+    font-size: 30px;
+    font-weight: 550;
+}
+#eventDetailShare{
+    float: right;
+    margin-right: 20px;
+}
+#eventDetailDate{
+    font-size: 20px;
+}
+#eventDetailImg{
+    margin-top: 30px;
+    width: 1000px;
+    height: auto;
+}

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+#categoryWrap{
+    width: 1000px;
+    margin: auto;
+    margin-top: 70px;
+}
+#categoryWrap a{text-decoration: none;}
+.categoryBtns{
+    width: 200px;
+    height: 40px;
+    border: 1px solid darkgray;
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+#categoryFilter{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+#categoryFilter a{
+    color: black;
+}
+
+.categoryInnerTable{
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.categoryInnerTable a{
+    text-decoration: none;
+    color: black;
+}
+.productImg{
+    width: 230px;
+    height: 230px;
+}
+.productName{
+    width: 220px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+.productInfo{
+    width: 220px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+}
+.productPrice{padding-right: 5px;}
+.productFor{padding-left: 5px;}
+.productBtn{
+    width: 220px;
+    height: 40px;
+    text-align: right;
+    padding-right: 10px;
+}
+.cpCartLogo, .cpLikeLogo{
+    width: 30px;
+    height: 30px;
+    padding-left: 5px;
+    padding-top: 10px;
+}

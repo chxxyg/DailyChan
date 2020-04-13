@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+
+#eventWrap{
+    width: 1000px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+#eventWrap a{
+    color: black;
+    text-decoration: none;
+}
+.eventTable{
+    width: 300px;
+    height: 400px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+}
+.eventImg{
+    width: 280px;
+    height: 200px;
+}
+.eventName{
+    width: 280px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.eventInfo{
+    width: 280px;
+    height: 60px;
+    font-size: 15px;
+}
+.eventDate{
+    width: 280px;
+    height: 30px;
+    font-size: 15px;
+}

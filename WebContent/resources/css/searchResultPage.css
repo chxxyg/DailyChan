@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+#searchWrap{
+    width: 1000px;
+    margin: auto;
+    margin-top: 70px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+#searchInputWrap{
+    width: 600px;
+    height: 120px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+#searchInputForm{
+    width: 100%;
+    height: 100px;
+}
+#searchInputArea{
+    width: 550px;
+    height: 60px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+#searchInput{
+    width: 450px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 15px;
+    border-bottom: 2px solid rgb(250, 142, 0);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+#searchResultBtn{
+    width: 50px;
+    height: 50px;
+    vertical-align: bottom;
+    margin-left: 5px;
+}
+
+#searchKeywordWrap{
+    font-size: 30px;
+    color: gray;
+    margin-bottom: 50px;
+}
+#searchKeyword, #searchTotal{
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(250, 142, 0);
+}
+.searchCategoryBtns{
+    width: 200px;
+    height: 40px;
+    border: 1px solid darkgray;
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+#searchWrap a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+#searchFilter{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+#searchFilter a{
+    color: black;
+}
+
+.searchInnerTable{
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.searchProductImg{
+    width: 230px;
+    height: 230px;
+}
+.searchProductName{
+    width: 220px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+.searchProductInfo{
+    width: 220px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+}
+.searchProductPrice{padding-right: 5px;}
+.searchProductFor{padding-left: 5px;}
+.searchProductBtn{
+    width: 220px;
+    height: 40px;
+    text-align: right;
+    padding-right: 10px;
+}
+.searchCartLogo, .searchLikeLogo{
+    width: 30px;
+    height: 30px;
+    padding-left: 5px;
+    padding-top: 10px;
+}
