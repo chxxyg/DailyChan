@@ -217,7 +217,6 @@
 											<input type="checkbox" id="age_agree" class="agreeChk" value="N">
 											<label for="age_agree">(필수) 본인은 <strong>만 14세</strong> 이상입니다.</label>
 										</li>
-										<li>
 							</ul>
 						</li>
 					</ul>

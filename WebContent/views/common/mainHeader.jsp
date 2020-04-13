@@ -195,7 +195,7 @@
                 <div id="header_1">
                     <div id="hd_top">
                         <button onclick="loginPop();">로그인</button>
-                        <a href="">회원가입</a>
+                        <a href="<%=contextPath%>/enrollForm.me">회원가입</a>
                         <a href="">마이페이지</a>
                         <a href="">고객센터</a>
                     </div>
