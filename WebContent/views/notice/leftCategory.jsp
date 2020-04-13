@@ -48,6 +48,18 @@ li{
 #cst_lnb a{
     text-decoration: none;
 }
+.lnb h2{
+    background: #5f99f0;;
+    font-size: 28px;
+    width: 172px;
+    height: 120px;
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 114px;
+    letter-spacing: -1px;
+    font-weight: normal;
+}
 
 </style>
 </head>
