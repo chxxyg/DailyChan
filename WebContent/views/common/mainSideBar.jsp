@@ -18,6 +18,7 @@
             top: calc(30% - 25px);
             transition: all .35s;
             cursor: pointer;
+            z-index: 10;
         }
         input[id="menuicon"] + label span
         {
