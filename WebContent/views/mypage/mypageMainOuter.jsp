@@ -12,6 +12,9 @@
 		box-sizing:border-box;
 	    padding-top:70px;
 	}
+	.mypageOuter a{
+	    text-decoration:none;
+	}
 	
 	/*마이페이지 간략정보 영역 스타일*/
 	#mypageBrief{
