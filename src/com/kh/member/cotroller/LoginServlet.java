@@ -32,15 +32,13 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		request.setCharacterEncoding("utf-8");
-		
+			
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 		
 		Member loginUser = new MemberService().loginMember(userId, userPwd);
 		
-		if(loginUser != null) {// 로그인 성공했을 경우	--> index.jsp
+		if(loginUser != null) {// 로그인 성공했을 경우	
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
@@ -48,11 +46,11 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/DailyChan");
 			
 		}else {// 로그인 실패했을 경우 --> 에러페이지
-			
-			request.setAttribute("msg", "로그인에 실패했습니다.");
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
+//			
+//			request.setAttribute("msg", "로그인에 실패했습니다.");
+//			
+//			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+//			view.forward(request, response);
 			
 		}
 	

@@ -17,8 +17,8 @@ public class Member {
 	private String blackListYn;		// 블랙리스트 여부
 	private String memberMn;		// 회원 비회원 구분
 	private int pointSum;			// 적립금 합계
-	/*private int						 누적 신고횟수
-	private String 					 추천인아이디*/
+	private int	reportedNum;		//누적 신고횟수
+	private String refMemberId;		 //추천인아이디
 	
 	public Member() {
 		

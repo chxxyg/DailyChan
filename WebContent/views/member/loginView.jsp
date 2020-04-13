@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
 
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,12 +71,12 @@
        	</div>
         
         <div>
-            <form id="loginLayerForm" method="post">
+            <form id="loginLayerForm" method="post" action="<%= contextPath%>/login.me">
 
                 <input name="userId" id="id" type="text" placeholder="아이디" maxlength="50" required><br><br>
                 <input name="userPwd" id="pwd" type="password" placeholder="비밀번호" maxlength="20" required><br><br>
-                <button id="loginBtn" type="submit" onclick=<%= "location.href = ;" %>>로그인</button><br>
-      			  <!--   location.href = "이동할 페이지 주소"; -->
+                <button id="loginBtn" type="submit">로그인</button><br>
+      			 
             </form>
         </div>
         <input type="checkbox" id="idSaveCheck">아이디 저장

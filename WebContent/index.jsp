@@ -2,10 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
-	String msg = (String)session.getAttribute("msg");
-	Member loginUser = (Member)session.getAttribute("loginUser");
-%>    
+ 
 <!DOCTYPE html>
 <html>
 <head>
