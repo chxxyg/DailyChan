@@ -128,6 +128,7 @@
 		    cursor: pointer;
 		    border: 0;
 		    color: white;
+		    z-index: 10;
     </style>
 </head>
 <body>

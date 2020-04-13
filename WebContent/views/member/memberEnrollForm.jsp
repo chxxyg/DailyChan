@@ -59,6 +59,7 @@
     padding: 120px 0;
     background: #f5f5f5;
     text-align: center;
+    margin: 0;
 	}
 	.join_box .caution {
     display: block;
@@ -80,10 +81,14 @@
     margin: 9px 0 0;
     background: url(../images/mem/bg_pw_re.png) no-repeat 527px center;
 }
+	#enrollBody
+	{
+		margin: 0;
+	}
 
 </style>
 </head>
-<body>
+<body id="enrollBody">
 
 <!-- Header -->
 <%@ include file="/views/common/mainHeader.jsp" %>
