@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#agreementWrap{
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.agreementBtns{
+    margin-bottom: 40px;
+}
+.agreementBtns a{
+    text-decoration: none;
+}
+.agreementBtn{
+    width: 330px;
+    height: 40px;
+    background-color: lightgray;
+    border: none;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+}
+#agreementBtnA1, #agreementBtnB2, #agreementBtnC3{
+    background: rgb(250, 212, 0);
+    font-weight: 550;
+}
+#agreementImg1, #agreementImg2, #agreementImg3{
+    width: 1000px;
+    height: auto;
+    margin-bottom: 50px;
+}
