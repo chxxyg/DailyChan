@@ -144,7 +144,7 @@
         <div id="login">
         	로그인<br>
         	해 주세요
-        	<button id="sideBar_login_btn"><strong>로그인</strong></button>
+        	<button id="sideBar_login_btn" type="button" onclick="loginPop();"><strong>로그인</strong></button>
        	</div>
         <div id="cart">
         	장바구니<br>
@@ -156,5 +156,13 @@
         <div>xxxx</div>
     </div>
             <button id="top_btn" type="button" onClick="javascript:window.scrollTo(0,0)"><b>TOP</b></button>
+            
+	<script>
+    <!-- 로그인 팝업 function -->
+		function loginPop()
+		{
+        	window.open("<%= request.getContextPath()%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+    	}
+	</script>            
 </body>
 </html>

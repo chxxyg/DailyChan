@@ -68,18 +68,83 @@
     height: 14px;
     margin-bottom: -19px;
     padding: 5px 0 0 18px;
-    background: url(../images/mem/ico_caution.png) no-repeat left 5px;
+/*     background: url(../images/mem/ico_caution.png) no-repeat left 5px; */
     line-height: 13px;
     text-align: left;
     color: #f7702e;
+    font-size: 12px;
 	}
-	.join_box .join_set #join_pw {
+#join_pw {
     margin-top: 40px;
-    background: url(../images/mem/bg_pw.png) no-repeat 527px center;
+    background: url("/dailyChan/resources/img/bg_pw.png") no-repeat 527px center;
 	}
 	#join_pw_re {
     margin: 9px 0 0;
-    background: url(../images/mem/bg_pw_re.png) no-repeat 527px center;
+    background: url("/dailyChan/resources/img/bg_pw_re.png") no-repeat 527px center;
+	}
+	#join_name
+	{
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	.join_box .join_set .phone_num select {
+    display: block;
+    float: left;
+    width: 131px;
+    height: 58px;
+    font-size: 16px;
+    letter-spacing: 0;
+    color: #333;
+        padding: 4px 4px 7px 8px;
+    border: #ccc 1px solid;
+}
+.join_box .join_set .phone_num input[type=text] {
+    display: block;
+    float: left;
+    width: 95px;
+}
+.join_box .join_set .phone_num .hp {
+    display: block;
+    float: left;
+    width: 12px;
+    height: 54px;
+    font-family: "Tahoma";
+    font-size: 13px;
+    line-height: 54px;
+    text-align: center;
+    color: #000;
+}
+#email, #recomm_remark {
+
+    margin-top: 40px;
+}
+.agree_box .agree_list {
+    margin-bottom: 41px;
+    padding: 15px 0 0px 23px;
+    text-align: left;
+        list-style: none;
+}
+
+.agree_box .agree_list li + li {
+    margin-top: 8px;
+}
+.recieve_agree_notice p {
+    font-size: 16px;
+    color: #8b8b8b;
+}
+.agree_box .join_up {
+    display: block;
+    width: 360px;
+    height: 56px;
+    margin: 50px auto 25px;
+    background: #f7702e;
+    line-height: 56px;
+    text-align: center;
+}
+.agree_box .join_up strong {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
 }
 	#enrollBody
 	{
@@ -172,36 +237,15 @@
 						<input type="text" class="auth_div" id="cell_no2" name="cell_no2" maxlength="4" title="휴대폰번호 중간자리입력">
 						<span class="hp">-</span>
 						<input type="text" class="auth_div" id="cell_no3" name="cell_no3" maxlength="4" title="휴대폰번호 뒷자리입력">
-						<!-- 본인인증 버튼 -->
-						<button class="auth" type="button" id="btn_auth" onclick="fnSendCertSms();"><em>본인인증 전송</em></button>
-						<!--  재발송 버튼 -->
-						<button class="auth_re ir" type="button" id="btn_auth_re" onclick="fnSendCertSms();"><em>재발송</em></button>
 						
 					</div>
-
 					
-					<div class="auth_set">
-						<label for="auth_num" class="ir">인증번호</label>
-						<div class="input_w auth_div">
-							<input type="text" id="auth_num" name="auth_num" maxlength="10" placeholder="인증번호">
-						</div>
-						<span class="limit" id="_certTime"></span>
-						<button class="submit" type="button" id="btn_submit" onclick="fnCheckCertSMS();">확인</button>
-					</div>
-					
-					<div class="auth_fin ir" id="auth_fin">
-						<span>본인 인증이 정상처리 되었습니다.</span>
-					</div>
-					<!-- //인증 이전 -->
-
-					<!--  입력시간 초과 -->
-					<span class="caution ir" id="caution4"></span>
-					<span class="caution ir" id="auth_msg">인증번호  입력시간이 초과되었습니다</span>
+					<br clear="both">
 					
 					<label for="email"></label>
 					<input type="text" id="email" name="email" maxlength="50" placeholder="이메일">
 					
-					<div class="info_txt">※ 주문관련 정보에 대한 이메일과 <em class="thm">SMS</em>는 자동으로 전송됩니다.</div>
+					<div class="info_txt">※ 주문관련 정보에 대한 이메일과 SMS는 자동으로 전송됩니다.</div>
 					<span class="caution ir" id="caution5"></span>
 					<!-- 2017.06.08 추가 : 추천인 기입란 -->
 					<label for="recomm_remark"></label>
@@ -246,10 +290,10 @@
 					</ul>
 				</div>
 				<div class="recieve_agree_notice">
-					<p>※ 선택 약관에 동의하지 않아도 회원가입이 가능합니다.</p>
-					<p>※ 선택 약관 동의 철회는 가입 완료 후 MY더반찬 &gt; 개인정보 수정에서 가능합니다.</p>
+					<p class="select_agree">※ 선택 약관에 동의하지 않아도 회원가입이 가능합니다.</p>
+					<p class="select_agree">※ 선택 약관 동의 철회는 가입 완료 후 MY더반찬 &gt; 개인정보 수정에서 가능합니다.</p>
 				</div>
-				<button class="join_up" type="button" id="btn_join_up"><em>가입하기</em></button>
+				<button class="join_up" type="button" id="btn_join_up"><strong>가입하기</strong></button>
 
 			</div>
 			<!-- //2017.05.03 변경 .wrap.mem 안으로 이동 및 li 순서 변경 -->
