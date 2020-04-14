@@ -107,7 +107,9 @@
 				alert("비밀번호를 입력해주세요");
 				return false;
 			}
-		 	opener.location.replace("<%=contextPath%>");
+		 	
+			
+			opener.location.replace("<%=contextPath%>");
 			window.close();
 		}
 		

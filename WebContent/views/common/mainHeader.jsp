@@ -218,6 +218,9 @@
                     
 	                    <a href="">마이페이지</a>
 						<a href="">고객센터</a>
+						<% if(loginUser != null && loginUser.getMemberId().equals("admin")){  %>
+							<a href="<%=contextPath%>/adminMain.ad" style="color:red;">관리페이지</a>
+						<% } %>
                     
                    	 </div>
                 </div>
