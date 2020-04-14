@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
 	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
@@ -77,11 +71,12 @@
        	</div>
         
         <div>
-            <form id="loginLayerForm" method="post" action="<%= contextPath%>/login.me">
+        <!-- action="<%= contextPath%>/login.me" -->
+            <form id="loginLayerForm" method="post" >
 
                 <input name="userId" id="id" type="text" placeholder="아이디" maxlength="50" required><br><br>
                 <input name="userPwd" id="pwd" type="password" placeholder="비밀번호" maxlength="20" required><br><br>
-                <button id="loginBtn" type="submit">로그인</button><br>
+                <button id="loginBtn" type="submit" onclick="loginMain();">로그인</button><br>
       			 
             </form>
         </div>
@@ -106,7 +101,14 @@
 			opener.parent.location="<%=contextPath%>/enrollForm.me";			
 			window.close();
 		}
-	
+		function loginMain() {
+			
+			var url = "<%=contextPath%>/login.me";
+			opener.parent.location="<%=contextPath%>/login.me";
+			window.close();
+			
+		}
+
 	</script>
 
 </body>

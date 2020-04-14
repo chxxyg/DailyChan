@@ -43,14 +43,15 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
-			response.sendRedirect("/DailyChan");
+			response.sendRedirect("/dailyChan");
 			
 		}else {// 로그인 실패했을 경우 --> 에러페이지
 			
 			request.setAttribute("msg", "로그인에 실패했습니다.");
 			
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
+//			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+//			view.forward(request, response);
+			
 			
 		}
 	
