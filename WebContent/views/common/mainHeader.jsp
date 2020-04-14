@@ -57,11 +57,12 @@
 	#hd_top a{
 		margin-top:9px;
 		font-size:12px;
+		cursor: pointer;
 	}
 	#hd_top b{
 		font-size:13px;
 	}
-	#hd_top>button{
+/* 	#hd_top>button{
 	    width:70px;
 	    height:30px;
 	    display:table-cell;
@@ -70,7 +71,7 @@
 	    border:none;
 	    background:white;
 	    float:left;
-	}
+	} */
 	
 	/* header : 검색창 */
 	#search-form{
@@ -212,7 +213,7 @@
 				   </form>
 						<% }else{ %>
  					 		<a href="<%=contextPath%>/enrollForm.me">회원가입</a>
-							<button onclick="loginPop();">로그인</button>
+							<a onclick="loginPop();">로그인</a>
 						<% } %>  
                     
 	                    <a href="">마이페이지</a>
