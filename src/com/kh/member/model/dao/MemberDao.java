@@ -58,11 +58,13 @@ public class MemberDao {
 										rset.getString("phone"),
 										rset.getDate("enroll_Date"),
 										rset.getString("del_Member_Yn"),
+										rset.getDate("del_date"),
 										rset.getString("password"),
 										rset.getDate("modify_Date"),
 										rset.getString("blackList_Yn"),
-										rset.getString("member_Mn"),
-										rset.getInt("point_Sum"));
+										rset.getInt("point_Sum"),
+										rset.getInt("reported_Num"),
+										rset.getString("ref_Member_Id"));
 			}
 			
 			

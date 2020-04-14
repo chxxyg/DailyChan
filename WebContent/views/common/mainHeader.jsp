@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
 <%
 	String contextPath = request.getContextPath();
+	String msg = (String)session.getAttribute("msg");
+	Member loginUser = (Member)session.getAttribute("loginUser");
+
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -13,14 +17,15 @@
 	    box-sizing:border-box;
 	    vertical-align:middle;
 	}
-	#hd_wrap{width:1004px; margin:auto;}
+	#hd_wrap{width:1520px; /*margin:auto;*/ border:2px solid yellowgreen; background:white;}
 
 	#hd_navi{
 	    width:1000px;
 	    height:240px;
+	    margin:auto;
 	}
-	#header{height:200px;}
-	#navigator{width:1000px; height:40px; background:white;}
+	#header{width:1000; height:200px; border:2px solid gold;}
+	#navigator{width:1000px; height:40px; background:white; border:1px solid red;}
 	
 	#header>div{float:left;}
 	
@@ -66,7 +71,7 @@
 	    float:left;
 	}
 	
-	/* header : 검색창 폼 관련 스타일 */
+	/* header : 검색창 */
 	#search-form{
 	    width:240px;
 	    height:30px;
@@ -108,7 +113,7 @@
 	    margin-top:20px;
 	}
 	
-	/* header : 장바구니 찜하기 스타일 */
+	/* header : 장바구니 찜하기 */
 	#hd_right{
 	    width:220px;
 	    height:40px;
@@ -128,13 +133,13 @@
 	}
 	
 	/* 네비게이터 */
-	/* navigator관련 스타일 */
 	#navi{
 	    list-style-type:none;
 	    padding:0;
 	    margin:auto;
 	    height:100%;
-	    border-bottom: 1px lightgrey solid;
+	    /*border-bottom: 1px lightgrey solid;*/
+	    border:1px solid blue;
 	}
 	#navi>li{
 	    float: left;
@@ -194,12 +199,27 @@
                 <!-- 헤더_회원가입,로그인,마이페이지,고객센터  -->
                 <div id="header_1">
                     <div id="hd_top">
-                        <button onclick="loginPop();">로그인</button>
-                        <a href="">회원가입</a>
-                        <a href="">마이페이지</a>
-                        <a href="">고객센터</a>
-                    </div>
+                    
+                    <% if(loginUser != null){ %> 
+
+					<form id="loginForm" action="<%= contextPath %>/login.me" method="post">
+						<div id="userInfo">
+							<b> welcome<%=loginUser.getMemberName() %></b><br><br>
+								<div class="btns" align="center">
+									<a href="<%= contextPath %>/logout.me">로그아웃</a>		
+								</div>
+						 </div>
+				   </form>
+						<% }else{ %>
+							<button onclick="loginPop();">로그인</button>
+ 					 		<a href="<%=contextPath%>/enrollForm.me">회원가입</a>
+						<% } %>  
+                    
+                   	 </div>
+                    
                 </div>
+               		 <a href="">마이페이지</a>
+					 <a href="">고객센터</a>
                 
                 <!-- 헤더(좌)_검색창 -->
                 <div id="header_2">
@@ -339,7 +359,8 @@
 
             <!-- 로그인 팝업 function -->
 			function loginPop(){
-	            window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+
+	           window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
 	        }
 
           </script>

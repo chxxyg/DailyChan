@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사이드바</title>
 <style>
         /* 메뉴 버튼 테스트중 */
         input[id="menuicon"]{display: none;}
@@ -18,6 +17,7 @@
             top: calc(30% - 25px);
             transition: all .35s;
             cursor: pointer;
+            z-index: 10;
         }
         input[id="menuicon"] + label span
         {
@@ -40,7 +40,7 @@
         input[id="menuicon"]:checked + label
         {
             z-index:2;
-            right: 100px;
+            right: 126px;
         }
         input[id="menuicon"]:checked + label span:nth-child(1)
         {
@@ -57,12 +57,12 @@
         /* 사이드바 숨기기 */
         div[class="sidebar"]
         {
-            width: 100px;
+            width: 126px;
             height: 100%;
             background-color: rgba(194, 187, 187, 0.719);
             position: fixed;
             top: 0;
-            right: -100px;
+            right: -126px;
             z-index: 1;
             transition: all .35s;
         }
@@ -110,6 +110,25 @@
 			color: white;
 			border: none;
 		}
+		#menuicon button
+		{
+			position: fixed;
+			margin-top: 100px;
+		}
+
+		#top_btn
+		{
+		    display: block;
+		    width: 52px;
+		    height: 52px;
+		    background: #fe7600;
+		    position:fixed;
+		    right : 126px;
+		    margin-top: 430px;
+		    cursor: pointer;
+		    border: 0;
+		    color: white;
+		    z-index: 10;
     </style>
 </head>
 <body>
@@ -125,7 +144,7 @@
         <div id="login">
         	로그인<br>
         	해 주세요
-        	<button id="sideBar_login_btn"><strong>로그인</strong></button>
+        	<button id="sideBar_login_btn" type="button" onclick="loginPop();"><strong>로그인</strong></button>
        	</div>
         <div id="cart">
         	장바구니<br>
@@ -135,9 +154,15 @@
             	최근본제품
         </div>
         <div>xxxx</div>
-        <div class="btn_top" id="btn_top">
-            <button id="btn_top_click" type="button" onClick="javascript:window.scrollTo(0,0)">TOP</button>
-        </div>
     </div>
+            <button id="top_btn" type="button" onClick="javascript:window.scrollTo(0,0)"><b>TOP</b></button>
+            
+	<script>
+    <!-- 로그인 팝업 function -->
+		function loginPop()
+		{
+        	window.open("<%= request.getContextPath()%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+    	}
+	</script>            
 </body>
 </html>

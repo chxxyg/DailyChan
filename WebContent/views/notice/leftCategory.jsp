@@ -1,0 +1,101 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<style>
+
+#cst_lnb{
+    width:170px;
+    height:623px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#cst_lnb ul{
+    width: 169px;
+    height: 243px;
+    margin-top: 10px;
+}
+
+.cst{
+    border: 1px solid #ededed;
+    width: 170px;
+    height:170px;
+    margin-top: 50px;
+}
+
+li{
+    list-style:none;
+}
+#left-category{
+    border: 1px solid #ededed;
+    background-color: #f9f9f9;;
+    text-decoration: none;
+    margin-top: 30px;
+}
+#left-category ul{ width: 100%; position: relative; list-style:none; margin-top: 30px;}
+#left-category li{position: relative; height: 65px; width: 100px; float: left; font-size: 15px;} 
+.cst dt{
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.cst dd{
+    padding-bottom: 12px;
+}
+#cst_lnb a{
+    text-decoration: none;
+}
+.lnb h2{
+    background: #5f99f0;;
+    font-size: 28px;
+    width: 172px;
+    height: 120px;
+    color: #fff;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 114px;
+    letter-spacing: -1px;
+    font-weight: normal;
+}
+
+</style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="FOTD/css/noticeCategory.css">
+</head>
+<body>
+    <div id="cst_lnb" class="lnb">
+        <a href=""><h2 align="center">고객센터</h2></a>
+        <div id="left-category"> 
+            <ul>
+                <li><a id="left_01" href="" onclick="overpass.custcenter.goFAQList()">자주하는 질문</a></li>
+                <li><a id="left_02" href="" onclick="overpass.custcenter.goCounsel()">1:1 친절상담</a></li>
+                <li><a id="left_03" href="" onclick="overpass.custcenter.goCounselList()">1:1 상담내역</a></li>
+                <li><a id="left_04" href="" onclick="overpass.custcenter.goNoticeList()">공지사항</a></li>
+             </ul>
+        </div>
+       
+        <dl class="cst">
+            <dt align="center"><a href="" onclick="">고객센터</a></dt>
+            <dd><b>1644-6844</b></dd>
+            <dd><div style="color:#5f99f0;">▲ 단체구매문의</div></dd>
+            <dd>평일 9:00~18:00<br>점심시간 12:00~13:00<br>(토/일/공휴일은 휴무)</dd>
+        </dl>
+    </div>
+</body>
+</html>
+
+
+
+</body>
+</html>
