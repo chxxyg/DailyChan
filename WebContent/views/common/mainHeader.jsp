@@ -57,7 +57,6 @@
 	    margin-top:7.5px;
 	    float:left;
 	}
-	
 	#hd_top>button{
 	    width:70px;
 	    height:30px;
