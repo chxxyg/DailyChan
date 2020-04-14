@@ -31,29 +31,35 @@
 	#header_3{width:400px; height:170px; position:relative;}
 	#header_4{width:296px; height:170px; position:relative;}
 	
-	#hd_top>a, #navi a{
+	#hd_top a, #navi a{
 	    text-decoration:none;
 	    color: black;
 	}
 	
 	/* header : 회원가입 로그인 마이페이지 고객센터 */
 	#hd_top{
-	    width:314px;
+	    width:500px;
 	    height:30px;
 	    float:left;
-	    margin-left:690px;
+	    margin-left:600px;
 	}
-	#hd_top>a{
-	    width:80px;
+	#hd_top a, #hd_top b{
+	    width:100px;
 	    height:30px;
 	    display:table-cell;
-	    font-size:12px;
 	    text-align:center;
 	    vertical-align:middle;
 	    border:none;
 	    background:white;
 	    margin-top:7.5px;
 	    float:left;
+	}
+	#hd_top a{
+		margin-top:9px;
+		font-size:12px;
+	}
+	#hd_top b{
+		font-size:13px;
 	}
 	#hd_top>button{
 	    width:70px;
@@ -77,7 +83,6 @@
 	    left:0;
 	    right:0;
 	}
-	
 	#search-form>div{
 	    height:30px;
 	    float:left;
@@ -199,7 +204,7 @@
 
 					<form id="loginForm" action="<%= contextPath %>/login.me" method="post">
 						<div id="userInfo">
-							<b> welcome<%=loginUser.getMemberName() %></b><br><br>
+							<b> welcome <%=loginUser.getMemberName() %></b>
 								<div class="btns" align="center">
 									<a href="<%= contextPath %>/logout.me">로그아웃</a>		
 								</div>
