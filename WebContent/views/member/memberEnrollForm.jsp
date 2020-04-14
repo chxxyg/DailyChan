@@ -150,8 +150,9 @@
 	{
 		margin: 0;
 	}
-
 </style>
+<script src="/resource/js/memberEnrollForm.js" rel="javascript" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body id="enrollBody">
 
@@ -296,13 +297,12 @@
 				<button class="join_up" type="button" id="btn_join_up"><strong>가입하기</strong></button>
 
 			</div>
-			<!-- //2017.05.03 변경 .wrap.mem 안으로 이동 및 li 순서 변경 -->
-</form>
+		</form>
 
 
-		</div>
-		<!--// WRAP -->
 	</div>
+		<!--// WRAP -->
+</div>
 
 <%@ include file="/views/common/mainFooter.jsp" %>
 </body>
