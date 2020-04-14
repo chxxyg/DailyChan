@@ -68,7 +68,7 @@
     height: 14px;
     margin-bottom: -19px;
     padding: 5px 0 0 18px;
-/*     background: url(../images/mem/ico_caution.png) no-repeat left 5px; */
+    background: url("/dailyChan/resources/img/ico_caution.png") no-repeat left 5px;
     line-height: 13px;
     text-align: left;
     color: #f7702e;
@@ -85,12 +85,12 @@
 	#join_name
 	{
 		margin-top: 40px;
-		margin-bottom: 40px;
+		
 	}
 	.join_box .join_set .phone_num select {
     display: block;
     float: left;
-    width: 131px;
+    width: 170px;
     height: 58px;
     font-size: 16px;
     letter-spacing: 0;
@@ -101,7 +101,7 @@
 .join_box .join_set .phone_num input[type=text] {
     display: block;
     float: left;
-    width: 95px;
+    width: 130px;
 }
 .join_box .join_set .phone_num .hp {
     display: block;
@@ -113,6 +113,13 @@
     line-height: 54px;
     text-align: center;
     color: #000;
+}
+.join_box .join_set .phone_num {
+    position: relative;
+    width: 558px;
+    height: 54px;
+    margin-top: 40px;
+    line-height: 34px;
 }
 #email, #recomm_remark {
 
@@ -151,8 +158,8 @@
 		margin: 0;
 	}
 </style>
-<script src="/resource/js/memberEnrollForm.js" rel="javascript" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/dailyChan/resources/js/memberEnrollForm.js" rel="javascript" type="text/javascript"></script>
 </head>
 <body id="enrollBody">
 
@@ -189,7 +196,6 @@
 					
 					<label for="join_name" class="ir">이름</label>
 					<input type="text" id="join_name" name="mbr_nm" class="login_input" maxlength="20" placeholder="이름">
-					
 					
 					<!-- 이름/성별 오류시 노출 -->
 					<span class="caution ir" id="caution3"></span>
@@ -263,7 +269,6 @@
 						<li>
 							<input type="checkbox" id="all_agree" value="N">
 							<label for="all_agree" style="color: #555;"><b>약관에 모두 동의합니다.</b>
-							<span class="forever_member_notice">전체 약관 동의 시, 1000원 적립금 증정!</span>
 							</label>
 							<ul class="agree_list">
 										

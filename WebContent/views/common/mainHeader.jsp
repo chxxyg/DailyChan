@@ -134,6 +134,7 @@
 	
 	/* 네비게이터 */
 	#navi{
+
 	    list-style-type:none;
 	    padding:0;
 	    margin:auto;
@@ -186,8 +187,8 @@
 	    z-index:10000;
 	}
 </style>
-<title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>Insert title here</title>
 </head>
 <body>
     <!-- 전체 윤곽 -->
