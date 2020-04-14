@@ -44,7 +44,6 @@
 	    float:left;
 	    margin-left:690px;
 	}
-	
 	#hd_top>a{
 	    width:80px;
 	    height:30px;
