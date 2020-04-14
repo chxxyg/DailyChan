@@ -26,7 +26,6 @@
 	#navigator{width:1000px; height:40px; background:white;}
 	
 	#header>div{float:left;}
-	
 	#header_1{width:1000px; height:30px;}
 	#header_2{width:300px; height:170px; position:relative;}
 	#header_3{width:400px; height:170px; position:relative;}
