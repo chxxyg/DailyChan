@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	//String contextPath = request.getContextPath();
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -215,8 +211,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn1" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -246,8 +242,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn2" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -277,8 +273,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn3" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -310,8 +306,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn4" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -341,8 +337,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn5" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -372,8 +368,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn6" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                    <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                 </div>
                             </td>
                         </tr>
@@ -410,8 +406,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn1" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -437,8 +433,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn2" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -464,8 +460,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn3" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -491,8 +487,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn4" class="newBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -528,8 +524,8 @@
                             <tr>
                                 <td>
                                     <div id="salevBtn1" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -555,8 +551,8 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn2" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -582,8 +578,8 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn3" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -609,8 +605,8 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn4" class="saleBtn">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                        <button type="button"><img class="cartLogo" src="/resources/img/cartlogo.png" alt=""></button>
+                                        <button type="button"><img class="likeLogo" src="/resources/img/likelogo.png" alt=""></button>
                                     </div>
                                 </td>
                             </tr>
@@ -627,7 +623,7 @@
         <table id="instaTable">
             <tr>
                 <td colspan="2" style="height: 100px;">
-                <img id="instaLogo" src="<%=contextPath%>/resources/img/instalogo.png" alt="">
+                <img id="instaLogo" src="<%=request.getContextPath()%>/resources/img/instalogo.png" alt="">
                 <div id="instaLabel">&nbsp;Instagram</div>
                 </td>
                 <td colspan="2">

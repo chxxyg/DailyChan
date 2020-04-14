@@ -2,7 +2,6 @@ package com.kh.member.cotroller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +36,6 @@ public class LoginServlet extends HttpServlet {
 		String userPwd = request.getParameter("userPwd");
 		
 		Member loginUser = new MemberService().loginMember(userId, userPwd);
-		
 		if(loginUser != null) {// 로그인 성공했을 경우	
 			
 			HttpSession session = request.getSession();
