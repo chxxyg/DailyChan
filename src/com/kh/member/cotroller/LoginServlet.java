@@ -46,11 +46,11 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/DailyChan");
 			
 		}else {// 로그인 실패했을 경우 --> 에러페이지
-//			
-//			request.setAttribute("msg", "로그인에 실패했습니다.");
-//			
-//			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-//			view.forward(request, response);
+			
+			request.setAttribute("msg", "로그인에 실패했습니다.");
+			
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			view.forward(request, response);
 			
 		}
 	
