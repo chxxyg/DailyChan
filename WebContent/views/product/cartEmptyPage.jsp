@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../../resources/css/cartEmptyPage.css">
 </head>
 <body>
+
     <table id="cartEmptyWrap">
         <tr>
             <td style="text-align: right; font-size: 25px; font-weight: 550; color: gray; padding-bottom: 40px;">
@@ -52,5 +53,6 @@
             </td>
         </tr>
     </table>
+    
 </body>
 </html>
