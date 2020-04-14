@@ -199,12 +199,27 @@
                 <!-- 헤더_회원가입,로그인,마이페이지,고객센터  -->
                 <div id="header_1">
                     <div id="hd_top">
-                        <button onclick="loginPop();">로그인</button>
-                        <a href="<%=contextPath%>/enrollForm.me">회원가입</a>
-                        <a href="">마이페이지</a>
-                        <a href="">고객센터</a>
-                    </div>
+                    
+                    <% if(loginUser != null){ %> 
+
+					<form id="loginForm" action="<%= contextPath %>/login.me" method="post">
+						<div id="userInfo">
+							<b> welcome<%=loginUser.getMemberName() %></b><br><br>
+								<div class="btns" align="center">
+									<a href="<%= contextPath %>/logout.me">로그아웃</a>		
+								</div>
+						 </div>
+				   </form>
+						<% }else{ %>
+							<button onclick="loginPop();">로그인</button>
+ 					 		<a href="<%=contextPath%>/enrollForm.me">회원가입</a>
+						<% } %>  
+                    
+                   	 </div>
+                    
                 </div>
+               		 <a href="">마이페이지</a>
+					 <a href="">고객센터</a>
                 
                 <!-- 헤더(좌)_검색창 -->
                 <div id="header_2">

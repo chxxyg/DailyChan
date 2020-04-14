@@ -16,7 +16,6 @@ public class Member {
 	private String password;		// 비밀번호
 	private Date modifyDate;		// 회원정보 수정일
 	private String blackListYn;		// 블랙리스트 여부
-	private String memberMn;		// 회원 비회원 구분
 	private int pointSum;			// 적립금 합계
 	private int	reportedNum;		//누적 신고횟수
 	private String refMemberId;		 //추천인아이디
@@ -27,7 +26,7 @@ public class Member {
 
 	public Member(String memberId, String memberName, String gender, String birth, String email, String phone,
 			Date enrollDate, String delMemberYn, Date delDate, String password, Date modifyDate, String blackListYn,
-			String memberMn, int pointSum, int reportedNum, String refMemberId) {
+			int pointSum, int reportedNum, String refMemberId) {
 		super();
 		this.memberId = memberId;
 		this.memberName = memberName;
@@ -41,7 +40,6 @@ public class Member {
 		this.password = password;
 		this.modifyDate = modifyDate;
 		this.blackListYn = blackListYn;
-		this.memberMn = memberMn;
 		this.pointSum = pointSum;
 		this.reportedNum = reportedNum;
 		this.refMemberId = refMemberId;
@@ -143,14 +141,6 @@ public class Member {
 		this.blackListYn = blackListYn;
 	}
 
-	public String getMemberMn() {
-		return memberMn;
-	}
-
-	public void setMemberMn(String memberMn) {
-		this.memberMn = memberMn;
-	}
-
 	public int getPointSum() {
 		return pointSum;
 	}
@@ -180,8 +170,8 @@ public class Member {
 		return "Member [memberId=" + memberId + ", memberName=" + memberName + ", gender=" + gender + ", birth=" + birth
 				+ ", email=" + email + ", phone=" + phone + ", enrollDate=" + enrollDate + ", delMemberYn="
 				+ delMemberYn + ", delDate=" + delDate + ", password=" + password + ", modifyDate=" + modifyDate
-				+ ", blackListYn=" + blackListYn + ", memberMn=" + memberMn + ", pointSum=" + pointSum
-				+ ", reportedNum=" + reportedNum + ", refMemberId=" + refMemberId + "]";
+				+ ", blackListYn=" + blackListYn + ", pointSum=" + pointSum + ", reportedNum=" + reportedNum
+				+ ", refMemberId=" + refMemberId + "]";
 	}
 
 	

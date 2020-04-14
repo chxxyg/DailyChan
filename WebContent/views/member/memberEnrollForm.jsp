@@ -25,10 +25,9 @@
     color: #333;
     }
 
-    .join_box h2 em {
+    .join_box h2 strong {
     font-weight: 800;
     color: #f7702e;}
-    .joinForm em {font-style: italic;}
     .join_box .join_set input {
     display: block;
     width: 522px;
@@ -54,12 +53,32 @@
     margin: 0;
     padding: 0;
 }
- .wrap.mem {
+ 	.wrap.mem {
     /* position: relative; */
     min-height: 480px;
     padding: 120px 0;
     background: #f5f5f5;
     text-align: center;
+	}
+	.join_box .caution {
+    display: block;
+    clear: both;
+    height: 0;
+    height: 14px;
+    margin-bottom: -19px;
+    padding: 5px 0 0 18px;
+    background: url(../images/mem/ico_caution.png) no-repeat left 5px;
+    line-height: 13px;
+    text-align: left;
+    color: #f7702e;
+	}
+	.join_box .join_set #join_pw {
+    margin-top: 40px;
+    background: url(../images/mem/bg_pw.png) no-repeat 527px center;
+	}
+	#join_pw_re {
+    margin: 9px 0 0;
+    background: url(../images/mem/bg_pw_re.png) no-repeat 527px center;
 }
 
 </style>
@@ -79,7 +98,7 @@
 	<form name="joinForm" id="joinForm" method="post" autocomplete="off">			
 			<!--// LOCATION SELECT -->
 			<div class="join_box" id="join_box">
-				<h2><em>더반찬</em> 신규 회원가입</h2>
+				<h2><strong>데일리찬</strong> 신규 회원가입</h2>
 				<!-- 2017.05.03 삭제 <strong class="sub_tit">필수입력</strong> -->
 				<div class="join_set">
 
@@ -87,7 +106,7 @@
 					<input type="text" id="join_id" name="login_id" class="login_input" maxlength="20" placeholder="아이디">
 					
 					<!-- 아이디  오류시 노출 -->
-					<span class="caution" id="caution1">아이디를 입력해 주세요.</span>
+					<span class="caution" id="caution1" style="display: block">아이디를 입력해 주세요.</span>
 					
 					<label for="join_pw" class="ir">비밀번호</label>
 					<input type="password" id="join_pw" name="pwd" class="login_input" maxlength="20" placeholder="비밀번호">
