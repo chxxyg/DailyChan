@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
+>>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
 	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
