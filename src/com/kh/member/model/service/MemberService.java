@@ -1,6 +1,8 @@
 package com.kh.member.model.service;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
 
@@ -17,7 +19,12 @@ public class MemberService {
 	public Member loginMember(String userId, String userPwd) {
 		
 		Connection conn = getConnection();
-		
+		try {
+			System.out.println(conn.isClosed());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Member loginUser = new MemberDao().loginMember(conn, userId, userPwd);
 			
 			close(conn);
@@ -25,7 +32,7 @@ public class MemberService {
 			return loginUser;
 
 		
-		}
+	}
 		
 }
 	

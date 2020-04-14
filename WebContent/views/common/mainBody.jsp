@@ -623,7 +623,7 @@
         <table id="instaTable">
             <tr>
                 <td colspan="2" style="height: 100px;">
-                <img id="instaLogo" src="<%=contextPath%>/resources/img/instalogo.png" alt="">
+                <img id="instaLogo" src="<%=request.getContextPath()%>/resources/img/instalogo.png" alt="">
                 <div id="instaLabel">&nbsp;Instagram</div>
                 </td>
                 <td colspan="2">

@@ -19,8 +19,9 @@ public class JDBCTemplate {
 		Properties prop = new Properties();
 		
 		// classes 하위안에 있는 driver.properties의 경로를 알아내기 위해
+//		String filePath = JDBCTemplate.class.getResource("/sql/driver/driver.properties").getPath();
 		String filePath = JDBCTemplate.class.getResource("/sql/driver/driver.properties").getPath();
-//		System.out.println(filePath);
+		System.out.println(filePath);
 		
 		try {
 			prop.load(new FileReader(filePath));
