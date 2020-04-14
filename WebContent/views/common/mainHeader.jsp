@@ -83,7 +83,6 @@
 	    left:0;
 	    right:0;
 	}
-	
 	#search-form>div{
 	    height:30px;
 	    float:left;
