@@ -82,7 +82,6 @@
 </style>
 </head>
 <body>
-	<
         <div id="footer">
             <!-- footer 왼쪽 로고-->
             <div id='left-box'><a href="">
