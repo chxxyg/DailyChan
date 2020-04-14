@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../../resources/css/categoryPage.css">
 </head>
 <body>
+
     <table id="categoryWrap">
         <tr>
             <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">대분류</td>
@@ -428,5 +429,6 @@
             </td>
         </tr>
     </table>
+    
 </body>
 </html>
