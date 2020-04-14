@@ -4,8 +4,6 @@
 	String contextPath = request.getContextPath();
 	String msg = (String)session.getAttribute("msg");
 	Member loginUser = (Member)session.getAttribute("loginUser");
-
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -17,15 +15,15 @@
 	    box-sizing:border-box;
 	    vertical-align:middle;
 	}
-	#hd_wrap{width:1520px; /*margin:auto;*/ border:2px solid yellowgreen; background:white;}
+	#hd_wrap{width:1004px; margin:auto; background:white;}
 
 	#hd_navi{
 	    width:1000px;
 	    height:240px;
-	    margin:auto;
+	    /*margin:auto;*/
 	}
-	#header{width:1000; height:200px; border:2px solid gold;}
-	#navigator{width:1000px; height:40px; background:white; border:1px solid red;}
+	#header{width:1000; height:200px;}
+	#navigator{width:1000px; height:40px; background:white;}
 	
 	#header>div{float:left;}
 	
@@ -139,8 +137,7 @@
 	    padding:0;
 	    margin:auto;
 	    height:100%;
-	    /*border-bottom: 1px lightgrey solid;*/
-	    border:1px solid blue;
+	    border-bottom: 1px lightgrey solid;
 	}
 	#navi>li{
 	    float: left;
@@ -212,15 +209,16 @@
 						 </div>
 				   </form>
 						<% }else{ %>
-							<button onclick="loginPop();">로그인</button>
  					 		<a href="<%=contextPath%>/enrollForm.me">회원가입</a>
+							<button onclick="loginPop();">로그인</button>
 						<% } %>  
                     
-                   	 </div>
+	                    <a href="">마이페이지</a>
+						<a href="">고객센터</a>
                     
+                   	 </div>
                 </div>
-               		 <a href="">마이페이지</a>
-					 <a href="">고객센터</a>
+               		 
                 
                 <!-- 헤더(좌)_검색창 -->
                 <div id="header_2">
