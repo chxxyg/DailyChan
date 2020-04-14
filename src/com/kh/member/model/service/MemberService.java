@@ -20,7 +20,6 @@ public class MemberService {
 		
 		Connection conn = getConnection();
 		try {
-			System.out.println(conn.isClosed());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
