@@ -197,19 +197,21 @@ $(document).ready(function() {
     
     
     $("#cell_no1").change(function(){
-    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val() +""+$("#cell_no3").val();
+    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val();
 		$("#cell_no").val(cell_no);
     });
     
     
-    $("#cell_no2,#cell_no3").keyup(function(){
-    	if(!overpass.validate.isValidNum($(this).val())) {
+    $("#cell_no2").keyup(function(){
+    	
+    	var regExp = /^[0-9]{8,}$/;
+    	if(!regExp.test($("#cell_no2").val())) {
     		fnMsgShow($("#caution4"),"휴대전화 번호는 숫자만 가능합니다.");
     		return;
     	}
     	
-    	
-    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val() +""+$("#cell_no3").val();
+    	fnMsgClear($("#caution4"));
+    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val();
 		$("#cell_no").val(cell_no);
     });
     
@@ -264,22 +266,7 @@ $(document).ready(function() {
     });
     
     
-    $("#auth_num").focus(function(){
-    	if(isCertYn) return;
-    	if(!isSendCert) {
-    		fnMsgShow($("#caution4"),"본인인증을 해 주세요.");
-    		return;
-    	}
-    	fnMsgClear($("#caution4"));		
-    });
     
-    $("#auth_num").blur(function(){
-    	if(isCertYn) return;
-    	if(isSendCert && !overpass.validate.isValidNum($(this).val())) {
-    		fnMsgShow($("#caution4"),"숫자를 입력해 주세요.");
-    		return;
-    	}
-    });
     
     $("#email").focus(function(){
      	if(!isCertYn) {

@@ -89,8 +89,8 @@
 							<option value="0507">0507</option>
 							
 						</select>
-						<input type="text" class="auth_div" id="cell_no3" name="cell_no3" maxlength="4" title="휴대폰번호 뒷자리입력" placeholder="- 빼고 입력해주세요">
-						
+						<input type="text" class="auth_div" id="cell_no2" name="cell_no2" maxlength="8" title="휴대폰번호 뒷자리입력" placeholder="- 빼고 입력해주세요">
+						<span class="caution ir" id="caution4"></span>
 					</div>
 					
 					<br clear="both">
