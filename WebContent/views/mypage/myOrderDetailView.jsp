@@ -344,6 +344,21 @@
 		<button id="preOrderDetailBtn">이전 페이지로</button>
 	</div>
 
+	<script>
+		
+		function cancelOrder(){
+			
+			var result = confirm("주문을 즉시취소하시겠습니까?")
+			
+            if(result){
+                alert("처리가 완료되었습니다.");
+            }
+			
+		}
+	
+	</script>
+		
+
 
 	<%@ include file="../../views/common/mainFooter.jsp" %>
 
