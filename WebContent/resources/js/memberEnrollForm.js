@@ -49,19 +49,8 @@ $(document).ready(function() {
 					isChkId = false;
 					return false;
 				}else{
-					if(confirm("사용가능한 아이디입니다. 사용하시겠습니까?"))
-					{
-						// 아이디 더이상 수정이 불가능하게끔
-						userId.attr("readonly", "true");
-						// 회원가입 버튼 활성화
-						$("#joinBtn").removeAttr("disabled");
-						fnMsgClear($("#caution1"));
-						isChkId = true;
-					}
-					else
-					{
-						userId.focus();
-					}
+					fnMsgClear($("#caution1"));
+					isChkId = true;
 					return true;
 				}
 			}
@@ -123,13 +112,18 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	if(!overpass.validate.isValidPwd(sVal)) {
-    		fnMsgShow($("#caution2"),"비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
-    		if(isAlert) {
-    			alert("비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
-    		}
-    		return false;
-    	}
+    	 var num = sVal.search(/[0-9]/g);
+    	 var eng = sVal.search(/[a-z]/ig);
+    	 var spe = sVal.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    	if((num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ) {
+		fnMsgShow($("#caution2"),"비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
+		if(isAlert) {
+			alert("비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
+		}
+		return false;
+	}
+
+    	
     	fnMsgClear($("#caution2"));
     	return true;
     }
@@ -373,11 +367,6 @@ $(document).ready(function() {
     		return false;
     	}
 
-    	/*if( sGendCd == "" ) {
-    		alert("성별을 선택해 주세요.");
-    		return false;
-    	}*/
-    	
         
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();
