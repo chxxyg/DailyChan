@@ -40,6 +40,7 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
+			request.getRequestDispatcher("/views/common/mainSideBar.jsp").forward(request, response);
 			
 			response.sendRedirect("/dailyChan");
 			
