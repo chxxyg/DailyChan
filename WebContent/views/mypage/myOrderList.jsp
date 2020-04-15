@@ -116,11 +116,11 @@
 	
 	/* 주문/배송 리스트 영역*/
 	.myOrderList{
-		margin:50px 0px 0px 75px;
+		margin:30px 0px 0px 5px;
 	}
 	.myOrderList, .myOrderList tr{
-		border-top:1px solid black;
-		border-bottom:1px solid black;
+		border-top:1px solid grey;
+		border-bottom:1px solid grey;
 		border-collapse: collapse;
 	}
 	.myOrderList th{
@@ -242,12 +242,12 @@
 		</div>
 		
 		<!-- 주문배송 조회 리스트 -->
-		<table class="myOrderList" width="650px">
-			<tr height="28px">
+		<table class="myOrderList" width="790px">
+			<tr height="35px">
 				<th width="130px">주문번호/주문일</th>
-				<th width="320px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
+				<th width="400px">상품정보</th>
+				<th width="130px">진행상태</th>
+				<th width="130px">확인</th>
 			</tr>
 			<tr>
 				<td>
@@ -274,14 +274,6 @@
 					<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
 				</td>
 			</tr>
-		</table>
-		<table class="myOrderList" width="650px">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="320px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
-			</tr>
 			<tr>
 				<td>
 					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
@@ -297,16 +289,8 @@
 				<td>배송중</td>
 				<td>
 					<button type="button" id="trackShipmentBtn">배송조회</button>
-					<button type="button" id="cancelOrderBtn">즉시취소</button>
+					<button type="button" id="requestRefundBtn">반품신청</button>
 				</td>
-			</tr>
-		</table>
-		<table class="myOrderList" width="650px">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="320px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
 			</tr>
 			<tr>
 				<td>
@@ -329,6 +313,7 @@
 		</table>
 		
 		
+		
 		<!-- 페이징바 -->
 		
 		
@@ -348,6 +333,8 @@
 	
 	</script>
 		
+
+	<%@ include file="../../views/common/mainFooter.jsp" %>
 
 </body>
 </html>

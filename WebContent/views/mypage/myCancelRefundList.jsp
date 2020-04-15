@@ -65,7 +65,7 @@
 	/* 마이페이지 카테고리 영역 스타일 */
 	#mypageCategory{
 		width:200px;
-		height:800px;
+		height:620px;
 		margin-top:30px;
 		float:left;
 	}
@@ -90,18 +90,18 @@
 		text-weight:800;
 	}
 
-	/* 취소/반품 조회 */
+	/* 취소/반품 조회 틀 */
 	.cancelRefundList{
 		box-sizing:border-box;
 	}
 	.cancelRefundList{
 		margin:50px 0px 0px 450px;
 		width:800px;
-		height:1000px;
+		height:900px;
 	}
 	.cancelRefundList>p{
 		font-size:12px;
-		padding:10px 0px 20px 15px;
+		padding:10px 0px 10px 15px;
 	}
 	
 	
@@ -117,13 +117,13 @@
 		font-size:12px;
 	}
 	
-	/* 주문/배송 리스트 영역*/
+	/* 취소/반품 리스트*/
 	.myCancelList{
-		margin:50px 0px 0px 75px;
+		margin:30px 0px 0px 5px;
 	}
 	.myCancelList, .myCancelList tr{
-		border-top:1px solid black;
-		border-bottom:1px solid black;
+		border-top:1px solid grey;
+		border-bottom:1px solid grey;
 		border-collapse: collapse;
 	}
 	.myCancelList th{
@@ -223,12 +223,12 @@
 		</div>
 		
 		<!-- 주문배송 조회 리스트 -->
-		<table class="myCancelList" width="650px">
-			<tr height="28px">
+		<table class="myCancelList" width="790px">
+			<tr height="35px">
 				<th width="130px">주문번호/주문일</th>
-				<th width="320px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
+				<th width="400px">상품정보</th>
+				<th width="130px">진행상태</th>
+				<th width="130px">처리일자</th>
 			</tr>
 			<tr>
 				<td>
@@ -255,15 +255,6 @@
 				<td>취소완료</td>
 				<td>2020-05-01</td>
 			</tr>
-		</table>
-		
-		<table class="myCancelList" width="650px">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="320px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
-			</tr>
 			<tr>
 				<td>
 					<a href="" style="color:blue; text-decoration: underline;">20200410-1234567</a>
@@ -278,15 +269,6 @@
 				</td>
 				<td>취소완료</td>
 				<td>2020-04-12</td>
-			</tr>
-		</table>
-		
-		<table class="myCancelList" width="650px">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="320px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
 			</tr>
 			<tr>
 				<td>
@@ -310,7 +292,7 @@
 		
 	</div>
 
-		
+	<%@ include file="../../views/common/mainFooter.jsp" %>
 
 </body>
 </html>
