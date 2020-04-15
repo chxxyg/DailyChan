@@ -38,21 +38,30 @@ $(document).ready(function() {
     		return ;
     	}
     	
-    	var params = {login_id : sVal};
+    	var params = {userId : sVal};
     	$.ajax({
-			url: "/member/searchLoginIdCheck.action",
+			url: "idCheck.me",
 			type: "POST",
-			async: false,
-			dataType:"json",
 			data : params,
 			success: function(rs) {
-				if(rs.idCheck == "N") {
+				if(rs == 1) {
 					fnMsgShow($("#caution1"),"이미 사용중인 아이디 입니다.");
 					isChkId = false;
 					return false;
 				}else{
-					fnMsgClear($("#caution1"));
-					isChkId = true;
+					if(confirm("사용가능한 아이디입니다. 사용하시겠습니까?"))
+					{
+						// 아이디 더이상 수정이 불가능하게끔
+						userId.attr("readonly", "true");
+						// 회원가입 버튼 활성화
+						$("#joinBtn").removeAttr("disabled");
+						fnMsgClear($("#caution1"));
+						isChkId = true;
+					}
+					else
+					{
+						userId.focus();
+					}
 					return true;
 				}
 			}
