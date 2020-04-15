@@ -179,13 +179,17 @@ $(document).ready(function() {
     		return;
     	}
     	
-    	if(!overpass.validate.isValidName(sVal)) {
+    	var regExp = /^[가-힣a-zA-Z]+$/;
+    	if(!regExp.test(sVal))
+		{
     		fnMsgShow($("#caution3"),"이름은 한글, 영문 만 가능합니다.");
     		if(isAlert) {
     			alert("이름은 한글, 영문 만 가능합니다.");
     		}
     		return;
-    	}
+		}
+    	
+    	
     	fnMsgClear($("#caution3"));
     	
     	return true;
