@@ -253,7 +253,7 @@
 				<td>
 					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
 					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="">상세확인 ></button>
+					<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 				</td>
 				<td id="myOrderInfo">
 					<div>
@@ -278,7 +278,7 @@
 				<td>
 					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
 					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="">상세확인 ></button>
+					<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 				</td>
 				<td id="myOrderInfo">
 					<div>
@@ -296,7 +296,7 @@
 				<td>
 					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
 					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="">상세확인 ></button>
+					<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 				</td>
 				<td id="myOrderInfo">
 					<div>
@@ -322,12 +322,15 @@
 	<script>
 		
 		function cancelOrder(){
-			
 			var result = confirm("주문을 즉시취소하시겠습니까?")
 			
             if(result){
                 alert("처리가 완료되었습니다.");
             }
+		}
+		function toOrderDetail(){
+			
+			location.href="<%= contextPath %>/views/mypage/myOrderDetailView.jsp";
 			
 		}
 	

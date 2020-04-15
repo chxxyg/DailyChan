@@ -179,7 +179,7 @@
 		float:left;
 	}
 	#orderDetail_PaymentInfo1 span{
-		margin:20px 63px 10px 63px;
+		margin:20px 60px 10px 60px;
 	}
 	#paySum{
 		font-weight:border;
@@ -342,19 +342,21 @@
 			</tr>
 		</table>
 		<br><br><br>
-		<button id="preOrderDetailBtn">이전 페이지로</button>
+		<button id="preOrderDetailBtn" onclick="preOrderDetail();">이전 페이지로</button>
 	</div>
 
 	<script>
 		
 		function cancelOrder(){
-			
 			var result = confirm("주문을 즉시취소하시겠습니까?")
 			
             if(result){
                 alert("처리가 완료되었습니다.");
             }
-			
+		}
+		
+		function preOrderDetail(){
+			history.back();
 		}
 	
 	</script>
