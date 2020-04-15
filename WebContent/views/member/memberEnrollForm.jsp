@@ -49,17 +49,8 @@
 					<!-- 이름/성별 오류시 노출 -->
 					<span class="caution ir" id="caution3"></span>
 					
-					<!-- 인증 이전 -->
 					<div class="phone_num">
-						<input type="hidden" id="cmcm_divi_cd" name="cmcm_divi_cd" value="00">
-						<input type="hidden" id="cell_no" name="cell_no">
-						<input type="hidden" id="mbr_cert_divi_cd" name="mbr_cert_divi_cd" value="50">
-						<input type="hidden" id="mbr_cert_info" name="mbr_cert_info" value="">	
-					
-
 						
-						
-						<!-- 2017.06.23 변경 : 휴대폰 번호 입력 3cut으로 통일 -->
 						<label class="ir" for="cell_no1">휴대폰번호</label>
 						<select id="cell_no1" class="auth_div" name="cell_no1" title="휴대폰번호 앞자리선택">
 							<option value="">선택</option>

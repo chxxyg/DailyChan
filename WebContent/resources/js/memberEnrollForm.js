@@ -222,9 +222,8 @@ $(document).ready(function() {
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();
     	var cell_no3 = $("#cell_no3").val();
-    	var sVal = $("#cell_no").val();
 
-    	if(cell_no1 == "" || cell_no2 == "" || cell_no3 == ""||  sVal =="") {
+    	if(cell_no1 == "" || cell_no2 == "") {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
     		return;
     	}
