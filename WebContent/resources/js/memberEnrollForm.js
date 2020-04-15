@@ -87,13 +87,6 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	if(!overpass.validate.isValidId(sVal)) {
-    		fnMsgShow($("#caution1"),"아이디는 영문 혹은 영문 숫자만 가능합니다.");
-    		if(isAlert) {
-    			alert("아이디는 영문 혹은 영문 숫자만 가능합니다.");
-    		}
-    		return false;
-    	} 
     	fnMsgClear($("#caution1"));
     	return true;
     }
