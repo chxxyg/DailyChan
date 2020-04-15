@@ -288,7 +288,7 @@
 				</td>
 				<td>배송중</td>
 				<td>
-					<button type="button" id="trackShipmentBtn">배송조회</button>
+					<button type="button" id="trackShipmentBtn">배송조회</button><br>
 					<button type="button" id="requestRefundBtn">반품신청</button>
 				</td>
 			</tr>
@@ -306,7 +306,7 @@
 				</td>
 				<td>배송완료</td>
 				<td>
-					<button type="button" id="trackShipmentBtn">배송조회</button>
+					<button type="button" id="trackShipmentBtn">배송조회</button><br>
 					<button type="button" id="requestRefundBtn">반품신청</button>
 				</td>
 			</tr>

@@ -122,7 +122,6 @@
 	}
 	.orderDetail td{
 		font-size:12px;
-		text-align:center;
 	}
 	#orderDtail_td1, #orderDtail_td2, #orderDtail_td3{
 		border-right:1px solid lightgrey;
@@ -143,6 +142,8 @@
 	#orderDtail_td1>div>a{
 		font-size:13px;
 	}
+	#orderDtail_td2{padding-left:40px;}
+	#orderDtail_td3, #orderDtail_td4{padding-left:35px;}
 	#cancelOrderBtn{
 		width:60px;
 		height:20px;
@@ -263,10 +264,10 @@
 					</div>
 				</td>
 				<td id="orderDtail_td2" rowspan="3">결제완료</td>
-				<td id="orderDtail_td3"rowspan="3">
+				<td id="orderDtail_td3" rowspan="3">
 					2020-03-31<br>
 				</td>
-				<td rowspan="3">
+				<td id="orderDtail_td4" rowspan="3">
 					<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
 				</td>
 			</tr>
