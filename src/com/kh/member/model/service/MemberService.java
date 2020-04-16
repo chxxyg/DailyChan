@@ -42,8 +42,24 @@ public class MemberService {
 	    return count;
 	}
 	
+	
 	/**
-	 * 2_2. 회원가입 시 이메일 중복 체크
+	 * 2_2. 회원가입 시 전화번호 중복 체크
+	 * @param phone
+	 * @return
+	 */
+	public int phoneCheck(String phone)
+	{
+		Connection conn = getConnection();
+		int count = new MemberDao().phoneCheck(conn, phone);
+		
+		close(conn);
+		
+		return count;
+	}
+	
+	/**
+	 * 2_3. 회원가입 시 이메일 중복 체크
 	 * @param email
 	 * @return
 	 */

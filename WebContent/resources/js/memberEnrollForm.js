@@ -223,19 +223,19 @@ $(document).ready(function() {
     	var cell_no2 = $("#cell_no2").val();
     	var sVal = cell_no1 + "" + cell_no2 + "";
     	
-    	console.log(cell_no2);
     	if(cell_no1 == "" || cell_no2 == "") {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
     		return;
     	}
+    	console.log(sVal);
     	fnMsgClear($("#caution4"));
 	   	var params = {cell_no : sVal};
      	$.ajax({
-			url: "/emailCheck.me",
+			url: "phoneCheck.me",
 			type: "POST",
 			data : params,
 			success: function(rs) {
-				if(rs.result == 1) {
+				if(rs == 1) {
 					fnMsgShow($("#caution4"),"이미 개인 회원으로 등록된 번호입니다.");
 					isChkNum = false;
 					return false;
