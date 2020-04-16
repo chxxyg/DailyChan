@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>신규 회원가입</title>
-
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/memberEnrollForm.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="/dailyChan/resources/js/memberEnrollForm.js" rel="javascript" type="text/javascript"></script>
@@ -149,5 +148,6 @@
 </div>
 
 <%@ include file="/views/common/mainFooter.jsp" %>
+
 </body>
 </html>
