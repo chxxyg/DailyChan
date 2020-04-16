@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../../resources/css/eventMainPage.css">
+<title>이벤트</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/eventMainPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
+
     <table id="eventWrap">
         <tr>
             <td colspan="3" style="font-size: 50px; font-weight: 600; text-align: center;">EVENT</td>
@@ -69,6 +74,9 @@
         </tr>
         
     </table>
-    
+        
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
+
 </body>
 </html>

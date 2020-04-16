@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/orderPage.css">
+<title>주문하기</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/orderPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
 
     <table id="orderWrap">
         <tr>
@@ -179,7 +182,7 @@
         </tr>
         <tr>
             <td>
-                <div id="orderTotalLabel"><img id="orderCheckImg" src="<%=contextPath%>/resources/img/checklogo.png">최종결제금액</div>
+                <div id="orderTotalLabel"><img id="orderCheckImg" src="<%= request.getContextPath() %>/resources/img/checklogo.png">최종결제금액</div>
             </td>
         </tr>
         <tr>
@@ -218,6 +221,10 @@
             </td>
         </tr>
     </table>
+        
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
+    
 
 </body>
 </html>

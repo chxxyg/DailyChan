@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/wishListPage.css">
+<title>찜하기</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/wishListPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
+
     <table id="wishListWrap">
         <tr>
             <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center; padding-bottom: 50px;">내가 찜한 상품</td>
@@ -45,8 +49,8 @@
                                 <tr>
                                     <td>
                                         <div id="wishListProductBtn1" class="wishListProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%=contextPath%>/resources/img/likelogo_orange.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo_orange.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -76,8 +80,8 @@
                                 <tr>
                                     <td>
                                         <div id="wishListProductBtn1" class="wishListProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%=contextPath%>/resources/img/likelogo_orange.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo_orange.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -107,8 +111,8 @@
                                 <tr>
                                     <td>
                                         <div id="wishListProductBtn1" class="wishListProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%=contextPath%>/resources/img/likelogo_orange.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo_orange.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -138,8 +142,8 @@
                                 <tr>
                                     <td>
                                         <div id="wishListProductBtn1" class="wishListProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%=contextPath%>/resources/img/likelogo_orange.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo_orange.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -171,8 +175,8 @@
                                 <tr>
                                     <td>
                                         <div id="wishListProductBtn1" class="wishListProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%=contextPath%>/resources/img/likelogo_orange.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo_orange.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -202,8 +206,8 @@
                                 <tr>
                                     <td>
                                         <div id="wishListProductBtn1" class="wishListProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%=contextPath%>/resources/img/likelogo_orange.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="wishListLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo_orange.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -214,5 +218,9 @@
             </td>
         </tr>
     </table>
+        
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
+
 </body>
 </html>

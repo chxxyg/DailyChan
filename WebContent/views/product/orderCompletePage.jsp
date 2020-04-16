@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/orderCompletePage.css">
+<title>결제 완료</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/orderCompletePage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
 
     <table id="ocWrap">
         <tr>
@@ -122,6 +125,9 @@
             </td>
         </tr>
     </table>
-
+    
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
+    
 </body>
 </html>

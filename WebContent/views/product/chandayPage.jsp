@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/chandayPage.css">
+<title>찬Day</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/chandayPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
+
     <table id="chandayWrap">
         <tr>
             <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">찬Day</td>
@@ -86,8 +90,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn1" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -117,8 +121,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn2" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -148,8 +152,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn3" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -179,8 +183,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn4" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -212,8 +216,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn5" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -243,8 +247,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn6" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -274,8 +278,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn7" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -305,8 +309,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn8" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -338,8 +342,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn9" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -369,8 +373,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn10" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -400,8 +404,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn11" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -431,8 +435,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn12" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -464,8 +468,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn13" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -495,8 +499,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn14" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -526,8 +530,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn15" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -557,8 +561,8 @@
                     <tr>
                         <td>
                             <div id="chandayProductBtn16" class="chandayProductBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="chandayLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                             </div>
                         </td>
                     </tr>
@@ -566,5 +570,9 @@
             </td>
         </tr>
 	</table>
+	
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
+
 </body>
 </html>

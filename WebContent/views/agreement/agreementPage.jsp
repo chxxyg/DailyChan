@@ -4,10 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/agreementPage.css">
+<title>이용 약관</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/agreementPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
+
 
     <table id="agreeWrap">
         <tr>
@@ -53,6 +60,9 @@
             <td><img id="agreeImg3" src=""></td>
         </tr>
     </table>
+
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
 
 </body>
 </html>

@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/productDetailPage.css">
+<title>제품 상세</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/productDetailPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
+
     <table id="productDetail">
         <tr>
             <td>
@@ -51,7 +55,7 @@
                                 <tr>
                                     <td><div id="productGpa">★★★★☆ 4.7</div></td>
                                     <td><div id="productReview">리뷰(120건)</div></td>
-                                    <td><div id="productShare"><a href=""><img src="<%=contextPath%>/resources/img/sharelogo.png" width="30" height="30"></a></div></td>
+                                    <td><div id="productShare"><a href=""><img src="<%= request.getContextPath() %>/resources/img/sharelogo.png" width="30" height="30"></a></div></td>
                                 </tr>
                             </table>
                         </td>
@@ -211,5 +215,9 @@
         </tr>
         <!-- 상세조회(클릭 시 슬라이드 다운), 페이징 기능 추가하기 -->
     </table>
+        
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
+    
 </body>
 </html>
