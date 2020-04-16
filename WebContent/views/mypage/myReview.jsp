@@ -148,6 +148,7 @@
        <br>
        <br>
 
+
 		<!-- 마이페이지(좌) 카테고리 영역 -->
 		<div id="mypageCategory">
 			<div class="myCateFirst">주문정보</div>
