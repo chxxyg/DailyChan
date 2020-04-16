@@ -267,11 +267,12 @@ $(document).ready(function() {
     	
 		var params = {email : sVal};
  	    $.ajax({
- 				url: "/emailCheck.me",
+ 				url: "emailCheck.me",
  				type: "POST",
  				data : params,
  				success: function(rs) {
- 					if(rs == "1") {
+ 					if(rs == 1) {
+ 						console.log(rs);
  						fnMsgShow($("#caution5"),"이미 등록된 이메일 입니다.");
  						isChkEmail = false;
  						return false;

@@ -32,9 +32,9 @@ public class EmailCheckServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	    request.setCharacterEncoding("utf-8");
-	    String email = request.getParameter("cell_no");
+	    String email = request.getParameter("email");
 	    
-	    int count = new MemberService().idCheck(email);
+	    int count = new MemberService().emailCheck(email);
 	    
 	    PrintWriter out = response.getWriter();
 	    out.print(count);
