@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Documentttt</title>
+    <title>Document</title>
     
 <style>
 	/*header*/
