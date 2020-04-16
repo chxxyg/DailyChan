@@ -6,19 +6,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.mypageMainDetail{
+	.mypageMainDetailWrap{
 		box-sizing:border-box;
 		margin:50px 0px 0px 450px;
 		width:800px;
-		height:600px;
+		height:900px;
 	}
 	/* 주문/배송 조회 영역 */
 	.myMainOrderList{
-		margin-top:30px;
+		margin:30px 0px 0px 5px;
 	}
 	.myMainOrderList, .myMainOrderList tr{
-		border-top:1px solid black;
-		border-bottom:1px solid black;
+		border-top:1px solid grey;
+		border-bottom:1px solid grey;
 		border-collapse: collapse;
 	}
 	.myMainOrderList th{
@@ -29,15 +29,14 @@
 		font-size:12px;
 		text-align:center;
 	}
-	#myMainOrderInfo>img{
-		float:left;
-		margin:5px 5px 5px 20px;
+	#myMainOrderInfo{
+		padding:20px 0px 10px 100px;
 	}
 	#myMainOrderInfo>div{
-		width:200px;
+		width:270px;
 		text-align:left;
 		float:left;
-		margin:20px 0px 0px 10px;
+		margin-bottom:10px;
 	}
 	#myMainOrderInfo>div>a{
 		font-size:13px;
@@ -71,50 +70,33 @@
 
 	<%@ include file="mypageMainOuter.jsp" %>
 
-	<div class="mypageMainDetail">
+	<div class="mypageMainDetailWrap">
 	
 		<!-- 주문/배송 조회 영역 -->
 		<h3>주문/배송 조회</h3>
 		<hr>
 		<table class="myMainOrderList">
-			<tr height="28px">
+			<tr height="35px" width="790">
 				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
+				<th width="400px">상품정보</th>
+				<th width="130px">진행상태</th>
+				<th width="130px">학인</th>
 			</tr>
 			<tr>
 				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
 					2020-03-31<br>
 					<button id="orderDetailBtn" type="submit" onclick="">상세확인 ></button>
 				</td>
 				<td id="myMainOrderInfo">
-					<img src="" width="70" height="70"></img>
 					<div>
 						<a href=""><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
-				</td>
-				<td>결제완료</td>
-				<td>2020-03-31</td>
-			</tr>
-		</table>
-		<table class="myMainOrderList">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					20200331<br>
-					<button id="orderDetailBtn" type="submit" onclick="">상세확인 ></button>
-				</td>
-				<td id="myMainOrderInfo">
-					<img src="" width="70" height="70"></img>
+					<div>
+						<a href=""><b>데일리찬 상품명</b></a><br>
+						1개 / 12,000원
+					</div>
 					<div>
 						<a href=""><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
@@ -156,6 +138,8 @@
 				<p>12,000원 | 1인분</p>				
 			</div>
 	</div>
+	
+	<%@ include file="../../views/common/mainFooter.jsp" %>
 
 </body>
 </html>

@@ -38,15 +38,13 @@ $(document).ready(function() {
     		return ;
     	}
     	
-    	var params = {login_id : sVal};
+    	var params = {userId : sVal};
     	$.ajax({
-			url: "/member/searchLoginIdCheck.action",
+			url: "idCheck.me",
 			type: "POST",
-			async: false,
-			dataType:"json",
 			data : params,
 			success: function(rs) {
-				if(rs.idCheck == "N") {
+				if(rs == 1) {
 					fnMsgShow($("#caution1"),"이미 사용중인 아이디 입니다.");
 					isChkId = false;
 					return false;
@@ -87,13 +85,6 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	if(!overpass.validate.isValidId(sVal)) {
-    		fnMsgShow($("#caution1"),"아이디는 영문 혹은 영문 숫자만 가능합니다.");
-    		if(isAlert) {
-    			alert("아이디는 영문 혹은 영문 숫자만 가능합니다.");
-    		}
-    		return false;
-    	} 
     	fnMsgClear($("#caution1"));
     	return true;
     }
@@ -121,13 +112,18 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	if(!overpass.validate.isValidPwd(sVal)) {
-    		fnMsgShow($("#caution2"),"비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
-    		if(isAlert) {
-    			alert("비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
-    		}
-    		return false;
-    	}
+    	 var num = sVal.search(/[0-9]/g);
+    	 var eng = sVal.search(/[a-z]/ig);
+    	 var spe = sVal.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    	if((num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ) {
+		fnMsgShow($("#caution2"),"비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
+		if(isAlert) {
+			alert("비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
+		}
+		return false;
+	}
+
+    	
     	fnMsgClear($("#caution2"));
     	return true;
     }
@@ -183,13 +179,17 @@ $(document).ready(function() {
     		return;
     	}
     	
-    	if(!overpass.validate.isValidName(sVal)) {
+    	var regExp = /^[가-힣a-zA-Z]+$/;
+    	if(!regExp.test(sVal))
+		{
     		fnMsgShow($("#caution3"),"이름은 한글, 영문 만 가능합니다.");
     		if(isAlert) {
     			alert("이름은 한글, 영문 만 가능합니다.");
     		}
     		return;
-    	}
+		}
+    	
+    	
     	fnMsgClear($("#caution3"));
     	
     	return true;
@@ -197,19 +197,21 @@ $(document).ready(function() {
     
     
     $("#cell_no1").change(function(){
-    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val() +""+$("#cell_no3").val();
+    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val();
 		$("#cell_no").val(cell_no);
     });
     
     
-    $("#cell_no2,#cell_no3").keyup(function(){
-    	if(!overpass.validate.isValidNum($(this).val())) {
+    $("#cell_no2").keyup(function(){
+    	
+    	var regExp = /^[0-9]{8,}$/;
+    	if(!regExp.test($("#cell_no2").val())) {
     		fnMsgShow($("#caution4"),"휴대전화 번호는 숫자만 가능합니다.");
     		return;
     	}
     	
-    	
-    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val() +""+$("#cell_no3").val();
+    	fnMsgClear($("#caution4"));
+    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val();
 		$("#cell_no").val(cell_no);
     });
     
@@ -220,9 +222,8 @@ $(document).ready(function() {
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();
     	var cell_no3 = $("#cell_no3").val();
-    	var sVal = $("#cell_no").val();
 
-    	if(cell_no1 == "" || cell_no2 == "" || cell_no3 == ""||  sVal =="") {
+    	if(cell_no1 == "" || cell_no2 == "") {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
     		return;
     	}
@@ -264,22 +265,7 @@ $(document).ready(function() {
     });
     
     
-    $("#auth_num").focus(function(){
-    	if(isCertYn) return;
-    	if(!isSendCert) {
-    		fnMsgShow($("#caution4"),"본인인증을 해 주세요.");
-    		return;
-    	}
-    	fnMsgClear($("#caution4"));		
-    });
     
-    $("#auth_num").blur(function(){
-    	if(isCertYn) return;
-    	if(isSendCert && !overpass.validate.isValidNum($(this).val())) {
-    		fnMsgShow($("#caution4"),"숫자를 입력해 주세요.");
-    		return;
-    	}
-    });
     
     $("#email").focus(function(){
      	if(!isCertYn) {
@@ -371,11 +357,6 @@ $(document).ready(function() {
     		return false;
     	}
 
-    	/*if( sGendCd == "" ) {
-    		alert("성별을 선택해 주세요.");
-    		return false;
-    	}*/
-    	
         
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();

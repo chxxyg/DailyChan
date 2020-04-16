@@ -64,7 +64,7 @@
 	/* 마이페이지 카테고리 영역 스타일 */
 	#mypageCategory{
 		width:200px;
-		height:800px;
+		height:620px;
 		margin-top:30px;
 		float:left;
 	}
@@ -132,6 +132,7 @@
 			
 		</div>	
     </div>
+
 
 </body>
 </html>
