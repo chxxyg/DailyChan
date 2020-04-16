@@ -227,7 +227,6 @@ $(document).ready(function() {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
     		return;
     	}
-    	console.log(sVal);
     	fnMsgClear($("#caution4"));
 	   	var params = {cell_no : sVal};
      	$.ajax({
@@ -253,13 +252,13 @@ $(document).ready(function() {
     
     
     
-    $("#email").focus(function(){
-     	if(!isCertYn) {
-    		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
-    		return;
-    	}
-    	fnMsgClear($("#caution5"));		
-    });
+//    $("#email").focus(function(){
+//     	if(!isCertYn) {
+//    		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
+//    		return;
+//    	}
+//    	fnMsgClear($("#caution5"));		
+//    });
     
     $("#email").blur(function(){
     	var sVal = $(this).val();
@@ -272,7 +271,7 @@ $(document).ready(function() {
  				type: "POST",
  				data : params,
  				success: function(rs) {
- 					if(rs.result == "N") {
+ 					if(rs == "1") {
  						fnMsgShow($("#caution5"),"이미 등록된 이메일 입니다.");
  						isChkEmail = false;
  						return false;

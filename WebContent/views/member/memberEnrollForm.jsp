@@ -100,7 +100,6 @@
 				</div>
 			</div>
 			
-			<!-- 2017.05.03 변경 .wrap.mem 안으로 이동 및 li 순서 변경 -->
 			<div class="agree_box">
 				<div class="join_box" id="join_box" style="min-height: 250px;">
 					<ul class="agree_list" style="margin-top: 41px;padding: 8px 0 0px 0px;">

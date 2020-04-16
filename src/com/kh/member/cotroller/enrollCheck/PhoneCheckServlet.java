@@ -1,4 +1,4 @@
-package com.kh.member.cotroller;
+package com.kh.member.cotroller.enrollCheck;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.member.model.service.MemberService;
 
 /**
- * Servlet implementation class EnrollEmailCheckServlet
+ * Servlet implementation class EnrollPhoneCheckServlet
  */
-@WebServlet("/emailCheck.me")
-public class EnrollEmailCheckServlet extends HttpServlet {
+@WebServlet("/phoneCheck.me")
+public class PhoneCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EnrollEmailCheckServlet() {
+    public PhoneCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,11 +30,10 @@ public class EnrollEmailCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 	    request.setCharacterEncoding("utf-8");
-	    String email = request.getParameter("cell_no");
-	    
-	    int count = new MemberService().idCheck(email);
+	    String phone = request.getParameter("cell_no");
+	    int count = new MemberService().phoneCheck(phone);
 	    
 	    PrintWriter out = response.getWriter();
 	    out.print(count);
