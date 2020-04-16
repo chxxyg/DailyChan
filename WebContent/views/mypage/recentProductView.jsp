@@ -133,7 +133,7 @@
 	#recentProduct_td1>div>a{
 		font-size:13px;
 	}
-	#recentProductl_td2{padding-left:50px;}
+	#recentProduct_td2{padding-left:50px;}
 	#shoppingcartBtn{
 		width:60px;
 		height:20px;
