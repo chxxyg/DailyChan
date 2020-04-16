@@ -221,7 +221,6 @@ $(document).ready(function() {
     
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();
-    	var cell_no3 = $("#cell_no3").val();
 
     	if(cell_no1 == "" || cell_no2 == "") {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
@@ -232,25 +231,10 @@ $(document).ready(function() {
      	$.ajax({
 			url: "/member/searchMemberPhoneCheck.action",
 			type: "POST",
-			async: false,
-			dataType:"json",
 			data : params,
 			success: function(rs) {
 				if(rs.result == "B") {
 					fnMsgShow($("#caution4"),"이미 개인 회원으로 등록된 번호입니다.");
-					isChkNum = false;
-					return false;
-				}else if(rs.result == "N") {
-					fnMsgShow($("#caution4"),"이미 사업자 회원으로 등록된 번호입니다.");
-					isChkNum = false;
-					return false;
-				}else if(rs.result == "D") {
-					fnMsgShow($("#caution4"),"1년이상 로그인이력이 없어 휴면회원으로 전환되었습니다. 로그인 후 휴면 해제해주시기 바랍니다.");
-					isChkNum = true;
-					isChkDormant = false;
-					return false;
-				}else if(rs.result == "O") {
-					fnMsgShow($("#caution4"),"핸드폰인증은 일 5회만 가능합니다.");
 					isChkNum = false;
 					return false;
 				}else{
@@ -269,10 +253,10 @@ $(document).ready(function() {
     
     $("#email").focus(function(){
      	if(!isCertYn) {
-    		fnMsgShow($("#caution4"),"본인인증을 해 주세요.");
+    		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
     		return;
     	}
-    	fnMsgClear($("#caution4"));		
+    	fnMsgClear($("#caution5"));		
     });
     
     $("#email").blur(function(){
