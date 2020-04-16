@@ -95,7 +95,6 @@
 		width:800px;
 		height:1300px;
 		margin:50px 0px 0px 450px;
-		border:1px solid red;
 	}
 	.recentProductViewWrap>span{
 		font-size:12px;
