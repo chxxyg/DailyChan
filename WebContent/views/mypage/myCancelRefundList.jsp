@@ -103,67 +103,71 @@
 		
 		<!-- 주문배송 조회 리스트 -->
 		<table class="myCancelList" width="790px">
-			<tr height="35px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="400px">상품정보</th>
-				<th width="130px">진행상태</th>
-				<th width="130px">처리일자</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200429-1234567</a>
-					2020-04-29<br>
-				</td>
-				<td id="myCancelInfo">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						<p>결제수단 : 신용카드</p>
-					</div>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						<p>결제수단 : 신용카드</p>
-					</div>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						<p>결제수단 : 신용카드</p>
-					</div>
-				</td>
-				<td>취소완료</td>
-				<td>2020-05-01</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200410-1234567</a>
-					2020-04-10<br>
-				</td>
-				<td id="myCancelInfo">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						<p>결제수단 : 신용카드</p>
-					</div>
-				</td>
-				<td>취소완료</td>
-				<td>2020-04-12</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					2020-03-31<br>
-				</td>
-				<td id="myCancelInfo">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						<p>결제수단 : 신용카드</p>
-					</div>
-				</td>
-				<td>취소완료</td>
-				<td>2020-04-01</td>
-			</tr>
+			<thead>
+				<tr height="35px">
+					<th width="130px">주문번호/주문일</th>
+					<th width="400px">상품정보</th>
+					<th width="130px">진행상태</th>
+					<th width="130px">처리일자</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200429-1234567</a>
+						2020-04-29<br>
+					</td>
+					<td id="myCancelInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+					</td>
+					<td>취소완료</td>
+					<td>2020-05-01</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200410-1234567</a>
+						2020-04-10<br>
+					</td>
+					<td id="myCancelInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+					</td>
+					<td>취소완료</td>
+					<td>2020-04-12</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+					</td>
+					<td id="myCancelInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+					</td>
+					<td>취소완료</td>
+					<td>2020-04-01</td>
+				</tr>
+			</tbody>
 		</table>
 		
 		<!-- 페이징바 -->

@@ -121,6 +121,7 @@
 
 	<%@ include file="mypageMainOuter.jsp" %>
 
+	<!-- 주문내역 -->
 	<div class="orderDetailViewWrap">
 		<h3>상세 주문 내역</h3>
 		<hr>
@@ -174,6 +175,8 @@
 			</tr>
 		</table>
 		<br>
+		
+		<!-- 결제정보 -->
 		<h4>결제정보</h4>
 		<table id="orderDetail_PaymentInfo1">
 			<tr height="50">
@@ -201,6 +204,8 @@
 			</tr>
 		</table>
 		<br>
+		
+		<!-- 배송정보 -->
 		<h4>배송정보</h4>
 		<table id="orderDetail_shipmentInfo">
 			<tr height="45px">

@@ -122,73 +122,77 @@
 		
 		<!-- 주문배송 조회 리스트 -->
 		<table class="myOrderList" width="790px">
-			<tr height="35px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="400px">상품정보</th>
-				<th width="130px">진행상태</th>
-				<th width="130px">확인</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
-					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
-				</td>
-				<td id="myOrderInfo">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-				</td>
-				<td>결제완료</td>
-				<td>
-					<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
-				</td>
-				<td id="myOrderInfo">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-				</td>
-				<td>배송중</td>
-				<td>
-					<button type="button" id="trackShipmentBtn">배송조회</button><br>
-					<button type="button" id="requestRefundBtn">반품신청</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
-				</td>
-				<td id="myOrderInfo">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-				</td>
-				<td>배송완료</td>
-				<td>
-					<button type="button" id="trackShipmentBtn">배송조회</button><br>
-					<button type="button" id="requestRefundBtn">반품신청</button>
-				</td>
-			</tr>
+			<thead>
+				<tr height="35px">
+					<th width="130px">주문번호/주문일</th>
+					<th width="400px">상품정보</th>
+					<th width="130px">진행상태</th>
+					<th width="130px">확인</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>결제완료</td>
+					<td>
+						<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>배송중</td>
+					<td>
+						<button type="button" id="trackShipmentBtn">배송조회</button><br>
+						<button type="button" id="requestRefundBtn">반품신청</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>배송완료</td>
+					<td>
+						<button type="button" id="trackShipmentBtn">배송조회</button><br>
+						<button type="button" id="requestRefundBtn">반품신청</button>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 		
 		

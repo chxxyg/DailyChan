@@ -195,46 +195,50 @@
 		<hr>
 		<span><b>강보람</b> 님의 최근 본 상품은 <b>4</b>개 입니다. (최대 30개까지 저장됩니다.) </span>
 		<table class="recentProduct" width="790px">
-			<tr height="35px">
-				<th width="490px">제품명</th>
-				<th width="150px">제품가격</th>
-				<th width="150px">장바구니 담기</th>
-			</tr>
-			<tr>
-				<td id="recentProduct_td1">
-					<img src="" width="70px" height="70">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-					</div>
-				</td>
-				<td id="recentProduct_td2" colspan="2">
-					상품이 매진되었습니다.
-				</td>
-			</tr>
-						<tr>
-				<td id="recentProduct_td1">
-					<img src="" width="70px" height="70">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-					</div>
-				</td>
-				<td id="recentProduct_td2" colspan="2">
-					12,000원
-					<button type="button" id="shoppingcartBtn" onclick="cartAgain();">장바구니</button>
-				</td>
-			</tr>
-						<tr>
-				<td id="recentProduct_td1">
-					<img src="" width="70px" height="70">
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-					</div>
-				</td>
-				<td id="recentProduct_td2" colspan="2">
-					12,000원
-					<button type="button" id="shoppingcartBtn" onclick="shoppingCart();">장바구니</button>
-				</td>
-			</tr>
+			<thead>
+				<tr height="35px">
+					<th width="490px">제품명</th>
+					<th width="150px">제품가격</th>
+					<th width="150px">장바구니 담기</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="recentProduct_td1">
+						<img src="" width="70px" height="70">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+						</div>
+					</td>
+					<td id="recentProduct_td2" colspan="2">
+						상품이 매진되었습니다.
+					</td>
+				</tr>
+							<tr>
+					<td id="recentProduct_td1">
+						<img src="" width="70px" height="70">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+						</div>
+					</td>
+					<td id="recentProduct_td2" colspan="2">
+						12,000원
+						<button type="button" id="shoppingcartBtn" onclick="cartAgain();">장바구니</button>
+					</td>
+				</tr>
+							<tr>
+					<td id="recentProduct_td1">
+						<img src="" width="70px" height="70">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+						</div>
+					</td>
+					<td id="recentProduct_td2" colspan="2">
+						12,000원
+						<button type="button" id="shoppingcartBtn" onclick="shoppingCart();">장바구니</button>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 
 	</div>
