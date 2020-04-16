@@ -27,7 +27,7 @@ public class MemberService {
 	}
 	
 	/**
-	 * 2. 회원가입 시 아이디 중복 체크
+	 * 2_1. 회원가입 시 아이디 중복 체크
 	 * @param userId	--> 중복확인하고자 하는 사용자가 입력한 아이디값
 	 * @return			--> 해당 아이디와 일치하는 갯수
 	 */
@@ -40,6 +40,22 @@ public class MemberService {
 	    close(conn);
 	    
 	    return count;
+	}
+	
+	/**
+	 * 2_2. 회원가입 시 이메일 중복 체크
+	 * @param email
+	 * @return
+	 */
+	public int emailCheck(String email)
+	{
+		Connection conn = getConnection();
+		
+		int count = new MemberDao().emailCheck(conn, email);
+		
+		close(conn);
+		
+		return count;
 	}
 		
 }

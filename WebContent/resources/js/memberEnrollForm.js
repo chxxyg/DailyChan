@@ -216,24 +216,26 @@ $(document).ready(function() {
     });
     
     
-    $("#cell_no3").blur(function(){
+    $("#cell_no2").blur(function(){
     	
     
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();
-
+    	var sVal = cell_no1 + "" + cell_no2 + "";
+    	
+    	console.log(cell_no2);
     	if(cell_no1 == "" || cell_no2 == "") {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
     		return;
     	}
-
+    	fnMsgClear($("#caution4"));
 	   	var params = {cell_no : sVal};
      	$.ajax({
-			url: "/member/searchMemberPhoneCheck.action",
+			url: "/emailCheck.me",
 			type: "POST",
 			data : params,
 			success: function(rs) {
-				if(rs.result == "B") {
+				if(rs.result == 1) {
 					fnMsgShow($("#caution4"),"이미 개인 회원으로 등록된 번호입니다.");
 					isChkNum = false;
 					return false;
@@ -266,10 +268,8 @@ $(document).ready(function() {
     	
 		var params = {email : sVal};
  	    $.ajax({
- 				url: "/member/searchMemberMailCheck.action",
+ 				url: "/emailCheck.me",
  				type: "POST",
- 				async: false,
- 				dataType:"json",
  				data : params,
  				success: function(rs) {
  					if(rs.result == "N") {
@@ -298,13 +298,13 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	if(!overpass.validate.isValidEmail(sVal)) {
-    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
-    		if(isAlert) {
-    			alert("정상적인 이메일을 입력해주세요.");
-    		}
-    		return false;
-    	}
+//    	if(!overpass.validate.isValidEmail(sVal)) {
+//    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
+//    		if(isAlert) {
+//    			alert("정상적인 이메일을 입력해주세요.");
+//    		}
+//    		return false;
+//    	}
     	fnMsgClear($("#caution5"));
     	return true;
     }

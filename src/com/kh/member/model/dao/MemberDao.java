@@ -111,4 +111,36 @@ public class MemberDao {
 	    }
 	    return count;
 	}
+	
+	public int emailCheck(Connection conn,String email)
+	{
+		int count = 0;
+	    PreparedStatement pstmt = null;
+	    ResultSet rset = null;
+	    String sql = prop.getProperty("emailCheck");
+	    
+	    try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, email);
+            
+            rset = pstmt.executeQuery();
+            
+            if(rset.next())
+            {
+                count = rset.getInt(1);
+            }
+        }
+        catch (SQLException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+	    finally
+	    {
+	        close(rset);
+	        close(pstmt);
+	    }
+	    return count;
+	}
 }
