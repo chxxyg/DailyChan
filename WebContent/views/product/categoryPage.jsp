@@ -55,7 +55,7 @@
                             <table class="categoryInnerTable">
                                 <tr>
                                     <td>
-                                        <a href=""><img id="productImg1" class="productImg" src="../../resources/sampledata/sd1.jpg"></a>
+                                        <a href=""><img id="productImg1" class="productImg" src="../../resources/sampledata/햄듬뿍부대찌개.jpg"></a>
                                     </td>
                                 </tr>
                                 <tr>

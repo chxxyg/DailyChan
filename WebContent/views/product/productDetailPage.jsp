@@ -20,20 +20,14 @@
             <td>
                 <table id="productImg">
                     <tr>
-                        <td colspan="4"><img id="productTitleImg" src=""></td>
-                    </tr>
-                    <tr>
-                        <td><img id="productDetailImg1" class="productDetailImg" src=""></td>
-                        <td><img id="productDetailImg2" class="productDetailImg" src=""></td>
-                        <td><img id="productDetailImg3" class="productDetailImg" src=""></td>
-                        <td><img id="productDetailImg4" class="productDetailImg" src=""></td>
+                        <td colspan="4"><img id="productTitleImg" src="../../resources/sampledata/햄듬뿍부대찌개.jpg"></td>
                     </tr>
                 </table>
             </td>
             <td>
                 <table id="productInfo">
                     <tr>
-                        <td><div id="productName">데일리찬 상품명</div></td>
+                        <td><div id="productName">데일리찬 하이룽 상품명</div></td>
                     </tr>
                     <tr>
                         <td>
@@ -119,7 +113,7 @@
         </tr>
         <tr>
             <td>
-                <div id="detailImg"><img src=""></div>
+                <div><img id="detailImg" src="../../resources/sampledata/햄듬뿍부대찌개_detail.jpg" style="width:800px; margin-left:100px;"></div>
             </td>
         </tr>
         <tr>
@@ -136,7 +130,7 @@
         </tr>
         <tr>
             <td>
-                <div id="detailInfo"><img src=""></div>
+                <div><img id="detailInfo" src="../../resources/sampledata/햄듬뿍부대찌개_info.jpg" style="width:900px; margin-left:50px"></div>
             </td>
         </tr>
         <tr>
