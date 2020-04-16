@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+#ocWrap{
+    width: 1000px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+#ocWrap a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+#ocInfo{
+    width: 1000px;
+    height: 320px;
+    background: rgb(230, 230, 230);
+    text-align: center;
+    padding-top: 40px;
+    margin-bottom: 100px;
+}
+#ocInner{
+    width: 700px;
+    height: 130px;
+    background: white;
+    margin-left: 150px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#ocProductWrap{
+    border-top: 2px solid gray; 
+    border-bottom: 2px solid gray;
+    margin-bottom: 30px;
+}
+
+.ocProductInnerTable{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.ocProductImg{
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+}
+.ocProductName{
+    width: 300px;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 550;
+    margin-left: 10px;
+}
+.ocProductPrice{
+    width: 130px;
+    margin-left: 25px;
+    font-size: 22px;
+    text-align: center;
+}
+.ocProductAmountWrap{
+    width: 125px;
+    margin-left: 15px;
+    text-align: center;
+}
+.ocProductMinusBtn, .ocProductPlusBtn{
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 30%;
+    font-size: 25px;
+    font-weight: 540;
+    text-align: center;
+}
+.ocProductAmount{
+    font-size: 25px;
+    font-weight: 500;
+    padding: 5px;
+}
+.ocProductTotalPrice{
+    width: 150px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+#ocTotalLabel{
+    font-size: 40px;
+    font-weight: 550;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+#ocTotalPriceWrap{
+    width: 1000px;
+    border-top: 2px solid gray; 
+    border-bottom: 2px solid gray;
+}
+
+#ocPaymentInfo{
+    width: 1000px;
+    height: 70px;
+    border-bottom: 2px solid gray;
+    margin-bottom: 50px;
+    font-size: 22px;
+    font-weight: 550;
+    text-align: right;
+    padding-right: 30px;
+}
+
+#ocMainBtn, #ocOrderBtn{
+    width: 160px;
+    height: 60px;
+    margin: 12px;
+    border: none;
+    border-radius: 10%;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+#ocMainBtn{
+    background-color: rgb(243, 219, 0);
+}
+#ocOrderBtn{
+    background-color: rgb(250, 142, 0);
+}
