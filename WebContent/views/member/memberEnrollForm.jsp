@@ -21,7 +21,7 @@
 		<!-- WRAP -->
 	<div class="wrap mem">
 			
-	<form name="joinForm" id="joinForm" method="post" autocomplete="off">			
+	<form name="joinForm" id="joinForm" method="post" action="successEnroll.me">			
 			<!--// LOCATION SELECT -->
 			<div class="join_box" id="join_box">
 				<h2><strong>데일리찬</strong> 신규 회원가입</h2>
@@ -131,10 +131,6 @@
 							</ul>
 						</li>
 					</ul>
-				</div>
-				<div class="recieve_agree_notice">
-					<p class="select_agree">※ 선택 약관에 동의하지 않아도 회원가입이 가능합니다.</p>
-					<p class="select_agree">※ 선택 약관 동의 철회는 가입 완료 후 MY더반찬 &gt; 개인정보 수정에서 가능합니다.</p>
 				</div>
 				<button class="join_up" type="button" id="btn_join_up"><strong>가입하기</strong></button>
 
