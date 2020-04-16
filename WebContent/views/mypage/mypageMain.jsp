@@ -40,6 +40,7 @@
 	}
 	#myMainOrderInfo>div>a{
 		font-size:13px;
+		text-decoration:none;
 	}
 	#orderDetailBtn{
 		width:60px;
@@ -48,6 +49,7 @@
 		border:1px solid black;
 		margin-top:2px;
 		font-size:9px;
+		cursor:pointer;
 	}
 	
 	/* 최근 구매한 상품 영역 */
@@ -60,6 +62,7 @@
 	#recentOrder>a{
 		font-size:13px;
 		font-weight:bold;
+		text-decoration:none;
 	}
 	#recentOrder>p{
 		font-size:12px;

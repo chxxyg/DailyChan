@@ -99,12 +99,13 @@
 	.orderDetailViewWrap>span{color:grey;font-size:13px;}
 	#orderNo{color:blue;}
 	#orderNo+span{margin-left:20px;}
-	#cartAgain{
+	#cartAgainBtn{
 		height:25px;
 		font-size:11px;
 		background-color:white;
 		border:1px solid grey;
 		margin-left:300px;
+		cursor:pointer;
 	}
 	
 	/* 주문내역 테이블*/
@@ -123,6 +124,7 @@
 	.orderDetail td{
 		font-size:12px;
 	}
+	.orderDetail a{text-decoration:none;}
 	#orderDtail_td1, #orderDtail_td2, #orderDtail_td3{
 		border-right:1px solid lightgrey;
 	}
@@ -150,6 +152,7 @@
 		background:white;
 		border:1px solid black;
 		font-size:10px;
+		cursor:pointer;
 	}
 	
 	/* 결제 정보, 배송정보 */
@@ -192,6 +195,7 @@
 		margin-left:330px;
 		background:white;
 		border:1px solid grey;
+		cursor:pointer;
 	}
 	
 </style>
@@ -246,7 +250,7 @@
 		<span id="orderNo">20200331-1234567</span>
 		<span>주문일 : </span>
 		<span>2020-03-31</span>
-		<button id="cartAgain">장바구니 다시담기</button>
+		<button id="cartAgainBtn">장바구니 다시담기</button>
 		
 		<table class="orderDetail" width="790px">
 			<tr height="35px">

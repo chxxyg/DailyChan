@@ -117,6 +117,7 @@
 	.recentProduct td{
 		font-size:12px;
 	}
+	.recentProduct a{text-decoration:none;}
 	#recentProduct_td1{
 		padding:15px 0px 15px 0px;
 	}
@@ -128,7 +129,7 @@
 		width:230px;
 		text-align:left;
 		float:left;
-		margin:18px 0px 0px 15px;
+		margin:25px 0px 0px 15px;
 	}
 	#recentProduct_td1>div>a{
 		font-size:13px;
@@ -143,6 +144,7 @@
 		color:white;
 		margin-left:100px;
 	}
+	#shoppingcartBtn:hover{cursor:pointer;}
 	
 </style>
 </head>

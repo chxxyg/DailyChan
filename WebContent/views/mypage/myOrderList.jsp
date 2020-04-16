@@ -131,6 +131,7 @@
 		font-size:12px;
 		text-align:center;
 	}
+	.myOrderList a{text-decoration:none;}
 	#myOrderInfo{
 		padding:20px 0px 10px 100px;
 	}
@@ -166,6 +167,9 @@
 		background:white;
 		border:1px solid black;
 		font-size:10px;
+	}
+	#orderDtBtn:hover, #trackShipmentBtn:hover, #cancelOrderBtn:hover, #requestRefundBtn:hover{
+	cursor:pointer;
 	}
 	
 </style>

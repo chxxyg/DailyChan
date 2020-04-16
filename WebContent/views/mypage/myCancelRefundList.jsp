@@ -134,6 +134,7 @@
 		font-size:12px;
 		text-align:center;
 	}
+	.myCancelList a{text-decoration:none;}
 	#myCancelInfo{
 		padding:20px 0px 10px 100px;
 	}
