@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#productDetail, .line, #detailWrap{box-sizing: border-box;}
+#productDetail, .line, #detailWrap, #productDetail table, #productDetail div{box-sizing: border-box;}
 #productDetail a, #detailWrap a{text-decoration: none;}
 
 #productDetail{
