@@ -14,7 +14,8 @@
     height: 120px;
     position: absolute;
     top: 48px;
-    left: 553px;
+    left: -200;
+    margin: 250px;
 }
 
 .cst_top dl dd{

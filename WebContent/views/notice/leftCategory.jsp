@@ -12,6 +12,7 @@
     height:623px;
     font-size: 12px;
     text-decoration: none;
+    margin-left:77px;
 }
 
 #cst_lnb ul{

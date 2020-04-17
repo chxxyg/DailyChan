@@ -7,15 +7,26 @@
 
 <style>
 
-#cst_content{
+
+.sub_cont .cst_quick{
     width: 852px;
     height: 98px;
     margin-bottom: 38px;
-     padding: 20px 0;
+    padding: 20px 0;
     border: 4px solid #efefef;
 }
+.sub_cont{
+	float:right;
+	position:relative;
+	width:860px;
+	min-height:800px;
+	padding: 0 0 75px 30px;
+}
+.sub_cont .cst_quick li{
+	float:left;
+}
 
-.cst_quick li a {
+.sub_cont .cst_quick li a {
     display: block;
     position: relative;
     width: 212px;
@@ -36,26 +47,18 @@
 .cst_quick a{
     text-decoration: none;
     color: gray;
-    font-size:13px;
+    font-family:inherit;
 }
 
 .cst_quick li+li{
     border-left: 1px solid #ededed;
-}
-.sub_cont .cst_quick li a:before{
-	position: absolute;
-    top: 11px;
-    left: 50%;
-    width: 59px;
-    height: 46px;
-    margin-left: -30px;
-    content: "";
 }
 
 .cst_faq{
     width: 822px;
     height: auto;
     cursor: pointer;
+
 }
 
 .cst_faq h3 {
@@ -114,11 +117,9 @@
     height: 51px;
     line-height: 30px;
     text-align: left;
-    /* border: 1px solid #efefef; */
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 1px;
 }
-
 
 p.content{
     border:1px solid #efefef;
@@ -129,12 +130,12 @@ p.content{
     display: none;
 }
 .cst_quick img{
-    border:2px;
-    width:90px;
-    height:90px;
-    padding: 10PX;
-    margin-top: -50PX;
-    float: left;
+	position:absolute;
+	top:11px;
+	left:50%;
+    width:59px;
+    height:46px;
+    margin-left:-30px;
 }
 .couns_tbl th, .couns_tbl td {
     height: 32px;
@@ -162,18 +163,34 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
 }
+.list a{
+	text-decoration:none;
+	color:black;
+}
+.sub_cont .cst_noti_main h3{
 
+	margin:40px 0 0;
+	padding:0 0 16px 8px;
+	border-bottom:1px solid  #333;
+	font-size:18px;
+	font-weight:800;
+	color:#000;
+
+}
 </style>
 </head>
-
 <body>
+<%@ include file="../common/mainHeader.jsp" %>
+<%@ include file="../common/mainSideBar.jsp" %>
+<%@ include file="leftCategory.jsp" %>
+<%@ include file="noticeSearch.jsp" %>
 	<div id="cst_content" class="sub_cont">
 	
         <ul class="cst_quick">
-            <li class="q01"><a href=""><img id="q01" src="../../resources/img/lock.png">아이디/비밀번호 찾기</a></li>
-            <li class="q02"><a href=""><img id="q02" src="../../resources/img/delivery.png">주문/배송 조회</a></li>
-            <li class="q03"><a href=""><img id="q03" src="../../resources/img/returnback.png">취소/반품 내역</a></li>
-            <li class="q04"><a href=""><img id="q04" src="../../resources/img/Account.png">비회원 주문조회</a></li>
+            <li class="q01"><a href=""><img id="q01" src="../../resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
+            <li class="q02"><a href=""><img id="q02" src="../../resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
+            <li class="q03"><a href=""><img id="q03" src="../../resources/img/returnback.png" onclick="">취소/반품 내역</a></li>
+            <li class="q04"><a href=""><img id="q04" src="../../resources/img/Account.png" onclick="">비회원 주문조회</a></li>
         </ul>
         
         <div class="cst_faq">
@@ -191,9 +208,8 @@ table {
             <div class="q">아이스박스는 수거 하시나요?</div>
             <p class="content">포장재인 아이스박스는 수거하지 않습니다.<br>
 
-              	  아이스박스 수거 및 폐기시 발생되는 제반환경 및 법적조치 등 사전에 해결해야 할 사안들이 많다 보니,  당장의 회수 약속을 드리기에 어려움이 있습니다.<br>
-                
-                                  더반찬에서도 적극적인 대안마련과 다양한 방법을 찾기 위해 최선을 다하고 있습니다. 번거로우시겠지만, 당분간은 자체 폐기를 부탁드립니다.</p>
+		             아이스박스 수거 및 폐기시 발생되는 제반환경 및 법적조치 등 사전에 해결해야 할 사안들이 많다 보니,  당장의 회수 약속을 드리기에 어려움이 있습니다.<br>
+		             더반찬에서도 적극적인 대안마련과 다양한 방법을 찾기 위해 최선을 다하고 있습니다. 번거로우시겠지만, 당분간은 자체 폐기를 부탁드립니다.</p>
 
             <div class="q">신선식품인데 택배로 받아도 안전한가요?</div>
             <p class="content">더반찬의 제품은 배송시 선도 유지를 위해 얼린 샘물을 동봉하여 아이스박스에 포장하고 있습니다. 얼린 샘물의 수량은 기온에 따라 수량이 변경되고 있습니다. 신선하고 안전하게 배송하겠습니다</p>
@@ -229,5 +245,6 @@ table {
                     });
                 });
             </script>
+  <%@ include file="../common/mainFooter.jsp" %>
 </body>
 </html>
