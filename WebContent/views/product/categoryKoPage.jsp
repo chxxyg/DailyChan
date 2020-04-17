@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>카테고리</title>
+<title>카테고리 - 한식</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/categoryPage.css">
 </head>
 <body>
@@ -17,17 +17,17 @@
 
     <table id="categoryWrap">
         <tr>
-            <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">대분류</td>
+            <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">한식</td>
         </tr>
         <tr>
             <td colspan="4">
                 <table>
                     <tr>
                         <td><a href=""><div class="categoryBtns">전체보기</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">기타</div></a></td>
+                        <td><a href=""><div class="categoryBtns">국/탕/찌개</div></a></td>
+                        <td><a href=""><div class="categoryBtns">조림/볶음/구이</div></a></td>
+                        <td><a href=""><div class="categoryBtns">면요리</div></a></td>
+                        <td><a href=""><div class="categoryBtns">분식</div></a></td>
                     </tr>
                 </table>
             </td>
@@ -433,6 +433,10 @@
             </td>
         </tr>
     </table>
+    
+    
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
     
 </body>
 </html>

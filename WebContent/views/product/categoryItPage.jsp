@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>카테고리</title>
+<title>카테고리 - 양식</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/categoryPage.css">
 </head>
 <body>
@@ -17,17 +17,17 @@
 
     <table id="categoryWrap">
         <tr>
-            <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">대분류</td>
+            <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">양식</td>
         </tr>
         <tr>
             <td colspan="4">
                 <table>
                     <tr>
                         <td><a href=""><div class="categoryBtns">전체보기</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">기타</div></a></td>
+                        <td><a href=""><div class="categoryBtns">스테이크</div></a></td>
+                        <td><a href=""><div class="categoryBtns">파스타</div></a></td>
+                        <td><a href=""><div class="categoryBtns">사이드</div></a></td>
+                        <td><a href=""><div class="categoryBtns">샐러드</div></a></td>
                     </tr>
                 </table>
             </td>
@@ -433,6 +433,10 @@
             </td>
         </tr>
     </table>
+    
+    
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
     
 </body>
 </html>
