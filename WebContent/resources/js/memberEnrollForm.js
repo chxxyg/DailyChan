@@ -9,7 +9,8 @@ $(document).ready(function() {
 
 	$("#btn_join_up").click(function() {
     	if(isValid()){
-    		$("this").submit();
+    		console.log(isValid());
+    		$("#joinForm").submit();
     	}
     });
 	
