@@ -1,4 +1,4 @@
-package com.kh.member.cotroller;
+package com.kh.member.cotroller.enrollCheck;
 
 import java.io.IOException;
 import java.io.PrintWriter;

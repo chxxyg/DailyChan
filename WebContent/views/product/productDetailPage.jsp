@@ -27,7 +27,7 @@
             <td>
                 <table id="productInfo">
                     <tr>
-                        <td><div id="productName">데일리찬 하이룽 상품명</div></td>
+                        <td><div id="productName">데일리찬 상품명</div></td>
                     </tr>
                     <tr>
                         <td>
@@ -62,6 +62,7 @@
                     </tr>
                     <tr>
                         <td><div class="productLine"></div></td>
+                        
                     </tr>
                     <tr>
                         <td>
