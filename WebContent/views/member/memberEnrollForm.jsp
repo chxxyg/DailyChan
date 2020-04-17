@@ -21,7 +21,7 @@
 		<!-- WRAP -->
 	<div class="wrap mem">
 			
-	<form name="joinForm" id="joinForm" method="post" action="successEnroll.me">			
+	<form name="joinForm" id="joinForm" method="post" action="insert.me">			
 			<!--// LOCATION SELECT -->
 			<div class="join_box" id="join_box">
 				<h2><strong>데일리찬</strong> 신규 회원가입</h2>

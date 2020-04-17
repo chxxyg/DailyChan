@@ -44,6 +44,22 @@ public class Member {
 		this.reportedNum = reportedNum;
 		this.refMemberId = refMemberId;
 	}
+	
+	
+
+	/**
+	 * @author Taek
+	 * 회원가입 시 필수 입력 정보
+	 */
+	public Member(String memberId, String password, String memberName, String phone, String email, String refMemberId) {
+		super();
+		this.memberId = memberId;
+		this.password = password;
+		this.memberName = memberName;
+		this.phone = phone;
+		this.email = email;
+		this.refMemberId = refMemberId;
+	}
 
 	public String getMemberId() {
 		return memberId;

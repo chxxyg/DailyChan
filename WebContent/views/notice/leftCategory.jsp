@@ -26,6 +26,9 @@
     height:170px;
     margin-top: 50px;
 }
+.cst a{
+	color:black;
+}
 
 li{
     list-style:none;
@@ -44,7 +47,9 @@ li{
 }
 .cst dd{
     padding-bottom: 12px;
+    align:center;
 }
+
 #cst_lnb a{
     text-decoration: none;
 }
@@ -60,11 +65,23 @@ li{
     letter-spacing: -1px;
     font-weight: normal;
 }
-
+.cst_num{
+	margin-left:25px;
+}
+#cst_center{
+	margin-left:-55px;
+	margin-top:20px;
+	font-weight:500;
+	font-size:17px;
+}
+#cst_num1{
+ 	font-size:20px;
+ 	margin-left:23px;
+ 	font-weight:600;
+}
 </style>
 </head>
 <body>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,23 +91,23 @@ li{
     <link rel="stylesheet" href="FOTD/css/noticeCategory.css">
 </head>
 <body>
-
+	
     <div id="cst_lnb" class="lnb">
         <a href=""><h2 align="center">고객센터</h2></a>
         <div id="left-category"> 
             <ul>
-                <li><a id="left_01" href="" onclick="overpass.custcenter.goFAQList()">자주하는 질문</a></li>
-                <li><a id="left_02" href="" onclick="overpass.custcenter.goCounsel()">1:1 친절상담</a></li>
-                <li><a id="left_03" href="" onclick="overpass.custcenter.goCounselList()">1:1 상담내역</a></li>
-                <li><a id="left_04" href="" onclick="overpass.custcenter.goNoticeList()">공지사항</a></li>
+                <li><a id="left_01" href="" onclick="">자주하는 질문</a></li>
+                <li><a id="left_02" href="" onclick="">1:1 친절상담</a></li>
+                <li><a id="left_03" href="" onclick="">1:1 상담내역</a></li>
+                <li><a id="left_04" href="" onclick="">공지사항</a></li>
              </ul>
         </div>
        
         <dl class="cst">
-            <dt align="center"><a href="" onclick="">고객센터</a></dt>
-            <dd><b>1644-6844</b></dd>
-            <dd><div style="color:#5f99f0;">▲ 단체구매문의</div></dd>
-            <dd>평일 9:00~18:00<br>점심시간 12:00~13:00<br>(토/일/공휴일은 휴무)</dd>
+            <dt align="center" id="cst_center"><a href="" onclick="">고객센터</a></dt>
+            <dd id="cst_num1"><b>1644-6844</b></dd>
+            <dd class="cst_num"><div style="color:#5f99f0;">▲ 단체구매문의</div></dd>
+            <dd class="cst_num">평일 9:00~18:00<br>점심시간 12:00~13:00<br>(토/일/공휴일은 휴무)</dd>
         </dl>
     </div>
 </body>

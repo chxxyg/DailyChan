@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
             margin-top:50px;
             line-height: 40px;
             font-weight: bolder;
-            height:250px;
+            height:280px;
         }
         #outer{
 			margin:15px;
@@ -28,11 +28,11 @@
          	opacity:0.7;  
          	border-radius:50px; 
          	margin-left:50px;  
-         	box-shadow:inset 1px 2px 5px 5px #fce2c1;    
+         	box-shadow:inset 1px 2px 5px 5px #aeb2b7;    
         }
         #enrollsubmit{
         	text-align:center;
-        	margin-top:250px;
+        	margin-top:50px;
         }
        	Button {
 			box-shadow:inset 0px 1px 0px 0px #fce2c1;

@@ -27,28 +27,31 @@
 
 #id, #pwd{
 
-    width:400px ;
+    width:360px ;
+    height: 44px;
     margin-left: 50px;
-    height: 30px;
+    
 }
 #loginBtn{
-    width:400px ;
+    width:360px ;
+    height: 44px;
     margin-left: 50px;
-    height: 40px;
     background-color: rgb(238, 98, 5);
     color: white;
     cursor: pointer;
+    font-weight:400;
 }
 #idSaveCheck{
     margin-left: 50px;
 }
 
-#joinup{
-        width:400px ;
+#joinup{ 
+		width:360px ;
+   	 	height: 44px;
         margin-left: 50px;
-        height: 40px;
         color: hsl(28, 100%, 50%);
         cursor: pointer;
+        font-weight:800;
 }
 .bt_set{
 	margin-left:70px;
@@ -56,6 +59,15 @@
 }
 #no_mem{
 	margin-left:60px;
+	border:none;
+	background:white;
+	font-size:14px;
+}
+#find_mem{
+	border:none;
+	background:white;
+	font-size:14px;
+
 }
 
 </style>
@@ -86,9 +98,8 @@
   
 
        <div class="bt_set">
-
-        <a href="" id="find_mem">아이디/비밀번호 찾기</a>
-        <a href="" id="no_mem">비회원 주문조회</a>
+		<button id="find_mem" type="submit" onclick="findMem();">아이디/비밀번호찾기</button>
+		<button id="no_mem" type="submit" onclick="nonMemOrd();">비회원 주문조회</button>
        </div>
     </div>
 
@@ -118,6 +129,19 @@
 			opener.parent.location="<%=contextPath%>/enrollForm.me";			
 			window.close();
 		}
+		
+		function findMem() {
+			
+			opener.parent.location="<%=contextPath%>/find.me";			
+			window.close();
+		}
+			
+		function nonMemOrd() {
+				
+				opener.parent.location="<%=contextPath%>/nonOrd.od";			
+				window.close();
+			}
+		
 	</script>
 
 </body>
