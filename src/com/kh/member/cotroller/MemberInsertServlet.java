@@ -2,12 +2,15 @@ package com.kh.member.cotroller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.kh.member.model.service.MemberService;
 import com.kh.member.model.vo.Member;
 
 /**
@@ -41,9 +44,24 @@ public class MemberInsertServlet extends HttpServlet {
 		
 		Member m = new Member(userId, userPwd, userName, phone, email, recommender);
 		
-//		int result = new MemberService().insertMember(m);
-		
-		
+		int result = new MemberService().insertMember(m);
+	
+		if(result > 0) 
+		{
+          
+            HttpSession session = request.getSession();
+            session.setAttribute("msg", "회원가입 성공!!");
+            
+            response.sendRedirect(request.getContextPath());
+            
+        }
+		else 
+		{
+            
+            request.setAttribute("msg", "회원가입 실패!!");
+            RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+            view.forward(request, response);
+        }
 	}
 
 	/**
