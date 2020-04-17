@@ -15,13 +15,13 @@
     padding: 20px 0;
     border: 4px solid #efefef;
 }
-.sub_cont{
+/* .sub_cont{
 	float:right;
 	position:relative;
 	width:860px;
 	min-height:800px;
 	padding: 0 0 75px 30px;
-}
+} */
 .sub_cont .cst_quick li{
 	float:left;
 }

@@ -10,12 +10,12 @@
 .cst_top{
 
     background-color: #79aff1;
-    width: 890px;
+    width: 1020px;
     height: 120px;
     position: absolute;
     top: 48px;
-    left: -200;
-    margin: 250px;
+    left: 143px;
+    margin: 200px;
 }
 
 .cst_top dl dd{

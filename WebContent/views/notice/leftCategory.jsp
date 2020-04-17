@@ -12,7 +12,8 @@
     height:623px;
     font-size: 12px;
     text-decoration: none;
-    margin-left:77px;
+    margin-left:150px;
+    margin-top: 0;
 }
 
 #cst_lnb ul{
@@ -65,6 +66,7 @@ li{
     line-height: 114px;
     letter-spacing: -1px;
     font-weight: normal;
+    margin-top: 0;
 }
 .cst_num{
 	margin-left:25px;
