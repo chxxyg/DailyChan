@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	//String contextPath = request.getContextPath(); 
+	String contextPath = request.getContextPath(); 
 %>
 
 
@@ -14,8 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <style>
        
-
-
 body {
     left:0px; top:0px;
             box-sizing:border-box;
@@ -102,16 +100,6 @@ body {
     </style>
 </head>
 <body>
-        <div id="content">
-            <ul id="admenubar">
-            	<div id="homebtn"><a href="">Home</a></div>
-            	<br><br>
-            	<hr><br>
-                <li id="adslidedown1">메뉴관리 &nbsp;> 
-                    <ul class="adslide" id="adslid1">
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp">상품등록</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp">상품관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductPayment.jsp">결제관리</a></li>
 
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   
@@ -135,14 +123,6 @@ body {
                         <li><a href="">XXX</a>
                         </li>
                     </ul>
-                    <br><br>
-                    <hr>
-                </li><br>
-                <li id="adslidedown2">회원현황 &nbsp;>  
-                    <ul class="adslide" id="adslid2">
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberList.jsp">회원관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberBlackList.jsp">블랙리스트관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberReport.jsp">신고내역</a></li>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-user"></i></i><span>회원현황</span><i class="arrow fa fa-angle-right pull-right"></i></a>
@@ -156,16 +136,6 @@ body {
                         <li><a href="">XXX</a>
                         </li>
                     </ul>
-                    <br><br>
-                    <hr>
-                </li><br>
-                <li><a href="http://localhost:9999/dailyChan/views/admin/adminEvent/adminEventList.jsp">이벤트관리</a></li><br>
-                <hr><br>
-                <li id="adslidedown3">문의관리 &nbsp;>  
-                    <ul class="adslide" id="adslid3">
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminOneControlList.jsp">1:1 상담 관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-question"></i><span>문의관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
@@ -179,13 +149,6 @@ body {
                         <li><a href="">XXX</a>
                         </li>
                     </ul>
-                    <br><br>
-                    <hr>
-                </li><br> 
-                <li><a href="http://localhost:9999/dailyChan/views/admin/adminReview/adminReviewList.jsp">리뷰관리</a></li>   <br>
-                <hr><br>
-                <li><a href="http://localhost:9999/dailyChan/views/admin/adminProductDiscount/adminProductDiscountList.jsp">상품할인관리</a></li><br><hr><br><br>
-                <li><a href="">인스타그램</a></li>
                 </li>
 
                 <li class="sub-menu">

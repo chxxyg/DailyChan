@@ -87,12 +87,11 @@
 					<div id="email_auth_form">
 					<label for="email"></label>
 					<input type="text" id="email" name="email" maxlength="30" placeholder="이메일">
-					<button id = emailAuth_btn href="">이메일 인증</button>
+					<button id = emailAuth_btn type="button">이메일 인증</button>
 					</div>
 					<br clear="both">
 					<div class="info_txt">※ 주문관련 정보에 대한 이메일과 SMS는 자동으로 전송됩니다.</div>
 					<span class="caution ir" id="caution5"></span>
-					<!-- 2017.06.08 추가 : 추천인 기입란 -->
 					<label for="recomm_remark"></label>
 					<input type="text" id="recomm_remark" name="recomm_remark" maxlength="40" placeholder="추천인 아이디(선택)">
 					<div class="info_txt">※ 더반찬을 추천해준 회원이 있으시면 추천 아이디를 입력해 주세요</div>
@@ -108,26 +107,23 @@
 							<label for="all_agree" style="color: #555;"><b>약관에 모두 동의합니다.</b>
 							</label>
 							<ul class="agree_list">
-										
-								
-											
-										<li>
-											<input type="checkbox" id="2002000080" name="add_info" class="agreeChk validChk" value="2002000080">
-											<label for="2002000080"> (필수) 서비스 이용약관</label><a href="javascript:overpass.link('AGREE',{gbn:'2002000080', target:'_blank'})" class="detail arrow_btn01">내용 보기</a>
-										</li>
-					
-								
-											
-										<li>
-											<input type="checkbox" id="2002000081" name="add_info" class="agreeChk validChk" value="2002000081">
-											<label for="2002000081"> (필수) 개인정보처리방침</label><a href="javascript:overpass.link('AGREE',{gbn:'2002000081', target:'_blank'})" class="detail arrow_btn01">내용 보기</a>
-										</li>
-					
-								
-										<li>
-											<input type="checkbox" id="age_agree" class="agreeChk" value="N">
-											<label for="age_agree">(필수) 본인은 <strong>만 14세</strong> 이상입니다.</label>
-										</li>
+								<li>
+									<input type="checkbox" id="2002000080" name="add_info" class="agreeChk validChk" value="2002000080">
+									<label for="2002000080"> (필수) 서비스 이용약관</label><a href="" class="detail arrow_btn01">내용 보기</a>
+								</li>
+			
+						
+									
+								<li>
+									<input type="checkbox" id="2002000081" name="add_info" class="agreeChk validChk" value="2002000081">
+									<label for="2002000081"> (필수) 개인정보처리방침</label><a href="">내용 보기</a>
+								</li>
+			
+						
+								<li>
+									<input type="checkbox" id="age_agree" class="agreeChk" value="N">
+									<label for="age_agree">(필수) 본인은 <strong>만 14세</strong> 이상입니다.</label>
+								</li>
 							</ul>
 						</li>
 					</ul>
