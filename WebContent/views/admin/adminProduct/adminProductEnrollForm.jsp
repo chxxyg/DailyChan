@@ -19,11 +19,7 @@
             line-height: 40px;
             font-weight: bolder;
             height:600px;
-<<<<<<< HEAD
-           
-=======
             
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
         }
         #outer{
 			margin:15px;
@@ -104,7 +100,6 @@
                 <td width="200">세부 이미지 01</td>
                 <td><input type="file" style="cursor:pointer"></td>
             </tr>
-<<<<<<< HEAD
             <tr>
                 <td width="200">세부 이미지 02</td>
                 <td><input type="file" style="cursor:pointer"></td>
@@ -113,9 +108,7 @@
                 <td width="200">세부 이미지 03</td>
                 <td><input type="file" style="cursor:pointer"></td>
             </tr>
-=======
 
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
             <tr>
                 <td width="200">* 판매가</td>
                 <td><input type="text" required></td>

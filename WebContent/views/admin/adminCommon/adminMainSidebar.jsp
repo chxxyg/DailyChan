@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String contextPath = request.getContextPath(); 
+	//String contextPath = request.getContextPath(); 
 %>
 
 
@@ -102,7 +102,6 @@ body {
     </style>
 </head>
 <body>
-<<<<<<< HEAD
         <div id="content">
             <ul id="admenubar">
             	<div id="homebtn"><a href="">Home</a></div>
@@ -113,7 +112,6 @@ body {
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp">상품등록</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp">상품관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductPayment.jsp">결제관리</a></li>
-=======
 
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   
@@ -136,9 +134,7 @@ body {
                         </li>
                         <li><a href="">XXX</a>
                         </li>
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
                     </ul>
-<<<<<<< HEAD
                     <br><br>
                     <hr>
                 </li><br>
@@ -147,7 +143,6 @@ body {
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberList.jsp">회원관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberBlackList.jsp">블랙리스트관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberReport.jsp">신고내역</a></li>
-=======
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-user"></i></i><span>회원현황</span><i class="arrow fa fa-angle-right pull-right"></i></a>
@@ -160,9 +155,7 @@ body {
                         </li>
                         <li><a href="">XXX</a>
                         </li>
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
                     </ul>
-<<<<<<< HEAD
                     <br><br>
                     <hr>
                 </li><br>
@@ -173,7 +166,6 @@ body {
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminOneControlList.jsp">1:1 상담 관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
-=======
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-question"></i><span>문의관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
@@ -186,9 +178,7 @@ body {
                         </li>
                         <li><a href="">XXX</a>
                         </li>
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
                     </ul>
-<<<<<<< HEAD
                     <br><br>
                     <hr>
                 </li><br> 
@@ -196,7 +186,6 @@ body {
                 <hr><br>
                 <li><a href="http://localhost:9999/dailyChan/views/admin/adminProductDiscount/adminProductDiscountList.jsp">상품할인관리</a></li><br><hr><br><br>
                 <li><a href="">인스타그램</a></li>
-=======
                 </li>
 
                 <li class="sub-menu">
@@ -222,7 +211,6 @@ body {
                 <li class="sub-menu">
                     <a href=""><i class="fa fa-instagram"></i><span>인스타그램</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                 </li>             
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
             </ul>
         </div>
     </aside>
