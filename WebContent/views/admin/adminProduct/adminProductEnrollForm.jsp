@@ -11,6 +11,7 @@
         #adproductEnroll{
             width:100%;height:100%; background-color: white;
             position: fixed; left: 15%; top:5%;
+            
         }
         #adcate{
             margin-left:80px;
@@ -18,7 +19,11 @@
             line-height: 40px;
             font-weight: bolder;
             height:600px;
+<<<<<<< HEAD
            
+=======
+            
+>>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
         }
         #outer{
 			margin:15px;
@@ -29,11 +34,13 @@
          	opacity:0.7;  
          	border-radius:50px; 
          	margin-left:50px;  
-         	box-shadow:inset 1px 2px 5px 5px #fce2c1; 
+             box-shadow:inset 1px 2px 5px 5px #aeb2b7;
+             
         }
         #enrollsubmit{
         	text-align:center;
-        	margin-top:50px;
+            margin-top:50px;
+            
         }
         Button {
 			box-shadow:inset 0px 1px 0px 0px #fce2c1;
@@ -49,15 +56,18 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+            text-shadow:0px 1px 0px #cc9f52;
+            
 		}
 		Button:hover {
 			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+            background-color:#fb9e25;
+            
 		}
 		Button:active {
 			position:relative;
-			top:1px;
+            top:1px;
+            
 		}
         
         
@@ -94,6 +104,7 @@
                 <td width="200">세부 이미지 01</td>
                 <td><input type="file" style="cursor:pointer"></td>
             </tr>
+<<<<<<< HEAD
             <tr>
                 <td width="200">세부 이미지 02</td>
                 <td><input type="file" style="cursor:pointer"></td>
@@ -102,6 +113,9 @@
                 <td width="200">세부 이미지 03</td>
                 <td><input type="file" style="cursor:pointer"></td>
             </tr>
+=======
+
+>>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
             <tr>
                 <td width="200">* 판매가</td>
                 <td><input type="text" required></td>

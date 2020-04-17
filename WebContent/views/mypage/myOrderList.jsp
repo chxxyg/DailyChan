@@ -6,13 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	/* 주문배송조회 */
 	.orderDeliveryList{
 		box-sizing:border-box;
 	}
 	.orderDeliveryList{
 		margin:50px 0px 0px 450px;
 		width:800px;
-		height:600px;
+		height:900px;
 	}
 	
 	/* 조회 기간 선택 영역 */
@@ -29,11 +30,11 @@
 	
 	/* 주문/배송 리스트 영역*/
 	.myOrderList{
-		margin-top:30px;
+		margin:30px 0px 0px 5px;
 	}
 	.myOrderList, .myOrderList tr{
-		border-top:1px solid black;
-		border-bottom:1px solid black;
+		border-top:1px solid grey;
+		border-bottom:1px solid grey;
 		border-collapse: collapse;
 	}
 	.myOrderList th{
@@ -44,44 +45,47 @@
 		font-size:12px;
 		text-align:center;
 	}
-	#myOrderInfo>img{
-		float:left;
-		margin:5px 5px 5px 20px;
+	.myOrderList a{text-decoration:none;}
+	#myOrderInfo{
+		padding:20px 0px 10px 100px;
 	}
 	#myOrderInfo>div{
-		width:200px;
+		width:270px;
 		text-align:left;
 		float:left;
-		margin:20px 0px 0px 10px;
+		margin-bottom:10px;
 	}
 	#myOrderInfo>div>a{
 		font-size:13px;
+		cursor:pointer;
 	}
 	#orderDtBtn{
-		width:60px;
-		height:20px;
+		width:63px;
+		height:25px;
 		background:white;
 		border:1px solid black;
 		margin-top:2px;
-		font-size:9px;
+		font-size:10px;
+		cursor:pointer;
 	}
 	#trackShipmentBtn{
 		width:60px;
-		height:20px;
+		height:30px;
 		background:tomato;
 		border:none;
 		font-size:10px;
 		color:white;
 		margin-bottom:5px;
+		cursor:pointer;
 	}
 	#cancelOrderBtn, #requestRefundBtn{
 		width:60px;
-		height:20px;
+		height:30px;
 		background:white;
 		border:1px solid black;
 		font-size:10px;
+		cursor:pointer;
 	}
-	
 	
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -89,11 +93,10 @@
 <body>
 
 	<%@ include file="mypageMainOuter.jsp" %>
-
+	
 	<div class="orderDeliveryList">
 		<h3>주문/배송 조회</h3>
 		<hr>
-		
 		
 		<!-- 주문배송 조회기간 선택 -->
 		<div id="orderPeriodSch">
@@ -119,86 +122,80 @@
 		</div>
 		
 		<!-- 주문배송 조회 리스트 -->
-		<table class="myOrderList">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="">상세확인 ></button>
-				</td>
-				<td id="myOrderInfo">
-					<img src="" width="70" height="70"></img>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-				</td>
-				<td>결제완료</td>
-				<td>
-					<button type="button" id="cancelOrderBtn">즉시취소</button>
-				</td>
-			</tr>
+		<table class="myOrderList" width="790px">
+			<thead>
+				<tr height="35px">
+					<th width="130px">주문번호/주문일</th>
+					<th width="400px">상품정보</th>
+					<th width="130px">진행상태</th>
+					<th width="130px">확인</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>결제완료</td>
+					<td>
+						<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
+					</td>
+				</tr>
+				<tr height="100px">
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>배송중</td>
+					<td>
+						<button type="button" id="trackShipmentBtn">배송조회</button><br>
+						<button type="button" id="requestRefundBtn">반품신청</button>
+					</td>
+				</tr>
+				<tr height="100px">
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>배송완료</td>
+					<td>
+						<button type="button" id="trackShipmentBtn">배송조회</button><br>
+						<button type="button" id="requestRefundBtn">반품신청</button>
+					</td>
+				</tr>
+			</tbody>
 		</table>
-		<table class="myOrderList">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="">상세확인 ></button>
-				</td>
-				<td id="myOrderInfo">
-					<img src="" width="70" height="70"></img>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-				</td>
-				<td>배송중</td>
-				<td>
-					<button type="button" id="trackShipmentBtn">배송조회</button>
-					<button type="button" id="cancelOrderBtn">즉시취소</button>
-				</td>
-			</tr>
-		</table>
-		<table class="myOrderList">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">학인</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					2020-03-31<br>
-					<button id="orderDtBtn" type="submit" onclick="">상세확인 ></button>
-				</td>
-				<td id="myOrderInfo">
-					<img src="" width="70" height="70"></img>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-				</td>
-				<td>배송완료</td>
-				<td>
-					<button type="button" id="trackShipmentBtn">배송조회</button>
-					<button type="button" id="requestRefundBtn">반품신청</button>
-				</td>
-			</tr>
-		</table>
+		
 		
 		
 		<!-- 페이징바 -->
@@ -206,7 +203,27 @@
 		
 	</div>
 
+	<script>
 		
+		$(function(){
+			$("#selectOrder").css("color", "rgb(247, 112, 46)");
+		});
+		
+		function cancelOrder(){
+			var result = confirm("주문을 즉시취소하시겠습니까?")
+			
+            if(result){
+                alert("처리가 완료되었습니다.");
+            }
+		}
+		function toOrderDetail(){
+			location.href="<%= contextPath %>/views/mypage/myOrderDetailView.jsp";
+		}
+	
+		
+	</script>
+
+	<%@ include file="../../views/common/mainFooter.jsp" %>
 
 </body>
 </html>

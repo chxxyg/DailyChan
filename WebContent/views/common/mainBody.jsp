@@ -191,7 +191,7 @@
                     <table class="bestInnerTable">
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src=""></a>
+                                <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src="../../resources/sampledata/햄듬뿍부대찌개.jpg"></a>
                             </td>
                         </tr>
                         <tr>

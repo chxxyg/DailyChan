@@ -74,7 +74,7 @@
 
                 <input name="userId" id="id" type="text" placeholder="아이디" maxlength="50" required><br><br>
                 <input name="userPwd" id="pwd" type="password" placeholder="비밀번호" maxlength="20" required><br><br>
-                <button id="loginBtn" type="submit" onclick="enrollForm();">로그인</button><br>
+                <button id="loginBtn" type="submit" onclick="inputLogin();">로그인</button><br>
       			 
             </form>
         </div>
@@ -94,12 +94,30 @@
 
 
 	<script>
-		function enrollForm() {
+		function inputLogin() {
 			
-		 	opener.location.replace("<%=contextPath%>");
+			if(document.getElementById("id").value == "")
+			{
+				alert("아이디를 입력해주세요");
+				return false;
+			}
+			
+			if(document.getElementById("pwd").value == "")
+			{
+				alert("비밀번호를 입력해주세요");
+				return false;
+			}
+		 	
+			
+			opener.location.replace("<%=contextPath%>");
 			window.close();
 		}
-	
+		
+		function enrollForm() {
+			
+			opener.parent.location="<%=contextPath%>/enrollForm.me";			
+			window.close();
+		}
 	</script>
 
 </body>

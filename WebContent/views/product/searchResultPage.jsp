@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/searchResultPage.css">
+<title>검색 결과</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/searchResultPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
+
     <table id="searchWrap">
         <tr>
             <td colspan="4">
@@ -18,7 +22,7 @@
                     <form id="searchInputForm">
                         <div id="searchInputArea">
                             <input id="searchInput" type="search" placeholder="찾고 싶은 상품을 검색해보세요.">
-                            <a href=""><img id="searchResultBtn" src="<%=contextPath%>/resources/img/searchlogo.png"></a>
+                            <a href=""><img id="searchResultBtn" src="<%= request.getContextPath() %>/resources/img/searchlogo.png"></a>
                         </div>
                     </form>
                 </div>
@@ -85,8 +89,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn1" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -116,8 +120,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn2" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -147,8 +151,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn3" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -178,8 +182,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn4" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -211,8 +215,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn5" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -242,8 +246,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn6" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -273,8 +277,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn7" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -304,8 +308,8 @@
                                 <tr>
                                     <td>
                                         <div id="searchProductBtn8" class="searchProductBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -316,6 +320,9 @@
             </td>
         </tr>
     </table>
+    
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
     
 </body>
 </html>

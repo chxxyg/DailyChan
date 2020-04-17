@@ -6,14 +6,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+
+	/* 취소/반품 조회 틀 */
 	.cancelRefundList{
 		box-sizing:border-box;
 	}
 	.cancelRefundList{
 		margin:50px 0px 0px 450px;
 		width:800px;
-		height:600px;
+		height:900px;
 	}
+	.cancelRefundList>p{
+		font-size:12px;
+		padding:10px 0px 10px 15px;
+	}
+	
 	
 	/* 조회 기간 선택 영역 */
 	#cancelPeriodSch {
@@ -27,13 +34,13 @@
 		font-size:12px;
 	}
 	
-	/* 주문/배송 리스트 영역*/
+	/* 취소/반품 리스트*/
 	.myCancelList{
-		margin-top:30px;
+		margin:30px 0px 0px 5px;
 	}
 	.myCancelList, .myCancelList tr{
-		border-top:1px solid black;
-		border-bottom:1px solid black;
+		border-top:1px solid grey;
+		border-bottom:1px solid grey;
 		border-collapse: collapse;
 	}
 	.myCancelList th{
@@ -44,19 +51,20 @@
 		font-size:12px;
 		text-align:center;
 	}
-	#myCancelInfo>img{
-		float:left;
-		margin:5px 5px 5px 20px;
+	.myCancelList a{text-decoration:none;}
+	#myCancelInfo{
+		padding:20px 0px 10px 100px;
 	}
 	#myCancelInfo>div{
-		width:200px;
+		width:270px;
 		text-align:left;
 		float:left;
-		margin:20px 0px 0px 10px;
+		margin-bottom:10px;
 	}
 	#myCancelInfo>div>a{
 		font-size:13px;
 	}
+	#myCancelInfo p{font-size:10px; margin:0;}
 	
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -68,7 +76,7 @@
 	<div class="cancelRefundList">
 		<h3>취소/반품 조회</h3>
 		<hr>
-		
+		<p>주문 즉시 취소는 결제 완료 단계 이하에서만 가능하며, 반품신청은 배송중 혹은 배송완료 단계에서 신청이 가능합니다.</p>
 		
 		<!-- 취소반품 조회기간 선택 -->
 		<div id="cancelPeriodSch">
@@ -94,90 +102,87 @@
 		</div>
 		
 		<!-- 주문배송 조회 리스트 -->
-		<table class="myCancelList">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">처리일자</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200429-1234567</a>
-					2020-04-29<br>
-				</td>
-				<td id="myCancelInfo">
-					<img src="" width="70" height="70"></img>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						결제수단 : 신용카드
-					</div>
-				</td>
-				<td>취소완료</td>
-				<td>2020-05-01</td>
-			</tr>
+		<table class="myCancelList" width="790px">
+			<thead>
+				<tr height="35px">
+					<th width="130px">주문번호/주문일</th>
+					<th width="400px">상품정보</th>
+					<th width="130px">진행상태</th>
+					<th width="130px">처리일자</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200429-1234567</a>
+						2020-04-29<br>
+					</td>
+					<td id="myCancelInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+					</td>
+					<td>취소완료</td>
+					<td>2020-05-01</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200410-1234567</a>
+						2020-04-10<br>
+					</td>
+					<td id="myCancelInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+					</td>
+					<td>취소완료</td>
+					<td>2020-04-12</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+					</td>
+					<td id="myCancelInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+							<p>결제수단 : 신용카드</p>
+						</div>
+					</td>
+					<td>취소완료</td>
+					<td>2020-04-01</td>
+				</tr>
+			</tbody>
 		</table>
-		
-		<table class="myCancelList">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">처리일자</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200410-1234567</a>
-					2020-04-10<br>
-				</td>
-				<td id="myCancelInfo">
-					<img src="" width="70" height="70"></img>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						결제수단 : 신용카드
-					</div>
-				</td>
-				<td>취소완료</td>
-				<td>2020-04-12</td>
-			</tr>
-		</table>
-		
-		<table class="myCancelList">
-			<tr height="28px">
-				<th width="130px">주문번호/주문일</th>
-				<th width="450px">상품정보</th>
-				<th width="100px">진행상태</th>
-				<th width="100px">처리일자</th>
-			</tr>
-			<tr>
-				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
-					2020-03-31<br>
-				</td>
-				<td id="myCancelInfo">
-					<img src="" width="70" height="70"></img>
-					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-						결제수단 : 신용카드
-					</div>
-				</td>
-				<td>취소완료</td>
-				<td>2020-04-01</td>
-			</tr>
-		</table>
-		
-		
-		
 		
 		<!-- 페이징바 -->
 		
 		
 	</div>
+	
+	<script>
+		$(function(){
+			$("#selectCancel").css("color", "rgb(247, 112, 46)");
+		});
+	
+	</script>
 
-		
+	<%@ include file="../../views/common/mainFooter.jsp" %>
 
 </body>
 </html>

@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/cartEmptyPage.css">
+<title>장바구니 (비었을 때)</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>resources/css/cartEmptyPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
 
     <table id="cartEmptyWrap">
         <tr>
@@ -38,7 +41,7 @@
                         <td colspan="4">
                             <table id="emptyWrap">
                                 <tr>
-                                    <td style="text-align: center;"><img src="<%=contextPath%>/resources/img/warninglogo.png" id="emptyWarningImg"></td>
+                                    <td style="text-align: center;"><img src="<%= request.getContextPath() %>/resources/img/warninglogo.png" id="emptyWarningImg"></td>
                                 </tr>
                                 <tr>
                                     <td style="font-size: 25px; font-weight: 500; text-align: center;">장바구니에 담긴 상품이 없습니다.</td>
@@ -53,6 +56,9 @@
             </td>
         </tr>
     </table>
+
+<!-- Footer -->
+<%@ include file="/views/common/mainFooter.jsp" %>
     
 </body>
 </html>

@@ -75,6 +75,103 @@ public class MemberDao {
 			close(pstmt);
 		}
 		return loginUser;
-		
+	}
+	
+	/**
+	 * @author Taek
+	 */
+	public int idCheck(Connection conn, String userId)
+	{
+	    int count = 0;
+	    PreparedStatement pstmt = null;
+	    ResultSet rset = null;
+	    String sql = prop.getProperty("idCheck");
+	    
+	    try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            
+            rset = pstmt.executeQuery();
+            
+            if(rset.next())
+            {
+                count = rset.getInt(1);
+            }
+        }
+        catch (SQLException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+	    finally
+	    {
+	        close(rset);
+	        close(pstmt);
+	    }
+	    return count;
+	}
+	
+	
+	public int phoneCheck(Connection conn, String phone)
+	{
+		int count = 0;
+	    PreparedStatement pstmt = null;
+	    ResultSet rset = null;
+	    String sql = prop.getProperty("phoneCheck");
+	    
+	    try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, phone);
+            
+            rset = pstmt.executeQuery();
+            if(rset.next())
+            {
+                count = rset.getInt(1);
+            }
+        }
+        catch (SQLException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+	    finally
+	    {
+	        close(rset);
+	        close(pstmt);
+	    }
+	    return count;
+	}
+	
+	public int emailCheck(Connection conn,String email)
+	{
+		int count = 0;
+	    PreparedStatement pstmt = null;
+	    ResultSet rset = null;
+	    String sql = prop.getProperty("emailCheck");
+	    try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, email);
+            
+            rset = pstmt.executeQuery();
+            
+            if(rset.next())
+            {
+                count = rset.getInt(1);
+            }
+        }
+        catch (SQLException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+	    finally
+	    {
+	        close(rset);
+	        close(pstmt);
+	    }
+	    return count;
 	}
 }

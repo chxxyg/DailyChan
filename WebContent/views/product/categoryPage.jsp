@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String contextPath = request.getContextPath();
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../resources/css/categoryPage.css">
+<title>카테고리</title>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/categoryPage.css">
 </head>
 <body>
+
+<!-- Header -->
+<%@ include file="/views/common/mainHeader.jsp" %>
+
+<!-- sidebar -->
+<%@ include file="/views/common/mainSideBar.jsp" %>
 
     <table id="categoryWrap">
         <tr>
@@ -52,7 +55,7 @@
                             <table class="categoryInnerTable">
                                 <tr>
                                     <td>
-                                        <a href=""><img id="productImg1" class="productImg" src=""></a>
+                                        <a href=""><img id="productImg1" class="productImg" src="../../resources/sampledata/햄듬뿍부대찌개.jpg"></a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -72,8 +75,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn1" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -103,8 +106,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn2" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -134,8 +137,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn3" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -165,8 +168,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn4" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -198,8 +201,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn5" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -229,8 +232,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn6" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -260,8 +263,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn7" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -291,8 +294,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn8" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -324,8 +327,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn9" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -355,8 +358,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn10" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -386,8 +389,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn11" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -417,8 +420,8 @@
                                 <tr>
                                     <td>
                                         <div id="productBtn12" class="productBtn">
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png" alt=""></button>
+                                            <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png" alt=""></button>
                                         </div>
                                     </td>
                                 </tr>

@@ -1,5 +1,7 @@
+<%@page import="com.kh.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,11 +143,13 @@
     </label>
     <!-- 사이드바 요소 -->
     <div class="sidebar">
-        <div id="login">
-        	로그인<br>
-        	해 주세요
-        	<button id="sideBar_login_btn" type="button" onclick="loginPop();"><strong>로그인</strong></button>
-       	</div>
+    	<% if(loginUser == null){ %>
+	        <div id="login">
+	        	로그인<br>
+	        	해 주세요
+	        	<button id="sideBar_login_btn" type="button" onclick="loginPop();"><strong>로그인</strong></button>
+	       	</div>
+       	<% } %>
         <div id="cart">
         	장바구니<br>
         	<b>0</b>

@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
-#agreementWrap{
+#agreeWrap{
     margin: auto;
     margin-top: 70px;
     margin-bottom: 70px;
 }
-.agreementBtns{
+.agreeBtns{
     margin-bottom: 40px;
 }
-.agreementBtns a{
+.agreeBtns a{
     text-decoration: none;
 }
-.agreementBtn{
+.agreeBtn{
     width: 330px;
     height: 40px;
     background-color: lightgray;
@@ -21,10 +21,10 @@
     text-align: center;
     padding-top: 12px;
 }
-#agreementBtnA1, #agreementBtnB2, #agreementBtnC3{
+#agreeBtnA1, #agreeBtnB2, #agreeBtnC3{
     background: rgb(250, 212, 0);
 }
-#agreementImg1, #agreementImg2, #agreementImg3{
+#agreeImg1, #agreeImg2, #agreeImg3{
     width: 1000px;
     height: auto;
     margin-bottom: 50px;

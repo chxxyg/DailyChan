@@ -64,7 +64,7 @@
 	/* 마이페이지 카테고리 영역 스타일 */
 	#mypageCategory{
 		width:200px;
-		height:800px;
+		height:620px;
 		margin-top:30px;
 		float:left;
 	}
@@ -88,10 +88,10 @@
 		color:rgb(247, 112, 46);
 		text-weight:800;
 	}
-	
 </style>
 </head>
 <body>
+
 
 	<%@ include file="../common/mainHeader.jsp" %>
 	
@@ -117,18 +117,18 @@
 		<!-- 마이페이지(좌) 카테고리 영역 -->
 		<div id="mypageCategory">
 			<div class="myCateFirst">주문정보</div>
-			<div><a href="">주문/배송 조회</a></div>
-			<div><a href="">취소/반품 조회</a></div>
+			<div><a id="selectOrder" href="">주문/배송 조회</a></div>
+			<div><a id="selectCancel" href="">취소/반품 조회</a></div>
 			<div class="myCateFirst">구매혜택</div>
-			<div><a href="">쿠폰/적립금 조회</a></div>
+			<div><a id="selectCoupon" href="">쿠폰/적립금 조회</a></div>
 			<div class="myCateFirst">활동내역</div>
-			<div><a href="">최근 본 상품</a></div>
-			<div><a href="">고객 후기</a></div>
-			<div><a href="">나의 문의 내역</a></div>
+			<div><a id="selectRecent" href="">최근 본 상품</a></div>
+			<div><a id="selectReview" href="">고객 후기</a></div>
+			<div><a id="selectInquiry" href="">나의 문의 내역</a></div>
 			<div class="myCateFirst">회원정보</div>
-			<div><a href="">배송지 관리</a></div>
-			<div><a href="">개인정보수정</a></div>
-			<div><a href="">회원탈퇴</a></div>
+			<div><a id="selectAddress" href="">배송지 관리</a></div>
+			<div><a id="selectMyInfo" href="">개인정보수정</a></div>
+			<div><a id="selectWithdraw" href="">회원탈퇴</a></div>
 			
 		</div>	
     </div>
