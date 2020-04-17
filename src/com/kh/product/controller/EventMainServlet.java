@@ -1,4 +1,4 @@
-package com.kh.category.controller;
+package com.kh.product.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CategorySaleServlet
+ * Servlet implementation class EventMainServlet
  */
-@WebServlet("/sale.ca")
-public class CategorySaleServlet extends HttpServlet {
+@WebServlet("/main.ev")
+public class EventMainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CategorySaleServlet() {
+    public EventMainServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,8 +27,8 @@ public class CategorySaleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("views/category/categorySalePage.jsp").forward(request, response);
-
+		request.getRequestDispatcher("views/category/eventMainPage.jsp").forward(request, response);
+	
 	}
 
 	/**
