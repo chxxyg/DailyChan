@@ -120,8 +120,8 @@
 			}
 		 	
 			
-			opener.location.replace("<%=contextPath%>");
-			window.close();
+			//opener.location.replace("<%=contextPath%>");
+			//window.close();
 		}
 		
 		function enrollForm() {

@@ -11,9 +11,22 @@
     width: 852px;
     height: 98px;
     margin-bottom: 38px;
-    padding: 20px 0;
+     padding: 20px 0;
     border: 4px solid #efefef;
 }
+
+.cst_quick li a {
+    display: block;
+    position: relative;
+    width: 212px;
+    height: 24px;
+    padding: 74px 0 0;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+    color: #666;
+}
+
 .cst_quick li{
     float: left;
     list-style: none;
@@ -22,11 +35,21 @@
 }
 .cst_quick a{
     text-decoration: none;
+    color: gray;
+    font-size:13px;
 }
 
-.cat_quick li+li{
+.cst_quick li+li{
     border-left: 1px solid #ededed;
-    float: left;
+}
+.sub_cont .cst_quick li a:before{
+	position: absolute;
+    top: 11px;
+    left: 50%;
+    width: 59px;
+    height: 46px;
+    margin-left: -30px;
+    content: "";
 }
 
 .cst_faq{
@@ -35,7 +58,6 @@
     cursor: pointer;
 }
 
-}
 .cst_faq h3 {
     margin-bottom: 0;
     padding: 0 0 18px 8px;
@@ -143,14 +165,17 @@ table {
 
 </style>
 </head>
+
 <body>
-<div id="cst_content" class="sub_cont">
+	<div id="cst_content" class="sub_cont">
+	
         <ul class="cst_quick">
-            <li class="q01"><img src="image/lock.png"><a href="" onclick="loginCheck('MBFIND')">아이디/비밀번호 찾기</a></li>
-            <li class="q02"><img src="image/delivery.png"><a href="" onclick="overpass.link('ORDER')">주문/배송 조회</a></li>
-            <li class="q03"><img src="image/returnback.png"><a href="" onclick="overpass.mypage.goClaimList()">취소/반품 내역</a></li>
-            <li class="q04"><img src="image/Account.png"><a href="" onclick="loginCheck('NMBLOGIN')">비회원 주문조회</a></li>
+            <li class="q01"><a href=""><img id="q01" src="../../resources/img/lock.png">아이디/비밀번호 찾기</a></li>
+            <li class="q02"><a href=""><img id="q02" src="../../resources/img/delivery.png">주문/배송 조회</a></li>
+            <li class="q03"><a href=""><img id="q03" src="../../resources/img/returnback.png">취소/반품 내역</a></li>
+            <li class="q04"><a href=""><img id="q04" src="../../resources/img/Account.png">비회원 주문조회</a></li>
         </ul>
+        
         <div class="cst_faq">
             <h3 class="thm">자주 하는 질문 <span>TOP5</span></h3>
 

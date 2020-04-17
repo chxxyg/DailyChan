@@ -1,6 +1,7 @@
 package com.kh.member.cotroller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +42,13 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
-			response.sendRedirect("/dailyChan");
+//			response.sendRedirect("/dailyChan");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			
+			out.println("window.opener.location.replace('/dailyChan');");
+			out.println("window.close();");
+			out.println("</script>");
 			
 		}else {// 로그인 실패했을 경우 --> 에러페이지
 			
