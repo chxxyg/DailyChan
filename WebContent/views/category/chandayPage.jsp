@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td colspan="4" style="text-align: right;">
-                <button type="button" id="checkAuto"></button>
+                <button type="button" id="checkAuto">간편 담기</button>
             </td>
         </tr>
         <tr>

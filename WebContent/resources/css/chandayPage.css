@@ -35,14 +35,16 @@
     font-weight: 540;
     margin-bottom: 40px;
 }
-#chandayFilter{
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 40px;
+
+/* 간편 담기 버튼 수정중 */
+#checkAuto{
+	width : 150px;
+	height: 70px;
+	background: lightgray;
+	font-size: 20px;
+	font-weight: 500px;
 }
-#chandayFilter a{
-    color: black;
-}
+
 
 .chandayInnerTable{
     width: 250px;
