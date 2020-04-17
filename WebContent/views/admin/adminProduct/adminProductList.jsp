@@ -39,7 +39,7 @@
         .listProduct{
             margin-top:30px;
             text-align:center;
-            width:1100px;
+            width:1150px;
             border: 1px solid #181c20;
             position:relative;
             max-height:600px;
@@ -47,7 +47,7 @@
             
         }
       	/*상품 등록 삭제 버튼css*/
-        #allcount{width:1170px; }
+        #allcount{width:1150px; }
         #allcount>div{float:left;}
         
         /*테이블 헤드*/
@@ -116,7 +116,6 @@
                     <th width="320">상품명</th>
                     <th width="100">판매가</th>
                     <th width="100">판매수량</th>
-                    <th width="80">상품노출</th>
                     <th width="80">재고수량</th>
                 </tr>
             </thead>
@@ -129,7 +128,6 @@
                     <td>관리자테스트용</td>
                     <td>329,000</td>
                     <td>421</td>
-                    <td>노출</td>
                     <td>5,230</td>
                 </tr>
                  <tr>
@@ -140,7 +138,6 @@
                     <td>관리자테스트용</td>
                     <td>329,000</td>
                     <td>421</td>
-                    <td>노출</td>
                     <td>5,230</td>
                 </tr>
                
