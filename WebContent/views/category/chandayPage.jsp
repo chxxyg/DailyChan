@@ -562,6 +562,9 @@
         </tr>
 	</table>
 	
+	
+	
+	
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>
 
