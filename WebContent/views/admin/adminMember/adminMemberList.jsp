@@ -104,7 +104,7 @@
         	회원 ID <input type="text"> <button type="button" onclick="">조회</button><br>
         <div id="allcount">
                 <div style="width:30%;">총 회원 수 :  <input type="text" id="adproductcount"> 명</div>
-                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminMember/adminMemberCorrection.jsp'">회원보기</button> <button>회원삭제</button></div>
+                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberCorrection.jsp'">회원보기</button> <button>회원삭제</button></div>
         </div>  
         <table class="listMember">
             <thead>

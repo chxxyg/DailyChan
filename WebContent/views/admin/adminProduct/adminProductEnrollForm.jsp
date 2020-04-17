@@ -18,6 +18,7 @@
             line-height: 40px;
             font-weight: bolder;
             height:600px;
+           
         }
         #outer{
 			margin:15px;
@@ -60,7 +61,6 @@
 		}
         
         
-        
     </style>
 </head>
 <body>
@@ -80,7 +80,7 @@
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input type="text" placeholder="자동 부여됩니다."></td>
+                <td><input readonly type="text" placeholder="자동 부여됩니다." style="border:none"></td>
             </tr>
             <tr>
                 <td width="200">업체명</td>
@@ -88,19 +88,19 @@
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 01</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 02</td>
-                <td><input type="file" ></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 03</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
             <tr>
                 <td width="200">* 판매가</td>
@@ -117,7 +117,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit">등록하기</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminProduct/adminProductList.jsp'">목록으로</button>
+        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp'">목록으로</button>
         	</div>        
        </div>
     </div>

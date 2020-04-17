@@ -61,36 +61,36 @@
             	<hr><br>
                 <li id="adslidedown1">메뉴관리 &nbsp;> 
                     <ul class="adslide" id="adslid1">
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp">상품등록</a></li>
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminProduct/adminProductList.jsp">상품관리</a></li>
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminProduct/adminProductPayment.jsp">결제관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp">상품등록</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp">상품관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductPayment.jsp">결제관리</a></li>
                     </ul>
                     <br><br>
                     <hr>
                 </li><br>
                 <li id="adslidedown2">회원현황 &nbsp;>  
                     <ul class="adslide" id="adslid2">
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminMember/adminMemberList.jsp">회원관리</a></li>
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminMember/adminMemberBlackList.jsp">블랙리스트관리</a></li>
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminMember/adminMemberReport.jsp">신고내역</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberList.jsp">회원관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberBlackList.jsp">블랙리스트관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberReport.jsp">신고내역</a></li>
                     </ul>
                     <br><br>
                     <hr>
                 </li><br>
-                <li><a href="http://localhost:9999/DailyChan/views/admin/adminEvent/adminEventList.jsp">이벤트관리</a></li><br>
+                <li><a href="http://localhost:9999/dailyChan/views/admin/adminEvent/adminEventList.jsp">이벤트관리</a></li><br>
                 <hr><br>
                 <li id="adslidedown3">문의관리 &nbsp;>  
                     <ul class="adslide" id="adslid3">
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminInquiry/adminOneControlList.jsp">1:1 상담 관리</a></li>
-                        <li><a href="http://localhost:9999/DailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminOneControlList.jsp">1:1 상담 관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
                     </ul>
                     <br><br>
                     <hr>
                 </li><br> 
-                <li><a href="http://localhost:9999/DailyChan/views/admin/adminReview/adminReviewList.jsp">리뷰관리</a></li>   <br>
+                <li><a href="http://localhost:9999/dailyChan/views/admin/adminReview/adminReviewList.jsp">리뷰관리</a></li>   <br>
                 <hr><br>
-                <li><a href="http://localhost:9999/DailyChan/views/admin/adminProductDiscount/adminProductDiscountList.jsp">상품할인관리</a></li><br><hr><br><br>
+                <li><a href="http://localhost:9999/dailyChan/views/admin/adminProductDiscount/adminProductDiscountList.jsp">상품할인관리</a></li><br><hr><br><br>
                 <li><a href="">인스타그램</a></li>
             </ul>
         </div>
