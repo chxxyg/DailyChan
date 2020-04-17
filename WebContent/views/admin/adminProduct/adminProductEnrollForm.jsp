@@ -11,6 +11,7 @@
         #adproductEnroll{
             width:100%;height:100%; background-color: white;
             position: fixed; left: 15%; top:5%;
+            
         }
         #adcate{
             margin-left:80px;
@@ -18,6 +19,11 @@
             line-height: 40px;
             font-weight: bolder;
             height:600px;
+<<<<<<< HEAD
+           
+=======
+            
+>>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
         }
         #outer{
 			margin:15px;
@@ -28,11 +34,13 @@
          	opacity:0.7;  
          	border-radius:50px; 
          	margin-left:50px;  
-         	box-shadow:inset 1px 2px 5px 5px #fce2c1; 
+             box-shadow:inset 1px 2px 5px 5px #aeb2b7;
+             
         }
         #enrollsubmit{
         	text-align:center;
-        	margin-top:50px;
+            margin-top:50px;
+            
         }
         Button {
 			box-shadow:inset 0px 1px 0px 0px #fce2c1;
@@ -48,17 +56,19 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+            text-shadow:0px 1px 0px #cc9f52;
+            
 		}
 		Button:hover {
 			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+            background-color:#fb9e25;
+            
 		}
 		Button:active {
 			position:relative;
-			top:1px;
+            top:1px;
+            
 		}
-        
         
         
     </style>
@@ -80,7 +90,7 @@
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input type="text" placeholder="자동 부여됩니다."></td>
+                <td><input readonly type="text" placeholder="자동 부여됩니다." style="border:none"></td>
             </tr>
             <tr>
                 <td width="200">업체명</td>
@@ -88,20 +98,24 @@
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 01</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
+<<<<<<< HEAD
             <tr>
                 <td width="200">세부 이미지 02</td>
-                <td><input type="file" ></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 03</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer"></td>
             </tr>
+=======
+
+>>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
             <tr>
                 <td width="200">* 판매가</td>
                 <td><input type="text" required></td>
@@ -117,7 +131,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit">등록하기</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminProduct/adminProductList.jsp'">목록으로</button>
+        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp'">목록으로</button>
         	</div>        
        </div>
     </div>

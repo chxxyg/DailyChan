@@ -24,8 +24,11 @@
          	padding:15px;
          	width:700px;
          	height:90%;
-         	background:rgb(255,240,240);
-         	opacity:0.7;      
+         	background:rgba(255,240,240,0.6);
+         	opacity:0.7;  
+         	border-radius:50px; 
+         	margin-left:50px;  
+         	box-shadow:inset 1px 2px 5px 5px #fce2c1;    
         }
         #enrollsubmit{
         	text-align:center;
@@ -66,6 +69,7 @@
     <div id="adproductEnroll">
        <div id="outer">
         <h1>&nbsp;&nbsp;&nbsp;회원정보</h1>
+       <form id="correctForm" action="<%=contextPath%>/memberUpdate.ad" method="POST"> 
         <table id="adcate">
             <tr>
                 <td width="200" >아이디</td>
@@ -93,9 +97,10 @@
             </tr>
            
         </table>
+        </form>
        		 <div id="enrollsubmit">
         		<button type="submit">수정하기</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminMember/adminMemberList.jsp'">목록으로</button>
+        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberList.jsp'">목록으로</button>
         	</div>        
        </div>
     </div>

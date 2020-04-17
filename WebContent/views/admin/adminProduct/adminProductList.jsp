@@ -19,7 +19,7 @@
          	padding:15px;
          	width:1400px;
          	height:90%;
-         	background:rgb(255,240,240);
+         	background:white;
          	opacity:0.7;
         }
         
@@ -28,7 +28,7 @@
         #adproductcount{
             width:25px;
             border:none;
-            color:red;
+            color:#181c20;
         }
         
         #allcount{
@@ -40,7 +40,7 @@
             margin-top:30px;
             text-align:center;
             width:1350px;
-            border: 1px solid yellow;
+            border: 1px solid #181c20;
             position:relative;
             max-height:600px;
             /*border-collapse:collapse; 테이블 간격 없애는구문*/
@@ -52,13 +52,13 @@
         
         /*테이블 헤드*/
         .listProduct>thead>tr>th{
-            border:1px solid red;
+            border:1px solid #181c20;
             
         }
        
         
         .listProduct>tbody>tr>td{
-            border: 1px solid blue;
+            border: 1px solid #181c20;
             table-layout:fixed;
             
             
@@ -104,7 +104,7 @@
         	상품명 <input type="text"> <button type="button" onclick="">조회</button><br>
         <div id="allcount">
                 <div style="width:30%;">총 상품 수 :  <input type="text" id="adproductcount"> 개</div>
-                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp'">상품등록</button> <button>선택삭제</button></div>
+                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp'">상품등록</button> <button>선택삭제</button></div>
         </div>  
         <table class="listProduct">
             <thead>

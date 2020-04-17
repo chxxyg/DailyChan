@@ -43,12 +43,12 @@
 		text-decoration:none;
 	}
 	#orderDetailBtn{
-		width:60px;
-		height:20px;
+		width:63px;
+		height:25px;
 		background:white;
 		border:1px solid black;
 		margin-top:2px;
-		font-size:9px;
+		font-size:10px;
 		cursor:pointer;
 	}
 	

@@ -6,89 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	/* 마이페이지 틀 */
-	.mypageOuter{
-	    width:1000px;
-	    margin:auto;
-		box-sizing:border-box;
-	    padding-top:70px;
-	}
-	.mypageOuter a{
-	    text-decoration:none;
-	}
-	
-	/*마이페이지 간략정보 영역 스타일*/
-	#mypageBrief{
-		width:1004px;
-		height:180px;
-		box-sizing:border-box;
-		border-top:1px solid lightgrey;
-		border-bottom:1px solid lightgrey;
-	}
-	#deliverySite{
-		width:1000px;
-		height:30px;
-		float:right;
-	}
-	#deliverySite~div{
-		width:250px;
-		height:50px;
-		margin-top:40px;
-		font-size:18px;
-		text-align:center;
-		font-weight:bold;
-		float:left;
-	}
-	#deliverySite+div{
-		font-size:30px;
-	}
-
-	#deliverySite img{
-		height:20px;
-		margin-top:12px;
-		margin-right:5px;
-		float:right;
-	}
-	#deliverySite a{
-		width:300px;
-		height:30px;
-		margin-top:15px;
-		font-size:11px;
-		text-align:left;
-	    float:right;
-	}
-	#deliverySite~div>a{
-		color:tomato;
-		font-size:18px;
-	}
-	
-	/* 마이페이지 카테고리 영역 스타일 */
-	#mypageCategory{
-		width:200px;
-		height:800px;
-		margin-top:30px;
-		float:left;
-	}
-	#mypageCategory>div{
-		height:40px;
-	}
-	#mypageCategory>.myCateFirst{
-		margin-top:25px;
-		font-size:16px;
-		font-weight:bold;
-		color:black;
-	}
-	#mypageCategory>div>a{
-		text-align:left;
-		font-size:14px;
-		font-weight:600;
-		color:rgb(102, 102, 102);
-		cursor:pointer;
-	}
-	#mypageCategory>div>a:hover{
-		color:rgb(247, 112, 46);
-		text-weight:800;
-	}
 	
 	/* 고객 후기 조회 */
 	.reviewList{
@@ -99,7 +16,6 @@
 		width:800px;
 		height:1000px;
 	}
-	
 	
 	/* 조회 기간 선택 영역 */
 	#reviewPeriodSch {
@@ -113,60 +29,89 @@
 		font-size:12px;
 	}
 	
-	/* 작성가능한후기/작성한후기 */
-	#reviewBtn button{
-		width:140px;
+	/* 작성가능한후기/작성한후기 선택*/
+	#reviewCate{
+		height:40px;
+		margin-top:50px;	
+	}
+	#reviewCate button{
+		width:200px;
 		height:40px;
 		background:white;
 		border:1px solid black;
+		float:left;
 	}
-	#reviewBtn:hover{cursor:pointer;}
+	#reviewCate button:hover{cursor:pointer;}
+	
+	.selectedCate{
+		border:2px solid rgb(247, 112, 46);
+	}
+	
+	/* 작성 가능한 후기 없는 경우 / 기존에 작성한 후기 없는 경우 */
+	#unWrittenREmpty, #writtenREmpty{
+		width:800px;
+		height:300px;
+		border-top:1px solid grey;
+		border-bottom:1px solid grey;
+	}
+	#cautionlogo{margin:90px 0px 0px 365px;}
+	#unWrittenREmpty p, #writtenREmpty p{font-size:14px;}
+	
+	/* 작성 가능한 후기 있는 경우/ 기존에 작성한 후기 있는 경우 */
+	.rList, .unRList{
+		margin:25px 0px 0px 5px;
+	}
+	.rList, .rList tr, .unRList, .unRList tr{
+		border-top:1px solid lightgrey;
+		border-bottom:1px solid lightgrey;
+		border-collapse: collapse;
+	}
+	.rList td, .unRList td{
+		font-size:12px;
+	}
+	.rList a, .unRList a{
+		text-decoration:none;
+		font-size:13px;
+		cursor:pointer;
+	}
+	#rList_td1, #unRList_td1{
+		padding:15px 0px 15px 0px;
+	}
+	#rList_td1 img, #unRList_td1 img{
+		float:left;
+		margin-left:30px;
+	}
+	#rList_td1 div, #unRList_td1 div{
+		width:230px;
+		text-align:left;
+		float:left;
+		margin:18px 0px 0px 25px;
+	}
+	#rList_td1~td, #unRList_td1~td{text-align:center;}
+	#writeReviewBtn{
+		width:60px;
+		height:30px;
+		background:tomato;
+		border:none;
+		color:white;
+		font-size:10px;
+		cursor:pointer;
+	}
+	#writtenReviewBtn{
+		width:100px;
+		height:30px;
+		background:tomato;
+		border:none;
+		color:white;
+		font-size:10px;
+		cursor:pointer;
+	}
 	
 </style>
 </head>
 <body>
 
-
-	<%@ include file="../common/mainHeader.jsp" %>
-	
-	<div class="mypageOuter">
-        <h1 style="text-align:center";>마이페이지</h1>
-        <br>
-		
-		<!-- 마이페이지 간략정보 영역 -->
-        <div id="mypageBrief" align="center">
-           	<div id="deliverySite">
-                <a href="">기본 배송지 정보 넣을 곳</a>
-                <img src="../../resources/img/positionlogo.png">
-            </div>
-			<div>강보람님</div>
-			<div>주문/배송<br>	<a href="">0</a>건</div>
-			<div>쿠폰<br><a href="">0</a>장</div>
-			<div>적립금<br><a href="">0</a>원</div>
-                
-        </div>
-       <br>
-       <br>
-
-
-		<!-- 마이페이지(좌) 카테고리 영역 -->
-		<div id="mypageCategory">
-			<div class="myCateFirst">주문정보</div>
-			<div><a href="" style="color:rgb(247, 112, 46);">주문/배송 조회</a></div>
-			<div><a href="">취소/반품 조회</a></div>
-			<div class="myCateFirst">구매혜택</div>
-			<div><a href="">쿠폰/적립금 조회</a></div>
-			<div class="myCateFirst">활동내역</div>
-			<div><a href="">최근 본 상품</a></div>
-			<div><a href="" style="color:rgb(247, 112, 46);">고객 후기</a></div>
-			<div><a href="">나의 문의 내역</a></div>
-			<div class="myCateFirst">회원정보</div>
-			<div><a href="">배송지 관리</a></div>
-			<div><a href="">개인정보수정</a></div>
-			<div><a href="">회원탈퇴</a></div>
-			
-		</div>	
-    </div>
+	<%@ include file="mypageMainOuter.jsp" %>
 
 	<!-- 고객 후기 -->
 	<div class="reviewList">
@@ -197,14 +142,156 @@
 		</div>
 
 		<!-- 작성 가능한 리뷰/ 작성한 리뷰 선택  -->
-		<div id="reviewBtn">
-			<button id="writeReview">작성 가능한 리뷰</button>
-			<button id="viewMyReview">작성한 리뷰</button>
+		<div id="reviewCate">
+			<button id="writeReviewCate">작성 가능한 리뷰</button>
+			<button id="viewMyReviewCate">작성한 리뷰</button>
 		</div>
-	
-
-
+		
+		<!-- 작성 가능한 리뷰 -->
+		<div id="writeReview">
+		
+			<!-- if/else 구문 추가 -->
+			<!-- 작성 가능한 리뷰 없는 경우 -->
+			<div id="unWrittenREmpty">
+				<a><img id="cautionlogo" src="<%=contextPath%>/resources/img/cautionlogo.png" width="70px" height="70px"></a>
+				<p align="center">수취 완료 후 30일 이내에 작성 가능한 후기가 없습니다.</p>
+			</div>
+			
+			<!-- 작성 가능한 리뷰 있는 경우 -->
+			<div id="unWrittenRList">
+				<table class="unRList" width="790px">
+					<tbody>
+						<tr>
+							<td id="unRList_td1">
+								<a><img src="" width="80px" height="80"></a>
+								<div>
+									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									주문일 : 2020.03.31
+								</div>
+							</td>
+							<td width="150px">12,000원</td>
+							<td width="150px">
+								<button type="button" id="writeReviewBtn" onclick="writeReview();">리뷰작성</button>
+							</td>
+						</tr>
+						<tr>
+							<td id="unRList_td1">
+								<a><img src="" width="80px" height="80"></a>
+								<div>
+									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									주문일 : 2020.03.31
+								</div>
+							</td>
+							<td width="150px">12,000원</td>
+							<td width="150px">
+								<button type="button" id="writeReviewBtn" onclick="writeReview();">리뷰작성</button>
+							</td>
+						</tr>
+						<tr>
+							<td id="unRList_td1">
+								<a><img src="" width="80px" height="80"></a>
+								<div>
+									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									주문일 : 2020.03.31
+								</div>
+							</td>
+							<td width="150px">12,000원</td>
+							<td width="150px">
+								<button type="button" id="writeReviewBtn" onclick="writeReview();">리뷰작성</button>
+							</td>
+						</tr>
+					</tbody>	
+				</table>
+			</div>
+		</div>
+		
+		
+		<!-- 기존에 작성한 리뷰 조회 -->
+		<div id="viewMyReview">
+		
+			<!-- if/else 구문 추가 -->
+			<!-- 기존에 작성한 후기 없는 경우 -->
+			<div id="writtenREmpty">
+				<a><img id="cautionlogo" src="<%=contextPath%>/resources/img/cautionlogo.png" width="70px" height="70px"></a>
+				<p align="center">기존에 작성한 후기가 없습니다.</p>
+			</div>
+			<!-- 기존에 작성한 후기 있는 경우 -->
+			<div id="writtenRList">
+				<table class="rList" width="790px">
+					<tbody>
+						<tr>
+							<td id="rList_td1">
+								<a><img src="" width="80px" height="80"></a>
+								<div>
+									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									주문일 : 2020.03.31
+								</div>
+							</td>
+							<td width="150px">12,000원</td>
+							<td width="150px">
+								<button type="button" id="writtenReviewBtn" onclick="writtenReview();">내가작성한리뷰</button>
+							</td>
+						</tr>
+						<tr>
+							<td id="rList_td1">
+								<a><img src="" width="80px" height="80"></a>
+								<div>
+									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									주문일 : 2020.03.31
+								</div>
+							</td>
+							<td width="150px">12,000원</td>
+							<td width="150px">
+								<button type="button" id="writtenReviewBtn" onclick="writtenReview();">내가작성한리뷰</button>
+							</td>
+						</tr>
+						<tr>
+							<td id="rList_td1">
+								<a><img src="" width="80px" height="80"></a>
+								<div>
+									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									주문일 : 2020.03.31
+								</div>
+							</td>
+							<td width="150px">12,000원</td>
+							<td width="150px">
+								<button type="button" id="writtenReviewBtn" onclick="writtenReview();">내가작성한리뷰</button>
+							</td>
+						</tr>
+					</tbody>	
+				</table>
+			
+			</div>
+		</div>
+		
 	</div>
 
+	<script>
+		$(function(){
+			$("#selectReviewCate").css("color", "rgb(247, 112, 46)");
+			$("#writeReviewCate").css("border",  "2px solid rgb(247, 112, 46)");
+			$("#writeReview").show();
+			$("#viewMyReview").hide();
+			
+			$("#writeReviewCate").click(function(){
+				$("#writeReviewCate").css("border", "2px solid rgb(247, 112, 46)");
+				$("#viewMyReviewCate").css("border", "");
+				$("#writeReview").show();
+				$("#viewMyReview").hide();
+			});
+			
+			$("#viewMyReviewCate").click(function(){
+				$("#viewMyReviewCate").css("border", "2px solid rgb(247, 112, 46)");
+				$("#writeReviewCate").css("border", "");
+				$("#viewMyReview").show();
+				$("#writeReview").hide();
+			});
+			
+		});
+
+	</script>
+	
+	<%@ include file="../../views/common/mainFooter.jsp" %>
+	
 </body>
 </html>

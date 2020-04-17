@@ -1,21 +1,19 @@
-
-var isSendCert = false;  //인증번호전송여부
-var isCertYn = false;    //인증여부
+var isAlert = true;
+var isSendCert = true;  //인증번호전송여부
+var isCertYn = true;    //인증여부
 var isChkId = false;     //아이디중복체크여부
 var isChkNum = false;    //폰번호중복여부
-var isChkDormant = true;    //폰번호중복여부
 var isChkEmail = false;  //이메일중복여부
 
 $(document).ready(function() {
 
-    $("#btn_join_up").click(function() {
-    	if(	overpass.member.isRunning) return ;
+	$("#btn_join_up").click(function() {
     	if(isValid()){
-    		fnJoinup();
+    		$("this").submit();
     	}
-    
     });
-    
+	
+	
 	$("#all_agree").click(function(){
 		var b = $(this).is(":checked");
 		$(".agreeChk").each(function(){
@@ -23,14 +21,6 @@ $(document).ready(function() {
 		});
 	});
 	
-	
-    //가입 처리 하기 
-    fnJoinup = function() {
-    	$("#cell_no1").attr("disabled",false);
-    	var pin = {};
-  		overpass.member.fnMemJoinupProc($("#joinForm"),pin);
-    }
-    
     $("#join_id").blur(function(){
     	var sVal = $(this).val();
    	
@@ -216,24 +206,25 @@ $(document).ready(function() {
     });
     
     
-    $("#cell_no3").blur(function(){
+    $("#cell_no2").blur(function(){
     	
     
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();
-
+    	var sVal = cell_no1 + "" + cell_no2 + "";
+    	
     	if(cell_no1 == "" || cell_no2 == "") {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
     		return;
     	}
-
+    	fnMsgClear($("#caution4"));
 	   	var params = {cell_no : sVal};
      	$.ajax({
-			url: "/member/searchMemberPhoneCheck.action",
+			url: "phoneCheck.me",
 			type: "POST",
 			data : params,
 			success: function(rs) {
-				if(rs.result == "B") {
+				if(rs == 1) {
 					fnMsgShow($("#caution4"),"이미 개인 회원으로 등록된 번호입니다.");
 					isChkNum = false;
 					return false;
@@ -251,13 +242,13 @@ $(document).ready(function() {
     
     
     
-    $("#email").focus(function(){
-     	if(!isCertYn) {
-    		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
-    		return;
-    	}
-    	fnMsgClear($("#caution5"));		
-    });
+//    $("#email").focus(function(){
+//     	if(!isCertYn) {
+//    		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
+//    		return;
+//    	}
+//    	fnMsgClear($("#caution5"));		
+//    });
     
     $("#email").blur(function(){
     	var sVal = $(this).val();
@@ -266,13 +257,12 @@ $(document).ready(function() {
     	
 		var params = {email : sVal};
  	    $.ajax({
- 				url: "/member/searchMemberMailCheck.action",
+ 				url: "emailCheck.me",
  				type: "POST",
- 				async: false,
- 				dataType:"json",
  				data : params,
  				success: function(rs) {
- 					if(rs.result == "N") {
+ 					if(rs == 1) {
+ 						console.log(rs);
  						fnMsgShow($("#caution5"),"이미 등록된 이메일 입니다.");
  						isChkEmail = false;
  						return false;
@@ -298,13 +288,13 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	if(!overpass.validate.isValidEmail(sVal)) {
-    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
-    		if(isAlert) {
-    			alert("정상적인 이메일을 입력해주세요.");
-    		}
-    		return false;
-    	}
+//    	if(!overpass.validate.isValidEmail(sVal)) {
+//    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
+//    		if(isAlert) {
+//    			alert("정상적인 이메일을 입력해주세요.");
+//    		}
+//    		return false;
+//    	}
     	fnMsgClear($("#caution5"));
     	return true;
     }
@@ -315,7 +305,6 @@ $(document).ready(function() {
     	var	sPw 	= $("#join_pw").val();
     	var sRetype = $("#join_pw").val();
     	var sName 	= $("#join_name").val();
-    	//var sGendCd = $("input[name='gend_cd']:checked").val();
     	var sPhone	= $("#cell_no").val();
         var sEmail	= $("#email").val();
     	
@@ -345,9 +334,9 @@ $(document).ready(function() {
     	var cell_no1 = $("#cell_no1 :selected").val();
     	var cell_no2 = $("#cell_no2").val();
     	var cell_no3 = $("#cell_no3").val();
-    	var cell_no = $("#cell_no").val();
+    	var cell_no = $("#cell_no1").val() + "" + $("#cell_no2").val() + "";
 
-    	if(cell_no1 == "" || cell_no2 == "" || cell_no3 == ""||  cell_no =="") {
+    	if(cell_no1 == "" || cell_no2 == "") {
     		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
     		alert("휴대전화 번호를 입력해 주세요.");
     		return false;
