@@ -33,7 +33,9 @@
     color: white;
     text-align: center;
     float: left;
+    font-family:맑은 고딕, arial, sans-serif;
 }
+
 button{
     margin:0;
     cursor: pointer;
@@ -41,6 +43,7 @@ button{
     border: 0;
     display: block;
     overflow: visible;
+    font-weight:500;
 }
 .fav_word{
     position: absolute;
