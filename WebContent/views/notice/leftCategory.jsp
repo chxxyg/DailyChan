@@ -74,6 +74,7 @@ li{
     <link rel="stylesheet" href="FOTD/css/noticeCategory.css">
 </head>
 <body>
+
     <div id="cst_lnb" class="lnb">
         <a href=""><h2 align="center">고객센터</h2></a>
         <div id="left-category"> 
