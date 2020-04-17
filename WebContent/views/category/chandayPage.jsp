@@ -24,10 +24,10 @@
                 <table>
                     <tr>
                         <td><a href=""><div class="chandayBtn">전체보기</div></a></td>
-                        <td><a href=""><div class="chandayBtn">나물</div></a></td>
+                        <td><a href=""><div class="chandayBtn">메인반찬</div></a></td>
                         <td><a href=""><div class="chandayBtn">밑반찬</div></a></td>
                         <td><a href=""><div class="chandayBtn">김치</div></a></td>
-                        <td><a href=""><div class="chandayBtn">기타</div></a></td>
+                        <td><a href=""><div class="chandayBtn">나물</div></a></td>
                     </tr>
                 </table>
             </td>
@@ -52,17 +52,7 @@
         </tr>
         <tr>
             <td colspan="4" style="text-align: right;">
-                <div id="chandayFilter">
-                    <span><a href="">인기순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">최신순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">낮은가격순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">높은가격순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">고객리뷰순</a></span>
-                </div>
+                <button type="button" id="checkAuto"></button>
             </td>
         </tr>
         <tr>
