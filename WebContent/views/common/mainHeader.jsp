@@ -350,7 +350,7 @@
 
                         </ul>
                     </li>
-                    <li><a href="">EVENT</a></li>
+                    <li><a href="<%= contextPath %>/main.ev">EVENT</a></li>
 
                 </ul>
 
