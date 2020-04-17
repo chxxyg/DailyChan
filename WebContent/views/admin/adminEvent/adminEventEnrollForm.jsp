@@ -100,7 +100,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit">이벤트 등록</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminEvent/adminEventList.jsp'">목록으로</button>
+        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminEvent/adminEventList.jsp'">목록으로</button>
         	</div>        
        </div>
     </div>

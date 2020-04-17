@@ -1,6 +1,6 @@
-
-var isSendCert = false;  //인증번호전송여부
-var isCertYn = false;    //인증여부
+var isAlert = true;
+var isSendCert = true;  //인증번호전송여부
+var isCertYn = true;    //인증여부
 var isChkId = false;     //아이디중복체크여부
 var isChkNum = false;    //폰번호중복여부
 var isChkEmail = false;  //이메일중복여부
@@ -8,10 +8,9 @@ var isChkEmail = false;  //이메일중복여부
 $(document).ready(function() {
 
 	$("#btn_join_up").click(function() {
-		if(isChkId && isChkNum && isChkEmail)
-		{
-			$("#joinForm").submit();
-		}
+    	if(isValid()){
+    		$("this").submit();
+    	}
     });
 	
 	
@@ -22,13 +21,6 @@ $(document).ready(function() {
 		});
 	});
 	
-	
-    //가입 처리 하기 
-    fnJoinup = function() {
-    	$("#cell_no1").attr("disabled",false);
-    	var pin = {};
-    }
-    
     $("#join_id").blur(function(){
     	var sVal = $(this).val();
    	
