@@ -18,7 +18,7 @@
             margin-top:50px;
             line-height: 40px;
             font-weight: bolder;
-            height:600px;
+            height:280px;
             
         }
         #outer{
@@ -111,8 +111,8 @@
                 <td><input type="text" required></td>
             </tr>
             <tr>
-                <td width="200">상품 상세정보</td>
-                <td><textarea cols="30" rows="5" style="resize:none"></textarea></td>
+                <td width="200">상품 정보 이미지</td>
+                <td><input type="file"></td>
             </tr>
         </table>
        		 <div id="enrollsubmit">

@@ -14,8 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <style>
        
-
-
 body {
     left:0px; top:0px;
             box-sizing:border-box;
@@ -148,7 +146,7 @@ body {
                         </li>
                         <li><a href="">공지사항관리</a>
                         </li>
-                        <li><a href="">XXX</a>
+                        <li><a href="">XXXX</a>
                         </li>
                     </ul>
                 </li>

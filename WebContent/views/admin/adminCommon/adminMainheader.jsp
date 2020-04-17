@@ -30,10 +30,8 @@
         #header2{width:55%;}
         #header3{width:10%; font-size:22px; padding-top:6px; color:#e1ffff;}
         #header4,#header5{width:10%;font-size:22px; padding-top: 6px;}
-
         #header a:hover{
             color:#d19b3d;
-
         }
 </style>
 </head>

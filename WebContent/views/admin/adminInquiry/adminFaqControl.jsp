@@ -105,7 +105,7 @@
         	제목 <input type="text"> <button type="button" onclick="">조회</button><br>
         <div id="allcount">
                 <div style="width:30%;">총 게시글 :  <input type="text" id="adproductcount"> 개</div>
-                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminInquiry/adminFaqControlEnroll.jsp'">작성하기</button> <button>선택삭제</button></div>
+                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControlEnroll.jsp'">작성하기</button> <button>선택삭제</button></div>
         </div>  
         <table class="listMember">
             <thead>

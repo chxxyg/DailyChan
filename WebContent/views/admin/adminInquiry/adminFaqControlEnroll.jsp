@@ -91,7 +91,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit" >FAQ 등록</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/DailyChan/views/admin/adminInquiry/adminFaqControl.jsp'">목록으로</button>
+        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp'">목록으로</button>
         	</div>        
        </div>
     </div>

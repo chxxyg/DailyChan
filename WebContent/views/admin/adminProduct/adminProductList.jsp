@@ -17,7 +17,7 @@
           .outer{
          	margin:15px;
          	padding:15px;
-         	width:1400px;
+         	width:1200px;
          	height:90%;
          	background:white;
          	opacity:0.7;
@@ -39,7 +39,7 @@
         .listProduct{
             margin-top:30px;
             text-align:center;
-            width:1350px;
+            width:1100px;
             border: 1px solid #181c20;
             position:relative;
             max-height:600px;
@@ -47,7 +47,7 @@
             
         }
       	/*상품 등록 삭제 버튼css*/
-        #allcount{width:1350px; }
+        #allcount{width:1170px; }
         #allcount>div{float:left;}
         
         /*테이블 헤드*/
