@@ -31,6 +31,8 @@ public class CategoryKoServlet extends HttpServlet {
 
 		request.getRequestDispatcher("views/product/categoryKoPage.jsp").forward(request, response);
 		
+		
+		
 	}
 
 	/**
