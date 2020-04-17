@@ -17,16 +17,16 @@
 
     <table id="categoryWrap">
         <tr>
-            <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">대분류</td>
+            <td colspan="4" style="font-size: 50px; font-weight: 600; text-align: center;">BEST</td>
         </tr>
         <tr>
             <td colspan="4">
                 <table>
                     <tr>
                         <td><a href=""><div class="categoryBtns">전체보기</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="categoryBtns">중분류</div></a></td>
+                        <td><a href=""><div class="categoryBtns">한식</div></a></td>
+                        <td><a href=""><div class="categoryBtns">양식</div></a></td>
+                        <td><a href=""><div class="categoryBtns">아시안</div></a></td>
                         <td><a href=""><div class="categoryBtns">기타</div></a></td>
                     </tr>
                 </table>

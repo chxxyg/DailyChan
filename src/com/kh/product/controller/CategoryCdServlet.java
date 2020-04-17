@@ -1,8 +1,6 @@
 package com.kh.product.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CategoryKoServlet
+ * Servlet implementation class CategoryCdServlet
  */
-@WebServlet("/ko.ca")
-public class CategoryKoServlet extends HttpServlet {
+@WebServlet("/cd.ca")
+public class CategoryCdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CategoryKoServlet() {
+    public CategoryCdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +27,7 @@ public class CategoryKoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("views/product/categoryKoPage.jsp").forward(request, response);
+		request.getRequestDispatcher("views/product/chandayPage.jsp").forward(request, response);
 		
 	}
 
