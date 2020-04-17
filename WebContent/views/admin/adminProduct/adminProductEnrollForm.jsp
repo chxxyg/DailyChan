@@ -66,7 +66,7 @@
             
 		}
         
-        
+        #dailyList{height:20px;}
         
     </style>
 </head>
@@ -78,47 +78,69 @@
         <h1>&nbsp;&nbsp;&nbsp;상품등록</h1>
         <table id="adcate">
             <tr>
+            <form id="PdinsertForm" action="<%= contextPath %>/pdinsert.ad" method="post" enctype="multipart/form-data">
+            
                 <td width="200" >* 카테고리</td>
-                <td><input type="text" required></td>
+                <td>
+			        <select id="dailyList"  name="pdcategoryList" style="width:174px" >
+			            <option value="KOA100">한식 - 국/탕/찌개</option>
+			            <option value="KOB100">한식 - 조림/볶음/구이</option>
+			            <option value="KOC100">한식 - 면요리</option>
+			            <option value="KOD100">한식 - 분식</option>
+			            <option value="ITA200">양식 - 스테이크</option>
+			            <option value="ITB200">양식 - 파스타</option>
+			            <option value="ITC200">양식 - 사이드</option>
+			            <option value="ITD200">양식 - 샐러드</option>
+			            <option value="ASA300">아시안 - 중식</option>
+			            <option value="ASB300">아시안 - 일식</option>
+			            <option value="ASC300">아시안 - 베트남</option>
+			            <option value="ASD300">아시안 - 퓨전</option>
+			            <option value="CDA400">찬Day - 메인반찬</option>
+			            <option value="CDB400">찬Day - 밑반찬</option>
+			            <option value="CDC400">찬Day - 김치</option>
+			            <option value="CDD400">찬Day - 나물</option>
+			        </select>
+        		</td>
             </tr>
             <tr>
                 <td width="200">* 상품명</td>
-                <td><input type="text" required></td>
+                <td><input type="text" required name="pdtitle"></td>
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input type="text" placeholder="자동 부여됩니다."></td>
+                <td><input type="text" placeholder="자동 부여됩니다." name="pdcode"></td>
             </tr>
             <tr>
                 <td width="200">업체명</td>
-                <td><input type="text"></td>
+                <td><input type="text" name="pdenterprise"></td>
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer;" name="pdupfile"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 01</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer;" name="pdupfile2"></td>
             </tr>
 
             <tr>
                 <td width="200">* 판매가</td>
-                <td><input type="text" required></td>
+                <td><input type="text" required name="pdprice"></td>
             </tr>
             <tr>
                 <td width="200">* 수량</td>
-                <td><input type="text" required></td>
+                <td><input type="text" required name="pdstock"></td>
             </tr>
             <tr>
                 <td width="200">상품 정보 이미지</td>
-                <td><input type="file"></td>
+                <td><input type="file" style="cursor:pointer;" name="pdupfile3"></td>
             </tr>
-        </table>
+       		 </table>
        		 <div id="enrollsubmit">
         		<button type="submit">등록하기</button>&nbsp;&nbsp;
         		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp'">목록으로</button>
-        	</div>        
+        	</div> 
+        	</form>       
        </div>
     </div>
 </body>
