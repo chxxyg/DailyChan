@@ -15,7 +15,8 @@
     position: absolute;
     top: 48px;
     left: 143px;
-    margin: 200px;
+    margin-top: 200px;
+    margin-left: 180px;
 }
 
 .cst_top dl dd{
@@ -94,6 +95,7 @@ input[type=text]{
     float: left;
     font-weight: bolder;
     color: white;
+    margin-top:35px;
     margin-left: 40px;
     margin-right: -20px;
 }
@@ -101,9 +103,7 @@ input[type=text]{
 </head>
 <body>
 		<div class="cst_top">
-		        <div>
-		            <p id="faq_logo">FAQ</p>
-		        </div>
+	            <p id="faq_logo">FAQ</p>
 		        <dl>
 		            <dd>
 		                <input type="text" id="sch_faq" title="검색어 입력" placeholder="궁금하신 사항을 입력해 주세요">

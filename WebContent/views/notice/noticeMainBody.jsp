@@ -6,9 +6,15 @@
 <title>Insert title here</title>
 
 <style>
+.sub_cont 
+{
+	width: 1000px;
+	margin-top: 153px;
+	margin-left: 400px;
+}
 
-
-.sub_cont .cst_quick{
+.cst_quick{
+    display: block;
     width: 852px;
     height: 98px;
     margin-bottom: 38px;
