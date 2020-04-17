@@ -146,7 +146,7 @@ body {
                         </li>
                         <li><a href="">공지사항관리</a>
                         </li>
-                        <li><a href="">XXX</a>
+                        <li><a href="">XXXX</a>
                         </li>
                     </ul>
                 </li>
