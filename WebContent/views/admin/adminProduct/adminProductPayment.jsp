@@ -23,7 +23,7 @@
         .listProduct{
             margin-top:30px;
             text-align:center;
-            width:1350px;
+            width:1150px;
             border: 1px solid yellow;
             position:relative;
             max-height:600px;
@@ -32,7 +32,7 @@
         .listProduct>thead>tr>th{
             border:1px solid red;
         }
-        #allcount{width:1370px; }
+        #allcount{width:1150px; }
         .listProduct>tbody tr td{
             border: 1px solid blue;
         }
@@ -71,6 +71,13 @@
 			position:relative;
 			top:1px;
 		}
+		#ordercategory{
+			width:100%;
+			height:100%;
+			padding:0;
+			margin:0;
+            text-align:center;
+		}
         
     </style>
 </head>
@@ -98,8 +105,7 @@
                     <th width="250">회원 아이디</th>
                     <th width="150">총 가격</th>
                     <th width="150">주문시간</th>
-                    <th width="150">입금유무</th>
-                    <th width="150">배송상태</th>
+                    <th width="150">주문/배송</th>
                     <th></th>
                 </tr>
             </thead>
@@ -111,8 +117,17 @@
                     <td>관리자테스트용</td>
                     <td>329,000</td>
                     <td>421</td>
-                    <td>입금대기</td>
-                    <td>입금대기</td>
+                    <td>
+                    <select id="ordercategory" name="adordercategory" >
+                    	<option value="">입금대기</option>
+                    	<option value="">결제완료</option>
+                    	<option value="">결제취소</option>
+                    	<option value="">배송준비중</option>
+                    	<option value="">배송중</option>
+                    	<option value="">배송완료</option>
+                    	<option value="">환불완료</option>
+                    </select>
+                    </td>
                     <td><input type="button" value="변경"></td>
                 </tr>
                 <tr>
@@ -122,8 +137,18 @@
                     <td>관리자테스트용</td>
                     <td>329,000</td>
                     <td>421</td>
-                    <td>입금대기</td>
-                    <td>입금대기</td>
+                   <td>
+                    <select id="ordercategory" name="adordercategory" >
+                    	<option value="">입금대기</option>
+                    	<option value="">결제완료</option>
+                    	<option value="">결제취소</option>
+                    	<option value="">배송준비중</option>
+                    	<option value="">배송중</option>
+                    	<option value="">배송완료</option>
+                    	<option value="">환불완료</option>
+                    </select>
+                    </td>
+                    
                     <td><input type="button" value="변경"></td>
                 </tr>
                 
