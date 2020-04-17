@@ -13,19 +13,17 @@ import javax.servlet.http.HttpSession;
 import com.kh.admin.adminMember.model.service.adMemberService;
 import com.kh.admin.adminMember.model.vo.adMember;
 
-
-
 /**
- * Servlet implementation class AdMemberSearchServlet
+ * Servlet implementation class AdMemberDeleteServlet
  */
-@WebServlet("/memberSearch.ad")
-public class AdMemberSearchServlet extends HttpServlet {
+@WebServlet("/memberDelete.ad")
+public class AdMemberDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdMemberSearchServlet() {
+    public AdMemberDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,12 +32,13 @@ public class AdMemberSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		
-		String userId = request.getParameter("userId");
 		
 		
 		
 	}
+		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -86,6 +86,14 @@
 		font-size:10px;
 		cursor:pointer;
 	}
+	#cancelOrdBlockBtn{
+		width:60px;
+		height:30px;
+		background:white;
+		border:1px solid black;
+		font-size:10px;
+		cursor:pointer;
+	}
 	
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -132,6 +140,21 @@
 				</tr>
 			</thead>
 			<tbody>
+				<tr height="100px">
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>입금대기</td>
+					<td></td>
+				</tr>
 				<tr>
 					<td>
 						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
@@ -155,6 +178,38 @@
 					<td>결제완료</td>
 					<td>
 						<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
+					</td>
+				</tr>
+				<tr height="100px">
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>결제취소</td>
+					<td></td>
+				</tr>
+				<tr height="100px">
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>배송준비중</td>
+					<td>
+						<button type="button" id="cancelOrdBlockBtn" onclick="cancelOrdBlock();">즉시취소</button>
 					</td>
 				</tr>
 				<tr height="100px">
@@ -193,6 +248,21 @@
 						<button type="button" id="requestRefundBtn">반품신청</button>
 					</td>
 				</tr>
+				<tr height="100px">
+					<td>
+						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href=""><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					<td>환불완료</td>
+					<td></td>
+				</tr>
 			</tbody>
 		</table>
 		
@@ -220,6 +290,10 @@
 			location.href="<%= contextPath %>/views/mypage/myOrderDetailView.jsp";
 		}
 	
+		function cancelOrdBlock(){
+			alert("                즉시취소는 결제완료 단계까지 가능합니다.\r\n              상품준비중 이후의 단계에서는 상품이 조리되어\r\n              취소처리가 불가능하니 이점 양해 부탁드립니다.");
+		}
+		
 		
 	</script>
 
