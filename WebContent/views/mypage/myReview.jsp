@@ -268,6 +268,7 @@
 
 	<script>
 		$(function(){
+			$("#selectRecent").css("color", "rgb(247, 112, 46)");
 			$("#selectReviewCate").css("color", "rgb(247, 112, 46)");
 			$("#writeReviewCate").css("border",  "2px solid rgb(247, 112, 46)");
 			$("#writeReview").show();
