@@ -49,11 +49,7 @@ public class MemberInsertServlet extends HttpServlet {
 		if(result > 0) 
 		{
           
-            HttpSession session = request.getSession();
-            session.setAttribute("msg", "회원가입 성공!!");
-            
-            response.sendRedirect(request.getContextPath());
-            
+            request.getRequestDispatcher("views/member/memEnrollSuccess.jsp").forward(request, response);
         }
 		else 
 		{
