@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+
+
 	#mainBanner, #bestWrap, #newSaleWrap, #instaWrap{
 	    width: 1000px;
 	    margin: auto;
