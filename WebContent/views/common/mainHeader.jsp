@@ -265,7 +265,7 @@
             <!-- navigator -->
             <div id="navigator">
                 <ul id="navi">
-                    <li><a href="">NEW</a>
+                    <li><a href="<%= contextPath %>/new.ca">NEW</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">한식</a></li>
@@ -275,7 +275,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="">BEST</a>
+                    <li><a href="<%= contextPath %>/best.ca">BEST</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">한식</a></li>
@@ -286,7 +286,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="">SALE</a>
+                    <li><a href="<%= contextPath %>/sale.ca">SALE</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">한식</a></li>
@@ -297,7 +297,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="">한식</a>
+                    <li><a href="<%= contextPath %>/ko.ca">한식</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">국/탕/찌개</a></li>
@@ -308,7 +308,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="">양식</a>
+                    <li><a href="<%= contextPath %>/it.ca">양식</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">스테이크</a></li>
@@ -318,7 +318,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="">아시안</a>
+                    <li><a href="<%= contextPath %>/as.ca">아시안</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">중식</a></li>
@@ -329,7 +329,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="">찬DAY</a>
+                    <li><a href="<%= contextPath %>/cd.ca">찬DAY</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">나물</a></li>
