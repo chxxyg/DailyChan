@@ -114,12 +114,9 @@ body {
                     <a href="javascript:void(0);"><i class="fa fa-shopping-basket"></i><span>상품관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
     
-                        <li><a href="">상품등록</a>
-                        </li>
-                        <li><a href="">상품관리</a>
-                        </li>
-                        <li><a href="">결제관리</a>
-                        </li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp">상품등록</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp">상품관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductPayment.jsp">결제관리</a></li>
                         <li><a href="">XXX</a>
                         </li>
                     </ul>
@@ -127,12 +124,9 @@ body {
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-user"></i></i><span>회원현황</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
-                        <li><a href="">회원관리</a>
-                        </li>    
-                        <li><a href="">블랙리스트관리</a>
-                        </li>
-                        <li><a href="">신고내역</a>
-                        </li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberList.jsp">회원관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberBlackList.jsp">블랙리스트관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberReport.jsp">신고내역</a></li>
                         <li><a href="">XXX</a>
                         </li>
                     </ul>
@@ -140,12 +134,9 @@ body {
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-question"></i><span>문의관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
-                        <li><a href="">FAQ관리</a>
-                        </li>
-                        <li><a href="">1:1상담관리</a>
-                        </li>
-                        <li><a href="">공지사항관리</a>
-                        </li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminOneControlList.jsp">1:1 상담 관리</a></li>
+                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
                         <li><a href="">XXXX</a>
                         </li>
                     </ul>
@@ -154,11 +145,11 @@ body {
                 <li class="sub-menu">
                   <a href="javascript:void(0);"><i class="fa fa-gift"></i><span>이벤트관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                   <ul>
-                      <li><a href="">할인관리</a>
+                      <li><a href="http://localhost:9999/dailyChan/views/admin/adminProductDiscount/adminProductDiscountList.jsp">할인관리</a>
                       </li>
                       <li><a href="">쿠폰관리</a>
                       </li>
-                      <li><a href="">XXX</a>
+                      <li><a href="http://localhost:9999/dailyChan/views/admin/adminEvent/adminEventList.jsp">이벤트 리스트</a>
                       </li>
                   </ul>
               </li>
@@ -168,7 +159,7 @@ body {
                 </li>
 
                 <li class="sub-menu">
-                    <a href=""><i class="fa fa-comment"></i><span>리뷰관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <a href="http://localhost:9999/dailyChan/views/admin/adminReview/adminReviewList.jsp"><i class="fa fa-comment"></i><span>리뷰관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
 
                 </li>
                 <li class="sub-menu">
