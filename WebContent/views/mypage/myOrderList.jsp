@@ -57,33 +57,34 @@
 	}
 	#myOrderInfo>div>a{
 		font-size:13px;
+		cursor:pointer;
 	}
 	#orderDtBtn{
-		width:60px;
-		height:20px;
+		width:63px;
+		height:25px;
 		background:white;
 		border:1px solid black;
 		margin-top:2px;
-		font-size:9px;
+		font-size:10px;
+		cursor:pointer;
 	}
 	#trackShipmentBtn{
 		width:60px;
-		height:20px;
+		height:30px;
 		background:tomato;
 		border:none;
 		font-size:10px;
 		color:white;
 		margin-bottom:5px;
+		cursor:pointer;
 	}
 	#cancelOrderBtn, #requestRefundBtn{
 		width:60px;
-		height:20px;
+		height:30px;
 		background:white;
 		border:1px solid black;
 		font-size:10px;
-	}
-	#orderDtBtn:hover, #trackShipmentBtn:hover, #cancelOrderBtn:hover, #requestRefundBtn:hover{
-	cursor:pointer;
+		cursor:pointer;
 	}
 	
 </style>
@@ -156,7 +157,7 @@
 						<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
 					</td>
 				</tr>
-				<tr>
+				<tr height="100px">
 					<td>
 						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
 						2020-03-31<br>
@@ -174,7 +175,7 @@
 						<button type="button" id="requestRefundBtn">반품신청</button>
 					</td>
 				</tr>
-				<tr>
+				<tr height="100px">
 					<td>
 						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
 						2020-03-31<br>

@@ -17,7 +17,7 @@
 	#orderNo{color:blue;}
 	#orderNo+span{margin-left:20px;}
 	#cartAgainBtn{
-		height:25px;
+		height:30px;
 		font-size:11px;
 		background-color:white;
 		border:1px solid grey;
@@ -41,14 +41,14 @@
 	.orderDetail td{
 		font-size:12px;
 	}
-	.orderDetail a{text-decoration:none;}
+	.orderDetail a{text-decoration:none; cursor:pointer;}
 	#orderDtail_td1, #orderDtail_td2, #orderDtail_td3{
 		border-right:1px solid lightgrey;
 	}
 	#orderDtail_td1{
 		padding:15px 0px 15px 0px;
 	}
-	#orderDtail_td1>img{
+	#orderDtail_td1>a{
 		float:left;
 		margin-left:15px;
 	}
@@ -65,7 +65,7 @@
 	#orderDtail_td3, #orderDtail_td4{padding-left:35px;}
 	#cancelOrderBtn{
 		width:60px;
-		height:20px;
+		height:30px;
 		background:white;
 		border:1px solid black;
 		font-size:10px;
@@ -141,7 +141,7 @@
 			</tr>
 			<tr>
 				<td id="orderDtail_td1">
-					<img src="" width="70px" height="70">
+					<a><img src="" width="70px" height="70"></a>
 					<div>
 						<a href=""><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
@@ -157,7 +157,7 @@
 			</tr>
 			<tr>
 				<td id="orderDtail_td1">
-					<img src="" width="70px" height="70">
+					<a><img src="" width="70px" height="70"></a>
 					<div>
 						<a href=""><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
@@ -166,7 +166,7 @@
 			</tr>
 			<tr>
 				<td id="orderDtail_td1">
-					<img src="" width="70px" height="70">
+					<a><img src="" width="70px" height="70"></a>
 					<div>
 						<a href=""><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
