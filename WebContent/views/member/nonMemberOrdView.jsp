@@ -72,12 +72,14 @@
     height: 54px;
     color:hsl(28, 100%, 50%);
     background-color: white;
-    border: 1px solid hsl(28, 100%, 50%);
+    border: 1.5px solid hsl(28, 100%, 50%);
     font-size:16px;
-    font-weight:600;
+
 }
 #joinUp a{
     text-decoration:none;
+    color:black;
+    font-weight:500;
 }
 
 #login{
@@ -85,8 +87,9 @@
     width: 552px;    
     height: 54px;
     background-color: white;
-    border: 1px solid gray;
+    border: 1.5px solid gray;
     font-size:16px;
+    font-weight:500;
 }
 
 </style>

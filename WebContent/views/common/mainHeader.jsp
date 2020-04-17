@@ -191,6 +191,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<script>
+	$(function(){
+		var message = "<%=msg%>";
+		// var message = "회원가입 성공!!"; // "null"
+		if(message != "null"){
+			alert(message);
+			<% session.removeAttribute("msg"); %>
+		}
+	});
+</script>
     <!-- 전체 윤곽 -->
     <div id="hd_wrap">
         <!-- header + navi  -->

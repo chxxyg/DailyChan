@@ -18,12 +18,8 @@
             margin-top:50px;
             line-height: 40px;
             font-weight: bolder;
-            height:600px;
-<<<<<<< HEAD
-           
-=======
+            height:280px;
             
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
         }
         #outer{
 			margin:15px;
@@ -71,6 +67,7 @@
 		}
         
         
+        
     </style>
 </head>
 <body>
@@ -90,7 +87,7 @@
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input readonly type="text" placeholder="자동 부여됩니다." style="border:none"></td>
+                <td><input type="text" placeholder="자동 부여됩니다."></td>
             </tr>
             <tr>
                 <td width="200">업체명</td>
@@ -98,24 +95,13 @@
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
-                <td><input type="file" style="cursor:pointer"></td>
+                <td><input type="file"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 01</td>
-                <td><input type="file" style="cursor:pointer"></td>
+                <td><input type="file"></td>
             </tr>
-<<<<<<< HEAD
-            <tr>
-                <td width="200">세부 이미지 02</td>
-                <td><input type="file" style="cursor:pointer"></td>
-            </tr>
-            <tr>
-                <td width="200">세부 이미지 03</td>
-                <td><input type="file" style="cursor:pointer"></td>
-            </tr>
-=======
 
->>>>>>> branch 'master' of https://github.com/okt0312/DailyChan.git
             <tr>
                 <td width="200">* 판매가</td>
                 <td><input type="text" required></td>
@@ -125,8 +111,8 @@
                 <td><input type="text" required></td>
             </tr>
             <tr>
-                <td width="200">상품 상세정보</td>
-                <td><textarea cols="30" rows="5" style="resize:none"></textarea></td>
+                <td width="200">상품 정보 이미지</td>
+                <td><input type="file"></td>
             </tr>
         </table>
        		 <div id="enrollsubmit">

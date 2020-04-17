@@ -17,44 +17,61 @@
     left: 553px;
 }
 
-.cst_top dd{
-    float: left;
-    width: 283px;
-    height: 26px;
+.cst_top dl dd{
+     float: left;
+  /*width: 283px;
+    height:	 26px;
     font-size: 13px;
-    line-height: 24px;
+    line-height: 24px; */
+    display: block;
 
 }
 #topSearchBtn{
 
     width: 68px;
-    height: 32px;
+    height:45px;
     background: #383a42;
     color: white;
     text-align: center;
     float: left;
-}
-button{
+    font-family:맑은 고딕, arial, sans-serif;
     margin:0;
     cursor: pointer;
     padding: 0;
     border: 0;
     display: block;
     overflow: visible;
+    font-weight:500;
 }
 .fav_word{
     position: absolute;
-    top: 48px;
-    left: 553px;
+    top: 30px;
+    left: 580px;
 }
 .fav_word li{
     list-style: none;
+    display:list-item;
     float: left;
-    padding: 5px;
-    text-align: center;
     font-size: 12px;
-    font-weight: normal;
+    width:auto;
 }
+.fav_word li a{
+	font-size:15px;
+	font-weight:800;
+	color:#fff;
+}
+.fav_word a{
+	text-decoration:none;
+	cursot:pointer;
+}
+.fav_word li + li{
+
+	margin: 0 0 0 10px;
+	padding: 0 0 0 10px;
+}
+ .fav_word ul{
+	margin-bottom:50px;
+} 
 #sch_faq{
     padding: 5px;
     width:371px;
@@ -95,6 +112,7 @@ input[type=text]{
 		        <form id="topForm" method="post">
 		            <input type="hidden" id="faq" name="faq">
 		        </form>
+		        
 		        <ul class="fav_word">
 		            <li><a href="">쿠폰</a></li>
 		            <li><a href="">배송</a></li>
