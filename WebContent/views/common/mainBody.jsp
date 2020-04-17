@@ -63,6 +63,7 @@
 	    height: 40px;
 	    text-align: right;
 	    padding-right: 30px;
+	    padding-bottom: 10px;
 	}
 	
 	/* NEW/SALE */
@@ -143,8 +144,10 @@
 	
 	/* 인스타그램 */
 	#instaWrap{
+	    width: 1000px;
 	    height: 600px;
 	    margin-bottom: 100px;
+	    box-sizing: border-box;
 	}
 	#instaLabel{
 	    width: 300px;
@@ -161,16 +164,17 @@
 	    height: 80px;
 	}
 	.instaDetail{
-	    width: 500px;
+	    width: 490px;
 	    height: 40px;
 	    font-size: 20px;
 	    font-weight: 500;
 	    text-align: right;
 	    padding-right: 10px;
 	}
+	
 	.instaImg{
-	    width: 245px;
-	    height: 245px;
+	    width: 250px;
+	    height: 250px;
 	}
 
 </style>
