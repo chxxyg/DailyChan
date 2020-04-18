@@ -191,10 +191,10 @@ table {
 <%@ include file="leftCategory.jsp" %>
 <%@ include file="noticeSearch.jsp" %>
 	<div id="cst_content" class="sub_cont">
-	
+
         <ul class="cst_quick">
-            <li class="q01"><a href=""><img id="q01" src="../../resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
-            <li class="q02"><a href=""><img id="q02" src="../../resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
+            <li class="q01"><a href="<%= contextPath%>/find.me"><img id="q01" src="../../resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
+            <li class="q02"><a href="<%= contextPath%>/nonOrd.od"><img id="q02" src="../../resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
             <li class="q03"><a href=""><img id="q03" src="../../resources/img/returnback.png" onclick="">취소/반품 내역</a></li>
             <li class="q04"><a href=""><img id="q04" src="../../resources/img/Account.png" onclick="">비회원 주문조회</a></li>
         </ul>

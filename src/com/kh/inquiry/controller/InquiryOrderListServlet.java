@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class inquiryServlet
+ * Servlet implementation class InquiryOrderListServlet
  */
-@WebServlet("/write.in")
-public class inquiryServlet extends HttpServlet {
+@WebServlet("/inquiryWrite.in")
+public class InquiryOrderListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public inquiryServlet() {
+    public InquiryOrderListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,10 +27,10 @@ public class inquiryServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	
-	
-		request.getRequestDispatcher("views/notice/noticeWriteInquiry.jsp").forward(request, response);
+													
 
+		request.getRequestDispatcher("views/notice/inquiryWriteOrderList.jsp").forward(request, response);
+	
 	
 	}
 
