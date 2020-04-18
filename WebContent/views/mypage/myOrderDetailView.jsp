@@ -130,7 +130,7 @@
 		<span id="orderNo">20200331-1234567</span>
 		<span>주문일 : </span>
 		<span>2020-03-31</span>
-		<button id="cartAgainBtn">장바구니 다시담기</button>
+		<button id="cartAgainBtn" onclick="toCart();">장바구니 다시담기</button>
 		
 		<table class="orderDetail" width="790px">
 			<tr height="35px">
@@ -141,9 +141,9 @@
 			</tr>
 			<tr>
 				<td id="orderDtail_td1">
-					<a><img src="" width="70px" height="70"></a>
+					<a href="<%= contextPath %>/pDetail.pro"><img src="" width="70px" height="70"></a>
 					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
+						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 				</td>
@@ -157,18 +157,18 @@
 			</tr>
 			<tr>
 				<td id="orderDtail_td1">
-					<a><img src="" width="70px" height="70"></a>
+					<a href="<%= contextPath %>/pDetail.pro"><img src="" width="70px" height="70"></a>
 					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
+						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td id="orderDtail_td1">
-					<a><img src="" width="70px" height="70"></a>
+					<a href="<%= contextPath %>/pDetail.pro"><img src="" width="70px" height="70"></a>
 					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
+						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 				</td>
@@ -249,6 +249,12 @@
 		
 		function preOrderDetail(){
 			history.back();
+		}
+		
+		function toCart(){
+			
+			window.alert("장바구니에 상품이 담겼습니다.");
+			
 		}
 	
 	</script>

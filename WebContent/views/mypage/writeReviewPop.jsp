@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% String contextPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +98,7 @@
 </head>
 <body>
 	<div class="writeReviewWrap">
-		<form>
+		<form action="<%= contextPath %>/insertReview.my" >
 			<table class="writeReview" width="490px">
 				<tbody>
 					<tr id="writeReview_tr1" height="100px">
@@ -132,7 +133,7 @@
 				</tbody>
 			</table>
 			<div id="reviewBtns">
-				<button id="reviewcancelBtn" type="button">취소</button>
+				<button id="reviewcancelBtn" type="reset">취소</button>
 				<button id="reviewSubmitBtn" type="submit">등록</button>
 			</div>
 		</form>

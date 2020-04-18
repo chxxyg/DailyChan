@@ -86,7 +86,7 @@
 					<td id="recentProduct_td1">
 						<a><img src="" width="80px" height="80"></a>
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						</div>
 					</td>
 					<td id="recentProduct_td2" colspan="2">
@@ -97,24 +97,24 @@
 					<td id="recentProduct_td1">
 						<a><img src="" width="80px" height="80"></a>
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						</div>
 					</td>
 					<td id="recentProduct_td2" colspan="2">
 						12,000원
-						<button type="button" id="shoppingcartBtn" onclick="cartAgain();">장바구니</button>
+						<button type="button" id="shoppingcartBtn" onclick="toCart();">장바구니</button>
 					</td>
 				</tr>
 				<tr>
 					<td id="recentProduct_td1">
 						<a><img src="" width="80px" height="80"></a>
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						</div>
 					</td>
 					<td id="recentProduct_td2" colspan="2">
 						12,000원
-						<button type="button" id="shoppingcartBtn" onclick="shoppingCart();">장바구니</button>
+						<button type="button" id="shoppingcartBtn" onclick="toCart();">장바구니</button>
 					</td>
 				</tr>
 			</tbody>
@@ -126,6 +126,14 @@
 		$(function(){
 			$("#selectRecent").css("color", "rgb(247, 112, 46)");
 		});
+		
+		function toCart(){
+			
+			window.alert("장바구니에 상품이 담겼습니다.");
+			
+		}
+		
+		
 	</script>
 	
 	<%@ include file="../../views/common/mainFooter.jsp" %>

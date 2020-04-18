@@ -163,9 +163,9 @@
 					<tbody>
 						<tr>
 							<td id="unRList_td1">
-								<a><img src="" width="80px" height="80"></a>
+								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
 								<div>
-									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
 									주문일 : 2020.03.31
 								</div>
 							</td>
@@ -176,9 +176,9 @@
 						</tr>
 						<tr>
 							<td id="unRList_td1">
-								<a><img src="" width="80px" height="80"></a>
+								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
 								<div>
-									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
 									주문일 : 2020.03.31
 								</div>
 							</td>
@@ -189,9 +189,9 @@
 						</tr>
 						<tr>
 							<td id="unRList_td1">
-								<a><img src="" width="80px" height="80"></a>
+								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
 								<div>
-									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
 									주문일 : 2020.03.31
 								</div>
 							</td>
@@ -221,9 +221,9 @@
 					<tbody>
 						<tr>
 							<td id="rList_td1">
-								<a><img src="" width="80px" height="80"></a>
+								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
 								<div>
-									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
 									주문일 : 2020.03.31
 								</div>
 							</td>
@@ -234,9 +234,9 @@
 						</tr>
 						<tr>
 							<td id="rList_td1">
-								<a><img src="" width="80px" height="80"></a>
+								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
 								<div>
-									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
 									주문일 : 2020.03.31
 								</div>
 							</td>
@@ -247,9 +247,9 @@
 						</tr>
 						<tr>
 							<td id="rList_td1">
-								<a><img src="" width="80px" height="80"></a>
+								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
 								<div>
-									<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
+									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
 									주문일 : 2020.03.31
 								</div>
 							</td>

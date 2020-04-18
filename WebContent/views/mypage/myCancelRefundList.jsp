@@ -114,22 +114,22 @@
 			<tbody>
 				<tr>
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200429-1234567</a>
+						<span style="color:blue;">20200429-1234567</span><br>
 						2020-04-29<br>
 					</td>
 					<td id="myCancelInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
@@ -139,12 +139,12 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200410-1234567</a>
+						<span style="color:blue;">20200429-1234567</span><br>
 						2020-04-10<br>
 					</td>
 					<td id="myCancelInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
@@ -154,12 +154,12 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						<span style="color:blue;">20200429-1234567</span><br>
 						2020-03-31<br>
 					</td>
 					<td id="myCancelInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>

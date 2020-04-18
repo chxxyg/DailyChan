@@ -94,15 +94,15 @@
 				</td>
 				<td id="myMainOrderInfo">
 					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
+						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
+						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 					<div>
-						<a href=""><b>데일리찬 상품명</b></a><br>
+						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 				</td>
@@ -117,28 +117,28 @@
 		<h3>최근 구매한 상품</h3>
 		<hr>
 			<div id="recentOrder">
-				<a href=""><img src="" width="145" height="145"></img></a>
-				<a href="">데일리찬 상품명</a>
+				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
+				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
 			<div id="recentOrder">
-				<a href=""><img src="" width="145" height="145"></img></a>
-				<a href="">데일리찬 상품명</a>
+				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
+				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
 			<div id="recentOrder">
-				<a href=""><img src="" width="145" height="145"></img></a>
-				<a href="">데일리찬 상품명</a>
+				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
+				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
 			<div id="recentOrder">
-				<a href=""><img src="" width="145" height="145"></img></a>
-				<a href="">데일리찬 상품명</a>
+				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
+				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
 			<div id="recentOrder">
-				<a href=""><img src="" width="145" height="145"></img></a>
-				<a href="">데일리찬 상품명</a>
+				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
+				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
 	</div>

@@ -148,7 +148,7 @@
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -163,15 +163,15 @@
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -188,7 +188,7 @@
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -203,7 +203,7 @@
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -238,7 +238,7 @@
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -256,7 +256,7 @@
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
