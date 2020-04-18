@@ -89,8 +89,8 @@ public class adMemberDao {
 		
 		try {
 			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
 			
+			rset = stmt.executeQuery(sql);
 			while(rset.next()) {
 				
 				list.add(new adMember(rset.getString("MEMBER_ID"),

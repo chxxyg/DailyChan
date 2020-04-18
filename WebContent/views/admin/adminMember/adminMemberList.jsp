@@ -1,5 +1,7 @@
+<%@page import="com.kh.admin.adminMember.model.vo.adMember"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminMember.model.vo.adMember" %> 
+    pageEncoding="UTF-8" %> 
     
 <%
 	ArrayList<adMember> list = (ArrayList<adMember>)request.getAttribute("list");
@@ -125,7 +127,12 @@
                 </tr>
             </thead>
             <tbody>
-                    <% for(adMember m : list){ %>
+            <% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+					<tr>
+						<td colspan="5">존재하는 공지사항이 없습니다.</td>
+					</tr>
+				<% }else{ // 리스트가 비어있지 않을 경우 %>
+                     <% for(adMember m : list){ %>
                 <tr>
                     <td><input type="checkbox" ></td>
                     <td>1</td>
@@ -137,7 +144,9 @@
                     <td><%= m.getDelMemberYn() %></td>
                     <td><%= m.getPointSum() %></td>
                 </tr>
-                <% } %>
+                <% }
+                   }%>
+                
                
                 
                 

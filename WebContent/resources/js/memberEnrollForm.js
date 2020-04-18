@@ -289,13 +289,16 @@ $(document).ready(function() {
     		return false;
     	}
     	
-//    	if(!overpass.validate.isValidEmail(sVal)) {
-//    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
-//    		if(isAlert) {
-//    			alert("정상적인 이메일을 입력해주세요.");
-//    		}
-//    		return false;
-//    	}
+    	
+    	var regExp = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    	if(!regExp.test(sVal)) {
+    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
+    		if(isAlert) {
+    			alert("정상적인 이메일을 입력해주세요.");
+    		}
+    		return false;
+    	}
+    	
     	fnMsgClear($("#caution5"));
     	return true;
     }

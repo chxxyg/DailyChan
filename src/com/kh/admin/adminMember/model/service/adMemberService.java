@@ -28,7 +28,6 @@ public class adMemberService {
 		close(conn);
 		return list;
 		
-		
 	}
 
 }

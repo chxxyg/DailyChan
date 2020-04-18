@@ -3,7 +3,6 @@ package com.kh.admin.adminMember.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.admin.adminMember.model.service.adMemberService;
 import com.kh.admin.adminMember.model.vo.adMember;
+
 
 /**
  * Servlet implementation class AdMemberListServlet
@@ -32,14 +32,10 @@ public class AdMemberListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		ArrayList<adMember> list = new adMemberService().selectList();
-		
 		request.setAttribute("list", list);
 		
-		
-		RequestDispatcher view = request.getRequestDispatcher("views/admin/adminMember/adminMemberList.jsp");
-		view.forward(request, response);
+		request.getRequestDispatcher("views/admin/adminMember/adminMemberList.jsp").forward(request, response);
 		
 	}
 
