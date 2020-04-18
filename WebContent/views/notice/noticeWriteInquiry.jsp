@@ -128,7 +128,6 @@ table {
     background: #fff;
 }
 .couns_tbl {
-/* 	margin-left:400px; */
     width: 860px;
     border: 1px solid #dbdbdb;
     border-width: 1px 0;
@@ -156,9 +155,6 @@ tbody {
     font-size: 16px;
 }
 button {
-    line-height: 1;
-}
-button {
     display: block;
     overflow: visible;
     margin: 0;
@@ -166,6 +162,37 @@ button {
     cursor: pointer;
     border: 0;
     background: none;
+    line-height: 1;
+}
+input[type="file" i] {
+    -webkit-appearance: initial;
+    background-color: initial;
+    cursor: default;
+    align-items: baseline;
+    color: inherit;
+    text-align: start !important;
+    padding: initial;
+    border: initial;
+}
+.couns_tbl td .file_inp input {
+    height: auto;
+    line-height: 1em;
+    padding: 3px;
+    border: 1px solid #ddd;
+}
+
+.couns_tbl td .file_inp input {
+    width: 70%;
+    height: 28px;
+    margin-right: 6px;
+    line-height: 28px;
+}
+.couns_tbl td .file_inp button {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    vertical-align: middle;
 }
 .conf_btns button + button {
     margin-left: 7px;
@@ -174,10 +201,12 @@ strong {
     font-weight: bold;
 }
 .info_box01 {
-	width:800px;
+	font-size:12px;
+	width:720px;
 	margin-left:400px;
+	margin-top:100px;
     padding: 42px 30px 42px 106px;
-    background: url(../images/odr/back_info.png) no-repeat 42px 41px #efefef;
+    background-color:#efefef;
 }
 .sub_cont {
     float: right;
@@ -187,22 +216,19 @@ strong {
     padding: 0 0 75px 30px;
 }
 .conf_btns button.confirm {
-    width: 166px;
-    height: 56px;
+    width: 124px;
+    height: 50px;
     background: #383a42;
     color: #fff;
 }
 .conf_btns button.cancel {
-    width: 164px;
-    height: 54px;
+    width: 124px;
+    height: 48px;
     border: 1px solid #999;
 }
 .conf_btns button {
     display: inline-block;
     font-size: 16px;
-}
-#conf_btns{
-/* 	margin-left:500px; */
 }
 .wrap.cst .conf_btns {
     margin: 30px 0 100px;
@@ -220,9 +246,10 @@ button em {
 <%@ include file="../common/mainSideBar.jsp" %>
 <%@ include file="leftCategory.jsp" %>
 <%@ include file="noticeSearch.jsp" %>
-  <h2>1:1 친절상담</h2>
+ 
+ <h2>1:1 친절상담</h2>
   <form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post">
-  
+  	
     <div class="cst_slt">
         <div class="info_txt"><em class="req">*<!--<span class="ir">필수입력정보</span>--></em>표시정보는 필수 입력 사항입니다.</div>
         <dl>
@@ -292,6 +319,7 @@ button em {
 						<dt>주문번호 : </dt>
 						<dd></dd>
 					</dl> -->
+					
 					<div id="selectedGoodsBoxDiv" class="tbl goodsDiv">
 				<!-- 		<table>
 							<caption>제품명, 주문/삭제로 이루어진 선택된 제품 표</caption>
@@ -361,10 +389,11 @@ button em {
                         <th scope="row">사진 등록</th>
                              <td>
                                 <dl class="file_inp">
-                                    <dt class="ir">첨부 사진 파일찾기</dt>										
+                                
+                                    <!--<dt class="ir">첨부 사진 파일찾기</dt>-->										
                                     <dd>
                                         <input type="file" name="file" id="file0" title="제품 사진 업로드">
-                                        <button type="button" class="del" name="deleteImgBtn" title="상품 사진 업로드 항목 삭제">삭제</button>
+                                        <button type="button" class="del" name="deleteImgBtn" title="상품 사진 업로드 항목 삭제"><img src="../../resources/img/minus.png" width="15px" height="13px"></button>
                                         <input type="hidden" name="pre_file_nm" value="">
                                     </dd>
                                 </dl>
