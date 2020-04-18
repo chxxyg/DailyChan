@@ -407,7 +407,7 @@ $(document).ready(function() {
     //최초 포커스
     $("#join_id").focus();
     $("#emailAuth_btn").click(function() {
-    	window.open("/dailyChan/emailAuthForm.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+    	window.open("/dailyChan/emailAuthForm.me", "로그인팝업창", "width=500, height=370, top = 50, left = 500, location = no ");
     });
 
 });
