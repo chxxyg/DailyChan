@@ -1,4 +1,4 @@
-package com.kh.member.controller.idPwdFindBox;
+package com.kh.inquiry.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class IdPwdFindBoxServlet
+ * Servlet implementation class inquiryServlet
  */
-@WebServlet("/find.me")
-public class IdPwdFindBoxServlet extends HttpServlet {
+@WebServlet("/write.in")
+public class inquiryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IdPwdFindBoxServlet() {
+    public inquiryServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,8 +29,8 @@ public class IdPwdFindBoxServlet extends HttpServlet {
 
 	
 	
-			request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
-	
+		request.getRequestDispatcher("views/notice/noticeWriteInquiry.jsp").forward(request, response);
+
 	
 	}
 

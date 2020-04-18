@@ -426,7 +426,12 @@ button em {
 					<li>주문 취소/반품 신청은 MY더반찬 메뉴에서 신청하시면 더욱 빠르게 처리됩니다.</li>
 				</ul>
 			</div>
-
+			
+	<script>
+		$(function(){
+			$("#left_02").css("color", "rgb(247, 112, 46)");
+		});
+	</script>
             
 <%@ include file="../common/mainFooter.jsp" %>
 </body>

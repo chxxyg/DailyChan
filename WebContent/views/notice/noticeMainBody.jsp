@@ -232,7 +232,7 @@ table {
                 <li><a href="">[공지] 빠른도착 카테고리 오픈 안내<span class="date thm">2020-04-07</span></a></li>
             
             </ul>
-            <a href="javascript:;" onclick="overpass.custcenter.goNoticeList()" class="arrow_btn01">전체보기</a>
+            <a href="" onclick="" class="arrow_btn01">전체보기</a>
         </div>
     </div>
 

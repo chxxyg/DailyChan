@@ -101,13 +101,13 @@ li{
     <link rel="stylesheet" href="FOTD/css/noticeCategory.css">
 </head>
 <body>
-	
+
     <div id="cst_lnb" class="lnb">
         <a href=""><h2 align="center">고객센터</h2></a>
         <div id="left-category"> 
             <ul>
                 <li><a id="left_01" href="" onclick="">자주하는 질문</a></li>
-                <li><a id="left_02" href="" onclick="">1:1 친절상담</a></li>
+                <li><a id="left_02" href="<%=contextPath%>/write.in">1:1 친절상담</a></li>
                 <li><a id="left_03" href="" onclick="">1:1 상담내역</a></li>
                 <li><a id="left_04" href="" onclick="">공지사항</a></li>
              </ul>
