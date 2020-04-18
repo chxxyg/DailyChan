@@ -1,27 +1,23 @@
-package com.kh.member.cotroller.enrollCheck;
+package com.kh.member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.member.model.service.MemberService;
-
 /**
- * Servlet implementation class EmailCheckServlet
+ * Servlet implementation class EmailAuthFormServlet
  */
-@WebServlet("/emailCheck.me")
-public class EmailCheckServlet extends HttpServlet {
+@WebServlet("/emailAuthForm.me")
+public class EmailAuthFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmailCheckServlet() {
+    public EmailAuthFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,15 +26,8 @@ public class EmailCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	    request.setCharacterEncoding("utf-8");
-	    String email = request.getParameter("email");
 	    
-	    int count = new MemberService().emailCheck(email);
-	    
-	    PrintWriter out = response.getWriter();
-	    out.print(count);
-		
+	    request.getRequestDispatcher("views/member/emailAuthForm.jsp").forward(request, response);
 	}
 
 	/**

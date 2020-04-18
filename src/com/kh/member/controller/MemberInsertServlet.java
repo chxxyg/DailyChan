@@ -1,4 +1,4 @@
-package com.kh.member.cotroller;
+package com.kh.member.controller;
 
 import java.io.IOException;
 

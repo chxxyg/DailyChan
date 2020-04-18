@@ -1,4 +1,4 @@
-package com.kh.member.cotroller;
+package com.kh.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class EmailAuthFormServlet
+ * Servlet implementation class EnrollFormServlet
  */
-@WebServlet("/emailAuthForm.me")
-public class EmailAuthFormServlet extends HttpServlet {
+@WebServlet("/enrollForm.me")
+public class EnrollFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmailAuthFormServlet() {
+    public EnrollFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,8 @@ public class EmailAuthFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
-	    request.getRequestDispatcher("views/member/emailAuthForm.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("views/member/memberEnrollForm.jsp").forward(request, response);
 	}
 
 	/**
