@@ -66,18 +66,6 @@
 							
 							<option value="019">019</option>
 							
-							<option value="0502">0502</option>
-							
-							<option value="0503">0503</option>
-							
-							<option value="0504">0504</option>
-							
-							<option value="0505">0505</option>
-							
-							<option value="0506">0506</option>
-							
-							<option value="0507">0507</option>
-							
 						</select>
 						<input type="text" class="auth_div" id="cell_no2" name="cell_no2" maxlength="8" title="휴대폰번호 뒷자리입력" placeholder="- 빼고 입력해주세요">
 						<span class="caution ir" id="caution4"></span>
@@ -87,7 +75,7 @@
 					<div id="email_auth_form">
 					<label for="email"></label>
 					<input type="text" id="email" name="email" maxlength="30" placeholder="이메일">
-					<button id = emailAuth_btn type="button">이메일 인증</button>
+					<button id="emailAuth_btn" type="button">이메일 인증</button>
 					</div>
 					<br clear="both">
 					<div class="info_txt">※ 주문관련 정보에 대한 이메일과 SMS는 자동으로 전송됩니다.</div>
@@ -116,7 +104,7 @@
 									
 								<li>
 									<input type="checkbox" id="2002000081" name="add_info" class="agreeChk validChk" value="2002000081">
-									<label for="2002000081"> (필수) 개인정보처리방침</label><a href="">내용 보기</a>
+									<label for="2002000081"> (필수) 개인정보처리방침</label><a href="" class="detail arrow_btn01">내용 보기</a>
 								</li>
 			
 						
@@ -139,6 +127,7 @@
 </div>
 
 <%@ include file="/views/common/mainFooter.jsp" %>
+
 
 </body>
 </html>

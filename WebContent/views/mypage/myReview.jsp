@@ -268,7 +268,7 @@
 
 	<script>
 		$(function(){
-			$("#selectRecent").css("color", "rgb(247, 112, 46)");
+			$("#selectReview").css("color", "rgb(247, 112, 46)");
 			$("#selectReviewCate").css("color", "rgb(247, 112, 46)");
 			$("#writeReviewCate").css("border",  "2px solid rgb(247, 112, 46)");
 			$("#writeReview").show();
@@ -289,6 +289,10 @@
 			});
 			
 		});
+		
+		function writeReview(){
+			window.open("<%=contextPath%>/writeForm.re", "후기 작성", "width=500, height=730, left=500");
+		}
 
 	</script>
 	

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	Member m = (Member)session.getAttribute("loginUser");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,6 +98,10 @@
 
 	<%@ include file="../common/mainHeader.jsp" %>
 	
+	<%
+		String memberName = loginUser.getMemberName();
+	%>
+	
 	<div class="mypageOuter">
         <h1 style="text-align:center";>마이페이지</h1>
         <br>
@@ -105,8 +112,8 @@
                 <a href="">기본 배송지 정보 넣을 곳</a>
                 <img src="../../resources/img/positionlogo.png">
             </div>
-			<div>강보람님</div>
-			<div>주문/배송<br>	<a href="">0</a>건</div>
+			<div><b><%= memberName %></b>님</div>
+			<div>주문/배송<br>	<a href="<%= contextPath %>/orderList.my">0</a>건</div>
 			<div>쿠폰<br><a href="">0</a>장</div>
 			<div>적립금<br><a href="">0</a>원</div>
                 
@@ -117,13 +124,13 @@
 		<!-- 마이페이지(좌) 카테고리 영역 -->
 		<div id="mypageCategory">
 			<div class="myCateFirst">주문정보</div>
-			<div><a id="selectOrder" href="">주문/배송 조회</a></div>
-			<div><a id="selectCancel" href="">취소/반품 조회</a></div>
+			<div><a id="selectOrder" href="<%= contextPath %>/orderList.my">주문/배송 조회</a></div>
+			<div><a id="selectCancel" href="<%= contextPath%>/cancelOrder.my">취소/반품 조회</a></div>
 			<div class="myCateFirst">구매혜택</div>
 			<div><a id="selectCoupon" href="">쿠폰/적립금 조회</a></div>
 			<div class="myCateFirst">활동내역</div>
-			<div><a id="selectRecent" href="">최근 본 상품</a></div>
-			<div><a id="selectReview" href="">고객 후기</a></div>
+			<div><a id="selectRecent" href="<%= contextPath%>/recentView.my">최근 본 상품</a></div>
+			<div><a id="selectReview" href="<%= contextPath%>/review.my">고객 후기</a></div>
 			<div><a id="selectInquiry" href="">나의 문의 내역</a></div>
 			<div class="myCateFirst">회원정보</div>
 			<div><a id="selectAddress" href="">배송지 관리</a></div>

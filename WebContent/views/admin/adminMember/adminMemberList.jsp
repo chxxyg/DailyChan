@@ -1,5 +1,11 @@
+<%@page import="com.kh.admin.adminMember.model.vo.adMember"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+    pageEncoding="UTF-8" %> 
+    
+<%
+	ArrayList<adMember> list = (ArrayList<adMember>)request.getAttribute("list");
+%>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +107,7 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;회원관리</h1>
         <br>
-        	회원 ID <input type="text"> <button type="button" onclick="">조회</button><br>
+        	<form>회원 ID <input type="text" name="userId"> <button type="button" onclick="">조회</button> </form><br>
         <div id="allcount">
                 <div style="width:30%;">총 회원 수 :  <input type="text" id="adproductcount"> 명</div>
                 <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberCorrection.jsp'">회원보기</button> <button>회원삭제</button></div>
@@ -115,34 +121,32 @@
                     <th width="150">이름</th>
                     <th width="250">이메일</th>
                     <th width="150">전화번호</th>
-                    <th width="100">구매횟수</th>
-                    <th width="150">구매총액</th>
+                    <th width="100">가입일</th>
+                    <th width="150">탈퇴여부</th>
                     <th width="150">적립금</th>
                 </tr>
             </thead>
             <tbody>
+            <% if(list.isEmpty()){ %>
+					<tr>
+						<td colspan="5">존재하는 회원이 없습니다.</td>
+					</tr>
+				<% }else{ %>
+                     <% for(adMember m : list){ %>
                 <tr>
                     <td><input type="checkbox" ></td>
                     <td>1</td>
-                    <td>ADFINTLNS</td>
-                    <td>KH유저</td>
-                    <td>sidnfigb@naver.co.kr</td>
-                    <td>010-1111-2222</td>
-                    <td>5회</td>
-                    <td>419,000</td>
-                    <td>2000</td>
+                    <td><%= m.getMemberId() %></td>
+                    <td><%= m.getMemberName() %></td>
+                    <td><%= m.getEmail() %></td>
+                    <td><%= m.getPhone() %></td>
+                    <td><%= m.getEnrollDate() %></td>
+                    <td><%= m.getDelMemberYn() %></td>
+                    <td><%= m.getPointSum() %></td>
                 </tr>
-                 <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>1</td>
-                    <td>ADFINTLNS</td>
-                    <td>KH음식배달</td>
-                    <td>관리자테스트용</td>
-                    <td>329,000</td>
-                    <td>421</td>
-                    <td>노출</td>
-                    <td>5,230</td>
-                </tr>
+                <% }
+                   }%>
+                
                
                 
                 

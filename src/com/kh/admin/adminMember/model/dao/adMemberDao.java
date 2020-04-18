@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.admin.adminMember.model.vo.adMember;
@@ -76,4 +78,51 @@ public class adMemberDao {
 		
 	}
 
+	public ArrayList<adMember> selectList(Connection conn) {
+		
+		ArrayList<adMember> list = new ArrayList<>();
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMember");
+		
+		try {
+			stmt = conn.createStatement();
+			
+			rset = stmt.executeQuery(sql);
+			while(rset.next()) {
+				
+				list.add(new adMember(rset.getString("MEMBER_ID"),
+						              rset.getString("MEMBER_NAME"),
+						              rset.getString("EMAIL"),
+						              rset.getString("PHONE"),
+						              rset.getDate("ENROLL_DATE"),
+						              rset.getString("DEL_MEMBER_YN"),
+						              rset.getInt("POINT_SUM")));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		return list;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+

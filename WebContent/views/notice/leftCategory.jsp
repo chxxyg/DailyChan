@@ -8,10 +8,14 @@
 <style>
 
 #cst_lnb{
+	float: left;
+	position: relative;
     width:170px;
     height:623px;
     font-size: 12px;
     text-decoration: none;
+    margin-left:150px;
+    margin-top: 0;
 }
 
 #cst_lnb ul{
@@ -39,6 +43,11 @@ li{
     text-decoration: none;
     margin-top: 30px;
 }
+#left-category a{
+	color:black;
+	font-weight:600;
+	font-size:15px;
+}
 #left-category ul{ width: 100%; position: relative; list-style:none; margin-top: 30px;}
 #left-category li{position: relative; height: 65px; width: 100px; float: left; font-size: 15px;} 
 .cst dt{
@@ -64,6 +73,7 @@ li{
     line-height: 114px;
     letter-spacing: -1px;
     font-weight: normal;
+    margin-top: 0;
 }
 .cst_num{
 	margin-left:25px;

@@ -268,7 +268,6 @@ $(document).ready(function() {
  						isChkEmail = false;
  						return false;
  					}else{
- 						fnMsgClear($("#caution5"));
  						isChkEmail = true;
  						return true;
  					}
@@ -289,13 +288,16 @@ $(document).ready(function() {
     		return false;
     	}
     	
-//    	if(!overpass.validate.isValidEmail(sVal)) {
-//    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
-//    		if(isAlert) {
-//    			alert("정상적인 이메일을 입력해주세요.");
-//    		}
-//    		return false;
-//    	}
+    	
+    	var regExp = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+    	if(!regExp.test(sVal)) {
+    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
+    		if(isAlert) {
+    			alert("정상적인 이메일을 입력해주세요.");
+    		}
+    		return false;
+    	}
+    	
     	fnMsgClear($("#caution5"));
     	return true;
     }
@@ -404,5 +406,9 @@ $(document).ready(function() {
     
     //최초 포커스
     $("#join_id").focus();
+    $("#emailAuth_btn").click(function() {
+    	window.open("/dailyChan/emailAuthForm.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+    });
 
 });
+
