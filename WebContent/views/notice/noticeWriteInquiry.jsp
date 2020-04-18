@@ -5,13 +5,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+ #form1{
+
+	width: 822px;
+    height: auto;
+	margin-left:400px;
+	
+} 
 .cst_slt {
-    position: relative;
-    margin-bottom: 20px;
+    position: relative; 
+    margin-top: 140px;
     padding: 20px 0 20px 35px;
     border: 3px solid #f0eded;
-    width: 819px;
+    width: 822px;
     height: 75px;
+
 }
 em.req{
     color:#f7702e;
@@ -72,12 +80,149 @@ select:not(:-internal-list-box) {
     border-bottom: 1px solid #ededed;
     font-size: 13px;
 }
-</style>
+.couns_tbl td .file_inp {
+    overflow: hidden;
+    padding-top: 10px;
+}
+.cst_faq{
+    width: 822px;
+    height: auto;
+    cursor: pointer;
+
+}
+.sltd_tbl .tbl table {
+    width: 100%;
+    margin: 0 -1px -1px 0;
+    table-layout: fixed;
+}
+table {
+    width: 100%;
+    min-width: 100%;
+    max-width: none;
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.sltd_tbl .order_num {
+    height: 42px;
+    margin: 30px 0 0;
+    padding: 0 0 0 20px;
+    border-top: 1px solid #333;
+    background: #f9f9f9;
+    line-height: 42px;
+}
+.sltd_tbl .order_num dd {
+    float: left;
+    margin-left: 6px;
+    font-family: tahoma;
+    font-size: 13px;
+    letter-spacing: 0;
+    color: #7896e5;
+}
+.sltd_tbl .tbl {
+    overflow: hidden;
+    position: relative;
+    margin: 30px 0 30px;
+    border: 1px solid #ddd;
+    border-width: 1px 0;
+    background: #fff;
+}
+.couns_tbl {
+/* 	margin-left:400px; */
+    width: 860px;
+    border: 1px solid #dbdbdb;
+    border-width: 1px 0;
+    line-height: 1;
+    
+}
+tbody {
+	
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.sltd_tbl{
+	width:857px;
+}
+.wrap.cst .conf_btns {
+    margin: 30px 0 100px;
+}
+.conf_btns {
+    text-align: center;
+}
+
+.conf_btns button {
+    display: inline-block;
+    font-size: 16px;
+}
+button {
+    line-height: 1;
+}
+button {
+    display: block;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    background: none;
+}
+.conf_btns button + button {
+    margin-left: 7px;
+}
+strong {
+    font-weight: bold;
+}
+.info_box01 {
+	width:800px;
+	margin-left:400px;
+    padding: 42px 30px 42px 106px;
+    background: url(../images/odr/back_info.png) no-repeat 42px 41px #efefef;
+}
+.sub_cont {
+    float: right;
+    position: relative;
+    width: 860px;
+    min-height: 800px;
+    padding: 0 0 75px 30px;
+}
+.conf_btns button.confirm {
+    width: 166px;
+    height: 56px;
+    background: #383a42;
+    color: #fff;
+}
+.conf_btns button.cancel {
+    width: 164px;
+    height: 54px;
+    border: 1px solid #999;
+}
+.conf_btns button {
+    display: inline-block;
+    font-size: 16px;
+}
+#conf_btns{
+/* 	margin-left:500px; */
+}
+.wrap.cst .conf_btns {
+    margin: 30px 0 100px;
+}
+.conf_btns {
+    text-align: center;
+}
+button em {
+    display: block;
+    margin-top: -2px;
+}
 </head>
 <body>
-
-
+<%@ include file="../common/mainHeader.jsp" %>
+<%@ include file="../common/mainSideBar.jsp" %>
+<%@ include file="leftCategory.jsp" %>
+<%@ include file="noticeSearch.jsp" %>
   <h2>1:1 친절상담</h2>
+  <form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post">
+  
     <div class="cst_slt">
         <div class="info_txt"><em class="req">*<!--<span class="ir">필수입력정보</span>--></em>표시정보는 필수 입력 사항입니다.</div>
         <dl>
@@ -131,19 +276,46 @@ select:not(:-internal-list-box) {
                 </select>
             </dd>
         </dl>
+        
         <dl>
             <dt>상담 제품 선택</dt>
-            <dd class="slt_btns">
-                <!-- 레이어에서 제품 선택 된 후 case (class .on)  -->
-                <button type="button" name="orderlist" onclick="overpass.custcenter.OrderGoodsListLayer();return false;"><em>주문내역</em></button>
-            </dd>
-        </dl>
-    </div>
+		            <dd class="slt_btns">
+		                <!-- 레이어에서 제품 선택 된 후 case (class .on)  -->
+		                <button type="button" name="orderlist" onclick="overpass.custcenter.OrderGoodsListLayer();return false;"><em>주문내역</em></button>
+		            </dd>
+		        </dl>
+  	</div>
 
+
+				<div class="sltd_tbl">
+			<!-- 		<dl class="order_num goodsDiv" style="display:none;">
+						<dt>주문번호 : </dt>
+						<dd></dd>
+					</dl> -->
+					<div id="selectedGoodsBoxDiv" class="tbl goodsDiv">
+				<!-- 		<table>
+							<caption>제품명, 주문/삭제로 이루어진 선택된 제품 표</caption>
+							<colgroup>
+								<col style="width:120px">
+								<col style="width:auto">
+								<col style="width:120px;">
+							</colgroup>
+							<thead class="ir">
+								<tr>
+									<th scope="col" colspan="2">제품명</th>
+									<th scope="col">주문/삭제</th>
+								</tr>
+							</thead>
+							<tbody id="selectedGoodsBox">
+							
+							</tbody>
+						</table> -->
+					</div>
+				</div>
 
             <!--- 상담 내역 -->
             <table class="couns_tbl">
-                <caption>고객명, 아이디, 휴대폰 번호, 이메일 주소, 답변알림, 제목 내용으로 구성된 1:1친절 상담 작성 테이블입니다.</caption>
+                <!-- <caption>고객명, 아이디, 휴대폰 번호, 이메일 주소, 답변알림, 제목 내용으로 구성된 1:1친절 상담 작성 테이블입니다.</caption> -->
                 <colgroup><col style="width:170px">
                 <col>
                 </colgroup><tbody>
@@ -204,9 +376,29 @@ select:not(:-internal-list-box) {
                             </td>
                         </tr>
                         
-                </tbody>
-            </table>
+               	 </tbody>
+            	</table>
+            
+             <br>
+            	<p>※ 고객센터 운영시간(평일 9:00~18:00) 이후 문의는 고객센터 운영시간 내에 순차적으로 답변드립니다.</p>
+            </form>
+            
+            
+            <div class="conf_btns">
+				<button class="confirm" onclick="save();"><em>확인</em></button>
+				<button class="cancel" id="cancelBtn"><em>취소</em></button>
+			</div>
+           
+           <div class="info_box01">
+				<strong class="box_tit">상담 TIP</strong>
+				<ul class="list_01">
+					<li>1:1상담은 추가로 궁금하신 내용을 상담하는 공간입니다.</li>
+					<li>배송상담, 취소/반품 상담은 해당 주문을 선택 하신 후 상담 사항을 작성해 주세요.</li>
+					<li>주문 취소/반품 신청은 MY더반찬 메뉴에서 신청하시면 더욱 빠르게 처리됩니다.</li>
+				</ul>
+			</div>
 
-
+            
+<%@ include file="../common/mainFooter.jsp" %>
 </body>
 </html>
