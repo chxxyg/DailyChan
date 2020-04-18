@@ -127,11 +127,11 @@
                 </tr>
             </thead>
             <tbody>
-            <% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+            <% if(list.isEmpty()){ %>
 					<tr>
-						<td colspan="5">존재하는 공지사항이 없습니다.</td>
+						<td colspan="5">존재하는 회원이 없습니다.</td>
 					</tr>
-				<% }else{ // 리스트가 비어있지 않을 경우 %>
+				<% }else{ %>
                      <% for(adMember m : list){ %>
                 <tr>
                     <td><input type="checkbox" ></td>
