@@ -45,7 +45,7 @@
 		font-size:12px;
 		text-align:center;
 	}
-	.myOrderList a{text-decoration:none;}
+	.myOrderList a{text-decoration:none; cursor:pointer;}
 	#myOrderInfo{
 		padding:20px 0px 10px 100px;
 	}
@@ -142,7 +142,7 @@
 			<tbody>
 				<tr height="100px">
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
 						2020-03-31<br>
 						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 					</td>
@@ -157,7 +157,7 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a><br>
 						2020-03-31<br>
 						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 					</td>
@@ -182,7 +182,7 @@
 				</tr>
 				<tr height="100px">
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
 						2020-03-31<br>
 						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 					</td>
@@ -197,7 +197,7 @@
 				</tr>
 				<tr height="100px">
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
 						2020-03-31<br>
 						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 					</td>
@@ -214,7 +214,7 @@
 				</tr>
 				<tr height="100px">
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
 						2020-03-31<br>
 						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 					</td>
@@ -227,12 +227,12 @@
 					<td>배송중</td>
 					<td>
 						<button type="button" id="trackShipmentBtn">배송조회</button><br>
-						<button type="button" id="requestRefundBtn">반품신청</button>
+						<button type="button" id="requestRefundBtn" onclick="location.href='<%=contextPath%>/refund.my'">반품신청</button>
 					</td>
 				</tr>
 				<tr height="100px">
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
 						2020-03-31<br>
 						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 					</td>
@@ -245,12 +245,12 @@
 					<td>배송완료</td>
 					<td>
 						<button type="button" id="trackShipmentBtn">배송조회</button><br>
-						<button type="button" id="requestRefundBtn">반품신청</button>
+						<button type="button" id="requestRefundBtn" onclick="location.href='<%=contextPath%>/refund.my'">반품신청</button>
 					</td>
 				</tr>
 				<tr height="100px">
 					<td>
-						<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
 						2020-03-31<br>
 						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
 					</td>
@@ -287,7 +287,7 @@
             }
 		}
 		function toOrderDetail(){
-			location.href="<%= contextPath %>/views/mypage/myOrderDetailView.jsp";
+			location.href="<%= contextPath %>/orderDetail.my";
 		}
 	
 		function cancelOrdBlock(){

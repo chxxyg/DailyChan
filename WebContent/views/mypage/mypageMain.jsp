@@ -29,6 +29,7 @@
 		font-size:12px;
 		text-align:center;
 	}
+	.myMainOrderList a{cursor:pointer;}
 	#myMainOrderInfo{
 		padding:20px 0px 10px 100px;
 	}
@@ -83,13 +84,13 @@
 				<th width="130px">주문번호/주문일</th>
 				<th width="400px">상품정보</th>
 				<th width="130px">진행상태</th>
-				<th width="130px">학인</th>
+				<th width="130px">확인</th>
 			</tr>
 			<tr>
 				<td>
-					<a href="" style="color:blue; text-decoration: underline;">20200331-1234567</a><br>
+					<a style="color:blue; text-decoration: underline;" onclick="orderDetail();">20200331-1234567</a><br>
 					2020-03-31<br>
-					<button id="orderDetailBtn" type="submit" onclick="">상세확인 ></button>
+					<button id="orderDetailBtn" type="submit" onclick="orderDetail();">상세확인 ></button>
 				</td>
 				<td id="myMainOrderInfo">
 					<div>
@@ -142,6 +143,13 @@
 			</div>
 	</div>
 	
+	<script>
+		function orderDetail(){
+			location.href="<%= contextPath %>/orderDetail.my";
+		}
+	</script>
+
+
 	<%@ include file="../../views/common/mainFooter.jsp" %>
 
 </body>
