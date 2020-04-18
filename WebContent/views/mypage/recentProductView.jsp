@@ -68,6 +68,7 @@
 <body>
 
 	<%@ include file="mypageMainOuter.jsp" %>
+	<%@ include file="../common/mainSideBar.jsp" %>
 
 	<div class="recentProductViewWrap">
 		<h3>최근 본 상품</h3>

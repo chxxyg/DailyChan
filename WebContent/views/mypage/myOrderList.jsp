@@ -101,6 +101,7 @@
 <body>
 
 	<%@ include file="mypageMainOuter.jsp" %>
+	<%@ include file="../common/mainSideBar.jsp" %>
 	
 	<div class="orderDeliveryList">
 		<h3>주문/배송 조회</h3>

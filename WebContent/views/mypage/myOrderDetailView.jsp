@@ -120,6 +120,7 @@
 <body>
 
 	<%@ include file="mypageMainOuter.jsp" %>
+	<%@ include file="../common/mainSideBar.jsp" %>
 
 	<!-- 주문내역 -->
 	<div class="orderDetailViewWrap">

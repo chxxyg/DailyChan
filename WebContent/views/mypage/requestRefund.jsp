@@ -95,6 +95,7 @@
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
+	<%@ include file="../common/mainSideBar.jsp" %>
 
 	<div class="askRefundTop">
 		<h1 style="text-align:center">반품 신청</h1>

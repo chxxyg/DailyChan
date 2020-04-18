@@ -112,6 +112,7 @@
 <body>
 
 	<%@ include file="mypageMainOuter.jsp" %>
+	<%@ include file="../common/mainSideBar.jsp" %>
 
 	<!-- 고객 후기 -->
 	<div class="reviewList">

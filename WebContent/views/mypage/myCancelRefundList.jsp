@@ -73,6 +73,9 @@
 
 	<%@ include file="mypageMainOuter.jsp" %>
 
+	<%@ include file="../common/mainSideBar.jsp" %>
+
+
 	<div class="cancelRefundList">
 		<h3>취소/반품 조회</h3>
 		<hr>
