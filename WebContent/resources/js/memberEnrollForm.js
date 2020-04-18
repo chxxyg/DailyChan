@@ -268,7 +268,6 @@ $(document).ready(function() {
  						isChkEmail = false;
  						return false;
  					}else{
- 						fnMsgClear($("#caution5"));
  						isChkEmail = true;
  						return true;
  					}
