@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	
 	/* 고객 후기 조회 */
 	.reviewList{
 		box-sizing:border-box;
