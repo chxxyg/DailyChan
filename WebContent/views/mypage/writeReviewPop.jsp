@@ -98,14 +98,14 @@
 </head>
 <body>
 	<div class="writeReviewWrap">
-		<form action="<%= contextPath %>/insertReview.re" >
+		<form action="<%= contextPath %>/insertReview.my" >
 			<table class="writeReview" width="490px">
 				<tbody>
 					<tr id="writeReview_tr1" height="100px">
 						<td>
-							<a onclick="toProductDetail()"><img src="" width="80px" height="80px"></a>
+							<a><img src="" width="80px" height="80px"></a>
 							<div>
-								<a onclick="toProductDetail()"><b>데일리찬 상품명</b></a> | 2인분<br>
+								<a href=""><b>데일리찬 상품명</b></a> | 2인분<br>
 							</div>
 						</td>
 					</tr>
@@ -133,7 +133,7 @@
 				</tbody>
 			</table>
 			<div id="reviewBtns">
-				<button id="reviewcancelBtn" type="button">취소</button>
+				<button id="reviewcancelBtn" type="reset">취소</button>
 				<button id="reviewSubmitBtn" type="submit">등록</button>
 			</div>
 		</form>
@@ -151,18 +151,7 @@
                     $("#reviewCounter").css("color", "black");
                 }
             });
-            
-            $("#reviewcancelBtn").click(function(){
-        		window.close();
-            })
         });
-        
-        function toProductDetail(){
-        	opener.parent.location="<%= contextPath %>/pDetail.pro";
-        	window.close();
-        }
-        
-        
     </script>
 
 </body>
