@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class WriteReviewServlet
+ * Servlet implementation class WrittenReviewPopServlet
  */
-@WebServlet("/writeForm.re")
-public class WriteReviewServlet extends HttpServlet {
+@WebServlet("/writtenRPop.re")
+public class WrittenReviewPopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WriteReviewServlet() {
+    public WrittenReviewPopServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,8 +27,8 @@ public class WriteReviewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("views/mypage/writeReviewPop.jsp").forward(request, response);
-	
+		request.getRequestDispatcher("views/mypage/myWrittenReviewPop.jsp").forward(request, response);
+		
 	}
 
 	/**
