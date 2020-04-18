@@ -218,16 +218,17 @@
 						<div id="userInfo">
 							<b> welcome <%=loginUser.getMemberName() %></b>
 								<div class="btns" align="center">
-									<a href="<%= contextPath %>/logout.me">로그아웃</a>		
+									<a href="<%= contextPath %>/logout.me">로그아웃</a>
+									<a href="<%= contextPath %>/mymain.my">마이페이지</a>	
 								</div>
 						 </div>
 				   </form>
 						<% }else{ %>
  					 		<a href="<%=contextPath%>/enrollForm.me">회원가입</a>
 							<a onclick="loginPop();">로그인</a>
+							<a onclick="loginPop();">마이페이지</a>
 						<% } %>  
                     
-	                    <a href="">마이페이지</a>
 						<a href="">고객센터</a>
 						<% if(loginUser != null && loginUser.getMemberId().equals("admin")){  %>
 							<a href="<%=contextPath%>/adminMain.ad" style="color:red;">관리페이지</a>

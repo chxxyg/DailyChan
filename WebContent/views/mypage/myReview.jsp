@@ -289,6 +289,10 @@
 			});
 			
 		});
+		
+		function writeReview(){
+			window.open("<%=contextPath%>/writeForm.re", "후기 작성", "width=500, height=730, left=500");
+		}
 
 	</script>
 	

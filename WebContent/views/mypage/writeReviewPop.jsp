@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 	/* 리뷰작성 팝업 틀 */
 	.writeReviewWrap{
-		width:500px;
-		height:780px;
-		border:1px solid red;
+		width:490px;
+		height:720px;
 	}
 	/* 상품정보 */
 	.writeReview{
@@ -50,7 +50,7 @@
 	
 	/* 리뷰작성 영역 */
 	#reviewInfo{margin-left:25px;}
-	#writeReview_tr3 #counter{margin-left:170px;}
+	#reviewCounter{margin-left:170px;}
 	#writeReview_tr3>td>div{text-align:center;}
 	
 	/* 사진,동영상 첨부 */
@@ -108,7 +108,7 @@
 							</div>
 						</td>
 					</tr>
-					<tr id="writeReview_tr2" height="100px">
+					<tr id="writeReview_tr2" height="90px">
 						<td>
 							<div>
 								<span><a>☆</a><a>☆</a><a>☆</a><a>☆</a><a>☆</a></span>
@@ -116,10 +116,10 @@
 							</div>
 						</td>
 					</tr>
-					<tr id="writeReview_tr3" height="500px" >
+					<tr id="writeReview_tr3" height="450px" >
 						<td>
-							<span id="reviewInfo">후기를 남겨주세요. (최소 10자 이상)</span><span id="counter">0</span> / 1000
-							<div><textarea rows="17" cols="60" id="reviewContent" style="resize:none;"></textarea></div>
+							<span id="reviewInfo">후기를 남겨주세요. (최소 10자 이상)</span><span id="reviewCounter">0</span> / 1000
+							<div><textarea rows="13" cols="60" id="reviewContent" style="resize:none;"></textarea></div>
 							<img src="" width="130" height="130"><img src="" width="130" height="130"><img src="" width="130" height="130">
 							<button id="attachmentBtn">
 								<div>
@@ -142,12 +142,12 @@
         $(function(){
             $("#reviewContent").keyup(function(){
                 var inputLength = $(this).val().length;
-                $("#reviewContent").text(inputLength);
+                $("#reviewCounter").text(inputLength);
 
-                if(150-inputLength<0){
-                    $("#reviewContent").css("color", "red");
+                if(1000-inputLength<0){
+                    $("#reviewCounter").css("color", "red");
                 }else {
-                    $("#reviewContent").css("color", "black");
+                    $("#reviewCounter").css("color", "black");
                 }
             });
         });
