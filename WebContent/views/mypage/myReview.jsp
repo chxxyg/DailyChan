@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	
 	/* 고객 후기 조회 */
 	.reviewList{
 		box-sizing:border-box;
@@ -291,9 +292,14 @@
 		});
 		
 		function writeReview(){
-			window.open("<%=contextPath%>/writeForm.re", "후기 작성", "width=500, height=730, left=500");
+			window.open("<%=contextPath%>/reviewPop.re", "후기 작성", "width=500, height=730, left=500");
 		}
 
+		function writtenReview(){
+			window.open("<%=contextPath%>/writtenRPop.re", "후기", "width=815, height=665, top=50; left=330");
+		}
+		
+		
 	</script>
 	
 	<%@ include file="../../views/common/mainFooter.jsp" %>
