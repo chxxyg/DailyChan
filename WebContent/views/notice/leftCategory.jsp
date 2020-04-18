@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -101,20 +103,20 @@ li{
     <link rel="stylesheet" href="FOTD/css/noticeCategory.css">
 </head>
 <body>
-	
+
     <div id="cst_lnb" class="lnb">
-        <a href=""><h2 align="center">고객센터</h2></a>
+        <a href="<%= request.getContextPath() %>/noticeMain.no"><h2 align="center">고객센터</h2></a>
         <div id="left-category"> 
             <ul>
                 <li><a id="left_01" href="" onclick="">자주하는 질문</a></li>
-                <li><a id="left_02" href="" onclick="">1:1 친절상담</a></li>
+                <li><a id="left_02" href="<%= request.getContextPath() %>/write.in">1:1 친절상담</a></li>
                 <li><a id="left_03" href="" onclick="">1:1 상담내역</a></li>
                 <li><a id="left_04" href="" onclick="">공지사항</a></li>
              </ul>
         </div>
        
         <dl class="cst">
-            <dt align="center" id="cst_center"><a href="" onclick="">고객센터</a></dt>
+            <dt align="center" id="cst_center"><a href="<%= request.getContextPath() %>/noticeMain.no">고객센터</a></dt>
             <dd id="cst_num1"><b>1644-6844</b></dd>
             <dd class="cst_num"><div style="color:#5f99f0;">▲ 단체구매문의</div></dd>
             <dd class="cst_num">평일 9:00~18:00<br>점심시간 12:00~13:00<br>(토/일/공휴일은 휴무)</dd>

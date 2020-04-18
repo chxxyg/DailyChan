@@ -1,5 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -247,6 +249,7 @@ button em {
 <%@ include file="leftCategory.jsp" %>
 <%@ include file="noticeSearch.jsp" %>
  
+
  <h2>1:1 친절상담</h2>
   <form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post">
   	
@@ -308,7 +311,7 @@ button em {
             <dt>상담 제품 선택</dt>
 		            <dd class="slt_btns">
 		                <!-- 레이어에서 제품 선택 된 후 case (class .on)  -->
-		                <button type="button" name="orderlist" onclick="overpass.custcenter.OrderGoodsListLayer();return false;"><em>주문내역</em></button>
+		                <a type="button" href="" name="orderlist" onclick="orderlistPop();">주문내역</a>
 		            </dd>
 		        </dl>
   	</div>
@@ -319,6 +322,8 @@ button em {
 						<dt>주문번호 : </dt>
 						<dd></dd>
 					</dl> -->
+					
+					
 					
 					<div id="selectedGoodsBoxDiv" class="tbl goodsDiv">
 				<!-- 		<table>
@@ -346,21 +351,22 @@ button em {
                 <!-- <caption>고객명, 아이디, 휴대폰 번호, 이메일 주소, 답변알림, 제목 내용으로 구성된 1:1친절 상담 작성 테이블입니다.</caption> -->
                 <colgroup><col style="width:170px">
                 <col>
-                </colgroup><tbody>
+                </colgroup>
+                <tbody>
                     <tr>
                         <th scope="row">고객명</th>
-                        <td></td>
+                     <td></td>
                     </tr>
                     <tr>
                         <th scope="row">아이디</th>
-                        <td>thuk</td>
+                       <td></td>
                     </tr>
                     <tr>
                         <th scope="row">
                             <label for="tel_no1">휴대폰 번호</label>
                         </th>
+                        
                         <td>
-                                                            
                             <select id="tel_no1" name="tel_no1" message="전화번호를 숫자로 입력하세요."><option value="">선택</option><option value="010" selected="selected">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option><option value="0502">0502</option><option value="0503">0503</option><option value="0504">0504</option><option value="0505">0505</option><option value="0506">0506</option><option value="0507">0507</option></select>
                             <span class="dash">-</span>
                             <input type="text" class="celluar" id="tel_no2" name="tel_no2" title="휴대폰번호 가운데 자리 입력" value="2948" maxlength="4">
@@ -368,14 +374,18 @@ button em {
                             <input type="text" class="celluar" id="tel_no3" name="tel_no3" title="휴대폰번호 마지막 자리 입력" value="3067" maxlength="4">
                         </td>
                     </tr>
+                    
                     <tr>
                         <th scope="row">
                             <label for="quest_title">제목</label>
                         </th>
+                        
                         <td>
                             <input type="text" class="w_tit" id="quest_title" name="quest_title" title="제목 입력" placeholder="제목을 입력해 주세요." onkeyup="fnLimitText('quest_title','50')">
                         </td>
                     </tr>
+                    
+                    
                     <tr>
                         <th scope="row">
                             <label for="quest_cont">내용</label>
@@ -385,6 +395,7 @@ button em {
                             주문에 대한 문의일 경우, 상품을 선택하여 문의 주시면 보다 빠른 상담이 가능합니다." title="내용" onkeyup="fnLimitText('quest_cont','1000')"></textarea>
                         </td>
                     </tr>
+                    
                     <tr>
                         <th scope="row">사진 등록</th>
                              <td>
@@ -426,7 +437,21 @@ button em {
 					<li>주문 취소/반품 신청은 MY더반찬 메뉴에서 신청하시면 더욱 빠르게 처리됩니다.</li>
 				</ul>
 			</div>
-
+			
+	<script>
+		$(function(){
+			$("#left_02").css("color", "rgb(247, 112, 46)");
+		});
+		
+		 		
+		function orderlistPop() {
+			opener.parent.location="<%=contextPath%>/inquiryWrite.in";			
+			window.close();
+		}
+		 
+		
+		
+	</script>
             
 <%@ include file="../common/mainFooter.jsp" %>
 </body>

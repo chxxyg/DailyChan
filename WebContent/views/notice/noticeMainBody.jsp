@@ -191,10 +191,10 @@ table {
 <%@ include file="leftCategory.jsp" %>
 <%@ include file="noticeSearch.jsp" %>
 	<div id="cst_content" class="sub_cont">
-	
+
         <ul class="cst_quick">
-            <li class="q01"><a href=""><img id="q01" src="../../resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
-            <li class="q02"><a href=""><img id="q02" src="../../resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
+            <li class="q01"><a href="<%= contextPath%>/find.me"><img id="q01" src="../../resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
+            <li class="q02"><a href="<%= contextPath%>/nonOrd.od"><img id="q02" src="../../resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
             <li class="q03"><a href=""><img id="q03" src="../../resources/img/returnback.png" onclick="">취소/반품 내역</a></li>
             <li class="q04"><a href=""><img id="q04" src="../../resources/img/Account.png" onclick="">비회원 주문조회</a></li>
         </ul>
@@ -232,7 +232,7 @@ table {
                 <li><a href="">[공지] 빠른도착 카테고리 오픈 안내<span class="date thm">2020-04-07</span></a></li>
             
             </ul>
-            <a href="javascript:;" onclick="overpass.custcenter.goNoticeList()" class="arrow_btn01">전체보기</a>
+            <a href="" onclick="" class="arrow_btn01">전체보기</a>
         </div>
     </div>
 
