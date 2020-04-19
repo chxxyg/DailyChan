@@ -13,7 +13,7 @@
 	.orderDeliveryList{
 		margin:50px 0px 0px 450px;
 		width:800px;
-		height:900px;
+		height:1200px;
 	}
 	
 	/* 조회 기간 선택 영역 */
