@@ -59,6 +59,16 @@ $(document).ready(function() {
     		return false;
     	}
     	
+    	var regExp = /^[a-zA-Z]+$/;
+    	if(!regExp.test(sVal))
+		{
+    		fnMsgShow($("#caution1"),"아이디는 영문 만 가능합니다.");
+    		if(isAlert) {
+    			alert("아이디는 영문 만 가능합니다.");
+    		}
+    		return;
+		}
+    	
     	if(sVal.length < 4) {
     		fnMsgShow($("#caution1"),"아이디는 4자, 20자 미만으로 입력해주세요.");
     		if(isAlert) {
@@ -161,12 +171,20 @@ $(document).ready(function() {
     fnValidJoinName = function(isAlert){
     	var sVal = $("#join_name").val();
         
-    	if(sVal.length <= 0) {
+    	if(sVal.length == 0) {
     		fnMsgShow($("#caution3"),"이름을 입력해 주세요.");
     		if(isAlert) {
     			alert("이름을 입력해 주세요.");
     		}
     		return;
+    	}    	
+    	
+    	if(sVal.length < 2) {
+		fnMsgShow($("#caution3"),"정상적인 이름을 입력해 주세요.");
+		if(isAlert) {
+			alert("이름을 입력해 주세요.");
+		}
+		return;
     	}
     	
     	var regExp = /^[가-힣a-zA-Z]+$/;
