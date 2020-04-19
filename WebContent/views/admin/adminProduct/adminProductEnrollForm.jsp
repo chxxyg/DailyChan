@@ -89,7 +89,7 @@
 			            <option value="KOD100">한식 - 분식</option>
 			            <option value="ITA200">양식 - 스테이크</option>
 			            <option value="ITB200">양식 - 파스타</option>
-			            <option value="ITC200">양식 - 사이드</option>
+			            <option value="ITC200">양식 - 사이드</option>		
 			            <option value="ITD200">양식 - 샐러드</option>
 			            <option value="ASA300">아시안 - 중식</option>
 			            <option value="ASB300">아시안 - 일식</option>
@@ -98,7 +98,7 @@
 			            <option value="CDA400">찬Day - 메인반찬</option>
 			            <option value="CDB400">찬Day - 밑반찬</option>
 			            <option value="CDC400">찬Day - 김치</option>
-			            <option value="CDD400">찬Day - 나물</option>
+			            <option value="CDD400">찬Day - 나물</option> 
 			        </select>
         		</td>
             </tr>
@@ -111,8 +111,12 @@
                 <td><input type="text" placeholder="자동 부여됩니다." name="pdcode"></td>
             </tr>
             <tr>
-                <td width="200">업체명</td>
-                <td><input type="text" name="pdenterprise"></td>
+                <td width="200">납품업체명</td>
+                <td><select name="pdenterprise" style="width:174px">
+						<option value="1234567890">집반찬연구소</option>
+						<option value="1111111111">동원홈푸드</option>                
+                	</select>
+                </td>
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
