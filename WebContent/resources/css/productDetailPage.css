@@ -179,7 +179,8 @@
 #detailGpaInfo{
     font-size: 18px;
 }
-#detailReviewList, #detailQnaList{
+
+#detailQnaList{
     width: 1000px;
     margin: auto;
     border-top: 1px solid lightgray;
