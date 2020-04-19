@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class InitPwdConfirm
+ * Servlet implementation class InitPwdConfirmServlet
  */
 @WebServlet("/initPwdConfirm.my")
-public class InitPwdConfirm extends HttpServlet {
+public class InitPwdConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InitPwdConfirm() {
+    public InitPwdConfirmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

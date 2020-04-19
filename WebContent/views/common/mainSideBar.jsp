@@ -143,7 +143,7 @@
     </label>
     <!-- 사이드바 요소 -->
     <div class="sidebar">
-    	<% if(loginUser == null){ %>
+    	<% if( ((Member)session.getAttribute("loginUser")) == null){ %>
 	        <div id="login">
 	        	로그인<br>
 	        	해 주세요
