@@ -18,7 +18,7 @@
 	
 	/* 조회 기간 선택 영역 */
 	#orderPeriodSch {
-		width:700px;
+		width:800px;
 		height:35px;
 		margin:auto;
 		vertical-align:middle;
@@ -96,7 +96,11 @@
 	}
 	
 </style>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css'><link rel="stylesheet" href="./style.css">
+<link rel='stylesheet' href='../../resources/css/datepicker.css'>
+<script src='../../resources/js/datepicker.js'></script>
+
 </head>
 <body>
 
@@ -113,15 +117,15 @@
 				<dl>
 					<dt>조회기간</dt>
 					<dd>
-						<span class="date">
-							<input type="text" class="input_txt input_date" title="기간검색 시작일" id="date_start" name="date_start" value="2020-03-12" readonly="readonly">
-							<button type="button" id="cal_start" title="조회기간 선택 달력 레이어 열기" class="">달력에서 선택</button>
-						</span>
+						<div id="fromDate" class="input-group date" data-date-format="yyyy-mm-dd">
+						    <input class="form-control" type="text" readonly />
+						    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+						</div>
 						<span class="tx">~</span>
-						<span class="date">
-							<input type="text" class="input_txt input_date" title="기간검색 종료일" id="date_end" name="date_end" value="2020-04-12" readonly="readonly">
-							<button type="button" id="cal_end" title="조회기간 선택 달력 레이어 열기">달력에서 선택</button>
-						</span>
+						<div id="toDate" class="input-group date" data-date-format="yyyy-mm-dd">
+						    <input class="form-control" type="text" readonly />
+						    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+						</div>
 					</dd>
 					<dd>
 						<button type="button" class="bt_sch" id="searchBtn">조회</button>
@@ -274,6 +278,11 @@
 		
 	</div>
 
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js'></script><script  src="./script.js"></script>
+
 	<script>
 		
 		$(function(){
@@ -282,7 +291,6 @@
 		
 		function cancelOrder(){
 			var result = confirm("주문을 즉시취소하시겠습니까?")
-			
             if(result){
                 alert("처리가 완료되었습니다.");
             }
@@ -294,6 +302,58 @@
 		function cancelOrdBlock(){
 			alert("                즉시취소는 결제완료 단계까지 가능합니다.\r\n              상품준비중 이후의 단계에서는 상품이 조리되어\r\n              취소처리가 불가능하니 이점 양해 부탁드립니다.");
 		}
+		
+		/* 기간 조회 */
+		$(function () {
+		
+			 /*$.datepicker.setDefaults($.datepicker.regional['ko']);*/
+
+			 $("#fromDate").datepicker({ 
+			        autoclose: true, 
+			        todayHighlight: true
+			  }).datepicker('update', new Date());
+			  
+			  $("#toDate").datepicker({ 
+			        autoclose: true, 
+			        todayHighlight: true
+			  }).datepicker('update', new Date());
+			});
+			 
+		/*
+			//시작일.
+             $('#fromDate').datepicker({
+                  monthNamesShort: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+                  dayNamesMin:["일","월","화","수","목","금","토"],
+                 //buttonImage: "/jdAdmin/images/calendar.png", // 버튼 이미지
+                 //buttonImageOnly : true,             // 버튼 이미지만 표시할지 여부
+                 //buttonText: "날짜선택",             // 버튼의 대체 텍스트
+                 dateFormat: "yy-mm-dd",             // 날짜의 형식
+                 changeMonth: true,                  // 월을 이동하기 위한 선택상자 표시여부
+                     maxDate: 0,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+                 onClose: function( selectedDate ) {    
+                     // 시작일(fromDate) datepicker가 닫힐때
+                     // 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+                     $("#toDate").datepicker( "option", "minDate", selectedDate );
+                 }                
+             });
+
+             //종료일
+             $('#toDate').datepicker({
+                  dateFormat: "yy-mm-dd",
+                  monthNamesShort: ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+                  dayNamesMin:["일","월","화","수","목","금","토"], 
+                 dateFormat: "yy-mm-dd",
+                 changeMonth: true,
+                 maxDate: 0, // 오늘 이후 날짜 선택 불가
+                 onClose: function( selectedDate ) {
+                     // 종료일(toDate) datepicker가 닫힐때
+                     // 시작일(fromDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정 
+                     $("#startdate").datepicker( "option", "maxDate", selectedDate );
+                 }                
+             });
+
+*/
+		
 		
 		
 	</script>
