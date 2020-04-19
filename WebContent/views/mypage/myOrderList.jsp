@@ -113,7 +113,6 @@
 					<dt>조회기간</dt>
 					<dd>
 
-					
 					</dd>
 					<dd>
 						<button type="button" class="bt_sch" id="searchBtn">조회</button>
