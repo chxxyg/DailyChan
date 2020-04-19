@@ -117,8 +117,7 @@ table{
 
 									<!-- 입력정보 오류시 노출 -->
 									<br>
-									<span class="caution ir" id="caution1">입력하신 정보에 해당하는
-										회원정보를 찾을 수 없습니다.</span>
+									<span class="caution" id="caution1">이름(대표자명)을 입력해 주세요.</span>
 									<button class="btn_login" type="button" id="btn_find_id">
 										<em>아이디 찾기</em>
 									</button>
@@ -238,14 +237,11 @@ table{
 	   	});
 	    
 	    
+	    
+	    
 	    $("input[name='login_type']").change(function(e){
-	        
-	    	if($(this).val() == "sns") {
-	    		resetInput();
-	    		$("#pw_id").prop("disabled",true);
-	    		overpass.member.fnMsgClear($("#caution2"));
+
 	    	
-	    	}else{
 	    		resetInput();
 	    		if($("#id_result").html() != "") {
 	    			$("#pw_id").val($("#id_result").html());
@@ -259,14 +255,14 @@ table{
 	        		$("#pw_id").prop("disabled",false);
 
 	        		$("#login_set_pw_result").hide();
-	        		overpass.member.fnMsgClear($("#caution2"));
+// overpass 함수명 정정하기	        		overpass.member.fnMsgClear($("#caution2"));
 	        		$("#pw_result").html("");
 	    			$(".login_set_pw").show();
 	    		}
 
 			
 	    		
-	    	}
+	    	
 	    });
 		
 	
