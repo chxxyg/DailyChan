@@ -20,7 +20,6 @@
 <div class="content">
 		<!-- WRAP -->
 	<div class="wrap mem">
-			
 	<form name="joinForm" id="joinForm" method="post" action="insert.me">			
 			<!--// LOCATION SELECT -->
 			<div class="join_box" id="join_box">
@@ -76,6 +75,7 @@
 					<label for="email"></label>
 					<input type="text" id="email" name="email" maxlength="30" placeholder="이메일">
 					<button id="emailAuth_btn" type="button">이메일 인증</button>
+					<input type="hidden" id="auth_success">
 					</div>
 					<br clear="both">
 					<div class="info_txt">※ 주문관련 정보에 대한 이메일과 SMS는 자동으로 전송됩니다.</div>
@@ -127,7 +127,6 @@
 </div>
 
 <%@ include file="/views/common/mainFooter.jsp" %>
-
 
 </body>
 </html>

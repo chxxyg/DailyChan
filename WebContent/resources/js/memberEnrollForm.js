@@ -1,15 +1,14 @@
 var isAlert = true;
-var isSendCert = true;  //인증번호전송여부
-var isCertYn = true;    //인증여부
+var isCertYn = false;    //인증여부
 var isChkId = false;     //아이디중복체크여부
 var isChkNum = false;    //폰번호중복여부
 var isChkEmail = false;  //이메일중복여부
+
 
 $(document).ready(function() {
 
 	$("#btn_join_up").click(function() {
     	if(isValid()){
-    		console.log(isValid());
     		$("#joinForm").submit();
     	}
     });
@@ -242,14 +241,7 @@ $(document).ready(function() {
     
     
     
-    
-//    $("#email").focus(function(){
-//     	if(!isCertYn) {
-//    		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
-//    		return;
-//    	}
-//    	fnMsgClear($("#caution5"));		
-//    });
+
     
     $("#email").blur(function(){
     	var sVal = $(this).val();
@@ -298,7 +290,40 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	fnMsgClear($("#caution5"));
+        
+        $("#email").focus(function(){
+         	if(!isCertYn) {
+        		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
+        		return;
+        	}
+        	fnMsgClear($("#caution5"));		
+        });
+    	
+    	$("#emailAuth_btn").click(function() {
+    	if(sVal.length > 0 && regExp.test(sVal) && isChkEmail)
+		{
+	    		$("#email").attr("readonly", "true");;
+    			var email = $("#email").val();
+    			window.open("/dailyChan/emailAuthForm.me?email=" + email, "로그인팝업창", "width=500, height=370, top=50, left=500, location=no ");
+    			$("#email").focus();
+		}
+    	else
+		{
+    		if(isAlert) {
+    			alert("정상적인 이메일을 입력해주세요.");
+    		}
+		}
+    	});
+
+    	if($("#auth_success").val() == "success")
+    	{
+    		fnMsgShow($("#caution5"),"인증완료.");
+    		
+    		isCertYn = true;
+    		
+    	}
+    	
+    	//fnMsgClear($("#caution5"));
     	return true;
     }
     
@@ -353,7 +378,7 @@ $(document).ready(function() {
     	 fnMsgClear($("#caution4"));		
     	
         if(!isCertYn) {
-        	fnMsgShow($("#caution4"),"본인인증을 해 주세요.");
+        	fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
         	alert("본인인증을 해 주세요.");
         	return false;
         }
@@ -406,9 +431,6 @@ $(document).ready(function() {
     
     //최초 포커스
     $("#join_id").focus();
-    $("#emailAuth_btn").click(function() {
-    	window.open("/dailyChan/emailAuthForm.me", "로그인팝업창", "width=500, height=370, top = 50, left = 500, location = no ");
-    });
 
 });
 

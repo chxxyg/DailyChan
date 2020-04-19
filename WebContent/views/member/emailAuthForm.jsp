@@ -1,9 +1,14 @@
+<%@page import="com.kh.member.controller.MailSend"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String code = (String)request.getAttribute("code");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <title>이메일 인증</title>
 <style>
 	#auth_form_outer
@@ -81,14 +86,30 @@
 	<form id="auth_form" action="<%= request.getContextPath()%>/emailAuth.me" method="post">
 		<div id="auth_input">
 			<p>인증번호를 입력해주세요.<p>
-			<input type="text" name="emailAuth" size="10">
+			<input type="text" name="emailAuth" id="emailAuth" size="10">
 		</div>
 		<div id="auth_btn_box">
-			<button class="auth_btn" id="auth_btn1" type="button" onclick="window.close();"">취소</button>
-			<button class="auth_btn" id="auth_btn2" type="submit" >인증</button>
+			<button class="auth_btn" id="auth_btn1" type="button" onclick="window.close();">취소</button>
+			<input type="hidden" value="success" id="auth_success">
+			<button class="auth_btn" id="auth_btn2" type="button">인증</button>
 		</div>
 	</form>
 	<br>
 	</div>
+	
+	<script>
+		$("#auth_btn2").click(function(){
+			if($("#emailAuth").val() == "<%=code%>")
+			{
+				alert("이메일 인증 완료");
+				$("#auth_success", opener.document).val("success");
+				self.close();
+			}
+			else
+			{
+				alert("이메일 인증 실패");		
+			}
+		});
+	</script>
 </body>
 </html>
