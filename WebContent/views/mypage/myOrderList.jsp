@@ -265,7 +265,7 @@
 
 	<script>
 		$(function(){
-			hs("#selectOrder").css("color", "rgb(247, 112, 46)");
+			$("#selectOrder").css("color", "rgb(247, 112, 46)");
 		});	
 	
 		function cancelOrder(){
