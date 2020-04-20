@@ -58,8 +58,9 @@
 	#myOrderInfo>div>a{
 		font-size:13px;
 		cursor:pointer;
+		color:black;
 	}
-	#orderDtBtn{
+	.orderDtBtn{
 		width:63px;
 		height:25px;
 		background:white;
@@ -78,7 +79,7 @@
 		margin-bottom:5px;
 		cursor:pointer;
 	}
-	#cancelOrderBtn, #requestRefundBtn{
+	.cancelOrderBtn, .requestRefundBtn{
 		width:60px;
 		height:30px;
 		background:white;
@@ -112,7 +113,8 @@
 				<dl>
 					<dt>조회기간</dt>
 					<dd>
-
+						<input type="date" id="fromDate" name="fromDate" max="sysdate"><span>~</span>
+						<input type="date" id="toDate" name="toDate">
 					</dd>
 					<dd>
 						<button type="button" class="bt_sch" id="searchBtn">조회</button>
@@ -133,14 +135,15 @@
 			</thead>
 			<tbody>
 				<tr height="100px">
-					<td>
-						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
+					<td class="firstTd">
+						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
 						2020-03-31<br>
-						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -148,39 +151,43 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>
-						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a><br>
+					<td class="firstTd">
+						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1111111</a>
 						2020-03-31<br>
-						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="KOA102"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
 					<td>결제완료</td>
 					<td>
-						<button type="button" id="cancelOrderBtn" onclick="cancelOrder();">즉시취소</button>
+						<button type="button" class="cancelOrderBtn">즉시취소</button>
 					</td>
 				</tr>
 				<tr height="100px">
-					<td>
-						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
+					<td class="firstTd">
+						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
 						2020-03-31<br>
-						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -188,14 +195,15 @@
 					<td></td>
 				</tr>
 				<tr height="100px">
-					<td>
-						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
+					<td class="firstTd">
+						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
 						2020-03-31<br>
-						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -205,50 +213,53 @@
 					</td>
 				</tr>
 				<tr height="100px">
-					<td>
-						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
+					<td class="firstTd">
+						<a style="color:blue; text-decoration: underline;" class="orderNo">20200501-7654321</a>
 						2020-03-31<br>
-						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href=""><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
 					<td>배송중</td>
 					<td>
 						<button type="button" id="trackShipmentBtn">배송조회</button><br>
-						<button type="button" id="requestRefundBtn" onclick="location.href='<%=contextPath%>/refund.my'">반품신청</button>
+						<button type="button" class="requestRefundBtn">반품신청</button>
 					</td>
 				</tr>
 				<tr height="100px">
-					<td>
-						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
+					<td class="firstTd">
+						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
 						2020-03-31<br>
-						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
 					<td>배송완료</td>
 					<td>
 						<button type="button" id="trackShipmentBtn">배송조회</button><br>
-						<button type="button" id="requestRefundBtn" onclick="location.href='<%=contextPath%>/refund.my'">반품신청</button>
+						<button type="button" class="requestRefundBtn">반품신청</button>
 					</td>
 				</tr>
 				<tr height="100px">
-					<td>
-						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
+					<td class="firstTd">
+						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
 						2020-03-31<br>
-						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 ></button>
+						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 						</div>
 					</td>
@@ -266,18 +277,41 @@
 	<script>
 		$(function(){
 			$("#selectOrder").css("color", "rgb(247, 112, 46)");
+			
+			$(".orderNo").click(function(){
+				var orderNo = $(this).text();
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo;
+			});
+			
+			$(".orderDtBtn").click(function(){
+				console.log("클릭됨");
+				var orderNo = $(this).siblings(".orderNo").text();
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo;
+			})
+			
+			$(".pName").click(function(){
+				var pCode = $(this).prev().val();
+				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
+			})
+			
+			$(".requestRefundBtn").click(function(){
+				var orderNo = $(this).parent().siblings(".firstTd").children(".orderNo").text();
+				location.href="<%=contextPath%>/refund.my?orderNo=" + orderNo;
+			});
+			
+			
+			/*Ajax로 값만 서블릿으로 전달하고 이 페이지에 머물도록!!!(refund.my 지우고)*/
+			$(".cancelOrderBtn").click(function(){
+				var result = confirm("주문을 즉시취소하시겠습니까?")
+	            if(result){
+	                alert("처리가 완료되었습니다.");
+	            }
+				var orderNo = $(this).parent().siblings(".firstTd").children(".orderNo").text();
+				location.href="<%=contextPath%>/refund.my?orderNo=" + orderNo;
+			});
+			
 		});	
-	
-		function cancelOrder(){
-			var result = confirm("주문을 즉시취소하시겠습니까?")
-            if(result){
-                alert("처리가 완료되었습니다.");
-            }
-		}
-		function toOrderDetail(){
-			location.href="<%= contextPath %>/orderDetail.my";
-		}
-	
+		
 		function cancelOrdBlock(){
 			alert("                즉시취소는 결제완료 단계까지 가능합니다.\r\n              상품준비중 이후의 단계에서는 상품이 조리되어\r\n              취소처리가 불가능하니 이점 양해 부탁드립니다.");
 		}

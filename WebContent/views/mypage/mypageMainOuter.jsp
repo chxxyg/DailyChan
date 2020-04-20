@@ -110,7 +110,7 @@
         <div id="mypageBrief" align="center">
            	<div id="deliverySite">
                 <a href="">기본 배송지 정보 넣을 곳</a>
-                <img src="../../resources/img/positionlogo.png">
+                <img src="<%= contextPath %>/resources/img/positionlogo.png">
             </div>
 			<div><b><%= memberName %></b>님</div>
 			<div>주문/배송<br>	<a href="<%= contextPath %>/orderList.my">0</a>건</div>
