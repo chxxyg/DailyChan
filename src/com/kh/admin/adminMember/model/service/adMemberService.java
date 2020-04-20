@@ -30,5 +30,17 @@ public class adMemberService {
 		return list;
 		
 	}
+	
+	public int getCountMember() {
+		Connection conn = getConnection();
+		
+		int countMember = new adMemberDao().getCountMember(conn);
+		
+		close(conn);
+		return countMember;
+		
+	}
+	
+	
 
 }

@@ -3,6 +3,10 @@
     
 <%
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+	//PageInfo pi = (pageInfo)request.getAttribute("pi");
+	int count = (Integer)request.getAttribute("count");
+			
+	
 %>    
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +111,7 @@
         <br>
         	<form>회원 ID <input type="text" name="userId"> <button type="button" onclick="">조회</button> </form><br>
         <div id="allcount">
-                <div style="width:30%;">총 회원 수 :  <input type="text" id="adproductcount"> 명</div>
+                <div style="width:30%;">총 회원 수 : <input type="text" id="adproductcount"><%= count %> 명</div>
                 <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberCorrection.jsp'">회원보기</button> <button>회원삭제</button></div>
         </div>  
         <table class="listMember">
@@ -146,5 +150,10 @@
         </table>  
        </div>
     </div>
+    <script>
+   
+    		
+    
+    </script>
 </body>
 </html>
