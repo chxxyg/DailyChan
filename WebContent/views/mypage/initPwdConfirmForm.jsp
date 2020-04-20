@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+
 	String target = request.getParameter("target");
+    String msg1 = (String)request.getAttribute("msg1");
 %>
 <!DOCTYPE html>
 <html>
@@ -91,6 +93,15 @@ button {
     font-weight: bold;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var message = "<%=msg1%>";
+	if(message != "null"){
+		alert(message);
+	}
+});
+</script>
 <body>
 	<%@ include file="mypageMainOuter.jsp" %>
 	<%@ include file="../common/mainSideBar.jsp" %>
@@ -103,7 +114,7 @@ button {
 		<% } %>
 	</h3>
 	<hr>
-		<form id="confirmForm" action="<%=contextPath %>/pwdCheck.me" method="post">
+		<form id="confirmForm" action="<%=contextPath %>/getPwdConfirm.me" method="post">
 			<input type="hidden" name="target" value="<%=target%>">
 			<input type="hidden" name="userId" value="<%=((Member)session.getAttribute("loginUser")).getMemberId()%>">
 			<div class="mys_cfm">
@@ -114,8 +125,6 @@ button {
 			</div>
 		</form>
 	</div>
-	
-	
 	<%@ include file="../../views/common/mainFooter.jsp" %>
 	
 </body>

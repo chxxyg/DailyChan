@@ -134,8 +134,8 @@
 			<div><a id="selectInquiry" href="">나의 문의 내역</a></div>
 			<div class="myCateFirst">회원정보</div>
 			<div><a id="selectAddress" href="">배송지 관리</a></div>
-			<div><a id="selectMyInfo" href="<%=contextPath%>/initPwdConfirm.my?target=updateMember.my">개인정보수정</a></div>
-			<div><a id="selectWithdraw" href="<%=contextPath%>/initPwdConfirm.my?target=deleteMember.my">회원탈퇴</a></div>
+			<div><a id="selectMyInfo" href="<%=contextPath%>/initPwdConfirm.my?target=updateMember">개인정보수정</a></div>
+			<div><a id="selectWithdraw" href="<%=contextPath%>/initPwdConfirm.my?target=deleteMember">회원탈퇴</a></div>
 			
 		</div>	
     </div>

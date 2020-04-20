@@ -4,10 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
+import static com.kh.common.JDBCTemplate.*;
 
 public class MypageDao
 {
@@ -15,7 +19,7 @@ public class MypageDao
     
     public MypageDao()
     {
-        String filePath = MemberDao.class.getResource("/sql/member/member-query.properties").getPath();
+        String filePath = MemberDao.class.getResource("/sql/myPage/myPage-query.properties").getPath();
         
         try {
             prop.load(new FileReader(filePath));
@@ -29,6 +33,31 @@ public class MypageDao
     public int pwdCheck(Connection conn, Member m)
     {
         int result = 0;
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("pwdCheck");
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, m.getMemberId());
+            pstmt.setString(2, m.getPassword());
+            
+            rset = pstmt.executeQuery();
+            
+            if(rset.next())
+            {
+                result = rset.getInt(1);
+            }
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(rset);
+            close(pstmt);
+        }
         
         
         return result;
