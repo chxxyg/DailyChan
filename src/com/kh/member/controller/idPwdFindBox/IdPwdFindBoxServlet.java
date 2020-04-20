@@ -27,7 +27,10 @@ public class IdPwdFindBoxServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	
+			
+		
+		
+			
 	
 			request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
 	

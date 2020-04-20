@@ -72,6 +72,7 @@ public class MemberService {
 		close(conn);
 		
 		return count;
+		
 	}
 	
 	public int insertMember(Member m)
@@ -94,6 +95,25 @@ public class MemberService {
 		return result;
 	}
 	
+	
+	
+	/**
+	 * 
+	 * 완료x 수정해야 됨
+	 * @param memberName
+	 * @param email
+	 * @return
+	 */
+	public String searchId(String memberName, String email) {
+		
+		Connection conn = getConnection();
+		String result = new MemberDao().searchId(memberName, email);
+		
+		close(conn);
+		return result;
+		
+		
+	}
 	
 	
 		

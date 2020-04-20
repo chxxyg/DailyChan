@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.kh.member.model.vo.Member;
 
+
 public class MemberDao {
 
 	private Properties prop = new Properties();
@@ -204,4 +205,50 @@ public class MemberDao {
 		
 		return result;
 	}
+	
+	
+
+	/**
+	 *  아이디 찾기
+	 * @param conn
+	 * @param memberName
+	 * @param email
+	 * @return
+	 * 
+	 */
+	public String searchId(String memberName, String email) {
+				
+		Connection conn = getConnection();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String memberId = null;
+		
+		
+		String sql = prop.getProperty("searchId");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, email);
+			
+			
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				memberId=rset.getString("memberId");
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return memberId;
+		
+	}
+	
+
+	
 }
