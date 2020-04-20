@@ -1,5 +1,5 @@
 package com.kh.product.model.service;
 
-public class ProductListService {
+public class ProductService {
 
 }

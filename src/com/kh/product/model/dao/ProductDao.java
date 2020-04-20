@@ -1,5 +1,5 @@
 package com.kh.product.model.dao;
 
-public class ProductListDao {
+public class ProductDao {
 
 }

@@ -29,7 +29,7 @@ public class ProductListServlet extends HttpServlet {
 	
 		String category = request.getParameter("category");
 		
-		ArrayList<> list = new CategoryService().selectCateList(category);
+		ArrayList<> list = new ProductListService().selectCateList(category);
 		
 		
 	}
