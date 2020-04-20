@@ -108,7 +108,7 @@
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input type="text" placeholder="자동 부여됩니다." name="pdCode"></td>
+                <td><input type="text"  name="pdCode"></td>
             </tr>
             <tr>
                 <td width="200">납품업체명</td>
