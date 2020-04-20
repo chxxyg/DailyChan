@@ -13,10 +13,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><%=  message %></h1> <!-- 임시로 지정 -->
+ 	
+ 	<%@ include file="../common/mainHeader.jsp" %>
+	<%@ include file="../common/mainSideBar.jsp" %>
+	
+ 	<!-- 임시로 지정 -->
+	<h1 style="color:blue"><%=  message %></h1>
 
 
-
+	<%@ include file="../common/mainFooter.jsp" %>
 
 </body>
 </html>

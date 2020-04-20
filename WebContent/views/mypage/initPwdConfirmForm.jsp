@@ -100,7 +100,7 @@ $(function(){
 	if(message != "null"){
 		alert(message);
 	}
-});
+});                                  
 </script>
 <body>
 	<%@ include file="mypageMainOuter.jsp" %>

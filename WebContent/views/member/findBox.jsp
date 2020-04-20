@@ -107,7 +107,7 @@ table{
 							<!-- 아이디찾기 폼 -->
 							<div class="login_set" id="login_set_id">
 
-								<form name="findIdForm" id="findIdForm" method="post">
+								<form name="findIdForm" action="<%= contextPath %>/idFind.me" id="findIdForm" method="post">
 									<input type="hidden" name="login_id" value=""> 
 									<input type="text" id="id_name" name="id_name" class="login_input" maxlength="10" placeholder="개인: 이름 입력" required><br> 
 									<input type="text" id="id_email" name="id_email" class="login_input" maxlength="50" placeholder="이메일" required>
@@ -115,7 +115,7 @@ table{
 
 									<!-- 입력정보 오류시 노출 -->
 									<br>
-									<button class="btn_login" type="button" id="btn_find_id" onclick="<%= contextPath%>/idFind.me">
+									<button class="btn_login" type="submit" id="btn_find_id">
 										<em>아이디 찾기</em>
 									</button>
 								</form>
@@ -229,9 +229,15 @@ table{
 
 	}
 	
+/* 	
+	function
+	 */
+	                  
 	
 	</script>
 
+	
 	<%@ include file="../common/mainFooter.jsp" %>
+
 </body>
 </html>

@@ -33,7 +33,6 @@
 
     font-size: 100%;
     font-weight: normal;
-
 }
 button em {
     display: block;
@@ -54,24 +53,28 @@ button {
 	list-style:none;
 } 
 .period_slt dt {
-    height: 32px;
-    margin-right: 25px;
+	
+	margin:auto;
     font-size: 14px;
     font-weight: 800;
-    line-height: 32px;
     color: #222;
+    float:left;
+    
 }
 
 .period_slt dd ul li {
     float: left;
+    margin-top:-8px;
 }
-}
+
 .period_slt dd ul li button {
     width: 78px;
     height: 30px;
     margin-left: -1px;
     border: 1px solid #dbdbdb;
     color: #333;
+    background:white;
+    float:left;
 }
 
 .slt_wrap {
@@ -121,7 +124,9 @@ element.style {
 
 /* 주문내역 */
 .myOrderList{
-		margin:30px 0px 0px 5px;
+		/* margin:30px 0px 0px 5px; */
+		margin:auto;
+
 	}
 	.myOrderList, .myOrderList tr{
 		border-top:1px solid grey;
@@ -216,14 +221,14 @@ element.style {
             
             <div class="sltd_tbl_pop ext_none">
                 <!-- LIST NONE -->
-                <div class="list_none">
+               <!--  <div class="list_none">
                     <span class="txt">기간 내 주문내역이 없습니다.</span>
-                </div>
+                </div> -->
                 <!-- LIST NONE -->
-                <div class="btns">
+                <!-- <div class="btns">
                     <button class="cancel" onclick="unBlockUI('lyr_odr_slt');return false;"><em>닫기</em></button>
                 </div>
-                <button type="button" class="close" onclick="unBlockUI('lyr_odr_slt');return false;">주문반품신청 레이어 닫기</button>
+                <button type="button" class="close" onclick="unBlockUI('lyr_odr_slt');return false;">주문반품신청 레이어 닫기</button> -->
             </div>
             
         </div>
@@ -261,8 +266,8 @@ element.style {
 		</table>
 
     
-        <button type="button" class="btn_lay_close close">주문내역 검색 레이어 닫기</button>	</button>
-
+<!--         <button type="button" class="btn_lay_close close">주문내역 검색 레이어 닫기</button>	</button>
+ -->
     </body>
 		
 
