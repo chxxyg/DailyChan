@@ -4,6 +4,8 @@
 	String contextPath = request.getContextPath();
 	String msg = (String)session.getAttribute("msg");
 	Member loginUser = (Member)session.getAttribute("loginUser");
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -281,77 +283,77 @@
             <!-- navigator -->
             <div id="navigator">
                 <ul id="navi">
-                    <li><a href="<%= contextPath %>/pList.pro?category=new">NEW</a>
+                    <li><a href="">NEW</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=new">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=newko">한식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=newit">양식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=newas">아시안</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=newetc">기타</a></li>
+                            <li><a href="">전체보기</a></li>
+                            <li><a href="">한식</a></li>
+                            <li><a href="">양식</a></li>
+                            <li><a href="">아시안</a></li>
+                            <li><a href="">기타</a></li>
                         </ul>
                     </li>
                     
-                    <li><a href="<%= contextPath %>/pList.pro?category=best">BEST</a>
+                    <li><a href="">BEST</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=best">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=bestko">한식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=bestit">양식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=bestas">아시안</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=bestetc">기타</a></li>
+                            <li><a href="">전체보기</a></li>
+                            <li><a href="">한식</a></li>
+                            <li><a href="">양식</a></li>
+                            <li><a href="">아시안</a></li>
+                            <li><a href="">기타</a></li>
 
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=sale">SALE</a>
+                    <li><a href="">SALE</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=sale">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=saleko">한식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=saleit">양식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=saleas">아시안</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=saleect">기타</a></li>
+                            <li><a href="">전체보기</a></li>
+                            <li><a href="">한식</a></li>
+                            <li><a href="">양식</a></li>
+                            <li><a href="">아시안</a></li>
+                            <li><a href="">기타</a></li>
 
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=ko">한식</a>
+                    <li><a href="<%= contextPath %>/pList.pro?category=KO">한식</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ko">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=koa">국/탕/찌개</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=kob">조림/볶음/구이</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=koc">면요리</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=kod">분식</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KO">전체보기</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOA">국/탕/찌개</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOB">조림/볶음/구이</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOC">면요리</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOD">분식</a></li>
 
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=it">양식</a>
+                    <li><a href="<%= contextPath %>/pList.pro?category=IT">양식</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=it">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ita">스테이크</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=itb">파스타</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=itc">사이드</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=itd">샐러드</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=IT">전체보기</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITA">스테이크</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITB">파스타</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITC">사이드</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITD">샐러드</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=as">아시안</a>
+                    <li><a href="<%= contextPath %>/pList.pro?category=AS">아시안</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=as">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=asa">중식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=asb">일식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=asc">베트남</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=asd">퓨전</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=AS">전체보기</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASA">중식</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASB">일식</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASC">베트남</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASD">퓨전</a></li>
 
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/cdayList.pro">찬DAY</a>
+                    <li><a href="">찬DAY</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/cdayList.pro">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/cdayList.pro?category=cdaya">메인반찬</a></li>
-                            <li><a href="<%= contextPath %>/cdayList.pro?category=cdayb">밑반찬</a></li>
-                            <li><a href="<%= contextPath %>/cdayList.pro?category=cdayc">김치</a></li>
-                            <li><a href="<%= contextPath %>/cdayList.pro?category=cdayd">나물</a></li>
+                            <li><a href="">전체보기</a></li>
+                            <li><a href="">메인반찬</a></li>
+                            <li><a href="">밑반찬</a></li>
+                            <li><a href="">김치</a></li>
+                            <li><a href="">나물</a></li>
 
                         </ul>
                     </li>

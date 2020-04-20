@@ -12,9 +12,25 @@ public class Product {
 	private int proReviewCount;    		// 상품 리뷰 개수
 	private int proStandard;			// 상품 내용량 
 	
+	private String atFileName;			// 상품에 해당하는 대표 첨부파일
+	
 	public Product() {
 		
 	}
+	
+	
+	// selectProList
+	public Product(String proCode, String proName, int proPrice, int proStock, int proStandard, String atFileName) {
+		super();
+		this.proCode = proCode;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proStock = proStock;
+		this.proStandard = proStandard;
+		this.setAtFileName(atFileName);
+	}
+
+
 
 	public Product(String proCode, String proName, int proPrice, String proCategory, int proStock, int proSupplyCoNo,
 			int proReviewSum, int proReviewCount, int proStandard) {
@@ -107,6 +123,18 @@ public class Product {
 		return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice=" + proPrice + ", proCategory="
 				+ proCategory + ", proStock=" + proStock + ", proSupplyCoNo=" + proSupplyCoNo + ", proReviewSum="
 				+ proReviewSum + ", proReviewCount=" + proReviewCount + ", proStandard=" + proStandard + "]";
+	}
+
+
+
+	public String getAtFileName() {
+		return atFileName;
+	}
+
+
+
+	public void setAtFileName(String atFileName) {
+		this.atFileName = atFileName;
 	}
 	
 }

@@ -21,47 +21,54 @@
 
 #categoryFilter{
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 550;
+    margin-right: 10px;
     margin-bottom: 40px;
 }
 #categoryFilter a{
     color: black;
 }
 
+#productListWrap{
+	width: 1000px;
+	margin: auto;
+}
+
 .categoryInnerTable{
-    width: 250px;
-    padding: 10px;
+    width: 220px;
     margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .categoryInnerTable a{
     text-decoration: none;
     color: black;
 }
 .productImg{
-    width: 230px;
-    height: 230px;
+    width: 210px;
+    height: 210px;
 }
 .productName{
-    width: 220px;
+    width: 210px;
     height: 40px;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 550;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 3px;
     margin-top: 5px;
 }
 .productInfo{
-    width: 220px;
+    width: 210px;
     height: 30px;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 550;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 3px;
 }
 .productPrice{padding-right: 5px;}
 .productFor{padding-left: 5px;}
 .productBtn{
-    width: 220px;
+    width: 210px;
     height: 40px;
     text-align: right;
     padding-right: 10px;
