@@ -4,91 +4,91 @@ import java.sql.Date;
 
 public class AttachmentProduct {
 	
-	private String AtNo;    		// 첨부파일 번호
-	private int AtCategory; 		// 첨부파일 카테고리
-	private int AtBoardNo;  		// 첨부파일 게시글번호
-	private String AtChangeName; 	// 첨부파일 수정명
-	private String AtFilePath; 		// 첨부파일 저장경로
-	private Date AtUploadDate; 		// 첨부파일 업로드 날짜
-	private int AtFileMaxSize; 		// 첨부파일 크기
+	private String atNo;    			// 첨부파일 번호
+	private int atProductCode;  		// 상품코드
+	private String atFileName; 			// 첨부파일명
+	private String atFilePath; 			// 첨부파일 저장경로
+	private Date atUploadDate; 			// 첨부파일 업로드 날짜
+	private int atFileLevel; 			// 첨부파일 레벨 (1:대표이미지, 2:상세이미지, 3:정보이미지)
+	private int atFileMaxSize; 			// 첨부파일 크기
 	
 	public AttachmentProduct() {
 		
 	}
 
-	public AttachmentProduct(String atNo, int atCategory, int atBoardNo, String atChangeName, String atFilePath,
-			Date atUploadDate, int atFileMaxSize) {
+	public AttachmentProduct(String atNo, int atProductCode, String atFileName, String atFilePath, Date atUploadDate,
+			int atFileLevel, int atFileMaxSize) {
 		super();
-		AtNo = atNo;
-		AtCategory = atCategory;
-		AtBoardNo = atBoardNo;
-		AtChangeName = atChangeName;
-		AtFilePath = atFilePath;
-		AtUploadDate = atUploadDate;
-		AtFileMaxSize = atFileMaxSize;
+		this.atNo = atNo;
+		this.atProductCode = atProductCode;
+		this.atFileName = atFileName;
+		this.atFilePath = atFilePath;
+		this.atUploadDate = atUploadDate;
+		this.atFileLevel = atFileLevel;
+		this.atFileMaxSize = atFileMaxSize;
 	}
 
 	public String getAtNo() {
-		return AtNo;
+		return atNo;
 	}
 
 	public void setAtNo(String atNo) {
-		AtNo = atNo;
+		this.atNo = atNo;
 	}
 
-	public int getAtCategory() {
-		return AtCategory;
+	public int getAtProductCode() {
+		return atProductCode;
 	}
 
-	public void setAtCategory(int atCategory) {
-		AtCategory = atCategory;
+	public void setAtProductCode(int atProductCode) {
+		this.atProductCode = atProductCode;
 	}
 
-	public int getAtBoardNo() {
-		return AtBoardNo;
+	public String getAtFileName() {
+		return atFileName;
 	}
 
-	public void setAtBoardNo(int atBoardNo) {
-		AtBoardNo = atBoardNo;
-	}
-
-	public String getAtChangeName() {
-		return AtChangeName;
-	}
-
-	public void setAtChangeName(String atChangeName) {
-		AtChangeName = atChangeName;
+	public void setAtFileName(String atFileName) {
+		this.atFileName = atFileName;
 	}
 
 	public String getAtFilePath() {
-		return AtFilePath;
+		return atFilePath;
 	}
 
 	public void setAtFilePath(String atFilePath) {
-		AtFilePath = atFilePath;
+		this.atFilePath = atFilePath;
 	}
 
 	public Date getAtUploadDate() {
-		return AtUploadDate;
+		return atUploadDate;
 	}
 
 	public void setAtUploadDate(Date atUploadDate) {
-		AtUploadDate = atUploadDate;
+		this.atUploadDate = atUploadDate;
+	}
+
+	public int getAtFileLevel() {
+		return atFileLevel;
+	}
+
+	public void setAtFileLevel(int atFileLevel) {
+		this.atFileLevel = atFileLevel;
 	}
 
 	public int getAtFileMaxSize() {
-		return AtFileMaxSize;
+		return atFileMaxSize;
 	}
 
 	public void setAtFileMaxSize(int atFileMaxSize) {
-		AtFileMaxSize = atFileMaxSize;
+		this.atFileMaxSize = atFileMaxSize;
 	}
 
 	@Override
 	public String toString() {
-		return "AttachmentProduct [AtNo=" + AtNo + ", AtCategory=" + AtCategory + ", AtBoardNo=" + AtBoardNo
-				+ ", AtChangeName=" + AtChangeName + ", AtFilePath=" + AtFilePath + ", AtUploadDate=" + AtUploadDate
-				+ ", AtFileMaxSize=" + AtFileMaxSize + "]";
+		return "AttachmentProduct [atNo=" + atNo + ", atProductCode=" + atProductCode + ", atFileName=" + atFileName
+				+ ", atFilePath=" + atFilePath + ", atUploadDate=" + atUploadDate + ", atFileLevel=" + atFileLevel
+				+ ", atFileMaxSize=" + atFileMaxSize + "]";
 	}
-	
+
 }

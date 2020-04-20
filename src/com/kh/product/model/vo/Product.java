@@ -2,111 +2,111 @@ package com.kh.product.model.vo;
 
 public class Product {
 
-	private String pdCategory;	// 카테고리
-	private String pdName;      // 상품명
-	private String pdCode;		// 상품코드
-	private int pdPrice;        // 판매가
-	private int pdStock;		// 수량
-	private int supplyCoNo;     // 납품업체사업자번호
-	private int reviewSum;      // 상품평점(리뷰총합)
-	private int reviewCount;    // 상품리뷰갯수
-	private int productStandard;// 상품내용량
+	private String proCode;				// 상품 코드
+	private String proName;      		// 상품 이름
+	private int proPrice;        		// 상품 가격
+	private String proCategory;			// 상품 종류
+	private int proStock;				// 상품 재고
+	private int proSupplyCoNo;     		// 납품업체 사업자 번호
+	private int proReviewSum;      		// 상품 평점 (리뷰 총합)
+	private int proReviewCount;    		// 상품 리뷰 개수
+	private int proStandard;			// 상품 내용량 
 	
 	public Product() {
 		
 	}
-	
-	public Product(String pdCategory, String pdName, String pdCode, int pdPrice, int pdStock, int supplyCoNo,
-			int reviewSum, int reviewCount, int productStandard) {
+
+	public Product(String proCode, String proName, int proPrice, String proCategory, int proStock, int proSupplyCoNo,
+			int proReviewSum, int proReviewCount, int proStandard) {
 		super();
-		this.pdCategory = pdCategory;
-		this.pdName = pdName;
-		this.pdCode = pdCode;
-		this.pdPrice = pdPrice;
-		this.pdStock = pdStock;
-		this.supplyCoNo = supplyCoNo;
-		this.reviewSum = reviewSum;
-		this.reviewCount = reviewCount;
-		this.productStandard = productStandard;
+		this.proCode = proCode;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proCategory = proCategory;
+		this.proStock = proStock;
+		this.proSupplyCoNo = proSupplyCoNo;
+		this.proReviewSum = proReviewSum;
+		this.proReviewCount = proReviewCount;
+		this.proStandard = proStandard;
 	}
 
-	public String getPdCategory() {
-		return pdCategory;
+	public String getProCode() {
+		return proCode;
 	}
 
-	public void setPdCategory(String pdCategory) {
-		this.pdCategory = pdCategory;
+	public void setProCode(String proCode) {
+		this.proCode = proCode;
 	}
 
-	public String getPdName() {
-		return pdName;
+	public String getProName() {
+		return proName;
 	}
 
-	public void setPdName(String pdName) {
-		this.pdName = pdName;
+	public void setProName(String proName) {
+		this.proName = proName;
 	}
 
-	public String getPdCode() {
-		return pdCode;
+	public int getProPrice() {
+		return proPrice;
 	}
 
-	public void setPdCode(String pdCode) {
-		this.pdCode = pdCode;
+	public void setProPrice(int proPrice) {
+		this.proPrice = proPrice;
 	}
 
-	public int getPdPrice() {
-		return pdPrice;
+	public String getProCategory() {
+		return proCategory;
 	}
 
-	public void setPdPrice(int pdPrice) {
-		this.pdPrice = pdPrice;
+	public void setProCategory(String proCategory) {
+		this.proCategory = proCategory;
 	}
 
-	public int getPdStock() {
-		return pdStock;
+	public int getProStock() {
+		return proStock;
 	}
 
-	public void setPdStock(int pdStock) {
-		this.pdStock = pdStock;
+	public void setProStock(int proStock) {
+		this.proStock = proStock;
 	}
 
-	public int getSupplyCoNo() {
-		return supplyCoNo;
+	public int getProSupplyCoNo() {
+		return proSupplyCoNo;
 	}
 
-	public void setSupplyCoNo(int supplyCoNo) {
-		this.supplyCoNo = supplyCoNo;
+	public void setProSupplyCoNo(int proSupplyCoNo) {
+		this.proSupplyCoNo = proSupplyCoNo;
 	}
 
-	public int getReviewSum() {
-		return reviewSum;
+	public int getProReviewSum() {
+		return proReviewSum;
 	}
 
-	public void setReviewSum(int reviewSum) {
-		this.reviewSum = reviewSum;
+	public void setProReviewSum(int proReviewSum) {
+		this.proReviewSum = proReviewSum;
 	}
 
-	public int getReviewCount() {
-		return reviewCount;
+	public int getProReviewCount() {
+		return proReviewCount;
 	}
 
-	public void setReviewCount(int reviewCount) {
-		this.reviewCount = reviewCount;
+	public void setProReviewCount(int proReviewCount) {
+		this.proReviewCount = proReviewCount;
 	}
 
-	public int getProductStandard() {
-		return productStandard;
+	public int getProStandard() {
+		return proStandard;
 	}
 
-	public void setProductStandard(int productStandard) {
-		this.productStandard = productStandard;
+	public void setProStandard(int proStandard) {
+		this.proStandard = proStandard;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [pdCategory=" + pdCategory + ", pdName=" + pdName + ", pdCode=" + pdCode + ", pdPrice="
-				+ pdPrice + ", pdStock=" + pdStock + ", supplyCoNo=" + supplyCoNo + ", reviewSum=" + reviewSum
-				+ ", reviewCount=" + reviewCount + ", productStandard=" + productStandard + "]";
+		return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice=" + proPrice + ", proCategory="
+				+ proCategory + ", proStock=" + proStock + ", proSupplyCoNo=" + proSupplyCoNo + ", proReviewSum="
+				+ proReviewSum + ", proReviewCount=" + proReviewCount + ", proStandard=" + proStandard + "]";
 	}
 	
 }
