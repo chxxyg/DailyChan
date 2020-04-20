@@ -11,7 +11,7 @@
 	.recentProductViewWrap{
 		width:800px;
 		height:1300px;
-		margin:50px 0px 0px 450px;
+		float:left;
 	}
 	.recentProductViewWrap>span{
 		font-size:12px;

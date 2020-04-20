@@ -12,9 +12,9 @@
 		box-sizing:border-box;
 	}
 	.reviewList{
-		margin:50px 0px 0px 450px;
 		width:800px;
 		height:1000px;
+		float:left;
 	}
 	
 	/* 조회 기간 선택 영역 */

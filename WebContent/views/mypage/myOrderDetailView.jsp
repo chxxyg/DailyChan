@@ -11,7 +11,7 @@
 	.orderDetailViewWrap{
 		width:800px;
 		height:1300px;
-		margin:50px 0px 0px 450px;
+		float:left;
 	}
 	.orderDetailViewWrap>span{color:grey;font-size:13px;}
 	#orderNo{color:blue;}

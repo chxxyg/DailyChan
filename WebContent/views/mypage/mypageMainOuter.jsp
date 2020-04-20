@@ -26,6 +26,7 @@
 		box-sizing:border-box;
 		border-top:1px solid lightgrey;
 		border-bottom:1px solid lightgrey;
+		margin-bottom:70px;
 	}
 	#deliverySite{
 		width:1000px;
@@ -68,7 +69,6 @@
 	#mypageCategory{
 		width:200px;
 		height:620px;
-		margin-top:30px;
 		float:left;
 	}
 	#mypageCategory>div{
