@@ -3,8 +3,7 @@
 <%
 
 	String target = request.getParameter("target");
-    String msg1 = request.getParameter("msg1");
-    System.out.println(msg1);
+    String msg1 = (String)request.getAttribute("msg1");
 %>
 <!DOCTYPE html>
 <html>
