@@ -62,4 +62,9 @@ public class MypageDao
         
         return result;
     }
+    
+    public int deleteMember(Connection conn, String userId)
+    {
+        
+    }
 }
