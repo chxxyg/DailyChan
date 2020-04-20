@@ -37,12 +37,12 @@
         	text-align:center;
         	margin-top:50px;
         }
-       	Button {
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-			background-color:#ffc477;
+       Button {
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
 			border-radius:6px;
-			border:1px solid #eeb44f;
+			border:1px solid #181c20;
 			display:inline-block;
 			cursor:pointer;
 			color:#ffffff;
@@ -51,15 +51,16 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+			text-shadow:0px 1px 0px #181c20;
 		}
 		Button:hover {
-			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
 		}
 		Button:active {
 			position:relative;
 			top:1px;
+		}
 		}
         
         
@@ -73,7 +74,7 @@
     <div id="adproductEnroll">
        <div id="outer">
         <h1>&nbsp;&nbsp;&nbsp;회원정보</h1>
-       <form id="correctForm" action="<%=contextPath%>/detail.ad" method="POST"> 
+       <form id="collectForm" action="<%=contextPath%>/detail.ad" method="POST"> 
         <table id="adcate">
             <tr>
                 <td width="200" >아이디</td>
@@ -104,11 +105,26 @@
         </table>
         </form>
        		 <div id="enrollsubmit">
-        		<button type="submit">수정하기</button>&nbsp;&nbsp;
-        		<button onclick="location.href=">목록으로</button>
+        		<button onclick="updateMember();">수정하기</button>&nbsp;&nbsp;
+        		<button onclick="deleteMember();">삭제하기</button>&nbsp;&nbsp;
+        		<button onclick="location.href='<%=contextPath%>/memberList.ad';">목록으로</button>
         	</div>        
        </div>
     </div>
+    
+    <form id="postForm" action="<%=contextPath%>/deleteMember.ad" method="post">
+    	<!--  <input type="hidden" name="mid" value="<%=m.getMemberId() %>"> -->
+    </form>
+    
+    <script>
+    	function deleteMember(){   		
+    		$("#postForm").submit();
+    	}
+    	
+    	function updateMember(){
+    		$("#postForm").attr("action", "<%=contextPath%>/updateMember.ad");
+    		$("#postForm").submit();
+    	}
+    </script>
 </body>
-
 </html>

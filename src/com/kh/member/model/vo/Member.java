@@ -44,8 +44,9 @@ public class Member {
 	/*
 	 * 회원상세조회리스트
 	 */
-	public Member(String memberName, String email, String phone, Date enrollDate, Date modifyDate) {
+	public Member(String memberId, String memberName, String email, String phone, Date enrollDate, Date modifyDate) {
 		super();
+		this.memberId = memberId;
 		this.memberName = memberName;
 		this.email = email;
 		this.phone = phone;

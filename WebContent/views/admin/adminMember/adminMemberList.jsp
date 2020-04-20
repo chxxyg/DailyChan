@@ -74,7 +74,7 @@
         tbody{vertical-align: top;
         }
         table{table-layout:fixed;}
-                Button {
+        Button {
 			box-shadow:inset 0px 1px 0px 0px #181c20;
 			background:linear-gradient(#181c20);
 			background-color:#181c20;

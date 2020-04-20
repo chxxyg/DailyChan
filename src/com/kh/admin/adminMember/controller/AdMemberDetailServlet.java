@@ -35,10 +35,11 @@ public class AdMemberDetailServlet extends HttpServlet {
 		
 		String mid = request.getParameter("mid");
 		
+		
 		Member m = new adMemberService().searchMember(mid);
 		
 		request.setAttribute("m", m);
-		request.getRequestDispatcher("views/admin/adminMember/adminMemberCorrection.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin/adminMember/adminMemberCollection.jsp").forward(request, response);
 				
 	}
 

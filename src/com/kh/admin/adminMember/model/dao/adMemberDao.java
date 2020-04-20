@@ -34,7 +34,6 @@ public class adMemberDao {
 		}
 	}
 
-
 	public ArrayList<Member> selectList(Connection conn) {
 		
 		ArrayList<Member> list = new ArrayList<>();
@@ -57,10 +56,8 @@ public class adMemberDao {
 						              rset.getDate("ENROLL_DATE"),
 						              rset.getDate("MODIFY_DATE"),
 						              rset.getString("DEL_MEMBER_YN"),
-						              rset.getInt("POINT_SUM")));
-				
-			}
-			
+						              rset.getInt("POINT_SUM")));				
+			}			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -93,10 +90,7 @@ public class adMemberDao {
 			close(stmt);
 		}
 		return countMember;
-		
-		
-		
-		
+			
 	}
 
 	public Member searchMember(Connection conn, String mid) {
@@ -112,7 +106,8 @@ public class adMemberDao {
 			
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				m = new Member(rset.getString("MEMBER_NAME"),
+				m = new Member(rset.getString("MEMBER_ID"),
+							   rset.getString("MEMBER_NAME"),
 							   rset.getString("EMAIL"),
 							   rset.getString("PHONE"),
 							   rset.getDate("ENROLL_DATE"),
@@ -123,6 +118,25 @@ public class adMemberDao {
 		}
 		
 		return m;
+	}
+	public int deleteMember(Connection conn, String mid) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+				
+		return result;
 	}
 
 	

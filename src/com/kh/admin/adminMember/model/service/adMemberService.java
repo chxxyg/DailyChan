@@ -25,8 +25,6 @@ public class adMemberService {
 		return m;
 		
 	}
-	
-
 	/*
 	 * 총 회원 리스트 조회용 서비스
 	 * @return	--> 회원리스트(필요한데이터)담겨있는 객체
@@ -39,8 +37,7 @@ public class adMemberService {
 		close(conn);
 		return list;
 		
-	}
-	
+	}	
 	/*
 	 * 페이징바 / 총회원수 조회용 서비스
 	 * @return	--> 총 회원수
@@ -54,6 +51,26 @@ public class adMemberService {
 		return countMember;
 		
 	}
+	/*
+	 * 회원삭제용 서비스
+	 */
+	public int deleteMember(String mid) {
+		
+		Connection conn = getConnection();
+		int result = new adMemberDao().deleteMember(conn, mid);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	
+
+	}
+	
 	
 	
 
