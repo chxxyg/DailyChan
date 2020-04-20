@@ -110,14 +110,13 @@ table{
 								<form name="findIdForm" id="findIdForm" method="post">
 									<input type="hidden" name="login_id" value=""> 
 									 <!-- <label for="id_name" class="ir">이름</label> -->
-									<input type="text" id="id_name" name="id_name" class="login_input" maxlength="10" placeholder="개인: 이름, 사업자: 대표자명입력"><br> 
+									<input type="text" id="id_name" name="id_name" class="login_input" maxlength="10" placeholder="개인: 이름, 사업자: 대표자명입력" required><br> 
 									<!-- <label for="id_email" class="ir">이메일</label>  -->
-									<input type="text" id="id_email" name="id_email" class="login_input" maxlength="50" placeholder="이메일">
+									<input type="text" id="id_email" name="id_email" class="login_input" maxlength="50" placeholder="이메일" required>
 
 
 									<!-- 입력정보 오류시 노출 -->
 									<br>
-									<span class="caution" id="caution1">이름(대표자명)을 입력해 주세요.</span>
 									<button class="btn_login" type="button" id="btn_find_id">
 										<em>아이디 찾기</em>
 									</button>
@@ -159,16 +158,13 @@ table{
 								<!-- 비밀번호찾기 폼 -->
 								<div class="login_set login_set_pw" id="login_set_pw">
 
-									<!-- <label for="pw_id" class="ir">아이디</label> 	 -->
-									<input type="text" name="pw_id" id="pw_id" class="login_input" maxlength="20" placeholder="아이디"><br> 
-									<input type="text" name="pw_id" id="pw_id_text" class="login_input" maxlength="20" placeholder="아이디" style="display: none;">
+									<input type="text" name="pw_id" id="pw_id" class="login_input" maxlength="20" placeholder="아이디" required><br> 
+									<input type="text" name="pw_id" id="pw_id_text" class="login_input" maxlength="20" placeholder="아이디" style="display: none;" required>
 
-									<!-- <label for="pw_name" class="ir">이름</label> -->
 									<input type="text" name="pw_name" id="pw_name" class="login_input" maxlength="10" placeholder="개인: 이름, 사업자: 대표자명입력">
 
 									<!-- 입력정보 오류시 노출 -->
 									<br>
-									<span class="caution ir" id="caution2">입력하신 정보에 해당하는 회원정보를 찾을 수 없습니다.</span>
 									<button class="btn_login" type="button" id="btn_find_pw">
 										<em>비밀번호 찾기</em>
 									</button>
@@ -179,6 +175,25 @@ table{
 										</ul>
 									</div>
 								</div>
+								
+								<!-- 아이디 찾기 결과 -->
+								
+												<div class="login_set" id="login_set_id_result">
+										<div class="id_result">
+											<span>회원님의 아이디를 찾았습니다.</span>
+											<em id="id_result">찾은 아이디</em>
+										</div>
+
+						<!-- 입력정보 오류시 노출 -->
+						<button class="btn_login" type="button" id="btn_login" onclick="fnGologin();"><em>로그인</em></button>
+						<div class="find_info">
+							<ul class="list">
+								<li>비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요</li>
+							</ul>
+						</div>
+					</div>
+								
+								
 							</form>
 							<!--  비밀번호찾기 결과-->
 							<div class="login_set ir" id="login_set_pw_result">
@@ -255,7 +270,7 @@ table{
 	        		$("#pw_id").prop("disabled",false);
 
 	        		$("#login_set_pw_result").hide();
-// overpass 함수명 정정하기	        		overpass.member.fnMsgClear($("#caution2"));
+// overpass 함수명 정정하기	       overpass.member.fnMsgClear($("#caution2"));
 	        		$("#pw_result").html("");
 	    			$(".login_set_pw").show();
 	    		}

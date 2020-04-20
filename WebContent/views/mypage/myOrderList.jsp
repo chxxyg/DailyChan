@@ -11,7 +11,7 @@
 		box-sizing:border-box;
 	}
 	.orderDeliveryList{
-		margin:50px 0px 0px 450px;
+		float:left;
 		width:800px;
 		height:1200px;
 	}

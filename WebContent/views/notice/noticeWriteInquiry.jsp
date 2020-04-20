@@ -443,14 +443,21 @@ button em {
 			$("#left_02").css("color", "rgb(247, 112, 46)");
 		});
 		
+		 		 
+		  <!-- 로그인 팝업 function -->
+			function orderlistPop(){
+
+	           window.open("<%=contextPath%>/inquiryWrite.in", "로그인팝업창", "width=638, height=450, top = 50, left = 500, location = no");
+	        }
+		
 		 		
+		 		
+		<%-- 		 		
 		function orderlistPop() {
 			opener.parent.location="<%=contextPath%>/inquiryWrite.in";			
 			window.close();
 		}
-		 
-		
-		
+		 --%>
 	</script>
             
 <%@ include file="../common/mainFooter.jsp" %>

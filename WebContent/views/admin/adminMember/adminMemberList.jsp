@@ -1,10 +1,8 @@
-<%@page import="com.kh.admin.adminMember.model.vo.adMember"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %> 
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.member.model.vo.Member" %> 
     
 <%
-	ArrayList<adMember> list = (ArrayList<adMember>)request.getAttribute("list");
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
 %>    
 <!DOCTYPE html>
 <html lang="en">
@@ -127,12 +125,7 @@
                 </tr>
             </thead>
             <tbody>
-            <% if(list.isEmpty()){ %>
-					<tr>
-						<td colspan="5">존재하는 회원이 없습니다.</td>
-					</tr>
-				<% }else{ %>
-                     <% for(adMember m : list){ %>
+                    <% for(Member m : list){ %>
                 <tr>
                     <td><input type="checkbox" ></td>
                     <td>1</td>
@@ -144,9 +137,7 @@
                     <td><%= m.getDelMemberYn() %></td>
                     <td><%= m.getPointSum() %></td>
                 </tr>
-                <% }
-                   }%>
-                
+                <% } %>
                
                 
                 

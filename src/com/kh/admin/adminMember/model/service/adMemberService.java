@@ -4,27 +4,28 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.admin.adminMember.model.dao.adMemberDao;
-import com.kh.admin.adminMember.model.vo.adMember;
+import com.kh.member.model.vo.Member;
+
 import static com.kh.common.JDBCTemplate.*;
 
 public class adMemberService {
 	
-	public adMember searchMember(String userId) {
+	public Member searchMember(String userId) {
 		
 		Connection conn = getConnection();
 		
-		adMember searchMember = new adMemberDao().searchMember(conn, userId);
+		Member searchMember = new adMemberDao().searchMember(conn, userId);
 		
 		close(conn);
 		
 		return searchMember;
 	}
 
-	public ArrayList<adMember> selectList() {
+	public ArrayList<Member> selectList() {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<adMember> list = new adMemberDao().selectList(conn);
+		ArrayList<Member> list = new adMemberDao().selectList(conn);
 		close(conn);
 		return list;
 		

@@ -1,6 +1,8 @@
 package com.kh.admin.adminProduct.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.kh.common.MyFileRenamePolicy;
+import com.kh.product.model.vo.AttachmentProduct;
+import com.kh.product.model.vo.Product;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
  * Servlet implementation class AdProductInsertForm
  */
-@WebServlet("/pdInsertForm.ad")
+@WebServlet("/pdinsert.ad")
 public class AdProductInsertForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,7 +36,6 @@ public class AdProductInsertForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("utf-8");
 
 		if(ServletFileUpload.isMultipartContent(request)) {
 			
@@ -55,21 +58,27 @@ public class AdProductInsertForm extends HttpServlet {
 			 */
 		
 			// 3_1. Board 테이블에 insert할 값 뽑아서 Board 객체 담기
-			String category = multiRequest.getParameter("category"); // "10"
-			String title = multiRequest.getParameter("title");
-			String content = multiRequest.getParameter("content");
+			String pdCategoryList = multiRequest.getParameter("pdCategoryList"); 	// 카테고리
+			String pdTitle = multiRequest.getParameter("pdTitle");				 	// 상품명
+			String pdCode = multiRequest.getParameter("pdCode");					// 상품코드
+			int pdEnterPrise = Integer.parseInt(multiRequest.getParameter("pdEnterPrise"));		// 납품업체명
+			int pdPrise = Integer.parseInt(multiRequest.getParameter("pdPrise"));	// 상품가격
+			int pdStock = Integer.parseInt(multiRequest.getParameter("pdStock"));	// 상품수량
 			
-			int userNo = ((Member)request.getSession().getAttribute("loginUser")).getUserNo();
 			
-			Board b = new Board();
-			b.setCategory(category);
-			b.setBoardTitle(title);
-			b.setBoardContent(content);
-			b.setBoardWriter(String.valueOf(userNo)); // 1 --> "1"
+			
+			Product p = new Product();
+			p.setProCategory(pdCategoryList);
+			p.setProName(pdTitle);
+			p.setProCode(pdCode);
+			p.setProSupplyCoNo(pdEnterPrise);
+			p.setProPrice(pdPrise);
+			p.setProStock(pdStock);
+			
 			
 			// 3_2. Attachment테이블에 insert할 원본명, 수정명, 폴더경로 Attachment 객체에 담기
 			
-			Attachment at = null;
+			ArrayList<AttachmentProduct> list = new ArrayList<>();
 			
 			// 첨부파일이 넘어왔을 경우 at 객체 생성
 			if(multiRequest.getOriginalFileName("upfile") != null) {

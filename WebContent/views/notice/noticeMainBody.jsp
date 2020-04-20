@@ -186,6 +186,7 @@ table {
 body
 {
 	width: 1500px;
+	margin: auto;
 }
 </style>
 </head>
