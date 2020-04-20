@@ -15,7 +15,7 @@
     position: absolute;
     top: 48px;
     left: 143px;
-    margin-top: 200px;
+    margin-top: 192px;
     margin-left: 180px;
 }
 
@@ -26,7 +26,6 @@
     font-size: 13px;
     line-height: 24px; */
     display: block;
-
 }
 #topSearchBtn{
 

@@ -23,7 +23,7 @@ public class inquiry {
 			Date iNQUIRE_CREATE_DATE) {
 		super();
 		INQUIRY_BOARD_NO = iNQUIRY_BOARD_NO;
-		MEMBER_ID = mEMBER_ID;
+		MEMBER_ID = MEMBER_ID;
 		INQUIRY_TYPE = iNQUIRY_TYPE;
 		INQUIRY_TITLE = iNQUIRY_TITLE;
 		INQUIRY_CONTENT = iNQUIRY_CONTENT;
@@ -46,7 +46,7 @@ public class inquiry {
 	}
 
 	public void setMEMBER_ID(String mEMBER_ID) {
-		MEMBER_ID = mEMBER_ID;
+		MEMBER_ID = MEMBER_ID;
 	}
 
 	public String getINQUIRY_TYPE() {

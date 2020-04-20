@@ -8,11 +8,10 @@
 <title>Insert title here</title>
 <style>
  #form1{
-
+	
 	width: 822px;
     height: auto;
 	margin-left:400px;
-	
 } 
 .cst_slt {
     position: relative; 

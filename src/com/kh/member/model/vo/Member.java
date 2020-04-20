@@ -29,7 +29,7 @@ public class Member {
 	/*
 	 * 회원리스트
 	 */
-	public Member(String memberId, String memberName, String email, String phone, Date enrollDate, String delMemberYn,
+	public Member(String memberId, String memberName, String email, String phone, Date enrollDate,  Date modifyDate, String delMemberYn,
 			int pointSum) {
 		super();
 		this.memberId = memberId;
@@ -37,6 +37,7 @@ public class Member {
 		this.email = email;
 		this.phone = phone;
 		this.enrollDate = enrollDate;
+		this.modifyDate =  modifyDate;
 		this.delMemberYn = delMemberYn;
 		this.pointSum = pointSum;
 	}

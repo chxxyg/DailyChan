@@ -98,6 +98,7 @@ public class adMemberDao {
 						              rset.getString("EMAIL"),
 						              rset.getString("PHONE"),
 						              rset.getDate("ENROLL_DATE"),
+						              rset.getDate("MODIFY_DATE"),
 						              rset.getString("DEL_MEMBER_YN"),
 						              rset.getInt("POINT_SUM")));
 				

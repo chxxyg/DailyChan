@@ -17,7 +17,7 @@ import com.kh.admin.adminMember.model.vo.AdPageInfo;
 /**
  * Servlet implementation class AdMemberCountServlet
  */
-@WebServlet("/countMember.ad")
+@WebServlet("/memberCount")
 public class AdMemberCountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -63,7 +63,7 @@ public class AdMemberCountServlet extends HttpServlet {
 		
 		AdPageInfo pi = new AdPageInfo(countMember, currentPage, startPage, endPage, maxPage, pageLimit, countLimit);
 		
-		ArrayList<Member> list = new adMemberService().getCountMember(pi);
+		ArrayList<Member> list = new adMemberService().getCountMember();
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);

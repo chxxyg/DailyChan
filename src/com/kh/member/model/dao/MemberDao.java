@@ -216,7 +216,7 @@ public class MemberDao {
 	 * @return
 	 * 
 	 */
-	public String searchId(String memberName, String email) {
+	public String searchId(String id_name, String id_email) {
 				
 		Connection conn = getConnection();
 		
@@ -228,14 +228,14 @@ public class MemberDao {
 		String sql = prop.getProperty("searchId");
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberName);
-			pstmt.setString(2, email);
+			pstmt.setString(1, id_name);
+			pstmt.setString(2, id_email);
 			
 			
 			rset=pstmt.executeQuery();
 			
-			while(rset.next()) {
-				memberId=rset.getString("memberId");
+			if(rset.next()) {
+				memberId=rset.getString("MEMBER_ID");
 			}
 			
 			

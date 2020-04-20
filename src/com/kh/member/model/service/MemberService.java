@@ -1,6 +1,9 @@
 package com.kh.member.model.service;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
@@ -104,13 +107,15 @@ public class MemberService {
 	 * @param email
 	 * @return
 	 */
-	public String searchId(String memberName, String email) {
+	public String searchId(String id_name, String id_email) {
 		
 		Connection conn = getConnection();
-		String result = new MemberDao().searchId(memberName, email);
+		
+		String memberId = new MemberDao().searchId(id_name, id_email);
 		
 		close(conn);
-		return result;
+		
+		return memberId;
 		
 		
 	}
