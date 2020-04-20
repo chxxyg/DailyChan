@@ -55,7 +55,7 @@
             
         }
       	/*상품 등록 삭제 버튼css*/
-        #allcount{width:1200px; }
+        #allcount{width:1215px; }
         #allcount>div{float:left;}
         
         /*테이블 헤드*/
@@ -74,12 +74,12 @@
         tbody{vertical-align: top;
         }
         table{table-layout:fixed;}
-        Button {
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-			background-color:#ffc477;
+                Button {
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
 			border-radius:6px;
-			border:1px solid #eeb44f;
+			border:1px solid #181c20;
 			display:inline-block;
 			cursor:pointer;
 			color:#ffffff;
@@ -88,11 +88,11 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+			text-shadow:0px 1px 0px #181c20;
 		}
 		Button:hover {
-			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
 		}
 		Button:active {
 			position:relative;
@@ -117,13 +117,12 @@
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="30"><input type="checkbox" checked style="cursor: pointer;" ></th>
-                    <th width="50">번호</th>
                     <th width="120">아이디</th>
-                    <th width="150">이름</th>
+                    <th width="150">이름</th> 
                     <th width="250">이메일</th>
                     <th width="150">전화번호</th>
                     <th width="100">가입일</th>
+                    <th width="100">수정일</th>
                     <th width="150">탈퇴여부</th>
                     <th width="150">적립금</th>
                 </tr>
@@ -131,13 +130,12 @@
             <tbody>
                     <% for(Member m : list){ %>
                 <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>1</td>
                     <td><%= m.getMemberId() %></td>
                     <td><%= m.getMemberName() %></td>
                     <td><%= m.getEmail() %></td>
                     <td><%= m.getPhone() %></td>
                     <td><%= m.getEnrollDate() %></td>
+                    <td><%= m.getModifyDate() %></td>
                     <td><%= m.getDelMemberYn() %></td>
                     <td><%= m.getPointSum() %></td>
                 </tr>

@@ -33,7 +33,10 @@ public class AdMemberListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Member> list = new adMemberService().selectList();
+		int count = new adMemberService().getCountMember();
+		
 		request.setAttribute("list", list);
+		request.setAttribute("count", count);
 		
 		request.getRequestDispatcher("views/admin/adminMember/adminMemberList.jsp").forward(request, response);
 		
