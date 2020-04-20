@@ -30,6 +30,20 @@ public class Product {
 		this.proStandard = proStandard;
 	}
 
+	
+	
+	
+
+	public Product(String proCategory, String proName, String proCode, int proSupplyCoNo, int proPrice, int proStock) {
+		super();
+		this.proCode = proCode;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proCategory = proCategory;
+		this.proStock = proStock;
+		this.proSupplyCoNo = proSupplyCoNo;
+	}
+
 	public String getProCode() {
 		return proCode;
 	}
