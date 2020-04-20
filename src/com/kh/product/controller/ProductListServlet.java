@@ -54,7 +54,9 @@ public class ProductListServlet extends HttpServlet {
 		case "ASD" : title = "아시안"; break;
 		
 		}
+		
 		ArrayList<Product> list = new ProductService().selectProList(category);
+		
 		request.setAttribute("category", category);
 		request.setAttribute("title", title);
 		request.setAttribute("list", list);
