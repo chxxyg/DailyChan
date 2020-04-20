@@ -15,13 +15,13 @@ import com.kh.mypage.model.service.MypageService;
  * Servlet implementation class PwdCheckServlet
  */
 @WebServlet("/getPwdConfirm.me")
-public class PwdCheckServlet extends HttpServlet {
+public class GetPwdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PwdCheckServlet() {
+    public GetPwdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,6 +38,9 @@ public class PwdCheckServlet extends HttpServlet {
 	    m.setMemberId(userId);
 	    m.setPassword(userPwd);
 	    int result = new MypageService().pwdCheck(m);
+	    
+	    request.setAttribute("userId", userId);
+	    
 	    if(result == 1)
 	    {
 	        if(target.equals("updateMember"))
