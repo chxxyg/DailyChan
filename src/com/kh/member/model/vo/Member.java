@@ -41,6 +41,17 @@ public class Member {
 		this.delMemberYn = delMemberYn;
 		this.pointSum = pointSum;
 	}
+	/*
+	 * 회원상세조회리스트
+	 */
+	public Member(String memberName, String email, String phone, Date enrollDate, Date modifyDate) {
+		super();
+		this.memberName = memberName;
+		this.email = email;
+		this.phone = phone;
+		this.enrollDate = enrollDate;
+		this.modifyDate = modifyDate;
+	}
 
 
 

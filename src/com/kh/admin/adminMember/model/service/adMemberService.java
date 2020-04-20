@@ -10,16 +10,22 @@ import static com.kh.common.JDBCTemplate.*;
 
 public class adMemberService {
 	
-	public Member searchMember(String userId) {
+	
+	/*
+	 * 회원정보 상세조회용 서비스
+	 */
+	public Member searchMember(String mid) {
 		
 		Connection conn = getConnection();
 		
-		Member searchMember = new adMemberDao().searchMember(conn, userId);
+		Member m = new adMemberDao().searchMember(conn, mid);
 		
 		close(conn);
+				
+		return m;
 		
-		return searchMember;
 	}
+	
 
 	/*
 	 * 총 회원 리스트 조회용 서비스

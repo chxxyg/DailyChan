@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member" %> 
+<%
+	Member m = (Member)request.getAttribute("m");
+%>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,35 +69,37 @@
 <body>
 		<%@ include file="../adminCommon/adminMainPage.jsp" %>
 
+
     <div id="adproductEnroll">
        <div id="outer">
         <h1>&nbsp;&nbsp;&nbsp;회원정보</h1>
-       <form id="correctForm" action="<%=contextPath%>/memberUpdate.ad" method="POST"> 
+       <form id="correctForm" action="<%=contextPath%>/detail.ad" method="POST"> 
         <table id="adcate">
             <tr>
                 <td width="200" >아이디</td>
-                <td><input type="text" disabled></td>
+                <td><input type="text" value="<%=m.getMemberId() %>" disabled></td>
             </tr>
             <tr>
                 <td width="200">이름</td>
-                <td><input type="text" disabled></td>
-            </tr>
-            <tr>
-                <td width="200">주소</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td width="200">전화번호</td>
-                <td><input type="text"></td>
+                <td><input type="text" value="<%=m.getMemberName() %>" disabled></td>
             </tr>
             <tr>
                 <td width="200">이메일</td>
-                <td><input type="text"></td>
+                <td><input type="text" value="<%=m.getEmail() %>" disabled></td>
+            </tr>
+            <tr>
+                <td width="200">전화번호</td>
+                <td><input type="text" value="<%=m.getPhone() %>"></td>
             </tr>
             <tr>
                 <td width="200">가입일</td>
-                <td><input type="text" disabled></td>
+                <td><input type="text" value="<%=m.getEnrollDate() %>" disabled></td>
             </tr>
+            <tr>
+                <td width="200">수정일</td>
+                <td><input type="text" value="<%=m.getModifyDate() %>" disabled></td>
+            </tr>
+            
            
         </table>
         </form>
@@ -105,4 +110,5 @@
        </div>
     </div>
 </body>
+
 </html>

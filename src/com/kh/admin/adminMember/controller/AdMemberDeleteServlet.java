@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kh.admin.adminMember.model.service.adMemberService;
-import com.kh.admin.adminMember.model.vo.adMember;
+import com.kh.member.model.vo.Member;
 
 /**
  * Servlet implementation class AdMemberDeleteServlet
