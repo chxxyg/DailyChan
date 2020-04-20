@@ -18,7 +18,7 @@ public class AdProductService {
 		
 		Connection conn =  getConnection();
 		
-		int result1 = new AdProductDao().adProductInsert(conn, p);
+		int result1 = new AdProductDao().adProductInsert(conn, p);   
 		int result2 = new AdProductDao().adProductAttachment(conn, list, p);
 		
 		if(result1 > 0 && result2 >0) {

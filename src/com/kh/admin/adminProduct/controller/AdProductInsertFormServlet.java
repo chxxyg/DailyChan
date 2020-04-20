@@ -14,22 +14,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.kh.admin.adminProduct.model.service.AdProductService;
-import com.kh.common.MyFileRenamePolicy;
 import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.Product;
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
- * Servlet implementation class AdProductInsertForm
+ * Servlet implementation class AdProductInsertFormServlet
  */
 @WebServlet("/pdinsert.ad")
-public class AdProductInsertForm extends HttpServlet {
+public class AdProductInsertFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdProductInsertForm() {
+    public AdProductInsertFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,30 +45,23 @@ public class AdProductInsertForm extends HttpServlet {
 			int maxSize = 10 * 1024 * 1024;
 			
 				
-			String resources = request.getSession().getServletContext().getRealPath("/resources");
+			String resources = request.getSession().getServletContext().getRealPath("/resources"); // 웹컨테이너 경로 안의 resources 폴더까지의 경로 추출
 			
-			String savePath = resources + "\\adProduct_img\\";
+			String savePath = resources + "\\adProduct_img\\"; // 파일저장 경로
 			
 			MultipartRequest multiRequest
-				= new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
+				= new MultipartRequest(request, savePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());  // 파일 크기와 저장경로 파일이름 설정
 			
 			
-			/*
-			 * 3. DB에 저장할 데이터들 뽑아서 vo에 담기
-			 * > 글제목, 글내용, 카테고리, 작성자회원번호는 Board테이블에 insert
-			 * > 넘어온 첨부파일이 있을 경우 원본명, 수정명, 저장경로는 Attachment테이블에 insert
-			 */
-		
-			// 3_1. Board 테이블에 insert할 값 뽑아서 Board 객체 담기
 			String pdCategoryList = multiRequest.getParameter("pdCategoryList"); 	// 카테고리
 			String pdTitle = multiRequest.getParameter("pdTitle");				 	// 상품명
 			String pdCode = multiRequest.getParameter("pdCode");					// 상품코드
 			int pdEnterPrise = Integer.parseInt(multiRequest.getParameter("pdEnterPrise"));		// 납품업체명
-			int pdPrise = Integer.parseInt(multiRequest.getParameter("pdPrice"));	// 상품가격
+			int pdPrise = Integer.parseInt(multiRequest.getParameter("pdPrice	"));	// 상품가격
 			int pdStock = Integer.parseInt(multiRequest.getParameter("pdStock"));	// 상품수량
 			
 			
-			
+			// 상품등록창에 입력된 내용들을 담아주는 객체 생성
 			Product p = new Product();
 			p.setProCategory(pdCategoryList);
 			p.setProName(pdTitle);
@@ -78,29 +71,26 @@ public class AdProductInsertForm extends HttpServlet {
 			p.setProStock(pdStock);
 			
 			
-			// AttachmentProduct테이블에 insert할 원본명, 수정명, 폴더경로 Attachment 객체에 담기
 			
+			// AttachmentProduct테이블에 객체 넣기
 			ArrayList<AttachmentProduct> list = new ArrayList<>();
-			
+			// 반복문을돌려서 각 네임들을 String 자료형에 넣어줌
 			for(int i=1; i<=3; i++) {
 				String name = "pdUpfile" +i;
 				
 				if(multiRequest.getOriginalFileName(name) != null) {
 					
-					System.out.println(multiRequest.getFile(name).length());
-					
 					AttachmentProduct at = new AttachmentProduct();
-					at.setAtFilePath(savePath);
-					at.setAtFileName(multiRequest.getOriginalFileName(name));
-					at.setAtFileLevel(i);
-					at.setAtFileMaxSize((int)multiRequest.getFile(name).length());
-					list.add(at); 
+					at.setAtFilePath(savePath);											// 저장경로
+					at.setAtFileName(multiRequest.getOriginalFileName(name));			// 파일이름
+					at.setAtFileLevel(i);												// 레벨
+					at.setAtFileMaxSize((int)multiRequest.getFile(name).length());		// 파일사이즈
+					list.add(at); 			// 모든 attachment들 list에 더해서 넣어줌
 				}
 				
 			}
-			System.out.println(list);
+		
 			
-			// 4. 게시판 작성용 서비스 요청(b, at)
 			int result = new AdProductService().adProductInsert(p, list);
 			
 			if(result > 0) { // 성공

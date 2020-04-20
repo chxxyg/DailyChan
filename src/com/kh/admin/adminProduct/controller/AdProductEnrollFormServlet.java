@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AdProductEnrollForm
+ * Servlet implementation class AdProductEnrollFormServlet
  */
 @WebServlet("/pdEnrollForm.ad")
-public class AdProductEnrollForm extends HttpServlet {
+public class AdProductEnrollFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdProductEnrollForm() {
+    public AdProductEnrollFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

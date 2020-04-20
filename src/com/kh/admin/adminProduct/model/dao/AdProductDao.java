@@ -17,6 +17,9 @@ public class AdProductDao {
 	
 	private Properties prop = new Properties();
 	
+	/**
+	 * sql properties 경로 설정
+	 */
 	public AdProductDao() {
 		String filePath = AdProductDao.class.getResource("/sql/adProduct/adProduct-query.properties").getPath();
 		try {
@@ -26,6 +29,12 @@ public class AdProductDao {
 		}
 	}
 	
+	/**
+	 * 1. 상품등록에 관한 dao
+	 * @param conn
+	 * @param p 상품정보가 담겨있는 객체
+	 * @return
+	 */
 	public int adProductInsert(Connection conn, Product p) {
 		
 		int result = 0;
@@ -53,6 +62,13 @@ public class AdProductDao {
 		
 	}
 	
+	/**
+	 * 1_2. 상품이미지를 담은 dao
+	 * @param conn
+	 * @param list 상품이미지들이 담겨있는 배열
+	 * @param p 상품정보가담겨있는 객체
+	 * @return
+	 */
 	public int adProductAttachment(Connection conn,  ArrayList<AttachmentProduct> list, Product p) {
 		int result = 0; 
 		PreparedStatement pstmt = null;
