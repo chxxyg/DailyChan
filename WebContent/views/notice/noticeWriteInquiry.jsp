@@ -72,6 +72,15 @@ select:not(:-internal-list-box) {
 .slt_btns{
     margin-top: 10px;
 }
+
+.slt_btns a{
+	margin-top:1.5px;
+	text-decoration:none;
+	color:black;
+	border:1px solid #ccc;
+	font-size:12px;
+	padding:5px;
+}
 .slt_btns dd {
     display: block;
     margin-inline-start: 40px;
@@ -444,14 +453,12 @@ button em {
 		});
 		
 		 		 
-		  <!-- 로그인 팝업 function -->
+		  <!-- 1:1 친절상담 주문내역 팝업 function -->
 			function orderlistPop(){
 
-	           window.open("<%=contextPath%>/inquiryWrite.in", "로그인팝업창", "width=638, height=450, top = 50, left = 500, location = no");
+	           window.open("<%=contextPath%>/inquiryWrite.in", "주문내역팝업창", "width=638, height=450, top = 50, left = 500, location = no");
 	        }
-		
-		 		
-		 		
+	        
 		<%-- 		 		
 		function orderlistPop() {
 			opener.parent.location="<%=contextPath%>/inquiryWrite.in";			

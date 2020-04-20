@@ -50,9 +50,6 @@ button {
     border: 3px solid #f0eded;
     line-height: 1;
 }
-
-
-
 .period_slt li{
 	list-style:none;
 } 
@@ -114,10 +111,6 @@ element.style {
     text-align: center;
     color: #333;
 }
-
-
-
-
 #gradeSelect dl {
     display: block;
     margin-block-start: 1em;
@@ -125,14 +118,83 @@ element.style {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+/* 주문내역 */
+.myOrderList{
+		margin:30px 0px 0px 5px;
+	}
+	.myOrderList, .myOrderList tr{
+		border-top:1px solid grey;
+		border-bottom:1px solid grey;
+		border-collapse: collapse;
+	}
+	.myOrderList th{
+		font-size:13px;
+		background:#f5f5f5;
+	}
+	.myOrderList td{
+		font-size:12px;
+		text-align:center;
+	}
+	.myOrderList a{text-decoration:none; cursor:pointer;}
+	
+	#myOrderInfo{
+		padding:20px 0px 10px 100px;
+	}
+	#myOrderInfo>div{
+		width:270px;
+		text-align:left;
+		float:left;
+		margin-bottom:10px;
+	}
+	#myOrderInfo>div>a{
+		font-size:13px;
+		cursor:pointer;
+	}
+	#orderDtBtn{
+		width:63px;
+		height:25px;
+		background:white;
+		border:1px solid black;
+		margin-top:2px;
+		font-size:10px;
+		cursor:pointer;
+	}
+	#trackShipmentBtn{
+		width:60px;
+		height:30px;
+		background:tomato;
+		border:none;
+		font-size:10px;
+		color:white;
+		margin-bottom:5px;
+		cursor:pointer;
+	}
+	#cancelOrderBtn, #requestRefundBtn{
+		width:60px;
+		height:30px;
+		background:white;
+		border:1px solid black;
+		font-size:10px;
+		cursor:pointer;
+	}
+	#cancelOrdBlockBtn{
+		width:60px;
+		height:30px;
+		background:white;
+		border:1px solid black;
+		font-size:10px;
+		cursor:pointer;
+	}
+	
 </style>
 </head>
 <body>
 
- 	<h3 id="tit" class="tit">주문내역 검색</h3><div class="slt_wrap">
- 		
+ 	<h3 id="tit" class="tit">주문내역 검색</h3>
+ 	
+ 	<div class="slt_wrap">
 
-        
         <input type="hidden" title="기간검색 시작일" id="lyr_date_start" name="lyr_date_start" value="">
         <input type="hidden" title="기간검색 시작일" id="lyr_date_end" name="lyr_date_end" value="">
         <div id="gradeSelect" class="period_slt">
@@ -148,6 +210,8 @@ element.style {
                 </dd>
             </dl>
         </div>
+        
+        <!-- 메뉴 내역 -->
         <div class="sltd_tbl_pop ext lyrtbl">
             
             <div class="sltd_tbl_pop ext_none">
@@ -165,136 +229,41 @@ element.style {
         </div>
     </div>
     
+    <!--  긁어온 거 -->
+    <table class="myOrderList" width="530px">
+			<thead>
+				<tr height="35px">
+					<th width="130px">주문번호/주문일</th>
+					<th width="400px">상품정보</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr height="100px">
+					<td>
+						<a style="color:blue; text-decoration: underline;" onclick="toOrderDetail();">20200331-1234567</a>
+						2020-03-31<br>
+						<button id="orderDtBtn" type="submit" onclick="toOrderDetail();">상세확인 &gt;</button>
+					</td>
+					<td id="myOrderInfo">
+						<div>
+							<a href="/dailyChan/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							1개 / 12,000원
+						</div>
+					</td>
+					
+				</tr>
+	
+
+					
+				</tr>
+			</tbody>
+		</table>
+
+    
         <button type="button" class="btn_lay_close close">주문내역 검색 레이어 닫기</button>	</button>
 
     </body>
-		<button class="lyr_box" tabindex="0">	
-        <script type="text/javascript">
-        $(document).ready(function(){
-            fnChoice = function (id) {
-                var ord_no = "";
-                var ord_dtl_nos = "";
-                var goods_chk = true;
-                $('#selectedGoodsBox').children('tr').remove();
-                $('.goods_chk:checked').each(function() {
-                    goods_chk= false;
-                    ord_no = $(this).attr("ord_no").substr(0,8)+"-"+$(this).attr("ord_no").substr(8,8);
-                    ord_dtl_nos = ord_dtl_nos + $(this).attr("ord_dtl_no") + ",";
-                    var obj = $(this).parent().parent();
-                    obj.find(".remove").remove();
-                    obj.append("<td><span class='btn'><button type='button' class='del' id='deleteBtn' title='제품 삭제 알림'><em>삭제</em></button></span></td>");
-                    $("#"+id).append(obj);
-                });
-                if (goods_chk) {
-                    alert("제품을 선택해 주세요.")
-                    return ;
-                }
-                
-                ord_dtl_nos = ord_dtl_nos.substring(0, ord_dtl_nos.length-1);
-                
-                $("#ord_dtl_nos").val(ord_dtl_nos);
-                $("#ord_no").val($(this).attr("ord_no"));
-                $(".order_num > dd").text(ord_no);
-                
-                $('.goodsDiv').show();
-                $('button[name=orderlist]').addClass('on');
-                unBlockUI('lyr_odr_slt')
-            };
-            
-            checkSelect = function (obj) {
-        
-                var ord_no = $(obj).attr("ord_no");
-                $(".lyrbody").find(":input:radio").prop("checked", false);
-                $(".lyrbody").find(":input:radio[ord_no='" + ord_no + "']").prop("checked", true);
-                $(obj).parent().parent().siblings().find("input[type='checkbox']").each(function() {
-                    
-                    if (ord_no != $(this).attr("ord_no")) {
-                        $(this).prop("checked", false);
-                    }
-                });
-                //$(obj).prop("checked", true);
-            };
-            
-            $(".radio").change(function(){
-                
-                var count = 0;
-                var ord_no = $(this).attr("ord_no");
-                $("input[type=checkbox]").each(function(){
-                    if($(this).attr("ord_no") == ord_no){
-                        count++;
-                        if(count > 5){
-                            alert("최대 5개까지 제품선택이 가능합니다.");
-                            return false;
-                        }
-                        $(this).prop("checked",true);
-                    }else{
-                        $(this).prop("checked",false);
-                    }
-                });
-                $(".radio").each(function(){
-                    if($(this).attr("ord_no") != ord_no){
-                        $(this).prop("checked",false);
-                    }
-                });
-            });
-            
-            $("input[type=checkbox]").change(function(){
-                
-                var count = 0;
-                
-                $("input[type=checkbox]").each(function(){
-                    if($(this).prop("checked")){
-                        count++;
-                    }
-                });
-                if(count > 5){
-                    alert("최대 5개까지 제품선택이 가능합니다.");
-                    $(this).prop("checked",false);
-                    return;
-                }
-            });
-        
-            
-            //주문제품 레이어
-            searchList = function() {
-                $(".lyrtbl").load("/cust/searchOrderGoodsListLayer.action",
-                        {date_start : $("#lyr_date_start").val(), date_end : $("#lyr_date_end").val()});
-            }
-            
-            fnInit = function() {
-                
-                //레이어 날짜버튼
-                var $this = $("#gradeSelect");
-                var $links = $this.find("button");
-                
-                $links.on("click",function(e){
-                    $links.removeClass("on");
-                
-                    $(this).addClass("on");
-                    
-                    var selectedValue = $(this).data('val');
-                    var selectedType = $(this).data('type');
-                    var date = new Date();
-                    
-                    //종료일 오늘로
-                    $('#lyr_date_end').val(getDateString(date));
-                    
-                    if(selectedType=='week'){
-                        date.setDate(date.getDate() - (selectedValue * 7));
-                    }else{
-                        addMonth(date, -(parseInt(selectedValue)));
-                    }
-                    
-                    //시작일 설정 
-                    $('#lyr_date_start').val(getDateString(date));
-                    
-                    searchList();
-                });
-                
-            }
-            
-            fnInit();
-        });
-        </script>
+		
 
 </html>
