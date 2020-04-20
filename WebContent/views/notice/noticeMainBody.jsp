@@ -183,6 +183,10 @@ table {
 	color:#000;
 
 }
+body
+{
+	width: 1500px;
+}
 </style>
 </head>
 <body>
