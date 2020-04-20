@@ -83,22 +83,22 @@
                 <td width="200" >* 카테고리</td>
                 <td>
 			        <select id="dailyList"  name="pdCategoryList" style="width:174px" >
-			            <option value="KOA100">한식 - 국/탕/찌개</option>
-			            <option value="KOB100">한식 - 조림/볶음/구이</option>
-			            <option value="KOC100">한식 - 면요리</option>
-			            <option value="KOD100">한식 - 분식</option>
-			            <option value="ITA200">양식 - 스테이크</option>
-			            <option value="ITB200">양식 - 파스타</option>
-			            <option value="ITC200">양식 - 사이드</option>		
-			            <option value="ITD200">양식 - 샐러드</option>
-			            <option value="ASA300">아시안 - 중식</option>
-			            <option value="ASB300">아시안 - 일식</option>
-			            <option value="ASC300">아시안 - 베트남</option>
-			            <option value="ASD300">아시안 - 퓨전</option>
-			            <option value="CDA400">찬Day - 메인반찬</option>
-			            <option value="CDB400">찬Day - 밑반찬</option>
-			            <option value="CDC400">찬Day - 김치</option>
-			            <option value="CDD400">찬Day - 나물</option> 
+			            <option value="한식 - 국/탕/찌개">한식 - 국/탕/찌개</option>
+			            <option value="한식 - 조림/볶음/구이">한식 - 조림/볶음/구이</option>
+			            <option value="한식 - 면요리">한식 - 면요리</option>
+			            <option value="한식 - 분식">한식 - 분식</option>
+			            <option value="양식 - 스테이크">양식 - 스테이크</option>
+			            <option value="양식 - 파스타">양식 - 파스타</option>
+			            <option value="양식 - 사이드">양식 - 사이드</option>		
+			            <option value="양식 - 샐러드">양식 - 샐러드</option>
+			            <option value="아시안 - 중식">아시안 - 중식</option>
+			            <option value="아시안 - 일식">아시안 - 일식</option>
+			            <option value="아시안 - 베트">아시안 - 베트남</option>
+			            <option value="아시안 - 퓨전">아시안 - 퓨전</option>
+			            <option value="찬Day - 메인반찬">찬Day - 메인반찬</option>
+			            <option value="찬Day - 밑반찬">찬Day - 밑반찬</option>
+			            <option value="찬Day - 김치">찬Day - 김치</option>
+			            <option value="찬Day - 나물">찬Day - 나물</option> 
 			        </select>
         		</td>
             </tr>
@@ -120,7 +120,7 @@
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
-                <td><input type="file" style="cursor:pointer;" name="pdUpfile"></td>
+                <td><input type="file" style="cursor:pointer;" name="pdUpfile1"></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 01</td>
