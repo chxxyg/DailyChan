@@ -109,15 +109,13 @@ table{
 
 								<form name="findIdForm" id="findIdForm" method="post">
 									<input type="hidden" name="login_id" value=""> 
-									 <!-- <label for="id_name" class="ir">이름</label> -->
-									<input type="text" id="id_name" name="id_name" class="login_input" maxlength="10" placeholder="개인: 이름, 사업자: 대표자명입력" required><br> 
-									<!-- <label for="id_email" class="ir">이메일</label>  -->
+									<input type="text" id="id_name" name="id_name" class="login_input" maxlength="10" placeholder="개인: 이름 입력" required><br> 
 									<input type="text" id="id_email" name="id_email" class="login_input" maxlength="50" placeholder="이메일" required>
 
 
 									<!-- 입력정보 오류시 노출 -->
 									<br>
-									<button class="btn_login" type="button" id="btn_find_id">
+									<button class="btn_login" type="button" id="btn_find_id" onclick="<%= contextPath%>/idFind.me">
 										<em>아이디 찾기</em>
 									</button>
 								</form>
@@ -130,21 +128,21 @@ table{
 							</div>
 
 							<!-- 아이디찾기 결과 -->
-							<div class="login_set ir" id="login_set_id_result">
+						<!-- 	<div class="login_set ir" id="login_set_id_result">
 								<div class="id_result">
 									<span>회원님의 아이디를 찾았습니다.</span> <em id="id_result"></em>
 								</div>
 
-								<!-- 입력정보 오류시 노출 -->
+								입력정보 오류시 노출
 								<button class="btn_login" type="button" id="btn_login"
 									onclick="fnGologin();">
 									<em>로그인</em>
-								</button>
-								<div class="find_info">
+								</button> -->
+								<!-- <div class="find_info">
 									<ul class="list">
 										<li>비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요</li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 					</td>
 
@@ -161,7 +159,7 @@ table{
 									<input type="text" name="pw_id" id="pw_id" class="login_input" maxlength="20" placeholder="아이디" required><br> 
 									<input type="text" name="pw_id" id="pw_id_text" class="login_input" maxlength="20" placeholder="아이디" style="display: none;" required>
 
-									<input type="text" name="pw_name" id="pw_name" class="login_input" maxlength="10" placeholder="개인: 이름, 사업자: 대표자명입력">
+									<input type="text" name="pw_name" id="pw_name" class="login_input" maxlength="10" placeholder="개인: 이름  입력">
 
 									<!-- 입력정보 오류시 노출 -->
 									<br>
@@ -178,41 +176,41 @@ table{
 								
 								<!-- 아이디 찾기 결과 -->
 								
-												<div class="login_set" id="login_set_id_result">
+	<!-- 											<div class="login_set" id="login_set_id_result">
 										<div class="id_result">
 											<span>회원님의 아이디를 찾았습니다.</span>
 											<em id="id_result">찾은 아이디</em>
 										</div>
-
+ -->
 						<!-- 입력정보 오류시 노출 -->
-						<button class="btn_login" type="button" id="btn_login" onclick="fnGologin();"><em>로그인</em></button>
+	<!-- 					<button class="btn_login" type="button" id="btn_login" onclick="fnGologin();"><em>로그인</em></button>
 						<div class="find_info">
 							<ul class="list">
 								<li>비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요</li>
 							</ul>
 						</div>
-					</div>
+					</div> -->
 								
 								
 							</form>
 							<!--  비밀번호찾기 결과-->
-							<div class="login_set ir" id="login_set_pw_result">
+		<!-- 					<div class="login_set ir" id="login_set_pw_result">
 								<div class="pw_result">
 									<em id="pw_result"></em> <b>비밀번호 재설정용 이메일을 전송했습니다.</b> <span>전송
 										받으신 메일을 통해 비밀번호를<br>재설정하신 후 로그인 해주세요
 									</span>
-								</div>
+								</div> -->
 
 								<!-- 입력정보 오류시 노출  -->
 
-								<button class="btn_login">
+			<!-- 					<button class="btn_login">
 									<em>인증메일 재발송</em>
 								</button>
 								<div class="find_info">
 									<ul class="list">
 										<li>인증메일을 받지 못하셨다면 인증메일 재발송을 눌러주세요</li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 
 						</div>
@@ -221,123 +219,18 @@ table{
 			</table>
 		</div>
 	</div>
-	<script type="text/javascript">
 	
-	function maskingCar(email) {
-		if(email_check(email)) {
-			var len = email.split('@')[0].length-3; // AB***@gamil.com
-			return email.replace(new RegExp('.(?=.{0,' + len + '}@)', 'g'), '*');
-		} else {
-			if (email == undefined || email === '') {
-				return '';
-			}
-			var pattern = /.{3}$/; // 정규식
-			return email.replace(pattern, "***");
-		}
+	<script>
 		
-	}
-
-	
 	function email_check( email ) {
 	    
 	    var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 	    return (email != '' && email != 'undefined' && regex.test(email));
 
 	}
-	$(document).ready(function(){
-	    $(document).on("keydown", function (event) {    
-	  	   if (event.keyCode === 8 && !$(event.target).is("input, textarea")) {
-	  	      event.preventDefault();
-	  	    }
-	   	});
-	    
-	    
-	    
-	    
-	    $("input[name='login_type']").change(function(e){
-
-	    	
-	    		resetInput();
-	    		if($("#id_result").html() != "") {
-	    			$("#pw_id").val($("#id_result").html());
-	        		$("#pw_id").prop("disabled",true);
-
-	        		$("#login_set_pw_result").hide();
-	        		overpass.member.fnMsgClear($("#caution2"));
-	        		$("#pw_result").html("");
-	    			$(".login_set_pw").show();
-	    		}else{
-	        		$("#pw_id").prop("disabled",false);
-
-	        		$("#login_set_pw_result").hide();
-// overpass 함수명 정정하기	       overpass.member.fnMsgClear($("#caution2"));
-	        		$("#pw_result").html("");
-	    			$(".login_set_pw").show();
-	    		}
-
-			
-	    		
-	    	
-	    });
-		
-	
-	    $("#id_name").blur(function(){
-			if($(this).val() == "") {
-				overpass.member.fnMsgShow($("#caution1"),"이름(대표자명)을 입력해 주세요.");
-				return;
-			}
-			overpass.member.fnMsgClear($("#caution1"));
-		});
-		
-		$("#id_email").blur(function(){
-			if($(this).val() == "") {
-				overpass.member.fnMsgShow($("#caution1"),"이메일을 입력해 주세요.");
-				return;
-			} 
-			overpass.member.fnMsgClear($("#caution1"));
-
-		});
-		
-		$("#pw_id").blur(function(){
-			if($(this).val() == "") {
-				overpass.member.fnMsgShow($("#caution2"),"아이디를 입력해 주세요.");
-				return;
-			}
-			overpass.member.fnMsgClear($("#caution2"));
-		});
-		
-		$("#pw_name").blur(function(){
-			if($(this).val() == "") {
-				overpass.member.fnMsgShow($("#caution2"),"이름(대표자명)을 입력해 주세요.");
-				return;
-			}
-			overpass.member.fnMsgClear($("#caution2"));
-		});
-		
-		/* 이메일 삭제 */
-		$("#pw_email").blur(function(){
-			if($(this).val() == "") {
-				overpass.member.fnMsgShow($("#caution2"),"이메일을 입력해 주세요.");
-				return;
-			}
-			overpass.member.fnMsgClear($("#caution2"));
-		});
-	
-			//엔터키 이벤트
-    $("#id_name,#id_email").keypress(function(event){    	
-    	if ( event.which == 13 ) {     
-    		 $("#btn_find_id").click();   
-        }
-    });
-    
-    $("#pw_id,#pw_name").keypress(function(event){    	
-    	if ( event.which == 13 ) {     
-    		 $("#btn_find_pw").click();   
-        }
-    });
 	
 	
-		</script>
+	</script>
 
 	<%@ include file="../common/mainFooter.jsp" %>
 </body>

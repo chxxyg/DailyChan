@@ -100,7 +100,7 @@
         </form>
        		 <div id="enrollsubmit">
         		<button type="submit">수정하기</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberList.jsp'">목록으로</button>
+        		<button onclick="location.href=">목록으로</button>
         	</div>        
        </div>
     </div>

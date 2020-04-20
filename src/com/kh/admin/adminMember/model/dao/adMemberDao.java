@@ -113,6 +113,35 @@ public class adMemberDao {
 		return list;
 	}
 
+	public int getCountMember(Connection conn) {
+		
+		int countMember = 0;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countMember");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			if(rset.next()) {
+				countMember = rset.getInt(1);
+			}
+		
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		return countMember;
+		
+		
+		
+		
+	}
+	
+
 }
 
 
