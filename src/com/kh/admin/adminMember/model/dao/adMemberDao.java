@@ -13,8 +13,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.kh.admin.adminMember.model.vo.adMember;
 import com.kh.member.model.dao.MemberDao;
+import com.kh.member.model.vo.Member;
 
 
 
@@ -34,9 +34,9 @@ public class adMemberDao {
 		}
 	}
 
-	public adMember searchMember(Connection conn, String userId) {
+	public Member searchMember(Connection conn, String userId) {
 		
-		adMember m = null;
+		Member m = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("searchMember");
@@ -47,7 +47,7 @@ public class adMemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				m = new adMember(rset.getString("member_id"),
+				m = new Member(rset.getString("member_id"),
 									    rset.getString("member_name"),
 									    rset.getString("gender"),
 										rset.getString("birth"),
@@ -78,9 +78,9 @@ public class adMemberDao {
 		
 	}
 
-	public ArrayList<adMember> selectList(Connection conn) {
+	public ArrayList<Member> selectList(Connection conn) {
 		
-		ArrayList<adMember> list = new ArrayList<>();
+		ArrayList<Member> list = new ArrayList<>();
 		
 		Statement stmt = null;
 		ResultSet rset = null;
@@ -93,7 +93,7 @@ public class adMemberDao {
 			rset = stmt.executeQuery(sql);
 			while(rset.next()) {
 				
-				list.add(new adMember(rset.getString("MEMBER_ID"),
+				list.add(new Member(rset.getString("MEMBER_ID"),
 						              rset.getString("MEMBER_NAME"),
 						              rset.getString("EMAIL"),
 						              rset.getString("PHONE"),

@@ -23,6 +23,25 @@ public class Member {
 	public Member() {
 		
 	}
+	
+	
+
+	/*
+	 * 회원리스트
+	 */
+	public Member(String memberId, String memberName, String email, String phone, Date enrollDate, String delMemberYn,
+			int pointSum) {
+		super();
+		this.memberId = memberId;
+		this.memberName = memberName;
+		this.email = email;
+		this.phone = phone;
+		this.enrollDate = enrollDate;
+		this.delMemberYn = delMemberYn;
+		this.pointSum = pointSum;
+	}
+
+
 
 	public Member(String memberId, String memberName, String gender, String birth, String email, String phone,
 			Date enrollDate, String delMemberYn, Date delDate, String password, Date modifyDate, String blackListYn,
