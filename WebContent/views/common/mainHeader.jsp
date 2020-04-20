@@ -347,7 +347,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="">찬DAY</a>
+                    <li><a href="<%= contextPath %>/cdList.pro">찬DAY</a>
                         <ul>
                             <li><a href="">전체보기</a></li>
                             <li><a href="">메인반찬</a></li>
