@@ -8,15 +8,17 @@
 <style>
 
 .cst_top{
-
+/* 	border:1px solid red; */ 
     background-color: #79aff1;
     width: 1020px;
     height: 120px;
-    position: absolute;
-    top: 48px;
-    left: 143px;
-    margin-top: 192px;
-    margin-left: 180px;
+  position: absolute; 
+	top: 120px;
+    left: 142px; 
+
+    margin-top: 120px;
+    margin-left: 180px; 
+    float:left;
 }
 
 .cst_top dl dd{
@@ -63,7 +65,7 @@
 }
 .fav_word a{
 	text-decoration:none;
-	cursot:pointer;
+	cursor:pointer;
 }
 .fav_word li + li{
 

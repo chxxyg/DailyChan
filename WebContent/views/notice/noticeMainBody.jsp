@@ -6,11 +6,17 @@
 <title>Insert title here</title>
 
 <style>
+
+body{
+	width: 1500px;
+	margin: auto;
+}
 .sub_cont 
 {
 	width: 1000px;
 	margin-top: 153px;
 	margin-left: 400px;
+	
 }
 
 .cst_quick{
@@ -18,7 +24,7 @@
     width: 852px;
     height: 98px;
     margin-bottom: 38px;
-    padding: 20px 0;
+/*     padding: 20px 0; */
     border: 4px solid #efefef;
 }
 /* .sub_cont{
@@ -183,11 +189,11 @@ table {
 	color:#000;
 
 }
-body
-{
-	width: 1500px;
-	margin: auto;
+.cst_noti_main h3 a{
+	text-decoration:none;
+	color:black;
 }
+
 </style>
 </head>
 <body>
@@ -207,14 +213,40 @@ body
         <div class="cst_faq">
             <h3 class="thm">자주 하는 질문 <span>TOP5</span></h3>
 
-            <div class="q">반품 언제 되나요?</div>
-            <p class="content">지금 확인 중 입니다.</p>
+            <div class="q">언제 배송 되나요?</div>
+            <p class="content">더반찬은 지정하신 희망배송일에 일반택배배송, 새벽직배송 두가지 방법으로 배송해드리고 있습니다.
 
-            <div class="q">상품 위치를 알고싶습니다.</div>
-            <p class="content">배송조회 해보세요. 거기 나와요</p>
+			1) 일반택배(한진택배)배송의 경우 해당 지역의 당일 택배 물량과 배송기사님의 당일 이동노선에 따라 배송시간은 상이합니다. 항상 동일시간대에 배송되지 않는점 참고를 바랍드립니다.
+			
+			2) 새벽직배송은 희망배송일 전일 오후 10시 ~ 희망배송일 오전 7시 사이에 고객님이 지정해주신 주소지로 배송해 드리고 있습니다.
+			
+			 당일 물량과 배송기사님의 이동노선에 따라 배송되고 있어, 시간 지정은 불가합니다.
+			
+			① 새벽직배송은 별도의 공동출입문 비밀번호가 필요합니다. 미기재시 배송지연, 미배송 될수 있으며 이로 인한 책임은 더반찬이 지지 않습니다.
+			
+			새벽직배송시 공동 출입문을 출입하지 못하면 제시간에 배송이 불가능합니다.
+			
+			② 새벽직배송은 희망배송일 전일 오후10시 ~ 희망배송일 오전7시 사이 주무시는 동안에도 배송될수 있기에 고객님의 숙면을 위하여 별도의 문자 및 유선 연락을 드리고 있지 않습니다. 별도의 연락을 원하시는 경우 주문서 작성시 주변장소 정보 혹은 특이 요청사항에 남겨주시기 바랍니다.
 
-            <div class="q">이 사이즈 있나요?</div>
-            <p class="content">네 있습니다.</p>
+
+
+			※ 일반택배배송, 새벽직배송은 교통상황, 명절 및 연휴기간, 기상상황, 천재지변 등으로 배송지연이 발생될 수 있습니다.</p>
+
+            <div class="q">배송비는 얼마인가요?</div>
+            <p class="content">실결제금액 45,000원 이상 주문 시 무료배송
+
+			실결제금액 45,000원 미만 주문 시 일반택배배송 2,500원 / 새벽직배송 2,900원 배송비 부과
+			
+			※ 최소 주문금액 : 10,000원 이상
+			
+			※ 실결제금액 = 주문합계금액 - 쿠폰/할인금액</p>
+
+            <div class="q">새벽배송이 완료되면 문자나 유선(전화) 연락을 주나요?</div>
+            <p class="content">새벽직배송은 고객님께서 주무시는 희망배송일 전일 오후 10시에서 희망배송일 오전 7시 사이 배송되고 있기에 고객님의 편안한 숙면을 위하여 별도 연락은 드리지 않습니다.
+
+			별도의 연락을 원하시는 경우 주문서 작성시 [주변장소 정보 혹은 특이 요청사항]에 남겨주시기 바랍니다.
+			
+			ex) 경비실에 맡겨주세요. 무인택배함에 보관해 주세요, 배송완료 시 문자 부탁드려요. 등.</p>
 
             <div class="q">아이스박스는 수거 하시나요?</div>
             <p class="content">포장재인 아이스박스는 수거하지 않습니다.<br>
@@ -226,8 +258,9 @@ body
             <p class="content">더반찬의 제품은 배송시 선도 유지를 위해 얼린 샘물을 동봉하여 아이스박스에 포장하고 있습니다. 얼린 샘물의 수량은 기온에 따라 수량이 변경되고 있습니다. 신선하고 안전하게 배송하겠습니다</p>
            
         </div>
+        <!--  .cst_noti_main h3 a -->
         <div class="cst_noti_main">
-            <h3>공지사항</h3>
+            <h3><a href="<%= request.getContextPath() %>/noticeList.no">공지사항</a></h3>
             <ul class="list">
             
                 <li><a href="">[공지] 4월 국회의원선거일 배송 안내<span class="date thm">2020-04-08</span></a></li>
@@ -237,7 +270,7 @@ body
                 <li><a href="">[공지] 빠른도착 카테고리 오픈 안내<span class="date thm">2020-04-07</span></a></li>
             
             </ul>
-            <a href="" onclick="" class="arrow_btn01">전체보기</a>
+            <a href="<%= request.getContextPath() %>/noticeList.no" onclick="" class="arrow_btn01">전체보기</a>
         </div>
     </div>
 

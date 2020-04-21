@@ -111,8 +111,8 @@ li{
             
                 <li><a id="left_01" href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는 질문</a></li>
                 <li><a id="left_02" href="<%= request.getContextPath() %>/write.in">1:1 친절상담</a></li>
-                <li><a id="left_03" href="" onclick="">1:1 상담내역</a></li>
-                <li><a id="left_04" href="" onclick="">공지사항</a></li>
+                <li><a id="left_03" href="<%= request.getContextPath() %>/NoticeInquiryList.no" onclick="">1:1 상담내역</a></li>
+                <li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no" onclick="">공지사항</a></li>
              </ul>
         </div>
        

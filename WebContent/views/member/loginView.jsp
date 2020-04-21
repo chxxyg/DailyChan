@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String contextPath = request.getContextPath();
+	
+	boolean saveId = false;
+	String userIdSaved = "";
+	Cookie[] cookies = request.getCookies();
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+
 .outer{
 border:1px solid orangred;
 width:500px;
@@ -29,11 +34,11 @@ margin:auto;
     margin-top:60px;
    
 }
-#id{
+#userid{
     margin-top:40px;
 }
 
-#id, #pwd{
+#userid, #pwd{
 
     width:360px ;
     height: 44px;
@@ -87,22 +92,24 @@ margin:auto;
 <div class="outer">
  <div class="login-box">
             
-        <!-- <button type="button"  onclick="unBlockUI('layer_login');return false;">닫기</button> -->
        	<div id="tit">
        		<h2>로그인</h2>
        	</div>
         
         <div>
             <form id="loginLayerForm" method="post" action="<%= contextPath%>/login.me">
-
-                <input name="userId" id="id" type="text" placeholder="아이디" maxlength="50" required><br><br>
+				<!-- 쿠기 적용 전 -->
+                <input name="userId" id="userid" type="text" placeholder="아이디" maxlength="50" required value="<%= saveId ? userIdSaved : ""%>"><br><br>
                 <input name="userPwd" id="pwd" type="password" placeholder="비밀번호" maxlength="20" required><br><br>
                 <button id="loginBtn" type="submit" onclick="inputLogin();">로그인</button><br>
       			 
             </form>
         </div>
+        <!-- 쿠키 적용 후 -->
         <input type="checkbox" id="idSaveCheck">아이디 저장
-
+        	
+   <%--     <input type="text" name="userId" id="userId" value="<%= saveId ? userIdSaved : ""%>"> --%>
+		
             <br><br>
             <button id="joinup" type="submit" onclick="enrollForm();">신규 회원가입</button>
             <br><br>
@@ -152,6 +159,23 @@ margin:auto;
 				opener.parent.location="<%=contextPath%>/nonOrd.od";			
 				window.close();
 			}
+		
+		
+		/* 아이디 저장 cookie 부분*/
+		
+		if(cookies != null){
+			for(Cookie c : cookies){
+				if("saveId".equals(c.getName())){
+					userIdSaved = c.getValue();
+					saveId = true;
+				}
+			}
+		}
+					
+		
+
+	
+				
 		
 	</script>
 
