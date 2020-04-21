@@ -36,20 +36,17 @@
 	}
 	.recentProduct a{text-decoration:none; cursor:pointer;}
 	#recentProduct_td1{
-		padding:15px 0px 15px 0px;
+		padding:15px 15px;
 	}
-	#recentProduct_td1 img{
+	#recentProduct_td1>img{
 		float:left;
-		margin-left:25px;
+		margin-left: 15px;
+		cursor:pointer;
 	}
-	#recentProduct_td1>div{
-		width:230px;
-		text-align:left;
+	#recentProduct_td1>p{
 		float:left;
-		margin:25px 0px 0px 30px;
-	}
-	#recentProduct_td1>div>a{
-		font-size:13px;
+		margin:18px 0px 0px 15px;
+		cursor:pointer;
 	}
 	#recentProduct_td2{padding-left:50px;}
 	#shoppingcartBtn{
@@ -85,10 +82,11 @@
 			<tbody>
 				<tr>
 					<td id="recentProduct_td1">
-						<a><img src="" width="80px" height="80"></a>
-						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
-						</div>
+						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+						<img class="pName" src="" width="80" height="80">
+						<p class="pName"><b>데일리찬 상품명</b><br>
+							1개 / 12,000원
+						</p>
 					</td>
 					<td id="recentProduct_td2" colspan="2">
 						상품이 매진되었습니다.
@@ -96,10 +94,11 @@
 				</tr>
 				<tr>
 					<td id="recentProduct_td1">
-						<a><img src="" width="80px" height="80"></a>
-						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
-						</div>
+						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+						<img class="pName" src="" width="80" height="80">
+						<p class="pName"><b>데일리찬 상품명</b><br>
+							1개 / 12,000원
+						</p>
 					</td>
 					<td id="recentProduct_td2" colspan="2">
 						12,000원
@@ -108,10 +107,11 @@
 				</tr>
 				<tr>
 					<td id="recentProduct_td1">
-						<a><img src="" width="80px" height="80"></a>
-						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
-						</div>
+						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+						<img class="pName" src="" width="80" height="80">
+						<p class="pName"><b>데일리찬 상품명</b><br>
+							1개 / 12,000원
+						</p>
 					</td>
 					<td id="recentProduct_td2" colspan="2">
 						12,000원
@@ -126,8 +126,15 @@
 	<script>
 		$(function(){
 			$("#selectRecent").css("color", "rgb(247, 112, 46)");
+			
+			$(".pName").click(function(){
+				var pCode = $(this).siblings(".pCode").val();
+				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
+			});
+			
 		});
 		
+		/* ajax 사용!! */		
 		function toCart(){
 			
 			window.alert("장바구니에 상품이 담겼습니다.");

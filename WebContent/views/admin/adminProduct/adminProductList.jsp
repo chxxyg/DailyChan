@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.Product, com.kh.admin.adminMember.model.vo.*"%>
+<%
+	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
+	int count = (Integer)request.getAttribute("count");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+	
+%>   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,50 +114,63 @@
         <br>
         	상품명 <input type="text"> <button type="button" onclick="">조회</button><br>
         <div id="allcount">
-                <div style="width:30%;">총 상품 수 :  <input type="text" id="adproductcount"> 개</div>
+                <div style="width:30%;">총 상품 수 :  <input type="text" id="adproductcount" value="<%= count%>"> 개</div>
                 <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp'">상품등록</button> <button>선택삭제</button></div>
         </div>  
         <table class="listProduct">
             <thead>
                 <tr>
-                    <th width="30"><input type="checkbox" checked style="cursor: pointer;" ></th>
-                    <th width="50">번호</th>
                     <th width="170">상품코드</th>
                     <th width="200">업체명</th>
                     <th width="320">상품명</th>
                     <th width="100">판매가</th>
-                    <th width="100">판매수량</th>
                     <th width="80">재고수량</th>
                 </tr>
             </thead>
             <tbody>
+        		    <% for(Product p : list){ %>
                 <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>1</td>
-                    <td>ADFINTLNS</td>
-                    <td>KH음식배달</td>
-                    <td>관리자테스트용</td>
-                    <td>329,000</td>
-                    <td>421</td>
-                    <td>5,230</td>
+                    <td><%=p.getProCode() %></td>
+                    <td><%=p.getProSupplyName() %></td>
+                    <td><%=p.getProName() %></td>
+                    <td><%=p.getProPrice() %></td>
+                    <td><%=p.getProStock() %></td>
                 </tr>
-                 <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>1</td>
-                    <td>ADFINTLNS</td>
-                    <td>KH음식배달</td>
-                    <td>관리자테스트용</td>
-                    <td>329,000</td>
-                    <td>421</td>
-                    <td>5,230</td>
-                </tr>
+               	<% } %>	
                
-                
-                
             </tbody>
-
+            
         </table>  
        </div>
     </div>
+    <br><br>
+		
+		<!-- 현재 페이지에 보여질 페이징바 -->
+		<div class="pagingArea" align="center">
+			<% if(currentPage!=1) {%>
+			<!-- 맨 처음으로(<<) -->
+			<button onclick="location.href='productList.ad?currentPage=1'"> &lt;&lt; </button>
+			
+			<!-- 이전페이지로 (<) -->
+			<button onclick="location.href='productList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<% } %>
+			
+			<%for(int p=startPage; p<=endPage; p++){ %>
+				<% if(currentPage != p){%>
+				<button onclick="location.href='productList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<% }else { %>
+				<button disabled><%=p %></button>	
+				<% } %>
+			<%} %>
+			
+			<% if(currentPage!=maxPage) {%>
+			<!-- 다음페이지로 (<) -->
+			<button onclick="location.href='productList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<!-- 맨 마지막으로 (>>) -->
+			<button onclick="location.href='productList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<% } %>
+		</div>
+	</div>
+     
 </body>
 </html>

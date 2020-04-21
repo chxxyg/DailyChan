@@ -1,74 +1,91 @@
 package com.kh.admin.adminMember.model.vo;
 
 public class AdPageInfo {
+
+	private int listCount;		// 일반게시판 총 갯수
+	private int currentPage;	// 현재페이지 (요청페이지)
+	private int startPage;		// 페이징바의 시작수
+	private int endPage;		// 페이징바의 끝 수
+	private int maxPage;		// 가장 마지막 페이지 수
+	private int pageLimit;		// 페이지 바의 최대 페이지 갯수
+	private int boardLimit;		// 한 페이지에 보여질 게시글 최대 갯수
 	
-	private int countMember;
-	private int currentPage;
-	private int startpage;
-	private int endPage;
-	private int maxPage;
-	private int PageLimit;
-	private int countLimit;
-	public AdPageInfo(int countMember, int currentPage, int startpage, int endPage, int maxPage, int pageLimit,
-			int countLimit) {
+	public AdPageInfo() {}
+
+	public AdPageInfo(int listCount, int currentPage, int startPage, int endPage, int maxPage, int pageLimit,
+			int boardLimit) {
 		super();
-		this.countMember = countMember;
+		this.listCount = listCount;
 		this.currentPage = currentPage;
-		this.startpage = startpage;
+		this.startPage = startPage;
 		this.endPage = endPage;
 		this.maxPage = maxPage;
-		PageLimit = pageLimit;
-		this.countLimit = countLimit;
+		this.pageLimit = pageLimit;
+		this.boardLimit = boardLimit;
 	}
-	public int getCountMember() {
-		return countMember;
+
+	public int getListCount() {
+		return listCount;
 	}
-	public void setCountMember(int countMember) {
-		this.countMember = countMember;
+
+	public void setListCount(int listCount) {
+		this.listCount = listCount;
 	}
+
 	public int getCurrentPage() {
 		return currentPage;
 	}
+
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
-	public int getStartpage() {
-		return startpage;
+
+	public int getStartPage() {
+		return startPage;
 	}
-	public void setStartpage(int startpage) {
-		this.startpage = startpage;
+
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
 	}
+
 	public int getEndPage() {
 		return endPage;
 	}
+
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
+
 	public int getMaxPage() {
 		return maxPage;
 	}
+
 	public void setMaxPage(int maxPage) {
 		this.maxPage = maxPage;
 	}
+
 	public int getPageLimit() {
-		return PageLimit;
+		return pageLimit;
 	}
+
 	public void setPageLimit(int pageLimit) {
-		PageLimit = pageLimit;
+		this.pageLimit = pageLimit;
 	}
-	public int getCountLimit() {
-		return countLimit;
+
+	public int getBoardLimit() {
+		return boardLimit;
 	}
-	public void setCountLimit(int countLimit) {
-		this.countLimit = countLimit;
+
+	public void setBoardLimit(int boardLimit) {
+		this.boardLimit = boardLimit;
 	}
+
 	@Override
 	public String toString() {
-		return "AdPageInfo [countMember=" + countMember + ", currentPage=" + currentPage + ", startpage=" + startpage
-				+ ", endPage=" + endPage + ", maxPage=" + maxPage + ", PageLimit=" + PageLimit + ", countLimit="
-				+ countLimit + "]";
+		return "PageInfo [listCount=" + listCount + ", currentPage=" + currentPage + ", startPage=" + startPage
+				+ ", endPage=" + endPage + ", maxPage=" + maxPage + ", pageLimit=" + pageLimit + ", boardLimit="
+				+ boardLimit + "]";
 	}
 	
 	
-
 }
