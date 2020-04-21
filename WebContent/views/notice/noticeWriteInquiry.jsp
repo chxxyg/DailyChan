@@ -7,6 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+
+
  #form1{
 	
 	width: 822px;
@@ -258,10 +260,12 @@ button em {
 <%@ include file="noticeSearch.jsp" %>
  
 
- <h2>1:1 친절상담</h2>
+
   <form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post">
   	
+  	 <h2>1:1 친절상담</h2>
     <div class="cst_slt">
+    	
         <div class="info_txt"><em class="req">*<!--<span class="ir">필수입력정보</span>--></em>표시정보는 필수 입력 사항입니다.</div>
         <dl>
             <dt>
@@ -375,22 +379,22 @@ button em {
                         </th>
                         
                         <td>
-                            <select id="tel_no1" name="tel_no1" message="전화번호를 숫자로 입력하세요."><option value="">선택</option><option value="010" selected="selected">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option><option value="0502">0502</option><option value="0503">0503</option><option value="0504">0504</option><option value="0505">0505</option><option value="0506">0506</option><option value="0507">0507</option></select>
+                            <select id="tel_no1" name="tel_no1" message="전화번호를 숫자로 입력하세요."><option value="">선택</option><option value="010" selected="selected">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option></select>
                             <span class="dash">-</span>
                             <input type="text" class="celluar" id="tel_no2" name="tel_no2" title="휴대폰번호 가운데 자리 입력" value="2948" maxlength="4">
                             <span class="dash">-</span>
                             <input type="text" class="celluar" id="tel_no3" name="tel_no3" title="휴대폰번호 마지막 자리 입력" value="3067" maxlength="4">
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <th scope="row">
                             <label for="quest_title">제목</label>
                         </th>
                         
                         <td>
-                            <input type="text" class="w_tit" id="quest_title" name="quest_title" title="제목 입력" placeholder="제목을 입력해 주세요." onkeyup="fnLimitText('quest_title','50')">
-                        </td>
+                            <input type="text" class="w_tit" id="quest_title" name="quest_title" title="제목 입력" placeholder="제목을 입력해 주세요." onkeyup="fnLimitText('quest_title','50')" >
+                        </td> 
                     </tr>
                     
                     
@@ -400,7 +404,7 @@ button em {
                         </th>
                         <td>
                             <textarea id="quest_cont" name="quest_cont" cols="50" rows="10" class="textarea wide" placeholder="취소, 교환, 반품 신청은 주문배송 조회에서 ‘결제완료’ 상태인 경우에 즉시취소 가능합니다.
-                            주문에 대한 문의일 경우, 상품을 선택하여 문의 주시면 보다 빠른 상담이 가능합니다." title="내용" onkeyup="fnLimitText('quest_cont','1000')"></textarea>
+                            주문에 대한 문의일 경우, 상품을 선택하여 문의 주시면 보다 빠른 상담이 가능합니다." title="내용"  onkeyup="fnLimitText('quest_cont','1000')"></textarea>
                         </td>
                     </tr>
                     
