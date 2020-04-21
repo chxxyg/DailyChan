@@ -2,9 +2,9 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.Product, com.kh.admin.adminMember.model.vo.*"%>
 <%
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
-	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
 	int count = (Integer)request.getAttribute("count");
 	
+	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
@@ -77,12 +77,12 @@
         tbody{vertical-align: top;
         }
         table{table-layout:fixed;}
-        Button {
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-			background-color:#ffc477;
+       Button {
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
 			border-radius:6px;
-			border:1px solid #eeb44f;
+			border:1px solid #181c20;
 			display:inline-block;
 			cursor:pointer;
 			color:#ffffff;
@@ -91,15 +91,20 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+			text-shadow:0px 1px 0px #181c20;
 		}
 		Button:hover {
-			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
 		}
 		Button:active {
 			position:relative;
 			top:1px;
+		}
+		.listProduct>tbody>tr:hover {
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
+			cursor:pointer;
 		}
         
       
@@ -115,7 +120,7 @@
         	상품명 <input type="text"> <button type="button" onclick="">조회</button><br>
         <div id="allcount">
                 <div style="width:30%;">총 상품 수 :  <input type="text" id="adproductcount" value="<%= count%>"> 개</div>
-                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp'">상품등록</button> <button>선택삭제</button></div>
+                <div style="width:70%; text-align:right;"><button onclick="location.href='<%=contextPath%>/pdEnrollForm.ad'">상품등록</button> </div>
         </div>  
         <table class="listProduct">
             <thead>
@@ -140,18 +145,12 @@
                
             </tbody>
             
-        </table>  
-       </div>
-    </div>
-    <br><br>
-		
-		<!-- 현재 페이지에 보여질 페이징바 -->
-		<div class="pagingArea" align="center">
+        </table> 
+        <br><br><br>
+       <div class="pagingArea" align="center">
 			<% if(currentPage!=1) {%>
-			<!-- 맨 처음으로(<<) -->
 			<button onclick="location.href='productList.ad?currentPage=1'"> &lt;&lt; </button>
 			
-			<!-- 이전페이지로 (<) -->
 			<button onclick="location.href='productList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
 			<% } %>
 			
@@ -164,13 +163,26 @@
 			<%} %>
 			
 			<% if(currentPage!=maxPage) {%>
-			<!-- 다음페이지로 (<) -->
 			<button onclick="location.href='productList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
-			<!-- 맨 마지막으로 (>>) -->
 			<button onclick="location.href='productList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
 			<% } %>
 		</div>
-	</div>
+       </div>
+       
+    </div>
+    <script>
+   		$(function(){
+   			$(".listMember>tbody>tr").click(function(){
+   				// console.log("클릭");
+	   				
+	   			var mid = $(this).children().eq(0).text();
+	   				
+	 			location.href="<%= contextPath%>/detail.ad?mid=" + mid; 
+ 			});
+ 
+   		});   
+    </script>
+		
      
 </body>
 </html>
