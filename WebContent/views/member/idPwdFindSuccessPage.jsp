@@ -6,6 +6,7 @@
 <title>Insert title here</title>
 <%
 	String MEMBERID = String.valueOf(session.getAttribute("memberId"));
+	String PASSWORD = String.valueOf(session.getAttribute("memberPwd"));
 
 %>
 <style>
@@ -35,16 +36,29 @@ table{
     width: 452px;
     height: 519px;
     background:white;
-    
-    
+    float:left;
+}
+.login_box_pwd_find{
+    border: 1px solid rgba(128, 128, 128, 0.306);
+    width: 452px;
+    height: 519px;
+    background:white;
+    float:left;
 }
 .login_box_id_find{
 
-   margin-left:0px;
+   margin-left:10px;
 }
 #loginMemId{
 	
 	/* border:1px solid green; */
+	width:350px;
+	height:300px;
+	margin:auto;
+	border-top:1px solid gray;
+}
+#loginMemPwd{
+	
 	width:350px;
 	height:300px;
 	margin:auto;
@@ -66,6 +80,27 @@ table{
 	color:#999;
 
 }
+#find-info2{
+	height:20px;
+	width:340px;
+	font-weight:800;
+	font-size:20px;
+	margin:auto;
+	margin-top:50px;
+	color:#999;
+
+}
+#find-info_1{
+	height:20px;
+	width:340px;
+	font-size:12px;
+	margin:auto;
+	margin-top:10px;
+	background-color:#f9f9f9;
+	color:#333;
+	padding:10px 14px;
+
+}
 #loginMemId_result{
 /* 	border:1px solid blue; */
 	width:250px;
@@ -77,6 +112,22 @@ table{
 
 }
 #loginMemId_result p{
+	font-size:30px;
+	text-align:center;
+	padding:10px;
+	margin:auto;
+}
+
+#loginMemPwd_result{
+	width:250px;
+	height:50px;
+	margin:auto;
+	margin-top:25px;
+	background: white;
+	text-align:center;
+
+}
+#loginMemPwd_result p{
 	font-size:30px;
 	text-align:center;
 	padding:10px;
@@ -107,15 +158,38 @@ table{
 					<h2 align="center">아이디 찾기</h2>
 						<div id="loginMemId">
 							<div id="find-info">회원님의 아이디를 찾았습니다.</div>
-							<div id="loginMemId_result" style="color: hsl(28, 100%, 50%);">
+							<div id="loginMemPwd_result" style="color: hsl(28, 100%, 50%);">
 								<p><%= MEMBERID %></p>
 								
 							</div>
 							<button id="loginBtn" type="submit" onclick="loginPop();">로그인</button>
+							<div id="find-info_1">비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요.</div>
 						</div>
+						
 					</div>
 				</div>
 			</table>
+			
+			
+			<table class="pwd_box">
+				<div class="login_box_pwd_find">
+					<div class="login_set" id="login_set_pwd">
+					<h2 align="center">비밀번호 찾기</h2>
+						<div id="loginMemPwd">
+							<div id="find-info2">회원님의 비밀번호를 찾았습니다.</div>
+							<div id="loginMemPwd_result" style="color: hsl(28, 100%, 50%);">
+								<p><%= PASSWORD %></p>
+								
+							</div>
+							<button id="loginBtn" type="submit" onclick="loginPop();">로그인</button>
+						</div>
+						
+					</div>
+				</div>
+			</table>
+			
+			
+			
 		</div>
 </div>
 

@@ -151,7 +151,7 @@ table{
 
 						<div class="login_box_pw_find">
 							<h2 align="center">비밀번호 찾기</h2>
-							<form name="findPwForm" id="findPwForm" method="post">
+							<form name="findPwForm" action="<%= contextPath %>/pwdFind.me"  id="findPwForm" method="post">
 								<div class="login_type login_set_pw"></div>
 								<!-- 비밀번호찾기 폼 -->
 								<div class="login_set login_set_pw" id="login_set_pw">
@@ -229,12 +229,7 @@ table{
 
 	}
 	
-/* 	
-	function
-	 */
-	                  
-	
-	</script>
+
 
 	
 	<%@ include file="../common/mainFooter.jsp" %>

@@ -102,9 +102,9 @@ public class MemberService {
 	
 	/**
 	 * 
-	 * 완료x 수정해야 됨
-	 * @param memberName
-	 * @param email
+	 * 아이디 찾기
+	 * @param memberName	--> 입력받은 회원 이름
+	 * @param email			--> 입력받은 회원 이메일
 	 * @return
 	 */
 	public String searchId(String id_name, String id_email) {
@@ -120,6 +120,22 @@ public class MemberService {
 		
 	}
 	
+	/**
+	 * 	비밀번호 찾기
+	 * @param pw_id		--> 입력받은 아이디
+	 * @param pw_name	--> 입력받은 이름
+	 * @return
+	 */
+	public String searchPwd(String pw_id, String pw_name) {
+		Connection conn = getConnection();
+		
+		String memberPwd = new MemberDao().searchPwd(pw_id, pw_name);
+		
+		close(conn);
+		
+		return memberPwd;
+		
+	}
 	
 		
 }

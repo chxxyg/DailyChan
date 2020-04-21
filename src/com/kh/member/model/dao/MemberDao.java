@@ -249,6 +249,38 @@ public class MemberDao {
 		
 	}
 	
+	public String searchPwd(String pw_id, String pw_name) {
+		
+		Connection conn = getConnection();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String memberId = null;
+		
+		String sql = prop.getProperty("searchPwd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pw_id);
+			pstmt.setString(2, pw_name);
+			
+			rset=pstmt.executeQuery();
+			
+			if(rset.next()) {
+				memberId=rset.getString("PASSWORD");
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return memberId;
+		
+	}
 
 	
 }
