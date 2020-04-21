@@ -39,7 +39,7 @@
         </table>
     </div>
 
-    <div class="eventInnerWrap" style="margin-bottom: 100px;">
+    <div class="eventInnerWrap">
         <table class="eventInnerTable">
             <tr>
                 <td rowspan="2"><a href="<%= request.getContextPath() %>/eDetail2.pro"><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg2.jpg"></a></td>
@@ -54,7 +54,7 @@
         </table>
     </div>
         
-    <div class="eventInnerWrap">
+    <div class="eventInnerWrap" style="margin-bottom: 100px;">
         <table class="eventInnerTable">
             <tr>
                 <td rowspan="2"><a href="<%= request.getContextPath() %>/eDetail3.pro"><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg3.jpg"></a></td>
