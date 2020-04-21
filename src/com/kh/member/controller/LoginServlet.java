@@ -3,6 +3,7 @@ package com.kh.member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,8 +55,8 @@ public class LoginServlet extends HttpServlet {
 			
 			request.setAttribute("msg", "로그인에 실패했습니다.");
 			
-//			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-//			view.forward(request, response);
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			view.forward(request, response);
 			
 			
 		}
