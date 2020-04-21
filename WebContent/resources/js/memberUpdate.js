@@ -30,7 +30,7 @@ $(document).ready(function() {
 		var num = inputVal.search(/[0-9]/g);
 		var eng = inputVal.search(/[a-z]/ig);
 		var spe = inputVal.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-		if(inputVal.length < 10 && inputVal.length > 0 ){
+		if(inputVal.length < 10 || inputVal == "" ){
 			$('span[name=pwd]').show();
 			$('span[name=pwd]').text("비밀번호는 10자 이상이어야 합니다.");
 			isChkId = false;
@@ -214,33 +214,30 @@ $(document).ready(function() {
 			alert("입력된 회원 정보 중 정상적이지 않은 정보가 있습니다. 확인 후 다시 시도해 주세요.");
 			return;
 		}
-		
-//		$.ajax({
-//			url: "/mypage/updateMemModify.action",
-//			type: "POST",
-//			dataType: "text",
-//			data: $('#memberFrom').serialize(),
-//			success: function(data){
-//				data = JSON.parse(data);
-//				alert(data.result_msg);
-//				if(data.result_flag == "true"){
-//					overpass.logout();
-//					window.location.reload();
-//					return;
-//				}
-//					
-//				if (data.result_code == "S") {
-//					overpass.mypage.goOrderList();
-//				}
-//			},
-//			error: function( e ){
-//				if ( e.error_message !=null && e.error_message != ""){
-//					alert(e.error_message);
-//				}else{
-//					alert("오류가 발생하였습니다.");
-//				}
-//			}
-//		});
-//		test
+		$.ajax({
+			url: "/mypage/updateMemModify.action",
+			type: "POST",
+			dataType: "text",
+			data: $('#memberFrom').serialize(),
+			success: function(data){
+				data = JSON.parse(data);
+				alert(data.result_msg);
+				if(data.result_flag == "true"){
+					overpass.logout();
+					window.location.reload();
+					return;
+				}
+				if (data.result_code == "S") {
+					overpass.mypage.goOrderList();
+				}
+			},
+			error: function( e ){
+				if ( e.error_message !=null && e.error_message != ""){
+					alert(e.error_message);
+				}else{
+					alert("오류가 발생하였습니다.");
+				}
+			}
+		});
 	});
 });
