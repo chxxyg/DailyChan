@@ -97,6 +97,7 @@
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -302,12 +303,21 @@
 			
 			/*Ajax로 값만 서블릿으로 전달하고 이 페이지에 머물도록!!!(refund.my 지우고)*/
 			$(".cancelOrderBtn").click(function(){
+				var orderNo = $(this).parent().siblings(".firstTd").children(".orderNo").text();
+				
 				var result = confirm("주문을 즉시취소하시겠습니까?")
 	            if(result){
-	                alert("처리가 완료되었습니다.");
+	            	$.ajax({
+	            		url:"deleteOrd.my",
+	            		data:{orderNo:orderNo},
+	            		type:"get",
+	            		success:function(){
+	            			alert("주문취소 처리가 완료되었습니다.");
+	            		}, error:function(){
+	            			colsole.log("통신 실패");
+	            		}
+	            	});	
 	            }
-				var orderNo = $(this).parent().siblings(".firstTd").children(".orderNo").text();
-				location.href="<%=contextPath%>/refund.my?orderNo=" + orderNo;
 			});
 			
 		});	

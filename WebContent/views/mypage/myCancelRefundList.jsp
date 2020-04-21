@@ -51,7 +51,10 @@
 		font-size:12px;
 		text-align:center;
 	}
-	.myCancelList a{text-decoration:none;}
+	.myCancelList a{
+		text-decoration:none;
+		cursor:pointer;
+	}
 	#myCancelInfo{
 		padding:20px 0px 10px 100px;
 	}
@@ -122,17 +125,20 @@
 					</td>
 					<td id="myCancelInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
@@ -147,7 +153,8 @@
 					</td>
 					<td id="myCancelInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>
@@ -162,7 +169,8 @@
 					</td>
 					<td id="myCancelInfo">
 						<div>
-							<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<a class="pName"><b>데일리찬 상품명</b></a><br>
 							1개 / 12,000원
 							<p>결제수단 : 신용카드</p>
 						</div>

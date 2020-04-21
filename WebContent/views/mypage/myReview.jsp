@@ -75,17 +75,17 @@
 		cursor:pointer;
 	}
 	#rList_td1, #unRList_td1{
-		padding:15px 0px 15px 0px;
+		padding:15px 15px;
 	}
-	#rList_td1 img, #unRList_td1 img{
+	#rList_td1>img, #unRList_td1>img{
 		float:left;
-		margin-left:30px;
+		margin-left: 15px;
+		cursor:pointer;
 	}
-	#rList_td1 div, #unRList_td1 div{
-		width:230px;
-		text-align:left;
+	#rList_td1>p, #unRList_td1>p{
 		float:left;
-		margin:18px 0px 0px 25px;
+		margin:18px 0px 0px 15px;
+		cursor:pointer;
 	}
 	#rList_td1~td, #unRList_td1~td{text-align:center;}
 	#writeReviewBtn{
@@ -164,11 +164,11 @@
 					<tbody>
 						<tr>
 							<td id="unRList_td1">
-								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
-								<div>
-									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<img class="pName" src="" width="80" height="80">
+								<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 									주문일 : 2020.03.31
-								</div>
+								</p>
 							</td>
 							<td width="150px">12,000원</td>
 							<td width="150px">
@@ -177,11 +177,11 @@
 						</tr>
 						<tr>
 							<td id="unRList_td1">
-								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
-								<div>
-									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<img class="pName" src="" width="80" height="80">
+								<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 									주문일 : 2020.03.31
-								</div>
+								</p>
 							</td>
 							<td width="150px">12,000원</td>
 							<td width="150px">
@@ -190,11 +190,11 @@
 						</tr>
 						<tr>
 							<td id="unRList_td1">
-								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
-								<div>
-									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<img class="pName" src="" width="80" height="80">
+								<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 									주문일 : 2020.03.31
-								</div>
+								</p>
 							</td>
 							<td width="150px">12,000원</td>
 							<td width="150px">
@@ -222,11 +222,11 @@
 					<tbody>
 						<tr>
 							<td id="rList_td1">
-								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
-								<div>
-									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<img class="pName" src="" width="80" height="80">
+								<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 									주문일 : 2020.03.31
-								</div>
+								</p>
 							</td>
 							<td width="150px">12,000원</td>
 							<td width="150px">
@@ -235,11 +235,11 @@
 						</tr>
 						<tr>
 							<td id="rList_td1">
-								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
-								<div>
-									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<img class="pName" src="" width="80" height="80">
+								<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 									주문일 : 2020.03.31
-								</div>
+								</p>
 							</td>
 							<td width="150px">12,000원</td>
 							<td width="150px">
@@ -248,11 +248,11 @@
 						</tr>
 						<tr>
 							<td id="rList_td1">
-								<a href="<%= contextPath %>/pDetail.pro"><img src="" width="80px" height="80"></a>
-								<div>
-									<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a> | 2인분<br>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<img class="pName" src="" width="80" height="80">
+								<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 									주문일 : 2020.03.31
-								</div>
+								</p>
 							</td>
 							<td width="150px">12,000원</td>
 							<td width="150px">
@@ -287,6 +287,11 @@
 				$("#writeReviewCate").css("border", "");
 				$("#viewMyReview").show();
 				$("#writeReview").hide();
+			});
+			
+			$(".pName").click(function(){
+				var pCode = $(this).siblings(".pCode").val();
+				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
 			});
 			
 		});

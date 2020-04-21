@@ -31,17 +31,17 @@
 		cursor:pointer;
 	}
 	#writeReview_tr1{
-		padding:15px 0px 15px 0px;
+		padding:15px 15px;
 	}
 	#writeReview_tr1 img{
 		float:left;
-		margin-left:30px;
+		margin-left: 15px;
+		cursor:pointer;
 	}
-	#writeReview_tr1 div{
-		width:230px;
-		text-align:left;
+	#writeReview_tr1 p{
 		float:left;
-		margin:30px 0px 0px 25px;
+		margin:25px 0px 0px 15px;
+		cursor:pointer;
 	}
 	
 	/*별점 선택 영역 */
@@ -103,10 +103,9 @@
 				<tbody>
 					<tr id="writeReview_tr1" height="100px">
 						<td>
-							<a onclick="toProductDetail()"><img src="" width="80px" height="80px"></a>
-							<div>
-								<a onclick="toProductDetail()"><b>데일리찬 상품명</b></a> | 2인분<br>
-							</div>
+							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+							<img class="pName" src="" width="80" height="80">
+							<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 						</td>
 					</tr>
 					<tr id="writeReview_tr2" height="90px">
@@ -151,6 +150,12 @@
                     $("#reviewCounter").css("color", "black");
                 }
             });
+            
+            $(".pName").click(function(){
+				var pCode = $(this).siblings(".pCode").val();
+				opener.parent.location="<%= contextPath %>/pDetail.pro?pCode=" + pCode;
+	        	window.close();
+			});
             
             $("#reviewcancelBtn").click(function(){
         		window.close();

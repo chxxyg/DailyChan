@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 	.writtenRWrap{
 		width:800px;
@@ -18,10 +19,14 @@
 		border-bottom:1px solid grey;
 	}
 	#writtenInfo>*{float:left;}
-	#writtenInfo img{margin-left:20px;}
-	#writtenInfo>div{margin:25px 0px 0px 20px;}
-	#writtenInfo a{
-		text-decoration:none;
+	#writtenInfo img{
+		float:left;
+		margin-left: 15px;
+		cursor:pointer;
+	}
+	#writtenInfo p{
+		float:left;
+		margin:25px 0px 0px 15px;
 		cursor:pointer;
 	}
 	#reviewImgs{
@@ -88,10 +93,9 @@
 	<div class="writtenRWrap">
 	
 		<div id="writtenInfo">
-			<a onclick="toProductDetail()"><img src="" width="80px" height="80px"></a>
-			<div>
-				<a onclick="toProductDetail()"><b>데일리찬 상품명</b></a><br>
-			</div>
+			<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+			<img class="pName" src="" width="80" height="80">
+			<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
 		</div>
 		
 		<div id="reviewImgs">
@@ -115,6 +119,14 @@
 	</div>
 
 	<script>
+		
+		$(function(){
+			$(".pName").click(function(){
+				var pCode = $(this).siblings(".pCode").val();
+				opener.parent.location="<%= contextPath %>/pDetail.pro?pCode=" + pCode;
+	        	window.close();
+			});
+		});
 	
 		function closeReview() {
 			window.close();
