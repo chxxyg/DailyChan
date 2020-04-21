@@ -52,7 +52,20 @@
                         <td><a href="<%= contextPath %>/pList.pro?category=ASC"><div class="categoryBtns">베트남</div></a></td>
                         <td><a href="<%= contextPath %>/pList.pro?category=ASD"><div class="categoryBtns">퓨전</div></a></td>
                     </tr>
+                    <% } else if(title.equals("NEW")) {%>
+                    <tr>
+                    	<td style="height: 70px;"></td>
+                    </tr>
+                    <% } else if(title.equals("BEST")) {%>
+                    <tr>
+                    	<td style="height: 70px;"></td>
+                    </tr>
+                    <% } else if(title.equals("SALE")) {%>
+                    <tr>
+                    	<td style="height: 70px;"></td>
+                    </tr>
                     <% } %>
+                    
                 </table>
             </td>
         </tr>

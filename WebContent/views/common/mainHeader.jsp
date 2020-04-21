@@ -283,37 +283,11 @@
             <!-- navigator -->
             <div id="navigator">
                 <ul id="navi">
-                    <li><a href="">NEW</a>
-                        <ul>
-                            <li><a href="">전체보기</a></li>
-                            <li><a href="">한식</a></li>
-                            <li><a href="">양식</a></li>
-                            <li><a href="">아시안</a></li>
-                            <li><a href="">기타</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=new">NEW</a></li>
                     
-                    <li><a href="">BEST</a>
-                        <ul>
-                            <li><a href="">전체보기</a></li>
-                            <li><a href="">한식</a></li>
-                            <li><a href="">양식</a></li>
-                            <li><a href="">아시안</a></li>
-                            <li><a href="">기타</a></li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=best">BEST</a></li>
 
-                        </ul>
-                    </li>
-
-                    <li><a href="">SALE</a>
-                        <ul>
-                            <li><a href="">전체보기</a></li>
-                            <li><a href="">한식</a></li>
-                            <li><a href="">양식</a></li>
-                            <li><a href="">아시안</a></li>
-                            <li><a href="">기타</a></li>
-
-                        </ul>
-                    </li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=sale">SALE</a></li>
 
                     <li><a href="<%= contextPath %>/pList.pro?category=KO">한식</a>
                         <ul>
