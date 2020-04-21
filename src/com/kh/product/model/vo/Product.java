@@ -11,7 +11,7 @@ public class Product {
 	private int proReviewSum;      		// 상품 평점 (리뷰 총합)
 	private int proReviewCount;    		// 상품 리뷰 개수
 	private int proStandard;			// 상품 내용량 
-	
+    private String proSupplyName;       // 납품업체명
 	private String atFileName;			// 상품에 해당하는 대표 첨부파일
 	
 	public Product() {
@@ -50,6 +50,9 @@ public class Product {
 	
 	
 
+	/**
+	 * 관리자페이지 상품 등록 매개변수
+	 */
 	public Product(String proCategory, String proName, String proCode, int proSupplyCoNo, int proPrice, int proStock) {
 		super();
 		this.proCode = proCode;
@@ -59,6 +62,32 @@ public class Product {
 		this.proStock = proStock;
 		this.proSupplyCoNo = proSupplyCoNo;
 	}
+
+	
+	
+	
+	/**
+	 * 관리자페이지 상품 리스트페이지
+	 */
+	public Product(String proCode , String proSupplyName, String proName, int proPrice, int proStock) {
+		super();
+		this.proCode = proCode;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proStock = proStock;
+		this.proSupplyName = proSupplyName;
+	}
+
+
+	public String getProSupplyName() {
+		return proSupplyName;
+	}
+
+
+	public void setProSupplyName(String proSupplyName) {
+		this.proSupplyName = proSupplyName;
+	}
+
 
 	public String getProCode() {
 		return proCode;

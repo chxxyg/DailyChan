@@ -114,7 +114,7 @@ body {
                     <a href="javascript:void(0);"><i class="fa fa-shopping-basket"></i><span>상품관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
     
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductEnrollForm.jsp">상품등록</a></li>
+                        <li><a href="<%=contextPath%>/pdEnrollForm.ad">상품등록</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp">상품관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductPayment.jsp">결제관리</a></li>
                         <li><a href="">XXX</a>

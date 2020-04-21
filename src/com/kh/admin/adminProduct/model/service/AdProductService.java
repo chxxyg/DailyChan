@@ -8,6 +8,7 @@ import static com.kh.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.admin.adminProduct.model.dao.AdProductDao;
 import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.Product;
@@ -30,5 +31,28 @@ public class AdProductService {
 		return result1*result2;
 		
 	}
+	
+	public ArrayList<Product> adProductselectList(AdPageInfo pi){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new AdProductDao().adProductselectList(conn, pi);
+		close(conn);
+		return list;
+		
+	}
+	
+	public int adProductListCount() {
+		
+		Connection conn = getConnection();
+		
+		int countProduct = new AdProductDao().adProductListCount(conn);
+		
+		close(conn);
+		return countProduct;
+		
+	}
+	
+	
 
 }
