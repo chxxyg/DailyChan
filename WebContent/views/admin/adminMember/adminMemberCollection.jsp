@@ -113,12 +113,19 @@
     </div>
     
     <form id="postForm" action="<%=contextPath%>/deleteMember.ad" method="post">
-    	<!--  <input type="hidden" name="mid" value="<%=m.getMemberId() %>"> -->
+    	<input type="hidden" name="mid" value="<%=m.getMemberId() %>">
     </form>
     
     <script>
     	function deleteMember(){   		
-    		$("#postForm").submit();
+    		
+    		var bool = confirm("정말 탈퇴시키겠습니까?");
+    		if(bool){
+    		$("#postForm").submit();    			
+    		}else{
+    			alert("취소하였습니다.");
+    		}
+    		
     	}
     	
     	function updateMember(){
