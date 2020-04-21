@@ -12,6 +12,7 @@
 <meta charset="UTF-8">
 <title>카테고리</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/productListPage.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
@@ -76,6 +77,7 @@
 	<div id="productListWrap">
 		       
 		<% for(Product p : list){ %>
+		<input type="hidden" class="proCode" value="<%=p.getProCode()%>">
 		<table class="categoryInnerTable" style="display:inline-block">
 			<tr>
 				<td>
@@ -108,6 +110,21 @@
 		<% } %>
 		             
 	</div>
+	
+	<script>
+	
+		$(function(){
+			$(".cpCartLogo").click(function(){
+				var proCode = $(this).parents(".categoryInnerTable").prev().val();
+				var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
+				
+				location.href="<%=contextPath%>/toCart.pro?proCode=" + proCode + "&proPrice=" + proPrice;
+			});
+		});
+		
+	
+	</script>
+	
 	    
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>

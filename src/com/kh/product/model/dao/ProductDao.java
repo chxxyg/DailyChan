@@ -64,5 +64,36 @@ public class ProductDao {
 		return list;
 		
 	}
+	
+	/** 상품 장바구니에 넣는 메소드
+	 * @param conn
+	 * @param memberId
+	 * @param proCode
+	 * @param proPrice
+	 * @return
+	 */
+	public int insertCart(Connection conn, String memberId, String proCode, String proPrice) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertCart");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, proCode);
+			pstmt.setString(3, proPrice);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
 
 }
