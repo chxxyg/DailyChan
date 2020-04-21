@@ -75,7 +75,8 @@
     height: 60px;
     font-size: 15px;
     padding-left: 30px;
-
+	line-height: 220%;
+	padding-bottom: 20px;
 }
 .eventDate{
     width: 460px;

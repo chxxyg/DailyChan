@@ -251,7 +251,7 @@
                             <input type="search" id="search-input">
                         </div>
                         <div id="search-btn-area">
-                            <button type="submit" id="search-btn"><img src="<%=contextPath%>/resources/img/searchlogo.png" width="30px" height="30px"></button>
+                            <a href="<%=contextPath%>/search.pro" id="search-btn"><img src="<%=contextPath%>/resources/img/searchlogo.png" width="30px" height="30px"></a>
                         </div>
                     </form>
                 </div>
