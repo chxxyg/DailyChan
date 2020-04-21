@@ -1,454 +1,246 @@
-var isAlert = true;
-var isCertYn = false;    //인증여부
-var isChkId = false;     //아이디중복체크여부
-var isChkNum = false;    //폰번호중복여부
-var isChkEmail = false;  //이메일중복여부
-
-
 $(document).ready(function() {
-
-	$("#btn_join_up").click(function() {
-    	if(isValid()){
-    		$("#joinForm").submit();
-    	}
-    });
+	
+	var email = $('#email').val();
+	var isChkId = true;
+	var cellno = $("#cell_no1").val() + $("#cell_no2").val() + $("#cell_no3").val();
 	
 	
-	$("#all_agree").click(function(){
-		var b = $(this).is(":checked");
-		$(".agreeChk").each(function(){
-			$(this).prop("checked",b);
-		});
+	$("#m_name").focusout(function(){
+		var inputVal = $("#m_name").val();
+		var regExp = /^[가-힣a-zA-Z]+$/;
+		if(inputVal == "" && inputVal.length < 2){
+			$('span[name=mbr_msg]').show();
+			$('span[name=mbr_msg]').text("이름을 입력해 주세요");
+			isChkId = false;
+		} if(!regExp.test(inputVal)) {
+			$('span[name=mbr_msg]').show();
+			$('span[name=mbr_msg]').text("이름은 한글, 영문 만 가능합니다.");
+    		isChkId = false;
+		} 
+		else{
+			$('span[name=mbr_msg]').hide();
+		}
 	});
 	
-    $("#join_id").blur(function(){
-    	var sVal = $(this).val();
-   	
-    	if(!fnValidId(false)) {
-    		return ;
-    	}
-    	
-    	var params = {userId : sVal};
+	
+	
+	
+	$("#m_pw").focusout(function(){
+		var inputVal = $("#m_pw").val();
+		var num = inputVal.search(/[0-9]/g);
+		var eng = inputVal.search(/[a-z]/ig);
+		var spe = inputVal.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+		if(inputVal.length < 10 && inputVal.length > 0 ){
+			$('span[name=pwd]').show();
+			$('span[name=pwd]').text("비밀번호는 10자 이상이어야 합니다.");
+			isChkId = false;
+		}else if(((num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0)) && inputVal.length > 0 ){
+			$('span[name=pwd]').show();
+			$('span[name=pwd]').text("비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
+			isChkId = false;
+		}else{
+			$('span[name=pwd]').hide();
+		}
+	});
+	
+	
+	
+	$("#m_pw_re").focusout(function(){
+		var m_pw = $("#m_pw").val();
+		var inputVal = $("#m_pw_re").val();
+		
+		if(m_pw != "" && inputVal == ''){
+			$('span[name=pwd_re]').show();
+			$('span[name=pwd_re]').text("비밀번호를 재 입력 해 주세요.");
+			isChkId = false;
+		}else if (m_pw != inputVal) {
+			$('span[name=pwd_re]').show();
+			$('span[name=pwd_re]').text("비밀번호가 일치하지 않습니다.");
+			isChkId = false;
+		}else{
+			$('span[name=pwd_re]').hide();
+		}
+	});
+	
+	//휴대전화 번호 입력란에 문자를 입력할 경우
+	$("#cell_no2").focusout(function() {
+		var inputVal = $("#cell_no2").val();
+		if(!$.isNumeric(inputVal) && inputVal != ''){
+			$('span[name=cell_no]').show();
+			$('span[name=cell_no]').text("휴대전화 번호는 숫자만 가능합니다.");
+			isChkId = false;
+		}else{
+			$('span[name=cell_no]').hide();
+		}
+		$(this).val(inputVal.replace(/[^0-9]/gi,''));
+	});
+	
+	//휴대전화 번호 입력란에 문자를 입력할 경우
+	$("#cell_no3").focusout(function() {
+		var inputVal = $("#cell_no3").val();
+		if(!$.isNumeric(inputVal) && inputVal != ''){
+			$('span[name=cell_no]').show();
+			$('span[name=cell_no]').text("휴대전화 번호는 숫자만 가능합니다.");
+			isChkId = false;
+		}else{
+			$('span[name=cell_no]').hide();
+		}
+		$(this).val(inputVal.replace(/[^0-9]/gi,''));		
+	});
+	
+	
+	//이메일 확인
+	$("#email").focusout(function() {
+		var inputVal = $("#email").val();
+		var regExp = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+		if(inputVal == ''){
+			$('span[name=email]').show();
+			$('span[name=email]').text("이메일을 입력해 주세요.");
+			isChkId = false;
+		}else if(!regExp.test(inputVal)){
+			$('span[name=email]').show();
+			$('span[name=email]').text("정상적인 이메일을 입력해주세요.");
+			isChkId = false;
+		}else{
+			$('span[name=email]').hide();
+		}
+		
+    	var params = {email : inputVal};
     	$.ajax({
-			url: "idCheck.me",
+			url: "emailCheck.me",
 			type: "POST",
 			data : params,
 			success: function(rs) {
-				if(rs == 1) {
-					fnMsgShow($("#caution1"),"이미 사용중인 아이디 입니다.");
+				if(rs == 1 && email != $('#email').val()) {
+					
+					$('span[name=email]').show();
+					$('span[name=email]').text("이미 등록된 이메일 입니다.");
 					isChkId = false;
 					return false;
 				}else{
-					fnMsgClear($("#caution1"));
-					isChkId = true;
 					return true;
 				}
 			}
 		});
-
-    });
-    
-    fnValidId = function(isAlert){
-    	var sVal = $("#join_id").val();
-        
-    	if(sVal.length <= 0) {
-    		fnMsgShow($("#caution1"),"아이디를 입력해 주세요.");
-    		if(isAlert) {
-    			alert("아이디를 입력해 주세요.");
-    		}
-    		return false;
-    	}
-    	
-    	var regExp = /^[a-zA-Z]+$/;
-    	if(!regExp.test(sVal))
+	});
+	
+	
+	$("#input_date").focusout(function() {
+		var inputVal = $("#input_date").val();
+		if(inputVal == '')
 		{
-    		fnMsgShow($("#caution1"),"아이디는 영문 만 가능합니다.");
-    		if(isAlert) {
-    			alert("아이디는 영문 만 가능합니다.");
-    		}
-    		return;
+			isChkId = false;
 		}
-    	
-    	if(sVal.length < 4) {
-    		fnMsgShow($("#caution1"),"아이디는 4자, 20자 미만으로 입력해주세요.");
-    		if(isAlert) {
-    			alert("아이디는 4자, 20자 미만으로 입력해주세요.");
-    		}
-    		return false;
-    	}
-    	
-    	if(sVal.length > 20) {
-    		fnMsgShow($("#caution1"),"아이디는 20자 이하이어야 합니다.");
-    		if(isAlert) {
-    			alert("아이디는 20자 이하이어야 합니다.");
-    		}
-    		return false;
-    	}
-    	
-    	fnMsgClear($("#caution1"));
-    	return true;
-    }
-    
-    $("#join_pw").blur(function(){
-    	fnValidJoinPw(false);
-    });
-    
-    fnValidJoinPw = function(isAlert){
-    	var sVal = $("#join_pw").val();
-    	
-    	if(sVal.length <= 0) {
-    		fnMsgShow($("#caution2"),"비밀번호를 입력해 주세요.");
-    		if(isAlert) {
-    			alert("비밀번호를 입력해 주세요.");
-    		}
-    		return false;
-    	}
-    	
-    	if(sVal.length < 10) {
-    		fnMsgShow($("#caution2"),"비밀번호는 10자 이상이어야 합니다.");
-    		if(isAlert) {
-    			alert("비밀번호는 10자 이상이어야 합니다.");
-    		}
-    		return false;
-    	}
-    	
-    	 var num = sVal.search(/[0-9]/g);
-    	 var eng = sVal.search(/[a-z]/ig);
-    	 var spe = sVal.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-    	if((num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ) {
-		fnMsgShow($("#caution2"),"비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
-		if(isAlert) {
-			alert("비밀번호는 10자리 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류 조합으로 만들어 주세요.");
+	});
+	
+	//저장
+	$("#saveBtn").click(function () {
+		
+		if($("#m_name").val() == ''){
+			alert("입력되지 않은 회원정보가 있습니다. 확인 후 다시 시도해 주세요.");
+			return;
 		}
-		return false;
-	}
-
-    	
-    	fnMsgClear($("#caution2"));
-    	return true;
-    }
-    
-    $("#join_pw").change(function(){
-    	 $("#join_pw_re").val("");
-    });
-    
-    
-    $("#join_pw_re").blur(function(){
-    	fnValidJoinPw(false);
-    	fnValidJoinPwRe(false);
-    });
-    
-    
-    fnValidJoinPwRe = function(isAlert){
-    	var sVal = $("#join_pw_re").val();
-    	var sPwd = $("#join_pw").val();
-    	if(sVal.length <= 0) {
-    		fnMsgShow($("#caution2"),"비밀번호를 재 입력 해 주세요.");
-    		if(isAlert) {
-    			alert("비밀번호를 재 입력 해 주세요.");
-    		}
-    		return false;
-    	}
-    	
-    	if(sVal != sPwd) {
-    		fnMsgShow($("#caution2"),"입력하신 값이 비밀번호와 다릅니다.");
-    		if(isAlert) {
-    			alert("입력하신 값이 비밀번호와 다릅니다.");
-    		}
-    		return false; 
-    	}
-    	fnMsgClear($("#caution2"));
-    	
-    	return true;
-    }
-    
-    
-    $("#join_name").blur(function(){
-    	
-    	fnValidJoinName(false);
-    });
-    
-    fnValidJoinName = function(isAlert){
-    	var sVal = $("#join_name").val();
-        
-    	if(sVal.length == 0) {
-    		fnMsgShow($("#caution3"),"이름을 입력해 주세요.");
-    		if(isAlert) {
-    			alert("이름을 입력해 주세요.");
-    		}
-    		return;
-    	}    	
-    	
-    	if(sVal.length < 2) {
-		fnMsgShow($("#caution3"),"정상적인 이름을 입력해 주세요.");
-		if(isAlert) {
-			alert("이름을 입력해 주세요.");
+		if($("#cell_no1").val() == ''){
+			alert("입력되지 않은 회원정보가 있습니다. 확인 후 다시 시도해 주세요.");
+			return;
 		}
-		return;
-    	}
-    	
-    	var regExp = /^[가-힣a-zA-Z]+$/;
-    	if(!regExp.test(sVal))
-		{
-    		fnMsgShow($("#caution3"),"이름은 한글, 영문 만 가능합니다.");
-    		if(isAlert) {
-    			alert("이름은 한글, 영문 만 가능합니다.");
-    		}
-    		return;
+
+		if($("#cell_no2").val() == ''){
+			alert("입력되지 않은 회원정보가 있습니다. 확인 후 다시 시도해 주세요.");
+			return;
 		}
-    	
-    	
-    	fnMsgClear($("#caution3"));
-    	
-    	return true;
-    }
-    
-    
-    $("#cell_no1").change(function(){
-    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val();
-		$("#cell_no").val(cell_no);
-    });
-    
-    
-    $("#cell_no2").keyup(function(){
-    	
-    	var regExp = /^[0-9]{8,}$/;
-    	if(!regExp.test($("#cell_no2").val())) {
-    		fnMsgShow($("#caution4"),"휴대전화 번호는 숫자만 가능합니다.");
-    		return;
-    	}
-    	
-    	fnMsgClear($("#caution4"));
-    	var cell_no = $("#cell_no1 :selected").val() +""+$("#cell_no2").val();
-		$("#cell_no").val(cell_no);
-    });
-    
-    
-    $("#cell_no2").blur(function(){
-    	
-    
-    	var cell_no1 = $("#cell_no1 :selected").val();
-    	var cell_no2 = $("#cell_no2").val();
-    	var sVal = cell_no1 + "" + cell_no2 + "";
-    	
-    	if(cell_no1 == "" || cell_no2 == "") {
-    		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
-    		return;
-    	}
-    	fnMsgClear($("#caution4"));
-	   	var params = {cell_no : sVal};
-     	$.ajax({
-			url: "phoneCheck.me",
-			type: "POST",
-			data : params,
-			success: function(rs) {
-				if(rs == 1) {
-					fnMsgShow($("#caution4"),"이미 개인 회원으로 등록된 번호입니다.");
-					isChkNum = false;
-					return false;
-				}else{
-			    	fnMsgClear($("#caution4"));
-			    	$("#mbr_cert_info").val(sVal);
-			    	isChkNum = true;
-			    	return true;
-				}
-			}
-		});  
-
-    });
-    
-    
-    
-
-    
-    $("#email").blur(function(){
-    	var sVal = $(this).val();
-    
-    	fnValidEmail(false);
-    	
-		var params = {email : sVal};
- 	    $.ajax({
- 				url: "emailCheck.me",
- 				type: "POST",
- 				data : params,
- 				success: function(rs) {
- 					if(rs == 1) {
- 						console.log(rs);
- 						fnMsgShow($("#caution5"),"이미 등록된 이메일 입니다.");
- 						isChkEmail = false;
- 						return false;
- 					}else{
- 						isChkEmail = true;
- 						return true;
- 					}
- 				}
- 		}); 
-    
-    });
-    
-    fnValidEmail =  function(isAlert){
-    	
-    	var sVal = $("#email").val();
-        
-    	if(sVal.length <= 0) {
-    		fnMsgShow($("#caution5"),"이메일을 입력해 주세요.");
-    		if(isAlert) {
-    			alert("이메일을 입력해 주세요.");
-    		}
-    		return false;
-    	}
-    	
-    	
-    	var regExp = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    	if(!regExp.test(sVal)) {
-    		fnMsgShow($("#caution5"),"정상적인 이메일을 입력해주세요.");
-    		if(isAlert) {
-    			alert("정상적인 이메일을 입력해주세요.");
-    		}
-    		return false;
-    	}
-    	
-        
-        $("#email").focus(function(){
-         	if(!isCertYn) {
-        		fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
-        		return;
-        	}
-        	fnMsgClear($("#caution5"));		
-        });
-    	
-    	$("#emailAuth_btn").click(function() {
-    	if(sVal.length > 0 && regExp.test(sVal) && isChkEmail)
-		{
-	    		$("#email").attr("readonly", "true");;
-    			var email = $("#email").val();
-    			window.open("/dailyChan/emailAuthForm.me?email=" + email, "로그인팝업창", "width=500, height=370, top=50, left=500, location=no ");
-    			$("#email").focus();
+		
+		if($("#cell_no3").val() == ''){
+			alert("입력되지 않은 회원정보가 있습니다. 확인 후 다시 시도해 주세요.");
+			return;
 		}
-    	else
-		{
-    		if(isAlert) {
-    			alert("정상적인 이메일을 입력해주세요.");
-    		}
+		
+		if($("#email").val() == ''){
+			alert("입력되지 않은 회원정보가 있습니다. 확인 후 다시 시도해 주세요.");
+			return;
 		}
-    	});
+		
+		isChkId = true;
+		$("#m_name").focusout();
+		if (!isChkId) {
+			$("#m_name").focus();
+			alert("이름을 확인해 주세요.");
+			return;
+		}
+		
+		$("#m_pw").focusout();
+		if (!isChkId) {
+			$("#m_pw").focus();
+			alert("비밀번호를 확인해 주세요.");
+			return;
+		}
 
-    	if($("#auth_success").val() == "success")
-    	{
-    		fnMsgShow($("#caution5"),"인증완료.");
-    		
-    		isCertYn = true;
-    		
-    	}
-    	
-    	//fnMsgClear($("#caution5"));
-    	return true;
-    }
-    
-    
-    isValid = function (){
-    	var sId 	= $("#join_id").val();
-    	var	sPw 	= $("#join_pw").val();
-    	var sRetype = $("#join_pw").val();
-    	var sName 	= $("#join_name").val();
-    	var sPhone	= $("#cell_no").val();
-        var sEmail	= $("#email").val();
-    	
-    	if(!fnValidId(true) ) {
-    		return false;
-    	}
-    	
-        if(!isChkId) {
-        	fnMsgShow($("#caution1"),"이미 사용중인 아이디 입니다.");
-        	alert("이미 사용중인 아이디 입니다.");
-        	return false;
-        }
-
-    	if(!fnValidJoinPw(true)){
-    		return false;
-    	}
-    	
-    	if(!fnValidJoinPwRe(true)){
-    		return false;
-    	}
-    	
-    	if(!fnValidJoinName(true)){
-    		return false;
-    	}
-
-        
-    	var cell_no1 = $("#cell_no1 :selected").val();
-    	var cell_no2 = $("#cell_no2").val();
-    	var cell_no3 = $("#cell_no3").val();
-    	var cell_no = $("#cell_no1").val() + "" + $("#cell_no2").val() + "";
-
-    	if(cell_no1 == "" || cell_no2 == "") {
-    		fnMsgShow($("#caution4"),"휴대전화 번호를 입력해 주세요.");
-    		alert("휴대전화 번호를 입력해 주세요.");
-    		return false;
-    	}
-    	
-    	if(!isChkNum) {
-    		fnMsgShow($("#caution4"),"이미 등록된 휴대전화 번호입니다.");
-    		alert("이미 등록된 휴대전화 번호입니다.");
-    		return false;
-    	}
-    	 fnMsgClear($("#caution4"));		
-    	
-        if(!isCertYn) {
-        	fnMsgShow($("#caution5"),"본인인증을 해 주세요.");
-        	alert("본인인증을 해 주세요.");
-        	return false;
-        }
-    	
-        fnMsgClear($("#caution4"));		
-    	
-    	if(!fnValidEmail(true)){
-    		return false;
-    	}
-    	
-    	if(!isChkEmail) {
-    		fnMsgShow($("#caution5"),"이미 등록된 이메일 입니다.");
-    		alert("이미 등록된 이메일 입니다.");
-    		
-    		return false;
-    	}
-    	fnMsgClear($("#caution5"));		
-
-    	var sChk ="";
-    	$("input.validChk").each(function(){
-    		if(!$(this).is(":checked")) {
-    			sChk = $(this).attr("id");
-    			return;
-    		} 
-    	}); 
-    	
-    	if(sChk != "") {
-    		alert("전체 약관에 모두 동의해 주셔야 회원 가입이 됩니다.");
-    		$("#"+sChk).focus();
-    		return false;
-    	}
-    	
-    	if(!$("#age_agree").is(":checked")) {
-    		alert("14세 이상 회원만 가입이 가능합니다.");
-    		$("#age_agree").focus();
-    		return false;
-    	}
-    	
- 
-		return true;
-    }
-    
-    fnMsgShow = function(o,m){
-    	$(o).html(m).removeClass("ir").show();
-    }
-    
-    fnMsgClear = function(o){
-    	$(o).html("").hide();
-    }
-    
-    //최초 포커스
-    $("#join_id").focus();
-
+		$("#m_pw_re").focusout();
+		if (!isChkId) {
+			$("#m_pw_re").focus();
+			alert("비밀번호를 확인해 주세요.");
+			return;
+		}
+		
+		$("#cell_no2").focusout();
+		if (!isChkId) {
+			$("#cell_no2").focus();
+			alert("휴대폰번호를 확인해 주세요.");
+			return;
+		}		
+		
+		$("#cell_no3").focusout();
+		if (!isChkId) {
+			$("#cell_no3").focus();
+			alert("휴대폰번호를 확인해 주세요.");
+			return;
+		}
+		
+		$("#email").focusout();
+		if (!isChkId) {
+			$("#email").focus();
+			alert("이메일을 확인해 주세요.");
+			return;
+		}
+		// 생년월일  확인
+		$("#input_date").focusout();
+		if (!isChkId) {
+			$("#input_date").focus();
+			alert("생년월일을 확인해 주세요.");
+			return;
+		}
+		
+		if(!isChkId) {
+			alert("입력된 회원 정보 중 정상적이지 않은 정보가 있습니다. 확인 후 다시 시도해 주세요.");
+			return;
+		}
+		
+//		$.ajax({
+//			url: "/mypage/updateMemModify.action",
+//			type: "POST",
+//			dataType: "text",
+//			data: $('#memberFrom').serialize(),
+//			success: function(data){
+//				data = JSON.parse(data);
+//				alert(data.result_msg);
+//				if(data.result_flag == "true"){
+//					overpass.logout();
+//					window.location.reload();
+//					return;
+//				}
+//					
+//				if (data.result_code == "S") {
+//					overpass.mypage.goOrderList();
+//				}
+//			},
+//			error: function( e ){
+//				if ( e.error_message !=null && e.error_message != ""){
+//					alert(e.error_message);
+//				}else{
+//					alert("오류가 발생하였습니다.");
+//				}
+//			}
+//		});
+		
+	});
 });
-
