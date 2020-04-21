@@ -36,7 +36,19 @@
                 <div id="searchKeywordWrap"><span id="searchKeyword">키워드</span> 검색어로 총 <span id="searchTotal">8</span>개의 상품을 찾았습니다. </div>
             </td>
         </tr>
-        <tr><td colspan="4" style="height: 70px;"></td></tr>
+        <tr>
+            <td colspan="4">
+                <table>
+                    <tr>
+                        <td><a href=""><div class="searchCategoryBtns">전체보기</div></a></td>
+                        <td><a href=""><div class="searchCategoryBtns">중분류</div></a></td>
+                        <td><a href=""><div class="searchCategoryBtns">중분류</div></a></td>
+                        <td><a href=""><div class="searchCategoryBtns">중분류</div></a></td>
+                        <td><a href=""><div class="searchCategoryBtns">기타</div></a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
         <tr>
             <td colspan="4" style="text-align: right;">
                 <div id="searchFilter">
