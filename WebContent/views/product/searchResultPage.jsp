@@ -88,6 +88,8 @@
 		</table>
 		<% } %>   
 	</div>
+	
+	
                         
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>
