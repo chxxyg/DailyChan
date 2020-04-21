@@ -27,7 +27,7 @@
             border: 1px solid yellow;
             position:relative;
             max-height:600px;
-            
+            border-collapse:collapse;
         }
         .listProduct>thead>tr>th{
             border:1px solid red;
@@ -36,7 +36,7 @@
         .listProduct>tbody tr td{
             border: 1px solid blue;
         }
-        .listProduct>tbody tr td th{
+        .listProduct>tbody tr td th{									
 			height: 20px;
         }
         .outer{

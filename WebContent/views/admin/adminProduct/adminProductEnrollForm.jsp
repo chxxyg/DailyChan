@@ -38,12 +38,15 @@
             margin-top:50px;
             
         }
+       
+        
+        #dailyList{height:20px;}
         Button {
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-			background-color:#ffc477;
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
 			border-radius:6px;
-			border:1px solid #eeb44f;
+			border:1px solid #181c20;
 			display:inline-block;
 			cursor:pointer;
 			color:#ffffff;
@@ -52,22 +55,16 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-            text-shadow:0px 1px 0px #cc9f52;
-            
+			text-shadow:0px 1px 0px #181c20;
 		}
 		Button:hover {
-			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-            background-color:#fb9e25;
-            
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
 		}
 		Button:active {
 			position:relative;
-            top:1px;
-            
+			top:1px;
 		}
-        
-        #dailyList{height:20px;}
-        
     </style>
 </head>
 <body>
@@ -142,7 +139,7 @@
        		 </table>
        		 <div id="enrollsubmit">
         		<button type="submit">등록하기</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp'">목록으로</button>
+        		<button onclick="location.href='<%= contextPath%>/productList.ad?currentPage=1'">목록으로</button>
         	</div> 
         	</form>       
        </div>

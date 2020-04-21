@@ -116,7 +116,7 @@
         <br>
         	<form>회원 ID <input type="text" name="userId"> <button type="button" onclick="">조회</button> </form><br>
         <div id="allcount">
-                <div style="width:30%;">총 회원 수 : <input type="text" id="adproductcount"><%= count %> 명</div>
+                <div style="width:30%;">총 회원 수 : <input type="text" id="adproductcount" value="<%= count %>"> 명</div>
                 
         </div>  
         <table class="listMember">
