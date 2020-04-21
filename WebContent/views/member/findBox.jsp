@@ -74,11 +74,7 @@ table{
     color:white;
 
 }
-#caution1, #caution2{
-    color: hsl(28, 100%, 50%);
-    font-size: 11px;
-    text-align: center;
-}
+
 .find_info{
 
     border: 1px gray;
@@ -159,7 +155,7 @@ table{
 									<input type="text" name="pw_id" id="pw_id" class="login_input" maxlength="20" placeholder="아이디" required><br> 
 									<input type="text" name="pw_id" id="pw_id_text" class="login_input" maxlength="20" placeholder="아이디" style="display: none;" required>
 
-									<input type="text" name="pw_name" id="pw_name" class="login_input" maxlength="10" placeholder="개인: 이름  입력">
+									<input type="text" name="pw_name" id="pw_name" class="login_input" maxlength="10" placeholder="개인: 이름  입력" required>
 
 									<!-- 입력정보 오류시 노출 -->
 									<br>

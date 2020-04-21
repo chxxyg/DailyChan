@@ -44,7 +44,7 @@ public class IdFindServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", memberId);
 
-			request.getRequestDispatcher("views/member/idPwdFindSuccessPage.jsp").forward(request, response);
+			request.getRequestDispatcher("views/member/idFindSuccessPage.jsp").forward(request, response);
 			
 			
 		}else {// --> 실패했을 경우

@@ -8,6 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+.outer{
+border:1px solid orangred;
+width:500px;
+height:700;
+margin:auto;
+	        
+}
+
 .login{
     border: 1px solid black;
     width: 400px;
@@ -43,12 +51,14 @@
 }
 #idSaveCheck{
     margin-left: 50px;
+    margin-top:11px;
 }
 
 #joinup{ 
 		width:360px ;
    	 	height: 44px;
         margin-left: 50px;
+        margin-top:30px;
         color: hsl(28, 100%, 50%);
         cursor: pointer;
         font-weight:800;
@@ -74,6 +84,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="outer">
  <div class="login-box">
             
         <!-- <button type="button"  onclick="unBlockUI('layer_login');return false;">닫기</button> -->
@@ -102,7 +113,7 @@
 		<button id="no_mem" type="submit" onclick="nonMemOrd();">비회원 주문조회</button>
        </div>
     </div>
-
+</div>
 
 	<script>
 		function inputLogin() {
