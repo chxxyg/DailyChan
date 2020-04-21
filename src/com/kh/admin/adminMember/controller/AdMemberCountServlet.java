@@ -63,10 +63,7 @@ public class AdMemberCountServlet extends HttpServlet {
 		
 		AdPageInfo pi = new AdPageInfo(countMember, currentPage, startPage, endPage, maxPage, pageLimit, countLimit);
 		
-		ArrayList<Member> list = new adMemberService().getCountMember();
-		
-		request.setAttribute("pi", pi);
-		request.setAttribute("list", list);
+
 		
 		
 		

@@ -14,16 +14,16 @@ import com.kh.admin.adminMember.model.service.adMemberService;
 import com.kh.member.model.vo.Member;
 
 /**
- * Servlet implementation class AdMemberDeleteServlet
+ * Servlet implementation class AdMemberDetailServlet
  */
-@WebServlet("/deleteMember.ad")
-public class AdMemberDeleteServlet extends HttpServlet {
+@WebServlet("/detail.ad")
+public class AdMemberDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdMemberDeleteServlet() {
+    public AdMemberDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,29 +32,16 @@ public class AdMemberDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		String mid = request.getParameter("mid");
-		System.out.println(mid);
 		
 		
+		Member m = new adMemberService().searchMember(mid);
 		
-		int result = new adMemberService().deleteMember(mid);
-		
-		if(result > 0) {	// 성공
-			request.getSession().setAttribute("msg", "삭제 성공!");
-			response.sendRedirect("detail.ad");
-		}else {	// 실패
-			request.setAttribute("msg", "삭제 실패!");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
-		
-		
-		
-		
-		
-		
+		request.setAttribute("m", m);
+		request.getRequestDispatcher("views/admin/adminMember/adminMemberCollection.jsp").forward(request, response);
+				
 	}
-		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -42,8 +42,9 @@
 	#myMainOrderInfo>div>a{
 		font-size:13px;
 		text-decoration:none;
+		color:black;
 	}
-	#orderDetailBtn{
+	.ordDetailBtn{
 		width:63px;
 		height:25px;
 		background:white;
@@ -54,18 +55,21 @@
 	}
 	
 	/* 최근 구매한 상품 영역 */
-	#recentOrder{
+	.recentOrder{
 		width:145px;
 		height:220px;
 		margin:20px 5px 0px 8px;
 		float:left;
 	}
-	#recentOrder>a{
+	.recentOrder>a{
 		font-size:13px;
 		font-weight:bold;
 		text-decoration:none;
+		color:black;
+		cursor:pointer;
 	}
-	#recentOrder>p{
+	.recentOrder>img{cursor:pointer;}
+	.recentOrder>p{
 		font-size:12px;
 	}
 </style>
@@ -89,21 +93,24 @@
 			</tr>
 			<tr>
 				<td>
-					<a style="color:blue; text-decoration: underline;" onclick="orderDetail();">20200331-1234567</a><br>
+					<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a><br>
 					2020-03-31<br>
-					<button id="orderDetailBtn" type="submit" onclick="orderDetail();">상세확인 ></button>
+					<button class="ordDetailBtn" type="button">상세확인 ></button>
 				</td>
 				<td id="myMainOrderInfo">
 					<div>
-						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+						<a class="pName"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 					<div>
-						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+						<input type="hidden" class="pCode" value="KOA109"><!-- 상품코드 -->
+						<a class="pName"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 					<div>
-						<a href="<%= contextPath %>/pDetail.pro"><b>데일리찬 상품명</b></a><br>
+						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+						<a class="pName"><b>데일리찬 상품명</b></a><br>
 						1개 / 12,000원
 					</div>
 				</td>
@@ -117,37 +124,59 @@
 		<!-- 최근 구매한 상품 영역 -->
 		<h3>최근 구매한 상품</h3>
 		<hr>
-			<div id="recentOrder">
-				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
-				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
+			<div class="recentOrder">
+				<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+				<img class="pName" src="" width="145" height="145"></img>
+				<a class="pName">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
-			<div id="recentOrder">
-				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
-				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
+			<div class="recentOrder">
+				<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+				<img class="pName" src="" width="145" height="145"></img>
+				<a class="pName">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
-			<div id="recentOrder">
-				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
-				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
+			<div class="recentOrder">
+				<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+				<img class="pName" src="" width="145" height="145"></img>
+				<a class="pName">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
-			<div id="recentOrder">
-				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
-				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
+			<div class="recentOrder">
+				<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+				<img class="pName" src="" width="145" height="145"></img>
+				<a class="pName">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
-			<div id="recentOrder">
-				<a href="<%= contextPath %>/pDetail.pro"><img src="" width="145" height="145"></img></a>
-				<a href="<%= contextPath %>/pDetail.pro">데일리찬 상품명</a>
+			<div class="recentOrder">
+				<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+				<img class="pName" src="" width="145" height="145"></img>
+				<a class="pName">데일리찬 상품명</a>
 				<p>12,000원 | 1인분</p>				
 			</div>
 	</div>
 	
 	<script>
-		function orderDetail(){
-			location.href="<%= contextPath %>/orderDetail.my";
-		}
+		
+		$(function(){
+			
+			$(".orderNo").click(function(){
+				var orderNo = $(this).text();
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo;
+			})
+			
+			$(".ordDetailBtn").click(function(){
+				var orderNo = $(this).siblings(".orderNo").text();
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo;
+			})
+			
+			$(".pName").click(function(){
+				var pCode = $(this).siblings(".pCode").val();
+				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
+			})
+			
+		});
+		
 	</script>
 
 

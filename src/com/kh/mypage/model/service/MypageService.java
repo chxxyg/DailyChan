@@ -4,7 +4,6 @@ import static com.kh.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 
-import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
 import com.kh.mypage.model.dao.MypageDao;
 public class MypageService
@@ -27,13 +26,13 @@ public class MypageService
      * 2. 회원 탈퇴
      * @author Taek
      * @param userId    --> 현재 접속중인 회원 아이디
-     * @return          --> ㅌ
+     * @return          --> 회원상태 컬럼 변경 여부
      */
     public int deleteMember(String userId)
     {
         Connection conn = getConnection();
         
-        int result = new MemberDao().deleteMember(conn, userId);
+        int result = new MypageDao().deleteMember(conn, userId);
         
         if(result > 0)
         {

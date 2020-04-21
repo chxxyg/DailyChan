@@ -77,6 +77,7 @@ body
     border: 1px solid #dbdbdb;
 }
 </style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 	<%@ include file="mypageMainOuter.jsp" %>
@@ -110,10 +111,12 @@ body
 			</ul>
 		</div>
 		<!-- //MY TEXT -->
-
+		<form id="inputId" action="<%=contextPath%>/deleteMember.my" method="post">
+			<input type="hidden" name="userId" value="<%=request.getParameter("userId")%>">
+		</form>
 		<!--  BUTTON -->
 		<div class="mys_btn">
-			<button type="button" id="saveBtn" class="sq" onclick="location.href='/dailyChan/deleteMember.my'">확인</button>
+			<button type="button" id="saveBtn" class="sq">확인</button>
 			<button type="button" class="bx" onclick="location.href='/dailyChan/mymain.my'">취소</button>
 		</div>
 		<!-- //BUTTON -->
@@ -123,4 +126,9 @@ body
 				<%@ include file="../../views/common/mainFooter.jsp" %>
 			
 </body>
+	<script>
+		$("#saveBtn").click(function(){
+			$("#inputId").submit();
+		});
+	</script>
 </html>

@@ -34,50 +34,6 @@ public class adMemberDao {
 		}
 	}
 
-	public Member searchMember(Connection conn, String userId) {
-		
-		Member m = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("searchMember");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				m = new Member(rset.getString("member_id"),
-									    rset.getString("member_name"),
-									    rset.getString("gender"),
-										rset.getString("birth"),
-										rset.getString("email"),
-										rset.getString("phone"),
-										rset.getDate("enroll_Date"),
-										rset.getString("del_Member_Yn"),
-										rset.getDate("del_date"),
-										rset.getString("password"),
-										rset.getDate("modify_Date"),
-										rset.getString("blackList_Yn"),
-										rset.getInt("point_Sum"),
-										rset.getInt("reported_Num"),
-										rset.getString("ref_Member_Id"));
-			}
-						
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return m;
-		
-		
-		
-		
-	}
-
 	public ArrayList<Member> selectList(Connection conn) {
 		
 		ArrayList<Member> list = new ArrayList<>();
@@ -100,10 +56,8 @@ public class adMemberDao {
 						              rset.getDate("ENROLL_DATE"),
 						              rset.getDate("MODIFY_DATE"),
 						              rset.getString("DEL_MEMBER_YN"),
-						              rset.getInt("POINT_SUM")));
-				
-			}
-			
+						              rset.getInt("POINT_SUM")));				
+			}			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -136,11 +90,56 @@ public class adMemberDao {
 			close(stmt);
 		}
 		return countMember;
-		
-		
-		
-		
+			
 	}
+
+	public Member searchMember(Connection conn, String mid) {
+		
+		Member m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("searchMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				m = new Member(rset.getString("MEMBER_ID"),
+							   rset.getString("MEMBER_NAME"),
+							   rset.getString("EMAIL"),
+							   rset.getString("PHONE"),
+							   rset.getDate("ENROLL_DATE"),
+							   rset.getDate("MODIFY_DATE"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return m;
+	}
+	public int deleteMember(Connection conn, String mid) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+				
+		return result;
+	}
+
+	
 	
 
 }

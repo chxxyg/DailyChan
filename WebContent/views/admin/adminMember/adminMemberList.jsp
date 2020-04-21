@@ -74,7 +74,7 @@
         tbody{vertical-align: top;
         }
         table{table-layout:fixed;}
-                Button {
+        Button {
 			box-shadow:inset 0px 1px 0px 0px #181c20;
 			background:linear-gradient(#181c20);
 			background-color:#181c20;
@@ -98,6 +98,11 @@
 			position:relative;
 			top:1px;
 		}
+		.listMember>tbody>tr:hover {
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
+			cursor:pointer;
+		}
         
       
     </style>
@@ -112,7 +117,7 @@
         	<form>회원 ID <input type="text" name="userId"> <button type="button" onclick="">조회</button> </form><br>
         <div id="allcount">
                 <div style="width:30%;">총 회원 수 : <input type="text" id="adproductcount"><%= count %> 명</div>
-                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberCorrection.jsp'">회원보기</button> <button>회원삭제</button></div>
+                
         </div>  
         <table class="listMember">
             <thead>
@@ -149,9 +154,16 @@
        </div>
     </div>
     <script>
-   
-    		
-    
+   		$(function(){
+   			$(".listMember>tbody>tr").click(function(){
+   				// console.log("클릭");
+	   				
+	   			var mid = $(this).children().eq(0).text();
+	   				
+	 			location.href="<%= contextPath%>/detail.ad?mid=" + mid; 
+ 			});
+ 
+   		});   
     </script>
 </body>
 </html>
