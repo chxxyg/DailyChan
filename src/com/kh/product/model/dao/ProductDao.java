@@ -40,25 +40,74 @@ public class ProductDao {
 		ArrayList<Product> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectProList");
+		String sql = "";
 		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, category+"%");
-			rset = pstmt.executeQuery();
-			while(rset.next()) {
-				list.add(new Product(rset.getString("PRODUCT_CODE"),
-									 rset.getString("PRODUCT_NAME"),
-									 rset.getInt("PRODUCT_PRICE"),
-									 rset.getInt("PRODUCT_STOCK"),
-									 rset.getInt("PRODUCT_STANDARD"),
-									 rset.getString("FILE_NAME")));
+		if(category.equals("new")) {
+			
+			sql = prop.getProperty("selectNewList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
+
+			
+		} else if(category.equals("best")) {
+			
+			sql = prop.getProperty("selectBestList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+		} else if(category.equals("sale")) {
+			
+			sql = prop.getProperty("selectSaleList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+		} else {
+			
+			sql = prop.getProperty("selectProList");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, category+"%");
+				rset = pstmt.executeQuery();
+				while(rset.next()) {
+					list.add(new Product(rset.getString("PRODUCT_CODE"),
+										 rset.getString("PRODUCT_NAME"),
+										 rset.getInt("PRODUCT_PRICE"),
+										 rset.getInt("PRODUCT_STOCK"),
+										 rset.getInt("PRODUCT_STANDARD"),
+										 rset.getString("FILE_NAME")));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+		
 		}
 
 		return list;

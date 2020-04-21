@@ -34,17 +34,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="4">
-                <table>
-                    <tr>
-                        <td><a href=""><div class="searchCategoryBtns">전체보기</div></a></td>
-                        <td><a href=""><div class="searchCategoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="searchCategoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="searchCategoryBtns">중분류</div></a></td>
-                        <td><a href=""><div class="searchCategoryBtns">기타</div></a></td>
-                    </tr>
-                </table>
-            </td>
+            <td colspan="4" style="height: 70px;"></td>
         </tr>
         <tr>
             <td colspan="4" style="text-align: right;">
