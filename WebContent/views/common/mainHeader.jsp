@@ -248,7 +248,7 @@
                 <div id="header_2">
                     <form id="search-form">
                         <div id="search-text-area">
-                            <input type="search" id="search-input">
+                            <input type="search" id="search-input" placeholder="찾고 싶은 상품을 검색해보세요">
                         </div>
                         <div id="search-btn-area">
                             <a href="<%=contextPath%>/search.pro" id="search-btn"><img src="<%=contextPath%>/resources/img/searchlogo.png" width="30px" height="30px"></a>
