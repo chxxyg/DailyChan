@@ -44,7 +44,7 @@ public class InsertCartServlet extends HttpServlet {
 		
 		
 		if(result > 0) {
-			request.setAttribute("proCode", proCode);
+			request.setAttribute("msg", "장바구니에 상품이 담겼습니다.");
 			request.setAttribute("proPrice", proPrice);
 			
 			

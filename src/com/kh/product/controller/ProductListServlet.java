@@ -52,7 +52,9 @@ public class ProductListServlet extends HttpServlet {
 		case "ASB" : title = "아시안"; break;
 		case "ASC" : title = "아시안"; break;
 		case "ASD" : title = "아시안"; break;
-		
+		case "new" : title = "NEW"; break;
+		case "best" : title = "BEST"; break;
+		case "sale" : title = "SALE"; break;
 		}
 		
 		ArrayList<Product> list = new ProductService().selectProList(category);
@@ -63,7 +65,6 @@ public class ProductListServlet extends HttpServlet {
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/product/productListPage.jsp");
 		view.forward(request, response);
-		
 		
 	}
 
