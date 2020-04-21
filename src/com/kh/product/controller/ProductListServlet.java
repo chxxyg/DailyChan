@@ -66,7 +66,6 @@ public class ProductListServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("views/product/productListPage.jsp");
 		view.forward(request, response);
 		
-		
 	}
 
 	/**
