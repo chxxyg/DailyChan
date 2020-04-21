@@ -115,7 +115,7 @@ body {
                     <ul>
     
                         <li><a href="<%=contextPath%>/pdEnrollForm.ad">상품등록</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductList.jsp">상품관리</a></li>
+                        <li><a href="<%=contextPath%>/productList.ad?currentPage=1">상품관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminProduct/adminProductPayment.jsp">결제관리</a></li>
                         <li><a href="">XXX</a>
                         </li>

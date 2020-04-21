@@ -32,6 +32,9 @@ public class AdProductService {
 		
 	}
 	
+	/**
+	 * servlet에서 받아온 페이징 처리 객체를 dao에 보내주기 위한 서비스
+	 */
 	public ArrayList<Product> adProductselectList(AdPageInfo pi){
 		
 		Connection conn = getConnection();
@@ -42,6 +45,9 @@ public class AdProductService {
 		
 	}
 	
+	/**
+	 * 상품리스트 페이지에 보여줄 총게시글수를 dao에 보내주기위한 service 
+	 */
 	public int adProductListCount() {
 		
 		Connection conn = getConnection();

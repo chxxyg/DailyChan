@@ -57,7 +57,7 @@ public class AdProductInsertFormServlet extends HttpServlet {
 			String pdTitle = multiRequest.getParameter("pdTitle");				 	// 상품명
 			String pdCode = multiRequest.getParameter("pdCode");					// 상품코드
 			int pdEnterPrise = Integer.parseInt(multiRequest.getParameter("pdEnterPrise"));		// 납품업체명
-			int pdPrise = Integer.parseInt(multiRequest.getParameter("pdPrice	"));	// 상품가격
+			int pdPrise = Integer.parseInt(multiRequest.getParameter("pdPrice"));	// 상품가격
 			int pdStock = Integer.parseInt(multiRequest.getParameter("pdStock"));	// 상품수량
 			
 			

@@ -104,6 +104,9 @@ public class AdProductDao {
 		
 	}
 	
+	/**
+	 * 페이징바에대한 정보를 담은 객체를 리스트에 담아줌
+	 */
 	public ArrayList<Product> adProductselectList(Connection conn, AdPageInfo pi){
 		
 		ArrayList<Product> list = new ArrayList<>();
@@ -141,7 +144,10 @@ public class AdProductDao {
 		return list;
 	}
 	
-public int adProductListCount(Connection conn) {
+	/**
+	 * 관리자 리스트화면에 총 게시글의 숫자를 보여줄 dao
+	 */
+	public int adProductListCount(Connection conn) {
 		
 		int countProduct = 0;
 		Statement stmt = null;
