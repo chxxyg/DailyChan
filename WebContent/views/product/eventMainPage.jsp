@@ -27,8 +27,8 @@
     <div class="eventInnerWrap">
         <table class="eventInnerTable">
             <tr>
-                <td rowspan="2"><a href=""><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg1.jpg"></a></td>
-                <td><a href="" style="text-decoration: none;"><div class="eventName">신규 회원을 위한 더블 쿠폰 혜택</div></a></td>
+                <td rowspan="2"><a href="<%= request.getContextPath() %>/eDetail1.pro"><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg1.jpg"></a></td>
+                <td><a href="<%= request.getContextPath() %>/eDetail1.pro" style="text-decoration: none;"><div class="eventName">신규 회원을 위한 더블 쿠폰 혜택</div></a></td>
             </tr>
             <tr>
                 <td>
@@ -42,8 +42,8 @@
     <div class="eventInnerWrap" style="margin-bottom: 100px;">
         <table class="eventInnerTable">
             <tr>
-                <td rowspan="2"><a href=""><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg2.jpg"></a></td>
-                <td><a href="" style="text-decoration: none;"><div class="eventName">오늘 요리사는 나야 나!</div></a></td>
+                <td rowspan="2"><a href="<%= request.getContextPath() %>/eDetail2.pro"><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg2.jpg"></a></td>
+                <td><a href="<%= request.getContextPath() %>/eDetail2.pro" style="text-decoration: none;"><div class="eventName">오늘 요리사는 나야 나!</div></a></td>
             </tr>
             <tr>
                 <td>
@@ -57,8 +57,8 @@
     <div class="eventInnerWrap">
         <table class="eventInnerTable">
             <tr>
-                <td rowspan="2"><a href=""><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg3.jpg"></a></td>
-                <td><a href="" style="text-decoration: none;"><div class="eventName">씻고, 볶고, 맛보고, 즐기고!</div></a></td>
+                <td rowspan="2"><a href="<%= request.getContextPath() %>/eDetail3.pro"><img class="eventImg" src="<%= request.getContextPath() %>/resources/eventImg/eventImg3.jpg"></a></td>
+                <td><a href="<%= request.getContextPath() %>/eDetail3.pro" style="text-decoration: none;"><div class="eventName">씻고, 볶고, 맛보고, 즐기고!</div></a></td>
             </tr>
             <tr>
                 <td>
