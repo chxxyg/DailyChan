@@ -30,25 +30,24 @@
     margin: 10px 10px;
 }
 .cartProductName{
-    width: 270px;
+    width: 250px;
     display: inline-block;
     font-size: 25px;
     font-weight: 550;
     margin-left: 10px;
 }
 .cartProductPrice{
-    width: 130px;
-    margin-left: 25px;
+    width: 70px;
+    margin-left:45px;
     font-size: 22px;
     text-align: center;
 }
 /* 수량 */
 .cartProductAmountWrap{
     width: 100px;
-    height:35px;
+    height:70px;
     margin:auto;
     text-align: center;
-    
 }
 .input {
     width:35px;
@@ -75,15 +74,15 @@
 }
 .qty_edit {
     display: inline-block;
-    width: 100px;
-    margin: 8px 0px 0px 14px;
+    width: 50px;
+    height: 25px;
+    margin: 10px auto;
     padding: 5px 0 6px;
     border: 1px solid #dbdbdb;
     font-size: 11px;
-    line-height: 11px;
     color: #818181;
     background: white;
-    cusor:pointer;
+    cursor:pointer;
 }
 /* 총 금액 */
 .cartProductTotalPrice{

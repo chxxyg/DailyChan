@@ -33,10 +33,10 @@
         
         <table id="cartProductWrap">
             <tr style="background: lightgray; height: 50px; font-size: 20px;">
-                <th colspan="3">상품정보</th>
-                <th>판매금액</th>
-                <th>수량</th>
-                <th>구매금액</th>
+                <th colspan="3" width="430">상품정보</th>
+                <th width="150">판매금액</th>
+                <th width="125">수량</th>
+                <th width="150">구매금액</th>
             </tr>
             <% if(clist.isEmpty()) { %>
 	            <tr>
@@ -56,19 +56,19 @@
 	            </tr>
             <% }else { %>
 	             <% for(ShoppingCart c : clist){ %>
-		            
-		            <tr height="170">
+		            <input type="hidden" value="<%=c.getProCode()%>">
+		            <tr class="find" height="170">
 		                <td width="20"><input type="checkbox" class="cartProductCheck"></td>
 		                <td width="160"><a href=""><img class="cartProductImg" src="<%=contextPath%>/resources/attachment_product/<%=c.getrFileName()%>"></a></td>
-		                <td width="270"><a href=""><div class="cartProductName"><%=c.getProName() %></div></a></td>
-		                <td width="130"><div class="cartProductPrice"><%=c.getPrice() %>원</div></td>
+		                <td width="250"><a href=""><div class="cartProductName"><%=c.getProName() %></div></a></td>
+		                <td width="150"><span class="cartProductPrice"><%=c.getPrice() %></span> <span>원</span></td>
 		                <td width="125">
 		                    <div class="cartProductAmountWrap">
 								<button class="minus" name="change_qty_button" data-role="-" data-cart-seq="0" type="button" title="수량감소">-</button>
-								<input name="cart_qty" class="input" id="qty_0" data-cart-seq="0" type="text" maxlength="3" value="<%=c.getQuantity() %>" title="옵션수량입력">
+								<input name="cart_qty" class="input" data-cart-seq="0" type="text" maxlength="3" value="<%=c.getQuantity() %>" title="옵션수량입력">
 								<button class="plus" name="change_qty_button" data-role="+" data-cart-seq="0" type="button" title="수량증가">+</button>
+		                    	<button class="qty_edit" type="button" name="save_qty_button" data-cart-seq="2" title="수량수정">수정</button>
 		                    </div>
-		                    <button class="qty_edit" type="button" name="save_qty_button" data-cart-seq="2" title="수량수정">수정</button>
 		                </td>
 		                <td width="150">
 		                    <div class="cartProductTotalPrice">720,000 원</div>
@@ -114,13 +114,41 @@
     	$(function(){
     		$(".minus").click(function(){
     			var q = Number($(this).next().val());
-    			var new = q - 1;
+    			$(this).next().val(q-1);
     			
-    			$(this).next().val(new);
-    			
+    			if(Number($(this).next().val())<1){
+    				alert("1개 이상일 경우 주문이 가능합니다.");
+    				$(this).next().val(1);
+    			}
     		});
     		
+    		$(".plus").click(function(){
+    			var q = Number($(this).prev().val());
+    			$(this).prev().val(q+1);
+    			
+    			if(Number($(this).prev().val())>10){
+    				alert("한 상품 당 10개 이하로 주문이 가능합니다.");
+    				$(this).prev().val(10);
+    			}
+    		});
     		
+    		$(".qty_edit").click(function(){
+    			var proCode = $(this).parents(".find").prev().val();
+    			var proPrice = $(this).parents(".find").find(".cartProductPrice").text();
+    			
+    			console.log(proPrice);
+    			
+    			$.ajax({
+    				url:"toCart.pro",
+    				data:{proCode:proCode, proPrice:proPrice},
+    				type:"post",
+    				success:function(){
+    					console.log("수량 수정 성공");
+    				}, error:function(){
+    					alert("수량 수정 실패");
+    				}
+    			});
+    		});
     	});
     
     </script>

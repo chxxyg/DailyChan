@@ -42,10 +42,6 @@ public class InsertCartServlet extends HttpServlet {
 			int result = new ProductService().insertCart(비회원 session값, proCode, proPrice);
 		}*/
 		
-		if(result > 0) {
-			request.setAttribute("msg", "장바구니에 상품이 담겼습니다.");
-		}
-	
 	}
 
 	/**
