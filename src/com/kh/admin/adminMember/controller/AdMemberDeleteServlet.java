@@ -34,15 +34,15 @@ public class AdMemberDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String mid = request.getParameter("mid");
-		System.out.println(mid);
+		
 		
 		
 		
 		int result = new adMemberService().deleteMember(mid);
 		
 		if(result > 0) {	// 성공
-			request.getSession().setAttribute("msg", "삭제 성공!");
-			response.sendRedirect("detail.ad");
+			
+			response.sendRedirect("memberList.ad?mid="+mid);
 		}else {	// 실패
 			request.setAttribute("msg", "삭제 실패!");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
