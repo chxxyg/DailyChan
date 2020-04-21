@@ -3,8 +3,7 @@
 <% 
 	String category = (String)request.getAttribute("category");
 	String title = (String)request.getAttribute("title");
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list"); 
-
+	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -12,6 +11,8 @@
 <meta charset="UTF-8">
 <title>카테고리</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/productListPage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
@@ -89,6 +90,7 @@
 	<div id="productListWrap">
 		       
 		<% for(Product p : list){ %>
+		<input type="hidden" class="proCode" value="<%=p.getProCode()%>">
 		<table class="categoryInnerTable" style="display:inline-block">
 			<tr>
 				<td>
@@ -103,7 +105,7 @@
 			<tr>
 				<td>
 					<div class="productInfo">
-						<span class="productPrice"><%= p.getProPrice() %>원</span>
+						<span class="productPrice"><%= p.getProPrice() %></span><span>원</span>
 						<span>|</span>
 						<span class="productFor"><%= p.getProStandard() %>인분</span>
 					</div>
@@ -121,6 +123,35 @@
 		<% } %>
 		             
 	</div>
+	
+	<script>
+	
+		$(function(){
+			$(".cpCartLogo").click(function(){
+				var proCode = $(this).parents(".categoryInnerTable").prev().val();
+				var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
+				
+				$.ajax({
+					url:"toCart.pro",
+					data:{proCode:proCode, proPrice:proPrice},
+					type:"post",
+					success:function(){
+						var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+						
+						if(result){
+							location.href="cartList.pro";
+						}
+						
+					}, error:function(){
+						alert("장바구니 담기 실패");
+					}
+				});
+			});
+		});
+		
+	
+	</script>
+	
 	    
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>

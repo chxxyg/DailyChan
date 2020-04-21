@@ -12,16 +12,13 @@
 }
 
 #cartProductWrap{
-    border-top: 2px solid gray; 
-    border-bottom: 2px solid gray;
+	width:1000px;
 }
-
-.cartProductInnerTable{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    /* border-bottom: 1px solid gray; */
+#cartProductWrap, #cartProductWrap tr{
+	border-collapse: collapse;
+	border-top:1px solid grey;
+	border-bottom:1px solid grey;
 }
-
 .cartProductCheck, #cartTotalCheck{
     width: 20px;
     height: 20px;
@@ -30,6 +27,7 @@
 .cartProductImg{
     width: 150px;
     height: 150px;
+    margin: 10px 10px;
 }
 .cartProductName{
     width: 270px;
@@ -44,25 +42,50 @@
     font-size: 22px;
     text-align: center;
 }
+/* 수량 */
 .cartProductAmountWrap{
-    width: 125px;
-    margin-left: 15px;
+    width: 100px;
+    height:35px;
+    margin:auto;
     text-align: center;
+    
 }
-.cartProductMinusBtn, .cartProductPlusBtn{
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 30%;
-    font-size: 25px;
-    font-weight: 540;
+.input {
+    width:35px;
+    height:30px;
+    border: 1px solid #dbdbdb;
+    line-height: 30px;
     text-align: center;
+    float:left;
 }
-.cartProductAmount{
-    font-size: 25px;
-    font-weight: 500;
-    padding: 5px;
+.minus, .plus{
+	width:30px;
+	height:34px;
+	font-size:20px;
+	font-weight:bold;
+	float:left;
 }
+.minus{
+	background: white;
+	border: 1px solid #dbdbdb;
+}
+.plus{
+    background: white;
+    border: 1px solid #dbdbdb;
+}
+.qty_edit {
+    display: inline-block;
+    width: 100px;
+    margin: 8px 0px 0px 14px;
+    padding: 5px 0 6px;
+    border: 1px solid #dbdbdb;
+    font-size: 11px;
+    line-height: 11px;
+    color: #818181;
+    background: white;
+    cusor:pointer;
+}
+/* 총 금액 */
 .cartProductTotalPrice{
     width: 150px;
     text-align: center;
@@ -113,4 +136,25 @@
 }
 #cartAllOrder{
     background-color: rgb(250, 142, 0);
+}
+
+/* 장바구니 비어 있을 때 */
+#emptyWrap{
+    width: 990px;
+    margin-top: 100px;
+}
+#emptyWarningImg{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 30px;
+}
+#cartMainBtn{
+    border: none;
+    width: 150px;
+    height: 70px;
+    font-size: 20px;
+    border-radius: 10%;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
 }
