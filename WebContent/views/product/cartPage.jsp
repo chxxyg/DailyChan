@@ -7,7 +7,7 @@
 	for(ShoppingCart c : clist){
 		sum += c.getPrice() * c.getQuantity();
 	}
-	if(sum>30000){
+	if(sum>30000 || sum == 0){
 		delivery = 0;
 	}
 %>
