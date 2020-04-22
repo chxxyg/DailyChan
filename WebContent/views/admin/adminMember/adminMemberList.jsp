@@ -114,7 +114,9 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;회원관리</h1>
         <br>
-        	<form>회원 ID <input type="text" name="userId"> <button type="button" onclick="">조회</button> </form><br>
+        	<form id="searchForm" action="<%=contextPath%>/memberSearch.ad" method="post">회원 ID 
+        		<input type="text" name="userId"> <button type="submit" onclick="">조회</button> 
+        	</form><br>
         <div id="allcount">
                 <div style="width:30%;">총 회원 수 : <input type="text" id="adproductcount" value="<%= count %>"> 명</div>
                 
