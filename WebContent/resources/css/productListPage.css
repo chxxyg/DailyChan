@@ -78,3 +78,14 @@
     padding-left: 5px;
     padding-top: 10px;
 }
+
+.pagingArea button{
+	border: none;
+	background: white;
+	font-size: 22px;
+	font-weight: 550;
+}
+.pagingArea button:hover{
+	color: orange;
+	cursor: pointer;
+}
