@@ -1,11 +1,14 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.kh.member.model.vo.Member;
 
 /**
  * Servlet implementation class UpdateMemberServlet
@@ -26,6 +29,28 @@ public class UpdateMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	    String cell_no1 = request.getParameter("cell_no1");
+	    String cell_no2 = request.getParameter("cell_no2");
+	    String cell_no3 = request.getParameter("cell_no3");
+	    String birth = request.getParameter("birthday");
+	    
+	    String userId = request.getParameter("userId");
+	    String gender = request.getParameter("gend_cd");
+	    String name = request.getParameter("mbr_nm");
+	    String pwd = request.getParameter("pwd");
+	    String email = request.getParameter("email");
+	    String phone = cell_no1 + cell_no2 + cell_no3;
+	    String userBirth = birth.replaceAll("-", "");
+	    
+	    Member m = new Member();
+	    m.setMemberId(userId);
+	    m.setGender(gender);
+	    m.setMemberName(name);
+	    m.setPassword(pwd);
+	    m.setEmail(email);
+	    m.setPhone(phone);
+	    m.setBirth(userBirth);
 	}
 
 	/**

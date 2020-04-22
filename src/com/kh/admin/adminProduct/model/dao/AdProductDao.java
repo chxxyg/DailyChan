@@ -171,5 +171,123 @@ public class AdProductDao {
 		return countProduct;
 			
 	}
+	
+	/**
+	 * 상품 리스트 조회를위한 product dao
+	 */
+	public Product adProductDetail(Connection conn, String mid){
+		
+		Product p = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				p = new Product();
+				p.setProCategory(rset.getString("PRODUCT_CATEGORY"));
+				p.setProName(rset.getString("PRODUCT_NAME"));
+				p.setProCode(rset.getString("PRODUCT_CODE"));
+				p.setProSupplyName(rset.getString("SUPPLY_CO_NAME"));
+				p.setProPrice(rset.getInt("PRODUCT_PRICE"));
+				p.setProStock(rset.getInt("PRODUCT_STOCK"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return p;
+	}
+		
+	
+	
+	/**
+	 * 상품 리스트 조회를 위한 attachmentproduct dao 
+	 */
+	public ArrayList<AttachmentProduct> adAttachmentDetail(Connection conn, String mid){
+		
+		ArrayList<AttachmentProduct> ap = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			rset =pstmt.executeQuery();
+			
+			while(rset.next()) {
+				ap.add(new AttachmentProduct(rset.getString("FILE_NAME")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return ap;
+		
+	}
+	
+	/**
+	 * Attachment 삭제 구문
+	 */
+	public int deleteAttachment(Connection conn, String mid) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Product 삭제구문
+	 */
+	public int deleteProduct(Connection conn, String mid) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteProduct");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }

@@ -72,6 +72,8 @@ table{
     margin-left: 0px;
     background-color: hsl(28, 100%, 50%);
     color:white;
+    cursor:pointer;
+    
 
 }
 
@@ -123,22 +125,6 @@ table{
 								</div>
 							</div>
 
-							<!-- 아이디찾기 결과 -->
-						<!-- 	<div class="login_set ir" id="login_set_id_result">
-								<div class="id_result">
-									<span>회원님의 아이디를 찾았습니다.</span> <em id="id_result"></em>
-								</div>
-
-								입력정보 오류시 노출
-								<button class="btn_login" type="button" id="btn_login"
-									onclick="fnGologin();">
-									<em>로그인</em>
-								</button> -->
-								<!-- <div class="find_info">
-									<ul class="list">
-										<li>비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요</li>
-									</ul>
-								</div> -->
 							</div>
 					</td>
 
@@ -153,11 +139,9 @@ table{
 								<div class="login_set login_set_pw" id="login_set_pw">
 
 									<input type="text" name="pw_id" id="pw_id" class="login_input" maxlength="20" placeholder="아이디" required><br> 
-									<input type="text" name="pw_id" id="pw_id_text" class="login_input" maxlength="20" placeholder="아이디" style="display: none;" required>
 
 									<input type="text" name="pw_name" id="pw_name" class="login_input" maxlength="10" placeholder="개인: 이름  입력" required>
 
-									<!-- 입력정보 오류시 노출 -->
 									<br>
 									<button class="btn_login" type="button" id="btn_find_pw">
 										<em>비밀번호 찾기</em>
@@ -169,44 +153,11 @@ table{
 										</ul>
 									</div>
 								</div>
-								
-								<!-- 아이디 찾기 결과 -->
-								
-	<!-- 											<div class="login_set" id="login_set_id_result">
-										<div class="id_result">
-											<span>회원님의 아이디를 찾았습니다.</span>
-											<em id="id_result">찾은 아이디</em>
-										</div>
- -->
-						<!-- 입력정보 오류시 노출 -->
-	<!-- 					<button class="btn_login" type="button" id="btn_login" onclick="fnGologin();"><em>로그인</em></button>
-						<div class="find_info">
-							<ul class="list">
-								<li>비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요</li>
-							</ul>
-						</div>
-					</div> -->
-								
-								
+
 							</form>
-							<!--  비밀번호찾기 결과-->
-		<!-- 					<div class="login_set ir" id="login_set_pw_result">
-								<div class="pw_result">
-									<em id="pw_result"></em> <b>비밀번호 재설정용 이메일을 전송했습니다.</b> <span>전송
-										받으신 메일을 통해 비밀번호를<br>재설정하신 후 로그인 해주세요
-									</span>
-								</div> -->
 
-								<!-- 입력정보 오류시 노출  -->
+								</div>
 
-			<!-- 					<button class="btn_login">
-									<em>인증메일 재발송</em>
-								</button>
-								<div class="find_info">
-									<ul class="list">
-										<li>인증메일을 받지 못하셨다면 인증메일 재발송을 눌러주세요</li>
-									</ul>
-								</div> -->
 							</div>
 
 						</div>
@@ -225,8 +176,10 @@ table{
 
 	}
 	
+	
+	
 
-
+	</script>
 	
 	<%@ include file="../common/mainFooter.jsp" %>
 

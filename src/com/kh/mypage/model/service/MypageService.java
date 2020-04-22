@@ -47,4 +47,16 @@ public class MypageService
         
         return result;
     }
+    
+    
+    /**
+     * 3. 회원정보 수정
+     * @author Taek 
+     * @param m     --> 회원이 입력한 데이터
+     * @return      --> 회원 수정 결과 리턴
+     */
+    public int userUpdateMember(Member m)
+    {
+        
+    }
 }

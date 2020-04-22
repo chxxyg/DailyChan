@@ -14,11 +14,11 @@ public class adMemberService {
 	/*
 	 * 회원정보 상세조회용 서비스
 	 */
-	public Member searchMember(String mid) {
+	public Member searchMember(String userId) {
 		
 		Connection conn = getConnection();
 		
-		Member m = new adMemberDao().searchMember(conn, mid);
+		Member m = new adMemberDao().searchMember(conn, userId);
 		
 		close(conn);
 				
@@ -70,8 +70,35 @@ public class adMemberService {
 	
 
 	}
+	/*
+	 * 회원수정용 서비스
+	 */
+	
+	public int updateMember(Member m) {
+		
+		Connection conn = getConnection();
+		
+		int result = new adMemberDao().updateMember(conn,m);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+
+	
+
+	
+	
+	}
+	
+	
 	
 	
 	
 
-}
+

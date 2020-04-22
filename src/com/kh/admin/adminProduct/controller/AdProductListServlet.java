@@ -54,7 +54,7 @@ public class AdProductListServlet extends HttpServlet {
 		pageLimit = 10;
 		
 		// * boardLimit : 한 페이지에 보여질 게시글 최대 갯수
-		boardLimit = 15;
+		boardLimit = 10;
 		
 		maxPage = (int)Math.ceil((double)listCount / boardLimit);
 		

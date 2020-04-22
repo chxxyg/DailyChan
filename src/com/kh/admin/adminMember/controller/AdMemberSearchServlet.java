@@ -37,6 +37,12 @@ public class AdMemberSearchServlet extends HttpServlet {
 		
 		String userId = request.getParameter("userId");
 		
+		Member m = new adMemberService().searchMember(userId);
+		
+		request.setAttribute("m", m);
+		
+		
+		request.getRequestDispatcher("views/admin/adminMember/adminMemberList.jsp").forward(request, response);
 		
 		
 	}

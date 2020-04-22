@@ -59,6 +59,51 @@ public class AdProductService {
 		
 	}
 	
+	/**
+	 * 상품 세부조회용 서비스
+	 */
+	public Product adProductDetail(String mid){
+		
+		Connection conn = getConnection();
+		
+		Product p = new AdProductDao().adProductDetail(conn, mid);
+		
+		close(conn);
+		
+		return p;
+		
+	}
+	
+	/**
+	 * 상품 세부조회용 파일 서비스
+	 */
+	public ArrayList<AttachmentProduct> adAttachmentDetail(String mid){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<AttachmentProduct> ap = new AdProductDao().adAttachmentDetail(conn, mid);
+		
+		close(conn);
+		
+		return ap;
+		
+	}
+	
+	public int deleteProduct(String mid) {
+		
+		Connection conn = getConnection();
+
+		int result1 = new AdProductDao().deleteAttachment(conn, mid);
+		int result2 = new AdProductDao().deleteProduct(conn, mid);
+		
+		result = result1*result2;
+		
+		close(conn);
+		
+		return result;
+		
+	}
+	
 	
 
 }

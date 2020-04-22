@@ -71,67 +71,63 @@
 		<%@ include file="../adminCommon/adminMainPage.jsp" %>
 
 
+
     <div id="adproductEnroll">
        <div id="outer">
         <h1>&nbsp;&nbsp;&nbsp;회원정보</h1>
-       <form id="collectForm" action="<%=contextPath%>/detail.ad" method="POST"> 
+       <form id="collectForm" action="<%=contextPath%>/updateMember.ad" method="post">      
         <table id="adcate">
             <tr>
                 <td width="200" >아이디</td>
-                <td><input type="text" value="<%=m.getMemberId() %>" disabled></td>
+                <td><input type="text" value="<%=m.getMemberId() %>" name="memberId"  readonly></td>
             </tr>
             <tr>
                 <td width="200">이름</td>
-                <td><input type="text" value="<%=m.getMemberName() %>" disabled></td>
+                <td><input type="text" value="<%=m.getMemberName() %>" name="memberName" readonly></td>
             </tr>
             <tr>
                 <td width="200">이메일</td>
-                <td><input type="text" value="<%=m.getEmail() %>" disabled></td>
+                <td><input type="text" value="<%=m.getEmail() %>" name="email" readonly></td>
             </tr>
             <tr>
                 <td width="200">전화번호</td>
-                <td><input type="text" value="<%=m.getPhone() %>"></td>
+                <td><input type="text" value="<%=m.getPhone() %>"name="phone" ></td>
             </tr>
             <tr>
                 <td width="200">가입일</td>
-                <td><input type="text" value="<%=m.getEnrollDate() %>" disabled></td>
+                <td><input type="text" value="<%=m.getEnrollDate() %>" name="enrollDate" readonly></td>
             </tr>
             <tr>
                 <td width="200">수정일</td>
-                <td><input type="text" value="<%=m.getModifyDate() %>" disabled></td>
-            </tr>
-            
-           
+                <td><input type="text" value="<%=m.getModifyDate() %>" name="modifyDate" readonly></td>
+            </tr>          
         </table>
-        </form>
        		 <div id="enrollsubmit">
-        		<button onclick="updateMember();">수정하기</button>&nbsp;&nbsp;
-        		<button onclick="deleteMember();">삭제하기</button>&nbsp;&nbsp;
-        		<button onclick="location.href='<%=contextPath%>/memberList.ad';">목록으로</button>
+        		<button type="submit" onclick="return updateMember();">수정하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="deleteMember();">삭제하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="location.href='<%=contextPath%>/memberList.ad';">목록으로</button>
+        		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
+        
+       </form>
        </div>
     </div>
-    
-    <form id="postForm" action="<%=contextPath%>/deleteMember.ad" method="post">
-    	<input type="hidden" name="mid" value="<%=m.getMemberId() %>">
-    </form>
-    
+
     <script>
     	function deleteMember(){   		
-    		
     		var bool = confirm("정말 탈퇴시키겠습니까?");
     		if(bool){
-    		$("#postForm").submit();    			
+    			location.href = "<%=contextPath%>/deleteMember.ad?mid=<%=m.getMemberId()%>";
+    			alert("탈퇴되었습니다.");
     		}else{
     			alert("취소하였습니다.");
-    		}
-    		
-    	}
-    	
+    		}   			
+    	} 
     	function updateMember(){
-    		$("#postForm").attr("action", "<%=contextPath%>/updateMember.ad");
-    		$("#postForm").submit();
-    	}
+    			alert("수정되었습니다.");
+    		}
+
+  	
     </script>
 </body>
 </html>

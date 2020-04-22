@@ -93,7 +93,7 @@ public class adMemberDao {
 			
 	}
 
-	public Member searchMember(Connection conn, String mid) {
+	public Member searchMember(Connection conn, String userId) {
 		
 		Member m = null;
 		PreparedStatement pstmt = null;
@@ -102,7 +102,7 @@ public class adMemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, mid);
+			pstmt.setString(1, userId);
 			
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
@@ -138,11 +138,39 @@ public class adMemberDao {
 				
 		return result;
 	}
+	
+	public int updateMember(Connection conn, Member m) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getPhone());
+			pstmt.setString(2, m.getMemberId());
+		
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}		
+		return result;
+	}
+
 
 	
 	
 
-}
+	
+	}
+
+	
+	
+
+
 
 
 

@@ -47,7 +47,7 @@ public class AdProductInsertFormServlet extends HttpServlet {
 				
 			String resources = request.getSession().getServletContext().getRealPath("/resources"); // 웹컨테이너 경로 안의 resources 폴더까지의 경로 추출
 			
-			String savePath = resources + "\\adProduct_img\\"; // 파일저장 경로
+			String savePath = resources + "\\attachment_product\\"; // 파일저장 경로
 			
 			MultipartRequest multiRequest
 				= new MultipartRequest(request, savePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());  // 파일 크기와 저장경로 파일이름 설정
@@ -92,6 +92,9 @@ public class AdProductInsertFormServlet extends HttpServlet {
 		
 			
 			int result = new AdProductService().adProductInsert(p, list);
+			
+			request.setAttribute("list", list);
+			request.setAttribute("p", p);
 			
 			if(result > 0) { // 성공
 				

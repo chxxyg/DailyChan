@@ -36,7 +36,6 @@ public class AdMemberDetailServlet extends HttpServlet {
 		String mid = request.getParameter("mid");
 		
 		
-		
 		Member m = new adMemberService().searchMember(mid);
 		
 		request.setAttribute("m", m);

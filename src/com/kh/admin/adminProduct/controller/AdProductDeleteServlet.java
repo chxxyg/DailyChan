@@ -1,29 +1,26 @@
-package com.kh.admin.adminMember.controller;
+package com.kh.admin.adminProduct.controller;
 
 import java.io.IOException;
-import java.sql.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.admin.adminMember.model.service.adMemberService;
-import com.kh.member.model.vo.Member;
+import com.kh.admin.adminProduct.model.service.AdProductService;
 
 /**
- * Servlet implementation class AdMemberDeleteServlet
+ * Servlet implementation class AdProductDeleteServlet
  */
-@WebServlet("/deleteMember.ad")
-public class AdMemberDeleteServlet extends HttpServlet {
+@WebServlet("/deleteProduct.ad")
+public class AdProductDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdMemberDeleteServlet() {
+    public AdProductDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,30 +29,14 @@ public class AdMemberDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
+	
 		String mid = request.getParameter("mid");
 		
+		int result =  new AdProductService().deleteProduct(mid);
 		
 		
-		
-		int result = new adMemberService().deleteMember(mid);
-		
-		if(result > 0) {	// 성공
-			
-			response.sendRedirect("memberList.ad?mid="+mid);
-		}else {	// 실패
-			request.setAttribute("msg", "삭제 실패!");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
-		
-		
-		
-		
-		
-		
+	
 	}
-		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
