@@ -93,7 +93,7 @@ public class adMemberDao {
 			
 	}
 
-	public Member searchMember(Connection conn, String userId) {
+	public Member searchMember(Connection conn, String memberId) {
 		
 		Member m = null;
 		PreparedStatement pstmt = null;
@@ -102,7 +102,7 @@ public class adMemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, memberId);
 			
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
@@ -111,7 +111,9 @@ public class adMemberDao {
 							   rset.getString("EMAIL"),
 							   rset.getString("PHONE"),
 							   rset.getDate("ENROLL_DATE"),
-							   rset.getDate("MODIFY_DATE"));
+							   rset.getDate("MODIFY_DATE"),
+							   rset.getString("DEL_MEMBER_YN"),
+					           rset.getInt("POINT_SUM"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

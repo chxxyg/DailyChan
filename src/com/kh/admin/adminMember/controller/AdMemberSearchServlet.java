@@ -1,14 +1,13 @@
 package com.kh.admin.adminMember.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.kh.admin.adminMember.model.service.adMemberService;
 import com.kh.member.model.vo.Member;
@@ -35,14 +34,14 @@ public class AdMemberSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userId = request.getParameter("userId");
+		String memberId = request.getParameter("memberId");
 		
-		Member m = new adMemberService().searchMember(userId);
+		Member m = new adMemberService().searchMember(memberId);
 		
 		request.setAttribute("m", m);
 		
 		
-		request.getRequestDispatcher("views/admin/adminMember/adminMemberList.jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin/adminMember/adminMemberSearch.jsp").forward(request, response);
 		
 		
 	}

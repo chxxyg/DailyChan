@@ -38,6 +38,8 @@ public class AdMemberListServlet extends HttpServlet {
 		request.setAttribute("list", list);
 		request.setAttribute("count", count);
 		
+		
+		
 		request.getRequestDispatcher("views/admin/adminMember/adminMemberList.jsp").forward(request, response);
 		
 	}

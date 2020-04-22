@@ -14,11 +14,11 @@ public class adMemberService {
 	/*
 	 * 회원정보 상세조회용 서비스
 	 */
-	public Member searchMember(String userId) {
+	public Member searchMember(String memberId) {
 		
 		Connection conn = getConnection();
 		
-		Member m = new adMemberDao().searchMember(conn, userId);
+		Member m = new adMemberDao().searchMember(conn, memberId);
 		
 		close(conn);
 				
