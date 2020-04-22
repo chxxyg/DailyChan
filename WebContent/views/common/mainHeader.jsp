@@ -246,22 +246,16 @@
                 
                 <!-- 헤더(좌)_검색창 -->
                 <div id="header_2">
-                    <form id="search-form">
+                    <form id="search-form" action="<%=contextPath%>/search.pro">
                         <div id="search-text-area">
-                            <input type="search" id="search-input" placeholder="찾고 싶은 상품을 검색해보세요">
+                            <input type="search" id="search-input" name="keyword" placeholder="찾고 싶은 상품을 검색해보세요">
                         </div>
                         <div id="search-btn-area">
-                            <a href="<%=contextPath%>/search.pro" id="search-btn"><img src="<%=contextPath%>/resources/img/searchlogo.png" width="30px" height="30px"></a>
+                        	<button type="submit" id="search-btn"><img src="<%=contextPath%>/resources/img/searchlogo.png" width="30px" height="30px"></button>
                         </div>
                     </form>
                 </div>
 
-                <!-- 헤더(가운데)_브랜드로고 -->
-                <div id="header_3" align="center">
-                    <a href="<%= contextPath %>">
-                        <img id="home_logo" src="<%=contextPath%>/resources/img/brandlogo.png" height="120px">
-                    </a>
-                </div>
 
                 <!-- 헤더(우)_장바구니,찜 -->
                 <div id="header_4">
@@ -280,43 +274,44 @@
                 </div>
             </div> <!-- header 영역 닫힘-->
 
+
             <!-- navigator -->
             <div id="navigator">
                 <ul id="navi">
-                    <li><a href="<%= contextPath %>/pList.pro?category=new">NEW</a></li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=new&currentPage=1">NEW</a></li>
                     
-                    <li><a href="<%= contextPath %>/pList.pro?category=best">BEST</a></li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=best&currentPage=1">BEST</a></li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=sale">SALE</a></li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=sale&currentPage=1">SALE</a></li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=KO">한식</a>
+                    <li><a href="<%= contextPath %>/pList.pro?category=KO&currentPage=1">한식</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KO">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOA">국/탕/찌개</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOB">조림/볶음/구이</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOC">면요리</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOD">분식</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KO&currentPage=1">전체보기</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOA&currentPage=1">국/탕/찌개</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOB&currentPage=1">조림/볶음/구이</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOC&currentPage=1">면요리</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=KOD&currentPage=1">분식</a></li>
 
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=IT">양식</a>
+                    <li><a href="<%= contextPath %>/pList.pro?category=IT&currentPage=1">양식</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=IT">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITA">스테이크</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITB">파스타</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITC">사이드</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITD">샐러드</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=IT&currentPage=1">전체보기</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITA&currentPage=1">스테이크</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITB&currentPage=1">파스타</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITC&currentPage=1">사이드</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ITD&currentPage=1">샐러드</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=AS">아시안</a>
+                    <li><a href="<%= contextPath %>/pList.pro?category=AS&currentPage=1">아시안</a>
                         <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=AS">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASA">중식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASB">일식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASC">베트남</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASD">퓨전</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=AS&currentPage=1">전체보기</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASA&currentPage=1">중식</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASB&currentPage=1">일식</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASC&currentPage=1">베트남</a></li>
+                            <li><a href="<%= contextPath %>/pList.pro?category=ASD&currentPage=1">퓨전</a></li>
 
                         </ul>
                     </li>
