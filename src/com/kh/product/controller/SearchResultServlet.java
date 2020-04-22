@@ -28,6 +28,8 @@ public class SearchResultServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String keyword = request.getParameter("keyword");
 
 		RequestDispatcher view = request.getRequestDispatcher("views/product/searchResultPage.jsp");
 		view.forward(request, response);
