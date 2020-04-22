@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$("#selectMyInfo").css("color","rgb(247, 112, 46)");
 	
 	var email = $('#email').val();
 	var isChkId = true;

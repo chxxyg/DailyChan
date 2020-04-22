@@ -130,5 +130,7 @@ body
 		$("#saveBtn").click(function(){
 			$("#inputId").submit();
 		});
+		$("#selectWithdraw").css("color","rgb(247, 112, 46)");
+
 	</script>
 </html>
