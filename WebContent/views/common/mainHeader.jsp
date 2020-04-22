@@ -151,17 +151,16 @@
 	    text-align: center;
 	    margin:auto;
 	}
-	#navi a{
+	#navi>li a{
 	    text-decoration: none;
 	    font-size: 18px;
 	    color: black;
 	    font-weight: 900;
 	    padding-top: 3px;
 	    display: block;
-	    height: 100%;
+	    height: 94%;
 	    line-height: 30px;
 	    transform:scale(1.1); /*통합 시 이 작업 필수 요함*/
-	
 	}
 	#navi a:hover{
 	    color: hsl(28, 100%, 50%);
@@ -171,6 +170,7 @@
 	    padding:0px;
 	    display: none;
 	    background:white;
+	    position: relative;
 	}
 	#navi>li>a:hover+ul{
 	    display: block;
@@ -180,7 +180,6 @@
 	}
 	#navi>li>ul>li>a{
 	    font-size: 15px;
-	    margin-top: 10px;
 	}
 	
 	.naviFixed {
