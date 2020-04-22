@@ -20,7 +20,7 @@
 <!-- sidebar -->
 <%@ include file="/views/common/mainSideBar.jsp" %>
 
-    <div id="cartWrap">
+    <div class="cartWrap">
         <div style="text-align: right; font-size: 25px; font-weight: 550; color: gray; padding-bottom: 40px;">
             <span style="color: orange;">01 장바구니</span>
             <span> > </span>
@@ -71,43 +71,46 @@
 		                    </div>
 		                </td>
 		                <td width="150">
-		                    <div class="cartProductTotalPrice">720,000 원</div>
+		                    <div class="cartProductTotalPrice">
+		                    <%= c.getPrice() * c.getQuantity() %> 원
+		                    
+		                    </div>
 		                </td>
 		            </tr>
 	            <% } %>
             <% } %>
         </table>
-                <table id="cartTotalCheckWrap">
-                    <tr>
-                        <td><input type="checkbox" id="cartTotalCheck"><label for="cartTotalCheck" id="cartTotalCheckLabel">전체 선택</label></td>
-                        <td><button type="button" id="cartDeleteBtn">선택 상품 삭제</button></td>
-                        <td><div id="cartDeliveryInfo">30,000원 이상 무료 배송</div></td>
-                    </tr>
-                </table>
-                <table id="cartTotalPriceWrap">
-                    <tr style="height: 50px; font-size: 20px;">
-                        <th colspan="2" style="width: 300px;">총 상품 금액</th>
-                        <th style="width: 300px;">배송비</th>
-                        <th colspan="2" style="width: 400px;">총 결제 예정 금액</th>
-                    </tr>
-                    <tr style="height: 100px; text-align: center;">
-                        <td style="width: 280px; font-size: 30px;">
-                            <div id="cartProductTotalPrice">720,000원</div>
-                        </td>
-                        <td style="font-size: 30px;">+</td>
-                        <td style="width: 280px; font-size: 30px;">
-                            <div id="cartDeliveryPrice">3,000 원</div>
-                        </td>
-                        <td style="font-size: 30px;">=</td>
-                        <td style="width: 400px; font-size: 35px; font-weight: 550;">
-                            <div id="cartProductTotalPrice">723,000원</div>
-                        </td>
-                    </tr>
-                </table>
-            <td style="text-align: right;">
-                <button type="button" id="cartSelectedOrder">선택 상품 주문</button>
-                <button type="button" id="cartAllOrder">전체 상품 주문</button>
-            </td>
+        <table id="cartTotalCheckWrap">
+            <tr>
+                <td><input type="checkbox" id="cartTotalCheck"><label for="cartTotalCheck" id="cartTotalCheckLabel">전체 선택</label></td>
+                <td><button type="button" id="cartDeleteBtn">선택 상품 삭제</button></td>
+                <td><div id="cartDeliveryInfo">30,000원 이상 무료 배송</div></td>
+            </tr>
+        </table>
+        <table id="cartTotalPriceWrap">
+            <tr style="height: 50px; font-size: 20px;">
+                <th colspan="2" style="width: 300px;">총 상품 금액</th>
+                <th style="width: 300px;">배송비</th>
+                <th colspan="2" style="width: 400px;">총 결제 예정 금액</th>
+            </tr>
+            <tr style="height: 100px; text-align: center;">
+                <td style="width: 280px; font-size: 30px;">
+                    <div id="cartProductTotalPrice">720,000원</div>
+                </td>
+                <td style="font-size: 30px;">+</td>
+                <td style="width: 280px; font-size: 30px;">
+                    <div id="cartDeliveryPrice">3,000 원</div>
+                </td>
+                <td style="font-size: 30px;">=</td>
+                <td style="width: 400px; font-size: 35px; font-weight: 550;">
+                    <div id="cartProductTotalPrice">723,000원</div>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: right;">
+            <button type="button" id="cartSelectedOrder">선택 상품 주문</button>
+            <button type="button" id="cartAllOrder">전체 상품 주문</button>
+        </div>
     </div>
     
     <script>
@@ -135,8 +138,9 @@
     		$(".qty_edit").click(function(){
     			var proCode = $(this).parents(".find").prev().val();
     			var proPrice = $(this).parents(".find").find(".cartProductPrice").text();
+    			var quantity = $(this).siblings(".input").val();
     			
-    			console.log(proPrice);
+    			console.log(quantity);
     			
     			$.ajax({
     				url:"toCart.pro",
@@ -149,6 +153,18 @@
     				}
     			});
     		});
+    		
+    		//안된다고!!!!!!!!!!!!!!!!!!!!!
+    		$("#cartTotalCheck").change(function(){
+    			if($(this).is(":cheked")){
+    				$(".cartProductCheck").prop("checked", true);
+    			}else{
+    				$(".cartProductCheck").prop("checked", false);
+    			}
+    			
+    			
+    		});
+    		
     	});
     
     </script>

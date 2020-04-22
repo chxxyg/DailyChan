@@ -16,12 +16,12 @@ public class CartService {
 	 * @param proPrice	--> 장바구니에 넣으려는 상품의 가격
 	 * @return
 	 */
-	public int insertCart(String memberId, String proCode, int proPrice) {
+	public String insertCart(String memberId, String proCode, int proPrice) {
 		
 		Connection conn = getConnection();
-		int result = new CartDao().insertCart(conn, memberId, proCode, proPrice);
+		String msg = new CartDao().searchCart(conn, memberId, proCode, proPrice);
 		close(conn);
-		return result;
+		return msg;
 	}
 	
 	

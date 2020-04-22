@@ -135,13 +135,18 @@
 					url:"toCart.pro",
 					data:{proCode:proCode, proPrice:proPrice},
 					type:"post",
-					success:function(){
-						var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+					success:function(msg){
 						
-						if(result){
-							location.href="cartList.pro";
+						if(msg.equals("이미")){
+							alert("상품이 " + msg + " 장바구니에 담겼습니다.");
+							
+						}else{
+							var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+							
+							if(result){
+								location.href="cartList.pro";
+							}
 						}
-						
 					}, error:function(){
 						alert("장바구니 담기 실패");
 					}

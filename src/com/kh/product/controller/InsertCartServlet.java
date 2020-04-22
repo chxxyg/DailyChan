@@ -1,6 +1,7 @@
 package com.kh.product.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +35,12 @@ public class InsertCartServlet extends HttpServlet {
 		String proCode = request.getParameter("proCode");
 		int proPrice = Integer.parseInt(request.getParameter("proPrice"));
 		
-		int result = new CartService().insertCart(memberId, proCode, proPrice);
+		String msg = new CartService().insertCart(memberId, proCode, proPrice);
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(msg);
+		
 		
 		/*if(memberId != null) {	// 회원 로그인한 경우
 		}
