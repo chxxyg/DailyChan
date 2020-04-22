@@ -299,9 +299,19 @@ select {
 								
 								<% 
 									String cellPhone = loginUser.getPhone(); 
-									String cellNO1 = cellPhone.substring(0, 2);
-									String cellNO2 = cellPhone.substring(3, 6);
-									String cellNO3 = cellPhone.substring(7, 10);
+									String cellNO1, cellNO2, cellNO3 = "";
+									if(cellPhone.length() == 11)
+									{
+										cellNO1 = cellPhone.substring(0, 2);
+										cellNO2 = cellPhone.substring(3, 6);
+										cellNO3 = cellPhone.substring(7, 10);
+									}
+									else
+									{
+									    cellNO1 = cellPhone.substring(0, 2);
+										cellNO2 = cellPhone.substring(3, 5);
+										cellNO3 = cellPhone.substring(6, 9);
+									}
 								%>
 								<tr>
 									<th scope="row"><label for="cell_no1">휴대전화</label><em class="es">필수입력</em></th>
@@ -309,7 +319,7 @@ select {
 										<span class="ph">
 											<select id="cell_no1" name="cell_no1" class="select" data-class="phone_chk" title="휴대폰 앞자리 선택"><option value="<%=cellNO1%>">"<%=cellNO1%>"</option><option value="010" selected="selected">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option><option value="0502">0502</option><option value="0503">0503</option><option value="0504">0504</option><option value="0505">0505</option><option value="0506">0506</option><option value="0507">0507</option></select>
 											<em>-</em>
-											<input type="text" class="input" id="cell_no2" name="cell_no2" data-class="phone_chk" title="휴대폰 중간자리 입력" value="<%=cellNO2 %>" maxlength="4">
+											<input type="text" class="input" id="cell_no2" name="cell_no2" data-class="phone_chk" title="휴대폰 중간자리 입력" value="<%=cellNO2 %>" maxlength="4" >
 											<em>-</em>
 											<input type="text" class="input" id="cell_no3" name="cell_no3" data-class="phone_chk" title="휴대폰 마지막 4자리 입력" value="<%=cellNO3 %>" maxlength="4">
 										</span>

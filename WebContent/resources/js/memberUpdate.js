@@ -88,6 +88,18 @@ $(document).ready(function() {
 		$(this).val(inputVal.replace(/[^0-9]/gi,''));		
 	});
 	
+	$("#cell_no2").focusout(function() {
+		var inputVal = $("#cell_no2").val();
+		if(inputVal.length < 3){
+			$('span[name=cell_no]').show();
+			$('span[name=cell_no]').text("잘못된 번호입니다.");
+			isChkId = false;
+		}else{
+			$('span[name=cell_no]').hide();
+		}
+		$(this).val(inputVal.replace(/[^0-9]/gi,''));
+	});
+	
 	
 	//이메일 확인
 	$("#email").focusout(function() {

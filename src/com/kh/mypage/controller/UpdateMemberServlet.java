@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.vo.Member;
+import com.kh.mypage.model.service.MypageService;
 
 /**
  * Servlet implementation class UpdateMemberServlet
@@ -51,6 +53,21 @@ public class UpdateMemberServlet extends HttpServlet {
 	    m.setEmail(email);
 	    m.setPhone(phone);
 	    m.setBirth(userBirth);
+	    
+	    int result = new MypageService().updateMember(m);
+	    
+	    if(result > 0)
+	    {
+	        HttpSession session = request.getSession();
+	        session.invalidate();
+	        
+	        response.sendRedirect(request.getContextPath());    
+	    }
+	    else
+	    {
+	        request.setAttribute("msg", "회원정보 수정 실패");
+	        request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+	    }
 	}
 
 	/**
