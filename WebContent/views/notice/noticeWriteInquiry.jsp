@@ -279,6 +279,7 @@ button em {
                 <label for="c_sel">상담유형<em class="req">*<!--<span class="ir">필수입력정보</span>--></em></label>
             </dt>
             <dd>
+            <!--value값 똑같이 지정 해놓기 번호말고 !!  -->
                 <select id="c_sel" name="counsel_clss_no" title="상담유형 대분류 선택">
                     <option value="">상담 유형을 선택해 주세요.</option>
     
