@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.member.model.vo.Member;
 import com.kh.product.model.service.CartService;
+import com.kh.product.model.vo.ShoppingCart;
 
 /**
  * Servlet implementation class InsertCartServlet
@@ -31,15 +32,34 @@ public class InsertCartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		String proCode = request.getParameter("proCode");
-		int proPrice = Integer.parseInt(request.getParameter("proPrice"));
+		String userId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
+		String pCode = request.getParameter("proCode");
+		int pPrice = Integer.parseInt(request.getParameter("proPrice"));
 		
-		String msg = new CartService().insertCart(memberId, proCode, proPrice);
+		int result = 0;
 		
+		ShoppingCart cart = new CartService().searchCart();
+		
+		if(cart != null) {
+			if(cart.getMemberId().equals(userId) && cart.getProCode().equals(pCode)) {
+				System.out.println("상품이 이미 장바구니에 존재합니다.");
+			}else {
+				result = new CartService().insertCart(userId, pCode, pPrice);
+			}
+		}else {
+			result = new CartService().insertCart(userId, pCode, pPrice);
+		}
+		
+		if(result > 0) {
+			System.out.println("상품이 장바구니에 담겼습니다.");
+		}
+		
+		
+		
+		/*
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		out.print(msg);
+		out.print();*/
 		
 		/*if(memberId != null) {	// 회원 로그인한 경우
 		}

@@ -19,6 +19,7 @@
 <meta charset="UTF-8">
 <title>카테고리</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/productListPage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
@@ -113,7 +114,7 @@
 			<tr>
 				<td>
 					<div class="productInfo">
-						<span class="productPrice" style="text-decoration: line-through; color: gray;"><%= p.getProPrice() %>원</span>
+						<span class="productPrice" style="text-decoration: line-through; color: gray;"><%= p.getProPrice() %></span><span>원</span>
 						<span class="productPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %>원</span>
 						<span>|</span>
 						<span class="productFor"><%= p.getProStandard() %>인분</span>
@@ -178,18 +179,30 @@
 	</div>
 	
 	<script>
-
+	
 		$(function(){
 			$(".cpCartLogo").click(function(){
 				var proCode = $(this).parents(".categoryInnerTable").prev().val();
 				var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
 				
-				location.href="<%=contextPath%>/toCart.pro?proCode=" + proCode + "&proPrice=" + proPrice;
+				$.ajax({
+					url:"toCart.pro",
+					data:{proCode:proCode, proPrice:proPrice},
+					type:"post",
+					success:function(){
+						var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+						
+						if(result){
+							location.href="cartList.pro";
+						}
+					}, error:function(){
+						alert("장바구니 담기 실패");
+					}
+				});
 			});
 		});
-		
-	
 	</script>
+	
 	
 	    
 <!-- Footer -->

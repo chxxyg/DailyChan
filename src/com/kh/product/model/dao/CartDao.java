@@ -28,80 +28,68 @@ public class CartDao {
 		}
 	}
 	
-	/** 상품 장바구니에 담기 전, 장바구니에 이미 담긴 상품인지 확인하는 메소드
+	/** 1_1. 상품 장바구니에 담기 전, 장바구니에 이미 담긴 상품인지 확인하는 메소드
 	 * @param conn
 	 * @param memberId
 	 * @param proCode
 	 * @return
 	 */
-	public String searchCart(Connection conn, String memberId, String proCode, int proPrice) {
+	public ShoppingCart searchCart(Connection conn) {
 		
-		ArrayList<ShoppingCart> list = new ArrayList<>();
+		ShoppingCart cart = new ShoppingCart();
 		Statement stmt = null;
 		ResultSet rset = null;
-		String sql1 = prop.getProperty("searchCart");
-		String msg = "";
+		String sql = prop.getProperty("searchCart");
 		
 		try {
 			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql1);
+			rset = stmt.executeQuery(sql);
 			
-			while(rset.next()) {
-				list.add(new ShoppingCart(rset.getString(1),
-										  rset.getString(2)));
+			if(rset.next()) {
+				cart = new ShoppingCart(rset.getString(1), rset.getString(2));
 			}
-			
+			System.out.println(cart);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}finally {
 			close(rset);
 			close(stmt);
 		}
-		
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getMemberId().equals(memberId) && list.get(i).getProCode().equals(proCode)) {
-				msg = "이미";
-			}else {
-				insertCart(conn, memberId, proCode, proPrice);
-			}
-		} 
-		return msg;
+		return cart;
 	}
 
-	/** 상품 장바구니에 넣는 메소드
+	/** 1_2. 상품 장바구니에 넣는 메소드
 	 * @param conn
 	 * @param memberId
 	 * @param proCode
 	 * @param proPrice
 	 * @return
 	 */
-	public String insertCart(Connection conn, String memberId, String proCode, int proPrice) {
+	public int insertCart(Connection conn, String userId, String pCode, int pPrice) {
+		
+		System.out.println(userId);
+		System.out.println(pCode);
+		System.out.println(pPrice);
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("insertCart");
 		
-		String msg = null;
-		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
-			pstmt.setInt(2, proPrice);
-			pstmt.setString(3, proCode);
+			pstmt.setString(1, userId);
+			pstmt.setInt(2, pPrice);
+			pstmt.setString(3, pCode);
 			
 			result = pstmt.executeUpdate();
-			
-			if(result>0) {
-				msg="성공";
-			}
-			
+						
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
 		
-		return msg;
+		return result;
 	}
 	
 	public ArrayList<ShoppingCart> selectCart(Connection conn, String memberId) {
