@@ -125,7 +125,7 @@ body {
                     <a href="javascript:void(0);"><i class="fa fa-user"></i></i><span>회원현황</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
                         <li><a href="<%=contextPath%>/memberList.ad">회원관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberBlackList.jsp">블랙리스트관리</a></li>
+                        <li><a href="<%=contextPath%>/blackList.ad">블랙리스트관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberReport.jsp">신고내역</a></li>
                         <li><a href="">XXX</a>
                         </li>

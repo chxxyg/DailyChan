@@ -26,10 +26,10 @@
             float:left;
             text-align:center;
         }
-      	#header1{width:15%;font-size:22px;}
+      	#header1{width:15%;font-size:20px;}
         #header2{width:55%;}
-        #header3{width:10%; font-size:22px; padding-top:6px; color:#e1ffff;}
-        #header4,#header5{width:10%;font-size:22px; padding-top: 6px;}
+        #header3{width:10%; font-size:18px; padding-top:6px; color:#e1ffff;}
+        #header4,#header5{width:10%;font-size:18px; padding-top: 6px;}
         #header a:hover{
             color:#d19b3d;
         }
