@@ -2,6 +2,14 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.ShoppingCart"%>
 <%
 	ArrayList<ShoppingCart> clist = (ArrayList<ShoppingCart>)request.getAttribute("clist");
+	int sum = 0;
+	int delivery = 3000;
+	for(ShoppingCart c : clist){
+		sum += c.getPrice() * c.getQuantity();
+	}
+	if(sum>30000){
+		delivery = 0;
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -56,6 +64,8 @@
 	            </tr>
             <% }else { %>
 	             <% for(ShoppingCart c : clist){ %>
+	             	<input type="hidden" id="sum" value="<%=sum%>">
+	             	<input type="hidden" id="delivery" value="<%=delivery%>">
 		            <input type="hidden" value="<%=c.getProCode()%>">
 		            <tr class="find" height="170">
 		                <td width="20"><input type="checkbox" class="cartProductCheck"></td>
@@ -71,10 +81,7 @@
 		                    </div>
 		                </td>
 		                <td width="150">
-		                    <div class="cartProductTotalPrice">
-		                    <%= c.getPrice() * c.getQuantity() %> 원
-		                    
-		                    </div>
+		                    <span class="productTotalPrice"><%= c.getPrice() * c.getQuantity() %></span> <span>원</span>
 		                </td>
 		            </tr>
 	            <% } %>
@@ -95,15 +102,15 @@
             </tr>
             <tr style="height: 100px; text-align: center;">
                 <td style="width: 280px; font-size: 30px;">
-                    <div id="cartProductTotalPrice">720,000원</div>
+                    <span class="totalPrice"><%=sum%></span> <span>원</span>
                 </td>
                 <td style="font-size: 30px;">+</td>
                 <td style="width: 280px; font-size: 30px;">
-                    <div id="cartDeliveryPrice">3,000 원</div>
+                    <span class="deliveryPrice"><%=delivery%></span> <span>원</span>
                 </td>
                 <td style="font-size: 30px;">=</td>
                 <td style="width: 400px; font-size: 35px; font-weight: 550;">
-                    <div id="cartProductTotalPrice">723,000원</div>
+                    <b><span class="cartTotalPrice"><%=sum+delivery%></span> <span>원</span></b>
                 </td>
             </tr>
         </table>
@@ -137,19 +144,30 @@
     		
     		$(".qty_edit").click(function(){
     			var proCode = $(this).parents(".find").prev().val();
+    			var qty = $(this).siblings(".input").val();
     			var proPrice = $(this).parents(".find").find(".cartProductPrice").text();
-    			var quantity = $(this).siblings(".input").val();
     			
-    			console.log(quantity);
+    			var qtyInput = $(this).siblings(".input");
+    			var tpSpan = $(this).parents(".find").find(".productTotalPrice");
+    			var subTotal = $(".totalPrice");
+    			var del = $(".deliveryPrice");
+    			var total = $(".cartTotalPrice");
+    			
+    			var sum = $("#sum").val();
+    			var delivery = $("#delivery").val();
     			
     			$.ajax({
-    				url:"toCart.pro",
-    				data:{proCode:proCode, proPrice:proPrice},
+    				url:"updateQty.pro",
+    				data:{proCode:proCode, qty:qty},
     				type:"post",
     				success:function(){
-    					console.log("수량 수정 성공");
+    					qtyInput.val(qty);
+    					tpSpan.text(qty * proPrice);
+    					subTotal.text(sum);
+    					del.text(delivery);
+    					total.text(sum+delivery);
     				}, error:function(){
-    					alert("수량 수정 실패");
+    					//console.log("ajax통신실패");
     				}
     			});
     		});

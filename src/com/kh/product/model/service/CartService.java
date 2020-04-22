@@ -41,14 +41,29 @@ public class CartService {
 	 * @return
 	 */
 	public ArrayList<ShoppingCart> selectCart(String memberId) {
-		
 		Connection conn = getConnection();
 		ArrayList<ShoppingCart> clist = new CartDao().selectCart(conn, memberId);
 		close(conn);
 		return clist;
-		
 	}
 	
+	/** 3. 장바구니에 담긴 상품 수량 변경하는 메소드
+	 * @param memberId
+	 * @param proCode
+	 * @param qty
+	 * @return
+	 */
+	public int updateQtyCart(String memberId, String proCode, int qty) {
+		Connection conn = getConnection();
+		int result = new CartDao().updateQtyCart(conn, memberId, proCode, qty);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 	
 	
 }

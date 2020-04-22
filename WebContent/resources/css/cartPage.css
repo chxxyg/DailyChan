@@ -35,7 +35,7 @@
     font-weight: 550;
     margin-left: 10px;
 }
-.cartProductPrice{
+.cartProductPrice, .productTotalPrice{
     width: 70px;
     margin-left:45px;
     font-size: 22px;
@@ -84,13 +84,13 @@
     cursor:pointer;
 }
 /* 총 금액 */
-.cartProductTotalPrice{
-    width: 150px;
+.totalPrice, .deliveryPrice, .cartTotalPrice{
+    width: 80px;
     text-align: center;
-    font-size: 25px;
-    font-weight: 500;
-    margin-left: 30px;
+    margin-left: 50px;
 }
+#cartTotalPriceWrap span{font-size: 25px;}
+.cartTotalPrice{color:red;}
 
 #cartTotalCheckWrap{
     height: 100px;

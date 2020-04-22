@@ -1,7 +1,7 @@
 package com.kh.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.member.model.vo.Member;
 import com.kh.product.model.service.CartService;
-import com.kh.product.model.vo.ShoppingCart;
 
 /**
- * Servlet implementation class CartListServlet
+ * Servlet implementation class UpdateCartServlet
  */
-@WebServlet("/cartList.pro")
-public class CartListServlet extends HttpServlet {
+@WebServlet("/updateQty.pro")
+public class UpdateCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CartListServlet() {
+    public UpdateCartServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,12 +31,23 @@ public class CartListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		ArrayList<ShoppingCart> clist = new CartService().selectCart(memberId);
+		String proCode = request.getParameter("proCode");
+		int qty = Integer.parseInt(request.getParameter("qty"));
+	
+		int result = new CartService().updateQtyCart(memberId, proCode, qty);
 		
-		request.setAttribute("clist", clist);
-		request.getRequestDispatcher("views/product/cartPage.jsp").forward(request, response);
+		String msg = null;
+		if(result>0) { //수량변경 성공
+			msg="수량변경 성공";
+		}else { //수량변경 실패
+			msg="수량변경 실패";
+		}
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(msg);
+		
 	}
 
 	/**

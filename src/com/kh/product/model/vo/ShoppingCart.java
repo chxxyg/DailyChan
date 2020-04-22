@@ -39,12 +39,12 @@ public class ShoppingCart {
 	}
 	
 	//장바구니 조회용
-	public ShoppingCart(String proName, String proCode, int quantity, int price, String rFileName) {
+	public ShoppingCart(String proName, int price, String proCode, int quantity, String rFileName) {
 		super();
 		this.proName = proName;
+		this.price = price;
 		this.proCode = proCode;
 		this.quantity = quantity;
-		this.price = price;
 		this.rFileName = rFileName;
 	}
 

@@ -105,9 +105,9 @@ public class CartDao {
 			
 			while(rset.next()) {
 				clist.add(new ShoppingCart(rset.getString("PRODUCT_NAME"),
+										  rset.getInt("PRICE"),
 										  rset.getString("PRODUCT_CODE"),
 										  rset.getInt("QUANTITY"),
-										  rset.getInt("PRICE"),
 										  rset.getString("FILE_NAME")));
 			}
 		} catch (SQLException e) {
@@ -117,6 +117,27 @@ public class CartDao {
 			close(pstmt);
 		}
 		return clist;
+	}
+	
+	public int updateQtyCart(Connection conn, String memberId, String proCode, int qty) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateQtyCart");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qty);
+			pstmt.setString(2, memberId);
+			pstmt.setString(3, proCode);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 	
 }
