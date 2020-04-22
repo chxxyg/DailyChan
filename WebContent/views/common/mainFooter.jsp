@@ -91,10 +91,10 @@
             <!-- footer 중안부 이용약관 -->
             <div id='center-box'>
                 <div id="center_1">
-                    <a href="">이용약관</a>&nbsp; 
-                    <a href="">개인정보취급방침 </a>&nbsp; 
+                    <a href="<%=request.getContextPath()%>/agreement.me?target=1">이용약관</a>&nbsp; 
+                    <a href="<%=request.getContextPath()%>/agreement.me?target=2">개인정보취급방침 </a>&nbsp; 
                     <a href="">인재채용</a>&nbsp; 
-                    <a href="">고객센터</a>&nbsp; 
+                    <a href="<%=request.getContextPath()%>/noticeMain.no">고객센터</a>&nbsp; 
                 </div>
                 <div id="center_2">
                     <p id="p1">
