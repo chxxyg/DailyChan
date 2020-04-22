@@ -15,11 +15,11 @@ public class CartService {
 	 * @param proCode
 	 * @return
 	 */
-	public ShoppingCart searchCart() {
+	public int searchCart(String memberId, String proCode) {
 		Connection conn = getConnection();
-		ShoppingCart cart = new CartDao().searchCart(conn);
+		int exist = new CartDao().searchCart(conn, memberId, proCode);
 		close(conn);
-		return cart;
+		return exist;
 	}
 	
 	/** 1_2. 상품 장바구니에 넣는 메소드
@@ -28,10 +28,10 @@ public class CartService {
 	 * @param proPrice	--> 장바구니에 넣으려는 상품의 가격
 	 * @return
 	 */
-	public int insertCart(String userId, String pCode, int pPrice) {
+	public int insertCart(String memberId, String proCode, int proPrice) {
 		
 		Connection conn = getConnection();
-		int result = new CartDao().insertCart(conn, userId, pCode, pPrice);
+		int result = new CartDao().insertCart(conn, memberId, proCode, proPrice);
 		close(conn);
 		return result;
 	}

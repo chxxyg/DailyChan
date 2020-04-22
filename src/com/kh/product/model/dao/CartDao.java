@@ -34,28 +34,30 @@ public class CartDao {
 	 * @param proCode
 	 * @return
 	 */
-	public ShoppingCart searchCart(Connection conn) {
+	public int searchCart(Connection conn, String memberId, String proCode) {
 		
-		ShoppingCart cart = new ShoppingCart();
-		Statement stmt = null;
+		int exist = 0;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("searchCart");
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, proCode);
+			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				cart = new ShoppingCart(rset.getString(1), rset.getString(2));
+				exist = rset.getInt(1);
 			}
-			System.out.println(cart);
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}finally {
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
-		return cart;
+		return exist;
 	}
 
 	/** 1_2. 상품 장바구니에 넣는 메소드
@@ -65,11 +67,8 @@ public class CartDao {
 	 * @param proPrice
 	 * @return
 	 */
-	public int insertCart(Connection conn, String userId, String pCode, int pPrice) {
+	public int insertCart(Connection conn, String memberId, String proCode, int proPrice) {
 		
-		System.out.println(userId);
-		System.out.println(pCode);
-		System.out.println(pPrice);
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -77,9 +76,9 @@ public class CartDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			pstmt.setInt(2, pPrice);
-			pstmt.setString(3, pCode);
+			pstmt.setString(1, memberId);
+			pstmt.setInt(2, proPrice);
+			pstmt.setString(3, proCode);
 			
 			result = pstmt.executeUpdate();
 						
@@ -88,7 +87,6 @@ public class CartDao {
 		} finally {
 			close(pstmt);
 		}
-		
 		return result;
 	}
 	

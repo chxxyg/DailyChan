@@ -276,7 +276,7 @@
 			$("#viewMyReview").hide();
 			
 			$("#writeReviewCate").click(function(){
-				$("#writeReviewCate").css("border", "2px solid rgb(247, 112, 46)");
+				$(this).css("border", "2px solid rgb(247, 112, 46)");
 				$("#viewMyReviewCate").css("border", "");
 				$("#writeReview").show();
 				$("#viewMyReview").hide();
@@ -284,7 +284,7 @@
 			
 			$("#viewMyReviewCate").click(function(){
 				$("#viewMyReviewCate").css("border", "2px solid rgb(247, 112, 46)");
-				$("#writeReviewCate").css("border", "");
+				$(this).css("border", "");
 				$("#viewMyReview").show();
 				$("#writeReview").hide();
 			});

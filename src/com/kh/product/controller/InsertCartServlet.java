@@ -32,34 +32,30 @@ public class InsertCartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		String pCode = request.getParameter("proCode");
-		int pPrice = Integer.parseInt(request.getParameter("proPrice"));
+		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
+		String proCode = request.getParameter("proCode");
+		int proPrice = Integer.parseInt(request.getParameter("proPrice"));
 		
 		int result = 0;
+		int msg = 0;
 		
-		ShoppingCart cart = new CartService().searchCart();
+		int exist = new CartService().searchCart(memberId, proCode);
 		
-		if(cart != null) {
-			if(cart.getMemberId().equals(userId) && cart.getProCode().equals(pCode)) {
-				System.out.println("상품이 이미 장바구니에 존재합니다.");
-			}else {
-				result = new CartService().insertCart(userId, pCode, pPrice);
-			}
-		}else {
-			result = new CartService().insertCart(userId, pCode, pPrice);
+		if(exist == 0) { // 상품이 장바구니에 없으니 장바구니에 담기
+			result = new CartService().insertCart(memberId, proCode, proPrice);
+		}else { // 상품이 장바구니에 이미 존재함
+			msg=0;
 		}
 		
-		if(result > 0) {
-			System.out.println("상품이 장바구니에 담겼습니다.");
-		}
+		if(result > 0) { // 장바구니에 담기 성공
+			msg=1;
+		}/*else { // 장바구니에 담기 실패
+			//msg="장바구니 담기 실패";
+		}*/
 		
-		
-		
-		/*
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		out.print();*/
+		out.print(msg);
 		
 		/*if(memberId != null) {	// 회원 로그인한 경우
 		}

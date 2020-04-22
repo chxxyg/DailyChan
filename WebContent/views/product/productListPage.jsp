@@ -125,7 +125,7 @@
 			<tr>
 				<td>
 					<div class="productInfo">
-						<span class="productPrice"><%= p.getProPrice() %>원</span>
+						<span class="productPrice"><%= p.getProPrice() %></span><span>원</span>
 						<span>|</span>
 						<span class="productFor"><%= p.getProStandard() %>인분</span>
 					</div>
@@ -189,14 +189,17 @@
 					url:"toCart.pro",
 					data:{proCode:proCode, proPrice:proPrice},
 					type:"post",
-					success:function(){
-						var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
-						
-						if(result){
-							location.href="cartList.pro";
+					success:function(msg){
+						if(msg == 0){
+							alert("상품이 장바구니에 이미 존재합니다.");
+						}else{
+							var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+							if(result){
+								location.href="cartList.pro";
+							}
 						}
 					}, error:function(){
-						alert("장바구니 담기 실패");
+						alert("ajax 에러:장바구니 담기 실패");
 					}
 				});
 			});
