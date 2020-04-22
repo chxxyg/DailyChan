@@ -269,7 +269,7 @@
                 <div id="header_4">
                     <div id="hd_right">
                         <!-- 장바구니 -->
-                        <a href="" class="a_cart">
+                        <a href="<%=contextPath%>/cartList.pro" class="a_cart">
                             <img id="cart_img" src="<%=contextPath%>/resources/img/cartlogo.png" width="35px" height="35px">
                             <p>장바구니</p>                
                         </a>
