@@ -9,18 +9,229 @@
 	body
 	{
 		width: 1000px;
-		height: 2000px;
+		height: 1700px;
 		margin: auto;
 	}
 	.sub_cont {
     position: relative;
     float: left;
-    width: 760px;
+    width: 770px;
     min-height: 860px;
     padding: 0 0 40px 30px;
     margin: auto;
 }
+.sub_cont button {
+    display: block;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+    background: none;
+}
+.sub_cont h3.tit {
+    padding: 0 0 15px 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ededed;
+    font-size: 21px;
+    color: #000;
+    line-height: 22px;
+    font-weight: bold;
+    letter-spacing: -1px;;
+}
+.mys_summ {
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    padding: 0 0 14px 10px;
+}
+.mys_summ .txt {
+    clear: both;
+    padding: 4px 0 18px 10px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #333;
+    letter-spacing: -1px;
+}
+.mys_summ button.bx {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #dbdbdb;
+    font-size: 12px;
+    color: #333;
+    line-height: 34px;
+    letter-spacing: -1px;
+    display: block;
+    overflow: visible;
+    margin: 0;
+    cursor: pointer;
+    background: none;
+}
+.mys_chk {
+    overflow: hidden;
+    clear: both;
+    height: 32px;
+    margin-bottom: 10px;
+}
+.mys_chk button.bt {
+    border-color: #999;
+}
+.mys_chk button {
+    float: left;
+    height: 30px;
+    padding: 0 11px 2px 11px;
+    margin-right: 6px;
+    border: 1px solid #dbdbdb;
+    font-size: 12px;
+    line-height: 14px;
+    color: #333;
+    letter-spacing: -1px;
+    display: block;
+    overflow: visible;
+    margin: 0;
+    cursor: pointer;
+    background: none;
+}
+.mys_tbl {
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 50px;
+}
+.mys_tbl .tbl {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    display: block;
+}
+.mys_tbl .tbl table {
+    table-layout: fixed;
+    width: 100%;
+    border-top: 1px solid #333;
+    margin: 0 -1px -1px 0;
+    min-width: 100%;
+    max-width: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.mys_tbl .tbl table thead th {
+    height: 42px;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    letter-spacing: -1px;
+    background: #f4f4f4;
+    font-weight: normal;
+    font-style: normal;
+}
+.mys_tbl .tbl td .nor {
+    color: #666;
+}
+
+.mys_tbl .tbl td span {
+    display: block;
+}
+.mys_tbl .tbl td .nor em.ic {
+    display: block;
+    width: 56px;
+    height: 14px;
+    margin: 5px auto 0 auto;
+    border: 1px solid #f7702e;
+    font-style: normal;
+    font-size: 11px;
+    color: #f7702e;
+    line-height: 11px;
+    letter-spacing: -1px;
+}
+.mys_tbl .tbl td {
+    padding: 14px 5px;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+    line-height: 18px;
+    color: #666;
+    letter-spacing: -1px;
+    text-align: center;
+}
+.mys_tbl .tbl td .addr {
+    padding-left: 10px;
+    font-size: 13px;
+    line-height: 20px;
+    color: #666;
+    text-align: left;
+    letter-spacing: 0;
+}
+.mys_tbl .tbl td .addr em {
+    display: block;
+    font-style: normal;
+}
+.mys_tbl .tbl td .btn {
+    font-size: 12px;
+}
+.mys_tbl .tbl td .btn button.sq {
+    display: block;
+    width: 86px;
+    height: 32px;
+    margin: 5px auto;
+    color: #fff;
+    background: #363441;
+}
+.mys_tbl .tbl td .btn button {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 30px;
+    color: #222;
+    text-align: center;
+}
+.mys_tbl .tbl td .btn button.bxs {
+    display: block;
+    width: 86px;
+    height: 32px;
+    margin: 5px auto;
+    border: 1px solid #dbdbdb;
+}
+.mys_tbl .tbl td .btn button.del {
+    display: block;
+    width: 86px;
+    height: 32px;
+    margin: 5px auto;
+    border: 1px solid #dbdbdb;
+}
+.mys_notice {
+	height: 100px;
+    overflow: hidden;
+    clear: both;
+    padding: 20px 34px 34px 110px;
+    margin-bottom: 50px;
+    background: #efefef url(/dailyChan/resources/img/ico_noti_b.png) no-repeat 40px 40px;
+}
+.mys_notice h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #333;
+    font-weight: bold;
+}
+.mys_notice ul
+{
+	list-style: none;
+	padding-inline-start: 0;
+	margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+.mys_notice li {
+    padding: 0 0 4px 12px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #666;
+    letter-spacing: -1px;
+    background: url(/dailyChan/resources/img/bu_box_gray.png) no-repeat 0 8px;
+}
 </style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 	<%@ include file="mypageMainOuter.jsp" %>
@@ -45,7 +256,6 @@
 			<div class="mys_tbl">
 				<div class="tbl">
 					<table>
-						<caption>배송지 관리 | 이름,주소,휴대전화,수정/삭제의 정보를 제공하는 표</caption>
 						<colgroup>
 							<col style="width:50px">
 							<col style="width:120px">
@@ -121,14 +331,6 @@
 						</tbody>
 					</table>
 				</div>
-			
-				<!-- PAGING -->
-				<div id="box_page" class="paging">
-					<span class="page">
-					<a href="javascript:void(0);" class="select_num" data-current="true" data-value="1" data-parameters="">1<span class="ir">현재페이지</span></a>
-					</span>
-				</div>
-				<!-- //PAGING -->
 			</div>
 			<!-- //MY LIST -->	
 			

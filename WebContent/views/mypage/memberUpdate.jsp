@@ -372,5 +372,9 @@ select {
 		</div>
 	
 	<%@ include file="../../views/common/mainFooter.jsp" %>
+	
+	<script>
+		
+	</script>
 </body>
 </html>
