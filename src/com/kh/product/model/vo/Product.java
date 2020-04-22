@@ -78,6 +78,21 @@ public class Product {
 		this.proSupplyName = proSupplyName;
 	}
 
+	
+
+	/**
+	 * 관리자페이지 상품 상세조회
+	 */
+	public Product(String proCategory, String proName, String proCode, String proSupplyName, int proPrice,  int proStock) {
+		super();
+		this.proCode = proCode;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proCategory = proCategory;
+		this.proStock = proStock;
+		this.proSupplyName = proSupplyName;
+	}
+
 
 	public String getProSupplyName() {
 		return proSupplyName;

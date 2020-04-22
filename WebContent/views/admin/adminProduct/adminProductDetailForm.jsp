@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
+<%
+	ArrayList<AttachmentProduct> ap = (ArrayList<AttachmentProduct>)request.getAttribute("ap");
+	Product p = (Product)request.getAttribute("p");
+%>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +20,7 @@
         #adcate{
             margin-left:80px;
             margin-top:50px;
-            line-height: 40px;
+            line-height: 30px;
             font-weight: bolder;
             height:280px;
             
@@ -65,6 +69,25 @@
 			position:relative;
 			top:1px;
 		}
+		#adcate>tr>td> input{
+			width:300px;
+		}
+		#adcate>tr>td{
+			width:300px;
+			size:300px;
+		}
+		#adcate>tr>td input{
+			width:300px;
+			size:300px;
+		}
+		.file3{
+			font-size:12px;
+			 line-height:1.8;
+		}
+		a:link{
+		text-decoration: none;
+		color:black;
+		}
     </style>
 </head>
 <body>
@@ -72,77 +95,78 @@
 
     <div id="adproductEnroll">
        <div id="outer">
-        <h1>&nbsp;&nbsp;&nbsp;상품등록</h1>
+        <h1>&nbsp;&nbsp;&nbsp;상품정보</h1>
         <table id="adcate">
-            <tr>
-            <form id="PdinsertForm" action="<%= contextPath %>/pdinsert.ad" method="post" enctype="multipart/form-data">
             
+            <form id="PdinsertForm" action="<%= contextPath %>/pdinsert.ad" method="post" enctype="multipart/form-data">
+            <tr>
                 <td width="200" >* 카테고리</td>
                 <td>
-			        <select id="dailyList"  name="pdCategoryList" style="width:174px" >
-			            <option value="한식 - 국/탕/찌개">한식 - 국/탕/찌개</option>
-			            <option value="한식 - 조림/볶음/구이">한식 - 조림/볶음/구이</option>
-			            <option value="한식 - 면요리">한식 - 면요리</option>
-			            <option value="한식 - 분식">한식 - 분식</option>
-			            <option value="양식 - 스테이크">양식 - 스테이크</option>
-			            <option value="양식 - 파스타">양식 - 파스타</option>
-			            <option value="양식 - 사이드">양식 - 사이드</option>		
-			            <option value="양식 - 샐러드">양식 - 샐러드</option>
-			            <option value="아시안 - 중식">아시안 - 중식</option>
-			            <option value="아시안 - 일식">아시안 - 일식</option>
-			            <option value="아시안 - 베트">아시안 - 베트남</option>
-			            <option value="아시안 - 퓨전">아시안 - 퓨전</option>
-			            <option value="찬Day - 메인반찬">찬Day - 메인반찬</option>
-			            <option value="찬Day - 밑반찬">찬Day - 밑반찬</option>
-			            <option value="찬Day - 김치">찬Day - 김치</option>
-			            <option value="찬Day - 나물">찬Day - 나물</option> 
-			        </select>
+			        <input type="text" value="<%= p.getProCategory() %>" readonly>
         		</td>
             </tr>
             <tr>
                 <td width="200">* 상품명</td>
-                <td><input type="text" required name="pdTitle"></td>
+                <td><input type="text" value="<%= p.getProName() %>" name="pdTitle"></td>
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input type="text"  name="pdCode"></td>
+                <td><input type="text" value="<%= p.getProCode() %>" name="pdCode" readonly></td>
             </tr>
             <tr>
                 <td width="200">납품업체명</td>
-                <td><select name="pdEnterPrise" style="width:174px">
-						<option value="1234567890">집반찬연구소</option>
-						<option value="1111111111">동원홈푸드</option>                
-                	</select>
+                <td><input type="text" value="<%= p.getProSupplyName() %>" readonly>
                 </td>
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
-                <td><input type="file" style="cursor:pointer;" name="pdUpfile1"></td>
+               <td><p class="file3">기존파일 : <a download="<%= ap.get(0).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(0).getAtFileName() %>" ><%=ap.get(0).getAtFileName() %></a> 
+                	<input type="file" name="pdUpfile1" ></p>
+                </td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 01</td>
-                <td><input type="file" style="cursor:pointer;" name="pdUpfile2"></td>
+                <td><p class="file3">기존파일 : <a download="<%= ap.get(1).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(1).getAtFileName() %>" ><%=ap.get(1).getAtFileName() %> </a>
+                	<input type="file" name="pdUpfile2" ></p>
+                </td>
+           		
             </tr>
+
 
             <tr>
                 <td width="200">* 판매가</td>
-                <td><input type="text" required name="pdPrice"></td>
+                <td><input type="text"  value="<%= p.getProPrice() %>" name="pdPrice"></td>
             </tr>
             <tr>
                 <td width="200">* 수량</td>
-                <td><input type="text" required name="pdStock"></td>
+                <td><input type="text"  value="<%= p.getProStock() %>" name="pdStock"></td>
             </tr>
             <tr>
                 <td width="200">상품 정보 이미지</td>
-                <td><input type="file" style="cursor:pointer;" name="pdUpfile3"></td>
+                <td><p class="file3">기존파일 : <a download="<%= ap.get(2).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(2).getAtFileName() %>" ><%=ap.get(2).getAtFileName() %></a> 
+                	<input type="file" name="pdUpfile2" ></p>
+                </td>
             </tr>
        		 </table>
        		 <div id="enrollsubmit">
-        		<button type="submit">등록하기</button>&nbsp;&nbsp;
+        		<button type="submit">수정하기</button>&nbsp;&nbsp;
+        		<button onclick="deleteMember();">삭제하기</button>&nbsp;&nbsp;
         		<button type="button" onclick="location.href='<%= contextPath%>/productList.ad?currentPage=1'">목록으로</button>
         	</div> 
         	</form>       
        </div>
     </div>
+    <script>
+    function deleteMember(){   		
+    		
+    		var bool = confirm("정말 탈퇴시키겠습니까?");
+    		if(bool){
+    		$("#postForm").submit();    			
+    		}else{
+    			alert("취소하였습니다.");
+    		}
+    		
+    	}
+    </script>
 </body>
 </html>

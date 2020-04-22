@@ -28,6 +28,11 @@ public class AttachmentProduct {
 		this.atFileMaxSize = atFileMaxSize;
 	}
 
+	public AttachmentProduct(String atFileName) {
+		super();
+		this.atFileName = atFileName;
+	}
+
 	public String getAtNo() {
 		return atNo;
 	}
