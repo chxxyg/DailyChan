@@ -55,8 +55,23 @@ public class MypageService
      * @param m     --> 회원이 입력한 데이터
      * @return      --> 회원 수정 결과 리턴
      */
-    public int userUpdateMember(Member m)
+    public int updateMember(Member m)
     {
+        Connection conn = getConnection();
         
+        int result = new MypageDao().updateMember(conn, m);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
+        close(conn);
+        
+        return result;
     }
 }
