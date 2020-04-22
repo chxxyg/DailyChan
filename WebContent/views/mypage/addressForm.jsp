@@ -201,7 +201,7 @@
     border: 1px solid #dbdbdb;
 }
 .mys_notice {
-	height: 100px;
+	height: 90px;
     overflow: hidden;
     clear: both;
     padding: 20px 34px 34px 110px;
@@ -232,6 +232,7 @@
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/dailyChan/resources/js/addressForm.js" rel="javascript" type="text/javascript"></script>
 </head>
 <body>
 	<%@ include file="mypageMainOuter.jsp" %>
@@ -338,8 +339,7 @@
 			<div class="mys_notice">
 				<h4>배송지 <b>TIP</b></h4>
 				<ul>
-					<li>회원정보의 회원주소와 이전 주문 주소지는 자동으로 등록됩니다.</li>
-					<li>배송지는 최대 30개 까지 저장이 가능합니다.</li>
+					<li>배송지는 최대 2개 까지 저장이 가능합니다.</li>
 					<li>제주도 및 해외는 주문이 불가합니다.</li>
 				</ul>
 			</div>
