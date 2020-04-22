@@ -256,12 +256,20 @@
                     </form>
                 </div>
 
+				<br>
+
+                <!-- 헤더(가운데)_브랜드로고 -->
+                <div id="header_3" align="center">
+                    <a href="<%= contextPath %>">
+                        <img id="home_logo" src="<%=contextPath%>/resources/img/brandlogo.png" height="120px">
+                    </a>
+                </div>
 
                 <!-- 헤더(우)_장바구니,찜 -->
                 <div id="header_4">
                     <div id="hd_right">
                         <!-- 장바구니 -->
-                        <a href="<%=contextPath%>/cartList.pro" class="a_cart">
+                        <a href="" class="a_cart">
                             <img id="cart_img" src="<%=contextPath%>/resources/img/cartlogo.png" width="35px" height="35px">
                             <p>장바구니</p>                
                         </a>
@@ -273,7 +281,6 @@
                     </div>
                 </div>
             </div> <!-- header 영역 닫힘-->
-
 
             <!-- navigator -->
             <div id="navigator">
