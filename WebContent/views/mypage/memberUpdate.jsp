@@ -255,6 +255,7 @@ select {
 			
 			<!-- MY TABLE -->
 			<form id="memberFrom" method="post" action="<%=contextPath%>/updateMember.my">
+				<input type="hidden" name="userId" value="<%= loginUser.getMemberId() %>">
 				<div class="mys_mod">
 					<div class="tbl">
 						<table>
@@ -272,9 +273,9 @@ select {
 									<th scope="row"><label for="m_name">이름 및 성별</label><em class="es">필수입력</em></th>
 									<td>  
 										<span class="chk">
-											<input type="radio" name="gend_cd" id="female" checked="checked" value="F">
+											<input type="radio" name="gend_cd" id="female" <% if(loginUser.getGender().equals("F") || loginUser.getGender() == null){ %>checked="checked"<% } %> value="F">
 											<label for="female">여자</label>
-											<input type="radio" name="gend_cd" id="male" value="M">
+											<input type="radio" name="gend_cd" id="male" <% if(loginUser.getGender().equals("M")){ %>checked="checked"<% } %> value="M">
 											<label for="male">남자</label>
 										</span>
 										<span class="tx"><input type="text" id="m_name" name="mbr_nm" class="input" value="<%=loginUser.getMemberName()%>"></span>

@@ -214,5 +214,7 @@ $(document).ready(function() {
 			alert("입력된 회원 정보 중 정상적이지 않은 정보가 있습니다. 확인 후 다시 시도해 주세요.");
 			return;
 		}
+			$("#memberFrom").submit();
+		
 	});
 });

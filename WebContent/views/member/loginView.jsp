@@ -119,7 +119,7 @@ margin:auto;
         </div>
         
 	        <!-- 쿠키 적용 후 -->
-	        <input type="checkbox" id="idSaveCheck" name="saveId"  value="ttt">아이디 저장
+	        <input type="checkbox" id="idSaveCheck" name="saveId" <% if(saveId){ %> checked="checked"<%} %>>아이디 저장
 			<%-- <input type="text" name="userId" id="userId" value="<%= saveId ? userIdSaved : "" %>"> --%>
 			</form>
             <br><br>
