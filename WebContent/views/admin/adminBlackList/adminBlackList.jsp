@@ -57,7 +57,7 @@
             
         }
       	/*상품 등록 삭제 버튼css*/
-        #allcount{width:1215px; }
+        #allcount{width:1100px; }
         #allcount>div{float:left;}
         
         /*테이블 헤드*/
@@ -116,12 +116,12 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;블랙리스트</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/memberSearch.ad" method="post">회원 ID 
+        	<form id="blackListForm" action="<%=contextPath%>/memberSearch.ad" method="post">회원 ID 
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
-        	</form><br>
+        	</form><br>       	
         <div id="allcount">
                 <div style="width:30%;">총 인원 수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 명</div>
-                
+                <div style="width:70%; text-align:right;"><button onclick="">추가</button> </div>
         </div>  
         <table class="listMember">
             <thead>
@@ -143,10 +143,7 @@
                     <td><%= b.getNonblockYn() %></td>
                 </tr>
                 <% } %>
-                
-               
-                
-                
+              
             </tbody>
 
         </table>  
