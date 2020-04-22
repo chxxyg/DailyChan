@@ -138,11 +138,37 @@ public class adMemberDao {
 				
 		return result;
 	}
+	
+	public int updateMember(Connection conn, Member m) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getPhone());
+			pstmt.setString(2, m.getMemberId());
+		
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}		
+		return result;
+	}
+	
+	
+
+	
+	}
 
 	
 	
 
-}
+
 
 
 

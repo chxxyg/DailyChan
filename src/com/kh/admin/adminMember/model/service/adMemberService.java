@@ -70,8 +70,34 @@ public class adMemberService {
 	
 
 	}
+	/*
+	 * 회원수정용 서비스
+	 */
+	
+	public int updateMember(Member m) {
+		
+		Connection conn = getConnection();
+		
+		int result = new adMemberDao().updateMember(conn,m);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+
+	
+	
+	}
+	
+	
 	
 	
 	
 
-}
+

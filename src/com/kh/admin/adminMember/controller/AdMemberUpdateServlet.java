@@ -3,7 +3,6 @@ package com.kh.admin.adminMember.controller;
 import java.io.IOException;
 import java.sql.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +13,16 @@ import com.kh.admin.adminMember.model.service.adMemberService;
 import com.kh.member.model.vo.Member;
 
 /**
- * Servlet implementation class AdMemberDeleteServlet
+ * Servlet implementation class AdMemberUpdateServlet
  */
-@WebServlet("/deleteMember.ad")
-public class AdMemberDeleteServlet extends HttpServlet {
+@WebServlet("/updateMember.ad")
+public class AdMemberUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdMemberDeleteServlet() {
+    public AdMemberUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,18 +31,37 @@ public class AdMemberDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		/*
+		String id = request.getParameter("id");
+		String phone = request.getParameter("phone");
+		
+		Member m = new Member();
+		m.setMemberId(id);
+		m.setPhone(phone);
+		
+		int result = new adMemberService().updateMember(m);
+		
+		if(result > 0) {
+			response.sendRedirect("detail.ad?id=" + id);
+		}else {
+			
+		}
+		*/
+		String memberId = request.getParameter("memberId");
+		String phone = request.getParameter("phone");
 
+		Member m = new Member();
+		m.setMemberId(memberId);
+		m.setPhone(phone);
+				
 		
-		String mid = request.getParameter("mid");
-		
-		
-		
-		
-		int result = new adMemberService().deleteMember(mid);
+		int result = new adMemberService().updateMember(m);
 		
 		if(result > 0) {	// 성공
 			
-			response.sendRedirect("memberList.ad?mid="+mid);
+			response.sendRedirect("detail.ad?mid="+memberId);
+			request.setAttribute("msgAd", "수정 완료!");
 		}else {	// 실패
 			request.setAttribute("msg", "삭제 실패!");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
@@ -51,11 +69,7 @@ public class AdMemberDeleteServlet extends HttpServlet {
 		
 		
 		
-		
-		
-		
 	}
-		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
