@@ -125,7 +125,6 @@
 	</div>
 	
 	<script>
-	
 		$(function(){
 			$(".cpCartLogo").click(function(){
 				var proCode = $(this).parents(".categoryInnerTable").prev().val();

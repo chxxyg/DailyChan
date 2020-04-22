@@ -38,7 +38,6 @@ public class CartListServlet extends HttpServlet {
 		ArrayList<ShoppingCart> clist = new CartService().selectCart(memberId);
 		request.setAttribute("clist", clist);
 		request.getRequestDispatcher("views/product/cartPage.jsp").forward(request, response);
-		
 	}
 
 	/**

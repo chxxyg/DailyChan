@@ -24,8 +24,6 @@ public class CartService {
 		return msg;
 	}
 	
-	
-	
 	/** 2. 장바구니에 담긴 값들 조회해오는 메소드
 	 * @param memberId
 	 * @return

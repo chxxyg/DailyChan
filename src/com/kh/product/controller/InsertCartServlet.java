@@ -41,7 +41,6 @@ public class InsertCartServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print(msg);
 		
-		
 		/*if(memberId != null) {	// 회원 로그인한 경우
 		}
 		else {	// 비회원(로그인 안한) 경우

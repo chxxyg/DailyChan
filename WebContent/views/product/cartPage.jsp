@@ -162,7 +162,6 @@
     				$(".cartProductCheck").prop("checked", false);
     			}
     			
-    			
     		});
     		
     	});
