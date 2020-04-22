@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.product.model.service.ProductService;
+import com.kh.product.model.vo.PageInfo;
 import com.kh.product.model.vo.Product;
 
 /**
@@ -33,6 +34,45 @@ public class ProductListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+
+		// ------------ 페이징 처리 ------------
+		int listCount;		// 총 게시글 갯수
+		int currentPage;	// 현재 페이지 (즉, 요청한 페이지)
+		int startPage;		// 현재 페이지 하단에 보여지는 페이징바의 시작 수
+		int endPage;		// 현재 페이지 하단에 보여지는 페이징바의 끝 수
+		int maxPage;		// 전체 페이지에서의 가장 마지막 페이지
+		
+		int pageLimit;		// 한 페이지 하단에 보여질 페이지 최대 갯수
+		int boardLimit;		// 한 페이지에 보여질 게시글 최대 갯수
+	
+		// * listCount : 총 게시글 갯수
+		listCount = new ProductService().getListCount(request.getParameter("category"));
+		
+		// * currentPage : 현재 페이지 (즉, 요청한 페이지)
+		currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		
+		// * pageLimit : 한 페이지 하단에 보여질 페이지 최대 갯수
+		pageLimit = 5;
+		
+		// * boardLimit : 한 페이지에 보여질 게시글 최대 갯수
+		boardLimit = 12;
+		
+		// * maxPage : 총 페이지 수 
+		maxPage = (int)Math.ceil((double)listCount / boardLimit);
+		
+		// * startPage : 현재 페이지에 보여질 페이징바의 시작 수
+		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
+		
+		// * endPage : 한 페이지 하단에 보여질 페이징바의 끝 수
+		endPage = startPage + pageLimit - 1;
+		
+		// 단, maxPage가 고작 13까지 밖에 안되면?
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		
+		PageInfo pi = new PageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
+		
 		String category = request.getParameter("category");	
 		String title = "";
 
@@ -57,7 +97,8 @@ public class ProductListServlet extends HttpServlet {
 		case "sale" : title = "SALE"; break;
 		}
 		
-		ArrayList<Product> list = new ProductService().selectProList(category);
+		ArrayList<Product> list = new ProductService().selectProList(category, pi);
+		request.setAttribute("pi", pi);
 		
 		request.setAttribute("category", category);
 		request.setAttribute("title", title);
