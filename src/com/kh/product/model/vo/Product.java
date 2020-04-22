@@ -1,5 +1,7 @@
 package com.kh.product.model.vo;
 
+import java.sql.Date;
+
 public class Product {
 
 	private String proCode;				// 상품 코드
@@ -11,44 +13,49 @@ public class Product {
 	private int proReviewSum;      		// 상품 평점 (리뷰 총합)
 	private int proReviewCount;    		// 상품 리뷰 개수
 	private int proStandard;			// 상품 내용량 
+	private Date proDate;				// 상품 등록일
+	private int proSum;					// 상품 총 판매량
+	private String proSale;				// 상품 할인 상태
+	
     private String proSupplyName;       // 납품업체명
+    
 	private String atFileName;			// 상품에 해당하는 대표 첨부파일
+	
+	private double discountRate;			// 할인율
+	
 	
 	public Product() {
 		
 	}
 	
 	
-	// selectProList
-	public Product(String proCode, String proName, int proPrice, int proStock, int proStandard, String atFileName) {
+
+	/**
+	 * new, best, 한식, 양식, 아시안 productList 조회용 매개변수 
+	 */
+	public Product(String proCode, String proName, int proPrice, int proStandard, String atFileName) {
 		super();
 		this.proCode = proCode;
 		this.proName = proName;
 		this.proPrice = proPrice;
-		this.proStock = proStock;
 		this.proStandard = proStandard;
-		this.setAtFileName(atFileName);
+		this.atFileName = atFileName;
 	}
 
 
-
-	public Product(String proCode, String proName, int proPrice, String proCategory, int proStock, int proSupplyCoNo,
-			int proReviewSum, int proReviewCount, int proStandard) {
+	/**
+	 * sale productList 조회용 매개변수 
+	 */
+	public Product(String proCode, String proName, int proPrice, int proStandard, String atFileName, double discountRate) {
 		super();
 		this.proCode = proCode;
 		this.proName = proName;
 		this.proPrice = proPrice;
-		this.proCategory = proCategory;
-		this.proStock = proStock;
-		this.proSupplyCoNo = proSupplyCoNo;
-		this.proReviewSum = proReviewSum;
-		this.proReviewCount = proReviewCount;
 		this.proStandard = proStandard;
+		this.atFileName = atFileName;
+		this.discountRate = discountRate;
 	}
 
-	
-	
-	
 
 	/**
 	 * 관리자페이지 상품 등록 매개변수
@@ -64,8 +71,6 @@ public class Product {
 	}
 
 	
-	
-	
 	/**
 	 * 관리자페이지 상품 리스트페이지
 	 */
@@ -78,29 +83,29 @@ public class Product {
 		this.proSupplyName = proSupplyName;
 	}
 
-	
 
-	/**
-	 * 관리자페이지 상품 상세조회
-	 */
-	public Product(String proCategory, String proName, String proCode, String proSupplyName, int proPrice,  int proStock) {
+
+	// 전체 매개변수 생성자, setter/getter, toString 
+	
+	public Product(String proCode, String proName, int proPrice, String proCategory, int proStock, int proSupplyCoNo,
+			int proReviewSum, int proReviewCount, int proStandard, Date proDate, int proSum, String proSale,
+			String proSupplyName, String atFileName, int discountRate) {
 		super();
 		this.proCode = proCode;
 		this.proName = proName;
 		this.proPrice = proPrice;
 		this.proCategory = proCategory;
 		this.proStock = proStock;
+		this.proSupplyCoNo = proSupplyCoNo;
+		this.proReviewSum = proReviewSum;
+		this.proReviewCount = proReviewCount;
+		this.proStandard = proStandard;
+		this.proDate = proDate;
+		this.proSum = proSum;
+		this.proSale = proSale;
 		this.proSupplyName = proSupplyName;
-	}
-
-
-	public String getProSupplyName() {
-		return proSupplyName;
-	}
-
-
-	public void setProSupplyName(String proSupplyName) {
-		this.proSupplyName = proSupplyName;
+		this.atFileName = atFileName;
+		this.discountRate = discountRate;
 	}
 
 
@@ -108,79 +113,154 @@ public class Product {
 		return proCode;
 	}
 
+
+
 	public void setProCode(String proCode) {
 		this.proCode = proCode;
 	}
+
+
 
 	public String getProName() {
 		return proName;
 	}
 
+
+
 	public void setProName(String proName) {
 		this.proName = proName;
 	}
+
+
 
 	public int getProPrice() {
 		return proPrice;
 	}
 
+
+
 	public void setProPrice(int proPrice) {
 		this.proPrice = proPrice;
 	}
+
+
 
 	public String getProCategory() {
 		return proCategory;
 	}
 
+
+
 	public void setProCategory(String proCategory) {
 		this.proCategory = proCategory;
 	}
+
+
 
 	public int getProStock() {
 		return proStock;
 	}
 
+
+
 	public void setProStock(int proStock) {
 		this.proStock = proStock;
 	}
+
+
 
 	public int getProSupplyCoNo() {
 		return proSupplyCoNo;
 	}
 
+
+
 	public void setProSupplyCoNo(int proSupplyCoNo) {
 		this.proSupplyCoNo = proSupplyCoNo;
 	}
+
+
 
 	public int getProReviewSum() {
 		return proReviewSum;
 	}
 
+
+
 	public void setProReviewSum(int proReviewSum) {
 		this.proReviewSum = proReviewSum;
 	}
+
+
 
 	public int getProReviewCount() {
 		return proReviewCount;
 	}
 
+
+
 	public void setProReviewCount(int proReviewCount) {
 		this.proReviewCount = proReviewCount;
 	}
+
+
 
 	public int getProStandard() {
 		return proStandard;
 	}
 
+
+
 	public void setProStandard(int proStandard) {
 		this.proStandard = proStandard;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice=" + proPrice + ", proCategory="
-				+ proCategory + ", proStock=" + proStock + ", proSupplyCoNo=" + proSupplyCoNo + ", proReviewSum="
-				+ proReviewSum + ", proReviewCount=" + proReviewCount + ", proStandard=" + proStandard + "]";
+
+
+	public Date getProDate() {
+		return proDate;
+	}
+
+
+
+	public void setProDate(Date proDate) {
+		this.proDate = proDate;
+	}
+
+
+
+	public int getProSum() {
+		return proSum;
+	}
+
+
+
+	public void setProSum(int proSum) {
+		this.proSum = proSum;
+	}
+
+
+
+	public String getProSale() {
+		return proSale;
+	}
+
+
+
+	public void setProSale(String proSale) {
+		this.proSale = proSale;
+	}
+
+
+
+	public String getProSupplyName() {
+		return proSupplyName;
+	}
+
+
+
+	public void setProSupplyName(String proSupplyName) {
+		this.proSupplyName = proSupplyName;
 	}
 
 
@@ -193,6 +273,29 @@ public class Product {
 
 	public void setAtFileName(String atFileName) {
 		this.atFileName = atFileName;
+	}
+
+
+
+	public double getDiscountRate() {
+		return discountRate;
+	}
+
+
+
+	public void setDiscountRate(double discountRate) {
+		this.discountRate = discountRate;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice=" + proPrice + ", proCategory="
+				+ proCategory + ", proStock=" + proStock + ", proSupplyCoNo=" + proSupplyCoNo + ", proReviewSum="
+				+ proReviewSum + ", proReviewCount=" + proReviewCount + ", proStandard=" + proStandard + ", proDate="
+				+ proDate + ", proSum=" + proSum + ", proSale=" + proSale + ", proSupplyName=" + proSupplyName
+				+ ", atFileName=" + atFileName + ", discountRate=" + discountRate + "]";
 	}
 	
 }
