@@ -89,5 +89,8 @@
 	color: orange;
 	cursor: pointer;
 }
-
+#categoryWrap tr td
+{
+	z-index: 5;
+}
 
