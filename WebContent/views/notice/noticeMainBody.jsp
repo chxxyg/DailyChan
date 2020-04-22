@@ -137,9 +137,14 @@ p.content{
     border:1px solid #efefef;
     width: 760px;
     height: auto;
-    margin-top:5px;
-    border-radius: 10px;
+    margin: 0 0 15px 46px;
     display: none;
+    padding: 18px;
+    font-size: 14px;
+    background:#f2f5f7;
+    line-height: 22px;
+    word-break: break-all;
+    color: #000;
 }
 .cst_quick img{
 	position:absolute;

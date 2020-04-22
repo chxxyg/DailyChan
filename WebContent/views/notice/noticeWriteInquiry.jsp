@@ -1,5 +1,12 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	String MEMBERID = String.valueOf(session.getAttribute("memberId"));
+	String PASSWORD = String.valueOf(session.getAttribute("memberPwd"));
+	String MEMBERNAME = String.valueOf(session.getAttribute("memberName"));
+	/* Int PHONE = session.getAttribute("phone"); */
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -252,16 +259,16 @@ button em {
     display: block;
     margin-top: -2px;
 }
+</style>
+
 </head>
 <body>
 <%@ include file="../common/mainHeader.jsp" %>
 <%@ include file="../common/mainSideBar.jsp" %>
 <%@ include file="leftCategory.jsp" %>
 <%@ include file="noticeSearch.jsp" %>
- 
 
-
-  <form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post">
+ <form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post">
   	
   	 <h2>1:1 친절상담</h2>
     <div class="cst_slt">
@@ -320,6 +327,7 @@ button em {
         </dl>
         
         <dl>
+        
             <dt>상담 제품 선택</dt>
 		            <dd class="slt_btns">
 		                <!-- 레이어에서 제품 선택 된 후 case (class .on)  -->
@@ -327,6 +335,7 @@ button em {
 		            </dd>
 		        </dl>
   	</div>
+  	
 
 
 				<div class="sltd_tbl">
@@ -367,15 +376,15 @@ button em {
                 <tbody>
                     <tr>
                         <th scope="row">고객명</th>
-                     <td></td>
+                     <td><p><%= MEMBERNAME %></p></td>
                     </tr>
                     <tr>
                         <th scope="row">아이디</th>
-                       <td></td>
+                       <td><p><%= MEMBERID %></p></td>
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="tel_no1">휴대폰 번호</label>
+                            <label for="tel_no1"><%-- <%= PHONE %> --%></label>
                         </th>
                         
                         <td>
