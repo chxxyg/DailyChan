@@ -266,7 +266,7 @@ select {
 							<tbody>
 								<tr>
 									<th scope="row">아이디<em class="es">필수입력</em></th>
-									<td><span class="tx">okt0312</span></td>
+									<td><span class="tx"><%=loginUser.getMemberId() %></span></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="m_name">이름 및 성별</label><em class="es">필수입력</em></th>
@@ -324,11 +324,17 @@ select {
 									</td>
 								</tr>
 
+
+								<% 
+									StringBuffer userBirth = new StringBuffer(loginUser.getBirth());
+									userBirth.insert(4, '-');
+									userBirth.insert(7, '-');
+								%>
 								<tr>
 									<th scope="row">생년월일</th>
 									<td>
 										<span class="bir">
-										<input id="input_date" type="date" name="birthday">
+										<input id="input_date" type="date" name="birthday" value="<%=userBirth%>">
 										</span>
 									</td>
 								</tr>
