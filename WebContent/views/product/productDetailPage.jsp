@@ -2,6 +2,9 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
 <% 
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list"); 
+	ArrayList<AttachmentProduct> at = (ArrayList<AttachmentProduct>)request.getAttribute("at");
+	
+	String proCode = (String)request.getAttribute("proCode");
 	
 %>
 <!DOCTYPE html>

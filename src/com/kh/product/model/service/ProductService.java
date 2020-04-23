@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.product.model.dao.ProductDao;
+import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.PageInfo;
 import com.kh.product.model.vo.Product;
 
@@ -53,11 +54,18 @@ public class ProductService {
 	 * ProductDetail 조회 (해당하는 상품 불러와 상세 페이지 채우는 메소드)
 	 * @return
 	 */
-	public ArrayList<Product> selectProDetail(){
+	public ArrayList<Product> selectDetail(String proCode){
 		Connection conn = getConnection();
-		ArrayList<Product> list = new ProductDao().selectProDetail(conn);
+		ArrayList<Product> list = new ProductDao().selectDetail(conn, proCode);
 		close(conn);
 		return list;
+	}
+	
+	public ArrayList<AttachmentProduct> selectAttachment(String proCode){
+		Connection conn = getConnection();
+		ArrayList<AttachmentProduct> at = new ProductDao().selectAttachment(conn, proCode);
+		close(conn);
+		return at;
 	}
 	
 	

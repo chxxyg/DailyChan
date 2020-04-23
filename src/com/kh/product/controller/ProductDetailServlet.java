@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.product.model.service.ProductService;
+import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.Product;
 
 /**
@@ -32,9 +33,11 @@ public class ProductDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Product> list = new ProductService().selectProDetail();
+		String proCode = request.getParameter("proCode");
+		
+		ArrayList<Product> list = new ProductService().selectDetail(proCode);
 		request.setAttribute("list", list);
-
+		
 		
 		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 	

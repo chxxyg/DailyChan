@@ -27,6 +27,21 @@ public class AttachmentProduct {
 		this.atFileLevel = atFileLevel;
 		this.atFileMaxSize = atFileMaxSize;
 	}
+	
+	
+	
+	
+
+	public AttachmentProduct(int atProductCode, String atFileName, int atFileLevel) {
+		super();
+		this.atProductCode = atProductCode;
+		this.atFileName = atFileName;
+		this.atFileLevel = atFileLevel;
+	}
+	
+	
+	
+	
 
 	/**
 	 * 관리자페이지 상품 파일 업데이트를 위한 매개변수 

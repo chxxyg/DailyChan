@@ -8,10 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.PageInfo;
 import com.kh.product.model.vo.Product;
 
@@ -230,21 +230,45 @@ public class ProductDao {
 	}
 	
 	
-	public ArrayList<Product> selectProDetail(Connection conn){
+	public ArrayList<Product> selectDetail(Connection conn, String proCode){
 		
 		ArrayList<Product> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectProDetail");
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, proCode);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Product(rset.getString("PRODUCT_CODE"),
+									 rset.getString("PRODUCT_NAME"),
+									 rset.getInt("PRODUCT_PRICE"),
+									 rset.getDouble("REVIEW_SUM"),
+									 rset.getInt("REVIEW_COUNT")))
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		
 		
-		
-		
+		return list;
 	}
 	
 	
+	public ArrayList<AttachmentProduct> selectAttachment(Connection conn, String proCode){
+		
+		ArrayList<AttachmentProduct> at = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAttachment");
+		
+		return at;
+	}
 	
 	
 	
