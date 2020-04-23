@@ -49,9 +49,10 @@ public class InsertCartServlet extends HttpServlet {
 		
 		if(result > 0) { // 장바구니에 담기 성공
 			msg=1;
-		}/*else { // 장바구니에 담기 실패
-			//msg="장바구니 담기 실패";
-		}*/
+		}else { // 장바구니에 담기 실패 -> 에러페이지로
+			request.setAttribute("message", "장바구니 담기 실패");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
 		
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();

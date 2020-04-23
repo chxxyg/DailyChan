@@ -140,4 +140,24 @@ public class CartDao {
 		return result;
 	}
 	
+	public int deleteCart(Connection conn, String memberId, String proCode) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteCart");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, proCode);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 }

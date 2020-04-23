@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내가 작성한 후기</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 	.writtenRWrap{

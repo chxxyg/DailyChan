@@ -2,16 +2,17 @@ package com.kh.mypage.model.vo;
 
 import java.sql.Date;
 
-public class MyPage {
+public class Mypage {
 
-	private String orderNo;	//주문번호
-	private Date orderDate; //주문일
-	private String proCode; //상품코드
+	private String orderNo;		//주문번호
+	private Date orderDate; 	//주문일
+	private String proCode; 	//상품코드
 	private String fileName;	//상품대표이미지명
-	private String proName; //상품명
-	private int price;		//상품가격
-	private int quantity;	//상품주문수량
-	private int status;		//상태(0:결제전, 1:결제완료, 2:결제취소, 3:상품준비중, 4:배송중, 5:배송완료, 6:반품완료)
+	private String proName; 	//상품명
+	private int price;			//상품가격
+	private int quantity;		//상품주문수량
+	private int payAmount;		//주문총가격
+	private int status;			//상태(0:결제전, 1:결제완료, 2:결제취소, 3:상품준비중, 4:배송중, 5:배송완료, 6:반품완료)
 	private String couponCode;  //쿠폰코드
 	private int couponPrice;	//쿠폰금액
 	private String payType;		//결제방식
@@ -21,10 +22,10 @@ public class MyPage {
 	private String address;		//주소
 	private String delRequest;	//배송시요청사항
 	
-	public MyPage() { }
+	public Mypage() { }
 
-	public MyPage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
-			int quantity, int status, String couponCode, int couponPrice, String payType, Date payDate,
+	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
+			int quantity, int payAmount, int status, String couponCode, int couponPrice, String payType, Date payDate,
 			String recipient, String phone, String address, String delRequest) {
 		super();
 		this.orderNo = orderNo;
@@ -34,6 +35,7 @@ public class MyPage {
 		this.proName = proName;
 		this.price = price;
 		this.quantity = quantity;
+		this.payAmount = payAmount;
 		this.status = status;
 		this.couponCode = couponCode;
 		this.couponPrice = couponPrice;
@@ -99,6 +101,14 @@ public class MyPage {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public int getPayAmount() {
+		return payAmount;
+	}
+
+	public void setPayAmount(int payAmount) {
+		this.payAmount = payAmount;
 	}
 
 	public int getStatus() {
@@ -175,11 +185,11 @@ public class MyPage {
 
 	@Override
 	public String toString() {
-		return "MyPage [orderNo=" + orderNo + ", orderDate=" + orderDate + ", proCode=" + proCode + ", fileName="
-				+ fileName + ", proName=" + proName + ", price=" + price + ", quantity=" + quantity + ", status="
-				+ status + ", couponCode=" + couponCode + ", couponPrice=" + couponPrice + ", payType=" + payType
-				+ ", payDate=" + payDate + ", recipient=" + recipient + ", phone=" + phone + ", address=" + address
-				+ ", delRequest=" + delRequest + "]";
+		return "Mypage [orderNo=" + orderNo + ", orderDate=" + orderDate + ", proCode=" + proCode + ", fileName="
+				+ fileName + ", proName=" + proName + ", price=" + price + ", quantity=" + quantity + ", payAmount="
+				+ payAmount + ", status=" + status + ", couponCode=" + couponCode + ", couponPrice=" + couponPrice
+				+ ", payType=" + payType + ", payDate=" + payDate + ", recipient=" + recipient + ", phone=" + phone
+				+ ", address=" + address + ", delRequest=" + delRequest + "]";
 	}
-	
+
 }

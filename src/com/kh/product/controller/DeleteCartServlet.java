@@ -1,7 +1,7 @@
-package com.kh.mypage.controller;
+package com.kh.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.member.model.vo.Member;
-import com.kh.mypage.model.service.MyOrderService;
-import com.kh.mypage.model.vo.Mypage;
+import com.kh.product.model.service.CartService;
 
 /**
- * Servlet implementation class RecentViewServlet
+ * Servlet implementation class DeleteCartServlet
  */
-@WebServlet("/recentView.my")
-public class RecentViewServlet extends HttpServlet {
+@WebServlet("/deleteCart.pro")
+public class DeleteCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecentViewServlet() {
+    public DeleteCartServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,18 +31,42 @@ public class RecentViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		ArrayList<Mypage> myList = new MyOrderService().selectOrder(memberId);
 		
-		if(myList.isEmpty()) {
-			request.setAttribute("message", "에러발생");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}else {
-			request.setAttribute("myList", myList);
-			request.getRequestDispatcher("views/mypage/recentProductView.jsp").forward(request, response);
+		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
+		String[] pList = request.getParameterValues("pList");
+		
+		System.out.println(pList[0]);
+		
+		String[] pCodeArr = null;
+		
+		if(pList != null ){
+			pCodeArr = pList[0].split(",");
 		}
-	
+		
+		
+		int result = 0;
+		for(int i=0; i<pCodeArr.length; i++) {
+			
+			System.out.println(pCodeArr[i]);
+			result = new CartService().deleteCart(memberId, pCodeArr[i]);
+			if(result <= 0) {
+				break;
+			}
+		}
+		
+		String msg = "";
+		if(result > 0) { // 성공
+			msg = "성공";
+		}else { // 실패
+			msg="실패";//에러페이지
+		}
+		
+		//response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(msg);
+		
+		
+		
 	}
 
 	/**

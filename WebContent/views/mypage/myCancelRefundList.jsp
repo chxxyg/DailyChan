@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.mypage.model.vo.Mypage"%>
+<%
+	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>취소반품조회</title>
 <style>
 
 	/* 취소/반품 조회 틀 */
@@ -117,35 +120,38 @@
 					<th width="130px">처리일자</th>
 				</tr>
 			</thead>
+			
 			<tbody>
-				<tr>
-					<td>
-						<span style="color:blue;">20200429-1234567</span><br>
-						2020-04-29<br>
-					</td>
-					<td id="myCancelInfo">
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-							<p>결제수단 : 신용카드</p>
-						</div>
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-							<p>결제수단 : 신용카드</p>
-						</div>
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-							<p>결제수단 : 신용카드</p>
-						</div>
-					</td>
-					<td>취소완료</td>
-					<td>2020-05-01</td>
-				</tr>
+			<% for(Mypage my : myList){ %>
+					<tr>
+						<td>
+							<span style="color:blue;"><%= my.getOrderNo() %></span><br>
+							2020-04-29<br>
+						</td>
+						<td id="myCancelInfo">
+							<div>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<a class="pName"><b>데일리찬 상품명</b></a><br>
+								1개 / 12,000원
+								<p>결제수단 : 신용카드</p>
+							</div>
+							<div>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<a class="pName"><b>데일리찬 상품명</b></a><br>
+								1개 / 12,000원
+								<p>결제수단 : 신용카드</p>
+							</div>
+							<div>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<a class="pName"><b>데일리찬 상품명</b></a><br>
+								1개 / 12,000원
+								<p>결제수단 : 신용카드</p>
+							</div>
+						</td>
+						<td>취소완료</td>
+						<td>2020-05-01</td>
+					</tr>
+				<% } %>
 				<tr>
 					<td>
 						<span style="color:blue;">20200429-1234567</span><br>

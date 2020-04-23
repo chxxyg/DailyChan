@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.mypage.model.vo.Mypage"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,32 +92,36 @@
 				<th width="130px">진행상태</th>
 				<th width="130px">확인</th>
 			</tr>
-			<tr>
-				<td>
-					<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a><br>
-					2020-03-31<br>
-					<button class="ordDetailBtn" type="button">상세확인 ></button>
-				</td>
-				<td id="myMainOrderInfo">
-					<div>
-						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-						<a class="pName"><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-					<div>
-						<input type="hidden" class="pCode" value="KOA109"><!-- 상품코드 -->
-						<a class="pName"><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-					<div>
-						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-						<a class="pName"><b>데일리찬 상품명</b></a><br>
-						1개 / 12,000원
-					</div>
-				</td>
-				<td>결제완료</td>
-				<td>2020-03-31</td>
-			</tr>
+			
+			
+				
+					<tr>
+						<td>
+							<a style="color:blue; text-decoration: underline;" class="orderNo">주문번호</a><br>
+							주문일자<br>
+							<button class="ordDetailBtn" type="button">상세확인 ></button>
+						</td>
+						
+						<td id="myMainOrderInfo">
+							<div>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<a class="pName"><b>데일리찬상품명</b></a><br>
+								1개 / 12,000 원
+							</div>
+							<div>
+								<input type="hidden" class="pCode" value="KOA109"><!-- 상품코드 -->
+								<a class="pName"><b>데일리찬 상품명</b></a><br>
+								1개 / 12,000원
+							</div>
+							<div>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<a class="pName"><b>데일리찬 상품명</b></a><br>
+								1개 / 12,000원
+							</div>
+						</td>
+						<td>결제완료</td>
+						<td>2020-03-31</td>
+					</tr>
 		</table>
 
 		<br><br><br>
@@ -157,7 +162,9 @@
 	</div>
 	
 	<script>
-		
+			
+	
+	
 		$(function(){
 			
 			$(".orderNo").click(function(){

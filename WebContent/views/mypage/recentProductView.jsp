@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>최근 구매한 상품</title>
 <style>
 	
 	/* 최근 본 상품 */

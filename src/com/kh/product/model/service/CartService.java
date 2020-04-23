@@ -1,6 +1,9 @@
 package com.kh.product.model.service;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -61,6 +64,18 @@ public class CartService {
 		}else {
 			rollback(conn);
 		}
+		close(conn);
+		return result;
+	}
+	
+	/** 4. 장바구니에서 선택된 상품
+	 * @param memberId
+	 * @param proCode
+	 * @return
+	 */
+	public int deleteCart(String memberId, String proCode) {
+		Connection conn = getConnection();
+		int result = new CartDao().deleteCart(conn, memberId, proCode);
 		close(conn);
 		return result;
 	}

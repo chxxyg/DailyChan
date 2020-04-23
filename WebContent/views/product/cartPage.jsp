@@ -15,11 +15,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>장바구니</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/cartPage.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
+<style>
+	.selectedChk{
+		attr
+	}
+</style>
 <body>
 
 <!-- Header -->
@@ -64,8 +69,8 @@
 	            </tr>
             <% }else { %>
 	             <% for(ShoppingCart c : clist){ %>
-	             	<input type="hidden" id="sum" value="<%=sum%>">
-	             	<input type="hidden" id="delivery" value="<%=delivery%>">
+	             	<!-- <input type="hidden" id="sum" value="<%=sum%>"> -->
+	             	<!-- <input type="hidden" id="delivery" value="<%=delivery%>"> -->
 		            <input type="hidden" value="<%=c.getProCode()%>">
 		            <tr class="find" height="170">
 		                <td width="20"><input type="checkbox" class="cartProductCheck"></td>
@@ -121,6 +126,8 @@
     </div>
     
     <script>
+    
+    	/* 수량 변경 */
     	$(function(){
     		$(".minus").click(function(){
     			var q = Number($(this).next().val());
@@ -142,39 +149,34 @@
     			}
     		});
     		
+    		/* 수량 수정 */
     		$(".qty_edit").click(function(){
     			var proCode = $(this).parents(".find").prev().val();
     			var qty = $(this).siblings(".input").val();
+    			
     			var proPrice = $(this).parents(".find").find(".cartProductPrice").text();
-    			
-    			var qtyInput = $(this).siblings(".input");
     			var tpSpan = $(this).parents(".find").find(".productTotalPrice");
-    			var subTotal = $(".totalPrice");
-    			var del = $(".deliveryPrice");
-    			var total = $(".cartTotalPrice");
     			
-    			var sum = $("#sum").val();
-    			var delivery = $("#delivery").val();
     			
     			$.ajax({
     				url:"updateQty.pro",
     				data:{proCode:proCode, qty:qty},
     				type:"post",
     				success:function(){
-    					qtyInput.val(qty);
     					tpSpan.text(qty * proPrice);
-    					subTotal.text(sum);
-    					del.text(delivery);
-    					total.text(sum+delivery);
+    					
     				}, error:function(){
     					//console.log("ajax통신실패");
     				}
     			});
+    			
+    		// 힘내염!!!!! ㅎㅎ 이거 키감 디게 조으당 ㅋㅋㅋ 쩌네~	
+    			
     		});
     		
-    		//안된다고!!!!!!!!!!!!!!!!!!!!!
+    		/* 전체상품 선택 */
     		$("#cartTotalCheck").change(function(){
-    			if($(this).is(":cheked")){
+    			if($(this).is(":checked")){
     				$(".cartProductCheck").prop("checked", true);
     			}else{
     				$(".cartProductCheck").prop("checked", false);
@@ -182,8 +184,61 @@
     			
     		});
     		
-    	});
+    		/* 상품 선택 시 금액 변경 */
+    		/*
+    		$(".cartProductCheck:checked").each(function(){
+    			var chk = [];
+    			
+    		});
+    		*/
+    		
+    		/* 선택상품 삭제 */
+    		$("#cartDeleteBtn").click(function(){
+    			 var pList = []; // key 값을 담을 배열
+    		       $('.cartProductCheck:checked').each(function(i){
+    		          pList.push($(this).parents(".find").prev().val());
+    		       });
+    		
+    			 	console.log(pList);
+    			 
+    				$.ajax({
+    					url:"deleteCart.pro",
+    					traditional:true,
+    					data:{'pList':pList},
+    					type:"get",
+    					success:function(msg){
+    						alert(msg);
+    					}, error:function(){
+    						
+    					}
+    					
+    				});
+    		       
+    		   });
+    		});
+    		
     
+    	
+    	/* 총 금액 변경
+		var subTotal = $(".totalPrice");
+		var del = $(".deliveryPrice");
+		var total = $(".cartTotalPrice");
+		
+		var sum = Number($("#sum").val());
+		var delivery = Number($("#delivery").val());
+		
+		console.log(sum);
+		console.log(delivery);
+		console.log(sum+delivery);
+		
+		성공 시 변경
+		subTotal.text(sum);
+		del.text(delivery);
+		total.text(sum+delivery);
+		*/
+		
+    	
+    	
     </script>
     
 

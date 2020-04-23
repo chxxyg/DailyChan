@@ -1,11 +1,19 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.kh.member.model.vo.Member;
+import com.kh.mypage.model.service.MyOrderService;
+import com.kh.mypage.model.vo.Mypage;
 
 /**
  * Servlet implementation class CancelRefundListServlet
@@ -27,7 +35,16 @@ public class CancelRefundListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("views/mypage/myCancelRefundList.jsp").forward(request, response);
+		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
+		ArrayList<Mypage> myList = new MyOrderService().selectOrder(memberId);
+		
+		if(myList.isEmpty()) {
+			request.setAttribute("message", "에러발생");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}else {
+			request.setAttribute("myList", myList);
+			request.getRequestDispatcher("views/mypage/myCancelRefundList.jsp").forward(request, response);
+		}
 	
 	}
 

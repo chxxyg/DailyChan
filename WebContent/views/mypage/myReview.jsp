@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>고객후기</title>
 <style>
 	
 	/* 고객 후기 조회 */

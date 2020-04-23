@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>주문배송조회</title>
 <style>
 	/* 주문배송조회 */
 	.orderDeliveryList{
