@@ -206,7 +206,6 @@ public class MemberDao {
 		return result;
 	}
 	
-	
 
 	/**
 	 *  아이디 찾기
@@ -216,10 +215,8 @@ public class MemberDao {
 	 * @return
 	 * 
 	 */
-	public String searchId(String id_name, String id_email) {
-				
-		Connection conn = getConnection();
-		
+	public String searchId(Connection conn, String id_name, String id_email) {
+						
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String memberId = null;
@@ -230,7 +227,6 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id_name);
 			pstmt.setString(2, id_email);
-			
 			
 			rset=pstmt.executeQuery();
 			
@@ -249,13 +245,17 @@ public class MemberDao {
 		
 	}
 	
-	public String searchPwd(String pw_id, String pw_name) {
-		
-		Connection conn = getConnection();
-		
+	/**
+	 * 비밀번호 찾기
+	 * @param pw_id
+	 * @param pw_name
+	 * @return
+	 */
+	public String searchPwd(Connection conn, String pw_id, String pw_name) {
+				
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String memberId = null;
+		String memberPwd = null;
 		
 		String sql = prop.getProperty("searchPwd");
 		
@@ -267,7 +267,7 @@ public class MemberDao {
 			rset=pstmt.executeQuery();
 			
 			if(rset.next()) {
-				memberId=rset.getString("PASSWORD");
+				memberPwd=rset.getString("PASSWORD");
 			}
 			
 			
@@ -278,7 +278,7 @@ public class MemberDao {
 			close(pstmt);
 		}
 		
-		return memberId;
+		return memberPwd;
 		
 	}
 

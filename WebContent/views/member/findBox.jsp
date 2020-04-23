@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>아이디/비밀번호 찾기</title>
 <style>
 
  	.content{
@@ -143,7 +143,7 @@ table{
 									<input type="text" name="pw_name" id="pw_name" class="login_input" maxlength="10" placeholder="개인: 이름  입력" required>
 
 									<br>
-									<button class="btn_login" type="button" id="btn_find_pw">
+									<button class="btn_login" type="submit" id="btn_find_pw">
 										<em>비밀번호 찾기</em>
 									</button>
 
