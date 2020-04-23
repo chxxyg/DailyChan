@@ -16,12 +16,13 @@ public class Product {
 	private Date proDate;				// 상품 등록일
 	private int proSum;					// 상품 총 판매량
 	private String proSale;				// 상품 할인 상태
+	private String proSaleYn;			// 상품 세일 여부
 	
     private String proSupplyName;       // 납품업체명
     
 	private String atFileName;			// 상품에 해당하는 대표 첨부파일
 	
-	private double discountRate;			// 할인율
+	private double discountRate;		// 할인율
 	
 	
 	public Product() {
@@ -33,20 +34,21 @@ public class Product {
 	/**
 	 * new, best, 한식, 양식, 아시안 productList 조회용 매개변수 
 	 */
-	public Product(String proCode, String proName, int proPrice, int proStandard, String atFileName) {
+	public Product(String proCode, String proName, int proPrice, int proStandard, String atFileName, String proSaleYn) {
 		super();
 		this.proCode = proCode;
 		this.proName = proName;
 		this.proPrice = proPrice;
 		this.proStandard = proStandard;
 		this.atFileName = atFileName;
+		this.proSaleYn = proSaleYn;
 	}
 
 
 	/**
 	 * sale productList 조회용 매개변수 
 	 */
-	public Product(String proCode, String proName, int proPrice, int proStandard, String atFileName, double discountRate) {
+	public Product(String proCode, String proName, int proPrice, int proStandard, String atFileName, double discountRate, String proSaleYn) {
 		super();
 		this.proCode = proCode;
 		this.proName = proName;
@@ -54,6 +56,7 @@ public class Product {
 		this.proStandard = proStandard;
 		this.atFileName = atFileName;
 		this.discountRate = discountRate;
+		this.proSaleYn = proSaleYn;
 	}
 
 
@@ -84,12 +87,14 @@ public class Product {
 	}
 
 
+	
+
 
 	// 전체 매개변수 생성자, setter/getter, toString 
-	
+
 	public Product(String proCode, String proName, int proPrice, String proCategory, int proStock, int proSupplyCoNo,
 			int proReviewSum, int proReviewCount, int proStandard, Date proDate, int proSum, String proSale,
-			String proSupplyName, String atFileName, int discountRate) {
+			String proSaleYn, String proSupplyName, String atFileName, double discountRate) {
 		super();
 		this.proCode = proCode;
 		this.proName = proName;
@@ -103,10 +108,12 @@ public class Product {
 		this.proDate = proDate;
 		this.proSum = proSum;
 		this.proSale = proSale;
+		this.proSaleYn = proSaleYn;
 		this.proSupplyName = proSupplyName;
 		this.atFileName = atFileName;
 		this.discountRate = discountRate;
 	}
+
 
 
 	public String getProCode() {
@@ -253,6 +260,18 @@ public class Product {
 
 
 
+	public String getProSaleYn() {
+		return proSaleYn;
+	}
+
+
+
+	public void setProSaleYn(String proSaleYn) {
+		this.proSaleYn = proSaleYn;
+	}
+
+
+
 	public String getProSupplyName() {
 		return proSupplyName;
 	}
@@ -294,8 +313,11 @@ public class Product {
 		return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice=" + proPrice + ", proCategory="
 				+ proCategory + ", proStock=" + proStock + ", proSupplyCoNo=" + proSupplyCoNo + ", proReviewSum="
 				+ proReviewSum + ", proReviewCount=" + proReviewCount + ", proStandard=" + proStandard + ", proDate="
-				+ proDate + ", proSum=" + proSum + ", proSale=" + proSale + ", proSupplyName=" + proSupplyName
-				+ ", atFileName=" + atFileName + ", discountRate=" + discountRate + "]";
+				+ proDate + ", proSum=" + proSum + ", proSale=" + proSale + ", proSaleYn=" + proSaleYn
+				+ ", proSupplyName=" + proSupplyName + ", atFileName=" + atFileName + ", discountRate=" + discountRate
+				+ "]";
 	}
+
+
 	
 }
