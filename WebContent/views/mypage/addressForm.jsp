@@ -347,6 +347,8 @@
 
 		</div>
 			<%@ include file="../../views/common/mainFooter.jsp" %>
+			
+			
 		
 </body>
 </html>

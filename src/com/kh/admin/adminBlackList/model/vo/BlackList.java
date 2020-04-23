@@ -22,6 +22,16 @@ public class BlackList {
 		this.penaltyDate = penaltyDate;
 		this.nonblockYn = nonblockYn;
 	}
+	/*
+	 * 상세조회용
+	 */
+	public BlackList(String memberId, String penaltyCuase, Date penaltyDate, String nonblockYn) {
+		super();
+		this.memberId = memberId;
+		this.penaltyCuase = penaltyCuase;
+		this.penaltyDate = penaltyDate;
+		this.nonblockYn = nonblockYn;
+	}
 
 	public int getBlackNo() {
 		return blackNo;

@@ -64,4 +64,34 @@ private Properties prop = new Properties();
 		return list;
 	}
 
+	public BlackList searchBlackList(Connection conn, int bno) {
+		
+		BlackList b = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("searchBlackList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				b = new BlackList(rset.getInt("BLACKLIST_NO"),
+								  rset.getString("MEMBER_ID"),
+						          rset.getString("PENALTY_CUASE"),
+						          rset.getDate("PENALTY_DATE"),
+						          rset.getString("NONBLOCK_YN"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return b;
+	}
+
 }

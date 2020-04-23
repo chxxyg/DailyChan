@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>블랙리스트 조회</title>
     <style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -116,7 +116,7 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;블랙리스트</h1>
         <br>
-        	<form id="blackListForm" action="<%=contextPath%>/memberSearch.ad" method="post">회원 ID 
+        	<form id="blackListForm" action="<%=contextPath%>/blackListSearch.ad" method="post">회원 ID 
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>       	
         <div id="allcount">
@@ -154,9 +154,9 @@
    			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			var mid = $(this).children().eq(0).text();
+	   			var bno = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/detail.ad?mid=" + mid; 
+	 			location.href="<%= contextPath%>/blackListDetail.ad?bno=" + bno; 
  			});
  
    		});   
