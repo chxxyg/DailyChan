@@ -87,6 +87,9 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
     margin-top: 3px;
     padding-left: 100px;
     color: #fe0000;
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: -0.4px;
 }
 #pop_addr_modi .cont_d {
     float: left;
@@ -199,9 +202,18 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 {
     font-style: normal;
 }
+#pop_addr_modi .insert_name {
+    float: left;
+    width: 271px;
+    min-height: 36px;
+    font-size: 14px;
+    color: #999;
+}
 
 </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/dailyChan/resources/js/addressModifyForm.js" rel="javascript" type="text/javascript"></script>
 </head>
 <body>
 <div class="pop_wrap" id="pop_addr_modi">
@@ -216,7 +228,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 				<div class="cont_wrap">
 					<label for="addr">주소 <em>*<span class="ir">필수정보</span></em></label>
 					<div class="cont_d addr">
-						<button class="zip" id="zipcode_button" title="우편번호 찾기(새창)" onclick="openDaumZipAddress();"><em>우편번호 찾기</em></button>
+						<button class="zip" id="zipcode_button" title="우편번호 찾기(새창)"><em>우편번호 찾기</em></button>
 						<!--  초기화면  -->
 						<span class="txt" id="base_addr_info">
 						우편번호 찾기를 통해 주소를 확인하신 후 상세주소를 <br>아래에 입력해주시기 바랍니다.
@@ -238,7 +250,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 					<label for="celluar">휴대전화 <em>*<span class="ir">필수정보</span></em></label>
 					<div class="cont_d celluar">
 						<select title="휴대폰번호 첫번째 자리" id="cell_no1" name="cell_no1" data-role="input" data-message="휴대 전화번호를 입력해 주세요" data-input="input" data-input-name="cell_no">
-							<option value="">선택</option><option value="010">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option><option value="0502">0502</option><option value="0503">0503</option><option value="0504">0504</option><option value="0505">0505</option><option value="0506">0506</option><option value="0507">0507</option>
+							<option value="">선택</option><option value="010">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option>
 						</select>
 						<span class="dash">-</span>
 						<input type="text" class="input_txt" title="휴대폰번호 두번째 자리" name="cell_no2" id="cell_no2" maxlength="4" data-role="input" data-message="휴대 전화번호를 입력해 주세요" data-check="number" data-min-length="3" data-input="input" data-input-name="cell_no" data-input-no="1">
@@ -256,29 +268,6 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 	</div>
 	<script type="text/javascript">
 
-		function openDaumZipAddress() {
-
-			new daum.Postcode({
-
-				oncomplete:function(data) {
-
-					jQuery("#postcode1").val(data.postcode1);
-
-					jQuery("#postcode2").val(data.postcode2);
-
-					jQuery("#zonecode").val(data.zonecode);
-
-					jQuery("#address").val(data.address);
-
-					jQuery("#address_etc").focus();
-
-					console.log(data);
-
-				}
-
-			}).open();
-
-		}
 
 	</script>
 </body>
