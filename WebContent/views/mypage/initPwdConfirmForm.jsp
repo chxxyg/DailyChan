@@ -12,11 +12,16 @@
 <title>본인 확인</title>
 </head>
 <style>
+	body
+	{
+		width: 1000px;
+		margin: auto;
+	}
 	#inputPwd
 	{
 		position: relative;
 	    float: left;
-	    width: 860px;
+	    width: 800px;
 	    height: 700px;
 	    padding: 0 0 40px;
 	}

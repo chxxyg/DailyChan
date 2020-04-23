@@ -86,14 +86,14 @@ $(document).ready(function(){
 				_reload();
 			}
 		}
-		if ($.type(callback) == "function") {
-			overpass.popup.callback = function(data) {
-				callback(data);
-			};				
-		} else {
-			overpass.popup.callback = callback;
-		};		
-		overpass.popup.open({id: "_MODIFY_DLVP_POPUP_",url: "/mypage/modifyDlvpForm.action?"+params,width:"420",height:"544"});
+//		if ($.type(callback) == "function") {
+//			overpass.popup.callback = function(data) {
+//				callback(data);
+//			};				
+//		} else {
+//			overpass.popup.callback = callback;
+//		};		
+		window.open("/dailyChan/addressModify.my?" + params, "배송지 추가/수정", "width=420, height=544, top=50, left=500, location=no ");
 	});
 	
 	// 기본배송지 수정 이벤트
@@ -114,11 +114,4 @@ $(document).ready(function(){
 		deleteAction();
 	});
 	
-	//페이지 이동
-	$("#box_page").createAnchor({
-		name: "page_idx", // 해당 페이지 앵커의 페이지번호 패러미터명과 일치하여야 함. 디폴트는 page_no
-		fn: function(page, parameters) {
-			location.href = "/mypage/initAddressList.action?page_idx=" + page + "&" + parameters;
-		}
-	});	
 });
