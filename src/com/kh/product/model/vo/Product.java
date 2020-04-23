@@ -2,6 +2,10 @@ package com.kh.product.model.vo;
 
 import java.sql.Date;
 
+/**
+ * @author 채영
+ *
+ */
 public class Product {
 
 	private String proCode;				// 상품 코드
@@ -15,7 +19,6 @@ public class Product {
 	private int proStandard;			// 상품 내용량 
 	private Date proDate;				// 상품 등록일
 	private int proSum;					// 상품 총 판매량
-	private String proSale;				// 상품 할인 상태
 	private String proSaleYn;			// 상품 세일 여부
 	
     private String proSupplyName;       // 납품업체명
@@ -64,6 +67,35 @@ public class Product {
 	}
 
 
+	
+	
+	/**
+	 * productDetail
+	 */
+	public Product(String proCode, String proName, int proPrice, int proReviewSum, int proReviewCount, String proSaleYn,
+			String atFileName, double discountRate, String atDetailFileName, String atInfoFileName) {
+		super();
+		this.proCode = proCode;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proReviewSum = proReviewSum;
+		this.proReviewCount = proReviewCount;
+		this.proSaleYn = proSaleYn;
+		this.atFileName = atFileName;
+		this.discountRate = discountRate;
+		this.atDetailFileName = atDetailFileName;
+		this.atInfoFileName = atInfoFileName;
+	}
+
+
+	
+	
+	
+	
+	
+	
+
+
 	/**
 	 * 관리자페이지 상품 등록 매개변수
 	 */
@@ -106,7 +138,7 @@ public class Product {
 	// 전체 매개변수 생성자, setter/getter, toString 
 
 	public Product(String proCode, String proName, int proPrice, String proCategory, int proStock, int proSupplyCoNo,
-			int proReviewSum, int proReviewCount, int proStandard, Date proDate, int proSum, String proSale,
+			int proReviewSum, int proReviewCount, int proStandard, Date proDate, int proSum,
 			String proSaleYn, String proSupplyName, String atFileName, double discountRate, String atDetailFileName,
 			String atInfoFileName) {
 		super();
@@ -121,7 +153,6 @@ public class Product {
 		this.proStandard = proStandard;
 		this.proDate = proDate;
 		this.proSum = proSum;
-		this.proSale = proSale;
 		this.proSaleYn = proSaleYn;
 		this.proSupplyName = proSupplyName;
 		this.atFileName = atFileName;
@@ -287,20 +318,6 @@ public class Product {
 
 
 
-	public String getProSale() {
-		return proSale;
-	}
-
-
-
-
-	public void setProSale(String proSale) {
-		this.proSale = proSale;
-	}
-
-
-
-
 	public String getProSaleYn() {
 		return proSaleYn;
 	}
@@ -390,7 +407,7 @@ public class Product {
 		return "Product [proCode=" + proCode + ", proName=" + proName + ", proPrice=" + proPrice + ", proCategory="
 				+ proCategory + ", proStock=" + proStock + ", proSupplyCoNo=" + proSupplyCoNo + ", proReviewSum="
 				+ proReviewSum + ", proReviewCount=" + proReviewCount + ", proStandard=" + proStandard + ", proDate="
-				+ proDate + ", proSum=" + proSum + ", proSale=" + proSale + ", proSaleYn=" + proSaleYn
+				+ proDate + ", proSum=" + proSum + ", proSaleYn=" + proSaleYn
 				+ ", proSupplyName=" + proSupplyName + ", atFileName=" + atFileName + ", discountRate=" + discountRate
 				+ ", atDetailFileName=" + atDetailFileName + ", atInfoFileName=" + atInfoFileName + "]";
 	}
