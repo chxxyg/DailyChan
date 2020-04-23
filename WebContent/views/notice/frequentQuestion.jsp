@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>자주하는 질문</title>
 <style>
 
 .cstOuter{
@@ -169,7 +168,6 @@ p.content{
    	border: 1px solid grey;
     border-bottom: 0;
     background: #fff;
-    font-weight: bold;
     line-height: 37px;
     color: #f7702e;
     float:left;
@@ -186,12 +184,14 @@ p.content{
     bottom: 0;
     left: 0;
     z-index: 0;
-    width: 99999%;
-    height: 2px;
+    width: 1222px;
+    height: 1px;
     margin-left: -1080px;
     content: "";
     background: #f7702e;
-}
+    font-weight: bold;
+    
+} 
 .tab_menu .tab {
     display: block;
     position: absolute;
@@ -212,6 +212,7 @@ p.content{
 }
 .tab_menu .tab.t2 {
     left: 143px;
+    font-size:14px;
 }
 .tab_menu .tab.t3 {
     left: 286px;
@@ -234,7 +235,6 @@ p.content{
     width: 143px;
     height: 40px;
     border: 1px solid #dbdbdb;
-/*     border-width: 1px 0; */
     background: #f9f9f9;
     font-size: 14px;
     line-height: 38px;
@@ -245,7 +245,6 @@ p.content{
 a{
     text-decoration: none;
 	cursor:hover;
-
 }
 #text{
 	font-weight:100;
@@ -256,14 +255,9 @@ form{
 input {
     vertical-align: middle;
 }
-/* #searchLogo1{
-float:left;
-margin-right:10px;
-} */
 .result{
 float:left;
 margin-left:-50px;
-
 }
 
 
@@ -284,6 +278,7 @@ span.icon{
 
 	margin-right:15px;
 }
+
 </style>
 </head>
 <body>
@@ -312,14 +307,13 @@ span.icon{
 		        </form>
 		        
 		        <ul class="fav_word">
-		            <li><a href="">쿠폰</a></li>
-		            <li><a href="">배송</a></li>
-		            <li><a href="">회원</a></li>
-		            <li><a href="">적립금</a></li>
-		            <li><a href="">이벤트</a></li>
+		            <li><a href="#tab_con3">쿠폰</a></li>
+		            <li><a href="#tab_con3">배송</a></li>
+		            <li><a href="#tab_con5">회원</a></li>
+		            <li><a href="#tab_con4">적립금</a></li>
+		            <li><a href="#tab_con4">이벤트</a></li>
 		        </ul>
-		    </div>
-<!-- --------------------------------------------------------------- -->		    
+		    </div>    
 		    
 		    <!--  search 폼 -->
 		    <form id="searchForm" method="post">
@@ -331,7 +325,7 @@ span.icon{
 				<ul class="result">
 	
 					<li class="on">
-						<a href="#tab_con1" class="tab t1" data-prop_dtl_no="9999">실시간 BEST</a>
+						<a name="tab_con1" class="tab t1">실시간 BEST</a>
 							
 							 <div class="content1">
 							 
@@ -356,7 +350,7 @@ span.icon{
 					           
 				       		</div>
 						
-						<a href="#tab_con2" class="tab t2" data-prop_dtl_no="13">주문/취소</a>
+						<a name="tab_con2" class="tab t2">주문/취소</a>
 						   <div class="content1">
 
 					            <div class="q"><span class="icon">Q</span>주문마감시간 전인데 희망배송일이 선택 되지 않아요!</div>
@@ -419,7 +413,7 @@ span.icon{
 				       		</div>
 						
 						
-						<a href="#tab_con3" class="tab t3" data-prop_dtl_no="14">배송</a>
+						<a name="tab_con3" class="tab t3">배송</a>
 						 <div class="content1">
 
 					            <div class="q"><span class="icon">Q</span>배송비는 얼마인가요?</div>
@@ -450,7 +444,7 @@ span.icon{
 										또한, 배송지, 공동현관문 비밀번호, 오기재 (미기재)로 인해 배송오류는 당사가 책임지지 않습니다.</p>
 				       		</div>
 						
-						<a href="#tab_con4" class="tab t4" data-prop_dtl_no="21">쿠폰/기타</a>
+						<a name="tab_con4" class="tab t4" data-prop_dtl_no="21">쿠폰/기타</a>
 						 <div class="content1">
 
 					            <div class="q"><span class="icon">Q</span>적립금 사용기한은 어떻게 되나요?</div>
@@ -483,7 +477,7 @@ span.icon{
 					           
 				       		</div>
 
-						<a href="#tab_con5" class="tab t5" data-prop_dtl_no="31">회원정보</a>
+						<a name="tab_con5" class="tab t5">회원정보</a>
 						 <div class="content1">
 						 
 							<div class="q"><span class="icon">Q</span>아이디/비밀번호를 잃어버렸어요!</div>
@@ -510,7 +504,7 @@ span.icon{
 				       		</div>
 						
 						
-						<a href="#tab_con6" class="tab t6" data-prop_dtl_no="80">제품</a>
+						<a name="tab_con6" class="tab t6">제품</a>
 						 <div class="content1">
 
 					            <div class="q"><span class="icon">Q</span>제품의 유통기한과 원산지는 어떻게 되나요?</div>
@@ -568,7 +562,7 @@ span.icon{
         		 	$(this).siblings("a").css("color","gray");
                     $(this).css("color", "rgb(247, 112, 46)");
                     $(this).css("border", "2px solid rgb(247, 112, 46");
-                    $(this).siblings("a").css("border", "2px solid gray");
+                    $(this).siblings("a").css("border", "1.5px solid gray");
       
                 });
             });
