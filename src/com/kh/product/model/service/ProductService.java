@@ -12,8 +12,6 @@ import com.kh.product.model.vo.Product;
 
 public class ProductService {
 	
-	
-	
 	/**
 	 * paging 처리를 위한 메소드
 	 * @param category
@@ -21,15 +19,10 @@ public class ProductService {
 	 */
 	public int getListCount(String category) {
 		Connection conn = getConnection();
-		
 		int listCount = new ProductDao().getListCount(conn, category);
-		
 		close(conn);
-		
 		return listCount;
-		
 	}
-	
 	
 	/**
 	 * ProductList 조회 (카테고리별로 상품 불러오는 메소드)
@@ -38,26 +31,56 @@ public class ProductService {
 	 * @return
 	 */
 	public ArrayList<Product> selectProList(String category, PageInfo pi) {
-		
 		Connection conn = getConnection();
-		
 		ArrayList<Product> list = new ProductDao().selectProList(conn, category, pi);
-		
 		close(conn);
-		
 		return list;
 	}
 	
+	/**
+	 * SearchResult 조회 (키워드 검색 후 해당하는 상품 불러오는 메소드)
+	 * @param keyword
+	 * @return
+	 */
 	public ArrayList<Product> searchResult(String keyword){
-		
 		Connection conn = getConnection();
-		
 		ArrayList<Product> list = new ProductDao().searchResult(conn, keyword);
-		
 		close(conn);
-		
 		return list;
 	}
+	
+	/**
+	 * ProductDetail 조회 (해당하는 상품 불러와 상세 페이지 채우는 메소드)
+	 * @return
+	 */
+	public ArrayList<Product> selectProDetail(){
+		Connection conn = getConnection();
+		ArrayList<Product> list = new ProductDao().selectProDetail(conn);
+		close(conn);
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 

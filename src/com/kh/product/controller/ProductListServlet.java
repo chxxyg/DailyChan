@@ -104,8 +104,7 @@ public class ProductListServlet extends HttpServlet {
 		request.setAttribute("title", title);
 		request.setAttribute("list", list);
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/product/productListPage.jsp");
-		view.forward(request, response);
+		request.getRequestDispatcher("views/product/productListPage.jsp").forward(request, response);
 		
 	}
 

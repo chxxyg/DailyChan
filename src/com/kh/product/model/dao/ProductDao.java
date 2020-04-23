@@ -59,9 +59,7 @@ public class ProductDao {
 			close(rset);
 			close(pstmt);
 		}
-		
 		return listCount;
-		
 	}
 	
 	
@@ -105,7 +103,6 @@ public class ProductDao {
 				close(rset);
 				close(pstmt);
 			}
-
 			
 		} else if(category.equals("best")) {
 
@@ -136,7 +133,6 @@ public class ProductDao {
 				close(pstmt);
 			}
 			
-			
 		} else if(category.equals("sale")) {
 			
 			sql = prop.getProperty("selectSaleList");
@@ -165,7 +161,6 @@ public class ProductDao {
 				close(rset);
 				close(pstmt);
 			}
-			
 			
 		} else {
 			
@@ -196,13 +191,16 @@ public class ProductDao {
 				close(rset);
 				close(pstmt);
 			}
-		
 		}
-
 		return list;
-		
 	}
 	
+	/**
+	 * SearchResult 조회 (키워드 검색 후 해당하는 상품 불러오는 메소드)
+	 * @param conn
+	 * @param keyword
+	 * @return
+	 */
 	public ArrayList<Product> searchResult(Connection conn, String keyword){
 
 		ArrayList<Product> list = new ArrayList<>();
@@ -228,10 +226,43 @@ public class ProductDao {
 			close(rset);
 			close(pstmt);
 		}
-		
 		return list;
+	}
+	
+	
+	public ArrayList<Product> selectProDetail(Connection conn){
+		
+		ArrayList<Product> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProDetail");
+		
+		
+		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 }
