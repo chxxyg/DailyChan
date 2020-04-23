@@ -353,7 +353,83 @@ public class AdProductDao {
 		return result;
 			
 			
-	}		
+	}	
+	
+	
+	/**
+	 * 상품이름으로 검색하는 dao
+	 * @param pi 페이징바에대한 객체
+	 * @param productName 상품이름에대한 객체
+	 * @return
+	 */
+	public ArrayList<Product> searchProduct(Connection conn, AdPageInfo pi, String productName){
+		
+		ArrayList<Product> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("searchProduct");
+		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + productName + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new Product(rset.getString("PRODUCT_CODE"),
+						              rset.getString("SUPPLY_CO_NAME"),
+						              rset.getString("PRODUCT_NAME"),
+						              rset.getInt("PRODUCT_PRICE"),
+						              rset.getInt("PRODUCT_STOCK")));				
+			}			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	/**
+	 * 조회시 나오는 상품의 총 갯수
+	 * @param conn
+	 * @param productName 입력값
+	 * @return
+	 */
+	public int adProductCount(Connection conn, String productName) {
+		
+		int countProduct = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countListProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+productName+"%");
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				countProduct = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return countProduct;
+		
+	}
 		
 
 }
