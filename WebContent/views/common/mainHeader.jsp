@@ -151,8 +151,8 @@
 	}
 	#navi>li{
 	    float: left;
-	    height: 40px;
-	    width: 124px;
+	    height: 70px;
+	    width: 140px;
 	    text-align: center;
 	    margin:auto;
 	}
@@ -327,16 +327,6 @@
                         </ul>
                     </li>
 
-                    <li><a href="<%= contextPath %>/cdList.pro">찬DAY</a>
-                        <ul>
-                            <li><a href="">전체보기</a></li>
-                            <li><a href="">메인반찬</a></li>
-                            <li><a href="">밑반찬</a></li>
-                            <li><a href="">김치</a></li>
-                            <li><a href="">나물</a></li>
-
-                        </ul>
-                    </li>
                     <li><a href="<%= contextPath %>/eMain.pro">EVENT</a></li>
 
                 </ul>
