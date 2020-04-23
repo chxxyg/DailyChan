@@ -1,4 +1,4 @@
-package com.kh.mypage.vo;
+package com.kh.mypage.model.vo;
 
 public class Address
 {
@@ -6,14 +6,14 @@ public class Address
     private String memberId;        // 회원아이디
     private String zipCode;         // 우편번호
     private String address;         // 배송지 주소
-    private String addressDerail;   // 배송지 상세주소
+    private String addressDetail;   // 배송지 상세주소
     private String phone;           // 전화번호
     private String addressDefault;  // 기본 배송지 유무
     
     public Address() {}
 
     public Address(int addressNo, String memberId, String zipCode,
-            String address, String addressDerail, String phone,
+            String address, String addressDetail, String phone,
             String addressDefault)
     {
         super();
@@ -21,7 +21,7 @@ public class Address
         this.memberId = memberId;
         this.zipCode = zipCode;
         this.address = address;
-        this.addressDerail = addressDerail;
+        this.addressDetail = addressDetail;
         this.phone = phone;
         this.addressDefault = addressDefault;
     }
@@ -66,14 +66,14 @@ public class Address
         this.address = address;
     }
 
-    public String getAddressDerail()
+    public String getaddressDetail()
     {
-        return addressDerail;
+        return addressDetail;
     }
 
-    public void setAddressDerail(String addressDerail)
+    public void setaddressDetail(String addressDetail)
     {
-        this.addressDerail = addressDerail;
+        this.addressDetail = addressDetail;
     }
 
     public String getPhone()
@@ -101,7 +101,7 @@ public class Address
     {
         return "Address [addressNo=" + addressNo + ", memberId=" + memberId
                 + ", zipCode=" + zipCode + ", address=" + address
-                + ", addressDerail=" + addressDerail + ", phone=" + phone
+                + ", addressDetail=" + addressDetail + ", phone=" + phone
                 + ", addressDefault=" + addressDefault + "]";
     }
     
