@@ -89,6 +89,27 @@ public class AdProductService {
 		
 	}
 	
+	public int deleteProduct(String mid) {
+		
+		Connection conn = getConnection();
+
+		int result1 = new AdProductDao().deleteAttachment(conn, mid);
+		int result2 = new AdProductDao().deleteProduct(conn, mid);
+		
+		
+		
+		
+		if(result1>0 &&result2 >0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result1*result2;
+		
+	}
+	
 	
 
 }

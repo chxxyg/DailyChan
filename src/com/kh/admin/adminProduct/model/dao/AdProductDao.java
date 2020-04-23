@@ -240,5 +240,54 @@ public class AdProductDao {
 		return ap;
 		
 	}
+	
+	/**
+	 * Attachment 삭제 구문
+	 */
+	public int deleteAttachment(Connection conn, String mid) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Product 삭제구문
+	 */
+	public int deleteProduct(Connection conn, String mid) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteProduct");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }

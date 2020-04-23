@@ -8,15 +8,15 @@
 <style>
 
 .cst_top{
-/* 	border:1px solid red; */ 
+/*  border:1px solid red;  */
     background-color: #79aff1;
     width: 1020px;
     height: 120px;
-	position: absolute;
+/* 	position: absolute; */
 	top: 120px;
     left: 142px; 
-    margin-top: 120px;
-    margin-left: 180px;
+/*     margin-top: 158px;
+    margin-left: 180px; */
     float:left;
 }
 
@@ -46,9 +46,10 @@
     font-weight:500;
 }
 .fav_word{
-    position: absolute;
-    top: 30px;
+/*     position: absolute; */
+    top: 50px;
     left: 580px;
+    float:left;
 }
 .fav_word li{
     list-style: none;
@@ -71,9 +72,10 @@
 	margin: 0 0 0 10px;
 	padding: 0 0 0 10px;
 }
- .fav_word ul{
+/*  .fav_word ul{
+ 
 	margin-bottom:50px;
-} 
+}  */
 #sch_faq{
     padding: 5px;
     width:371px;
