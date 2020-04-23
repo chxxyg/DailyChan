@@ -2,6 +2,8 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
 <% 
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list"); 
+	String keyword = (String)request.getAttribute("keyword");
+
 
 %>
 <!DOCTYPE html>
@@ -23,10 +25,10 @@
         <tr>
             <td colspan="4">
                 <div id="searchInputWrap">
-                    <form id="searchInputForm">
+                    <form id="searchInputForm" action="<%=request.getContextPath()%>/search.pro">
                         <div id="searchInputArea">
-                            <input id="searchInput" type="search" placeholder="찾고 싶은 상품을 검색해보세요.">
-                            <a href=""><img id="searchResultBtn" src="<%= request.getContextPath() %>/resources/img/searchlogo.png"></a>
+                            <input id="searchInput" type="search" name="keyword" placeholder="찾고 싶은 상품을 검색해보세요">
+                            <button type="submit" style="background: white; border: none;"><img id="searchResultBtn" src="<%= request.getContextPath() %>/resources/img/searchlogo.png"></button>
                         </div>
                     </form>
                 </div>
@@ -34,7 +36,7 @@
         </tr>
         <tr>
             <td colspan="4">
-                <div id="searchKeywordWrap"><span id="searchKeyword">키워드</span> 검색어로 총 <span id="searchTotal">8</span>개의 상품을 찾았습니다. </div>
+                <div id="searchKeywordWrap"><span id="searchKeyword"><%= keyword %></span> 검색어로 총 <span id="searchTotal"><%= list.size() %></span>개의 상품을 찾았습니다. </div>
             </td>
         </tr>
         <tr>

@@ -37,6 +37,7 @@ public class SearchResultServlet extends HttpServlet {
 		
 		ArrayList<Product> list = new ProductService().searchResult(keyword);
 		
+		request.setAttribute("keyword", keyword);
 		request.setAttribute("list", list);
 
 		RequestDispatcher view = request.getRequestDispatcher("views/product/searchResultPage.jsp");

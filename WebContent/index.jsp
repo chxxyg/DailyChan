@@ -192,7 +192,7 @@
 	<%@ include file="views/common/mainHeader.jsp" %>
 	<%@ include file="views/common/mainSideBar.jsp" %>
 	
-	
+	<!-- 
 	<script>
 		$(function(){
 			
@@ -204,47 +204,209 @@
 			
 		});
 	</script>
+	 -->
 	
 	<!-- 메인 바디 영역 -->
     <div id="mainBanner">
         <img id="mainBannerImg1" src="resources/mainBannerImg/mainbanner1.jpg">
     </div>
-    
     <div id="bestWrap">
         <div id="bestLabel"><a class="aLabel" href="">실시간 베스트</a></div>
-        <div id="bestTable">
-        
-        	<% for(int i=0; i<6; i++){ %>
-        		<input type="hidden" class="proCode" value="">
-                <table class="bestInnerTable">
-                	<tr>
-                    	<td><a href=""><img class="bestImg" src="<%= request.getContextPath() %>/resources/attachment_product/"></a></td>
-                    </tr>
-                    <tr>
-                        <td><div class="bestName"><a href=""></a></div></td>
-                    </tr>
-                    <tr>
-                         <td>
-                         	<div class="bestInfo">
-                             	<span class="bestPrice"></span><span>원</span>
-                                <span>|</span>
-                                <span class="bestFor">인분</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="bestBtn1" class="bestBtn">
-                                <button type="button" style="border: none; background-color: white;"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png"></button>
-                                <button type="button" style="border: none; background-color: white;"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png"></button>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-			<% } %>
-			
-        </div>
+        <table id="bestTable">
+            <tr>
+                <td>
+                    <table class="bestInnerTable"> <!-- KOA138 -->
+                        <tr>
+                            <td>
+                                <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src="<%=contextPath%>/resources/attachment_product/3마리 꽃게탕.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestName1" class="bestName"><a class="aProductLabel">3마리 꽃게탕</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestInfo1" class="bestInfo">
+                                    <span id="bestPrice1" class="bestPrice">17000 원</span>
+                                    <span>|</span>
+                                    <span id="bestFor1" class="bestFor">2인분</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestBtn1" class="bestBtn">
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                
+                    <table class="bestInnerTable"> <!-- ITB203 -->
+                        <tr>
+                            <td>
+                                <a class="aProductImg" href=""><img id="bestImg2" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알리오올리오.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestName2" class="bestName"><a class="aProductLabel">감바스 알리오올리오</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestInfo2" class="bestInfo">
+                                    <span id="bestPrice2" class="bestPrice">11500 원</span>
+                                    <span>|</span>
+                                    <span id="bestFor2" class="bestFor">2인분</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestBtn2" class="bestBtn">
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="bestInnerTable"> <!-- ITC201 -->
+                        <tr>
+                            <td>
+                                <a class="aProductImg" href=""><img id="bestImg3" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알아히오.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestName3" class="bestName"><a class="aProductLabel">감바스 알아히오</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestInfo3" class="bestInfo">
+                                    <span id="bestPrice3" class="bestPrice">17800 원</span>
+                                    <span>|</span>
+                                    <span id="bestFor3" class="bestFor">2인분</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestBtn3" class="bestBtn">
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="bestInnerTable"> <!-- ASA307 -->
+                        <tr>
+                            <td>
+                                <a class="aProductImg" href=""><img id="bestImg4" class="bestImg" src="<%=contextPath%>/resources/attachment_product/고추잡채&꽃빵.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestName4" class="bestName"><a class="aProductLabel">고추잡채&꽃빵</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestInfo4" class="bestInfo">
+                                    <span id="bestPrice4" class="bestPrice">15500 원</span>
+                                    <span>|</span>
+                                    <span id="bestFor4" class="bestFor">2인분</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestBtn4" class="bestBtn">
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="bestInnerTable"> <!-- KOA107 -->
+                        <tr>
+                            <td>
+                                <a class="aProductImg" href=""><img id="bestImg5" class="bestImg" src="<%=contextPath%>/resources/attachment_product/곱도리탕.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestName5" class="bestName"><a class="aProductLabel">곱도리탕</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestInfo5" class="bestInfo">
+                                    <span id="bestPrice5" class="bestPrice">16500 원</span>
+                                    <span>|</span>
+                                    <span id="bestFor5" class="bestFor">2인분</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestBtn5" class="bestBtn">
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="bestInnerTable"> <!-- KOB112 -->
+                        <tr>
+                            <td>
+                                <a class="aProductImg" href=""><img id="bestImg6" class="bestImg" src="<%=contextPath%>/resources/attachment_product/구름치즈 안동식찜닭.jpg"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestName6" class="bestName"><a class="aProductLabel">구름치즈 안동식찜닭</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestInfo6" class="bestInfo">
+                                    <span id="bestPrice6" class="bestPrice">17000 원</span>
+                                    <span>|</span>
+                                    <span id="bestFor6" class="bestFor">2인분</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="bestBtn6" class="bestBtn">
+                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
+                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
+
 
     <div id="newSaleWrap">
         <div id="newWrap">
@@ -252,21 +414,21 @@
             <table id="newTable">
                 <tr>
                     <td>
-                        <table class="newInnerTable">
+                        <table class="newInnerTable"> <!-- ITD221 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg1" class="newImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="newImg1" class="newImg" src="<%=contextPath%>/resources/attachment_product/훈제연어 샐러드.png"></a>
                                 </td>
                                 <td>
-                                    <div id="newName1" class="newName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="newName1" class="newName"><a class="aProductLabel">훈제연어 샐러드</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="newInfo1" class="newInfo">
-                                        <span id="newPrice1" class="newPrice">12,000원</span>
+                                        <span id="newPrice1" class="newPrice">8900 원</span>
                                         <span>|</span>
-                                        <span id="newFor1" class="newFor">1인분</span>
+                                        <span id="newFor1" class="newFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>
@@ -279,21 +441,21 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="newInnerTable">
+                        <table class="newInnerTable"> <!-- KOA132 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg2" class="newImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="newImg2" class="newImg" src="<%=contextPath%>/resources/attachment_product/황태해장국.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="newName2" class="newName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="newName2" class="newName"><a class="aProductLabel">황태해장국</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="newInfo2" class="newInfo">
-                                        <span id="newPrice2" class="newPrice">12,000원</span>
+                                        <span id="newPrice2" class="newPrice">9900 원</span>
                                         <span>|</span>
-                                        <span id="newFor2" class="newFor">1인분</span>
+                                        <span id="newFor2" class="newFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>
@@ -306,21 +468,21 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="newInnerTable">
+                        <table class="newInnerTable"> <!-- KOA114 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg3" class="newImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="newImg3" class="newImg" src="<%=contextPath%>/resources/attachment_product/해물짬뽕순두부.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="newName3" class="newName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="newName3" class="newName"><a class="aProductLabel">해물짬뽕순두부</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="newInfo3" class="newInfo">
-                                        <span id="newPrice3" class="newPrice">12,000원</span>
+                                        <span id="newPrice3" class="newPrice">18000 원</span>
                                         <span>|</span>
-                                        <span id="newFor3" class="newFor">1인분</span>
+                                        <span id="newFor3" class="newFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>
@@ -333,21 +495,21 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="newInnerTable">
+                        <table class="newInnerTable"> <!-- ITB207 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg4" class="newImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="newImg4" class="newImg" src="<%=contextPath%>/resources/attachment_product/트리플머쉬룸로제파스타.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="newName4" class="newName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="newName4" class="newName"><a class="aProductLabel">트리플머쉬룸로제파스타</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="newInfo4" class="newInfo">
-                                        <span id="newPrice4" class="newPrice">12,000원</span>
+                                        <span id="newPrice4" class="newPrice">8900 원</span>
                                         <span>|</span>
-                                        <span id="newFor4" class="newFor">1인분</span>
+                                        <span id="newFor4" class="newFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>
@@ -370,21 +532,22 @@
             <table id="saleTable">
                 <tr>
                     <td>
-                        <table class="saleInnerTable">
+                        <table class="saleInnerTable"> <!-- KOA101 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg1" class="saleImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="saleImg1" class="saleImg" src="<%=contextPath%>/resources/attachment_product/어복쟁반.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName1" class="saleName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="saleName1" class="saleName"><a class="aProductLabel">어복쟁반</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="saleInfo1" class="saleInfo">
-                                        <span id="salePrice1" class="salePrice">12,000원</span>
+                                        <span id="salePrice1" class="salePrice" style="text-decoration: line-through; color: gray;">18000 원</span>
+										<span class="salePrice" style="color: red;">16200 원</span>
                                         <span>|</span>
-                                        <span id="saleFor1" class="saleFor">1인분</span>
+                                        <span id="saleFor1" class="saleFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>
@@ -397,21 +560,22 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="saleInnerTable">
+                        <table class="saleInnerTable"> <!-- KOA102 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg2" class="saleImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="saleImg2" class="saleImg" src="<%=contextPath%>/resources/attachment_product/사골만두전골.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName2" class="saleName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="saleName2" class="saleName"><a class="aProductLabel">사골만두전골</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="saleInfo2" class="saleInfo">
-                                        <span id="salePrice2" class="salePrice">12,000원</span>
+                                        <span id="salePrice2" class="salePrice" style="text-decoration: line-through; color: gray;">16500 원</span>
+										<span class="salePrice" style="color: red;">14850 원</span>
                                         <span>|</span>
-                                        <span id="saleFor2" class="saleFor">1인분</span>
+                                        <span id="saleFor2" class="saleFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>
@@ -424,21 +588,22 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="saleInnerTable">
+                        <table class="saleInnerTable"> <!-- ASA303 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg3" class="saleImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="saleImg3" class="saleImg" src="<%=contextPath%>/resources/attachment_product/홍콩식 마파두부.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName3" class="saleName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="saleName3" class="saleName"><a class="aProductLabel">홍콩식 마파두부</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="saleInfo3" class="saleInfo">
-                                        <span id="salePrice3" class="salePrice">12,000원</span>
+                                        <span id="salePrice3" class="salePrice" style="text-decoration: line-through; color: gray;">13000 원</span>
+										<span class="salePrice" style="color: red;">11700 원</span>
                                         <span>|</span>
-                                        <span id="saleFor3" class="saleFor">1인분</span>
+                                        <span id="saleFor3" class="saleFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>
@@ -451,21 +616,22 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="saleInnerTable">
+                        <table class="saleInnerTable"> <!-- KOA109 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg4" class="saleImg" src=""></a>
+                                    <a class="aProductImg" href=""><img id="saleImg4" class="saleImg" src="<%=contextPath%>/resources/attachment_product/햄듬뿍 부대찌개.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName4" class="saleName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                    <div id="saleName4" class="saleName"><a class="aProductLabel">햄듬뿍 부대찌개</a></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div id="saleInfo4" class="saleInfo">
-                                        <span id="salePrice4" class="salePrice">12,000원</span>
+                                        <span id="salePrice4" class="salePrice" style="text-decoration: line-through; color: gray;">12500 원</span>
+										<span class="salePrice" style="color: red;">11250 원</span>
                                         <span>|</span>
-                                        <span id="saleFor4" class="saleFor">1인분</span>
+                                        <span id="saleFor4" class="saleFor">2인분</span>
                                     </div>
                                 </td>
                             </tr>

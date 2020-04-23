@@ -198,20 +198,20 @@
                     <table class="bestInnerTable">
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src="../../resources/sampledata/햄듬뿍부대찌개.jpg"></a>
+                                <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src="<%=request.getContextPath()%>/resources/sampledata/3마리 꽃게탕.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName1" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                <div id="bestName1" class="bestName"><a class="aProductLabel">3마리 꽃게탕</a></div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div id="bestInfo1" class="bestInfo">
-                                    <span id="bestPrice1" class="bestPrice">12,000원</span>
+                                    <span id="bestPrice1" class="bestPrice">17000 원</span>
                                     <span>|</span>
-                                    <span id="bestFor1" class="bestFor">1인분</span>
+                                    <span id="bestFor1" class="bestFor">2인분</span>
                                 </div>
                             </td>
                         </tr>
@@ -230,20 +230,20 @@
                     <table class="bestInnerTable">
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg2" class="bestImg" src=""></a>
+                                <a class="aProductImg" href=""><img id="bestImg2" class="bestImg" src="<%=request.getContextPath()%>/resources/sampledata/감바스 알리오올리오.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName2" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                <div id="bestName2" class="bestName"><a class="aProductLabel">감바스 알리오올리오</a></div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div id="bestInfo2" class="bestInfo">
-                                    <span id="bestPrice2" class="bestPrice">12,000원</span>
+                                    <span id="bestPrice2" class="bestPrice">11500 원</span>
                                     <span>|</span>
-                                    <span id="bestFor2" class="bestFor">1인분</span>
+                                    <span id="bestFor2" class="bestFor">2인분</span>
                                 </div>
                             </td>
                         </tr>
@@ -261,20 +261,20 @@
                     <table class="bestInnerTable">
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg3" class="bestImg" src=""></a>
+                                <a class="aProductImg" href=""><img id="bestImg3" class="bestImg" src="<%=request.getContextPath()%>/resources/sampledata/감바스 알아히오.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName3" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                <div id="bestName3" class="bestName"><a class="aProductLabel">감바스 알아히오</a></div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div id="bestInfo3" class="bestInfo">
-                                    <span id="bestPrice3" class="bestPrice">12,000원</span>
+                                    <span id="bestPrice3" class="bestPrice">17800 원</span>
                                     <span>|</span>
-                                    <span id="bestFor3" class="bestFor">1인분</span>
+                                    <span id="bestFor3" class="bestFor">2인분</span>
                                 </div>
                             </td>
                         </tr>
@@ -294,20 +294,20 @@
                     <table class="bestInnerTable">
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg4" class="bestImg" src=""></a>
+                                <a class="aProductImg" href=""><img id="bestImg4" class="bestImg" src="<%=request.getContextPath()%>/resources/sampledata/고추잡채&꽃빵.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName4" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                <div id="bestName4" class="bestName"><a class="aProductLabel">고추잡채&꽃빵</a></div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div id="bestInfo4" class="bestInfo">
-                                    <span id="bestPrice4" class="bestPrice">12,000원</span>
+                                    <span id="bestPrice4" class="bestPrice">15500 원</span>
                                     <span>|</span>
-                                    <span id="bestFor4" class="bestFor">1인분</span>
+                                    <span id="bestFor4" class="bestFor">2인분</span>
                                 </div>
                             </td>
                         </tr>
@@ -325,20 +325,20 @@
                     <table class="bestInnerTable">
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg5" class="bestImg" src=""></a>
+                                <a class="aProductImg" href=""><img id="bestImg5" class="bestImg" src="<%=request.getContextPath()%>/resources/sampledata/곱도리탕.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName5" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                <div id="bestName5" class="bestName"><a class="aProductLabel">곱도리탕</a></div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div id="bestInfo5" class="bestInfo">
-                                    <span id="bestPrice5" class="bestPrice">12,000원</span>
+                                    <span id="bestPrice5" class="bestPrice">16500 원</span>
                                     <span>|</span>
-                                    <span id="bestFor5" class="bestFor">1인분</span>
+                                    <span id="bestFor5" class="bestFor">2인분</span>
                                 </div>
                             </td>
                         </tr>
@@ -356,20 +356,20 @@
                     <table class="bestInnerTable">
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg6" class="bestImg" src=""></a>
+                                <a class="aProductImg" href=""><img id="bestImg6" class="bestImg" src="<%=request.getContextPath()%>/resources/sampledata/구름치즈 안동식찜닭.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName6" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
+                                <div id="bestName6" class="bestName"><a class="aProductLabel">구름치즈 안동식찜닭</a></div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div id="bestInfo6" class="bestInfo">
-                                    <span id="bestPrice6" class="bestPrice">12,000원</span>
+                                    <span id="bestPrice6" class="bestPrice">17000 원</span>
                                     <span>|</span>
-                                    <span id="bestFor6" class="bestFor">1인분</span>
+                                    <span id="bestFor6" class="bestFor">2인분</span>
                                 </div>
                             </td>
                         </tr>
