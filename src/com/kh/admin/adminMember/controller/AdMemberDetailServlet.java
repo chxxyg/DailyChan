@@ -52,3 +52,4 @@ public class AdMemberDetailServlet extends HttpServlet {
 	}
 
 }
+

@@ -217,11 +217,3 @@ public class adMemberDao {
 
 
 
-
-
-
-
-
-
-
-
