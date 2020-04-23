@@ -121,7 +121,7 @@
         	</form><br>       	
         <div id="allcount">
                 <div style="width:30%;">총 인원 수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 명</div>
-                <div style="width:70%; text-align:right;"><button onclick="">추가</button> </div>
+                <div style="width:70%; text-align:right;"><button onclick="location.href='<%=contextPath%>/blackListEnroll.ad'">추가</button> </div>
         </div>  
         <table class="listMember">
             <thead>

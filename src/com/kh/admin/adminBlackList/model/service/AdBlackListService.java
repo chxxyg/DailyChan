@@ -62,6 +62,24 @@ public class AdBlackListService {
 		return list;
 		
 	}
+	/*
+	 * 블랙리스트 추가
+	 */
+	public int insertBlackList(BlackList b) {
+		
+		Connection conn = getConnection();
+		
+		int result = new AdBlackListDao().insertBlackList(conn, b);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+		
+	}
 
 }
 
