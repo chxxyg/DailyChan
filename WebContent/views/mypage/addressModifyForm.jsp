@@ -235,14 +235,11 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 						</span>
 						<!-- 검색결과 -->
 						<span class="txt" id="addr_area"></span>
-						<input type="hidden" name="post_no" id="post_no" data-role="input" data-message="우편번호를 선택해 주세요" value="">
-						<input type="hidden" name="base_addr" id="base_addr" data-role="input" data-message="우편번호를 선택해 주세요" value="">
-						<input type="hidden" name="road_base_addr" id="road_base_addr" data-role="input" data-message="우편번호를 선택해 주세요" value="">
 						<input type="text" name="dtl_addr" id="dtl_addr" class="insert_name" title="상세주소 입력" maxlength="133" data-role="input" data-check="text" data-message="상세 주소를 입력해 주세요" data-input="input" data-input-name="dtl_addr">
-						<input type="hidden" name="use_yn" id="use_yn" value="Y" data-role="input">
-						<input type="hidden" name="dawn_deli_district_cd" id="dawn_deli_district_cd" data-role="input" data-no-check="Y" value="">
-						<input type="hidden" name="dawn_deli_zone_cd" id="dawn_deli_zone_cd" data-role="input" data-no-check="Y" value="">
 						<input type="hidden" name="addr_divi_cd" id="addr_divi_cd" data-role="input" data-no-check="Y" value="20">
+						<input type="hidden" name="zonecode" id="zonecode" data-role="input" value="">
+						<input type="hidden" name="roadAddress" id="roadAddress" data-role="input" value="">
+						<input type="hidden" name="extraRoadAddr" id="extraRoadAddr" data-role="input" value="">
 					</div>
 					<span class="caution" data-input="display" data-input-name="dtl_addr" style="display: none;">상세 주소를 입력해 주세요</span>
 				</div>

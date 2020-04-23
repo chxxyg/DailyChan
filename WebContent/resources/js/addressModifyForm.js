@@ -45,10 +45,10 @@ $(document).ready(function() {
 		});
 		data.cell_no = data.cell_no1 + "" + data.cell_no2 + "" + data.cell_no3 ; 
 		data.road_post_no = data.post_no;
-		data.road_dtl_addr = data.dtl_addr;				
+		
 		data.base_yn = $("#set_default").is(":checked") ? "Y" : "N" ;
 		$.ajax({
-			url: "/mypage/createDlvp.action",
+			url: "/dailyChan/InsertAdress.my",
 			type: "POST",
 			dataType: "json",
 			data: data,
@@ -87,7 +87,9 @@ $(document).ready(function() {
                 }
                 
                 addr_area.html("[" + data.zonecode + "]<br/>" + data.roadAddress + " " + extraRoadAddr);
-                
+				$("#zonecode").val(data.zonecode);
+				$("#roadAddress").val(data.roadAddress);
+				$("#extraRoadAddr").val(extraRoadAddr);
 			}
 
 		}).open();
