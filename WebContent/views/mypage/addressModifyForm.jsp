@@ -201,6 +201,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 }
 
 </style>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 <div class="pop_wrap" id="pop_addr_modi">
@@ -215,7 +216,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 				<div class="cont_wrap">
 					<label for="addr">주소 <em>*<span class="ir">필수정보</span></em></label>
 					<div class="cont_d addr">
-						<button class="zip" id="zipcode_button" title="우편번호 찾기(새창)"><em>우편번호 찾기</em></button>
+						<button class="zip" id="zipcode_button" title="우편번호 찾기(새창)" onclick="openDaumZipAddress();"><em>우편번호 찾기</em></button>
 						<!--  초기화면  -->
 						<span class="txt" id="base_addr_info">
 						우편번호 찾기를 통해 주소를 확인하신 후 상세주소를 <br>아래에 입력해주시기 바랍니다.
@@ -253,5 +254,32 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 			<button class="save" id="save_dlvp_button"><em>저장</em></button>
 		</div>
 	</div>
+	<script type="text/javascript">
+
+		function openDaumZipAddress() {
+
+			new daum.Postcode({
+
+				oncomplete:function(data) {
+
+					jQuery("#postcode1").val(data.postcode1);
+
+					jQuery("#postcode2").val(data.postcode2);
+
+					jQuery("#zonecode").val(data.zonecode);
+
+					jQuery("#address").val(data.address);
+
+					jQuery("#address_etc").focus();
+
+					console.log(data);
+
+				}
+
+			}).open();
+
+		}
+
+	</script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
 	int maxPage = pi.getMaxPage();
+	int listCount = pi.getListCount();
 	
 %>   
 <!DOCTYPE html>
@@ -117,12 +118,13 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;상품관리</h1>
         <br>
-        	<form action="<%=contextPath%>/productSearch.ad" method="get">
-        	<input type="hidden" name="currentPage" value="1">
+        	<form action="<%=contextPath%>/productSearch.ad" method="post">
         	상품명 <input type="text" name="productName"> <button type="submit" onclick="">조회</button><br>
+        	        	<input type="hidden" name="currentPage" value="1">
+        	
         	</form>
         <div id="allcount">
-                <div style="width:30%;">총 상품 수 :  <input type="text" id="adproductcount" value="<%= count%>"> 개</div>
+                <div style="width:30%;">총 상품 수 :  <input type="text" id="adproductcount" value="<%=pi.getListCount()%>"> 개</div>
                 <div style="width:70%; text-align:right;"><button onclick="location.href='<%=contextPath%>/pdEnrollForm.ad'">상품등록</button> </div>
         </div>  
         <table class="listProduct">
@@ -152,22 +154,22 @@
         <br><br><br>
        <div class="pagingArea" align="center">
 			<% if(currentPage!=1) {%>
-			<button onclick="location.href='productList.ad?currentPage=1'"> &lt;&lt; </button>
+			<button onclick="location.href='productSearch.ad?currentPage=1'"> &lt;&lt; </button>
 			
-			<button onclick="location.href='productList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<button onclick="location.href='productSearch.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
 			<% } %>
 			
 			<%for(int p=startPage; p<=endPage; p++){ %>
 				<% if(currentPage != p){%>
-				<button onclick="location.href='productList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<button onclick="location.href='productSearch.ad?currentPage=<%=p%>';"><%=p%></button>
 				<% }else { %>
 				<button disabled><%=p %></button>	
 				<% } %>
 			<%} %>
 			
 			<% if(currentPage!=maxPage) {%>
-			<button onclick="location.href='productList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
-			<button onclick="location.href='productList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<button onclick="location.href='productSearch.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='productSearch.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
 			<% } %>
 		</div>
        </div>

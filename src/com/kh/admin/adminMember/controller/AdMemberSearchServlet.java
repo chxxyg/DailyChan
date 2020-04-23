@@ -1,6 +1,7 @@
 package com.kh.admin.adminMember.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -41,7 +42,22 @@ public class AdMemberSearchServlet extends HttpServlet {
 		request.setAttribute("m", m);
 		
 		
-		request.getRequestDispatcher("views/admin/adminMember/adminMemberSearch.jsp").forward(request, response);
+		if(m != null) {	// 성공
+			request.getRequestDispatcher("views/admin/adminMember/adminMemberSearch.jsp").forward(request, response);			
+		}else {	// 실패했을시 alert창 띄우면서 전페이지로
+			response.setContentType("text/html; charset=UTF-8");
+			 
+			PrintWriter out = response.getWriter();
+			 
+			out.println("<script>alert('조회된 결과가 없습니다');history.back();</script>");
+			 
+			out.flush();
+
+
+			
+			
+			
+		}
 		
 		
 	}

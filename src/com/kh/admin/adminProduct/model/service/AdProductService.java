@@ -89,6 +89,9 @@ public class AdProductService {
 		
 	}
 	
+	/**
+	 * 상품 삭제에대한 서비스
+	 */
 	public int deleteProduct(String mid) {
 		
 		Connection conn = getConnection();
@@ -110,6 +113,9 @@ public class AdProductService {
 		
 	}
 	
+		/**
+		 * 상품 수정에대한 서비스
+		 */
 		public int adProductUpdate(Product p, ArrayList<AttachmentProduct> list, String mid) {
 		
 		Connection conn =  getConnection();
@@ -126,6 +132,41 @@ public class AdProductService {
 		}
 		close(conn);
 		return result1*result2;
+		
+	}
+		
+	
+	/**
+	 * 상품 조회에대한 서비스
+	 * @param pi	페이징바
+	 * @param productName	검색에한 구문에대한 string
+	 * @return
+	 */
+	public ArrayList<Product> searchProduct(AdPageInfo pi,String productName) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new AdProductDao().searchProduct(conn, pi, productName);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+	
+	/**
+	 * 조회시 나오는 상품의 총갯수를 위한 서비스
+	 * @param productName
+	 * @return
+	 */
+	public int adProductCount(String productName) {
+		
+		Connection conn = getConnection();
+		
+		int countProduct = new AdProductDao().adProductCount(conn, productName);
+		
+		close(conn);
+		return countProduct;
 		
 	}
 	
