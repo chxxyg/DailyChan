@@ -16,6 +16,10 @@
 	
 	/* 메인배너 */
 	#mainBanner{
+		width: 1100px;
+	    height: 420px;
+		margin: auto;
+		text-align: center;
 	    margin-top: 30px;
 	    margin-bottom: 50px;
 	}
@@ -30,7 +34,7 @@
 	    margin-bottom: 100px;
 	}
 	#bestLabel{
-	    height: 100px;
+	    height: 60px;
 	    font-size: 40px;
 	    font-weight: 600;
 	    padding: 25px;
@@ -77,7 +81,7 @@
 	    margin-bottom: 100px;
 	}
 	#newLabel, #saleLabel{
-	    height: 100px;
+	    height: 40px;
 	    font-size: 40px;
 	    font-weight: 600;
 	    padding: 25px;
