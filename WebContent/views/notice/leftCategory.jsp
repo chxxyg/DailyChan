@@ -11,7 +11,7 @@
 
 #cst_lnb{
 	float: left; 
-	position: relative;
+/* 	position: relative; */
     width:170px;
     height:623px;
     font-size: 12px;

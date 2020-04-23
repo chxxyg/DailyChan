@@ -13,7 +13,7 @@
 .outer{
 	width:1000px;
 	height:auto;
-	margin:auto;
+	float:left;
 }
 .sub_cont{
 	float:left;
@@ -35,11 +35,10 @@
 .noti_tbl {
     width: 860px;
     height:719px;
-    margin: 15px 0 0;
+    margin: 30px 0 0;
     float:left;
 }
 .noti_tbl thead th {
-    position: relative;
     height: 42px;
     padding: 0 10px;
     border-top: 1px solid #222;
@@ -51,19 +50,16 @@ table {
     width: 100%;
     min-width: 100%;
     max-width: none;
-    table-layout: fixed;
+	table-layout: fixed; 
     border-spacing: 0;
     border-collapse: collapse;
-
-}
-table{
     border-color:grey;
 }
 
 tbody tr{
-border-top: 1px solid grey;
+	border-top: 1px solid grey;
     border-bottom: 1px solid grey;
-    border-collapse: collapse;
+    border-collapse: collapse; 
 }
 
 

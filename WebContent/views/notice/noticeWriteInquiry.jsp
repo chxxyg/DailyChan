@@ -14,17 +14,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>1:1상담신청</title>
 <style>
-
+.outer{
+/* 	border:1px solid yellow; */
+	width:1000px;
+	height:auto;
+	float:left;
+	margin-left:15px;
+}
  #form1{
 	
 	width: 822px;
     height: auto;
     margin-top:40px;
-	margin-left:400px;
 } 
 .cst_slt {
     position: relative; 
-    margin-top: 140px;
+    margin-top: 25px;
     padding: 20px 0 20px 35px;
     border: 3px solid #f0eded;
     width: 822px;
@@ -222,8 +227,8 @@ strong {
 .info_box01 {
 	font-size:12px;
 	width:720px;
-	margin-left:400px;
-	margin-top:100px;
+	margin-top:50px;
+	float:left;
     padding: 42px 30px 42px 106px;
     background-color:#efefef;
 }
@@ -254,6 +259,7 @@ strong {
 }
 .conf_btns {
     text-align: center;
+    margin-top:20px;
 }
 button em {
     display: block;
@@ -268,7 +274,7 @@ button em {
 <%@ include file="../common/mainSideBar.jsp" %>
 <%@ include file="leftCategory.jsp" %>
 <%@ include file="noticeSearch.jsp" %>
-
+<div class="outer">
  <form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post">
   	
   	 <h2>1:1 친절상담</h2>
@@ -424,7 +430,7 @@ button em {
 					<li>주문 취소/반품 신청은 MY더반찬 메뉴에서 신청하시면 더욱 빠르게 처리됩니다.</li>
 				</ul>
 			</div>
-			
+		</div>	
 	<script>
 		$(function(){
 			$("#left_02").css("color", "rgb(247, 112, 46)");
