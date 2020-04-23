@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>제품 상세</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/productDetailPage.css">
-
 </head>
 <body>
 
