@@ -39,7 +39,6 @@ public class AdProductUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String mid = request.getParameter("mid");
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 
@@ -55,6 +54,7 @@ public class AdProductUpdateServlet extends HttpServlet {
 			
 			
 		 	
+			String mid = multiRequest.getParameter("pdCode");
 			String pdTitle = multiRequest.getParameter("pdTitle");				 	// 상품명
 			int pdPrise = Integer.parseInt(multiRequest.getParameter("pdPrice"));	// 상품가격
 			int pdStock = Integer.parseInt(multiRequest.getParameter("pdStock"));	// 상품수량

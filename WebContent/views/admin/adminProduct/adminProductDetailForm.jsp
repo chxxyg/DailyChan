@@ -98,7 +98,7 @@
         <h1>&nbsp;&nbsp;&nbsp;상품정보</h1>
         <table id="adcate">
             
-            <form id="PdinsertForm" action="<%= contextPath %>/pdinsert.ad" method="post" enctype="multipart/form-data">
+            <form id="PdinsertForm" action="<%= contextPath %>/updateProduct.ad" method="post" enctype="multipart/form-data">
             <tr>
                 <td width="200" > 카테고리</td>
                 <td>
@@ -144,12 +144,12 @@
             <tr>
                 <td width="200">* 상품 정보 이미지</td>
                 <td><p class="file3">기존파일 : <a download="<%= ap.get(2).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(2).getAtFileName() %>" ><%=ap.get(2).getAtFileName() %></a> 
-                	<br><input type="file" name="pdUpfile2" ></p>
+                	<br><input type="file" name="pdUpfile3" ></p>
                 </td>
             </tr>
        		 </table>
        		 <div id="enrollsubmit">
-        		<button type="button" onclick="updateProduct();">수정하기</button>&nbsp;&nbsp;
+        		<button type="submit" onclick="return updateProduct();">수정하기</button>&nbsp;&nbsp;
         		<button type="button" onclick="deleteProduct();">삭제하기</button>&nbsp;&nbsp;
         		<button type="button" onclick="location.href='<%= contextPath%>/productList.ad?currentPage=1'">목록으로</button>
         	</div> 
@@ -171,9 +171,10 @@
   			  
   			  var bool = confirm("정말 수정하겠습니까?");
   			  if(bool){
-  				  location.href = "<%=contextPath%>/updateProduct.ad?mid=<%=p.getProCode()%>";
+  				  return true;
   			  }else{
   				  alert("취소하였습니다.");
+  				  return false;
   			  }
   			  
   		  }
