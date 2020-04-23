@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.admin.adminBlackList.model.vo.BlackList;
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
 
@@ -93,37 +94,42 @@ public class adMemberDao {
 			
 	}
 
-	public Member searchMember(Connection conn, String memberId) {
+	public ArrayList<Member> searchMember(Connection conn, String memberId) {
 		
-		Member m = null;
+		ArrayList<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
+		
 		String sql = prop.getProperty("searchMember");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
-			
+			pstmt.setString(1, "%" + memberId + "%");
 			rset = pstmt.executeQuery();
-			if(rset.next()) {
-				m = new Member(rset.getString("MEMBER_ID"),
-							   rset.getString("MEMBER_NAME"),
-							   rset.getString("EMAIL"),
-							   rset.getString("PHONE"),
-							   rset.getDate("ENROLL_DATE"),
-							   rset.getDate("MODIFY_DATE"),
-							   rset.getString("DEL_MEMBER_YN"),
-					           rset.getInt("POINT_SUM"));
-			}
+			
+			while(rset.next()) {
+				
+				list.add(new Member(rset.getString("MEMBER_ID"),
+						              rset.getString("MEMBER_NAME"),
+						              rset.getString("EMAIL"),
+						              rset.getString("PHONE"),
+						              rset.getDate("ENROLL_DATE"),
+						              rset.getDate("MODIFY_DATE"),
+						              rset.getString("DEL_MEMBER_YN"),
+						              rset.getInt("POINT_SUM")));				
+			}			
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			close(rset);
 			close(pstmt);
 		}
 		
-		return m;
+		return list;
 	}
+	
 	public int deleteMember(Connection conn, String mid) {
 		
 		int result = 0;
@@ -163,6 +169,37 @@ public class adMemberDao {
 			close(pstmt);
 		}		
 		return result;
+	}
+
+	public Member detailMember(Connection conn, String mid) {
+		
+		Member m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getString("MEMBER_ID"),
+							   rset.getString("MEMBER_NAME"),
+							   rset.getString("EMAIL"),
+							   rset.getString("PHONE"),
+							   rset.getDate("ENROLL_DATE"),
+							   rset.getDate("MODIFY_DATE"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;
 	}
 
 

@@ -4,7 +4,9 @@
 <%
 
 	
-	Member m = (Member)request.getAttribute("m");
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+	//PageInfo pi = (pageInfo)request.getAttribute("pi");
+	int count = (Integer)request.getAttribute("count");
 			
 	
 %>    
@@ -118,7 +120,7 @@
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-
+                <div style="width:30%;">총 회원 수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 명</div>
                 
         </div>  
         <table class="listMember">
@@ -135,7 +137,7 @@
                 </tr>
             </thead>
             <tbody>
-                    
+                    <% for(Member m : list){ %>
                 <tr>
                     <td><%= m.getMemberId() %></td>
                     <td><%= m.getMemberName() %></td>
@@ -146,7 +148,7 @@
                     <td><%= m.getDelMemberYn() %></td>
                     <td><%= m.getPointSum() %></td>
                 </tr>
-               
+                <% } %>
                
                 
                 

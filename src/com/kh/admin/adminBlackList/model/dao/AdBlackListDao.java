@@ -138,7 +138,7 @@ private Properties prop = new Properties();
 			}			
 			
 			
-;		} catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(rset);

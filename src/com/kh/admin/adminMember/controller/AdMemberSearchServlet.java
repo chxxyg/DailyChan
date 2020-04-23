@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.admin.adminBlackList.model.service.AdBlackListService;
+import com.kh.admin.adminBlackList.model.vo.BlackList;
 import com.kh.admin.adminMember.model.service.adMemberService;
 import com.kh.member.model.vo.Member;
 
@@ -37,28 +39,11 @@ public class AdMemberSearchServlet extends HttpServlet {
 		
 		String memberId = request.getParameter("memberId");
 		
-		Member m = new adMemberService().searchMember(memberId);
-		
-		request.setAttribute("m", m);
+		ArrayList<Member> list = new adMemberService().searchMember(memberId);
 		
 		
-		if(m != null) {	// 성공
-			request.getRequestDispatcher("views/admin/adminMember/adminMemberSearch.jsp").forward(request, response);			
-		}else {	// 실패했을시 alert창 띄우면서 전페이지로
-			response.setContentType("text/html; charset=UTF-8");
-			 
-			PrintWriter out = response.getWriter();
-			 
-			out.println("<script>alert('조회된 결과가 없습니다');history.back();</script>");
-			 
-			out.flush();
-
-
-			
-			
-			
-		}
-		
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("views/admin/adminMember/adminMemberList.jsp").forward(request, response);
 		
 	}
 

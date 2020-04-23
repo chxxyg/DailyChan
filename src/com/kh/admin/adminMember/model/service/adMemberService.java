@@ -3,6 +3,8 @@ package com.kh.admin.adminMember.model.service;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.admin.adminBlackList.model.dao.AdBlackListDao;
+import com.kh.admin.adminBlackList.model.vo.BlackList;
 import com.kh.admin.adminMember.model.dao.adMemberDao;
 import com.kh.member.model.vo.Member;
 
@@ -14,15 +16,15 @@ public class adMemberService {
 	/*
 	 * 회원정보 상세조회용 서비스
 	 */
-	public Member searchMember(String memberId) {
+	public ArrayList<Member> searchMember(String memberId) {
 		
 		Connection conn = getConnection();
 		
-		Member m = new adMemberDao().searchMember(conn, memberId);
+		ArrayList<Member> list = new adMemberDao().searchMember(conn, memberId);
 		
 		close(conn);
 				
-		return m;
+		return list;
 		
 	}
 	/*
@@ -88,6 +90,15 @@ public class adMemberService {
 		close(conn);
 		
 		return result;
+	}
+	public Member detailMember(String mid) {
+		
+		Connection conn = getConnection();
+		
+		Member m = new adMemberDao().detailMember(conn, mid);
+		close(conn);
+		
+		return m;
 	}
 
 	

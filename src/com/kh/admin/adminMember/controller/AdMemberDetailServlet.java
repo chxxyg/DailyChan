@@ -36,7 +36,7 @@ public class AdMemberDetailServlet extends HttpServlet {
 		String mid = request.getParameter("mid");
 		
 		
-		Member m = new adMemberService().searchMember(mid);
+		Member m = new adMemberService().detailMember(mid);
 		
 		request.setAttribute("m", m);
 		request.getRequestDispatcher("views/admin/adminMember/adminMemberCollection.jsp").forward(request, response);
