@@ -22,5 +22,18 @@ public class AdBlackListService {
 		
 		return list;
 	}
+	/*
+	 * 블랙리스트 상세조회용 서비스
+	 */
+	public BlackList searchBlackList(int bno) {
+		
+		Connection conn = getConnection();
+		
+		BlackList b = new AdBlackListDao().searchBlackList(conn, bno);
+		
+		close(conn);
+		
+		return b;
+	}
 
 }
