@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	var addr_area= $("#addr_area");
+	var userId = $("#userId").val();
 	var saveDlvpRunning = function() {
 		//do nothing...
 	};
@@ -48,7 +49,7 @@ $(document).ready(function() {
 		
 		data.base_yn = $("#set_default").is(":checked") ? "Y" : "N" ;
 		$.ajax({
-			url: "/dailyChan/InsertAdress.my",
+			url: "/dailyChan/insertAddress.my?userId=" + userId,
 			type: "POST",
 			dataType: "json",
 			data: data,

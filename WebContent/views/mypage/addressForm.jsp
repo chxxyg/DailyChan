@@ -240,7 +240,7 @@
 
 	<div id="mys_content" class="sub_cont">
 			<h3 class="tit">배송지 관리</h3>
-			
+			<input id="userId" type="hidden" name="userId" value="<%=m.getMemberId()%>">
 			<!-- MY SUMMARY -->
 			<div class="mys_summ">
 				<div class="txt"><b>오경택</b> 님의 배송지 목록에 총 <b>2</b> 곳이 저장되어 있습니다.</div>

@@ -1,11 +1,15 @@
 package com.kh.mypage.model.service;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
 import com.kh.member.model.vo.Member;
 import com.kh.mypage.model.dao.MypageDao;
+import com.kh.mypage.model.vo.Address;
 public class MypageService
 {
     /**
@@ -73,5 +77,32 @@ public class MypageService
         close(conn);
         
         return result;
+    }
+    
+    /**
+     * @author Taek
+     * 4. 배송지관리 - 추가
+     * @param a     --> 배송지 테이블에  데이터 담을 객체
+     * @return      --> 추가 성공 여부
+     */
+    public int insertAddress(Address a)
+    {
+        Connection conn = getConnection();
+        
+        int result = new MypageDao().insertAddress(conn, a);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
+        close(conn);
+        
+        return result;
+                
     }
 }

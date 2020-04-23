@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String userId = request.getParameter("userId");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -235,6 +238,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 						</span>
 						<!-- 검색결과 -->
 						<span class="txt" id="addr_area"></span>
+						<input type="hidden" id="userId" name="userId" value="<%=userId%>">
 						<input type="text" name="dtl_addr" id="dtl_addr" class="insert_name" title="상세주소 입력" maxlength="133" data-role="input" data-check="text" data-message="상세 주소를 입력해 주세요" data-input="input" data-input-name="dtl_addr">
 						<input type="hidden" name="addr_divi_cd" id="addr_divi_cd" data-role="input" data-no-check="Y" value="20">
 						<input type="hidden" name="zonecode" id="zonecode" data-role="input" value="">

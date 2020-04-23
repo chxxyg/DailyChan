@@ -1,5 +1,7 @@
 package com.kh.mypage.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,7 +13,7 @@ import java.util.Properties;
 
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
-import static com.kh.common.JDBCTemplate.*;
+import com.kh.mypage.model.vo.Address;
 
 public class MypageDao
 {
@@ -118,5 +120,37 @@ public class MypageDao
         
         
         return result;
+    }
+    
+    public int insertAddress(Connection conn, Address a)
+    {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("insertAddress");
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, a.getMemberId());
+            pstmt.setString(2, a.getAddressName());
+            pstmt.setString(3, a.getZipCode());
+            pstmt.setString(4, a.getAddress());
+            pstmt.setString(5, a.getAddressDetail());
+            pstmt.setString(6, a.getPhone());
+            pstmt.setString(7, a.getAddressDefault());
+            
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+        }
+        
+        return result;
+        
+        
     }
 }
