@@ -60,7 +60,7 @@
 	<div id="productListWrap">
 		       
 		<% for(Product p : list){ %>
-		<table class="searchInnerTable">
+		<table class="searchInnerTable" style="display: inline-block;">
 			<tr>
 				<td>
 					<a href=""><img class="searchProductImg" src="<%= request.getContextPath() %>/resources/attachment_product/<%= p.getAtFileName() %>"></a>
@@ -84,7 +84,7 @@
 				<td>
 					<div class="searchProductBtn">
 						<button type="button" style="border: none; background-color: white;"><img class="searchCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png"></button>
-						<button type="button" style="border: none; background-color: white;"><<img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png"></button>
+						<button type="button" style="border: none; background-color: white;"><img class="searchLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png"></button>
 					</div>
 				</td>
 			</tr>

@@ -48,6 +48,16 @@ public class ProductService {
 		return list;
 	}
 	
+	public ArrayList<Product> searchResult(String keyword){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Product> list = new ProductDao().searchResult(conn, keyword);
+		
+		close(conn);
+		
+		return list;
+	}
 
 
 

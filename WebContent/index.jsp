@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
+<% 
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>데일리찬</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 	#mainBanner, #bestWrap, #newSaleWrap, #instaWrap{
 	    width: 1000px;
 	    margin: auto;
 	    box-sizing: border-box;
 	}
-	
 	
 	/* 메인배너 */
 	#mainBanner{
@@ -44,7 +44,8 @@
 	    text-align: center;
 	}
 	.bestInnerTable{
-	    /*padding: 10px*/
+	    display: inline-block;
+	    padding-bottom: 30px;
 	}
 	.bestImg{
 	    width: 300px;
@@ -183,210 +184,66 @@
 	    height: 245px;
 	}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<title>데일리찬</title>
 </head>
 <body>
 	<%@ include file="views/common/mainHeader.jsp" %>
 	<%@ include file="views/common/mainSideBar.jsp" %>
 	
+	
+	<script>
+		$(function(){
+			
+			$(document).ready(function(){
+				$.ajax({
+					url:"pList.pro"
+				});
+			});
+			
+		});
+	</script>
+	
 	<!-- 메인 바디 영역 -->
     <div id="mainBanner">
-        <img id="mainBannerImg1" src="<%= request.getContextPath() %>/resources/mainBannerImg/mainbanner1.png">
+        <img id="mainBannerImg1" src="resources/mainBannerImg/mainbanner1.jpg">
     </div>
     
     <div id="bestWrap">
         <div id="bestLabel"><a class="aLabel" href="">실시간 베스트</a></div>
-        <table id="bestTable">
-            <tr>
-                <td>
-                    <table class="bestInnerTable">
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName1" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo1" class="bestInfo">
-                                    <span id="bestPrice1" class="bestPrice">12,000원</span>
-                                    <span>|</span>
-                                    <span id="bestFor1" class="bestFor">1인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn1" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="bestInnerTable">
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href=""><img id="bestImg2" class="bestImg" src=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName2" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo2" class="bestInfo">
-                                    <span id="bestPrice2" class="bestPrice">12,000원</span>
-                                    <span>|</span>
-                                    <span id="bestFor2" class="bestFor">1인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn2" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="bestInnerTable">
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href=""><img id="bestImg3" class="bestImg" src=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName3" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo3" class="bestInfo">
-                                    <span id="bestPrice3" class="bestPrice">12,000원</span>
-                                    <span>|</span>
-                                    <span id="bestFor3" class="bestFor">1인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn3" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table class="bestInnerTable">
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href=""><img id="bestImg4" class="bestImg" src=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName4" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo4" class="bestInfo">
-                                    <span id="bestPrice4" class="bestPrice">12,000원</span>
-                                    <span>|</span>
-                                    <span id="bestFor4" class="bestFor">1인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn4" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="bestInnerTable">
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href=""><img id="bestImg5" class="bestImg" src=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName5" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo5" class="bestInfo">
-                                    <span id="bestPrice5" class="bestPrice">12,000원</span>
-                                    <span>|</span>
-                                    <span id="bestFor5" class="bestFor">1인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn5" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="bestInnerTable">
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href=""><img id="bestImg6" class="bestImg" src=""></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName6" class="bestName"><a class="aProductLabel">데일리찬 상품명</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo6" class="bestInfo">
-                                    <span id="bestPrice6" class="bestPrice">12,000원</span>
-                                    <span>|</span>
-                                    <span id="bestFor6" class="bestFor">1인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn6" class="bestBtn">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+        <div id="bestTable">
+        
+        	<% for(int i=0; i<6; i++){ %>
+        		<input type="hidden" class="proCode" value="">
+                <table class="bestInnerTable">
+                	<tr>
+                    	<td><a href=""><img class="bestImg" src="<%= request.getContextPath() %>/resources/attachment_product/"></a></td>
+                    </tr>
+                    <tr>
+                        <td><div class="bestName"><a href=""></a></div></td>
+                    </tr>
+                    <tr>
+                         <td>
+                         	<div class="bestInfo">
+                             	<span class="bestPrice"></span><span>원</span>
+                                <span>|</span>
+                                <span class="bestFor">인분</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="bestBtn1" class="bestBtn">
+                                <button type="button" style="border: none; background-color: white;"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png"></button>
+                                <button type="button" style="border: none; background-color: white;"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+			<% } %>
+			
+        </div>
     </div>
 
     <div id="newSaleWrap">

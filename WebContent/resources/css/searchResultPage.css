@@ -78,36 +78,46 @@
     color: black;
 }
 
+
+#productListWrap{
+	width: 1000px;
+	margin: auto;
+}
 .searchInnerTable{
-    width: 250px;
-    padding: 10px;
+    width: 220px;
     margin-bottom: 50px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.searchInnerTable a{
+	text-decoration: none;
+    color: black;
 }
 .searchProductImg{
-    width: 230px;
-    height: 230px;
+    width: 210px;
+    height: 210px;
 }
 .searchProductName{
-    width: 220px;
+    width: 210px;
     height: 40px;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 550;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 3px;
     margin-top: 5px;
 }
 .searchProductInfo{
-    width: 220px;
+    width: 210px;
     height: 30px;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 550;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 3px;
 }
 .searchProductPrice{padding-right: 5px;}
 .searchProductFor{padding-left: 5px;}
 .searchProductBtn{
-    width: 220px;
+    width: 210px;
     height: 40px;
     text-align: right;
     padding-right: 10px;
