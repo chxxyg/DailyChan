@@ -95,13 +95,12 @@
             </tr>
             <tr>
                 <td width="200">해제여부</td>
-                <td><input type="text" value="<%=b.getNonblockYn() %>" name="nonblockYn"></td>
+                <td><input type="text" value="<%=b.getNonblockYn() %>" name="nonblockYn" readonly></td>
             </tr>         
         </table>
        		 <div id="enrollsubmit">
-        		<button type="submit" onclick="return updateMember();">수정하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="deleteMember();">해제하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/BlackList.ad';">목록으로</button>
+        		<button type="button" onclick="deleteBlackList();">해제하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="location.href='<%=contextPath%>/blackList.ad';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
         
@@ -110,19 +109,15 @@
     </div>
 
     <script>
-    	function deleteMember(){   		
+    	function deleteBlackList(){   		
     		var bool = confirm("정말 해제시키겠습니까?");
     		if(bool){
-    			location.href = "<%=contextPath%>/deleteMember.ad?mid=<%=b.getMemberId()%>";
+    			location.href = "<%=contextPath%>/blackListDelete.ad?bno=<%=b.getBlackNo()%>";
     			alert("해제되었습니다.");
     		}else{
     			alert("취소하였습니다.");
     		}   			
     	} 
-    	function updateMember(){
-    			alert("수정되었습니다.");
-    		}
-
   	
     </script>
 </body>

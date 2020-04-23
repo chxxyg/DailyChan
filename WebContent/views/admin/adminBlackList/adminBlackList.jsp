@@ -126,11 +126,11 @@
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="120">번호</th>
-                    <th width="150">아이디</th> 
-                    <th width="250">사유</th>
+                    <th width="80">번호</th>
+                    <th width="120">아이디</th> 
+                    <th width="400">사유</th>
                     <th width="150">제제일자</th>
-                    <th width="100">해제여부</th>
+                    <th width="80">해제여부</th>
                 </tr>
             </thead>
             <tbody>
