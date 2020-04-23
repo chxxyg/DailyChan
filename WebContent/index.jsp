@@ -16,10 +16,12 @@
 	
 	/* 메인배너 */
 	#mainBanner{
-		width: 1100px;
-	    height: 420px;
 	    margin-top: 30px;
 	    margin-bottom: 50px;
+	}
+	#mainBanner img{
+		width: 1100px;
+	    height: 420px;
 	}
 	
 	/* BEST */
@@ -184,10 +186,7 @@
 	
 	<!-- 메인 바디 영역 -->
     <div id="mainBanner">
-        <img id="mainBannerImg1" style="width:1100px; height:420px;" src="<%= request.getContextPath() %>/resources/mainBannerImg/mainbanner1.png">
-        <img id="mainBannerImg2" src="">
-        <img id="mainBannerImg3" src="">
-        <img id="mainBannerImg4" src="">
+        <img id="mainBannerImg1" src="<%= request.getContextPath() %>/resources/mainBannerImg/mainbanner1.png">
     </div>
     
     <div id="bestWrap">
