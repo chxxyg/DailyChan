@@ -15,6 +15,7 @@ import java.util.Properties;
 
 import com.kh.admin.adminBlackList.model.vo.BlackList;
 import com.kh.member.model.dao.MemberDao;
+import com.kh.product.model.vo.Product;
 
 
 public class AdBlackListDao {
@@ -112,6 +113,39 @@ private Properties prop = new Properties();
 		}
 		
 		return result;
+	}
+
+	public ArrayList<BlackList> searchOneBlackList(Connection conn, String memberId) {
+		
+		ArrayList<BlackList> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("searchOneBlackList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + memberId + "%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new BlackList(rset.getString("MEMBER_ID"),
+						              rset.getInt("BLACKLIST_NO"),
+						              rset.getString("PENALTY_CUASE"),
+						              rset.getDate("PENALTY_DATE"),
+						              rset.getString("NONBLOCK_YN")));				
+			}			
+			
+			
+;		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 
 }

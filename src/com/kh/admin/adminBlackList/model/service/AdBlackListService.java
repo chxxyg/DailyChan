@@ -50,5 +50,17 @@ public class AdBlackListService {
 		}		
 		return result;
 	}
+	/*
+	 * 조회버튼클릭
+	 */
+	public ArrayList<BlackList> searchOneBlackList(String memberId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<BlackList> list = new AdBlackListDao().searchOneBlackList(conn, memberId);
+		close(conn);
+		return list;
+		
+	}
 
 }
