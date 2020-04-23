@@ -93,7 +93,7 @@ $(document).ready(function(){
 //		} else {
 //			overpass.popup.callback = callback;
 //		};		
-		window.open("/dailyChan/addressModify.my?" + params, "배송지 추가/수정", "width=420, height=544, top=50, left=500, location=no ");
+		window.open("/dailyChan/addressModify.my?" + params, "배송지 추가/수정", "width=500, height=544, top=50, left=500, location=no ");
 	});
 	
 	// 기본배송지 수정 이벤트
