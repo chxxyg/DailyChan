@@ -133,7 +133,12 @@
 	    font-size:14px;
 	    font-weight:600;
 	    margin-right:25px;
+	    color: black;
 	}
+	#hd_right>a>p:hover{
+		color: rgb(250, 142, 0);
+	}
+	
 	
 	/* 네비게이터 */
 	#navi{

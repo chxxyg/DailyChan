@@ -114,8 +114,8 @@
 			<tr>
 				<td>
 					<div class="productInfo">
-						<span class="productPrice" style="text-decoration: line-through; color: gray;"><%= p.getProPrice() %></span><span>원</span>
-						<span class="productPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %>원</span>
+						<span class="productPrice" style="text-decoration: line-through; color: gray;"><%= p.getProPrice() %>원</span>
+						<span class="productPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %> 원</span>
 						<span>|</span>
 						<span class="productFor"><%= p.getProStandard() %>인분</span>
 					</div>

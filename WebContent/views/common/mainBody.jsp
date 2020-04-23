@@ -16,7 +16,8 @@
 	
 	/* 메인배너 */
 	#mainBanner{
-	    height: 300px;
+		width: 1100px;
+	    height: 420px;
 	    margin-bottom: 100px;
 	}
 	
@@ -183,10 +184,10 @@
 </head>
 <body>
     <div id="mainBanner">
-        <a href=""><img id="mainBannerImg1" src=""></a>
-        <a href=""><img id="mainBannerImg2" src=""></a>
-        <a href=""><img id="mainBannerImg3" src=""></a>
-        <a href=""><img id="mainBannerImg4" src=""></a>
+        <img id="mainBannerImg1" src="<%= request.getContextPath() %>/resources/mainBannerImg/mainbanner1.png">
+        <img id="mainBannerImg2" src="">
+        <img id="mainBannerImg3" src="">
+        <img id="mainBannerImg4" src="">
     </div>
     
     <div id="bestWrap">

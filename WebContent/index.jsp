@@ -16,8 +16,10 @@
 	
 	/* 메인배너 */
 	#mainBanner{
-	    height: 300px;
-	    margin-bottom: 100px;
+		width: 1100px;
+	    height: 420px;
+	    margin-top: 30px;
+	    margin-bottom: 50px;
 	}
 	
 	/* BEST */
@@ -181,11 +183,11 @@
 	<%@ include file="views/common/mainSideBar.jsp" %>
 	
 	<!-- 메인 바디 영역 -->
-	    <div id="mainBanner">
-        <a href=""><img id="mainBannerImg1" src=""></a>
-        <a href=""><img id="mainBannerImg2" src=""></a>
-        <a href=""><img id="mainBannerImg3" src=""></a>
-        <a href=""><img id="mainBannerImg4" src=""></a>
+    <div id="mainBanner">
+        <img id="mainBannerImg1" style="width:1100px; height:420px;" src="<%= request.getContextPath() %>/resources/mainBannerImg/mainbanner1.png">
+        <img id="mainBannerImg2" src="">
+        <img id="mainBannerImg3" src="">
+        <img id="mainBannerImg4" src="">
     </div>
     
     <div id="bestWrap">
