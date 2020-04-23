@@ -126,7 +126,7 @@ body {
                     <ul>
                         <li><a href="<%=contextPath%>/memberList.ad">회원관리</a></li>
                         <li><a href="<%=contextPath%>/blackList.ad">블랙리스트관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminMember/adminMemberReport.jsp">신고내역</a></li>
+                        <li><a href="<%=contextPath%>/reportList.ad">신고내역</a></li>
                         <li><a href="">XXX</a>
                         </li>
                     </ul>
