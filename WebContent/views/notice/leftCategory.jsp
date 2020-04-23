@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>고객센터 카테고리</title>
 
 <style>
 
@@ -91,6 +91,9 @@ li{
  	margin-left:23px;
  	font-weight:600;
 }
+#left-category a:hover{
+    color: hsl(28, 100%, 50%);
+}
 </style>
 </head>
 <body>
@@ -108,7 +111,7 @@ li{
         <a href="<%= request.getContextPath() %>/noticeMain.no"><h2 align="center">고객센터</h2></a>
         <div id="left-category"> 
             <ul>
-            
+
                 <li><a id="left_01" href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는 질문</a></li>
                 <li><a id="left_02" href="<%= request.getContextPath() %>/write.in">1:1 친절상담</a></li>
                 <li><a id="left_03" href="<%= request.getContextPath() %>/NoticeInquiryList.no" onclick="">1:1 상담내역</a></li>

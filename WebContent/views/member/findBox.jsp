@@ -73,8 +73,6 @@ table{
     background-color: hsl(28, 100%, 50%);
     color:white;
     cursor:pointer;
-    
-
 }
 
 .find_info{
@@ -84,7 +82,6 @@ table{
     margin-top: 10px;
     margin-left: -20px;
     font-size: 12px;
-	
 }   
 
 </style>
