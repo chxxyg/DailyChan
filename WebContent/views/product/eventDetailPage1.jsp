@@ -26,7 +26,6 @@
             <td>
                 <div id="eventDetailLabel">
                     <span id="eventDetailTitle">신규 회원을 위한 더블 쿠폰 혜택</span>
-                    <a href=""><img id="eventDetailShare" src="<%= request.getContextPath() %>/resources/img/sharelogo_black.png"></a>
                     <br><br>
                     <span id="eventDetailDate">2020-01-01 ~ 2020-12-31</span>
                 </div>

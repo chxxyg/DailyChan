@@ -26,7 +26,6 @@
             <td>
                 <div id="eventDetailLabel">
                     <span id="eventDetailTitle">씻고, 볶고, 맛보고, 즐기고!</span>
-                    <a href=""><img id="eventDetailShare" src="<%= request.getContextPath() %>/resources/img/sharelogo_black.png"></a>
                     <br><br>
                     <span id="eventDetailDate">2020-01-01 ~ 2020-12-31</span>
                 </div>

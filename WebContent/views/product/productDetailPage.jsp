@@ -50,7 +50,6 @@
                                 <tr>
                                     <td><div id="productGpa">★★★★☆ 4.7</div></td>
                                     <td><div id="productReview">리뷰(120건)</div></td>
-                                    <td><div id="productShare"><a href=""><img src="<%= request.getContextPath() %>/resources/img/sharelogo.png" width="30" height="30"></a></div></td>
                                 </tr>
                             </table>
                         </td>

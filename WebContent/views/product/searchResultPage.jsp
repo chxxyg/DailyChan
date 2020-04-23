@@ -39,24 +39,6 @@
                 <div id="searchKeywordWrap"><span id="searchKeyword"><%= keyword %></span> 검색어로 총 <span id="searchTotal"><%= list.size() %></span>개의 상품을 찾았습니다. </div>
             </td>
         </tr>
-        <tr>
-            <td colspan="4"></td>
-        </tr>
-        <tr>
-            <td colspan="4" style="text-align: right;">
-                <div id="searchFilter">
-                    <span><a href="">인기순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">최신순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">낮은가격순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">높은가격순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">고객리뷰순</a></span>
-                </div>
-            </td>
-        </tr>
     </table>
 
 	<div id="productListWrap">
