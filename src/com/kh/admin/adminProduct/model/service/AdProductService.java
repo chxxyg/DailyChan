@@ -114,7 +114,9 @@ public class AdProductService {
 		
 		Connection conn =  getConnection();
 		
-		int result1 = new AdProductDao().adProductUpdate(conn, p, mid);   
+		int result1 = new AdProductDao().adProductUpdate(conn, p, mid); 
+		
+	
 		int result2 = new AdProductDao().adProductUpdateAttachment(conn, list, p, mid);
 		
 		if(result1 > 0 && result2 >0) {

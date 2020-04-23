@@ -325,7 +325,7 @@ public class AdProductDao {
 	 */
 	public int adProductUpdateAttachment(Connection conn,  ArrayList<AttachmentProduct> list, Product p, String mid) {
 		
-		int result = 0; 
+		int result = 1; 
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("updateAttachment");
 		
@@ -338,6 +338,7 @@ public class AdProductDao {
 				pstmt.setString(2, at.getAtFilePath());
 				pstmt.setInt(3, at.getAtFileMaxSize());
 				pstmt.setString(4, mid);
+				pstmt.setInt(5, at.getAtFileLevel());
 					
 				result = pstmt.executeUpdate();
 			}
