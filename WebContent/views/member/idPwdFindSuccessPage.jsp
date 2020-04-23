@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>아이디/비밀번호 찾기 성공</title>
 <%
 	String MEMBERID = String.valueOf(session.getAttribute("memberId"));
 	String PASSWORD = String.valueOf(session.getAttribute("memberPwd"));
@@ -164,7 +164,6 @@
 							<div id="find-info">회원님의 아이디를 찾았습니다.</div>
 							<div id="loginMemPwd_result" style="color: hsl(28, 100%, 50%);">
 								<p><%= MEMBERID %></p>
-								
 							</div>
 							<button id="loginBtn" type="submit" onclick="loginPop();">로그인</button>
 							<div id="find-info_1">비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요.</div>
@@ -174,7 +173,7 @@
 				</div>
 			</table>
 			
-		<table class="pwd_box">
+			<table class="pwd_box">
 				<div class="login_box_pwd_find">
 					<div class="login_set" id="login_set_pwd">
 					<h2 align="center">비밀번호 찾기</h2>
@@ -182,11 +181,10 @@
 							<div id="find-info2">회원님의 비밀번호를 찾았습니다.</div>
 							<div id="loginMemPwd_result" style="color: hsl(28, 100%, 50%);">
 								<p><%= PASSWORD %></p>
-								
 							</div>
+							
 							<button id="loginBtn" type="submit" onclick="loginPop();">로그인</button>
 						</div>
-						
 					</div>
 				</div>
 			</table>
@@ -201,11 +199,11 @@
 <script>
 
 
-<!-- 로그인 팝업 function -->
-	function loginPop(){
-
-   	window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
-}
+	<!-- 로그인 팝업 function -->
+		function loginPop(){
+	
+	   	window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+	}
 
 </script>
 </body>

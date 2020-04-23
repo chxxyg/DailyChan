@@ -98,10 +98,7 @@ public class MemberService {
 		return result;
 	}
 	
-	
-	
 	/**
-	 * 
 	 * 아이디 찾기
 	 * @param memberName	--> 입력받은 회원 이름
 	 * @param email			--> 입력받은 회원 이메일
@@ -111,7 +108,7 @@ public class MemberService {
 		
 		Connection conn = getConnection();
 		
-		String memberId = new MemberDao().searchId(id_name, id_email);
+		String memberId = new MemberDao().searchId(conn, id_name, id_email);
 		
 		close(conn);
 		
@@ -129,7 +126,7 @@ public class MemberService {
 	public String searchPwd(String pw_id, String pw_name) {
 		Connection conn = getConnection();
 		
-		String memberPwd = new MemberDao().searchPwd(pw_id, pw_name);
+		String memberPwd = new MemberDao().searchPwd(conn, pw_id, pw_name);
 		
 		close(conn);
 		

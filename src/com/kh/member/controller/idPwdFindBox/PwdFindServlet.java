@@ -40,14 +40,14 @@ public class PwdFindServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("memberPwd", memberPwd);
 
-		request.getRequestDispatcher("views/member/IdPwdFindSuccessPage.jsp").forward(request, response);
+		request.getRequestDispatcher("views/member/idPwdFindSuccessPage.jsp").forward(request, response);
 		
-	}else {
+		}else {
+			
+			request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
+			
+			}
 		
-		request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
-		
-	}
-	
 	}
 
 	/**
