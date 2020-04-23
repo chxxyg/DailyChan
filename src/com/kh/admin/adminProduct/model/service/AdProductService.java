@@ -110,6 +110,22 @@ public class AdProductService {
 		
 	}
 	
+		public int adProductUpdate(Product p, ArrayList<AttachmentProduct> list, String mid) {
+		
+		Connection conn =  getConnection();
+		
+		int result1 = new AdProductDao().adProductUpdate(conn, p, mid);   
+		int result2 = new AdProductDao().adProductUpdateAttachment(conn, list, p, mid);
+		
+		if(result1 > 0 && result2 >0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result1*result2;
+		
+	}
 	
 
 }

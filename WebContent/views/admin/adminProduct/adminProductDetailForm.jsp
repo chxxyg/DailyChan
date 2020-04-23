@@ -100,7 +100,7 @@
             
             <form id="PdinsertForm" action="<%= contextPath %>/pdinsert.ad" method="post" enctype="multipart/form-data">
             <tr>
-                <td width="200" >* 카테고리</td>
+                <td width="200" > 카테고리</td>
                 <td>
 			        <input type="text" value="<%= p.getProCategory() %>" readonly>
         		</td>
@@ -119,13 +119,13 @@
                 </td>
             </tr>
             <tr>
-                <td width="200">기본이미지</td>
+                <td width="200">* 기본이미지</td>
                <td><p class="file3">기존파일 : <a download="<%= ap.get(0).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(0).getAtFileName() %>" ><%=ap.get(0).getAtFileName() %></a> 
-                	<br><input type="file" name="pdUpfile1" ></p>
+                	<br><input type="file" name="pdUpfile1" value=""></p>
                 </td>
             </tr>
             <tr>
-                <td width="200">세부 이미지 01</td>
+                <td width="200">* 세부 이미지 01</td>
                 <td><p class="file3">기존파일 : <a download="<%= ap.get(1).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(1).getAtFileName() %>" ><%=ap.get(1).getAtFileName() %> </a>
                 	<br><input type="file" name="pdUpfile2" ></p>
                 </td>
@@ -142,31 +142,43 @@
                 <td><input type="text"  value="<%= p.getProStock() %>" name="pdStock"></td>
             </tr>
             <tr>
-                <td width="200">상품 정보 이미지</td>
+                <td width="200">* 상품 정보 이미지</td>
                 <td><p class="file3">기존파일 : <a download="<%= ap.get(2).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(2).getAtFileName() %>" ><%=ap.get(2).getAtFileName() %></a> 
                 	<br><input type="file" name="pdUpfile2" ></p>
                 </td>
             </tr>
        		 </table>
        		 <div id="enrollsubmit">
-        		<button type="submit">수정하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="deleteMember();">삭제하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="updateProduct();">수정하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="deleteProduct();">삭제하기</button>&nbsp;&nbsp;
         		<button type="button" onclick="location.href='<%= contextPath%>/productList.ad?currentPage=1'">목록으로</button>
         	</div> 
         	</form>       
        </div>
     </div>
     <script>
-    function deleteMember(){   		
+  		  function deleteProduct(){   		
     		
-    		var bool = confirm("정말 탈퇴시키겠습니까?");
-    		if(bool){
-    			location.href = "<%=contextPath%>/deleteProduct.ad?mid=<%=p.getProCode()%>";	
-    		}else{
-    			alert("취소하였습니다.");
+	    		var bool = confirm("정말 탈퇴시키겠습니까?");
+	    		if(bool){
+	    			location.href = "<%=contextPath%>/deleteProduct.ad?mid=<%=p.getProCode()%>";	
+	    		}else{
+	    			alert("취소하였습니다.");
+    			}
+    		
     		}
-    		
-    	}
+  		  function updateProduct(){
+  			  
+  			  var bool = confirm("정말 수정하겠습니까?");
+  			  if(bool){
+  				  location.href = "<%=contextPath%>/updateProduct.ad?mid=<%=p.getProCode()%>";
+  			  }else{
+  				  alert("취소하였습니다.");
+  			  }
+  			  
+  		  }
+  		  
+  		  
     </script>
 </body>
 </html>

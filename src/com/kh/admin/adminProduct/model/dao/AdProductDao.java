@@ -289,5 +289,70 @@ public class AdProductDao {
 		
 		return result;
 	}
+	
+	
+	
+	/**
+	 * Product update구문
+	 */
+	public int adProductUpdate(Connection conn, Product p, String mid) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p.getProName());
+			pstmt.setInt(2, p.getProPrice());
+			pstmt.setInt(3, p.getProStock());
+			pstmt.setString(4, mid);
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+		
+	}
+		
+	/**
+	 * attachment update구문
+	 */
+	public int adProductUpdateAttachment(Connection conn,  ArrayList<AttachmentProduct> list, Product p, String mid) {
+		
+		int result = 0; 
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateAttachment");
+		
+		try {
+			for(int i=0; i<list.size(); i++) {
+				AttachmentProduct at = list.get(i);
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, at.getAtFileName());
+				pstmt.setString(2, at.getAtFilePath());
+				pstmt.setInt(3, at.getAtFileMaxSize());
+				pstmt.setString(4, mid);
+					
+				result = pstmt.executeUpdate();
+			}
+				
+				
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+			
+			
+	}		
+		
 
 }

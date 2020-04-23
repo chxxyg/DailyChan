@@ -28,6 +28,17 @@ public class AttachmentProduct {
 		this.atFileMaxSize = atFileMaxSize;
 	}
 
+	/**
+	 * 관리자페이지 상품 파일 업데이트를 위한 매개변수 
+	 */
+	public AttachmentProduct(String atFileName, String atFilePath, Date atUploadDate, int atFileMaxSize) {
+		super();
+		this.atFileName = atFileName;
+		this.atFilePath = atFilePath;
+		this.atUploadDate = atUploadDate;
+		this.atFileMaxSize = atFileMaxSize;
+	}
+
 	public AttachmentProduct(String atFileName) {
 		super();
 		this.atFileName = atFileName;

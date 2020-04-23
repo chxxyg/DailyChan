@@ -87,6 +87,16 @@ public class Product {
 		this.proSupplyName = proSupplyName;
 	}
 
+	/**
+	 * 관리자페이지 수정 상품 리스트페이지
+	 */
+	public Product(String proName, int proPrice, int proStock) {
+		super();
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proStock = proStock;
+	}
+
 
 	
 
