@@ -30,6 +30,7 @@ public class Product {
 	}
 	
 	
+	
 
 	/**
 	 * new, best, 한식, 양식, 아시안 productList 조회용 매개변수 
