@@ -12,14 +12,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>1:1상담신청</title>
 <style>
-
 
  #form1{
 	
 	width: 822px;
     height: auto;
+    margin-top:40px;
 	margin-left:400px;
 } 
 .cst_slt {
@@ -259,6 +259,7 @@ button em {
     display: block;
     margin-top: -2px;
 }
+
 </style>
 
 </head>
@@ -278,50 +279,36 @@ button em {
             <dt>
                 <label for="c_sel">상담유형<em class="req">*<!--<span class="ir">필수입력정보</span>--></em></label>
             </dt>
+            
             <dd>
-            <!--value값 똑같이 지정 해놓기 번호말고 !!  -->
+            <!-- value값 똑같이 지정 해놓기 번호말고 !!(-> "Counseling Type")  -->
                 <select id="c_sel" name="counsel_clss_no" title="상담유형 대분류 선택">
                     <option value="">상담 유형을 선택해 주세요.</option>
     
-                    <option value="01322">입금상담</option>
+                    <option value="Counseling Type">입금상담</option>
     
-                    <option value="01332">새벽배송상담</option>
+                    <option value="Counseling Type">단순상담</option>
     
-                    <option value="01342">제조VOC</option>
+                    <option value="Counseling Type">제품상담</option>
     
-                    <option value="01352">단순상담</option>
+                    <option value="Counseling Type">이벤트상담</option>
     
-                    <option value="01366">제품상담</option>
+                    <option value="Counseling Type">회원혜택상담</option>
     
-                    <option value="01372">이벤트상담</option>
+                    <option value="Counseling Type">기타상담</option>
     
-                    <option value="01383">회원혜택상담</option>
+                    <option value="Counseling Type">서비스 칭찬</option>
     
-                    <option value="01392">기타상담</option>
+                    <option value="Counseling Type">서비스 불편/제안</option>
     
-                    <option value="01402">서비스 칭찬</option>
+                    <option value="Counseling Type">환불상담</option>
     
-                    <option value="01405">서비스 불편/제안</option>
+                    <option value="Counseling Type">택배배송상담</option>
     
-                    <option value="01542">제조VOC</option>
+                    <option value="Counseling Type">변경상담</option>
     
-                    <option value="01481">환불상담</option>
+                    <option value="Counseling Type">취소상담</option>
     
-                    <option value="01484">택배배송상담</option>
-    
-                    <option value="01489">배송VOC</option>
-    
-                    <option value="01502">변경상담</option>
-    
-                    <option value="01513">외부몰상담</option>
-    
-                    <option value="01543">배송VOC</option>
-    
-                    <option value="01498">전산VOC</option>
-    
-                    <option value="01508">취소상담</option>
-    
-                    <option value="01544">전산VOC</option>
 
                 </select>
             </dd>
@@ -340,31 +327,9 @@ button em {
 
 
 				<div class="sltd_tbl">
-			<!-- 		<dl class="order_num goodsDiv" style="display:none;">
-						<dt>주문번호 : </dt>
-						<dd></dd>
-					</dl> -->
-					
-					
-					
+				
 					<div id="selectedGoodsBoxDiv" class="tbl goodsDiv">
-				<!-- 		<table>
-							<caption>제품명, 주문/삭제로 이루어진 선택된 제품 표</caption>
-							<colgroup>
-								<col style="width:120px">
-								<col style="width:auto">
-								<col style="width:120px;">
-							</colgroup>
-							<thead class="ir">
-								<tr>
-									<th scope="col" colspan="2">제품명</th>
-									<th scope="col">주문/삭제</th>
-								</tr>
-							</thead>
-							<tbody id="selectedGoodsBox">
-							
-							</tbody>
-						</table> -->
+		
 					</div>
 				</div>
 
@@ -471,13 +436,7 @@ button em {
 
 	           window.open("<%=contextPath%>/inquiryWrite.in", "주문내역팝업창", "width=638, height=450, top = 50, left = 500, location = no");
 	        }
-	        
-		<%-- 		 		
-		function orderlistPop() {
-			opener.parent.location="<%=contextPath%>/inquiryWrite.in";			
-			window.close();
-		}
-		 --%>
+
 	</script>
             
 <%@ include file="../common/mainFooter.jsp" %>

@@ -12,12 +12,11 @@
     background-color: #79aff1;
     width: 1020px;
     height: 120px;
-  position: absolute; 
+	position: absolute;
 	top: 120px;
     left: 142px; 
-
     margin-top: 120px;
-    margin-left: 180px; 
+    margin-left: 180px;
     float:left;
 }
 
