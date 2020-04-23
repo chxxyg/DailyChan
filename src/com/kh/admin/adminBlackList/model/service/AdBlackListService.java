@@ -35,5 +35,20 @@ public class AdBlackListService {
 		
 		return b;
 	}
+	/*
+	 * 블랙리스트 해제용 서비스
+	 */
+	public int deleteBlackList(int bno) {
+		
+		Connection conn = getConnection();
+		int result = new AdBlackListDao().deleteBlackList(conn, bno);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}		
+		return result;
+	}
 
 }
