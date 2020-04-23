@@ -100,8 +100,6 @@ public class Product {
 		this.proStock = proStock;
 	}
 
-
-
 	
 
 
