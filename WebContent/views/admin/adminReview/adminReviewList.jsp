@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReview.model.vo.AdReview" %>
+<%
+	ArrayList<AdReview> list = (ArrayList<AdReview>)request.getAttribute("list"); 
+%>    
+        
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>리뷰리스트</title>
     <style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -17,9 +21,9 @@
           .outer{
          	margin:15px;
          	padding:15px;
-         	width:1400px;
+         	width:1300px;
          	height:90%;
-         	background:rgb(255,240,240);
+         	background:white;
          	opacity:0.7;
         }
         
@@ -28,7 +32,7 @@
         #adproductcount{
             width:25px;
             border:none;
-            color:red;
+            color:#181c20;
         }
         
         #allcount{
@@ -39,26 +43,26 @@
         .listMember{
             margin-top:30px;
             text-align:center;
-            width:1350px;
-            border: 1px solid yellow;
+            width:1100px;
+            border: 1px solid #181c20;
             position:relative;
             max-height:600px;
             /*border-collapse:collapse; 테이블 간격 없애는구문*/
             
         }
       	/*상품 등록 삭제 버튼css*/
-        #allcount{width:1350px; }
+        #allcount{width:1215px; }
         #allcount>div{float:left;}
         
         /*테이블 헤드*/
         .listMember>thead>tr>th{
-            border:1px solid red;
+            border:1px solid #181c20;
             
         }
        
         
         .listMember>tbody>tr>td{
-            border: 1px solid blue;
+            border: 1px solid #181c20;
             table-layout:fixed;
             
             
@@ -67,11 +71,11 @@
         }
         table{table-layout:fixed;}
         Button {
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-			background-color:#ffc477;
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
 			border-radius:6px;
-			border:1px solid #eeb44f;
+			border:1px solid #181c20;
 			display:inline-block;
 			cursor:pointer;
 			color:#ffffff;
@@ -80,17 +84,22 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+			text-shadow:0px 1px 0px #181c20;
 		}
 		Button:hover {
-			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
 		}
 		Button:active {
 			position:relative;
 			top:1px;
 		}
-        
+		.listMember>tbody>tr:hover {
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
+			cursor:pointer;
+		}
+         
       
     </style>
 </head>
@@ -99,49 +108,42 @@
 	
     <div id="adproduct">
       <div class="outer">
-        <h1>&nbsp;&nbsp;&nbsp;리뷰 관리</h1>
+        <h1>&nbsp;&nbsp;&nbsp;리뷰관리</h1>
         <br>
-        	제목 <input type="text"> <button type="button" onclick="">조회</button><br>
+        	<form id="searchForm" action="" method="post">회원 ID 
+        		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
+        	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 게시글 :  <input type="text" id="adproductcount"> 개</div>
-                <div style="width:70%; text-align:right;"><button>선택답변</button>
-                										  <button>선택삭제</button></div>
+                <div style="width:30%;">총 리뷰 : <input type="text" id="adproductcount" value=""> 개</div>
+                
         </div>  
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="30"><input type="checkbox" checked style="cursor: pointer;" ></th>
-                    <th width="50">번호</th>
-                    <th width="200">작성시간</th>
-                    <th width="200">상품명</th>
+                    <th width="60">번호</th>
+                    <th width="150">작성시간</th>
+                    <th width="120">주문번호</th> 
                     <th width="150">아이디</th>
-                    <th width="250">제목</th>
-                    <th width="350">리뷰내용</th>
+                    <th width="150">제목</th>
+                    <th width="400">내용</th>
+                    <th width="70">사진유무</th>
                     <th width="70">처리결과</th>
                 </tr>
             </thead>
             <tbody>
+					<% for(AdReview v : list){ %>
                 <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>1</td>
-                    <td>2020-04-14 오전 04:57</td>
-                    <td>아무 이유 없이 그냥 </td>
-                    <td>kh유저에요</td>
-                    <td>정말괜찮은듯</td>
-                    <td>이거맛있고배송빠르고좋아</td>
-                    <td>미처리</td>
+                    <td><%= v.getReviewBoardNo() %></td>
+                    <td><%= v.getReviewCreateDate() %></td>
+                    <td><%= v.getOrderNo() %></td>
+                    <td><%= v.getMemberId() %></td>
+                    <td><%= v.getReviewTitle() %></td>
+                    <td><%= v.getReviewContent() %></td>
+                    <td><%= v.getReviewAttachmentYn() %></td>
+                    <td><%= v.getReviewResponseYn() %></td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>1</td>
-                    <td>2020-04-14 오전 04:57</td>
-                    <td>아무 이유 없이 그냥 </td>
-                    <td>kh유저에요</td>
-                    <td>정말괜찮은듯</td>
-                    <td>이거맛있고배송빠르고좋아</td>
-                    <td>미처리</td>
-                   
-                </tr>
+                <% } %>
+               
                 
                 
             </tbody>
@@ -149,5 +151,17 @@
         </table>  
        </div>
     </div>
+    <script>
+   		$(function(){
+   			$(".listMember>tbody>tr").click(function(){
+   				// console.log("클릭");
+	   				
+	   			var rbo = $(this).children().eq(0).text();
+	   				
+	 			location.href="<%= contextPath%>/reviewDetail.ad?rbo=" + rbo; 
+ 			});
+ 
+   		});   
+    </script>
 </body>
 </html>

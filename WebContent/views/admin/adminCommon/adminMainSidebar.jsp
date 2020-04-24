@@ -159,7 +159,7 @@ body {
                 </li>
 
                 <li class="sub-menu">
-                    <a href="http://localhost:9999/dailyChan/views/admin/adminReview/adminReviewList.jsp"><i class="fa fa-comment"></i><span>리뷰관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <a href="<%=contextPath%>/reviewList.ad"><i class="fa fa-comment"></i><span>리뷰관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
 
                 </li>
                 <li class="sub-menu">
