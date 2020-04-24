@@ -32,9 +32,13 @@ public class AdReportListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// ArrayList<adReport> list = new AdReportService().selectList();
+		ArrayList<adReport> list = new AdReportService().selectList();
+		
+		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/admin/adminReport/adminReportList.jsp").forward(request, response);
+		
+		
 		
 	}
 

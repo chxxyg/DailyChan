@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReport.model.vo.adReport" %>
 <%
-	ArrayList<adReport> list = (ArrayList<adReport>)request.getAttribute("list");
+	ArrayList<adReport> list = (ArrayList<adReport>)request.getAttribute("list"); 
 %>    
         
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>신고내역리스트</title>
     <style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -129,7 +129,16 @@
                 </tr>
             </thead>
             <tbody>
-
+				<% for(adReport r : list){ %>
+                <tr>
+                    <td><%= r.getReportNo() %></td>
+                    <td><%= r.getReviewBoardNo() %></td>
+                    <td><%= r.getMemberId() %></td>
+                    <td><%= r.getMemberId2() %></td>
+                    <td><%= r.getReportDate() %></td>
+                    <td><%= r.getReportContent() %></td>
+                </tr>
+                <% } %>
                
                 
                 
