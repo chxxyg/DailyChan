@@ -2,7 +2,7 @@ package com.kh.inquiry.model.vo;
 
 import java.sql.Date;
 
-public class inquiry {
+public class Inquiry {
 	
 	private int inquiryBoardNo;
 	private String memberId;
@@ -14,11 +14,11 @@ public class inquiry {
 	private String inquireFileYn;
 	private Date inquireCreateDate;
 	
-	public inquiry() {
+	public Inquiry() {
 		
 	}
 
-	public inquiry(int inquiryBoardNo, String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
+	public Inquiry(int inquiryBoardNo, String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
 			String inquiryResponseYn, String inquiryResponse, String inquireFileYn, Date inquireCreateDate) {
 		super();
 		this.inquiryBoardNo = inquiryBoardNo;

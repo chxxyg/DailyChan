@@ -35,9 +35,12 @@ public class ProductDetailServlet extends HttpServlet {
 		
 		String proCode = request.getParameter("proCode");
 		
-		ArrayList<Product> list = new ProductService().selectDetail(proCode);
-		request.setAttribute("list", list);
+		Product p = new ProductService().selectDetail(proCode);
 		
+		ArrayList<AttachmentProduct> list = new ProductService().selectAttachment(proCode);
+		
+		request.setAttribute("p", p);
+		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 	

@@ -29,7 +29,7 @@ public class InquiryOrderListServlet extends HttpServlet {
 
 													
 
-		request.getRequestDispatcher("views/notice/selectedGoodsBox.jsp").forward(request, response);
+		request.getRequestDispatcher("views/inquiry/selectedGoodsBox.jsp").forward(request, response);
 	
 	
 	}

@@ -29,7 +29,7 @@ public class InquiryServlet extends HttpServlet {
 
 	
 	
-		request.getRequestDispatcher("views/notice/noticeWriteInquiry.jsp").forward(request, response);
+		request.getRequestDispatcher("views/inquiry/noticeWriteInquiry.jsp").forward(request, response);
 
 	
 	}

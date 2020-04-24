@@ -1,12 +1,13 @@
 package com.kh.member.controller.idPwdFindBox;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.service.MemberService;
 
@@ -35,18 +36,28 @@ public class PwdFindServlet extends HttpServlet {
 	
 	String memberPwd = new MemberService().searchPwd(pw_id, pw_name);
 	
-	if(memberPwd != null) {
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("memberPwd", memberPwd);
-
-		request.getRequestDispatcher("views/member/idPwdFindSuccessPage.jsp").forward(request, response);
-		
-		}else {
-			
-			request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
-			
-			}
+	
+	response.setCharacterEncoding("utf-8");
+	PrintWriter out = response.getWriter();
+	out.print(memberPwd);
+	
+	
+		/*
+		 * if(memberPwd != null) {
+		 * 
+		 * HttpSession session = request.getSession(); session.setAttribute("memberPwd",
+		 * memberPwd);
+		 * 
+		 * request.getRequestDispatcher("views/member/findBox.jsp").forward(request,
+		 * response);
+		 * 
+		 * }else {
+		 * 
+		 * request.getRequestDispatcher("views/member/findBox.jsp").forward(request,
+		 * response);
+		 * 
+		 * }
+		 */
 		
 	}
 

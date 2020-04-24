@@ -16,16 +16,14 @@
 	
 	/* 메인배너 */
 	#mainBanner{
-		width: 1100px;
-	    height: 420px;
+		width: 1000px;
 		margin: auto;
 		text-align: center;
 	    margin-top: 30px;
 	    margin-bottom: 50px;
 	}
 	#mainBanner img{
-		width: 1100px;
-	    height: 420px;
+		width: 1000px;
 	}
 	
 	/* BEST */

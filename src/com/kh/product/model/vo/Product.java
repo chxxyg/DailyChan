@@ -14,7 +14,7 @@ public class Product {
 	private String proCategory;			// 상품 종류
 	private int proStock;				// 상품 재고
 	private int proSupplyCoNo;     		// 납품업체 사업자 번호
-	private int proReviewSum;      		// 상품 평점 (리뷰 총합)
+	private double proReviewSum;      		// 상품 평점 (리뷰 총합)
 	private int proReviewCount;    		// 상품 리뷰 개수
 	private int proStandard;			// 상품 내용량 
 	private Date proDate;				// 상품 등록일
@@ -72,7 +72,7 @@ public class Product {
 	/**
 	 * productDetail
 	 */
-	public Product(String proCode, String proName, int proPrice, int proReviewSum, int proReviewCount, String proSaleYn,
+	public Product(String proCode, String proName, int proPrice, double proReviewSum, int proReviewCount, String proSaleYn,
 			String atFileName, double discountRate, String atDetailFileName, String atInfoFileName) {
 		super();
 		this.proCode = proCode;
@@ -138,7 +138,7 @@ public class Product {
 	// 전체 매개변수 생성자, setter/getter, toString 
 
 	public Product(String proCode, String proName, int proPrice, String proCategory, int proStock, int proSupplyCoNo,
-			int proReviewSum, int proReviewCount, int proStandard, Date proDate, int proSum,
+			double proReviewSum, int proReviewCount, int proStandard, Date proDate, int proSum,
 			String proSaleYn, String proSupplyName, String atFileName, double discountRate, String atDetailFileName,
 			String atInfoFileName) {
 		super();
@@ -248,14 +248,14 @@ public class Product {
 
 
 
-	public int getProReviewSum() {
+	public double getProReviewSum() {
 		return proReviewSum;
 	}
 
 
 
 
-	public void setProReviewSum(int proReviewSum) {
+	public void setProReviewSum(double proReviewSum) {
 		this.proReviewSum = proReviewSum;
 	}
 

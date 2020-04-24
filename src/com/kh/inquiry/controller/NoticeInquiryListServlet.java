@@ -1,4 +1,4 @@
-package com.kh.notice.controller;
+package com.kh.inquiry.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -27,7 +27,7 @@ public class NoticeInquiryListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		 request.getRequestDispatcher("views/notice/noticeInquiryList.jsp").forward(request, response);
+		 request.getRequestDispatcher("views/inquiry/noticeInquiryList.jsp").forward(request, response);
 
 	
 	}

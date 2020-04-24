@@ -1,16 +1,15 @@
 package com.kh.member.controller.idPwdFindBox;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.service.MemberService;
-import com.kh.member.model.vo.Member;
 
 /**
  * Servlet implementation class IdFindServlet
@@ -39,21 +38,29 @@ public class IdFindServlet extends HttpServlet {
 		
 		
 		// 처리 결과를 통해 사용자가 보게될 뷰 요청
-		if(memberId != null) { // --> 아이디 찾기 성공했을 경우
-			
-			HttpSession session = request.getSession();
-			session.setAttribute("memberId", memberId);
-
-			request.getRequestDispatcher("views/member/idPwdFindSuccessPage.jsp").forward(request, response);
-			
-			
-		}else {// --> 실패했을 경우
-			
-			
-			request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
-			
-		}
+		/*
+		 * if(memberId != null) { // --> 아이디 찾기 성공했을 경우
+		 * 
+		 * 
+		 * }else {// --> 실패했을 경우
+		 * 
+		 * }
+		 */
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(memberId);
+		
+		
+		
+		
+		
+		//HttpSession session = request.getSession();
+		//session.setAttribute("memberId", memberId);
 	
+		//response.sendRedirect("views/member/findBox.jsp");
+		
+		//request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
 		
 
 	
