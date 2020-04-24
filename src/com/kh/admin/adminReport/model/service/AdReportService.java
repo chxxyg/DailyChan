@@ -20,4 +20,14 @@ public class AdReportService {
 		return list;
 	}
 
+	public adReport detailReport(int rno) {
+		
+		Connection conn = getConnection();
+		
+		adReport r = new AdReportDao().detailReport(conn, rno);
+		close(conn);
+		
+		return r;
+	}
+
 }

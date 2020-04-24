@@ -148,16 +148,16 @@
        </div>
     </div>
     <script>
-   		//$(function(){
-   			//$(".listMember>tbody>tr").click(function(){
+   		$(function(){
+   			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			//var mid = $(this).children().eq(0).text();
+	   			var mid = $(this).children().eq(0).text();
 	   				
-	 			//location.href="<%= contextPath%>/detail.ad?mid=" + mid; 
- 			//});
+	 			location.href="<%= contextPath%>/reportDetail.ad?rno=" + rno; 
+ 			});
  
-   		//});   
+   		});   
     </script>
 </body>
 </html>
