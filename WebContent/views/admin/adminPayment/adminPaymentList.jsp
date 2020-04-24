@@ -149,7 +149,7 @@
                     <% }if(o.getOdStatus()==6){ %>
                     <td>반품완료</td>
                     <% } %>
-                   <form action="<%=contextPath %>/paymentList.ad" method="get">
+                   <form action="<%=contextPath %>/adpayCategory.ad" method="get">
                    <input type="hidden" name="currentPage" value="1">
                    <input type="hidden" name="payNo" value="<%=o.getOdOrderNo()%>">
                     <td>

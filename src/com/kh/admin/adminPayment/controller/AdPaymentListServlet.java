@@ -74,12 +74,7 @@ public class AdPaymentListServlet extends HttpServlet {
 		ArrayList<OrderDelivery> list = new AdPaymentService().adPaymentSelectList(pi);
 		int count = new AdPaymentService().adPaymentListCount();
 		
-		//int result = new AdPaymentService().adPaymentUpdate(payNo, payCategory);
-		//String payNo = request.getParameter("payNo");
-		//int payCategory = Integer.parseInt(request.getParameter("payCategory"));
-		//System.out.println(payNo);
-		//System.out.println(payCategory);
-				
+		
 		// adminPaymentList페이지에 보내줌
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
