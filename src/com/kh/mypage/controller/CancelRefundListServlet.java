@@ -38,14 +38,9 @@ public class CancelRefundListServlet extends HttpServlet {
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		ArrayList<Mypage> myList = new MyOrderService().selectOrder(memberId);
 		
-		if(myList.isEmpty()) {
-			request.setAttribute("message", "에러발생");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}else {
-			request.setAttribute("myList", myList);
-			request.getRequestDispatcher("views/mypage/myCancelRefundList.jsp").forward(request, response);
-		}
-	
+		request.setAttribute("myList", myList);
+		request.getRequestDispatcher("views/mypage/myCancelRefundList.jsp").forward(request, response);
+		
 	}
 
 	/**
