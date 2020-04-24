@@ -12,6 +12,8 @@
 	int endPage = pi.getEndPage();
 	int maxPage = pi.getMaxPage();
 	
+	String proCode = (String)request.getAttribute("proCode");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -102,12 +104,12 @@
 		<table class="categoryInnerTable" style="display:inline-block">
 			<tr>
 				<td>
-					<a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%=p.getProCode()%>"><img class="productImg" src="<%= request.getContextPath() %>/resources/attachment_product/<%= p.getAtFileName() %>"></a>
+					<a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%= p.getProCode() %>"><img class="productImg" src="<%= request.getContextPath() %>/resources/attachment_product/<%= p.getAtFileName() %>"></a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<div class="productName"><a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%=p.getProCode()%>"><%= p.getProName() %></a></div>
+					<div class="productName"><a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%= p.getProCode() %>"><%= p.getProName() %></a></div>
 				</td>
 			</tr>
 			<% if(title.equals("SALE")){ %>

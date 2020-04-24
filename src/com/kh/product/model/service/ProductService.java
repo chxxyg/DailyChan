@@ -63,9 +63,9 @@ public class ProductService {
 	
 	public ArrayList<AttachmentProduct> selectAttachment(String proCode){
 		Connection conn = getConnection();
-		ArrayList<AttachmentProduct> atList = new ProductDao().selectAttachment(conn, proCode);
+		ArrayList<AttachmentProduct> list = new ProductDao().selectAttachment(conn, proCode);
 		close(conn);
-		return atList;
+		return list;
 	}
 	
 	

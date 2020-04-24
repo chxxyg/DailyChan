@@ -2,9 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
 <% 
 	Product p = (Product)request.getAttribute("p");
-	ArrayList<AttachmentProduct> atList = (ArrayList<AttachmentProduct>)request.getAttribute("atList");
-	
-	String proCode = (String)request.getAttribute("proCode");
+	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
 	
 %>
 <!DOCTYPE html>
@@ -27,7 +25,7 @@
             <td>
                 <table id="productImg">
                     <tr>
-                        <td colspan="4"><img id="productTitleImg" src="<%= request.getContextPath() %>/resources/attachment_product/<%= atList.get(1).getAtFileName() %>"></td>
+                        <td colspan="4"><img id="productTitleImg" src=""></td>
                     </tr>
                 </table>
             </td>
@@ -41,7 +39,7 @@
                             <table>
                                 <tr>
                                     <td><div id="productPrice1">가격</div></td>
-                                    <td><div id="productPrice2"><%= p.getProPrice() %></div></td>
+                                    <td><div id="productPrice2">10,000</div></td>
                                     <td><div id="productPrice3">원</div></td>
                                 </tr>
                             </table>
@@ -54,8 +52,8 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><div id="productGpa">★★★★☆ <%= p.getProReviewSum() %></div></td>
-                                    <td><div id="productReview">리뷰(<%= p.getProReviewCount() %>건)</div></td>
+                                    <td><div id="productGpa">★★★★☆ 4.7</div></td>
+                                    <td><div id="productReview">리뷰(120건)</div></td>
                                 </tr>
                             </table>
                         </td>
@@ -112,7 +110,7 @@
                     <tr>
                         <td><a href=""><div class="detailBtn" id="detailBtnA1">상세설명</div></a></td>
                         <td><a href=""><div class="detailBtn" id="detailBtnB1">상품정보</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnC1">리뷰(<%= p.getProReviewCount() %>건)</div></a></td>
+                        <td><a href=""><div class="detailBtn" id="detailBtnC1">리뷰(120건)</div></a></td>
                         <td><a href=""><div class="detailBtn" id="detailBtnD1">상품문의</div></a></td>
                     </tr>
                 </table>
@@ -120,7 +118,7 @@
         </tr>
         <tr>
             <td>
-                <div><img id="detailImg" src="<%= request.getContextPath() %>/resources/attachment_product/<%= atList.get(2).getAtFileName() %>" style="width:800px; margin-left:100px;"></div>
+                <div><img id="detailImg" src="" style="width:800px; margin-left:100px;"></div>
             </td>
         </tr>
         <tr>
@@ -129,7 +127,7 @@
                     <tr>
                         <td><a href=""><div class="detailBtn" id="detailBtnA2">상세설명</div></a></td>
                         <td><a href=""><div class="detailBtn" id="detailBtnB2">상품정보</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnC2">리뷰(<%= p.getProReviewCount() %>건)</div></a></td>
+                        <td><a href=""><div class="detailBtn" id="detailBtnC2">리뷰(120건)</div></a></td>
                         <td><a href=""><div class="detailBtn" id="detailBtnD2">상품문의</div></a></td>
                     </tr>
                 </table>
@@ -137,7 +135,7 @@
         </tr>
         <tr>
             <td>
-                <div><img id="detailInfo" src="<%= request.getContextPath() %>/resources/attachment_product/<%= atList.get(3).getAtFileName() %>" style="width:900px; margin-left:50px"></div>
+                <div><img id="detailInfo" src="" style="width:900px; margin-left:50px"></div>
             </td>
         </tr>
 	</table>     
@@ -148,14 +146,14 @@
 	    <div class="detailBtns">
 			<a href=""><div class="detailBtn" id="detailBtnA3">상세설명</div></a>
 			<a href=""><div class="detailBtn" id="detailBtnB3">상품정보</div></a>
-			<a href=""><div class="detailBtn" id="detailBtnC3">리뷰(<%= p.getProReviewCount() %>건)</div></a>
+			<a href=""><div class="detailBtn" id="detailBtnC3">리뷰(120건)</div></a>
 			<a href=""><div class="detailBtn" id="detailBtnD3">상품문의</div></a>
 	    </div>
 	       
 		<div id="detailReview">
 			<span id="detailGpaLabel">구매 고객 평점&nbsp;&nbsp;</span>
-			<span id="detailGpa">★★★★☆ <%= p.getProReviewSum() %></span>
-			<span id="detailGpaInfo">등록된 리뷰 <%= p.getProReviewCount() %>건 기준</span>
+			<span id="detailGpa">★★★★☆ 4.7</span>
+			<span id="detailGpaInfo">등록된 리뷰 120건 기준</span>
 		</div>
 	      
 		<table id="reviewList" width="1000">

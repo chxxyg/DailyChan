@@ -37,10 +37,10 @@ public class ProductDetailServlet extends HttpServlet {
 		
 		Product p = new ProductService().selectDetail(proCode);
 		
-		ArrayList<AttachmentProduct> atList = new ProductService().selectAttachment(proCode);
+		ArrayList<AttachmentProduct> list = new ProductService().selectAttachment(proCode);
 		
 		request.setAttribute("p", p);
-		request.setAttribute("atList", atList);
+		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 	

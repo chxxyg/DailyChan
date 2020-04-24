@@ -265,7 +265,7 @@ public class ProductDao {
 	
 	public ArrayList<AttachmentProduct> selectAttachment(Connection conn, String proCode){
 		
-		ArrayList<AttachmentProduct> atList = new ArrayList<>();
+		ArrayList<AttachmentProduct> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectAttachment");
@@ -280,7 +280,7 @@ public class ProductDao {
 				AttachmentProduct at = new AttachmentProduct();
 				at.setAtFileName(rset.getString("FILE_NAME"));
 				
-				atList.add(at);
+				list.add(at);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -288,7 +288,7 @@ public class ProductDao {
 			close(rset);
 			close(pstmt);
 		}
-		return atList;
+		return list;
 	}
 	
 	

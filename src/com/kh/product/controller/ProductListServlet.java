@@ -98,8 +98,8 @@ public class ProductListServlet extends HttpServlet {
 		}
 		
 		ArrayList<Product> list = new ProductService().selectProList(category, pi);
-		request.setAttribute("pi", pi);
 		
+		request.setAttribute("pi", pi);
 		request.setAttribute("category", category);
 		request.setAttribute("title", title);
 		request.setAttribute("list", list);
