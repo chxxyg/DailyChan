@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.mypage.model.vo.Mypage"%>
+<%
+	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,7 @@
 	/* 최근 본 상품 */
 	.recentProductViewWrap{
 		width:800px;
-		height:1300px;
+		margin-bottom:200px;
 		float:left;
 	}
 	.recentProductViewWrap>span{
@@ -40,15 +43,15 @@
 	}
 	#recentProduct_td1>img{
 		float:left;
-		margin-left: 15px;
+		margin-left: 25px;
 		cursor:pointer;
 	}
 	#recentProduct_td1>p{
 		float:left;
-		margin:18px 0px 0px 15px;
+		margin:30px 0px 0px 20px;
 		cursor:pointer;
 	}
-	#recentProduct_td2{padding-left:50px;}
+	#recentProduct_td2{padding-left:53px;}
 	#shoppingcartBtn{
 		width:60px;
 		height:30px;
@@ -56,7 +59,7 @@
 		border:none;
 		font-size:10px;
 		color:white;
-		margin-left:100px;
+		margin-left:45px;
 	}
 	#shoppingcartBtn:hover{cursor:pointer;}
 	
@@ -66,11 +69,13 @@
 
 	<%@ include file="mypageMainOuter.jsp" %>
 	<%@ include file="../common/mainSideBar.jsp" %>
-
+	
+	
 	<div class="recentProductViewWrap">
 		<h3>최근 본 상품</h3>
 		<hr>
-		<span><b>강보람</b> 님의 최근 본 상품은 <b>3</b>개 입니다. (최대 30개까지 저장됩니다.) </span>
+		<span><b>강보람</b> 님의 최근 본 상품은 <b><%=myList.size()%></b>개 입니다. (최대 10개까지 저장됩니다.) </span>
+
 		<table class="recentProduct" width="790px">
 			<thead>
 				<tr height="35px">
@@ -79,45 +84,33 @@
 					<th width="150px">장바구니 담기</th>
 				</tr>
 			</thead>
+			
 			<tbody>
-				<tr>
-					<td id="recentProduct_td1">
-						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-						<img class="pName" src="" width="80" height="80">
-						<p class="pName"><b>데일리찬 상품명</b><br>
-							1개 / 12,000원
-						</p>
-					</td>
-					<td id="recentProduct_td2" colspan="2">
-						상품이 매진되었습니다.
+			<% if(myList.isEmpty()) { %>
+				<tr height="300">
+					<td colspan=3>
+						<span id="empty">최근 구매하신 상품이 없습니다.</span>
 					</td>
 				</tr>
-				<tr>
-					<td id="recentProduct_td1">
-						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-						<img class="pName" src="" width="80" height="80">
-						<p class="pName"><b>데일리찬 상품명</b><br>
-							1개 / 12,000원
-						</p>
-					</td>
-					<td id="recentProduct_td2" colspan="2">
-						12,000원
-						<button type="button" id="shoppingcartBtn" onclick="toCart();">장바구니</button>
-					</td>
-				</tr>
-				<tr>
-					<td id="recentProduct_td1">
-						<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-						<img class="pName" src="" width="80" height="80">
-						<p class="pName"><b>데일리찬 상품명</b><br>
-							1개 / 12,000원
-						</p>
-					</td>
-					<td id="recentProduct_td2" colspan="2">
-						12,000원
-						<button type="button" id="shoppingcartBtn" onclick="toCart();">장바구니</button>
-					</td>
-				</tr>
+			<% }else { %>	
+				<% for(int i=0; i<10; i++) { %>
+					<tr>
+						<td id="recentProduct_td1">
+							<input type="hidden" class="pCode" value="<%=myList.get(i).getProCode()%>"><!-- 상품코드 -->
+							<img class="pName" src="<%=contextPath%>/resources/attachment_product/<%=myList.get(i).getFileName()%>" width="80" height="80">
+							<p class="pName"><b><%= myList.get(i).getProName() %></b><br>
+								
+							</p>
+						</td>
+						<td id="recentProduct_td2">
+							<span class=".pPrice"><%= myList.get(i).getPrice() %></span><span>원</span>
+						</td>
+						<td>
+							<button type="button" id="shoppingcartBtn"">장바구니</button>
+						</td>
+					</tr>
+					<% } %>
+			<% } %>
 			</tbody>
 		</table>
 
@@ -134,12 +127,27 @@
 			
 		});
 		
-		/* ajax 사용!! */		
-		function toCart(){
-			
-			window.alert("장바구니에 상품이 담겼습니다.");
-			
-		}
+		$("#shoppingcartBtn").click(function(){
+				var proCode = $(this).parents(".recentProduct").find("pCode").val();
+				var proPrice = $(this).parents(".recentProduct").find("pPrice").text();
+				
+				$.ajax({
+					url:"toCart.pro",
+					data:{proCode:proCode, proPrice:proPrice},
+					type:"post",
+					success:function(msg){
+						if(msg == 0){
+							alert("상품이 장바구니에 이미 존재합니다.");
+						}else{
+							var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+							if(result){
+								location.href="cartList.pro";
+							}
+						}
+					}, error:function(){
+						alert("ajax 에러:장바구니 담기 실패");
+					}
+				});
 		
 		
 	</script>
