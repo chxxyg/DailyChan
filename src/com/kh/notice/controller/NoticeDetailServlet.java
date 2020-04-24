@@ -1,7 +1,6 @@
-package com.kh.member.controller.idPwdFindBox;
+package com.kh.notice.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,49 +8,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.member.model.service.MemberService;
+import com.kh.notice.model.service.NoticeService;
+import com.kh.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class IdFindServlet
+ * Servlet implementation class NoticeDetailServlet
  */
-@WebServlet("/idFind.me")
-public class IdFindServlet extends HttpServlet {
+@WebServlet("/datail.no")
+public class NoticeDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IdFindServlet() {
+    public NoticeDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    /**
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String id_name = request.getParameter("id_name");
-		String id_email = request.getParameter("id_email");
-		
-		 
-		String memberId  = new MemberService().searchId(id_name, id_email);
-		System.out.println(memberId);
-
-		response.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
-		out.print(memberId);
+	int nno = Integer.parseInt(request.getParameter("nno"));
 	
-		//HttpSession session = request.getSession();
-		//session.setAttribute("memberId", memberId);
+	Notice n = new NoticeService().selectNotice(nno);
 	
-		//response.sendRedirect("views/member/findBox.jsp");
-		
-		//request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
-		
-
+	
+	
+	
+	
+	
+	
 	
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

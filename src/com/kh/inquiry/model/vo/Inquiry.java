@@ -4,19 +4,31 @@ import java.sql.Date;
 
 public class Inquiry {
 	
-	private int inquiryBoardNo;
-	private String memberId;
-	private String inquiryType;
-	private String inquiryTitle;
-	private String inquiryContent;
-	private String inquiryResponseYn;
-	private String inquiryResponse;
-	private String inquireFileYn;
-	private Date inquireCreateDate;
+	private int inquiryBoardNo;			// 1:1문의번호
+	private String memberId;			// 1:1문의 회원아이디
+	private String inquiryType;			// 1:1문의 상담유형
+	private String inquiryTitle;		// 1:1문의 제목
+	private String inquiryContent;		// 1:1문의 내용 
+	private String inquiryResponseYn;	// 1:1문의 답변여부
+	private String inquiryResponse;		// 1:1문의 답변내용
+	private String inquiryFileYn;		// 1:1문의 첨부파일 유무
+	private Date inquiryCreateDate;		// 1:1문의 문의일시
 	
 	public Inquiry() {
 		
 	}
+	
+
+	public Inquiry(String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
+			String inquiryFileYn) {
+		super();
+		this.memberId = memberId;
+		this.inquiryType = inquiryType;
+		this.inquiryTitle = inquiryTitle;
+		this.inquiryContent = inquiryContent;
+		this.inquiryFileYn = inquiryFileYn;
+	}
+
 
 	public Inquiry(int inquiryBoardNo, String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
 			String inquiryResponseYn, String inquiryResponse, String inquireFileYn, Date inquireCreateDate) {
@@ -28,10 +40,11 @@ public class Inquiry {
 		this.inquiryContent = inquiryContent;
 		this.inquiryResponseYn = inquiryResponseYn;
 		this.inquiryResponse = inquiryResponse;
-		this.inquireFileYn = inquireFileYn;
-		this.inquireCreateDate = inquireCreateDate;
+		this.inquiryFileYn = inquireFileYn;
+		this.inquiryCreateDate = inquireCreateDate;
 	}
 
+	
 	public int getInquiryBoardNo() {
 		return inquiryBoardNo;
 	}
@@ -88,28 +101,28 @@ public class Inquiry {
 		this.inquiryResponse = inquiryResponse;
 	}
 
-	public String getInquireFileYn() {
-		return inquireFileYn;
+	public String getInquiryFileYn() {
+		return inquiryFileYn;
 	}
 
-	public void setInquireFileYn(String inquireFileYn) {
-		this.inquireFileYn = inquireFileYn;
+	public void setInquiryFileYn(String inquireFileYn) {
+		this.inquiryFileYn = inquireFileYn;
 	}
 
-	public Date getInquireCreateDate() {
-		return inquireCreateDate;
+	public Date getInquiryCreateDate() {
+		return inquiryCreateDate;
 	}
 
 	public void setInquireCreateDate(Date inquireCreateDate) {
-		this.inquireCreateDate = inquireCreateDate;
+		this.inquiryCreateDate = inquireCreateDate;
 	}
 
 	@Override
 	public String toString() {
 		return "inquiry [inquiryBoardNo=" + inquiryBoardNo + ", memberId=" + memberId + ", inquiryType=" + inquiryType
 				+ ", inquiryTitle=" + inquiryTitle + ", inquiryContent=" + inquiryContent + ", inquiryResponseYn="
-				+ inquiryResponseYn + ", inquiryResponse=" + inquiryResponse + ", inquireFileYn=" + inquireFileYn
-				+ ", inquireCreateDate=" + inquireCreateDate + "]";
+				+ inquiryResponseYn + ", inquiryResponse=" + inquiryResponse + ", inquireFileYn=" + inquiryFileYn
+				+ ", inquireCreateDate=" + inquiryCreateDate + "]";
 	}
 
 

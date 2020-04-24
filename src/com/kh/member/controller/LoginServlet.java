@@ -38,6 +38,7 @@ public class LoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 		String saveId = request.getParameter("saveId");
+		String msg = "";
 		
 		
 		Member loginUser = new MemberService().loginMember(userId, userPwd);
@@ -71,14 +72,8 @@ public class LoginServlet extends HttpServlet {
 			
 		}else {// 로그인 실패했을 경우 --> 에러페이지
 			
-			request.setAttribute("msg", "로그인에 실패했습니다.");
-			/*
-			 * RequestDispatcher view =
-			 * request.getRequestDispatcher("views/common/errorPage.jsp");
-			 * view.forward(request, response);
-			 */
-					
-			
+			response.sendRedirect("/dailyChan/loginPop.me");
+			request.setAttribute("msg", "로그인에 실패하였습니다.");
 		}
 
 	
