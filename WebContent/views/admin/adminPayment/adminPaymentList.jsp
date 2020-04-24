@@ -92,6 +92,10 @@
 			width:100%;
 			font-size:16px;
 		}
+		.pagingArea{
+			text-align:center;
+			margin-right:220px;
+		}
     </style>
 </head>
 <body>
@@ -173,7 +177,7 @@
 
         </table>  
         <br><br><br>
-       <div class="pagingArea" align="center">
+       <div class="pagingArea" >
 			<% if(currentPage!=1) {%>
 			<button onclick="location.href='paymentList.ad?currentPage=1'"> &lt;&lt; </button>
 			
