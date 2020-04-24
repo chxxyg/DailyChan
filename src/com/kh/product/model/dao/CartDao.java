@@ -50,9 +50,6 @@ public class CartDao {
 			if(rset.next()) {
 				exist = rset.getInt(1);
 			}
-			
-			System.out.println(exist);
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
