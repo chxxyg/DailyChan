@@ -6,6 +6,7 @@ import static com.kh.common.JDBCTemplate.getConnection;
 import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.kh.member.model.vo.Member;
 import com.kh.mypage.model.dao.MypageDao;
@@ -80,8 +81,8 @@ public class MypageService
     }
     
     /**
+     * 4_1. 배송지관리 - 추가
      * @author Taek
-     * 4. 배송지관리 - 추가
      * @param a     --> 배송지 테이블에  데이터 담을 객체
      * @return      --> 추가 성공 여부
      */
@@ -104,5 +105,22 @@ public class MypageService
         
         return result;
                 
+    }
+    
+    /**
+     * 4_2. 배송지 리스트 조회
+     * @author Taek
+     * @param userId    --> 접속한 회원 아이디
+     * @return          --> 주소 리스트
+     */
+    public ArrayList<Address> listAddress(String userId)
+    {
+        Connection conn = getConnection();
+        
+        ArrayList<Address> list = new MypageDao().listAddress(conn, userId);
+                
+        close(conn);
+        
+        return list;
     }
 }
