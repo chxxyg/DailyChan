@@ -29,6 +29,8 @@
 	<div id="productListWrap">
 		       
 		<% for(Product p : list){ %>
+		<input type="hidden" class="proCode" value="<%=p.getProCode()%>">
+		
 		<table class="searchInnerTable" style="display: inline-block;">
 			<tr>
 				<td>

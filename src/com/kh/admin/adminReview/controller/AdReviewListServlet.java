@@ -1,29 +1,28 @@
-package com.kh.product.controller;
+package com.kh.admin.adminReview.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.product.model.service.ProductService;
-import com.kh.product.model.vo.Product;
+import com.kh.admin.adminReview.model.service.AdReviewService;
+import com.kh.admin.adminReview.model.vo.AdReview;
 
 /**
- * Servlet implementation class SearchResultServlet
+ * Servlet implementation class AdReviewListServlet
  */
-@WebServlet("/search.pro")
-public class SearchResultServlet extends HttpServlet {
+@WebServlet("/reviewList.ad")
+public class AdReviewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchResultServlet() {
+    public AdReviewListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +32,13 @@ public class SearchResultServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String keyword = request.getParameter("keyword");
+		 ArrayList<AdReview> list = new AdReviewService().selectList();
 		
-		ArrayList<Product> list = new ProductService().searchResult(keyword);
+		 request.setAttribute("list", list);
 		
-		request.setAttribute("keyword", keyword);
-		request.setAttribute("list", list);
+		request.getRequestDispatcher("views/admin/adminReview/adminReviewList.jsp").forward(request, response);
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/product/searchResultPage.jsp");
-		view.forward(request, response);
+		
 		
 	}
 
