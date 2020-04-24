@@ -67,7 +67,22 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><div id="productGpa">★★★★☆ <%=p.getProReviewSum() %></div></td>
+                                    <td><div id="productGpa">
+                                    						<% if(p.getProReviewSum()<1){ %>
+                                    							☆☆☆☆☆
+                                    						<% }else if(p.getProReviewSum()<2){ %>
+                                    							★☆☆☆☆ 
+                                    						<% }else if(p.getProReviewSum()<3){ %>
+                                    							★★☆☆☆ 
+                                    						<% }else if(p.getProReviewSum()<4){ %>
+                                    							★★★☆☆ 
+                                    						<% }else if(p.getProReviewSum()<5){ %>
+                                    							★★★★☆
+                                    						<% }else if(p.getProReviewSum()>=5){ %>
+                                    							★★★★★
+                                    						<% } %>
+                                    						<%=p.getProReviewSum() %>
+                                    	</div></td>
                                     <td><div id="productReview">리뷰(<%=p.getProReviewCount() %>건)</div></td>
                                 </tr>
                             </table>

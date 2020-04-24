@@ -65,10 +65,26 @@ public class Product {
 		this.discountRate = discountRate;
 		this.proSaleYn = proSaleYn;
 	}
-
-
 	
 	
+	/**
+	 * searchResult 조회용 매개변수 
+	 */
+	public Product(String proCode, String proName, int proPrice, int proStandard, String proSaleYn, String atFileName,
+			double discountRate) {
+		super();
+		this.proCode = proCode;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proStandard = proStandard;
+		this.atFileName = atFileName;
+		this.proSaleYn = proSaleYn;
+		this.discountRate = discountRate;
+	}
+
+
+
+
 	/**
 	 * productDetail
 	 */

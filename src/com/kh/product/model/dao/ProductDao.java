@@ -218,7 +218,8 @@ public class ProductDao {
 									 rset.getInt("PRODUCT_PRICE"),
 									 rset.getInt("PRODUCT_STANDARD"),
 									 rset.getString("FILE_NAME"),
-									 rset.getString("PRODUCT_SALE_YN")));
+									 rset.getString("PRODUCT_SALE_YN"),
+									 rset.getDouble("DISCOUNT_RATE")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -101,6 +101,7 @@
 		       
 		<% for(Product p : list){ %>
 		<input type="hidden" class="proCode" value="<%=p.getProCode()%>">
+		
 		<table class="categoryInnerTable" style="display:inline-block">
 			<tr>
 				<td>
