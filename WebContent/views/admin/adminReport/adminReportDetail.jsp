@@ -103,7 +103,7 @@
             </tr>         
         </table>
        		 <div id="enrollsubmit">
-        		<button type="button" onclick="deleteBlackList();">삭제하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="deleteReport();">삭제하기</button>&nbsp;&nbsp;
         		<button type="button" onclick="location.href='<%=contextPath%>/reportList.ad';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
@@ -113,10 +113,10 @@
     </div>
 
     <script>
-    	function deleteBlackList(){   		
+    	function deleteReport(){   		
     		var bool = confirm("정말 삭제시키겠습니까?");
     		if(bool){
-    			location.href = "<%=contextPath%>/blackListDelete.ad?bno=<%=r.getReportNo()%>";
+    			location.href = "<%=contextPath%>/reportDelete.ad?rno=<%=r.getReportNo()%>";
     			alert("삭제되었습니다.");
     		}else{
     			alert("취소하였습니다.");
