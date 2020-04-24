@@ -68,4 +68,34 @@ private Properties prop = new Properties();
 		return list;
 	}
 
+	public AdReview detailReview(Connection conn, int rbo) {
+		
+		AdReview v = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rbo);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				//v = new AdReview(rset.getString(""),
+								// rset.getString(""),
+								// rset.getString(""));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return v;
+	}
+
 }
+
+

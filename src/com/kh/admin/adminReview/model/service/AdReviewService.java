@@ -23,4 +23,17 @@ public class AdReviewService {
 		return list;
 	}
 
+	/*
+	 * 리뷰 상세조회
+	 */
+	public AdReview detailReview(int rbo) {
+		
+		Connection conn = getConnection();
+		
+		AdReview v = new AdReviewDao().detailReview(conn, rbo);
+		close(conn);
+		
+		return v;
+	}
+
 }
