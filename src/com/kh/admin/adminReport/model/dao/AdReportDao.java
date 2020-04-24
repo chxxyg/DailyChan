@@ -65,4 +65,69 @@ public class AdReportDao {
 		return list;
 	}
 
+	public adReport detailReport(Connection conn, int rno) {
+		
+		adReport r = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailReport");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rno);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				r = new adReport(rset.getInt("REPORT_NO"),
+								 rset.getInt("REVIEW_BOARD_NO"),
+								 rset.getString("MEMBER_ID"),
+								 rset.getString("MEMBER_ID2"),
+								 rset.getDate("REPORT_DATE"),
+								 rset.getString("REPORT_CONTENT"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}		
+		return r;
+	}
+
+	public ArrayList<adReport> searchReport(Connection conn, String memberId) {
+		
+		ArrayList<adReport> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("searchReport");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + memberId + "%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new adReport(rset.getInt("REPORT_NO"),
+									  rset.getInt("REVIEW_BOARD_NO"),
+									  rset.getString("MEMBER_ID"),
+									  rset.getString("MEMBER_ID2"),
+									  rset.getDate("REPORT_DATE"),
+									  rset.getString("REPORT_CONTENT")));				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}		
+		return list;
+	}
+
 }
+
+
+
