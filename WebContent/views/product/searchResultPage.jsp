@@ -41,6 +41,7 @@
 				</td>
 			</tr>
 			
+			
 			<% if(p.getProSaleYn().equals("Y")){ %>
 			<tr>
 				<td>
