@@ -35,7 +35,7 @@ public class AdReviewDetailServlet extends HttpServlet {
 		AdReview v = new AdReviewService().detailReview(rbo);
 		
 		request.setAttribute("v", v);
-		request.getRequestDispatcher("리뷰디테일jsp").forward(request, response);
+		request.getRequestDispatcher("views/admin/adminReview/adminReviewDetail.jsp").forward(request, response);
 		
 	}
 
