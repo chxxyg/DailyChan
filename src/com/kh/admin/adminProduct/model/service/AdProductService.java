@@ -15,6 +15,9 @@ import com.kh.product.model.vo.Product;
 
 public class AdProductService {
 	
+	/**
+	 * 상품 등록을위한 이미지와 상품 정보가 담긴 서비스
+	 */
 	public int adProductInsert(Product p, ArrayList<AttachmentProduct> list) {
 		
 		Connection conn =  getConnection();

@@ -166,7 +166,7 @@
 	text-align: center;
 }
 
-#loginMemPwd_result p {
+#id_result, #pwd_result {
 	font-size: 30px;
 	text-align: center;
 	padding: 10px;
@@ -212,6 +212,7 @@
 								maxlength="10" placeholder="개인: 이름 입력" required><br>
 							<input type="text" id="id_email" name="id_email" class="login_input" maxlength="50" placeholder="이메일" required>
 
+							<!-- 입력정보 오류시 노출 -->
 							<br>
 							<button class="btn_login" type="button" id="btn_find_id">
 								<em>아이디 찾기</em>
@@ -238,7 +239,8 @@
 										<div id="find-info">회원님의 아이디를 찾았습니다.</div>
 										<div id="loginMemPwd_result"
 											style="color: hsl(28, 100%, 50%);">
-											<p><%= MEMBERID %></p>
+											<p id="id_result"></p>
+											
 										</div>
 										<button id="loginBtn" type="button" onclick="loginPop();">로그인</button>
 										<div id="find-info_1">비밀번호를 모르신다면 우측 비밀번호 찾기를 이용해주세요.</div>
@@ -264,7 +266,7 @@
 									maxlength="20" placeholder="아이디" required><br> <input
 									type="text" name="pw_name" id="pw_name" class="login_input"
 									maxlength="10" placeholder="개인: 이름  입력" required> <br>
-								<button class="btn_login" type="submit" id="btn_find_pw">
+								<button class="btn_login" type="button" id="btn_find_pw">
 									<em>비밀번호 찾기</em>
 								</button>
 
@@ -285,7 +287,7 @@
 							<div id="loginMemPwd">
 								<div id="find-info2">회원님의 비밀번호를 찾았습니다.</div>
 								<div id="loginMemPwd_result" style="color: hsl(28, 100%, 50%);">
-									<p><%= PASSWORD %></p>
+									<p id="pwd_result"></p>
 								</div>
 
 								<button id="loginBtn" type="submit" onclick="loginPop();">로그인</button>
@@ -310,6 +312,7 @@
 		$("#btn_find_id").click(function(){
 			var id_name = $("#id_name").val();
 			var id_email = $("#id_email").val();
+			var id_result = $("#id_result");
 			
 			$.ajax({
 				url:"/dailyChan/idFind.me",
@@ -321,25 +324,25 @@
 						$(".idFind_before").show();
 						$(".idFind_after").hide();
 						alert("실패");
+						
 					}else{
 						$(".idFind_after").show();
 						$(".idFind_before").hide();
+						id_result.text(memberId);
 					}
 					
 				}, error:function(){
 					
 				}
 			})
-			
-			
-			
+
 		});
-	
-	
+
 		
-		$("#btn_find_id").click(function(){
+		$("#btn_find_pw").click(function(){
 			var pw_id = $("#pw_id").val();
 			var pw_name = $("#pw_name").val();
+			var pwd_result = $("#pwd_result");
 			
 			$.ajax({
 				url:"/dailyChan/pwdFind.me",
@@ -351,28 +354,28 @@
 						$(".pwdFind_before").show();
 						$(".pwdFind_after").hide();
 						alert("실패");
+						
 					}else{
 						$(".pwdFind_after").show();
 						$(".pwdFind_before").hide();
+						pwd_result.text(memberPwd);
 					}
 					
 				}, error:function(){
 					
 				}
 			})
-			
-			
-			
+	
 		});
 			
 		
-		
+		/* 
 		function email_check( email ) {
 		    
 		    var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 		    return (email != '' && email != 'undefined' && regex.test(email));
 	
-		}
+		} */
 	</script>
 
 	<%@ include file="../common/mainFooter.jsp"%>

@@ -140,27 +140,20 @@ margin:auto;
 			if(document.getElementById("userId").value == "")
 			{
 				alert("아이디를 입력해주세요");
+				userId.focus();
 				return false;
+				
 			}
 			
 			if(document.getElementById("pwd").value == "")
 			{
 				alert("비밀번호를 입력해주세요");
+				pwd.focus();
 				return false;
 			}
-		 	
-			
-			//opener.location.replace("<%=contextPath%>");
-			//window.close();
+		 
+	
 		}
-		<%-- 
-	 	<% if(userId.equals()) { %>
-	 	
-	 	<% }else{%>
-	 	
-	 	
-	 	<% } %>
-		 --%>
 
 		function enrollForm() {
 			

@@ -38,7 +38,7 @@ public class RecentViewServlet extends HttpServlet {
 		
 		request.setAttribute("myList", myList);
 		request.getRequestDispatcher("views/mypage/recentProductView.jsp").forward(request, response);
-			
+	 		
 	}
 
 	/**

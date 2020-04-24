@@ -35,6 +35,11 @@ public class CartService {
 		
 		Connection conn = getConnection();
 		int result = new CartDao().insertCart(conn, memberId, proCode, proPrice);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
 		return result;
 	}
@@ -68,16 +73,21 @@ public class CartService {
 		return result;
 	}
 	
-	/** 4. 장바구니에서 선택된 상품
+	/** 4. 장바구니에서 선택된 상품 삭제
 	 * @param memberId
 	 * @param proCode
 	 * @return
 	 */
 	public int deleteCart(String memberId, String proCode) {
 		Connection conn = getConnection();
-		int result = new CartDao().deleteCart(conn, memberId, proCode);
+		int del = new CartDao().deleteCart(conn, memberId, proCode);
+		if(del > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
-		return result;
+		return del;
 	}
 	
 	

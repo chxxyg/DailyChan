@@ -26,35 +26,22 @@ public class IdFindServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
+    /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String id_name = request.getParameter("id_name");
 		String id_email = request.getParameter("id_email");
+		
 		 
 		String memberId  = new MemberService().searchId(id_name, id_email);
-		
-		
-		// 처리 결과를 통해 사용자가 보게될 뷰 요청
-		/*
-		 * if(memberId != null) { // --> 아이디 찾기 성공했을 경우
-		 * 
-		 * 
-		 * }else {// --> 실패했을 경우
-		 * 
-		 * }
-		 */
-		
+		System.out.println(memberId);
+
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(memberId);
-		
-		
-		
-		
-		
+	
 		//HttpSession session = request.getSession();
 		//session.setAttribute("memberId", memberId);
 	
@@ -65,7 +52,6 @@ public class IdFindServlet extends HttpServlet {
 
 	
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

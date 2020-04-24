@@ -43,16 +43,19 @@ public class InsertCartServlet extends HttpServlet {
 		
 		if(exist == 0) { // 상품이 장바구니에 없으니 장바구니에 담기
 			result = new CartService().insertCart(memberId, proCode, proPrice);
+			
+			if(result > 0) { // 장바구니에 담기 성공
+				msg=1;
+			}else { // 장바구니에 담기 실패 -> 에러페이지로
+				request.setAttribute("message", "장바구니 담기 실패");
+				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			}
+						
 		}else { // 상품이 장바구니에 이미 존재함
 			msg=0;
 		}
 		
-		if(result > 0) { // 장바구니에 담기 성공
-			msg=1;
-		}else { // 장바구니에 담기 실패 -> 에러페이지로
-			request.setAttribute("message", "장바구니 담기 실패");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
+		
 		
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();

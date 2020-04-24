@@ -129,7 +129,7 @@
                 </tr>
             </thead>
             <tbody>
-				<% for(adReport r : list){ %>
+					<% for(adReport r : list){ %>
                 <tr>
                     <td><%= r.getReportNo() %></td>
                     <td><%= r.getReviewBoardNo() %></td>

@@ -52,7 +52,7 @@
                 <th width="150">구매금액</th>
             </tr>
             <% if(clist.isEmpty()) { %>
-	            <tr>
+	            <tr id="emptyBox">
 	                <td colspan="6">
 	                    <table id="emptyWrap">
 	                        <tr>
@@ -71,9 +71,11 @@
 	             <% for(ShoppingCart c : clist){ %>
 	             	<!-- <input type="hidden" id="sum" value="<%=sum%>"> -->
 	             	<!-- <input type="hidden" id="delivery" value="<%=delivery%>"> -->
-		            <input type="hidden" value="<%=c.getProCode()%>">
 		            <tr class="find" height="170">
-		                <td width="20"><input type="checkbox" class="cartProductCheck"></td>
+		                <td width="20">
+		                	<input type="hidden" value="<%=c.getProCode()%>">
+		                	<input type="checkbox" class="cartProductCheck" name="checkBtn">
+	                	</td>
 		                <td width="160"><a href=""><img class="cartProductImg" src="<%=contextPath%>/resources/attachment_product/<%=c.getrFileName()%>"></a></td>
 		                <td width="250"><a href=""><div class="cartProductName"><%=c.getProName() %></div></a></td>
 		                <td width="150"><span class="cartProductPrice"><%=c.getPrice() %></span> <span>원</span></td>
@@ -155,7 +157,7 @@
     			var qty = $(this).siblings(".input").val();
     			
     			var proPrice = $(this).parents(".find").find(".cartProductPrice").text();
-    			var tpSpan = $(this).parents(".find").find(".productTotalPrice");
+    			var totalPrice = $(this).parents(".find").find(".productTotalPrice");
     			
     			
     			$.ajax({
@@ -163,10 +165,10 @@
     				data:{proCode:proCode, qty:qty},
     				type:"post",
     				success:function(){
-    					tpSpan.text(qty * proPrice);
+    					
+    					totalPrice.text(qty * proPrice);
     					
     				}, error:function(){
-    					//console.log("ajax통신실패");
     				}
     			});
     			
@@ -182,6 +184,19 @@
     			
     		});
     		
+    		/* 선택한 상품 삭제 */
+       		
+			$("#cartDeleteBtn").click(function(){
+   			 var pList = []; 
+   		       
+			 	$("input:checkbox[name=checkBtn]:checked").each(function(){
+		     		pList.push($(this).prev().val());
+		     	});
+   			 
+			 	location.href="<%=contextPath%>/deleteCart.pro?pList=" + pList;
+			});
+    		
+    		
     		/* 상품 선택 시 금액 변경 */
     		/*
     		$(".cartProductCheck:checked").each(function(){
@@ -190,30 +205,12 @@
     		});
     		*/
     		
-    		/* 선택상품 삭제 */
-    		$("#cartDeleteBtn").click(function(){
-    			 var pList = []; // key 값을 담을 배열
-    		       $('.cartProductCheck:checked').each(function(i){
-    		          pList.push($(this).parents(".find").prev().val());
-    		       });
-    		
-    			 	console.log(pList);
-    			 
-    				$.ajax({
-    					url:"deleteCart.pro",
-    					traditional:true,
-    					data:{'pList':pList},
-    					type:"get",
-    					success:function(msg){
-    						alert(msg);
-    					}, error:function(){
-    						
-    					}
-    					
-    				});
-    		       
-    		   });
-    		});
+    	
+			
+			
+			
+			
+    	});
     		
     
     	

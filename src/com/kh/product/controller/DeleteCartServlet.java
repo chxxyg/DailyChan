@@ -1,7 +1,7 @@
 package com.kh.product.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.member.model.vo.Member;
 import com.kh.product.model.service.CartService;
+import com.kh.product.model.vo.ShoppingCart;
 
 /**
  * Servlet implementation class DeleteCartServlet
@@ -35,37 +36,31 @@ public class DeleteCartServlet extends HttpServlet {
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		String[] pList = request.getParameterValues("pList");
 		
-		System.out.println(pList[0]);
 		
-		String[] pCodeArr = null;
-		
+		String[] codeList = null;
+	    
 		if(pList != null ){
-			pCodeArr = pList[0].split(",");
+	         codeList = pList[0].split(",");
+	    }
+	    
+		int del=0;
+		int result = 1;
+		ArrayList<ShoppingCart> clist = new ArrayList<>();
+		
+		
+		for(int i=0; i<codeList.length; i++) {
+			del = new CartService().deleteCart(memberId, codeList[i]);
+			result *= del;
 		}
 		
-		
-		int result = 0;
-		for(int i=0; i<pCodeArr.length; i++) {
-			
-			System.out.println(pCodeArr[i]);
-			result = new CartService().deleteCart(memberId, pCodeArr[i]);
-			if(result <= 0) {
-				break;
-			}
+		if(result > 0) { //삭제 성공
+			clist = new CartService().selectCart(memberId);
+			request.setAttribute("clist", clist);
+			request.getRequestDispatcher("views/product/cartPage.jsp").forward(request, response);
+		}		else { // 삭제실패
+			request.setAttribute("msg", "상품 삭제 실패");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
-		
-		String msg = "";
-		if(result > 0) { // 성공
-			msg = "성공";
-		}else { // 실패
-			msg="실패";//에러페이지
-		}
-		
-		//response.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
-		out.print(msg);
-		
-		
 		
 	}
 
