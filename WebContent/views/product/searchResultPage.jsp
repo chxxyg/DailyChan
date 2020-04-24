@@ -4,6 +4,7 @@
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list"); 
 	String keyword = (String)request.getAttribute("keyword");
 
+	String proCode = (String)request.getAttribute("proCode");
 
 %>
 <!DOCTYPE html>
