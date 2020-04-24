@@ -47,14 +47,27 @@
 		<table class="searchInnerTable" style="display: inline-block;">
 			<tr>
 				<td>
-					<a href=""><img class="searchProductImg" src="<%= request.getContextPath() %>/resources/attachment_product/<%= p.getAtFileName() %>"></a>
+					<a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%= p.getProCode() %>"><img class="searchProductImg" src="<%= request.getContextPath() %>/resources/attachment_product/<%= p.getAtFileName() %>"></a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<div class="searchProductName"><a href=""><%= p.getProName() %></a></div>
+					<div class="searchProductName"><a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%= p.getProCode() %>"><%= p.getProName() %></a></div>
 				</td>
 			</tr>
+			
+			<% if(p.getProSaleYn().equals("Y")){ %>
+			<tr>
+				<td>
+					<div class="searchProductInfo">
+						<span class="searchProductPrice" style="text-decoration: line-through; color: gray;"><%= p.getProPrice() %>원</span>
+						<span class="searchProductPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %> 원</span>
+						<span>|</span>
+						<span class="searchProductFor"><%= p.getProStandard() %>인분</span>
+					</div>
+				</td>
+			</tr>
+			<% } else { %>
 			<tr>
 				<td>
 					<div class="searchProductInfo">
@@ -64,6 +77,8 @@
 					</div>
 				</td>
 			</tr>
+			<% } %>
+			
 			<tr>
 				<td>
 					<div class="searchProductBtn">

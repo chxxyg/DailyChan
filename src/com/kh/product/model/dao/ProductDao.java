@@ -231,7 +231,6 @@ public class ProductDao {
 	
 	
 	public Product selectDetail(Connection conn, String proCode){
-		
 		Product p = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
