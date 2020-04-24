@@ -335,6 +335,10 @@
     </div>    
         
         <script>
+        
+        	%(function(){
+        		%("#search-btn").clicked 
+        	})
 
         	<!-- navigator 고정 function  -->
             $( document ).ready( function() {
