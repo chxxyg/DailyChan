@@ -54,18 +54,18 @@ public class ProductService {
 	 * ProductDetail 조회 (해당하는 상품 불러와 상세 페이지 채우는 메소드)
 	 * @return
 	 */
-	public ArrayList<Product> selectDetail(String proCode){
+	public Product selectDetail(String proCode){
 		Connection conn = getConnection();
-		ArrayList<Product> list = new ProductDao().selectDetail(conn, proCode);
+		Product p = new ProductDao().selectDetail(conn, proCode);
 		close(conn);
-		return list;
+		return p;
 	}
 	
 	public ArrayList<AttachmentProduct> selectAttachment(String proCode){
 		Connection conn = getConnection();
-		ArrayList<AttachmentProduct> at = new ProductDao().selectAttachment(conn, proCode);
+		ArrayList<AttachmentProduct> atList = new ProductDao().selectAttachment(conn, proCode);
 		close(conn);
-		return at;
+		return atList;
 	}
 	
 	

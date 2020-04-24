@@ -230,44 +230,65 @@ public class ProductDao {
 	}
 	
 	
-	public ArrayList<Product> selectDetail(Connection conn, String proCode){
+	public Product selectDetail(Connection conn, String proCode){
 		
-		ArrayList<Product> list = new ArrayList<>();
+		Product p = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectProDetail");
+		String sql = prop.getProperty("selectDetail");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, proCode);
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				list.add(new Product(rset.getString("PRODUCT_CODE"),
-									 rset.getString("PRODUCT_NAME"),
-									 rset.getInt("PRODUCT_PRICE"),
-									 rset.getDouble("REVIEW_SUM"),
-									 rset.getInt("REVIEW_COUNT")))
+			if(rset.next()) {
+				p = new Product();
+				p.setProCode(rset.getString("PRODUCT_CODE"));
+				p.setProName(rset.getString("PRODUCT_NAME"));
+				p.setProPrice(rset.getInt("PRODUCT_PRICE"));
+				p.setProReviewSum(rset.getDouble("REVIEW_SUM"));
+				p.setProReviewCount(rset.getInt("REVIEW_COUNT"));
+				p.setProSaleYn(rset.getString("PRODUCT_SALE_YN"));
+				p.setDiscountRate(rset.getDouble("DISCOUNT_RATE"));
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
 		}
-		
-		
-		
-		return list;
+		return p;
 	}
 	
 	
 	public ArrayList<AttachmentProduct> selectAttachment(Connection conn, String proCode){
 		
-		ArrayList<AttachmentProduct> at = new ArrayList<>();
+		ArrayList<AttachmentProduct> atList = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectAttachment");
 		
-		return at;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, proCode);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				AttachmentProduct at = new AttachmentProduct();
+				at.setAtFileName(rset.getString("FILE_NAME"));
+				
+				atList.add(at);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return atList;
 	}
 	
 	
