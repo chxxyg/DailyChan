@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class Notice {
 
-	private int noticeBoardNo;	// 공지사항 번호
-	private String noticeTitle;	// 공지사항 제목
+	private int noticeBoardNo;		// 공지사항 번호
+	private String noticeTitle;		// 공지사항 제목
 	private Date noticeDate;		// 공지사항 작성일
 	private String noticeContent;	// 공지사항 내용
 	private int noticeCount;		// 공지사항 조회수
