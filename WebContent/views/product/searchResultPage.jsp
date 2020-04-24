@@ -4,6 +4,7 @@
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list"); 
 	String keyword = (String)request.getAttribute("keyword");
 
+	String proCode = (String)request.getAttribute("proCode");
 
 %>
 <!DOCTYPE html>
@@ -39,6 +40,7 @@
 					<div class="searchProductName"><a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%= p.getProCode() %>"><%= p.getProName() %></a></div>
 				</td>
 			</tr>
+			
 			
 			<% if(p.getProSaleYn().equals("Y")){ %>
 			<tr>
