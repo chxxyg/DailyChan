@@ -89,6 +89,11 @@ public class CartDao {
 		return result;
 	}
 	
+	/** 2. 장바구니에 담긴 값들 조회해오는 메소드
+	 * @param conn
+	 * @param memberId
+	 * @return
+	 */
 	public ArrayList<ShoppingCart> selectCart(Connection conn, String memberId) {
 		
 		ArrayList<ShoppingCart> clist = new ArrayList<>();
@@ -118,6 +123,13 @@ public class CartDao {
 		return clist;
 	}
 	
+	/** 3. 장바구니에 담긴 상품 수량 변경하는 메소드
+	 * @param conn
+	 * @param memberId
+	 * @param proCode
+	 * @param qty
+	 * @return
+	 */
 	public int updateQtyCart(Connection conn, String memberId, String proCode, int qty) {
 		
 		int result = 0;
@@ -139,24 +151,31 @@ public class CartDao {
 		return result;
 	}
 	
+	/** 4. 장바구니에서 선택된 상품 삭제
+	 * @param conn
+	 * @param memberId
+	 * @param proCode
+	 * @return
+	 */
 	public int deleteCart(Connection conn, String memberId, String proCode) {
 		
-		int result = 0;
+		int del = 0;
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("deleteCart");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
 			pstmt.setString(1, memberId);
 			pstmt.setString(2, proCode);
+			
+			del = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 		}
-		return result;
+		return del;
 	}
 	
 }
