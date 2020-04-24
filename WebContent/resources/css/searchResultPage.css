@@ -3,50 +3,13 @@
 #searchWrap{
     width: 1000px;
     margin: auto;
-    margin-top: 70px;
+    margin-top: 50px;
     text-align: center;
-    margin-bottom: 70px;
-}
-#searchInputWrap{
-    width: 600px;
-    height: 120px;
-    margin: auto;
-    margin-bottom: 30px;
-}
-#searchInputForm{
-    width: 100%;
-    height: 70px;
-}
-#searchInputArea{
-    width: 550px;
-    height: 70px;
-    margin: auto;
-    margin-top: 30px;
-    text-align: center;
-}
-#searchInput{
-    width: 450px;
-    height: 60px;
-    font-size: 24px;
-    padding-left: 15px;
-    border-bottom: 2px solid rgb(250, 142, 0);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    vertical-align: top;
-}
-#searchResultBtn{
-    width: 50px;
-    height: 50px;
-    margin-left: 5px;
-    vertical-align: bottom;
-}
-
-#searchKeywordWrap{
+    margin-bottom: 60px;
     font-size: 30px;
     color: gray;
-    margin-bottom: 50px;
 }
+
 #searchKeyword, #searchTotal{
     font-size: 40px;
     font-weight: 500;
