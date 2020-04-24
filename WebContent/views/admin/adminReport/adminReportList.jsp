@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReport.model.vo.adReport" %>
 <%
-	ArrayList<adReport> list = (ArrayList<adReport>)request.getAttribute("list");
+	ArrayList<adReport> list = (ArrayList<adReport>)request.getAttribute("list"); 
 %>    
         
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>신고내역리스트</title>
     <style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -99,7 +99,7 @@
 			background-color:#5554547e;
 			cursor:pointer;
 		}
-        
+         
       
     </style>
 </head>
@@ -110,11 +110,11 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;신고관리</h1>
         <br>
-        	<form id="searchForm" action="" method="post">회원 ID 
+        	<form id="searchForm" action="<%=contextPath%>/reportSearch.ad" method="post">회원 ID 
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 내역 : <input type="text" id="adproductcount" value=""> 개</div>
+                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value=""> 개</div>
                 
         </div>  
         <table class="listMember">
@@ -129,7 +129,16 @@
                 </tr>
             </thead>
             <tbody>
-
+				<% for(adReport r : list){ %>
+                <tr>
+                    <td><%= r.getReportNo() %></td>
+                    <td><%= r.getReviewBoardNo() %></td>
+                    <td><%= r.getMemberId() %></td>
+                    <td><%= r.getMemberId2() %></td>
+                    <td><%= r.getReportDate() %></td>
+                    <td><%= r.getReportContent() %></td>
+                </tr>
+                <% } %>
                
                 
                 
@@ -139,16 +148,16 @@
        </div>
     </div>
     <script>
-   		//$(function(){
-   			//$(".listMember>tbody>tr").click(function(){
+   		$(function(){
+   			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			//var mid = $(this).children().eq(0).text();
+	   			var mid = $(this).children().eq(0).text();
 	   				
-	 			//location.href="<%= contextPath%>/detail.ad?mid=" + mid; 
- 			//});
+	 			location.href="<%= contextPath%>/reportDetail.ad?rno=" + rno; 
+ 			});
  
-   		//});   
+   		});   
     </script>
 </body>
 </html>

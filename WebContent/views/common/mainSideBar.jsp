@@ -155,7 +155,7 @@
         	<b>0</b>
        	</div>
         <div id="lately">
-            	최근본제품
+            	최근 본 상품
         </div>
         <div>xxxx</div>
     </div>

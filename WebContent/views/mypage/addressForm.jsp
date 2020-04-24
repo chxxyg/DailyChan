@@ -1,5 +1,11 @@
+<%@page import="com.kh.mypage.model.vo.Address"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	ArrayList<Address> list = (ArrayList<Address>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -243,7 +249,7 @@
 			<input id="userId" type="hidden" name="userId" value="<%=m.getMemberId()%>">
 			<!-- MY SUMMARY -->
 			<div class="mys_summ">
-				<div class="txt"><b>오경택</b> 님의 배송지 목록에 총 <b>2</b> 곳이 저장되어 있습니다.</div>
+				<div class="txt"><b><%=list.get(0).getAddressName() %></b> 님의 배송지 목록에 총 <b><%=list.size() %></b> 곳이 저장되어 있습니다.</div>
 				<button type="button" class="bx" title="배송지 추가 새창" name="modifyBtn" data-modify-yn="N">배송지 추가</button>
 			</div>
 			<!-- //MY SUMMARY -->
@@ -274,61 +280,58 @@
 							</tr>
 						</thead>
 						<tbody>
-		
+							<%for(int i = 0; i < list.size(); i++){ %>
 							<tr>
 								<td></td>
-								<td><span class="nor">오경택 <em class="ic">기본배송지</em></span></td>
+								<td>
+									<span class="nor"><%= list.get(i).getAddressName() %>
+										<%if(list.get(i).getAddressDefault().equals("Y")){ %>
+										<em class="ic">기본배송지</em>
+										<% } %>
+									</span>
+								</td>
 								<td>
 									<span class="addr">
 	
-										<em>[21378]</em>
+										<em>[<%=list.get(i).getZipCode() %>]</em>
 	
-										인천광역시 부평구 부흥로243번길 39 (부평동, 욱일아파트) 3동 707호<br>
+										<%=list.get(i).getAddress() %><br>
 
-										인천광역시 부평구 부평동 65-7 욱일아파트 3동 707호
+										<%= list.get(i).getAddressDetail() %>
 
 									</span>
 								</td>
 								<td>
 									
-								<span class="num">010-8614-5374</span>
+								<span class="num">
+									<% 	String result = list.get(i).getPhone();
+										String phone = result.substring(0, 3);
+										if(result.length() == 11)
+										{
+										    phone += "-" + result.substring(3, 7);
+										    phone += "-" + result.substring(7);
+										}
+										else if(result.length() == 10)
+										{
+										    phone += "-" + result.substring(3, 6);
+										    phone += "-" + result.substring(6);
+										}
+									%>
+									<%= phone %>
+								</span>
 
 								</td>
 								<td>
 									<span class="btn">
 										<button type="button" class="sq" title="배송지 수정 새창" data-mbr_dlvp_seq="0000001" name="modifyBtn" data-modify-yn="Y">수정</button>
-									</span>
-								</td>
-							</tr>
-
-							<tr>
-								<td><input type="checkbox" name="mbr_dlvp_seq" value="0000002" title="김길동 배송지선택"></td>
-								<td><span class="nor" data-recvr-nm="김길동">김길동</span></td>
-								<td>
-									<span class="addr">
-	
-										<em>[21352]</em>
-	
-										인천광역시 부평구 길주남로 112-13 (부평동) ㄴㅁㅇㅁㅇ<br>
-
-										인천광역시 부평구 부평동 10-43 ㄴㅁㅇㅁㅇ
-
-									</span>
-								</td>
-								<td>
-									
-								<span class="num">010-1234-1234</span>
-
-								</td>
-								<td>
-									<span class="btn">
-										<button type="button" class="sq" title="배송지 수정 새창" data-mbr_dlvp_seq="0000002" name="modifyBtn" data-modify-yn="Y">수정</button>
+										<% if(list.get(i).getAddressDefault().equals("N")){ %>
 										<button type="button" class="bxs" title="기본배송지 설정 알림" data-mbr_dlvp_seq="0000002" name="modiBaseYnBtn">기본 배송지</button>
+										<% } %>
 										<button type="button" class="del" title="배송지 삭제 알림" name="deleteOneBtn" data-mbr_dlvp_seq="0000002">삭제</button>
 									</span>
 								</td>
 							</tr>
-						
+							<% } %>
 						</tbody>
 					</table>
 				</div>

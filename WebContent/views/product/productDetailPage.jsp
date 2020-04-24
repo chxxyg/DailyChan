@@ -25,24 +25,39 @@
             <td>
                 <table id="productImg">
                     <tr>
-                        <td colspan="4"><img id="productTitleImg" src=""></td>
+                        <td colspan="4"><img id="productTitleImg" src="<%=request.getContextPath()%>/resources/attachment_product/<%=list.get(0).getAtFileName() %>"></td>
                     </tr>
                 </table>
             </td>
             <td>
                 <table id="productInfo">
                     <tr>
-                        <td><div id="productName"><%= p.getProName() %></div></td>
+                        <td><div id="productName"><%=p.getProName() %></div></td>
                     </tr>
                     <tr>
                         <td>
+                        <% if(p.getProSaleYn().equals("Y")){ %>
+                        	<table>
+                                <tr>
+                                    <td><div id="productPrice1">가격</div></td>
+                                    <td>
+                                    <div>
+                                    	<span id="productPrice2" style="text-decoration: line-through; color: gray; font-size: 20px; padding-left: 10px;"><%=p.getProPrice() %></span>
+                                    	<span id="productPriceSale" style="color: red; font-size: 30px; padding-left:10px;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %></span>
+                                    </div>
+                                    </td>
+                                    <td><div id="productPrice3" style="padding-left: 55px;">원</div></td>
+                                </tr>
+                            </table>
+                        <% }else{ %>
                             <table>
                                 <tr>
                                     <td><div id="productPrice1">가격</div></td>
-                                    <td><div id="productPrice2">10,000</div></td>
+                                    <td><div id="productPrice2"><%=p.getProPrice() %></div></td>
                                     <td><div id="productPrice3">원</div></td>
                                 </tr>
                             </table>
+                        <% } %>
                         </td>
                     </tr>
                     <tr>
@@ -52,8 +67,23 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><div id="productGpa">★★★★☆ 4.7</div></td>
-                                    <td><div id="productReview">리뷰(120건)</div></td>
+                                    <td><div id="productGpa">
+                                    						<% if(p.getProReviewSum()<1){ %>
+                                    							☆☆☆☆☆
+                                    						<% }else if(p.getProReviewSum()<2){ %>
+                                    							★☆☆☆☆ 
+                                    						<% }else if(p.getProReviewSum()<3){ %>
+                                    							★★☆☆☆ 
+                                    						<% }else if(p.getProReviewSum()<4){ %>
+                                    							★★★☆☆ 
+                                    						<% }else if(p.getProReviewSum()<5){ %>
+                                    							★★★★☆
+                                    						<% }else if(p.getProReviewSum()>=5){ %>
+                                    							★★★★★
+                                    						<% } %>
+                                    						<%=p.getProReviewSum() %>
+                                    	</div></td>
+                                    <td><div id="productReview">리뷰(<%=p.getProReviewCount() %>건)</div></td>
                                 </tr>
                             </table>
                         </td>
@@ -118,7 +148,7 @@
         </tr>
         <tr>
             <td>
-                <div><img id="detailImg" src="" style="width:800px; margin-left:100px;"></div>
+                <div><img id="detailImg" src="<%=request.getContextPath()%>/resources/attachment_product/<%=list.get(1).getAtFileName() %>" style="width:800px; margin-left:100px;"></div>
             </td>
         </tr>
         <tr>
@@ -135,7 +165,7 @@
         </tr>
         <tr>
             <td>
-                <div><img id="detailInfo" src="" style="width:900px; margin-left:50px"></div>
+                <div><img id="detailInfo" src="<%=request.getContextPath()%>/resources/attachment_product/<%=list.get(2).getAtFileName() %>" style="width:1000px;"></div>
             </td>
         </tr>
 	</table>     

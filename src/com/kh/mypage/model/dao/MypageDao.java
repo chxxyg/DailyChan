@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.member.model.dao.MemberDao;
@@ -152,5 +153,49 @@ public class MypageDao
         return result;
         
         
+    }
+    
+    public ArrayList<Address> listAddress(Connection conn, String userId)
+    {
+        ArrayList<Address> list = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("listAddress");
+        
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            
+            rset = pstmt.executeQuery();
+            
+            while(rset.next())
+            {
+                list.add(new Address(rset.getInt("ADDRESS_NO"),
+                                     rset.getString("MEMBER_ID"),
+                                     rset.getString("ADDRESS_NAME"),
+                                     rset.getString("ZIPCODE"),
+                                     rset.getString("ADDRESS"),
+                                     rset.getString("ADDRESS_DETAIL"),
+                                     rset.getString("PHONE"),
+                                     rset.getString("ADDRESS_DEFAULT")
+                                    )
+                        );
+            }
+            
+        }
+        catch (SQLException e )
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+            close(rset);
+        }
+        
+        
+        return list;
     }
 }

@@ -1,31 +1,29 @@
-package com.kh.mypage.controller;
+package com.kh.admin.adminReport.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.sql.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.kh.member.model.vo.Member;
-import com.kh.mypage.model.service.MyOrderService;
-import com.kh.mypage.model.vo.Mypage;
+import com.kh.admin.adminReport.model.service.AdReportService;
+import com.kh.admin.adminReport.model.vo.adReport;
 
 /**
- * Servlet implementation class CancelRefundListServlet
+ * Servlet implementation class AdReportDetailServlet
  */
-@WebServlet("/cancelOrder.my")
-public class CancelRefundListServlet extends HttpServlet {
+@WebServlet("/reportDetail.ad")
+public class AdReportDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CancelRefundListServlet() {
+    public AdReportDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,12 +32,14 @@ public class CancelRefundListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		ArrayList<Mypage> myList = new MyOrderService().selectOrder(memberId);
 		
-		request.setAttribute("myList", myList);
-		request.getRequestDispatcher("views/mypage/myCancelRefundList.jsp").forward(request, response);
+		int rno = Integer.parseInt(request.getParameter("rno"));
+		
+		adReport r = new AdReportService().detailReport(rno);
+		
+		request.setAttribute("r", r);
+		request.getRequestDispatcher("views/admin/adminReport/adminReportDetail.jsp").forward(request, response);
+		
 		
 	}
 
