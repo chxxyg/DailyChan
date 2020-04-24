@@ -40,6 +40,8 @@ public class SearchResultServlet extends HttpServlet {
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("list", list);
 		
+		System.out.println(list);
+		
 		RequestDispatcher view = request.getRequestDispatcher("views/product/searchResultPage.jsp");
 		view.forward(request, response);
 		
