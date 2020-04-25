@@ -34,16 +34,16 @@ public class ToOrderFormServlet extends HttpServlet {
 		
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		
-		String[] codeList = request.getParameterValues("proCode");
-		String[] nameList = request.getParameterValues("proName");
-		String[] priceList = request.getParameterValues("proPrice");
-		String[] quantityList = request.getParameterValues("quantity");
+		String codeList = request.getParameter("proCode");
+		String nameList = request.getParameter("proName");
+		String priceList = request.getParameter("proPrice");
+		String quantityList = request.getParameter("quantity");
 		int delivery = Integer.parseInt(request.getParameter("delivery"));
 		int payAmount = Integer.parseInt(request.getParameter("payAmount"));
 		
 		String[] proCode = null;
 		if(codeList != null ){
-			proCode = codeList[0].split(",");
+			proCode = codeList.split(",");
 	    }
 		
 		/* 장바구니 - 주문상태 'Y'로 변경 */
