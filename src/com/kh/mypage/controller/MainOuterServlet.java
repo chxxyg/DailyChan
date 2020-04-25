@@ -1,7 +1,6 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -10,20 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.kh.mypage.model.service.MypageService;
 import com.kh.mypage.model.vo.Address;
 
 /**
- * Servlet implementation class AdressFormServlet
+ * Servlet implementation class MainOuterServlet
  */
-@WebServlet("/addressForm.my")
-public class AdressFormServlet extends HttpServlet {
+@WebServlet("/mainAddr.my")
+public class MainOuterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdressFormServlet() {
+    public MainOuterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +32,15 @@ public class AdressFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
+
 	    String userId = request.getParameter("userId");
-	    ArrayList<Address> list = new MypageService().listAddress(userId);
-	    
-	    if(!list.isEmpty())
-	    {
-	        request.setAttribute("list", list);
-	    }
-	    else
-	    {
-	        request.setAttribute("msg", "등록된 배송지가 없습니다.");
-	    }
-
-	    request.getRequestDispatcher("views/mypage/addressForm.jsp").forward(request, response);
-	    
-
+        System.out.println(userId);
+        ArrayList<Address> list = new MypageService().listAddress(userId);
+        
+        response.setContentType("application/json; charset=utf-8");
+        
+        Gson gson = new Gson();
+        gson.toJson(list, response.getWriter());
 	}
 
 	/**
