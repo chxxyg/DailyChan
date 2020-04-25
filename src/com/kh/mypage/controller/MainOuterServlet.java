@@ -34,7 +34,6 @@ public class MainOuterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	    String userId = request.getParameter("userId");
-        System.out.println(userId);
         ArrayList<Address> list = new MypageService().listAddress(userId);
         
         response.setContentType("application/json; charset=utf-8");
