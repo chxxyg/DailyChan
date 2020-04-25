@@ -7,7 +7,7 @@
 	for(ShoppingCart c : clist){
 		sum += c.getPrice() * c.getQuantity();
 	}
-	if(sum>30000 || sum == 0){
+	if(sum > 30000 || sum == 0){
 		delivery = 0;
 	}
 %>
@@ -100,7 +100,7 @@
             <tr>
                 <td><input type="checkbox" id="cartTotalCheck"><label for="cartTotalCheck" id="cartTotalCheckLabel">전체 선택</label></td>
                 <td><button type="button" id="cartDeleteBtn">선택 상품 삭제</button></td>
-                <td><div id="cartDeliveryInfo">30,000원 이상 무료 배송</div></td>
+                <td><div id="cartDeliveryInfo"><span id="minRequire">30000</span>원 이상 무료 배송<br>(기본배송비: <span id="dCharge">3000</span>원)</div></td>
             </tr>
         </table>
         <br><br>
@@ -113,15 +113,15 @@
             </tr>
             <tr style="height: 100px; text-align: center;">
                 <td style="width: 280px; font-size: 30px;">
-                    <input type="text" class="totalPrice" value="<%=sum%>"> <span>원</span>
+                    <input name="totalPrice" type="text" class="totalPrice" value="<%=sum%>"> <span>원</span>
                 </td>
                 <td style="font-size: 30px;">+</td>
                 <td style="width: 280px; font-size: 30px;">
-                    <span class="deliveryPrice"><%=delivery%></span> <span>원</span>
+                    <input name="dCharge" type="text" class="deliveryPrice" value="<%=delivery%>"> <span>원</span>
                 </td>
                 <td style="font-size: 30px;">=</td>
-                <td style="width: 400px; font-size: 35px; font-weight: 550;">
-                    <b><span class="cartTotalPrice"><%=sum+delivery%></span> <span>원</span></b>
+                <td style="width: 400px; font-size: 35px;">
+                    <b><input name="payAmt" class="cartTotalPrice" value="<%=sum+delivery%>"> <span>원</span></b>
                 </td>
             </tr>
         </table>
@@ -133,11 +133,12 @@
     </div>
     
     <script>
-    
-    	
     	$(function(){
     		
-    		/* 수량 +- */
+    		$("input:checkbox[name=checkBtn]").prop('checked', true);
+    		$("#cartTotalCheck").prop('checked', true);
+    		
+    		/* 수량 -+ */
     		$(".minus").click(function(){
     			var q = Number($(this).next().val());
     			$(this).next().val(q-1);
@@ -160,27 +161,18 @@
     		
     		/* 수량 수정 */
     		$(".qty_edit").click(function(){
+    			/*서블릿으로 넘길 값*/
     			var pCode = $(this).parents(".wrap").find(".pCode").val();
     			var qty = $(this).siblings(".input").val();
     			
+    			/*상품 당 가격 변경 : 가격x수량 */
     			var proPrice = $(this).parents(".wrap").find(".cartProductPrice").text();
-    			var totalPrice = $(this).parents(".wrap").find(".productTotalPrice");
+    			var qtyPrice = $(this).parents(".wrap").find(".productTotalPrice");
     			
+    			location.href="<%=contextPath%>/updateQty.pro?pCode=" + pCode + "&qty=" + qty;
     			
-    			$.ajax({
-    				url:"updateQty.pro",
-    				data:{pCode:pCode, qty:qty},
-    				type:"post",
-    				success:function(){
-    					
-    					totalPrice.val(qty * proPrice);
-    					
-    				}, error:function(){
-    				}
-    			});
-    			
-    		});
-    		
+    		});	
+    		    		
     		/* 전체 상품 선택 */
     		$("#cartTotalCheck").change(function(){
     			if($(this).is(":checked")){
@@ -188,12 +180,26 @@
     			}else{
     				$("input:checkbox[name=checkBtn]").prop('checked', false);
     			}
-    			
     		});
+    		
+    		/* 선택한 상품 삭제 */
+			$("#cartDeleteBtn").click(function(){
+   				var pList = []; 
+   		       
+			 	$("input:checkbox[name=checkBtn]:checked").each(function(){
+		     		pList.push($(this).prev().val());
+		     	});
+   			 
+			 	location.href="<%=contextPath%>/deleteCart.pro?pList=" + pList;
+			});
+    		
+			/* 배송비 조건 */
+			var delivery = Number($("#minRequire").text());
+			var dCharge = Number($("#dCharge").text());
     		
     		/* 전체 상품 선택 시 금액 변경*/
     		$("#cartTotalCheck").change(function(){
-
+				
    	    		var sum = 0;
     			
     			if($("input:checkbox[name=checkBtn]").is(":checked")){
@@ -208,26 +214,30 @@
     			 	for(var i=0; i<pSum.length; i++){
     	    			sum += pSum[i];
     	    		};
+    	    		
     			}
     	    	
-    			$(".totalPrice").val(sum);
-    			
+   	    		$(".totalPrice").val(sum);
+   	    		
+   	    		/* 배송비 추가 여부 */
+	   	 		var totalPrice = $(".totalPrice").val()
+	   	 		
+	   	 		if(totalPrice > 30000 || totalPrice == 0){
+	   	 			$(".deliveryPrice").val(0);
+	   	 		}else{
+	   	 			$(".deliveryPrice").val(dCharge);
+	   	 		}
+   	    		
+	   	 		/* 총결제 예정 금액 */
+	   	 		var newTotal = Number($(".totalPrice").val());
+	   	 		var deliveryChg = Number($(".deliveryPrice").val());
+	   	 		
+	   	 		$(".cartTotalPrice").val(newTotal+deliveryChg);
+	   	 		
     		});
+			
     		
-    		
-    		/* 선택한 상품 삭제 */
-			$("#cartDeleteBtn").click(function(){
-   				var pList = []; 
-   		       
-			 	$("input:checkbox[name=checkBtn]:checked").each(function(){
-		     		pList.push($(this).prev().val());
-		     	});
-   			 
-			 	location.href="<%=contextPath%>/deleteCart.pro?pList=" + pList;
-			});
-
-    		
-			/* 상품 선택 시 금액 변경 */
+			/* 상품 부분 선택 시 금액 변경 */
     		$(".cartProductCheck").change(function(){
 
    	    		var sum = 0;
@@ -248,8 +258,25 @@
     	    	
     			$(".totalPrice").val(sum);
     			
+    			/* 배송비 추가 여부 */
+	   	 		var totalPrice = $(".totalPrice").val()
+	   	 		
+		   	 	if(totalPrice > 30000 || totalPrice == 0){
+	   	 			$(".deliveryPrice").val(0);
+	   	 		}else{
+	   	 			$(".deliveryPrice").val(dCharge);
+	   	 		}
+		   	 	
+		   	 	/* 총결제 예정 금액 */
+		   		var newTotal = Number($(".totalPrice").val());
+	   	 		var deliveryChg = Number($(".deliveryPrice").val());
+	   	 		
+	   	 		console.log(newTotal);
+	   	 		console.log(deliveryChg);
+	   	 		
+	   	 		$(".cartTotalPrice").val(newTotal+deliveryChg);
+    			
     		});
-			
 			
     		/* 상품 상세페이지로 이동 */
     		$(".toDetail").click(function(){
@@ -258,11 +285,8 @@
     			location.href="<%=contextPath%>/pDetail.pro?proCode=" + proCode;
     		});
     		
-			
-    		
     	});
-    		
-		
+    	
     	
     	/* 총 금액 변경
 		var subTotal = $(".totalPrice");

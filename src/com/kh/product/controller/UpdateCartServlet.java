@@ -2,6 +2,7 @@ package com.kh.product.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.member.model.vo.Member;
 import com.kh.product.model.service.CartService;
+import com.kh.product.model.vo.ShoppingCart;
 
 /**
  * Servlet implementation class UpdateCartServlet
@@ -37,17 +39,27 @@ public class UpdateCartServlet extends HttpServlet {
 	
 		int result = new CartService().updateQtyCart(memberId, proCode, qty);
 		
+		if(result>0) {
+			ArrayList<ShoppingCart> clist = new CartService().selectCart(memberId);
+			
+			request.setAttribute("clist", clist);
+			request.getRequestDispatcher("views/product/cartPage.jsp").forward(request, response);
+		}
+		
+		/*
 		String msg = null;
 		if(result>0) { //수량변경 성공
 			msg="수량변경 성공";
 		}else { //수량변경 실패
 			msg="수량변경 실패";
 		}
+		*/
 		
+		/*
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(msg);
-		
+		*/
 	}
 
 	/**
