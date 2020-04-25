@@ -144,15 +144,15 @@ $(document).ready(function(){
                 <table id="orderMemberInfo">
                     <tr>
                         <td>주문자 *</td>
-                        <td>강보람</td>
+                        <td><%=loginUser.getMemberName() %></td>
                     </tr>
                     <tr>
                         <td>휴대전화 *</td>
-                        <td>010-3333-4444</td>
+                        <td><%=loginUser.getPhone() %></td>
                     </tr>
                     <tr>
                         <td>이메일 *</td>
-                        <td>bboram@naver.com</td>
+                        <td><%=loginUser.getEmail() %></td>
                     </tr>
                 </table>
             </td>
