@@ -178,4 +178,60 @@ public class CartDao {
 		return del;
 	}
 	
+	/** 5. 장바구니 - 주문상태 'Y'로 변경
+	 * @param conn
+	 * @param memberId
+	 * @param proCode
+	 * @return
+	 */
+	public int updateCartStatus(Connection conn, String memberId, String proCode) {
+		
+		int update = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateCartStatus");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, proCode);
+			
+			update = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return update;
+	}
+	
+	/** 6. ORDER_PRODUCT 테이블에 값 추가
+	 * @param conn
+	 * @param memberId
+	 * @return
+	 */
+	public int insertOrderProduct(Connection conn, String memberId, String ranStr) {
+		int insert = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertOrdProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ranStr);
+			pstmt.setString(2, memberId);
+			
+			insert = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return insert;
+		
+		
+		
+	}
+	
+	
 }

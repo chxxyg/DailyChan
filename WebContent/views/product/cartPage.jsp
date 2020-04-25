@@ -20,11 +20,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
-<style>
-	.selectedChk{
-		attr
-	}
-</style>
 <body>
 
 <!-- Header -->
@@ -128,7 +123,6 @@
         
         <div style="text-align: right;">
             <button type="button" id="cartSelectedOrder">선택 상품 주문</button>
-            <button type="button" id="cartAllOrder">전체 상품 주문</button>
         </div>
     </div>
     
@@ -271,9 +265,6 @@
 		   		var newTotal = Number($(".totalPrice").val());
 	   	 		var deliveryChg = Number($(".deliveryPrice").val());
 	   	 		
-	   	 		console.log(newTotal);
-	   	 		console.log(deliveryChg);
-	   	 		
 	   	 		$(".cartTotalPrice").val(newTotal+deliveryChg);
     			
     		});
@@ -285,8 +276,33 @@
     			location.href="<%=contextPath%>/pDetail.pro?proCode=" + proCode;
     		});
     		
+    		
+    		/* 선택 상품 주문 버튼 서블릿 연결 */
+    		
+    		$("#cartSelectedOrder").click(function(){
+
+    			var proCode = [];
+    			var proName = [];
+    			var proPrice = new Array();
+    			var quantity = new Array();
+    			
+    			var delivery = Number($(".deliveryPrice").val());
+    			var payAmount = Number($(".cartTotalPrice").val());
+    			
+    			$("input:checkbox[name=checkBtn]:checked").each(function(){
+    				proCode.push($(this).parents(".wrap").find(".pCode").val());
+        			proName.push($(this).parents(".wrap").find(".cartProductName").text());
+        			
+        			proPrice.push(Number($(this).parents(".wrap").find(".cartProductPrice").text()));
+        			quantity.push(Number($(this).parents(".wrap").find(".input").val()));
+        			
+    			});
+    			
+    			location.href="<%=contextPath%>/orderForm.pro?proCode=" + proCode + "&proName=" + proName + "&proPrice=" + proPrice + "&quantity=" + quantity + "&delivery=" + delivery + "&payAmount=" + payAmount; 
+    			
+    		});
+    		
     	});
-    	
     	
     </script>
     
