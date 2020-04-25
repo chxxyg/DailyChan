@@ -137,26 +137,96 @@ public class MypageService
         
         int result = new MypageDao().deleteAddress(conn, userId);
         
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
         close(conn);
         
         return result;
     }
     
     /**
-     * 4_4. 기본배송지 변경
+     * 4_4_1. 기본배송지 변경(Y)
      * 
      * @param userId    --> 사용자 아이디
      * @return          --> 기본 배송지 변경 여부
      */
-    public int defaultAddress(String userId)
+    public int defaultAddressY(String userId, int index)
     {
         Connection conn = getConnection();
         
-        int result = new MypageDao().defaultAddress(conn, userId);
+        int result = new MypageDao().defaultAddressY(conn, userId, index);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
         
         close(conn);
         
         return result;
+    }
+    
+    /**
+     * 4_4_2. 기본배송지 변경(N)
+     * @param userId    --> 사용자 아이디
+     * @return          --> 기본 배송지 변경 여부
+     */
+    public int defaultAddressN(String userId, int index)
+    {
+        Connection conn = getConnection();
+        
+        int result = new MypageDao().defaultAddressN(conn, userId, index);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
+        close(conn);
+        
+        return result;
+    }
+    
+    /**
+     * 4_5. 배송지 수정 서비스
+     * @author Taek
+     * @param a --> 수정된 데이터 객체
+     * @return  --> 수정 여부
+     */
+    public int updateAddress(Address a, int index)
+    {
+        Connection conn = getConnection();
+        
+        int result = new MypageDao().updateAddress(conn, a, index);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
+        close(conn);
+        
+        return result;
+                
     }
     
 }

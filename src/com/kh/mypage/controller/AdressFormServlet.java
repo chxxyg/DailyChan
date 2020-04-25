@@ -1,6 +1,7 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -33,7 +34,6 @@ public class AdressFormServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
 	    String userId = request.getParameter("userId");
-	    
 	    ArrayList<Address> list = new MypageService().listAddress(userId);
 	    
 	    if(!list.isEmpty())
@@ -46,6 +46,8 @@ public class AdressFormServlet extends HttpServlet {
 	    }
 
 	    request.getRequestDispatcher("views/mypage/addressForm.jsp").forward(request, response);
+	    
+
 	}
 
 	/**

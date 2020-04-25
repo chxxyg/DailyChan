@@ -103,13 +103,13 @@
 	%>
 	
 	<div class="mypageOuter">
-        <h1 style="text-align:center";>마이페이지</h1>
+        <h1 style="text-align:center">마이페이지</h1>
         <br>
 		
 		<!-- 마이페이지 간략정보 영역 -->
         <div id="mypageBrief" align="center">
            	<div id="deliverySite">
-                <a href="">기본 배송지 정보 넣을 곳</a>
+                <a href="<%=contextPath%>/addressForm.my?userId=<%=m.getMemberId()%>">기본 배송지 정보 넣을 곳</a>
                 <img src="<%= contextPath %>/resources/img/positionlogo.png">
             </div>
 			<div><b><%= memberName %></b>님</div>
@@ -139,6 +139,28 @@
 			
 		</div>	
     </div>
-
+    <script>
+    	var userId = "<%=m.getMemberId()%>";
+        	$.ajax({
+			url: "<%=contextPath%>/mainAddr.my",
+			type: "POST",
+			data : {userId : userId},
+			success: function(list) 
+			{
+				var address = "";
+				
+				for(var i = 0; i < list.length; i++)
+				{
+					if(list[i].addressDefault == 'Y')
+					{
+						address += "[" + list[i].zipCode + "]" + " ";
+						address += list[i].address + " ";
+						address += list[i].addressDetail;
+					}
+				}
+				$("#deliverySite a").html(address);
+			}
+		});
+   	</script>
 </body>
 </html>

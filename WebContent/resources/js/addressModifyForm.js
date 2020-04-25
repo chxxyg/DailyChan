@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	var addr_area= $("#addr_area");
 	var userId = $("#userId").val();
+	var updateAddr = $("#update_addr").val();
 	var saveDlvpRunning = function() {
-
 	};
 	var saveDlvpCheck = function() {
 		(function() {
@@ -41,19 +41,45 @@ $(document).ready(function() {
 		data.cell_no = data.cell_no1 + "" + data.cell_no2 + "" + data.cell_no3 ; 
 		data.road_post_no = data.post_no;
 		
-		data.base_yn = $("#set_default").val();
-		$.ajax({
-			url: "/dailyChan/insertAddress.my?userId=" + userId,
-			type: "POST",
-			dataType: "json",
-			data: data,
-			success: function(d) {
-				callback(d);
-			},
-			error: function() {
-				saveDlvp = saveDlvpCheck;
-			}
-		});
+		if($("#set_default").is(':checked'))
+		{
+			data.base_yn = 'Y';
+		}
+		else
+		{
+			data.base_yn = 'N';
+		}
+		data.updateAddr = updateAddr;
+		if(updateAddr == "0000000" || updateAddr == "0000001")
+		{
+			$.ajax({
+				url: "/dailyChan/updateAddress.my?userId=" + userId,
+				type: "POST",
+				dataType: "json",
+				data: data,
+				success: function(d) {
+					callback(d);
+				},
+				error: function() {
+					saveDlvp = saveDlvpCheck;
+				}
+			});
+		}
+		else
+		{
+			$.ajax({
+				url: "/dailyChan/insertAddress.my?userId=" + userId,
+				type: "POST",
+				dataType: "json",
+				data: data,
+				success: function(d) {
+					callback(d);
+				},
+				error: function() {
+					saveDlvp = saveDlvpCheck;
+				}
+			});
+		}
 	};
 	var saveDlvp = saveDlvpCheck;
 	$("#zipcode_button").click(function() {
