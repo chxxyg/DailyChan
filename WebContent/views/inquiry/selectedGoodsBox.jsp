@@ -68,7 +68,7 @@ button {
 }
 
 .period_slt dd ul li button {
-    width: 78px;
+    width: 79px;
     height: 30px;
     margin-left: -1px;
     border: 1px solid #dbdbdb;
