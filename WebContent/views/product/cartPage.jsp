@@ -288,26 +288,6 @@
     	});
     	
     	
-    	/* 총 금액 변경
-		var subTotal = $(".totalPrice");
-		var del = $(".deliveryPrice");
-		var total = $(".cartTotalPrice");
-		
-		var sum = Number($("#sum").val());
-		var delivery = Number($("#delivery").val());
-		
-		console.log(sum);
-		console.log(delivery);
-		console.log(sum+delivery);
-		
-		성공 시 변경
-		subTotal.text(sum);
-		del.text(delivery);
-		total.text(sum+delivery);
-		*/
-		
-    	
-    	
     </script>
     
 
