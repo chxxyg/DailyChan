@@ -198,4 +198,55 @@ public class MypageDao
         
         return list;
     }
+    
+    public int deleteAddress(Connection conn, String userId)
+    {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("deleteAddress");
+        
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+        }
+        
+        return result;
+    }
+    
+    
+    public int defaultAddress(Connection conn, String userId)
+    {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("defaultAddress");
+        
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+        }
+        
+        return result;
+    }
 }

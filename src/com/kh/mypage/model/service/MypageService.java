@@ -123,4 +123,40 @@ public class MypageService
         
         return list;
     }
+    
+    
+    /**
+     * 4_3. 배송지 삭제
+     * @author Taek
+     * @param userId    --> 사용자 아이디
+     * @return          --> 삭제 여부 리턴
+     */
+    public int deleteAddress(String userId)
+    {
+        Connection conn = getConnection();
+        
+        int result = new MypageDao().deleteAddress(conn, userId);
+        
+        close(conn);
+        
+        return result;
+    }
+    
+    /**
+     * 4_4. 기본배송지 변경
+     * 
+     * @param userId    --> 사용자 아이디
+     * @return          --> 기본 배송지 변경 여부
+     */
+    public int defaultAddress(String userId)
+    {
+        Connection conn = getConnection();
+        
+        int result = new MypageDao().defaultAddress(conn, userId);
+        
+        close(conn);
+        
+        return result;
+    }
+    
 }

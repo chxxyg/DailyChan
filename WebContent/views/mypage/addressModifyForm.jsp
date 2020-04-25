@@ -261,7 +261,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 					<span class="caution" data-input="display" data-input-name="cell_no" style="display: none;">휴대 전화번호를 입력해 주세요</span>
 				</div>
 			</div><div class="set_default">
-				<input type="checkbox" id="set_default">
+				<input type="checkbox" id="set_default" value="N">
 				<label for="set_default">기본배송지로 설정</label>
 			</div>
 			<button class="save" id="save_dlvp_button"><em>저장</em></button>

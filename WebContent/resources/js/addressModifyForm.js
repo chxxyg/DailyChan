@@ -2,7 +2,7 @@ $(document).ready(function() {
 	var addr_area= $("#addr_area");
 	var userId = $("#userId").val();
 	var saveDlvpRunning = function() {
-		//do nothing...
+
 	};
 	var saveDlvpCheck = function() {
 		(function() {
@@ -10,6 +10,7 @@ $(document).ready(function() {
 		})();
 		var callback = function(d) {
 			data.mbr_dlvp_seq = d.mbr_dlvp_seq;
+			opener.parent.location="/dailyChan/addressForm.my?userId=" + userId;
 			self.close();
 		};
 		var data = {};
@@ -29,25 +30,18 @@ $(document).ready(function() {
 				};
 			};		
 			if (input.attr("data-check") == "text") {
-				//상세입력시 ( - ) 허용 
-//				if (overpass.validate.isSpecialLetters(value)) {
-//					throw "정확한 주소를 입력해 주세요.";							
-//				};
 			};
 			if (min_length && value.length < min_length) {
 				throw input.attr("data-message");
 			};
 			if (name == "recvr_nm") {
-//				if (overpass.validate.isKoreanEnglish(value) !== true) {
-//					throw input.attr("data-message");
-//				};
 			};
 			data[name] = value;
 		});
 		data.cell_no = data.cell_no1 + "" + data.cell_no2 + "" + data.cell_no3 ; 
 		data.road_post_no = data.post_no;
 		
-		data.base_yn = $("#set_default").is(":checked") ? "Y" : "N" ;
+		data.base_yn = $("#set_default").val();
 		$.ajax({
 			url: "/dailyChan/insertAddress.my?userId=" + userId,
 			type: "POST",
@@ -94,18 +88,6 @@ $(document).ready(function() {
 			}
 
 		}).open();
-//		overpass.popup.zipcode({
-//			callback: function(data) {
-
-//				
-//				$("#post_no").val(data.post_no);
-//				$("#base_addr").val(data.base_addr);
-//				$("#road_post_no").val(data.post_no);
-//				$("#road_base_addr").val(data.road_base_addr);
-//				$("#dawn_deli_district_cd").val(data.dawn_deli_district_cd);
-//				$("#dawn_deli_zone_cd").val(data.dawn_deli_zone_cd);
-//			}
-//		});			
 	});
 	$("#save_dlvp_button").click(function() {
 		try {				
@@ -147,9 +129,6 @@ $(document).ready(function() {
 					};
 				} else if (data_check == "text") {
 					//상세입력시 ( - ) 허용 
-//					if (overpass.validate.isSpecialLetters(value)) {
-//						throw "정확한 주소를 입력해 주세요";
-//					};
 				} 
 				if (name == "cell_no") {
 					if($("#cell_no1").val() == "" || $("#cell_no2").val() == "" || $("#cell_no3").val() == "") {
