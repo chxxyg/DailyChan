@@ -250,8 +250,8 @@
 			<!-- MY SUMMARY -->
 			<div class="mys_summ">
 				<input type="hidden" id="addrNo" value="<%=list.size() %>">
-				<div class="txt"><b><%=list.get(0).getAddressName() %></b> 님의 배송지 목록에 총 <b><%=list.size() %></b> 곳이 저장되어 있습니다.</div>
-				<button type="button" class="bx" title="배송지 추가 새창" name="modifyBtn" data-modify-yn="N">배송지 추가</button>
+				<div class="txt"><b><%=m.getMemberName() %></b> 님의 배송지 목록에 총 <b><%=list.size() %></b> 곳이 저장되어 있습니다.</div>
+				<button type="button" class="bx" title="배송지 추가 새창" name="modifyBtn" data-modify-yn="N" data-mbr_dlvp_seq="0">배송지 추가</button>
 			</div>
 			<!-- //MY SUMMARY -->
 			

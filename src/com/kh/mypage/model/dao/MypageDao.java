@@ -249,4 +249,30 @@ public class MypageDao
         
         return result;
     }
+    
+    public int updateAddress(Connection conn, Address a)
+    {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("updateAddress");
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+
+            
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+        }
+        
+        return result;
+        
+        
+    }
 }

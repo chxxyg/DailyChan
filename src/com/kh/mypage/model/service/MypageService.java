@@ -159,4 +159,31 @@ public class MypageService
         return result;
     }
     
+    /**
+     * 4_5. 배송지 수정 서비스
+     * @author Taek
+     * @param a --> 수정된 데이터 객체
+     * @return  --> 수정 여부
+     */
+    public int updateAddress(Address a)
+    {
+        Connection conn = getConnection();
+        
+        int result = new MypageDao().updateAddress(conn, a);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
+        close(conn);
+        
+        return result;
+                
+    }
+    
 }
