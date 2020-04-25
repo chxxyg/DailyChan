@@ -2,6 +2,8 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.ShoppingCart"%>
 <%
 	ArrayList<ShoppingCart> clist = (ArrayList<ShoppingCart>)request.getAttribute("clist");
+	
+	// 페이지 로딩 후 바로 보여질 금액들
 	int sum = 0;
 	int delivery = 3000;
 	for(ShoppingCart c : clist){
@@ -10,6 +12,13 @@
 	if(sum > 30000 || sum == 0){
 		delivery = 0;
 	}
+	
+	// 주문버튼 활성화/비활성화
+	String ableAttr = "";
+	if(clist.isEmpty()) {
+		ableAttr ="disabled='disabled'";
+	}
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -87,17 +96,16 @@
 		                </td>
 		            </tr>
 	            <% } %>
-	            
-            <% } %>
-        </table>
-        
-        <table id="cartTotalCheckWrap">
-            <tr>
-                <td><input type="checkbox" id="cartTotalCheck"><label for="cartTotalCheck" id="cartTotalCheckLabel">전체 선택</label></td>
-                <td><button type="button" id="cartDeleteBtn">선택 상품 삭제</button></td>
-                <td><div id="cartDeliveryInfo"><span id="minRequire">30000</span>원 이상 무료 배송<br>(기본배송비: <span id="dCharge">3000</span>원)</div></td>
-            </tr>
-        </table>
+		        </table>
+		        
+		        <table id="cartTotalCheckWrap">
+		            <tr>
+		                <td><input type="checkbox" id="cartTotalCheck"><label for="cartTotalCheck" id="cartTotalCheckLabel">전체 선택</label></td>
+		                <td><button type="button" id="cartDeleteBtn">선택 상품 삭제</button></td>
+		                <td><div id="cartDeliveryInfo"><span id="minRequire">30000</span>원 이상 무료 배송<br>(기본배송비: <span id="dCharge">3000</span>원)</div></td>
+		            </tr>
+		        </table>
+        	<% } %>
         <br><br>
         
         <table id="cartTotalPriceWrap">
@@ -122,7 +130,7 @@
         </table>
         
         <div style="text-align: right;">
-            <button type="button" id="cartSelectedOrder">선택 상품 주문</button>
+            <button type="button" id="cartSelectedOrder" <%=ableAttr%>>선택 상품 주문</button>
         </div>
     </div>
     
@@ -278,7 +286,6 @@
     		
     		
     		/* 선택 상품 주문 버튼 서블릿 연결 */
-    		
     		$("#cartSelectedOrder").click(function(){
 
     			var proCode = [];
@@ -301,6 +308,10 @@
     			location.href="<%=contextPath%>/orderForm.pro?proCode=" + proCode + "&proName=" + proName + "&proPrice=" + proPrice + "&quantity=" + quantity + "&delivery=" + delivery + "&payAmount=" + payAmount; 
     			
     		});
+    		
+    		/* 주문 버튼 활성화/비활성화 */
+    		//$("#cartSelectedOrder").attr('disabled',true);
+    		//$("#cartSelectedOrder").attr('disabled',false);
     		
     	});
     	
