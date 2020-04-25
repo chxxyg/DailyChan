@@ -23,14 +23,13 @@
 	if(priceList != null){
 		priceArr = priceList.split(",");
 	}
-	int[] price = Arrays.stream(priceArr).mapToInt(Integer::parseInt).toArray();
+	//int[] price = Arrays.stream(priceArr).mapToInt(Integer::parseInt).toArray();
 	
 	String[] quantityArr = null;
 	if(quantityList != null){
 		quantityArr = quantityList.split(",");
 	}
-	int[] quantity = Arrays.stream(quantityArr).mapToInt(Integer::parseInt).toArray();	
-	
+	//int[] quantity = Arrays.stream(quantityArr).mapToInt(Integer::parseInt).toArray();	
 	
 %>
 <!DOCTYPE html>
@@ -115,16 +114,14 @@ $(document).ready(function(){
                                 <tr>
                                     <td><a href=""><img class="orderProductImg" src=""></a></td>
                                     <td><a href=""><div class="orderProductName"><%= proName[i] %></div></a></td>
-                                    <td><div class="orderProductPrice"><%= price[i] %></div></td>
+                                    <td><span class="orderProductPrice"><%= priceArr[i] %></span> <span>원</span></td>
                                     <td>
                                         <div class="orderProductAmountWrap">
-                                            <button class="orderProductMinusBtn" type="button">-</button>
-                                            <span class="orderProductAmount"><%= quantity[i] %></span>
-                                            <button class="orderProductPlusBtn" type="button">+</button>
+                                            <span class="orderProductAmount"><%= quantityArr[i] %></span>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="orderProductTotalPrice"><%= price[i] * quantity[i] %></div>원
+                                        <span class="orderProductTotalPrice">50000</span> <span>원</span원>
                                     </td>
                                 </tr>
                             </table>
@@ -269,19 +266,19 @@ $(document).ready(function(){
                     </tr>
                     <tr style="height: 100px; text-align: center;">
                         <td style="width: 250px; font-size: 30px;">
-                            <div id="orderProductTotalPrice"><%=payAmount%></div>원
+                            <span id="orderProductTotalPrice"><%= payAmount%></span> 원
                         </td>
                         <td style="font-size: 30px; width: 10px;">-</td>
                         <td style="width: 150px; font-size: 30px;">
-                            <div id="orderDeliveryPrice">3,000</div>원
+                            <span id="orderDeliveryPrice">3,000</span> 원
                         </td>
                         <td style="font-size: 30px; width: 10px;">+</td>
                         <td style="width: 150px; font-size: 30px;">
-                            <div id="orderDeliveryPrice"><%=delivery %></div>원
+                            <span id="orderDeliveryPrice"><%= delivery %></span> 원
                         </td>
                         <td style="font-size: 30px; width: 10px;">=</td>
                         <td style="width: 300px; font-size: 35px; font-weight: 550;">
-                            <div id="orderProductTotalPrice">723,000원</div>
+                            <span id="orderProductTotalPrice">723,000</span> 원
                         </td>
                     </tr>
                 </table>
