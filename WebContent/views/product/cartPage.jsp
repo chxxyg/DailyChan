@@ -51,6 +51,7 @@
                 <th width="125">수량</th>
                 <th width="150">구매금액</th>
             </tr>
+            
             <% if(clist.isEmpty()) { %>
 	            <tr id="emptyBox">
 	                <td colspan="6">
@@ -68,12 +69,11 @@
 	                </td>
 	            </tr>
             <% }else { %>
+            
 	             <% for(ShoppingCart c : clist){ %>
-	             	<!-- <input type="hidden" id="sum" value="<%=sum%>"> -->
-	             	<!-- <input type="hidden" id="delivery" value="<%=delivery%>"> -->
-		            <tr class="find" height="170">
+		            <tr class="wrap" height="170">
 		                <td width="20">
-		                	<input type="hidden" value="<%=c.getProCode()%>">
+		                	<input type="hidden" class="pCode" value="<%=c.getProCode()%>">
 		                	<input type="checkbox" class="cartProductCheck" name="checkBtn">
 	                	</td>
 		                <td width="160"><a href=""><img class="cartProductImg" src="<%=contextPath%>/resources/attachment_product/<%=c.getrFileName()%>"></a></td>
@@ -88,12 +88,14 @@
 		                    </div>
 		                </td>
 		                <td width="150">
-		                    <span class="productTotalPrice"><%= c.getPrice() * c.getQuantity() %></span> <span>원</span>
+		                    <input type="text" class="productTotalPrice" value="<%= c.getPrice() * c.getQuantity() %>"> <span>원</span>
 		                </td>
 		            </tr>
 	            <% } %>
+	            
             <% } %>
         </table>
+        
         <table id="cartTotalCheckWrap">
             <tr>
                 <td><input type="checkbox" id="cartTotalCheck"><label for="cartTotalCheck" id="cartTotalCheckLabel">전체 선택</label></td>
@@ -101,6 +103,8 @@
                 <td><div id="cartDeliveryInfo">30,000원 이상 무료 배송</div></td>
             </tr>
         </table>
+        <br><br>
+        
         <table id="cartTotalPriceWrap">
             <tr style="height: 50px; font-size: 20px;">
                 <th colspan="2" style="width: 300px;">총 상품 금액</th>
@@ -121,6 +125,7 @@
                 </td>
             </tr>
         </table>
+        
         <div style="text-align: right;">
             <button type="button" id="cartSelectedOrder">선택 상품 주문</button>
             <button type="button" id="cartAllOrder">전체 상품 주문</button>
@@ -129,8 +134,10 @@
     
     <script>
     
-    	/* 수량 변경 */
+    	
     	$(function(){
+    		
+    		/* 수량 변경 */
     		$(".minus").click(function(){
     			var q = Number($(this).next().val());
     			$(this).next().val(q-1);
@@ -153,11 +160,14 @@
     		
     		/* 수량 수정 */
     		$(".qty_edit").click(function(){
-    			var proCode = $(this).parents(".find").prev().val();
+    			var proCode = $(this).parents(".wrap").find(".pCode").val();
     			var qty = $(this).siblings(".input").val();
     			
-    			var proPrice = $(this).parents(".find").find(".cartProductPrice").text();
-    			var totalPrice = $(this).parents(".find").find(".productTotalPrice");
+    			console.log(proCode);
+    			console.log(qty);
+    			
+    			var proPrice = $(this).parents(".wrap").find(".cartProductPrice").text();
+    			var totalPrice = $(this).parents(".wrap").find(".productTotalPrice");
     			
     			
     			$.ajax({
@@ -166,11 +176,12 @@
     				type:"post",
     				success:function(){
     					
-    					totalPrice.text(qty * proPrice);
+    					totalPrice.val(qty * proPrice);
     					
     				}, error:function(){
     				}
     			});
+    			
     			
     		});
     		
@@ -185,9 +196,8 @@
     		});
     		
     		/* 선택한 상품 삭제 */
-       		
 			$("#cartDeleteBtn").click(function(){
-   			 var pList = []; 
+   				var pList = []; 
    		       
 			 	$("input:checkbox[name=checkBtn]:checked").each(function(){
 		     		pList.push($(this).prev().val());
@@ -195,24 +205,63 @@
    			 
 			 	location.href="<%=contextPath%>/deleteCart.pro?pList=" + pList;
 			});
+    	
     		
-    		
-    		/* 상품 선택 시 금액 변경 */
-    		/*
-    		$(".cartProductCheck:checked").each(function(){
-    			var chk = [];
-    			
+			/* 상품 선택 시 금액 변경 */
+    		$(".cartProductCheck").change(function(){
+    			if($(".cartProductCheck").is(":checked")){
+    				
+    	    		var priceSum = new Array();
+    	    		
+    	    		var sum = 0;
+    			       
+    			 	$("input:checkbox[name=checkBtn]:checked").each(function(){
+    	    			
+    	    			priceSum.push(Number($(this).parents(".wrap").find(".productTotalPrice").val()));
+    	    			console.log($(this).parents(".wrap").find(".productTotalPrice").val());
+    		     	});
+    			 	
+    			 	for(var i=0; i<priceSum.length; i++){
+    	    			sum += priceSum[i];
+    	    		};
+    	    		
+    	    		$(".totalPrice").text(sum);
+    	    		
+    	    		console.log(sum);
+    			}
     		});
-    		*/
+    		
+    	});
+    		
+    	
+    	
+    	/*
+    	$(document).ready(function(){
+    	
+    		// 총 금액 - 기본 
+    		
+    		   		
+    		
+    	});	
+    	
+    	*/
+    	
+    	
+    		
+    		
+    		
+    		
     		
     	
 			
 			
+    	/*
+		$(".cartProductCheck:checked").each(function(){
+			var chk = [];
 			
+		});
+		*/
 			
-    	});
-    		
-    
     	
     	/* 총 금액 변경
 		var subTotal = $(".totalPrice");

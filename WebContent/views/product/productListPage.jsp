@@ -118,7 +118,7 @@
 				<td>
 					<div class="productInfo">
 						<span class="productPrice" style="text-decoration: line-through; color: gray;"><%= p.getProPrice() %>원</span>
-						<span class="productPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %> 원</span>
+						<span class="discountPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %></span><span>원</span>
 						<span>|</span>
 						<span class="productFor"><%= p.getProStandard() %>인분</span>
 					</div>
@@ -188,6 +188,13 @@
 				var proCode = $(this).parents(".categoryInnerTable").prev().val();
 				var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
 				
+				/*
+				if(title.equals("SALE")){
+					proprice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
+				}else{
+					proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
+				}*/
+				
 				$.ajax({
 					url:"toCart.pro",
 					data:{proCode:proCode, proPrice:proPrice},
@@ -205,6 +212,7 @@
 						alert("ajax 에러:장바구니 담기 실패");
 					}
 				});
+				
 			});
 		});
 	</script>

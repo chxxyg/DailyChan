@@ -276,7 +276,7 @@
 			$("#viewMyReview").hide();
 			
 			$("#writeReviewCate").click(function(){
-				$(this)).css("border", "2px solid rgb(247, 112, 46)");
+				$(this).css("border", "2px solid rgb(247, 112, 46)");
 				$("#viewMyReviewCate").css("border", "");
 				$("#writeReview").show();
 				$("#viewMyReview").hide();
