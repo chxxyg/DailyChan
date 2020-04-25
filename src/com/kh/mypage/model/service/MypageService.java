@@ -229,4 +229,14 @@ public class MypageService
                 
     }
     
+    public int couponSum(String userId)
+    {
+        Connection conn = getConnection();
+        
+        int count = new MypageDao().couponSum(conn, userId);
+        
+        close(conn);
+        
+        return count;
+    }
 }

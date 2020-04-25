@@ -5,6 +5,7 @@
     
 <%
 	ArrayList<Address> list = (ArrayList<Address>)request.getAttribute("list");
+	String msg1 = (String)request.getAttribute("msg");
 %>
 <!DOCTYPE html>
 <html>
@@ -243,23 +244,25 @@
 <body>
 	<%@ include file="mypageMainOuter.jsp" %>
 	<%@ include file="../common/mainSideBar.jsp" %>
+	
+	
 	<input type="hidden" id="userId" value="<%=m.getMemberId()%>">
 	<div id="mys_content" class="sub_cont">
 			<h3 class="tit">배송지 관리</h3>
 			<input id="userId" type="hidden" name="userId" value="<%=m.getMemberId()%>">
 			<!-- MY SUMMARY -->
 			<div class="mys_summ">
-				<input type="hidden" id="addrNo" value="<%=list.size() %>">
-				<div class="txt"><b><%=m.getMemberName() %></b> 님의 배송지 목록에 총 <b><%=list.size() %></b> 곳이 저장되어 있습니다.</div>
+				<input type="hidden" id="addrNo" value="<%=list.size() %>>">
+				<div class="txt"><b><%=m.getMemberName() %></b> 님의 배송지 목록에 총 <b><%if(!list.isEmpty()){ %><%=list.size()%><% }else{ %>0<%} %></b> 곳이 저장되어 있습니다.</div>
 				<button type="button" class="bx" title="배송지 추가 새창" name="modifyBtn" data-modify-yn="N" data-mbr_dlvp_seq="0">배송지 추가</button>
 			</div>
 			<!-- //MY SUMMARY -->
 			
 
+			<% if(!list.isEmpty()){ %>
 			<div class="mys_chk">
 				<button type="button" class="bt" title="배송지목록 선택삭제" name="deleteMultiBtn">선택 삭제</button>
 			</div>
-
 			<!-- MY LIST -->	
 			<div class="mys_tbl">
 				<div class="tbl">
@@ -342,7 +345,8 @@
 				</div>
 			</div>
 			<!-- //MY LIST -->	
-			
+			<% } %>
+
 			<!-- MY NOTICE -->
 			<div class="mys_notice">
 				<h4>배송지 <b>TIP</b></h4>

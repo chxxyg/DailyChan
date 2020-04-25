@@ -114,8 +114,8 @@
             </div>
 			<div><b><%= memberName %></b>님</div>
 			<div>주문/배송<br>	<a href="<%= contextPath %>/orderList.my">0</a>건</div>
-			<div>쿠폰<br><a href="">0</a>장</div>
-			<div>적립금<br><a href="">0</a>원</div>
+			<div id="coupon_count">쿠폰<br><a href="">0</a>장</div>
+			<div>적립금<br><a href=""><%=m.getPointSum() %></a>원</div>
                 
         </div>
        <br>
@@ -147,20 +147,37 @@
 			data : {userId : userId},
 			success: function(list) 
 			{
+				console.log(list);
 				var address = "";
-				
-				for(var i = 0; i < list.length; i++)
+				if(list.length > 0)
 				{
-					if(list[i].addressDefault == 'Y')
+					for(var i = 0; i < list.length; i++)
 					{
-						address += "[" + list[i].zipCode + "]" + " ";
-						address += list[i].address + " ";
-						address += list[i].addressDetail;
+						if(list[i].addressDefault == 'Y')
+						{
+							address += "[" + list[i].zipCode + "]" + " ";
+							address += list[i].address + " ";
+							address += list[i].addressDetail;
+						}
 					}
+				}
+				else
+				{
+					address = "등록된 주소지가 없습니다."
 				}
 				$("#deliverySite a").html(address);
 			}
 		});
+        	
+        	$.ajax({
+    			url: "<%=contextPath%>/couponSum.my",
+    			type: "POST",
+    			data : {userId : userId},
+    			success: function(count) 
+    			{
+    				$("#coupon_count a").html(count);
+    			}
+    		});
    	</script>
 </body>
 </html>

@@ -2,7 +2,6 @@ package com.kh.mypage.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.mypage.model.service.MypageService;
-import com.kh.mypage.model.vo.Address;
 
 /**
- * Servlet implementation class AdressFormServlet
+ * Servlet implementation class CouponSumServlet
  */
-@WebServlet("/addressForm.my")
-public class AdressFormServlet extends HttpServlet {
+@WebServlet("/couponSum.my")
+public class CouponSumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdressFormServlet() {
+    public CouponSumServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +30,17 @@ public class AdressFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
+    		
 	    String userId = request.getParameter("userId");
-	    ArrayList<Address> list = new MypageService().listAddress(userId);
 	    
-	    if(!list.isEmpty())
-	    {
-	        request.setAttribute("list", list);
-	    }
-	    else
-	    {
-	        request.setAttribute("list", list);
-	    }
-
-	    request.getRequestDispatcher("views/mypage/addressForm.jsp").forward(request, response);
+	    int count = new MypageService().couponSum(userId);
 	    
-
+	    response.setCharacterEncoding("utf-8");
+	    
+	    PrintWriter out = response.getWriter();
+	    out.println(count);
+	    
+	    
 	}
 
 	/**

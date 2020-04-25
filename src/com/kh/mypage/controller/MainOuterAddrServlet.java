@@ -17,13 +17,13 @@ import com.kh.mypage.model.vo.Address;
  * Servlet implementation class MainOuterServlet
  */
 @WebServlet("/mainAddr.my")
-public class MainOuterServlet extends HttpServlet {
+public class MainOuterAddrServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MainOuterServlet() {
+    public MainOuterAddrServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
