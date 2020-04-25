@@ -76,8 +76,8 @@
 		                	<input type="hidden" class="pCode" value="<%=c.getProCode()%>">
 		                	<input type="checkbox" class="cartProductCheck" name="checkBtn">
 	                	</td>
-		                <td width="160"><a href=""><img class="cartProductImg" src="<%=contextPath%>/resources/attachment_product/<%=c.getrFileName()%>"></a></td>
-		                <td width="250"><a href=""><div class="cartProductName"><%=c.getProName() %></div></a></td>
+		                <td width="160"><img class="cartProductImg toDetail" src="<%=contextPath%>/resources/attachment_product/<%=c.getrFileName()%>"></td>
+		                <td width="250"><div class="cartProductName toDetail"><%=c.getProName() %></div></td>
 		                <td width="150"><span class="cartProductPrice"><%=c.getPrice() %></span> <span>원</span></td>
 		                <td width="125">
 		                    <div class="cartProductAmountWrap">
@@ -113,7 +113,7 @@
             </tr>
             <tr style="height: 100px; text-align: center;">
                 <td style="width: 280px; font-size: 30px;">
-                    <span class="totalPrice"><%=sum%></span> <span>원</span>
+                    <input type="text" class="totalPrice" value="<%=sum%>"> <span>원</span>
                 </td>
                 <td style="font-size: 30px;">+</td>
                 <td style="width: 280px; font-size: 30px;">
@@ -137,7 +137,7 @@
     	
     	$(function(){
     		
-    		/* 수량 변경 */
+    		/* 수량 +- */
     		$(".minus").click(function(){
     			var q = Number($(this).next().val());
     			$(this).next().val(q-1);
@@ -160,11 +160,8 @@
     		
     		/* 수량 수정 */
     		$(".qty_edit").click(function(){
-    			var proCode = $(this).parents(".wrap").find(".pCode").val();
+    			var pCode = $(this).parents(".wrap").find(".pCode").val();
     			var qty = $(this).siblings(".input").val();
-    			
-    			console.log(proCode);
-    			console.log(qty);
     			
     			var proPrice = $(this).parents(".wrap").find(".cartProductPrice").text();
     			var totalPrice = $(this).parents(".wrap").find(".productTotalPrice");
@@ -172,7 +169,7 @@
     			
     			$.ajax({
     				url:"updateQty.pro",
-    				data:{proCode:proCode, qty:qty},
+    				data:{pCode:pCode, qty:qty},
     				type:"post",
     				success:function(){
     					
@@ -182,18 +179,41 @@
     				}
     			});
     			
-    			
     		});
     		
-    		/* 전체상품 선택 */
+    		/* 전체 상품 선택 */
     		$("#cartTotalCheck").change(function(){
     			if($(this).is(":checked")){
-    				$(".cartProductCheck").prop("checked", true);
+    				$("input:checkbox[name=checkBtn]").prop('checked', true);
     			}else{
-    				$(".cartProductCheck").prop("checked", false);
+    				$("input:checkbox[name=checkBtn]").prop('checked', false);
     			}
     			
     		});
+    		
+    		/* 전체 상품 선택 시 금액 변경*/
+    		$("#cartTotalCheck").change(function(){
+
+   	    		var sum = 0;
+    			
+    			if($("input:checkbox[name=checkBtn]").is(":checked")){
+    				
+    	    		var pSum = new Array();
+    	    		
+    			 	$("input:checkbox[name=checkBtn]:checked").each(function(){
+    	    			pSum.push(Number($(this).parents(".wrap").find(".productTotalPrice").val()));
+    	    			
+    		     	});
+    			 	
+    			 	for(var i=0; i<pSum.length; i++){
+    	    			sum += pSum[i];
+    	    		};
+    			}
+    	    	
+    			$(".totalPrice").val(sum);
+    			
+    		});
+    		
     		
     		/* 선택한 상품 삭제 */
 			$("#cartDeleteBtn").click(function(){
@@ -205,63 +225,44 @@
    			 
 			 	location.href="<%=contextPath%>/deleteCart.pro?pList=" + pList;
 			});
-    	
+
     		
 			/* 상품 선택 시 금액 변경 */
     		$(".cartProductCheck").change(function(){
+
+   	    		var sum = 0;
+    			
     			if($(".cartProductCheck").is(":checked")){
     				
     	    		var priceSum = new Array();
     	    		
-    	    		var sum = 0;
-    			       
     			 	$("input:checkbox[name=checkBtn]:checked").each(function(){
-    	    			
     	    			priceSum.push(Number($(this).parents(".wrap").find(".productTotalPrice").val()));
-    	    			console.log($(this).parents(".wrap").find(".productTotalPrice").val());
+    	    			
     		     	});
     			 	
     			 	for(var i=0; i<priceSum.length; i++){
     	    			sum += priceSum[i];
     	    		};
-    	    		
-    	    		$(".totalPrice").text(sum);
-    	    		
-    	    		console.log(sum);
     			}
+    	    	
+    			$(".totalPrice").val(sum);
+    			
     		});
+			
+			
+    		/* 상품 상세페이지로 이동 */
+    		$(".toDetail").click(function(){
+    			var proCode = $(this).parents(".wrap").find(".pCode").val();
+    			
+    			location.href="<%=contextPath%>/pDetail.pro?proCode=" + proCode;
+    		});
+    		
+			
     		
     	});
     		
-    	
-    	
-    	/*
-    	$(document).ready(function(){
-    	
-    		// 총 금액 - 기본 
-    		
-    		   		
-    		
-    	});	
-    	
-    	*/
-    	
-    	
-    		
-    		
-    		
-    		
-    		
-    	
-			
-			
-    	/*
-		$(".cartProductCheck:checked").each(function(){
-			var chk = [];
-			
-		});
-		*/
-			
+		
     	
     	/* 총 금액 변경
 		var subTotal = $(".totalPrice");
