@@ -32,9 +32,12 @@ public class AddressDefaultServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
 	    String userId = request.getParameter("mbr_dlvp_seq");
-	    
-	    int result = new MypageService().defaultAddress(userId);
-	    
+        String updateAddr = request.getParameter("updateAddr"); // 수정할 주소
+        int index = (updateAddr.equals("0000000") ? 1: 2);
+        
+	    int result1 = new MypageService().defaultAddressY(userId, index);
+	    int result2 = new MypageService().defaultAddressN(userId, index);
+	    int result = result1 * result2;
 	    response.setCharacterEncoding("utf-8");
         PrintWriter out = response.getWriter();
         

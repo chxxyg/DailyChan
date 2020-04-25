@@ -32,11 +32,14 @@ public class AddressUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
-	    String defaultAddr = request.getParameter("base_yn");
+	    String defaultAddr = request.getParameter("base_yn");  // 기본배송지 체크여부
         String userId = request.getParameter("userId");
+        String updateAddr = request.getParameter("updateAddr"); // 수정할 주소
+        int index = (updateAddr.equals("0000000") ? 1: 2);
+        
         
         Address a = new Address();
-        a.setMemberId(request.getParameter("userId"));
+        a.setMemberId(userId);
         a.setAddressName(request.getParameter("recvr_nm"));
         a.setZipCode(request.getParameter("zonecode"));
         a.setAddress(request.getParameter("roadAddress") + request.getParameter("extraRoadAddr"));
@@ -44,12 +47,14 @@ public class AddressUpdateServlet extends HttpServlet {
         a.setPhone(request.getParameter("cell_no"));
         a.setAddressDefault(defaultAddr);
         
-        int result1 = new MypageService().updateAddress(a);
+        int result1 = new MypageService().updateAddress(a, index);
         
         int result2 =1;
         if(defaultAddr.equals("Y"))
         {
-            result2 = new MypageService().defaultAddress(userId);
+            int result21 = new MypageService().defaultAddressY(userId, index); 
+            int result22 = new MypageService().defaultAddressN(userId, index);
+            result2 = result21 * result22;
         }
         
         int result = result1 * result2;

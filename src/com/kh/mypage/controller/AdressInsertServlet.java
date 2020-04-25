@@ -35,6 +35,8 @@ public class AdressInsertServlet extends HttpServlet {
 	    
 	    String defaultAddr = request.getParameter("base_yn");
 	    String userId = request.getParameter("userId");
+        String updateAddr = request.getParameter("updateAddr"); // 수정할 주소
+        int index = (updateAddr.equals("0000000") ? 1: 2);
 	    
 	    Address a = new Address();
 	    a.setMemberId(request.getParameter("userId"));
@@ -49,8 +51,10 @@ public class AdressInsertServlet extends HttpServlet {
 	    int result2 =1;
 	    if(defaultAddr.equals("Y"))
 	    {
-	        result2 = new MypageService().defaultAddress(userId);
-	    }
+	        int result21 = new MypageService().defaultAddressY(userId, index); 
+	        int result22 = new MypageService().defaultAddressN(userId, index);
+	        result2 = result21 * result22;
+        }
 	    
 	    int result = result1 * result2;
 	    

@@ -225,16 +225,16 @@ public class MypageDao
     }
     
     
-    public int defaultAddress(Connection conn, String userId)
+    public int defaultAddressY(Connection conn, String userId, int index)
     {
         int result = 0;
         PreparedStatement pstmt = null;
-        String sql = prop.getProperty("defaultAddress");
-        
+        String sql = prop.getProperty("defaultAddressY");
         try
         {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, userId);
+            pstmt.setInt(2, index);
             
             result = pstmt.executeUpdate();
         }
@@ -250,15 +250,51 @@ public class MypageDao
         return result;
     }
     
-    public int updateAddress(Connection conn, Address a)
+    public int defaultAddressN(Connection conn, String userId, int index)
+    {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("defaultAddressN");
+        System.out.println(index);
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            pstmt.setInt(2, index);
+            
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+        }
+        
+        return result;
+    }
+    
+    public int updateAddress(Connection conn, Address a, int index)
     {
         int result = 0;
         PreparedStatement pstmt = null;
         String sql = prop.getProperty("updateAddress");
+        
         try
         {
             pstmt = conn.prepareStatement(sql);
-
+            pstmt.setString(1, a.getAddressName());
+            pstmt.setString(2, a.getZipCode());
+            pstmt.setString(3, a.getAddress());
+            pstmt.setString(4, a.getAddressDetail());
+            pstmt.setString(5, a.getPhone());
+            pstmt.setString(6, a.getAddressDefault());
+            pstmt.setString(7, a.getMemberId());
+            pstmt.setString(8, a.getMemberId());
+            pstmt.setInt(9, index);
+            
             
             result = pstmt.executeUpdate();
         }

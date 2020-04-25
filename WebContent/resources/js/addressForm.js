@@ -39,17 +39,18 @@ var deleteAction = function(mbr_dlvp_seq){
 		}
 	});
 }
-var modiBaseYnAction = function(mbr_dlvp_seq){	
+
+
+var modiBaseYnAction = function(mbr_dlvp_seq, updateAddr){	
 	if(!confirm("선택한 주소를 기본배송지로 설정하시겠습니까?")){
 		return;
 	}
-	
 	$.ajax({
 		url: "/dailyChan/defaultAddress.my",
 		type: "POST",
 		dataType: "text",
 		async:false,
-		data: {mbr_dlvp_seq : mbr_dlvp_seq},
+		data: {mbr_dlvp_seq : mbr_dlvp_seq, updateAddr : updateAddr},
 		success: function(data){
 			if(data > 0){
 				alert("기본 배송지로 설정되었습니다.");
@@ -97,7 +98,10 @@ $(document).ready(function(){
 	
 	// 기본배송지 수정 이벤트
 	$('[name=modiBaseYnBtn]').click(function(){
-		modiBaseYnAction($(this).attr("value"));
+		
+		var updateAddr = $(this).attr("data-mbr_dlvp_seq");
+
+		modiBaseYnAction($(this).attr("value"), $(this).attr("data-mbr_dlvp_seq"));
 	});
 	
 	// 삭제

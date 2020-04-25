@@ -43,13 +43,12 @@ $(document).ready(function() {
 		
 		if($("#set_default").is(':checked'))
 		{
-			data.base_yn = $(this).val();
+			data.base_yn = 'Y';
 		}
 		else
 		{
 			data.base_yn = 'N';
 		}
-		console.log(data.base_yn);
 		data.updateAddr = updateAddr;
 		if(updateAddr == "0000000" || updateAddr == "0000001")
 		{
