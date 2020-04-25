@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.mypage.model.service.MypageService;
-import com.kh.mypage.model.vo.Address;
-
 
 /**
- * Servlet implementation class AdressInsertServlet
+ * Servlet implementation class AddressDeleteServlet
  */
-@WebServlet("/insertAddress.my")
-public class AdressInsertServlet extends HttpServlet {
+@WebServlet("/deleteAddress.my")
+public class AddressDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdressInsertServlet() {
+    public AddressDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,32 +31,13 @@ public class AdressInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
-	    String defaultAddr = request.getParameter("base_yn");
-	    String userId = request.getParameter("userId");
+	    String userId = request.getParameter("mbr_dlvp_seq");
 	    
-	    Address a = new Address();
-	    a.setMemberId(request.getParameter("userId"));
-	    a.setAddressName(request.getParameter("recvr_nm"));
-	    a.setZipCode(request.getParameter("zonecode"));
-	    a.setAddress(request.getParameter("roadAddress") + request.getParameter("extraRoadAddr"));
-	    a.setAddressDetail(request.getParameter("dtl_addr"));
-	    a.setPhone(request.getParameter("cell_no"));
-	    a.setAddressDefault(defaultAddr);
-	    
-	    int result1 = new MypageService().insertAddress(a);
-	    int result2 =1;
-	    if(defaultAddr.equals("Y"))
-	    {
-	        result2 = new MypageService().defaultAddress(userId);
-	    }
-	    
-	    int result = result1 * result2;
-	    
+	    int result = new MypageService().deleteAddress(userId);
 	    response.setCharacterEncoding("utf-8");
         PrintWriter out = response.getWriter();
         
         out.print(result);
-	    
 	}
 
 	/**

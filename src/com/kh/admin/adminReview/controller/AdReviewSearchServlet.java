@@ -1,6 +1,9 @@
 package com.kh.admin.adminReview.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +14,16 @@ import com.kh.admin.adminReview.model.service.AdReviewService;
 import com.kh.admin.adminReview.model.vo.AdReview;
 
 /**
- * Servlet implementation class AdReviewDetailServlet
+ * Servlet implementation class AdReviewSearchServlet
  */
-@WebServlet("/reviewDetail.ad")
-public class AdReviewDetailServlet extends HttpServlet {
+@WebServlet("/reviewSearch.ad")
+public class AdReviewSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdReviewDetailServlet() {
+    public AdReviewSearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,12 +33,22 @@ public class AdReviewDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int rbo = Integer.parseInt(request.getParameter("rbo"));
+		String memberId = request.getParameter("memberId");
 		
-		AdReview v = new AdReviewService().detailReview(rbo);
+		ArrayList<AdReview> list = new AdReviewService().searchReview(memberId);
 		
-		request.setAttribute("v", v);
-		request.getRequestDispatcher("views/admin/adminReview/adminReviewDetail.jsp").forward(request, response);
+		request.setAttribute("list", list);
+		if(list.isEmpty()) {	
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('조회된 결과가 없습니다');history.back();</script>");
+			
+			out.flush();
+		}else {	
+			request.getRequestDispatcher("views/admin/adminReview/adminReviewList.jsp").forward(request, response);		
+		}
 		
 	}
 

@@ -40,7 +40,9 @@
     margin-left:45px;
     font-size: 22px;
     text-align: center;
+    border:none;
 }
+
 /* 수량 */
 .cartProductAmountWrap{
     width: 100px;
@@ -86,8 +88,11 @@
 /* 총 금액 */
 .totalPrice, .deliveryPrice, .cartTotalPrice{
     width: 80px;
+    heigt:50px;
     text-align: center;
     margin-left: 50px;
+    border:none;
+    font-size:25px;
 }
 #cartTotalPriceWrap span{font-size: 25px;}
 .cartTotalPrice{color:red;}

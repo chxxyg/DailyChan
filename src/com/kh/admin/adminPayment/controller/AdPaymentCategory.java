@@ -1,26 +1,26 @@
-package com.kh.admin.adminReview.controller;
+package com.kh.admin.adminPayment.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.admin.adminReview.model.service.AdReviewService;
-import com.kh.admin.adminReview.model.vo.AdReview;
+import com.kh.admin.adminPayment.model.service.AdPaymentService;
 
 /**
- * Servlet implementation class AdReviewDetailServlet
+ * Servlet implementation class AdPaymentCategory
  */
-@WebServlet("/reviewDetail.ad")
-public class AdReviewDetailServlet extends HttpServlet {
+@WebServlet("/adpayCategory.ad")
+public class AdPaymentCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdReviewDetailServlet() {
+    public AdPaymentCategory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,14 +29,16 @@ public class AdReviewDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		int rbo = Integer.parseInt(request.getParameter("rbo"));
+	
+		String payNo = request.getParameter("payNo");
+		int payCategory = Integer.parseInt(request.getParameter("payCategory"));
+		int result = new AdPaymentService().adPaymentUpdate(payNo, payCategory);
 		
-		AdReview v = new AdReviewService().detailReview(rbo);
-		
-		request.setAttribute("v", v);
-		request.getRequestDispatcher("views/admin/adminReview/adminReviewDetail.jsp").forward(request, response);
-		
+		if(result>0) {
+			request.getSession().setAttribute("msg", "게시글 수정 성공");
+			response.sendRedirect("paymentList.ad?currentPage=1");
+		}
+	
 	}
 
 	/**

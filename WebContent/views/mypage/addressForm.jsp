@@ -243,14 +243,15 @@
 <body>
 	<%@ include file="mypageMainOuter.jsp" %>
 	<%@ include file="../common/mainSideBar.jsp" %>
-
+	<input type="hidden" id="userId" value="<%=m.getMemberId()%>">
 	<div id="mys_content" class="sub_cont">
 			<h3 class="tit">배송지 관리</h3>
 			<input id="userId" type="hidden" name="userId" value="<%=m.getMemberId()%>">
 			<!-- MY SUMMARY -->
 			<div class="mys_summ">
-				<div class="txt"><b><%=list.get(0).getAddressName() %></b> 님의 배송지 목록에 총 <b><%=list.size() %></b> 곳이 저장되어 있습니다.</div>
-				<button type="button" class="bx" title="배송지 추가 새창" name="modifyBtn" data-modify-yn="N">배송지 추가</button>
+				<input type="hidden" id="addrNo" value="<%=list.size() %>">
+				<div class="txt"><b><%=m.getMemberName() %></b> 님의 배송지 목록에 총 <b><%=list.size() %></b> 곳이 저장되어 있습니다.</div>
+				<button type="button" class="bx" title="배송지 추가 새창" name="modifyBtn" data-modify-yn="N" data-mbr_dlvp_seq="0">배송지 추가</button>
 			</div>
 			<!-- //MY SUMMARY -->
 			
@@ -272,7 +273,7 @@
 						</colgroup>
 						<thead>
 							<tr>
-								<th scope="col"><input type="checkbox" id="chk_all" name="chk_all" onclick="checkall(this.checked, 'mbr_dlvp_seq')" title="전체 배송지 선택"></th>
+								<th scope="col"><input type="checkbox" id="chk_all" name="chk_all" title="전체 배송지 선택"></th>
 								<th scope="col">이름</th>
 								<th scope="col">주소</th>
 								<th scope="col">휴대전화</th>
@@ -282,7 +283,11 @@
 						<tbody>
 							<%for(int i = 0; i < list.size(); i++){ %>
 							<tr>
-								<td></td>
+								<td>
+									<% if(list.get(i).getAddressDefault().equals("N")){ %>
+										<input type="checkbox" class="chk" name="mbr_dlvp_seq" value="<%= m.getMemberId() %>" >
+									<% } %>
+								</td>
 								<td>
 									<span class="nor"><%= list.get(i).getAddressName() %>
 										<%if(list.get(i).getAddressDefault().equals("Y")){ %>
@@ -323,11 +328,11 @@
 								</td>
 								<td>
 									<span class="btn">
-										<button type="button" class="sq" title="배송지 수정 새창" data-mbr_dlvp_seq="0000001" name="modifyBtn" data-modify-yn="Y">수정</button>
+										<button type="button" class="sq" title="배송지 수정 새창" data-mbr_dlvp_seq="000000<%=i %>" name="modifyBtn" data-modify-yn="Y">수정</button>
 										<% if(list.get(i).getAddressDefault().equals("N")){ %>
-										<button type="button" class="bxs" title="기본배송지 설정 알림" data-mbr_dlvp_seq="0000002" name="modiBaseYnBtn">기본 배송지</button>
+										<button type="button" class="bxs" title="기본배송지 설정 알림" data-mbr_dlvp_seq="000000<%=i %>" name="modiBaseYnBtn" value="<%= m.getMemberId() %>">기본 배송지</button>
+										<button type="button" class="del" title="배송지 삭제 알림" name="deleteOneBtn" data-mbr_dlvp_seq="000000<%=i %>" value="<%= m.getMemberId() %>">삭제</button>
 										<% } %>
-										<button type="button" class="del" title="배송지 삭제 알림" name="deleteOneBtn" data-mbr_dlvp_seq="0000002">삭제</button>
 									</span>
 								</td>
 							</tr>

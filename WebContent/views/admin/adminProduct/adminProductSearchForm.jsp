@@ -125,7 +125,8 @@
         	</form>
         <div id="allcount">
                 <div style="width:30%;">총 상품 수 :  <input type="text" id="adproductcount" value="<%=pi.getListCount()%>"> 개</div>
-                <div style="width:70%; text-align:right;"><button onclick="location.href='<%=contextPath%>/pdEnrollForm.ad'">상품등록</button> </div>
+                <div style="width:70%; text-align:right;"><button onclick="location.href='<%=contextPath%>/pdEnrollForm.ad'">상품등록</button> 
+                <button onclick="location.href='<%=contextPath%>/productList.ad?currentPage=1'">전체리스트</button></div>
         </div>  
         <table class="listProduct">
             <thead>

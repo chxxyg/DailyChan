@@ -105,6 +105,27 @@
 			background-color:#5554547e;
 			cursor:pointer;
 		}
+		.emphasis {
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
+			border:1px solid #181c20;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-weight:bold;
+
+			text-decoration:none;
+			text-shadow:0px 1px 0px #181c20;
+		}
+		.emphasis:hover {
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
+		}
+		.emphasis:active {
+			position:relative;
+			top:1px;
+		}
         
       
     </style>
@@ -140,7 +161,7 @@
                     <td><%= b.getMemberId() %></td>
                     <td><%= b.getPenaltyCuase() %></td>
                     <td><%= b.getPenaltyDate() %></td>
-                    <td><%= b.getNonblockYn() %></td>
+                    <td class="emphasis"><%= b.getNonblockYn() %></td>
                 </tr>
                 <% } %>
               

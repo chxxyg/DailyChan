@@ -38,21 +38,21 @@
 		font-size:12px;
 	}
 	.recentProduct a{text-decoration:none; cursor:pointer;}
-	#recentProduct_td1{
+	.recentProduct_td1{
 		padding:15px 15px;
 	}
-	#recentProduct_td1>img{
+	.recentProduct_td1>img{
 		float:left;
 		margin-left: 25px;
 		cursor:pointer;
 	}
-	#recentProduct_td1>p{
+	.recentProduct_td1>p{
 		float:left;
 		margin:30px 0px 0px 20px;
 		cursor:pointer;
 	}
-	#recentProduct_td2{padding-left:53px;}
-	#shoppingcartBtn{
+	.recentProduct_td2{padding-left:53px;}
+	.shoppingcartBtn{
 		width:60px;
 		height:30px;
 		background:tomato;
@@ -61,7 +61,11 @@
 		color:white;
 		margin-left:45px;
 	}
-	#shoppingcartBtn:hover{cursor:pointer;}
+	.shoppingcartBtn:hover{cursor:pointer;}
+	
+	/* 최근 본 상품 없을 경우 */
+	#empty{margin-left:230px; font-size:20px;}
+	#caution{margin-left:340px;}
 	
 </style>
 </head>
@@ -72,9 +76,9 @@
 	
 	
 	<div class="recentProductViewWrap">
-		<h3>최근 본 상품</h3>
+		<h3>최근 구매한 상품</h3>
 		<hr>
-		<span><b>강보람</b> 님의 최근 본 상품은 <b><%=myList.size()%></b>개 입니다. (최대 10개까지 저장됩니다.) </span>
+		<span><b><%= memberName %></b> 님의 최근 구매한 상품은 <b><%=myList.size()%></b>개 입니다. (최대 10개까지 저장됩니다.) </span>
 
 		<table class="recentProduct" width="790px">
 			<thead>
@@ -89,24 +93,25 @@
 			<% if(myList.isEmpty()) { %>
 				<tr height="300">
 					<td colspan=3>
+						<img id="caution" src="<%=contextPath%>/resources/img/cautionlogo.png" width="50" height="50"><br><br>
 						<span id="empty">최근 구매하신 상품이 없습니다.</span>
 					</td>
 				</tr>
 			<% }else { %>	
 				<% for(int i=0; i<10; i++) { %>
 					<tr>
-						<td id="recentProduct_td1">
-							<input type="hidden" class="pCode" value="<%=myList.get(i).getProCode()%>"><!-- 상품코드 -->
+						<td class="recentProduct_td1">
+							<input type="hidden" class="pCode" value="<%=myList.get(i).getProCode()%>">
 							<img class="pName" src="<%=contextPath%>/resources/attachment_product/<%=myList.get(i).getFileName()%>" width="80" height="80">
 							<p class="pName"><b><%= myList.get(i).getProName() %></b><br>
 								
 							</p>
 						</td>
-						<td id="recentProduct_td2">
-							<span class=".pPrice"><%= myList.get(i).getPrice() %></span><span>원</span>
+						<td class="recentProduct_td2">
+							<p class="pPrice" id="pPrice"><%= myList.get(i).getPrice() %></p><span>원</span>
 						</td>
-						<td>
-							<button type="button" id="shoppingcartBtn"">장바구니</button>
+						<td class="recentProduct_td3">
+							<button type="button" class="shoppingcartBtn">장바구니</button>
 						</td>
 					</tr>
 					<% } %>
@@ -125,11 +130,12 @@
 				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
 			});
 			
-		});
-		
-		$("#shoppingcartBtn").click(function(){
-				var proCode = $(this).parents(".recentProduct").find("pCode").val();
-				var proPrice = $(this).parents(".recentProduct").find("pPrice").text();
+			$(".shoppingcartBtn").click(function(){
+				var proCode = $(this).parents(".recentProduct_td3").siblings(".recentProduct_td1").children(".pCode").val();
+				var proPrice = $(this).parents(".recentProduct_td3").siblings(".recentProduct_td2").children(".pPrice").text();
+				
+				console.log(proCode);
+				console.log(proPrice);
 				
 				$.ajax({
 					url:"toCart.pro",
@@ -145,9 +151,15 @@
 							}
 						}
 					}, error:function(){
-						alert("ajax 에러:장바구니 담기 실패");
+						//alert("ajax 에러:장바구니 담기 실패");
+						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
 					}
 				});
+			});
+			
+		});
+		
+			
 		
 		
 	</script>

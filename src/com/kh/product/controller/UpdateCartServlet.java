@@ -32,7 +32,7 @@ public class UpdateCartServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		String proCode = request.getParameter("proCode");
+		String proCode = request.getParameter("pCode");
 		int qty = Integer.parseInt(request.getParameter("qty"));
 	
 		int result = new CartService().updateQtyCart(memberId, proCode, qty);
