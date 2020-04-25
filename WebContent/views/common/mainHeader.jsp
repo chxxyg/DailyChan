@@ -123,19 +123,20 @@
 	    margin-left:35px;
 	}
 	
-	#hd_right>a>img, #hd_right>a>p{
+	#hd_right img, #hd_right p{
 	    float:left;
 	    margin-right:10px;
 	}
-	#hd_right>a>p{
+	#hd_right p{
 	    margin-top:10px;
 	    font-size:14px;
 	    font-weight:600;
 	    margin-right:25px;
 	    color: black;
 	}
-	#hd_right>a>p:hover{
+	#hd_right p:hover, #hd_right img:hover{
 		color: rgb(250, 142, 0);
+		cursor:pointer;
 	}
 	
 	
@@ -271,6 +272,8 @@
                 <!-- 헤더(우)_장바구니,찜 -->
                 <div id="header_4">
                     <div id="hd_right">
+                    
+                    <% if(loginUser != null){ %> 
                         <!-- 장바구니 -->
                         <a href="<%=contextPath%>/cartList.pro" class="a_cart">
                             <img id="cart_img" src="<%=contextPath%>/resources/img/cartlogo.png" width="35px" height="35px">
@@ -281,6 +284,14 @@
                             <img id="wish_img" src="<%=contextPath%>/resources/img/likelogo.png" width="30px" height="30px" style="margin-bottom:5px;">
                             <p>찜</p>
                         </a>
+                    <% } else { %>
+                    	<!-- 장바구니 -->
+                            <img class="block" src="<%=contextPath%>/resources/img/cartlogo.png" width="35px" height="35px">
+                            <p class="block">장바구니</p>                
+                        <!-- 찜 -->
+                            <img class="block" src="<%=contextPath%>/resources/img/likelogo.png" width="30px" height="30px" style="margin-bottom:5px;">
+                            <p class="block">찜</p>
+                    <% } %>
                     </div>
                 </div>
             </div> <!-- header 영역 닫힘-->
@@ -351,9 +362,15 @@
 
             <!-- 로그인 팝업 function -->
 			function loginPop(){
-
 	           window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
 	        }
+			
+			<!-- 장바구니, 찜하기 로그인 후 이용 안내-->
+			$(function(){
+				$(".block").click(function(){
+					alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+				});
+			});
 
           </script>
           
