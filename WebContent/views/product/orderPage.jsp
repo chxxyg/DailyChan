@@ -5,6 +5,7 @@
 	String nameList = (String)request.getAttribute("nameList");
 	String priceList = (String)request.getAttribute("priceList");
 	String quantityList = (String)request.getAttribute("quantityList");
+	String ranStr = (String)request.getAttribute("ranStr");
 	
 	int delivery = (int)request.getAttribute("delivery");
 	int payAmount = (int)request.getAttribute("payAmount");
@@ -43,41 +44,6 @@
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/orderPage.css">
 
-<script>
-$(document).ready(function(){
-	$("#orderBtn").click(function(){
-		var IMP = window.IMP; // 생략해도 괜찮습니다.
-		IMP.init("imp27012123"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
-			
-		//IMP.request_pay(param, callback) 호출
-		IMP.request_pay({ // param
-		  pg: "inicis",
-		  pay_method: "card",
-		  merchant_uid: "ORD20180131-0000011",
-		  name: "노르웨이 회전 의자",
-		  amount: 64900,
-		  buyer_email: "gildong@gmail.com",
-		  buyer_name: "홍길동",
-		  buyer_tel: "010-4242-4242",
-		  buyer_addr: "서울특별시 강남구 신사동",
-		  buyer_postcode: "01181"
-		}, function (rsp) { // callback
-			if ( rsp.success ) {
-		        var msg = '결제가 완료되었습니다.';
-		        msg += '고유ID : ' + rsp.imp_uid;
-		        msg += '상점 거래ID : ' + rsp.merchant_uid;
-		        msg += '결제 금액 : ' + rsp.paid_amount;
-		        msg += '카드 승인번호 : ' + rsp.apply_num;
-		    } else {
-		        var msg = '결제에 실패하였습니다.';
-		        msg += '에러내용 : ' + rsp.error_msg;
-		    }
-		
-		    alert(msg);
-		});
-	});
-});
-</script>
 </head>
 <body>
 
@@ -137,8 +103,8 @@ $(document).ready(function(){
                         <td>
                             <table>
                                 <tr>
-                                    <td style="background: white; width: 300px;">보유 적립금 : 3,000원</td>
-                                    <td><input type="number" id="orderInputPoint" placeholder="사용할 적립금 입력"></td>
+                                    <td style="background: white; width: 300px;">보유 적립금 : <%=loginUser.getPointSum() %>원</td>
+                                    <td><input type="text" id="orderInputPoint" placeholder="사용할 적립금 입력"></td>
                                     <td><button type="button" id="orderCouponBtn">적용</button></td>
                                 </tr>
                             </table>
@@ -192,11 +158,11 @@ $(document).ready(function(){
                 <table id="orderDeliveryrInfo">
                     <tr>
                         <td>받으시는 분 *</td>
-                        <td>강보람</td>
+                        <td id="info_name"></td>
                     </tr>
                     <tr>
                         <td>휴대전화 *</td>
-                        <td>010-7777-2222</td>
+                        <td id="info_phone"></td>
                     </tr>
                     <tr>
                         <td>비상연락처</td>
@@ -204,11 +170,7 @@ $(document).ready(function(){
                     </tr>
                     <tr>
                         <td>주소 *</td>
-                        <td>[00777] 서울특별시 강남구 테헤란로 14길 6 남도빌딩</td>
-                    </tr>
-                    <tr>
-                        <td>배송 정보</td>
-                        <td>지정하신 배송일 <span id="orderDeliveryDate"> 5월 1일 </span>에 배송될 예정입니다.</td>
+                        <td id="info_addr"></td>
                     </tr>
                     <tr>
                         <td>배송 요청 사항</td>
@@ -273,7 +235,7 @@ $(document).ready(function(){
                         </td>
                         <td style="font-size: 30px; width: 10px;">=</td>
                         <td style="width: 300px; font-size: 35px; font-weight: 550;">
-                            <span id="orderProductTotalPrice">723,000</span> 원
+                            <span id="orderProductTotalPrice"><%= payAmount - delivery %></span> 원
                         </td>
                     </tr>
                 </table>
@@ -290,6 +252,102 @@ $(document).ready(function(){
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>
     
+    <script>
+		
+		
+		$(document).ready(function(){
+			
+			
+			// 배송지 조회
+			var userId = "<%=loginUser.getMemberId()%>";
+			$.ajax({
+			url: "<%=contextPath%>/mainAddr.my",
+			type: "POST",
+			data : {userId : userId},
+			success: function(list) 
+			{
+				var address = "";
+				if(list.length > 0)
+				{
+					for(var i = 0; i < list.length; i++)
+					{
+						if(list[i].addressDefault == 'Y')
+						{
+							address += "[" + list[i].zipCode + "]" + " ";
+							address += list[i].address + " ";
+							address += list[i].addressDetail;
+						}
+					}
+				}
+				else
+				{
+					address = "등록된 주소지가 없습니다."
+				}
+				
+				for(var i = 0; i < list.length; i++)
+				{
+					if(list[i].addressDefault == 'Y')
+					{
+						var name = list[i].addressName;
+						var prePhone = list[i].phone;
+						var phone = '';
+						if(prePhone.length == 11)
+						{
+							phone = prePhone.substring(0, 3) + "-";
+							phone += prePhone.substring(3, 8) + "-";
+							phone += prePhone. substring(8);
+						}
+						else
+						{
+							phone = prePhone.substring(0, 3) + "-";
+							phone += prePhone.substring(3, 7) + "-";
+							phone += prePhone. substring(7);
+						}
+					}
+				}
+				$("#info_name").html(name);
+				$("#info_phone").html(phone);
+				$("#info_addr").html(address);
+			}
+			}); // 배송지 조회 종료
+			
+			
+			var price = $("#orderProductTotalPrice").html();
+			console.log(price);
+			$("#orderBtn").click(function(){
+				var IMP = window.IMP;
+				IMP.init("imp27012123"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
+					
+				//IMP.request_pay(param, callback) 호출
+				IMP.request_pay({ // param
+				  pg: "inicis",
+				  pay_method: "card",
+				  merchant_uid:  'merchant_' + new Date().getTime(),
+				  name: "<%=ranStr%>",
+				  amount: price,
+				  buyer_email: "<%=loginUser.getEmail()%>",
+				  buyer_name: $("#info_name").html(),
+				  buyer_tel: $("#info_phone").html(),
+				  buyer_addr: $("#info_addr").html(),
+				  buyer_postcode: "01181",
+				  m_redirect_url : '/dailChan/orderComplete.pro'	// 결제 완료 후 보낼 컨트롤러의 메소드명
+				}, function (rsp) { // callback
+					if ( rsp.success ) {
+				        var msg = '결제가 완료되었습니다.';
+				        msg += '고유ID : ' + rsp.imp_uid;
+				        msg += '상점 거래ID : ' + rsp.merchant_uid;
+				        msg += '결제 금액 : ' + rsp.paid_amount;
+				        msg += '카드 승인번호 : ' + rsp.apply_num;
+				    } else {
+				        var msg = '결제에 실패하였습니다.';
+				        msg += '에러내용 : ' + rsp.error_msg;
+				    }
+				
+				    alert(msg);
+				});
+			}); // 주문 결제 종료
+		});
+    </script>
 
 </body>
 </html>
