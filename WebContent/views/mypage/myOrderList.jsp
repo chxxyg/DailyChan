@@ -2,20 +2,6 @@
     pageEncoding="UTF-8" import="com.kh.mypage.model.vo.Mypage, java.util.ArrayList"%>
 <%
 	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList");
-	
-	String result = "";
-	
-	for(Mypage my : myList) {
-		switch(my.getStatus()) {
-			case '0': result = "결제전"; break;
-			case '1': result = "결제완료"; break;
-			case '2': result = "결제취소"; break;
-			case '3': result = "상품준비중"; break;
-			case '4': result = "배송중"; break;
-			case '5': result = "배송완료"; break;
-			case '6': result = "반품완료"; break;
-		}
-	}
 %>
 <!DOCTYPE html>
 <html>
@@ -154,7 +140,7 @@
 				<% for(Mypage my : myList) { %>
 					<tr height="100px">
 						<td class="firstTd">
-							<a style="color:blue; text-decoration: underline;" class="orderNo"><%=my.getOrderNo()%></a>
+							<a style="color:blue; text-decoration: underline;" class="orderNo"><%=my.getOrderNo()%></a><br>
 							<%=my.getOrderDate() %><br>
 							<button class="orderDtBtn" type="button">상세확인 ></button>
 						</td>
@@ -165,7 +151,7 @@
 								<%=my.getQuantity() %>개 / <%=my.getPrice()%>원
 							</div>
 						</td>
-						<td><%=result%></td>
+						<td>결제전</td>
 						<td></td>
 					</tr>
 				<% } %>
