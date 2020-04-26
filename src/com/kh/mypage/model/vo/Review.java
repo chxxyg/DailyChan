@@ -20,8 +20,10 @@ public class Review {
 	private Date reviewModifyDate;
 	private String reviewDelStatus;
 	
+	
 	public Review() {}
 
+	
 	public Review(int reviewBoardNo, String orderNo, String productCode, String memberId, String reviewTitle,
 			String reviewContent, int reviewRating, int reviewLike, Date reviewCreateDate, Date reviewResponseDate,
 			String reviewResponseYn, String reviewResponse, String reviewAttachmentYn, Date reviewModifyDate,
