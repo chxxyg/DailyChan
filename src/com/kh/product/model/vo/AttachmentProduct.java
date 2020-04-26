@@ -42,8 +42,7 @@ public class AttachmentProduct {
 	}
 	
 	
-	
-	
+
 
 	/**
 	 * 관리자페이지 상품 파일 업데이트를 위한 매개변수 

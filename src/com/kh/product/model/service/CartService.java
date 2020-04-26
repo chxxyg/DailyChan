@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.product.model.dao.CartDao;
+import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.ShoppingCart;
 
 public class CartService {
@@ -90,7 +91,7 @@ public class CartService {
 		return del;
 	}
 	
-	/** 5. 장바구니 - 주문상태 'Y'로 변경
+	/** 5_1. 장바구니 - 주문상태 'Y'로 변경
 	 * @param memberId
 	 * @param proCode
 	 * @return
@@ -107,7 +108,7 @@ public class CartService {
 		return update;
 	}
 	
-	/** 6. ORDER_PRODUCT 테이블에 값 추가
+	/** 5_2. ORDER_PRODUCT 테이블에 값 추가
 	 * @param memberId
 	 * @return
 	 */
@@ -122,6 +123,18 @@ public class CartService {
 		close(conn);
 		return insert;
 	}
+	
+	/** 6. 주문서에 넣을 이미지 가져오기
+	 * @param proCode
+	 * @return
+	 */
+	/*
+	public String selectImg(String proCode) {
+		Connection conn = getConnection();
+		String fileName = new CartDao().selectImg(conn, proCode);
+		close(conn);
+		return fileName;
+	}*/
 	
 	
 }
