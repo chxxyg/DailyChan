@@ -26,12 +26,6 @@
 	
 	int[] price = new int[priceArr.length];
 	for(int i=0;i<priceArr.length; i++){ price[i] = Integer.parseInt(priceArr[i]); }
-	
-	
-	//int[] numsA = new int[strA.length];
-	//for(int i=0;i<strA.length; i++){ numsA[i] = Integer.parseInt(strA[i]); }
-	//int[] price = Arrays.stream(priceArr).mapToInt(Integer::parseInt).toArray();
-	
 	String[] quantityArr = null;
 	if(quantityList != null){
 		quantityArr = quantityList.split(",");
@@ -39,8 +33,6 @@
 	
 	int[] quantity = new int[quantityArr.length];
 	for(int i=0;i<quantityArr.length; i++){ quantity[i] = Integer.parseInt(quantityArr[i]); }
-	
-	//int[] quantity = Arrays.stream(quantityArr).mapToInt(Integer::parseInt).toArray();	
 	
 %>
 <!DOCTYPE html>
