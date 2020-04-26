@@ -135,7 +135,7 @@
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 리뷰 : <input type="text" id="adproductcount" value=""> 개</div>
+                <div style="width:30%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
                 
         </div>  
         <table class="listMember">

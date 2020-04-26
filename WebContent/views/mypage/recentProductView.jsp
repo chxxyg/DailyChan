@@ -78,7 +78,7 @@
 	<div class="recentProductViewWrap">
 		<h3>최근 구매한 상품</h3>
 		<hr>
-		<span><b><%= memberName %></b> 님의 최근 구매한 상품은 <b><%=myList.size()%></b>개 입니다. (최대 10개까지 저장됩니다.) </span>
+		<span><b><%= memberName %></b> 님의 최근 구매한 상품은 <b><%=myList.size()%></b>개 입니다.</span>
 
 		<table class="recentProduct" width="790px">
 			<thead>
@@ -98,7 +98,7 @@
 					</td>
 				</tr>
 			<% }else { %>	
-				<% for(int i=0; i<10; i++) { %>
+				<% for(int i=0; i<myList.size(); i++) { %>
 					<tr>
 						<td class="recentProduct_td1">
 							<input type="hidden" class="pCode" value="<%=myList.get(i).getProCode()%>">
@@ -108,7 +108,7 @@
 							</p>
 						</td>
 						<td class="recentProduct_td2">
-							<p class="pPrice" id="pPrice"><%= myList.get(i).getPrice() %></p><span>원</span>
+							<span class="pPrice" id="pPrice"><%= myList.get(i).getPrice() %></span> <span>원</span>
 						</td>
 						<td class="recentProduct_td3">
 							<button type="button" class="shoppingcartBtn">장바구니</button>

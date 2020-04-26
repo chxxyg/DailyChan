@@ -73,7 +73,7 @@ private Properties prop = new Properties();
 		AdReview v = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("");
+		String sql = prop.getProperty("detailReview");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -81,9 +81,13 @@ private Properties prop = new Properties();
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				//v = new AdReview(rset.getString(""),
-								// rset.getString(""),
-								// rset.getString(""));
+				v = new AdReview(rset.getInt("REVIEW_BOARD_NO"),
+								 rset.getString("MEMBER_ID"),
+								 rset.getDate("REVIEW_CREATE_DATE"),
+								 rset.getString("PRODUCT_CODE"),
+								 rset.getString("REVIEW_TITLE"),
+								 rset.getString("REVIEW_CONTENT"),
+								 rset.getString("REVIEW_ATTACHMENT_YN"));
 			}
 			
 		} catch (SQLException e) {

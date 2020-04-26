@@ -124,17 +124,4 @@ public class CartService {
 		return insert;
 	}
 	
-	/** 6. 주문서에 넣을 이미지 가져오기
-	 * @param proCode
-	 * @return
-	 */
-	/*
-	public String selectImg(String proCode) {
-		Connection conn = getConnection();
-		String fileName = new CartDao().selectImg(conn, proCode);
-		close(conn);
-		return fileName;
-	}*/
-	
-	
 }

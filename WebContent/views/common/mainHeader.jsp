@@ -225,7 +225,7 @@
 							<b> welcome <%=loginUser.getMemberName() %></b>
 								<div class="btns" align="center">
 									<a href="<%= contextPath %>/logout.me">로그아웃</a>
-									<a href="<%= contextPath %>/mymain.my">마이페이지</a>	
+									<a href="<%= contextPath %>/orderList.my">마이페이지</a>	
 								</div>
 						 </div>
 				   </form>

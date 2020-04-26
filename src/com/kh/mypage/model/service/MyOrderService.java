@@ -20,6 +20,7 @@ public class MyOrderService {
 		Connection conn = getConnection();
 		ArrayList<Mypage> myList = new MyOrderDao().selectOrder(conn, memberId);
 		close(conn);
+		System.out.println(myList);
 		return myList;
 		
 	}
