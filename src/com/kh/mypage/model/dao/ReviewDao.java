@@ -35,6 +35,7 @@ public class ReviewDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setString(1, order_no);
 			pstmt.setString(2, proCode);
 			pstmt.setString(3, member_id);
