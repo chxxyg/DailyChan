@@ -1,29 +1,23 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.mypage.model.service.MypageService;
-import com.kh.mypage.model.vo.Address;
-
 /**
- * Servlet implementation class AdressFormServlet
+ * Servlet implementation class PointFormServlet
  */
-@WebServlet("/addressForm.my")
-public class AdressFormServlet extends HttpServlet {
+@WebServlet("/pointForm.my")
+public class PointFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdressFormServlet() {
+    public PointFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,21 +27,8 @@ public class AdressFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
-	    String userId = request.getParameter("userId");
-	    ArrayList<Address> list = new MypageService().listAddress(userId);
+	    request.getRequestDispatcher("views/mypage/pointForm.jsp").forward(request, response);
 	    
-	    if(!list.isEmpty())
-	    {
-	        request.setAttribute("list", list);
-	    }
-	    else
-	    {
-	        request.setAttribute("list", list);
-	    }
-
-	    request.getRequestDispatcher("views/mypage/addressForm.jsp").forward(request, response);
-	    
-
 	}
 
 	/**

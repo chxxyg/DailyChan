@@ -57,7 +57,7 @@ public class DeleteCartServlet extends HttpServlet {
 			clist = new CartService().selectCart(memberId);
 			request.setAttribute("clist", clist);
 			request.getRequestDispatcher("views/product/cartPage.jsp").forward(request, response);
-		}		else { // 삭제실패
+		}else { // 삭제실패
 			request.setAttribute("msg", "상품 삭제 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}

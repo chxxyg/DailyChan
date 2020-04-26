@@ -222,6 +222,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 <div class="pop_wrap" id="pop_addr_modi">
 		<div class="pop_box ">
 			<h1>배송주소 추가/수정</h1>
+			<input type="hidden" id="update_addr" value="<%=request.getParameter("mbr_dlvp_seq")%>">
 			<div class="cont">
 				<div class="cont_wrap">
 					<label for="name">이름 <em>*<span class="ir">필수정보</span></em></label>
@@ -261,7 +262,7 @@ input[type=text], input[type=password], input[type=search], input[type=number] {
 					<span class="caution" data-input="display" data-input-name="cell_no" style="display: none;">휴대 전화번호를 입력해 주세요</span>
 				</div>
 			</div><div class="set_default">
-				<input type="checkbox" id="set_default">
+				<input type="checkbox" id="set_default" value="Y">
 				<label for="set_default">기본배송지로 설정</label>
 			</div>
 			<button class="save" id="save_dlvp_button"><em>저장</em></button>

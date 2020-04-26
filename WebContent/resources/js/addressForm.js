@@ -1,5 +1,6 @@
 var _reload = function(){
-	location.href="/mypage/initAddressList.action";
+	var userId = $("#userId").val();
+	location.href="/dailyChan/addressForm.my?userId=" + userId;
 }
 
 var deleteAction = function(mbr_dlvp_seq){	
@@ -9,19 +10,22 @@ var deleteAction = function(mbr_dlvp_seq){
 	
 	p = {};
 	if(mbr_dlvp_seq){
+		
 		p.mbr_dlvp_seq = mbr_dlvp_seq;
+		console.log(p);
 	}else{
-		p = $('[name=mbr_dlvp_seq]:checked').serialize();	
+		p = $('[name=mbr_dlvp_seq]:checked').serialize();
+		console.log(p);
 	}
 	
 	$.ajax({
-		url: "/mypage/deleteMyDlvp.action",
+		url: "/dailyChan/deleteAddress.my",
 		type: "POST",
 		dataType: "text",
 		async:false,
 		data: p,
 		success: function(data){
-			if(data=='S'){
+			if(data==1){
 				alert("배송지 목록에서 삭제 되었습니다.");
 				_reload();
 			}
@@ -35,19 +39,20 @@ var deleteAction = function(mbr_dlvp_seq){
 		}
 	});
 }
-var modiBaseYnAction = function(mbr_dlvp_seq){	
+
+
+var modiBaseYnAction = function(mbr_dlvp_seq, updateAddr){	
 	if(!confirm("선택한 주소를 기본배송지로 설정하시겠습니까?")){
 		return;
 	}
-	
 	$.ajax({
-		url: "/mypage/updateBaseMyDlvp.action",
+		url: "/dailyChan/defaultAddress.my",
 		type: "POST",
 		dataType: "text",
 		async:false,
-		data: {mbr_dlvp_seq : mbr_dlvp_seq},
+		data: {mbr_dlvp_seq : mbr_dlvp_seq, updateAddr : updateAddr},
 		success: function(data){
-			if(data=='S'){
+			if(data > 0){
 				alert("기본 배송지로 설정되었습니다.");
 				_reload();
 			}
@@ -67,10 +72,10 @@ $(document).ready(function(){
 	
 	// 수정/등록 버튼 클릭 이벤트
 	$('[name=modifyBtn]').click(function(){
-		
+		var addrNo = $("#addrNo").val();
 		if($(this).attr("data-modify-yn") == "N") {
-			if(2 >= 30) {
-				alert("배송지 등록은 최대 30개 까지 등록 가능합니다. 사용하지 않은 배송지 삭제 후 다시 시도해 주세요.");
+			if(addrNo >= 2) {
+				alert("배송지 등록은 최대 2개 까지 등록 가능합니다. 사용하지 않은 배송지 삭제 후 다시 시도해 주세요.");
 				return false;
 			}
 		}
@@ -86,13 +91,6 @@ $(document).ready(function(){
 				_reload();
 			}
 		}
-//		if ($.type(callback) == "function") {
-//			overpass.popup.callback = function(data) {
-//				callback(data);
-//			};				
-//		} else {
-//			overpass.popup.callback = callback;
-//		};		
 		var userId = $("#userId").val();
 		
 		window.open("/dailyChan/addressModify.my?" + params + "&userId=" + userId, "배송지 추가/수정", "width=500, height=544, top=50, left=500, location=no ");
@@ -100,12 +98,15 @@ $(document).ready(function(){
 	
 	// 기본배송지 수정 이벤트
 	$('[name=modiBaseYnBtn]').click(function(){
-		modiBaseYnAction($(this).attr("data-mbr_dlvp_seq"));
+		
+		var updateAddr = $(this).attr("data-mbr_dlvp_seq");
+
+		modiBaseYnAction($(this).attr("value"), $(this).attr("data-mbr_dlvp_seq"));
 	});
 	
 	// 삭제
 	$('[name=deleteOneBtn]').click(function(){
-		deleteAction($(this).attr("data-mbr_dlvp_seq"));
+		deleteAction($(this).attr("value"));
 	});
 	// 선택 삭제
 	$('[name=deleteMultiBtn]').click(function(){
@@ -116,4 +117,8 @@ $(document).ready(function(){
 		deleteAction();
 	});
 	
+	
+	$("#chk_all").click(function(){
+		$(".chk").prop( 'checked', this.checked );
+	});
 });

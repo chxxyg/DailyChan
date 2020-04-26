@@ -36,7 +36,7 @@
 }
 .orderProductPrice{
     width: 130px;
-    margin-left: 25px;
+    margin-left: 50px;
     font-size: 22px;
     text-align: center;
 }
@@ -58,13 +58,14 @@
     font-size: 25px;
     font-weight: 500;
     padding: 5px;
+    margin-left:50px;
 }
 .orderProductTotalPrice{
     width: 150px;
     text-align: center;
     font-size: 25px;
     font-weight: 500;
-    margin-left: 30px;
+    margin-left: 90px;
 }
 
 .orderLabel{

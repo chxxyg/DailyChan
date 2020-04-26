@@ -103,19 +103,19 @@
 	%>
 	
 	<div class="mypageOuter">
-        <h1 style="text-align:center";>마이페이지</h1>
+        <h1 style="text-align:center">마이페이지</h1>
         <br>
 		
 		<!-- 마이페이지 간략정보 영역 -->
         <div id="mypageBrief" align="center">
            	<div id="deliverySite">
-                <a href="">기본 배송지 정보 넣을 곳</a>
+                <a href="<%=contextPath%>/addressForm.my?userId=<%=m.getMemberId()%>">기본 배송지 정보 넣을 곳</a>
                 <img src="<%= contextPath %>/resources/img/positionlogo.png">
             </div>
 			<div><b><%= memberName %></b>님</div>
 			<div>주문/배송<br>	<a href="<%= contextPath %>/orderList.my">0</a>건</div>
-			<div>쿠폰<br><a href="">0</a>장</div>
-			<div>적립금<br><a href="">0</a>원</div>
+			<div id="coupon_count">쿠폰<br><a href="">0</a>장</div>
+			<div>적립금<br><a href=""><%=m.getPointSum() %></a>원</div>
                 
         </div>
        <br>
@@ -127,7 +127,8 @@
 			<div><a id="selectOrder" href="<%= contextPath %>/orderList.my">주문/배송 조회</a></div>
 			<div><a id="selectCancel" href="<%= contextPath%>/cancelOrder.my">취소/반품 조회</a></div>
 			<div class="myCateFirst">구매혜택</div>
-			<div><a id="selectCoupon" href="">쿠폰/적립금 조회</a></div>
+			<div><a id="selectCoupon" href="<%= contextPath%>/couponForm.my">쿠폰 조회</a></div>
+			<div><a id="selectPoint" href="<%= contextPath%>/pointForm.my">포인트 조회</a></div>
 			<div class="myCateFirst">활동내역</div>
 			<div><a id="selectRecent" href="<%= contextPath%>/recentView.my">최근 본 상품</a></div>
 			<div><a id="selectReview" href="<%= contextPath%>/review.my">고객 후기</a></div>
@@ -139,6 +140,44 @@
 			
 		</div>	
     </div>
-
+    <script>
+    	var userId = "<%=m.getMemberId()%>";
+        	$.ajax({
+			url: "<%=contextPath%>/mainAddr.my",
+			type: "POST",
+			data : {userId : userId},
+			success: function(list) 
+			{
+				var address = "";
+				if(list.length > 0)
+				{
+					for(var i = 0; i < list.length; i++)
+					{
+						if(list[i].addressDefault == 'Y')
+						{
+							address += "[" + list[i].zipCode + "]" + " ";
+							address += list[i].address + " ";
+							address += list[i].addressDetail;
+						}
+					}
+				}
+				else
+				{
+					address = "등록된 주소지가 없습니다."
+				}
+				$("#deliverySite a").html(address);
+			}
+		});
+        	
+        	$.ajax({
+    			url: "<%=contextPath%>/couponSum.my",
+    			type: "POST",
+    			data : {userId : userId},
+    			success: function(count) 
+    			{
+    				$("#coupon_count a").html(count);
+    			}
+    		});
+   	</script>
 </body>
 </html>

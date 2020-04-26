@@ -96,6 +96,41 @@ private Properties prop = new Properties();
 		return v;
 	}
 
+	public ArrayList<AdReview> searchReview(Connection conn, String memberId) {
+
+		ArrayList<AdReview> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("searchReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + memberId + "%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new AdReview(rset.getInt("REVIEW_BOARD_NO"),
+									  rset.getDate("REVIEW_CREATE_DATE"),
+									  rset.getString("ORDER_NO"),
+									  rset.getString("MEMBER_ID"),
+									  rset.getString("REVIEW_TITLE"),
+									  rset.getString("REVIEW_CONTENT"),
+									  rset.getString("REVIEW_ATTACHMENT_YN"),
+									  rset.getString("REVIEW_RESPONSE_YN")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
 }
 
 

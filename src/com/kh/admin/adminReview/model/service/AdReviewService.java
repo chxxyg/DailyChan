@@ -36,4 +36,17 @@ public class AdReviewService {
 		return v;
 	}
 
+	/*
+	 * 리뷰조회버튼
+	 */
+	public ArrayList<AdReview> searchReview(String memberId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<AdReview> list = new AdReviewDao().searchReview(conn, memberId);
+		close(conn);
+		
+		return list;
+	}
+
 }

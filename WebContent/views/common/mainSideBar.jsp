@@ -124,13 +124,13 @@
 		    width: 52px;
 		    height: 52px;
 		    background: #fe7600;
-		    position:fixed;
-		    right : 126px;
-		    margin-top: 400px;
+		    position:relative;
 		    cursor: pointer;
 		    border: 0;
 		    color: white;
 		    z-index: 10;
+		    margin: auto;
+		    margin-top: 20px;
     </style>
 </head>
 <body>
@@ -157,9 +157,8 @@
         <div id="lately">
             	최근 본 상품
         </div>
-        <div>xxxx</div>
+		<button id="top_btn" type="button" onClick="javascript:window.scrollTo(0,0)"><b>TOP</b></button>
     </div>
-            <button id="top_btn" type="button" onClick="javascript:window.scrollTo(0,0)"><b>TOP</b></button>
             
 	<script>
     <!-- 로그인 팝업 function -->

@@ -2,7 +2,6 @@ package com.kh.mypage.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.mypage.model.service.MypageService;
-import com.kh.mypage.model.vo.Address;
 
 /**
- * Servlet implementation class AdressFormServlet
+ * Servlet implementation class AddressDeleteServlet
  */
-@WebServlet("/addressForm.my")
-public class AdressFormServlet extends HttpServlet {
+@WebServlet("/deleteAddress.my")
+public class AddressDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdressFormServlet() {
+    public AddressDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,21 +31,13 @@ public class AdressFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    
-	    String userId = request.getParameter("userId");
-	    ArrayList<Address> list = new MypageService().listAddress(userId);
+	    String userId = request.getParameter("mbr_dlvp_seq");
 	    
-	    if(!list.isEmpty())
-	    {
-	        request.setAttribute("list", list);
-	    }
-	    else
-	    {
-	        request.setAttribute("list", list);
-	    }
-
-	    request.getRequestDispatcher("views/mypage/addressForm.jsp").forward(request, response);
-	    
-
+	    int result = new MypageService().deleteAddress(userId);
+	    response.setCharacterEncoding("utf-8");
+        PrintWriter out = response.getWriter();
+        
+        out.print(result);
 	}
 
 	/**
