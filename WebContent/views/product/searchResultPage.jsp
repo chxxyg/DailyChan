@@ -42,8 +42,6 @@
 					<div class="searchProductName"><a href="<%= request.getContextPath() %>/pDetail.pro?proCode=<%= p.getProCode() %>"><%= p.getProName() %></a></div>
 				</td>
 			</tr>
-			
-			
 			<% if(p.getProSaleYn().equals("Y")){ %>
 			<tr>
 				<td>

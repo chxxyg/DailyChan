@@ -69,6 +69,14 @@ public class ProductService {
 	}
 	
 	
+	public int couponDownload(String cpno, String memberId) {
+		Connection conn = getConnection();
+		int result = new ProductDao().couponDownload(conn, cpno, memberId);
+		close(conn);
+		return result;
+	}
+	
+	
 	
 	
 	

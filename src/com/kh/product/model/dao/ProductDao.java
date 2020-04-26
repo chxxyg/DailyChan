@@ -218,8 +218,8 @@ public class ProductDao {
 									 rset.getInt("PRODUCT_PRICE"),
 									 rset.getInt("PRODUCT_STANDARD"),
 									 rset.getString("FILE_NAME"),
-									 rset.getString("PRODUCT_SALE_YN"),
-									 rset.getDouble("DISCOUNT_RATE")));
+									 rset.getDouble("DISCOUNT_RATE"),
+									 rset.getString("PRODUCT_SALE_YN")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -292,7 +292,26 @@ public class ProductDao {
 	}
 	
 	
-	
+	public int couponDownload(Connection conn, String cpno, String memberId) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, cpno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 	
 	
