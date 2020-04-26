@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class InquiryOrderListServlet
  */
 @WebServlet("/inquiryWrite.in")
+// 주문내역
 public class InquiryOrderListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
