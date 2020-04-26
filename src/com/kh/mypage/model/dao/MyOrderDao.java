@@ -39,7 +39,6 @@ public class MyOrderDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberId);
-			
 			rset=pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -67,9 +66,6 @@ public class MyOrderDao {
 			close(rset);
 			close(pstmt);
 		}
-//		for(Mypage my : myList) {
-//			System.out.println(my);
-//		}
 		return myList;
 	}
 	

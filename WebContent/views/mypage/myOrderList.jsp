@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.mypage.model.vo.Mypage, java.util.ArrayList"%>
+<%
+	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList");
+	
+	String result = "";
+	
+	for(Mypage my : myList) {
+		switch(my.getStatus()) {
+			case '0': result = "결제전"; break;
+			case '1': result = "결제완료"; break;
+			case '2': result = "결제취소"; break;
+			case '3': result = "상품준비중"; break;
+			case '4': result = "배송중"; break;
+			case '5': result = "배송완료"; break;
+			case '6': result = "반품완료"; break;
+		}
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +30,6 @@
 	.orderDeliveryList{
 		float:left;
 		width:800px;
-		height:1200px;
 	}
 	
 	/* 조회 기간 선택 영역 */
@@ -135,33 +151,35 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr height="100px">
-					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
-						2020-03-31<br>
-						<button class="orderDtBtn" type="button">상세확인 ></button>
-					</td>
-					<td id="myOrderInfo">
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-					</td>
-					<td>입금대기</td>
-					<td></td>
-				</tr>
+				<% for(Mypage my : myList) { %>
+					<tr height="100px">
+						<td class="firstTd">
+							<a style="color:blue; text-decoration: underline;" class="orderNo"><%=my.getOrderNo()%></a>
+							<%=my.getOrderDate() %><br>
+							<button class="orderDtBtn" type="button">상세확인 ></button>
+						</td>
+						<td id="myOrderInfo">
+							<div>
+								<input type="hidden" class="pCode" value="<%=my.getProCode()%>"><!-- 상품코드 -->
+								<a class="pName"><b><%=my.getProName()%></b></a><br>
+								<%=my.getQuantity() %>개 / <%=my.getPrice()%>원
+							</div>
+						</td>
+						<td><%=result%></td>
+						<td></td>
+					</tr>
+				<% } %>
 				<tr>
 					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1111111</a>
-						2020-03-31<br>
+						<a style="color:blue; text-decoration: underline;" class="orderNo"></a>
+						<br>
 						<button class="orderDtBtn" type="button">상세확인 ></button>
 					</td>
 					<td id="myOrderInfo">
 						<div>
-							<input type="hidden" class="pCode" value="KOA102"><!-- 상품코드 -->
+							<input type="hidden" class="pCode" value=""><!-- 상품코드 -->
 							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
+							1개 / 원
 						</div>
 						<div>
 							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
