@@ -62,6 +62,7 @@
 	    padding-right: 30px;
 	}
 	
+	
 	/* NEW/SALE */
 	#newSaleWrap{
 	    width: 1000px;
