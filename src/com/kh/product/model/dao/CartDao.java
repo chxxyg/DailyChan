@@ -228,9 +228,6 @@ public class CartDao {
 			close(pstmt);
 		}
 		return insert;
-		
-		
-		
 	}
 	
 	

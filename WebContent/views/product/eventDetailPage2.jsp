@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.lang.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,6 +70,34 @@
         	</td>
         </tr>
     </table>
+    
+        
+    <script>
+    	
+    	$(function(){
+    		
+    		$("#couponBtn3").click(function(){
+    			
+    			$.ajax({
+    				url:"/dailyChan/insert.cp",
+    				data:{"cpno":"C0003"},
+    				type:"get",
+    				success:function(result){
+    					if(result > 0){
+    						alert("쿠폰이 성공적으로 담겼습니다.");
+    					}else{
+    						alert("이미 다운로드 받은 쿠폰입니다.");
+    					}
+    				}, error:function(){
+    					
+    				}
+    			});
+    		});
+    	});
+
+    
+    </script>
+    
     
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>

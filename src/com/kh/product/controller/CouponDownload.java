@@ -1,7 +1,7 @@
 package com.kh.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.member.model.vo.Member;
 import com.kh.product.model.service.ProductService;
-import com.kh.product.model.vo.Product;
 
 /**
- * Servlet implementation class SearchResultServlet
+ * Servlet implementation class CouponDownload
  */
-@WebServlet("/search.pro")
-public class SearchResultServlet extends HttpServlet {
+@WebServlet("/insert.cp")
+public class CouponDownload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchResultServlet() {
+    public CouponDownload() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +32,23 @@ public class SearchResultServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String cpno = request.getParameter("cpno");
 		
-		String keyword = request.getParameter("keyword");
+		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		
-		ArrayList<Product> list = new ProductService().searchResult(keyword);
+		int result = new ProductService().couponDownload(cpno, memberId);
 		
-		request.setAttribute("keyword", keyword);
-		request.setAttribute("list", list);
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(result);
+		
+		/*
+		request.setAttribute("result", result);
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/product/searchResultPage.jsp");
 		view.forward(request, response);
-		
+		*/
 	}
 
 	/**
