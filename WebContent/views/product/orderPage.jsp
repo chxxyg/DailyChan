@@ -23,6 +23,8 @@
 	if(priceList != null){
 		priceArr = priceList.split(",");
 	}
+	
+	//System.out.println(priceArr);
 	//int[] price = Arrays.stream(priceArr).mapToInt(Integer::parseInt).toArray();
 	
 	String[] quantityArr = null;
@@ -30,6 +32,15 @@
 		quantityArr = quantityList.split(",");
 	}
 	//int[] quantity = Arrays.stream(quantityArr).mapToInt(Integer::parseInt).toArray();	
+	
+	/* 이미지 가져오기 */
+	/*
+	String fileName = (String)request.getAttribute("fileName");
+	String[] fileArr = null;
+	if(fileName != null){
+		fileArr = fileName.split(",");
+	}
+	*/
 	
 %>
 <!DOCTYPE html>
@@ -108,23 +119,16 @@ $(document).ready(function(){
                         <th style="width: 200px;">구매금액</th>
                     </tr>
                     <% for(int i=0; i<proCode.length; i++) { %>
-                    <tr>
-                        <td colspan="4">
-                            <table class="orderProductInnerTable">
-                                <tr>
-                                    <td><a href=""><img class="orderProductImg" src=""></a></td>
-                                    <td><a href=""><div class="orderProductName"><%= proName[i] %></div></a></td>
-                                    <td><span class="orderProductPrice"><%= priceArr[i] %></span> <span>원</span></td>
-                                    <td>
-                                        <div class="orderProductAmountWrap">
-                                            <span class="orderProductAmount"><%= quantityArr[i] %></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="orderProductTotalPrice">50000</span> <span>원</span원>
-                                    </td>
-                                </tr>
-                            </table>
+                    <tr class="orderProductInnerTable">
+                        <td><a href=""><div class="orderProductName"><%= proName[i] %></div></a></td>
+                        <td><span class="orderProductPrice"><%= priceArr[i] %></span> <span>원</span></td>
+                        <td>
+                            <div class="orderProductAmountWrap">
+                                <span class="orderProductAmount"><%= quantityArr[i] %></span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="orderProductTotalPrice">50000</span> <span>원</span원>
                         </td>
                     </tr>
                     <% } %>

@@ -8,10 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.ShoppingCart;
 
 public class CartDao {
@@ -178,7 +178,7 @@ public class CartDao {
 		return del;
 	}
 	
-	/** 5. 장바구니 - 주문상태 'Y'로 변경
+	/** 5_1. 장바구니 - 주문상태 'Y'로 변경
 	 * @param conn
 	 * @param memberId
 	 * @param proCode
@@ -205,7 +205,7 @@ public class CartDao {
 		return update;
 	}
 	
-	/** 6. ORDER_PRODUCT 테이블에 값 추가
+	/** 5_2. ORDER_PRODUCT 테이블에 값 추가
 	 * @param conn
 	 * @param memberId
 	 * @return
@@ -229,6 +229,30 @@ public class CartDao {
 		}
 		return insert;
 	}
-	
+	/*
+	public String selectImg(Connection conn, String proCode) {
+		String fileName = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectOrdImg");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, proCode);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				fileName = rset.getString("FILE_NAME");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return fileName;
+		
+	}*/
 	
 }

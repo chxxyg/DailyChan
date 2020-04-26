@@ -116,7 +116,8 @@
 			<% if(title.equals("SALE")){ %>
 			<tr>
 				<td>
-					<div class="productInfo">
+					<input type="hidden" value="<%= title %>">
+					<div class="productInfo title">
 						<span class="productPrice" style="text-decoration: line-through; color: gray;"><%= p.getProPrice() %>원</span>
 						<span class="discountPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %></span><span>원</span>
 						<span>|</span>
@@ -193,7 +194,7 @@
 					proprice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
 				}else{
 					proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
-				}*/
+				*/
 				
 				$.ajax({
 					url:"toCart.pro",

@@ -47,7 +47,6 @@ public class DeleteCartServlet extends HttpServlet {
 		int result = 1;
 		ArrayList<ShoppingCart> clist = new ArrayList<>();
 		
-		
 		for(int i=0; i<codeList.length; i++) {
 			del = new CartService().deleteCart(memberId, codeList[i]);
 			result *= del;
