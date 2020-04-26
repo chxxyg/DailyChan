@@ -1,6 +1,14 @@
+<%@ page import="com.kh.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	Member loginUser1 = (Member)session.getAttribute("loginUser");
+	
+ 	String ableAttr = "";
+	if(loginUser1 == null){
+		ableAttr = "disabled='disabled'";
+	}
+ 
+%>
 
 <html>
 <head>
@@ -96,26 +104,17 @@ li{
 }
 </style>
 </head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="FOTD/css/noticeCategory.css">
-</head>
+
 <body>
 
     <div id="cst_lnb" class="lnb">
         <a href="<%= request.getContextPath() %>/noticeMain.no"><h2 align="center">고객센터</h2></a>
         <div id="left-category"> 
             <ul>
-
                 <li><a id="left_01" href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는 질문</a></li>
                 <li><a id="left_02" href="<%= request.getContextPath() %>/write.in">1:1 친절상담</a></li>
-                <li><a id="left_03" href="<%= request.getContextPath() %>/NoticeInquiryList.no" onclick="">1:1 상담내역</a></li>
-                <li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no" onclick="">공지사항</a></li>
+                <li><a id="left_03" href="<%-- <%= request.getContextPath() %>/NoticeInquiryList.no --%>">1:1 상담내역</a></li>
+                <li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no">공지사항</a></li>
              </ul>
         </div>
        
@@ -126,10 +125,26 @@ li{
             <dd class="cst_num">평일 9:00~18:00<br>점심시간 12:00~13:00<br>(토/일/공휴일은 휴무)</dd>
         </dl>
     </div>
-</body>
-</html>
 
+<script>
+// a 쿼리스트링으로!!!!!
+// 
+		$("#left_03").click(function(){
+			console.log("test");
+			if(<%=loginUser1%> != null )
+			{ 
+				response.sendRedirect("<%= request.getContextPath()%>/NoticeInquiryList.no"); 
+			}
+			else
+			{ 
+				window.open("<%=request.getContextPath()%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+			
+			}		
+		});
+	
+	
 
+</script>
 
 </body>
 </html>
