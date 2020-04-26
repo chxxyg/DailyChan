@@ -71,7 +71,6 @@ public class ToOrderFormServlet extends HttpServlet {
 		request.setAttribute("payAmount", payAmount);
 		request.getRequestDispatcher("views/product/orderPage.jsp").forward(request, response);;
 	
-		
 	}
 
 	/**

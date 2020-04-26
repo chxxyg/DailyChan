@@ -33,7 +33,6 @@
 	
 	int[] quantity = new int[quantityArr.length];
 	for(int i=0;i<quantityArr.length; i++){ quantity[i] = Integer.parseInt(quantityArr[i]); }
-	
 %>
 <!DOCTYPE html>
 <html>
