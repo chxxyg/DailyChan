@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% String contextPath = request.getContextPath(); %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
+<% 
+	String contextPath = request.getContextPath(); 
+	Product p = (Product)request.getAttribute("p");
+	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +16,15 @@
 	/* 리뷰작성 팝업 틀 */
 	.writeReviewWrap{
 		width:490px;
-		height:720px;
+		height:680px;
+		margin-top: 10px;
 	}
 	/* 상품정보 */
 	.writeReview{
 		margin-left:5px;
 	}
 	.writeReview, .writeReview tr{
-		border-top:1px solid lightgrey;
+		border-top:collapse;
 		border-bottom:1px solid lightgrey;
 		border-collapse: collapse;
 	}
@@ -61,7 +67,7 @@
 		height:40px;
 		margin:10px 0px 0px 125px;
 		background:white;
-		border:1px solid grey;
+		border:1px solid lightgrey;
 		padding: 0;
 		cursor:pointer;
 	}
@@ -75,7 +81,7 @@
 	#reviewcancelBtn{
 		width:100px;
 		height:40px;
-		border:1px solid black;
+		border:1px solid lightgrey;
 		background:none;
 		cursor:pointer;
 	}
@@ -98,32 +104,44 @@
 </head>
 <body>
 	<div class="writeReviewWrap">
-		<form action="<%= contextPath %>/insertReview.re" >
+		<form action="<%= request.getContextPath() %>/insertReview.re" >
 			<table class="writeReview" width="490px">
 				<tbody>
 					<tr id="writeReview_tr1" height="100px">
 						<td>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<img class="pName" src="" width="80" height="80">
-							<p class="pName"><b>데일리찬 상품명</b> | 2인분<br>
+							<input type="hidden" class="pCode" value="<%=p.getProCode()%>"><!-- 상품코드 -->
+							<img class="pName" src="<%= request.getContextPath() %>/resources/attachment_product/<%= p.getAtFileName() %>" width="80" height="80">
+							<p class="pName" style="color: gray;"><b><%=p.getProName() %></b></p>
+							<% if(p.getProSaleYn().equals("Y")){ %>
+								<p class="pPrice" style="text-decoration: line-through; color: gray;"><%=p.getProPrice() %></p>
+                            	<p class="pPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %></p>
+                            <% }else{ %>
+								<p class="pPrice" style="color: gray;"><%=p.getProPrice() %></p>
+							<% } %>
 						</td>
 					</tr>
-					<tr id="writeReview_tr2" height="90px">
+					<tr id="writeReview_tr2" height="50px">
 						<td>
 							<div>
-								<span><a>☆</a><a>☆</a><a>☆</a><a>☆</a><a>☆</a></span>
-								<p>별점을 선택하세요.</p>
+								<label>상품에 대한 평점을 선택하세요. &nbsp; </label>
+								<select name="reviewSum" style="width: 50px; height: 20px; color: gray;">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
 							</div>
 						</td>
 					</tr>
 					<tr id="writeReview_tr3" height="450px" >
 						<td>
-							<span id="reviewInfo">후기를 남겨주세요. (최소 10자 이상)</span><span id="reviewCounter">0</span> / 1000
-							<div><textarea rows="13" cols="60" id="reviewContent" style="resize:none;"></textarea></div>
+							<span id="reviewInfo" style="color: gray;">후기를 남겨주세요. (최소 10자 이상)</span><span id="reviewCounter" style="color: gray;">0</span><span style="color: gray;"> / 1000</span>
+							<div><textarea rows="12" cols="55" id="reviewContent" style="resize:none; padding: 12px; margin-top: 10px; color: gray; border: 1px solid lightgray;"></textarea></div>
 							<img src="" width="130" height="130"><img src="" width="130" height="130"><img src="" width="130" height="130">
 							<button id="attachmentBtn">
 								<div>
-									<img src="<%= request.getContextPath() %>/resources/img/cameralogo.png" width=35" height="35">
+									<img src="<%= request.getContextPath() %>/resources/img/cameralogo.png" width="35" height="35">
 									<p>사진/동영상 첨부</p>
 								</div>
 							</button>
@@ -137,7 +155,7 @@
 			</div>
 		</form>
 	</div>
-
+<!-- 
 	<script>
         $(function(){
             $("#reviewContent").keyup(function(){
@@ -147,13 +165,13 @@
                 if(1000-inputLength<0){
                     $("#reviewCounter").css("color", "red");
                 }else {
-                    $("#reviewCounter").css("color", "black");
+                    $("#reviewCounter").css("color", "gray");
                 }
             });
             
             $(".pName").click(function(){
 				var pCode = $(this).siblings(".pCode").val();
-				opener.parent.location="<%= contextPath %>/pDetail.pro?pCode=" + pCode;
+				opener.parent.location="<%= request.getContextPath() %>/pDetail.pro?pCode=" + pCode;
 	        	window.close();
 			});
             
@@ -163,12 +181,12 @@
         });
         
         function toProductDetail(){
-        	opener.parent.location="<%= contextPath %>/pDetail.pro";
+        	opener.parent.location="<%= request.getContextPath() %>/pDetail.pro";
         	window.close();
         }
         
         
     </script>
-
+ -->
 </body>
 </html>
