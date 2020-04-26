@@ -119,7 +119,7 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td><button id="productBtn1" class="productBtn" type="button">바로구매</button></td>
+                                    <td width="150px;"></td>
                                     <td><button id="productBtn2" class="productBtn" type="button">장바구니</button></td>
                                     <td><button id="productBtn3" class="productBtn" type="button">찜하기</button></td>
                                 </tr>
