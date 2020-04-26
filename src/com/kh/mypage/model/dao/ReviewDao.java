@@ -36,12 +36,12 @@ public class ReviewDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, order_no);
+			pstmt.setString(1, "order_no");
 			pstmt.setString(2, proCode);
-			pstmt.setString(3, member_id);
-			pstmt.setString(4, review_title);
-			pstmt.setString(5, review_content);
-			pstmt.setInt(6, review_rating);
+			pstmt.setString(3, "member_id");
+			pstmt.setString(4, "review_title");
+			pstmt.setString(5, "review_content");
+			pstmt.setInt(6, 4);
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

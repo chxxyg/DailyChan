@@ -15,8 +15,6 @@ public class ReviewService {
         else{rollback(conn);}
 		close(conn);
 		return result;
-		
-		
 	}
 
 }

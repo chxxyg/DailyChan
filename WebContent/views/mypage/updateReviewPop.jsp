@@ -3,6 +3,7 @@
 <% 
 	String contextPath = request.getContextPath(); 
 	Product p = (Product)request.getAttribute("p");
+	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
 
 %>
 <!DOCTYPE html>

@@ -1,6 +1,8 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,9 +32,7 @@ public class ReviewInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String proCode = request.getParameter("proCode");
-		
-		Product p = new ProductService().selectDetail(proCode);
+
 		
 		request.setAttribute("p", p);
 		
