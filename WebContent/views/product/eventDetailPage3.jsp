@@ -71,7 +71,7 @@
         </tr>
     </table>
     
-    
+      
     <script>
     	
     	$(function(){
@@ -93,13 +93,10 @@
     				}
     			});
     		});
-    		
     	});
 
     
     </script>
-    
-    
     
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>

@@ -24,24 +24,15 @@
 		priceArr = priceList.split(",");
 	}
 	
-	//System.out.println(priceArr);
-	//int[] price = Arrays.stream(priceArr).mapToInt(Integer::parseInt).toArray();
-	
+	int[] price = new int[priceArr.length];
+	for(int i=0;i<priceArr.length; i++){ price[i] = Integer.parseInt(priceArr[i]); }
 	String[] quantityArr = null;
 	if(quantityList != null){
 		quantityArr = quantityList.split(",");
 	}
-	//int[] quantity = Arrays.stream(quantityArr).mapToInt(Integer::parseInt).toArray();	
 	
-	/* 이미지 가져오기 */
-	/*
-	String fileName = (String)request.getAttribute("fileName");
-	String[] fileArr = null;
-	if(fileName != null){
-		fileArr = fileName.split(",");
-	}
-	*/
-	
+	int[] quantity = new int[quantityArr.length];
+	for(int i=0;i<quantityArr.length; i++){ quantity[i] = Integer.parseInt(quantityArr[i]); }
 %>
 <!DOCTYPE html>
 <html>
@@ -121,14 +112,14 @@ $(document).ready(function(){
                     <% for(int i=0; i<proCode.length; i++) { %>
                     <tr class="orderProductInnerTable">
                         <td><a href=""><div class="orderProductName"><%= proName[i] %></div></a></td>
-                        <td><span class="orderProductPrice"><%= priceArr[i] %></span> <span>원</span></td>
+                        <td><span class="orderProductPrice"><%= price[i] %></span> <span>원</span></td>
                         <td>
                             <div class="orderProductAmountWrap">
-                                <span class="orderProductAmount"><%= quantityArr[i] %></span>
+                                <span class="orderProductAmount"><%= quantity[i] %></span>
                             </div>
                         </td>
                         <td>
-                            <span class="orderProductTotalPrice">50000</span> <span>원</span원>
+                            <span class="orderProductTotalPrice"><%= price[i] * quantity[i] %></span> <span>원</span원>
                         </td>
                     </tr>
                     <% } %>

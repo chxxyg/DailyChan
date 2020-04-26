@@ -71,28 +71,6 @@ public class ToOrderFormServlet extends HttpServlet {
 		request.setAttribute("payAmount", payAmount);
 		request.getRequestDispatcher("views/product/orderPage.jsp").forward(request, response);;
 	
-		/* 주문서에 넣을 이미지 가져오기 */
-		/*
-		System.out.println(proCode);
-		
-		ArrayList<AttachmentProduct> list = new ArrayList<>();
-		
-		for(int i=0; i<proCode.length; i++) {
-			list.add(1, (new CartService().selectImg(proCode[i])));
-		}*/
-		/*
-		String[] fileName = null;
-		
-		for(int i=0; i<proCode.length; i++) {
-			fileName[i] = new CartService().selectImg(proCode[i]);
-		}
-		
-		System.out.println(fileName[0]);
-		System.out.println(fileName[1]);
-		
-		request.setAttribute("fileName", fileName);
-		request.getRequestDispatcher("views/product/orderPage.jsp").forward(request, response);
-		*/
 	}
 
 	/**
