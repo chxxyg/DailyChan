@@ -8,27 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <style>
-	#mainBanner, #bestWrap, #newSaleWrap, #instaWrap{
+
+	/* BEST */
+	#bestWrap{
 	    width: 1000px;
 	    margin: auto;
 	    box-sizing: border-box;
-	}
-	
-	/* 메인배너 */
-	#mainBanner{
-		width: 1000px;
-		margin: auto;
-		text-align: center;
-	    margin-top: 30px;
-	    margin-bottom: 50px;
-	}
-	#mainBanner img{
-		width: 1000px;
-	}
-	
-	/* BEST */
-	#bestWrap{
 	    height: 1000px;
+	    margin-top: 50px;
 	    margin-bottom: 100px;
 	}
 	#bestLabel{
@@ -36,6 +23,7 @@
 	    font-size: 40px;
 	    font-weight: 600;
 	    padding: 25px;
+	    margin-bottom: 50px;
 	}
 	#bestTable{
 	    width: 1000px;
@@ -76,6 +64,9 @@
 	
 	/* NEW/SALE */
 	#newSaleWrap{
+	    width: 1000px;
+	    margin: auto;
+	    box-sizing: border-box;
 	    height: 870px;
 	    margin-bottom: 100px;
 	}
@@ -84,6 +75,7 @@
 	    font-size: 40px;
 	    font-weight: 600;
 	    padding: 25px;
+	    margin-bottom: 40px;
 	}
 	#newWrap{
 	    width: 500px;
@@ -147,15 +139,15 @@
 	.cartLogo, .likeLogo{
 	    width: 30px;
 	    height: 30px;
-	    padding-left: 5px;
 	}
 	
 	/* 인스타그램 */
 	#instaWrap{
 	    width: 1000px;
+	    margin: auto;
+	    box-sizing: border-box;
 	    height: 600px;
 	    margin-bottom: 100px;
-	    box-sizing: border-box;
 	}
 	#instaLabel{
 	    width: 300px;
@@ -184,7 +176,78 @@
 	    width: 250px;
 	    height: 250px;
 	}
+
+	
+	/* mainBanner slideShow */
+	* {box-sizing: border-box;}
+	.mySlides {display: none;}
+	
+	/* Slideshow container */
+	.slideshow-container {
+	  max-width: 1000px;
+	  position: relative;
+	  margin: auto;
 	}
+	
+	/* Caption text */
+	.text {
+	  color: #f2f2f2;
+	  font-size: 15px;
+	  padding: 8px 12px;
+	  position: absolute;
+	  bottom: 8px;
+	  width: 100%;
+	  text-align: center;
+	}
+	
+	/* Number text (1/3 etc) */
+	.numbertext {
+	  color: #f2f2f2;
+	  font-size: 12px;
+	  padding: 8px 12px;
+	  position: absolute;
+	  top: 0;
+	}
+	
+	/* The dots/bullets/indicators */
+	.dot {
+	  height: 15px;
+	  width: 15px;
+	  margin: 0 2px;
+	  background-color: #bbb;
+	  border-radius: 50%;
+	  display: inline-block;
+	  transition: background-color 0.6s ease;
+	}
+	
+	.active {
+	  background-color: #717171;
+	}
+	
+	/* Fading animation */
+	.fade {
+	  -webkit-animation-name: fade;
+	  -webkit-animation-duration: 1.5s;
+	  animation-name: fade;
+	  animation-duration: 1.5s;
+	}
+	
+	@-webkit-keyframes fade {
+	  from {opacity: .4} 
+	  to {opacity: 1}
+	}
+	
+	@keyframes fade {
+	  from {opacity: .4} 
+	  to {opacity: 1}
+	}
+	
+	/* On smaller screens, decrease text size */
+	@media only screen and (max-width: 300px) {
+	  .text {font-size: 11px}
+	}
+	
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -193,25 +256,76 @@
 <body>
 	<%@ include file="views/common/mainHeader.jsp" %>
 	<%@ include file="views/common/mainSideBar.jsp" %>
-	
-	<!-- 
-	<script>
-		$(function(){
-			
-			$(document).ready(function(){
-				$.ajax({
-					url:"pList.pro"
-				});
-			});
-			
-		});
-	</script>
-	 -->
+
 	
 	<!-- 메인 바디 영역 -->
-    <div id="mainBanner">
+    <!-- <div id="mainBanner">
         <img id="mainBannerImg1" src="resources/mainBannerImg/mainbanner1.jpg">
-    </div>
+    </div> -->
+    
+	    
+	<div class="slideshow-container">
+	
+	<div class="mySlides fade">
+	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner1.jpg" style="width:100%">
+	</div>
+	
+	<div class="mySlides fade">
+	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner2.png" style="width:100%">
+	</div>
+	
+	<div class="mySlides fade">
+	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner3.png" style="width:100%">
+	</div>
+	
+	<div class="mySlides fade">
+	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner4.png" style="width:100%">
+	</div>
+	
+	<div class="mySlides fade">
+	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner5.png" style="width:100%">
+	</div>
+	
+	<div class="mySlides fade">
+	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner6.jpg" style="width:100%">
+	</div>
+	
+	</div>
+	<br>
+	
+	<div style="text-align:center">
+	  <span class="dot"></span> 
+	  <span class="dot"></span> 
+	  <span class="dot"></span> 
+	  <span class="dot"></span>
+	  <span class="dot"></span>
+	  <span class="dot"></span>
+	</div>
+	
+	<script>
+	var slideIndex = 0;
+	showSlides();
+	
+	function showSlides() {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("dot");
+	  for (i = 0; i < slides.length; i++) {
+	    slides[i].style.display = "none";  
+	  }
+	  slideIndex++;
+	  if (slideIndex > slides.length) {slideIndex = 1}    
+	  for (i = 0; i < dots.length; i++) {
+	    dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";  
+	  dots[slideIndex-1].className += " active";
+	  setTimeout(showSlides, 2000); // Change image every 2 seconds
+	  }
+	</script>
+	    
+	    
+    
     <div id="bestWrap">
         <div id="bestLabel"><a class="aLabel" href="">실시간 베스트</a></div>
         <table id="bestTable">
