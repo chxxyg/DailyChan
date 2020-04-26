@@ -130,7 +130,7 @@
         </table>
         
         <div style="text-align: right;">
-            <button type="button" id="cartSelectedOrder" <%=ableAttr%>>선택 상품 주문</button>
+            <button type="button" id="cartSelectedOrder" <%=ableAttr%>>주문하기</button>
         </div>
     </div>
     
@@ -308,10 +308,6 @@
     			location.href="<%=contextPath%>/orderForm.pro?proCode=" + proCode + "&proName=" + proName + "&proPrice=" + proPrice + "&quantity=" + quantity + "&delivery=" + delivery + "&payAmount=" + payAmount; 
     			
     		});
-    		
-    		/* 주문 버튼 활성화/비활성화 */
-    		//$("#cartSelectedOrder").attr('disabled',true);
-    		//$("#cartSelectedOrder").attr('disabled',false);
     		
     	});
     	
