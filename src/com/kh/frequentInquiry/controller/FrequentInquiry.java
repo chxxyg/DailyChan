@@ -31,11 +31,6 @@ public class FrequentInquiry extends HttpServlet {
 		request.getRequestDispatcher("views/notice/frequentQuestion.jsp").forward(request, response);
 
 	
-	
-	
-	
-	
-	
 	}
 
 	/**
