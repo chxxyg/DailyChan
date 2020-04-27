@@ -37,6 +37,19 @@ public class AdOneInquiry {
 	 * 리스트조회용
 	 */
 	public  AdOneInquiry(int inquiryBoardNo, Date inquiryCreateDate, String memberId, String inquiryTitle,
+			String inquiryContent, String inquiryResponseYn, String inquiryResponse) {
+		
+		super();
+		this.inquiryBoardNo = inquiryBoardNo;
+		this.inquiryCreateDate = inquiryCreateDate;
+		this.memberId = memberId;
+		this.inquiryTitle = inquiryTitle;
+		this.inquiryContent = inquiryContent;
+		this.inquiryResponseYn = inquiryResponseYn;
+		this.inquiryResponse = inquiryResponse;
+	}
+	
+	public  AdOneInquiry(int inquiryBoardNo, Date inquiryCreateDate, String memberId, String inquiryTitle,
 			String inquiryContent, String inquiryResponseYn) {
 		
 		super();
@@ -46,8 +59,8 @@ public class AdOneInquiry {
 		this.inquiryTitle = inquiryTitle;
 		this.inquiryContent = inquiryContent;
 		this.inquiryResponseYn = inquiryResponseYn;
-		
 	}
+	
 
 	public int getInquiryBoardNo() {
 		return inquiryBoardNo;
