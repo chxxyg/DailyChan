@@ -337,9 +337,6 @@
 				obj.payAmount = $("#orderProductTotalPrice").html();
 
 				var jsonData = JSON.stringify(obj)
-				console.log(jsonData);
-				
-				
 				
 				var IMP = window.IMP;
 				IMP.init("imp27012123"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
@@ -377,14 +374,16 @@
 						}
 						}); // 주문조회 입력 완료
 						
-							location.href = "/dailyChan/orderComplete.pro";
+						
+						// 주문번호 비우기
+						// 쿠폰 조회
+						
+							
+							var orderNo = $("#orderNo").val();
+							location.href = "/dailyChan/orderComplete.pro?orderNo=" + orederNo;
 					 
 						
 				        var msg = '결제가 완료되었습니다.';
-				        msg += '고유ID : ' + rsp.imp_uid;
-				        msg += '상점 거래ID : ' + rsp.merchant_uid;
-				        msg += '결제 금액 : ' + rsp.paid_amount;
-				        msg += '카드 승인번호 : ' + rsp.apply_num;
 				    } else {
 				        var msg = '결제에 실패하였습니다.';
 				        msg += '에러내용 : ' + rsp.error_msg;
