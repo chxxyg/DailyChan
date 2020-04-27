@@ -35,4 +35,17 @@ public class AdOneInquiryService {
 		return i;
 	}
 
+	/*
+	 * 조회버튼용
+	 */
+	public ArrayList<AdOneInquiry> search(String memberId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<AdOneInquiry> list = new AdOneInquiryDao().search(conn, memberId);
+		close(conn);
+		
+		return list;
+	}
+
 }

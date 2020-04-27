@@ -132,7 +132,7 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;1:1상담관리</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/reportSearch.ad" method="post">회원 ID 
+        	<form id="searchForm" action="<%=contextPath%>/OneInquirySearch.ad" method="post">회원 ID 
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
