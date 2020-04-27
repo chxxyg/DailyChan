@@ -98,6 +98,29 @@
 			background-color:#5554547e;
 			cursor:pointer;
 		}
+		
+		
+		.emphasis {
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
+			border:1px solid #181c20;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-weight:bold;
+
+			text-decoration:none;
+			text-shadow:0px 1px 0px #181c20;
+		}
+		.emphasis:hover {
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
+		}
+		.emphasis:active {
+			position:relative;
+			top:1px;
+		}
          
       
     </style>
@@ -113,29 +136,29 @@
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value=""> 개</div>
+                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
                 
         </div>  
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="100">신고번호</th>
-                    <th width="100">리뷰번호</th> 
-                    <th width="150">피신고인</th>
-                    <th width="150">신고인</th>
-                    <th width="200">신고날짜</th>
-                    <th width="400">신고내용</th>
+                    <th width="70">문의번호</th>
+                    <th width="150">문의일시</th> 
+                    <th width="120">아이디</th>
+                    <th width="250">제목</th>
+                    <th width="550">내용</th>
+                    <th width="70">답변여부</th>
                 </tr>
             </thead>
             <tbody>
-					<% for(adReport r : list){ %>
+					<% for(AdOneInquiry i : list){ %>
                 <tr>
-                    <td><%= r.getReportNo() %></td>
-                    <td><%= r.getReviewBoardNo() %></td>
-                    <td><%= r.getMemberId() %></td>
-                    <td><%= r.getMemberId2() %></td>
-                    <td><%= r.getReportDate() %></td>
-                    <td><%= r.getReportContent() %></td>
+                    <td><%= i.getInquiryBoardNo() %></td>
+                    <td><%= i.getInquiryCreateDate() %></td>
+                    <td><%= i.getMemberId() %></td>
+                    <td><%= i.getInquiryTitle() %></td>
+                    <td><%= i.getInquiryContent() %></td>
+                    <td class="emphasis"><%= i.getInquiryResponseYn() %></td>
                 </tr>
                 <% } %>
                
@@ -151,9 +174,9 @@
    			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			var mid = $(this).children().eq(0).text();
+	   			var ibn = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/reportDetail.ad?rno=" + rno; 
+	 			location.href="<%= contextPath%>/reportDetail.ad?ibn=" + ibn; 
  			});
  
    		});   
