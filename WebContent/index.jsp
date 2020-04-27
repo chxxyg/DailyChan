@@ -325,8 +325,6 @@
 	  }
 	</script>
 	    
-	    
-    
     <div id="bestWrap">
         <div id="bestLabel"><a class="aLabel" href="">실시간 베스트</a></div>
         <table id="bestTable">
@@ -335,12 +333,12 @@
                     <table class="bestInnerTable"> <!-- KOA138 -->
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg1" class="bestImg" src="<%=contextPath%>/resources/attachment_product/3마리 꽃게탕.jpg"></a>
+                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA138"><img id="bestImg1" class="bestImg" src="<%=contextPath%>/resources/attachment_product/3마리 꽃게탕.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName1" class="bestName"><a class="aProductLabel">3마리 꽃게탕</a></div>
+                                <div id="bestName1" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA138">3마리 꽃게탕</a></div>
                             </td>
                         </tr>
                         <tr>
@@ -367,12 +365,12 @@
                     <table class="bestInnerTable"> <!-- ITB203 -->
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg2" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알리오올리오.jpg"></a>
+                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITB203"><img id="bestImg2" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알리오올리오.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName2" class="bestName"><a class="aProductLabel">감바스 알리오올리오</a></div>
+                                <div id="bestName2" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITB203">감바스 알리오올리오</a></div>
                             </td>
                         </tr>
                         <tr>
@@ -398,12 +396,12 @@
                     <table class="bestInnerTable"> <!-- ITC201 -->
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg3" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알아히오.jpg"></a>
+                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITC201"><img id="bestImg3" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알아히오.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName3" class="bestName"><a class="aProductLabel">감바스 알아히오</a></div>
+                                <div id="bestName3" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITC201">감바스 알아히오</a></div>
                             </td>
                         </tr>
                         <tr>
@@ -431,12 +429,12 @@
                     <table class="bestInnerTable"> <!-- ASA307 -->
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg4" class="bestImg" src="<%=contextPath%>/resources/attachment_product/고추잡채&꽃빵.jpg"></a>
+                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ASA307"><img id="bestImg4" class="bestImg" src="<%=contextPath%>/resources/attachment_product/고추잡채&꽃빵.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName4" class="bestName"><a class="aProductLabel">고추잡채&꽃빵</a></div>
+                                <div id="bestName4" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ASA307">고추잡채&꽃빵</a></div>
                             </td>
                         </tr>
                         <tr>
@@ -462,12 +460,12 @@
                     <table class="bestInnerTable"> <!-- KOA107 -->
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg5" class="bestImg" src="<%=contextPath%>/resources/attachment_product/곱도리탕.jpg"></a>
+                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA107"><img id="bestImg5" class="bestImg" src="<%=contextPath%>/resources/attachment_product/곱도리탕.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName5" class="bestName"><a class="aProductLabel">곱도리탕</a></div>
+                                <div id="bestName5" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA107">곱도리탕</a></div>
                             </td>
                         </tr>
                         <tr>
@@ -493,12 +491,12 @@
                     <table class="bestInnerTable"> <!-- KOB112 -->
                         <tr>
                             <td>
-                                <a class="aProductImg" href=""><img id="bestImg6" class="bestImg" src="<%=contextPath%>/resources/attachment_product/구름치즈 안동식찜닭.jpg"></a>
+                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOB112"><img id="bestImg6" class="bestImg" src="<%=contextPath%>/resources/attachment_product/구름치즈 안동식찜닭.jpg"></a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div id="bestName6" class="bestName"><a class="aProductLabel">구름치즈 안동식찜닭</a></div>
+                                <div id="bestName6" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOB112">구름치즈 안동식찜닭</a></div>
                             </td>
                         </tr>
                         <tr>
@@ -534,10 +532,10 @@
                         <table class="newInnerTable"> <!-- ITD221 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg1" class="newImg" src="<%=contextPath%>/resources/attachment_product/훈제연어 샐러드.png"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITD221"><img id="newImg1" class="newImg" src="<%=contextPath%>/resources/attachment_product/훈제연어 샐러드.png"></a>
                                 </td>
                                 <td>
-                                    <div id="newName1" class="newName"><a class="aProductLabel">훈제연어 샐러드</a></div>
+                                    <div id="newName1" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITD221">훈제연어 샐러드</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -561,10 +559,10 @@
                         <table class="newInnerTable"> <!-- KOA132 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg2" class="newImg" src="<%=contextPath%>/resources/attachment_product/황태해장국.jpg"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA132"><img id="newImg2" class="newImg" src="<%=contextPath%>/resources/attachment_product/황태해장국.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="newName2" class="newName"><a class="aProductLabel">황태해장국</a></div>
+                                    <div id="newName2" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA132">황태해장국</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -588,10 +586,10 @@
                         <table class="newInnerTable"> <!-- KOA114 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg3" class="newImg" src="<%=contextPath%>/resources/attachment_product/해물짬뽕순두부.jpg"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA114"><img id="newImg3" class="newImg" src="<%=contextPath%>/resources/attachment_product/해물짬뽕순두부.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="newName3" class="newName"><a class="aProductLabel">해물짬뽕순두부</a></div>
+                                    <div id="newName3" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA114">해물짬뽕순두부</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -615,10 +613,10 @@
                         <table class="newInnerTable"> <!-- ITB207 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="newImg4" class="newImg" src="<%=contextPath%>/resources/attachment_product/트리플머쉬룸로제파스타.jpg"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITB207"><img id="newImg4" class="newImg" src="<%=contextPath%>/resources/attachment_product/트리플머쉬룸로제파스타.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="newName4" class="newName"><a class="aProductLabel">트리플머쉬룸로제파스타</a></div>
+                                    <div id="newName4" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITB207">트리플머쉬룸로제파스타</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -652,10 +650,10 @@
                         <table class="saleInnerTable"> <!-- KOA101 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg1" class="saleImg" src="<%=contextPath%>/resources/attachment_product/어복쟁반.jpg"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA101"><img id="saleImg1" class="saleImg" src="<%=contextPath%>/resources/attachment_product/어복쟁반.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName1" class="saleName"><a class="aProductLabel">어복쟁반</a></div>
+                                    <div id="saleName1" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA101">어복쟁반</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -680,10 +678,10 @@
                         <table class="saleInnerTable"> <!-- KOA102 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg2" class="saleImg" src="<%=contextPath%>/resources/attachment_product/사골만두전골.jpg"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA102"><img id="saleImg2" class="saleImg" src="<%=contextPath%>/resources/attachment_product/사골만두전골.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName2" class="saleName"><a class="aProductLabel">사골만두전골</a></div>
+                                    <div id="saleName2" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA102">사골만두전골</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -708,10 +706,10 @@
                         <table class="saleInnerTable"> <!-- ASA303 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg3" class="saleImg" src="<%=contextPath%>/resources/attachment_product/홍콩식 마파두부.jpg"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ASA303"><img id="saleImg3" class="saleImg" src="<%=contextPath%>/resources/attachment_product/홍콩식 마파두부.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName3" class="saleName"><a class="aProductLabel">홍콩식 마파두부</a></div>
+                                    <div id="saleName3" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ASA303">홍콩식 마파두부</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -736,10 +734,10 @@
                         <table class="saleInnerTable"> <!-- KOA109 -->
                             <tr>
                                 <td rowspan="3">
-                                    <a class="aProductImg" href=""><img id="saleImg4" class="saleImg" src="<%=contextPath%>/resources/attachment_product/햄듬뿍 부대찌개.jpg"></a>
+                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA109"><img id="saleImg4" class="saleImg" src="<%=contextPath%>/resources/attachment_product/햄듬뿍 부대찌개.jpg"></a>
                                 </td>
                                 <td>
-                                    <div id="saleName4" class="saleName"><a class="aProductLabel">햄듬뿍 부대찌개</a></div>
+                                    <div id="saleName4" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA109">햄듬뿍 부대찌개</a></div>
                                 </td>
                             </tr>
                             <tr>
@@ -763,14 +761,12 @@
                         </table>
                     </td>
                 </tr>
-
             </table>
         </div>
     </div>
-
+    
 	
 	<%@ include file="views/common/mainFooter.jsp" %>	
-	
 	
 </body>
 </html>

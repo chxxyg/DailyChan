@@ -15,7 +15,7 @@
 	/* 리뷰작성 팝업 틀 */
 	.writeReviewWrap{
 		width:490px;
-		height:680px;
+		height:410px;
 		margin-top: 10px;
 	}
 	/* 상품정보 */
@@ -58,24 +58,6 @@
 	#reviewInfo{margin-left:25px;}
 	#reviewCounter{margin-left:170px;}
 	#writeReview_tr3>td>div{text-align:center;}
-	
-	/* 사진,동영상 첨부 */
-	#writeReview_tr3>td>img{margin:10px 0px 0px 24px; cursor:pointer;}
-	#attachmentBtn{
-		width:250px;
-		height:40px;
-		margin:10px 0px 0px 125px;
-		background:white;
-		border:1px solid lightgrey;
-		padding: 0;
-		cursor:pointer;
-	}
-	#attachmentBtn>div{
-		width:200px;
-		margin-left:50px;
-	}
-	#attachmentBtn img{float:left;}
-	#attachmentBtn p{float:left; width:120px; height:20px; margin:8px 0;}
 
 	#reviewcancelBtn{
 		width:100px;
@@ -123,7 +105,7 @@
 						<td>
 							<div>
 								<label>상품에 대한 평점을 선택하세요. &nbsp; </label>
-								<select name="reviewSum" style="width: 50px; height: 20px; color: gray;">
+								<select name="reviewSum" style="width: 100px; height: 35px; color: gray;">
 									<option value=5>★★★★★</option>
 									<option value=4>★★★★☆</option>
 									<option value=3>★★★☆☆</option>
@@ -134,17 +116,10 @@
 							</div>
 						</td>
 					</tr>
-					<tr id="writeReview_tr3" height="450px" >
+					<tr id="writeReview_tr3" height="300px" >
 						<td>
 							<span id="reviewInfo" style="color: gray;">후기를 남겨주세요. (최소 10자 이상)</span><span id="reviewCounter" style="color: gray;">0</span><span style="color: gray;"> / 1000</span>
 							<div><textarea rows="12" cols="55" id="reviewContent" style="resize:none; padding: 12px; margin-top: 10px; color: gray; border: 1px solid lightgray;"></textarea></div>
-							<img src="" width="130" height="130"><img src="" width="130" height="130"><img src="" width="130" height="130">
-							<button id="attachmentBtn">
-								<div>
-									<img src="<%= request.getContextPath() %>/resources/img/cameralogo.png" width="35" height="35">
-									<p>사진/동영상 첨부</p>
-								</div>
-							</button>
 						</td>
 					</tr>
 				</tbody>
