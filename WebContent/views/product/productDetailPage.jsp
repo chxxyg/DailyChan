@@ -267,7 +267,6 @@
 		</table>
 	         
 		<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
-		
 	</div>
             
         <!-- 상세조회(클릭 시 슬라이드 다운), 페이징 기능 추가하기 -->
