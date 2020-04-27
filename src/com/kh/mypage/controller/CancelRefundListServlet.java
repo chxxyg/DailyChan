@@ -36,7 +36,7 @@ public class CancelRefundListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		ArrayList<Mypage> myList = new MyOrderService().selectOrder(memberId);
+		ArrayList<Mypage> myList = new MyOrderService().selectRefund(memberId);
 		
 		request.setAttribute("myList", myList);
 		request.getRequestDispatcher("views/mypage/myCancelRefundList.jsp").forward(request, response);

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.mypage.model.vo.Mypage"%>
 <%
 	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -88,6 +89,7 @@
 		<p>주문 즉시 취소는 결제 완료 단계 이하에서만 가능하며, 반품신청은 배송중 혹은 배송완료 단계에서 신청이 가능합니다.</p>
 		
 		<!-- 취소반품 조회기간 선택 -->
+		<!--
 		<div id="cancelPeriodSch">
 			<form>
 				<dl>
@@ -109,6 +111,7 @@
 				</dl>
 			</form>
 		</div>
+		-->
 		
 		<!-- 주문배송 조회 리스트 -->
 		<table class="myCancelList" width="790px">
@@ -122,19 +125,21 @@
 			</thead>
 			
 			<tbody>
-			<% for(Mypage my : myList){ %>
-					<tr>
+				<tr>
+					<% for(Mypage my : myList) { %>
 						<td>
 							<span style="color:blue;"><%= my.getOrderNo() %></span><br>
-							2020-04-29<br>
+							<%= my.getOrderDate() %><br>
 						</td>
 						<td id="myCancelInfo">
-							<div>
-								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-								<a class="pName"><b>데일리찬 상품명</b></a><br>
-								1개 / 12,000원
-								<p>결제수단 : 신용카드</p>
-							</div>
+										
+						<div>
+							<input type="hidden" class="pCode" value="<%= my.getProCode() %>"><!-- 상품코드 -->
+							<a class="pName"><b><%= my.getProName() %></b></a><br>
+							<%= my.getQuantity() %>개 / <%= my.getPrice() %>원
+							<p>결제수단 : <%= my.getPayType() %></p>
+						</div>
+					<% } %>
 							<div>
 								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
 								<a class="pName"><b>데일리찬 상품명</b></a><br>
@@ -151,7 +156,6 @@
 						<td>취소완료</td>
 						<td>2020-05-01</td>
 					</tr>
-				<% } %>
 				<tr>
 					<td>
 						<span style="color:blue;">20200429-1234567</span><br>

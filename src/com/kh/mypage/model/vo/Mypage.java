@@ -21,9 +21,11 @@ public class Mypage {
 	private String phone;		//주문자휴대전화?배송받는사람휴대전화??
 	private String address;		//주소
 	private String delRequest;	//배송시요청사항
+	private Date refundDate;	//반품일시
 	
 	public Mypage() { }
-
+	
+	/* 주문/배송조회 */
 	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
 			int quantity, int payAmount, int status, String couponCode, int couponPrice, String payType, Date payDate,
 			String recipient, String phone, String address, String delRequest) {
@@ -45,6 +47,44 @@ public class Mypage {
 		this.phone = phone;
 		this.address = address;
 		this.delRequest = delRequest;
+	}
+	
+
+	public Mypage(String orderNo, Date orderDate, String proCode, String proName, int quantity, int price, String payType, Date refundDate, int status) {
+		super();
+		this.orderNo = orderNo;
+		this.orderDate = orderDate;
+		this.proCode = proCode;
+		this.proName = proName;
+		this.quantity = quantity;
+		this.price = price;
+		this.payType = payType;
+		this.refundDate = refundDate;
+		this.status = status;
+	}
+
+	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
+			int quantity, int payAmount, int status, String couponCode, int couponPrice, String payType, Date payDate,
+			String recipient, String phone, String address, String delRequest, Date refundDate) {
+		super();
+		this.orderNo = orderNo;
+		this.orderDate = orderDate;
+		this.proCode = proCode;
+		this.fileName = fileName;
+		this.proName = proName;
+		this.price = price;
+		this.quantity = quantity;
+		this.payAmount = payAmount;
+		this.status = status;
+		this.couponCode = couponCode;
+		this.couponPrice = couponPrice;
+		this.payType = payType;
+		this.payDate = payDate;
+		this.recipient = recipient;
+		this.phone = phone;
+		this.address = address;
+		this.delRequest = delRequest;
+		this.refundDate = refundDate;
 	}
 
 	public String getOrderNo() {
@@ -183,13 +223,21 @@ public class Mypage {
 		this.delRequest = delRequest;
 	}
 
+	public Date getRefundDate() {
+		return refundDate;
+	}
+
+	public void setRefundDate(Date refundDate) {
+		this.refundDate = refundDate;
+	}
+
 	@Override
 	public String toString() {
 		return "Mypage [orderNo=" + orderNo + ", orderDate=" + orderDate + ", proCode=" + proCode + ", fileName="
 				+ fileName + ", proName=" + proName + ", price=" + price + ", quantity=" + quantity + ", payAmount="
 				+ payAmount + ", status=" + status + ", couponCode=" + couponCode + ", couponPrice=" + couponPrice
 				+ ", payType=" + payType + ", payDate=" + payDate + ", recipient=" + recipient + ", phone=" + phone
-				+ ", address=" + address + ", delRequest=" + delRequest + "]";
+				+ ", address=" + address + ", delRequest=" + delRequest + ", refundDate=" + refundDate + "]";
 	}
 
 }
