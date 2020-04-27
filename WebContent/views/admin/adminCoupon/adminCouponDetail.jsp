@@ -112,7 +112,7 @@
     	function couponDelete(){   		
     		var bool = confirm("삭제하시겠습니까?");
     		if(bool){
-    			location.href = "<%=contextPath%>/discountDelete.cc?cc=<%=c.getCouponCode()%>";
+    			location.href = "<%=contextPath%>/couponDelete.ad?cc=<%=c.getCouponCode()%>";
     			alert("삭제완료!");
     		}else{
     			alert("취소하였습니다.");

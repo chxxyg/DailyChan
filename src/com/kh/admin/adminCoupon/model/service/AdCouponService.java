@@ -49,4 +49,42 @@ public class AdCouponService {
 		return list;
 	}
 
+	/*
+	 * 쿠폰삭제
+	 */
+	public int deleteCoupon(String cc) {
+		
+		Connection conn = getConnection();
+		
+		int result = new AdCouponDao().deleteCoupon(conn, cc);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
+	
+	/*
+	 * 회원쿠폰삭제
+	 */
+	public int deleteMemberCoupon(String cc) {
+		
+		Connection conn = getConnection();
+		
+		int result2 = new AdCouponDao().deleteMemberCoupon(conn, cc);
+		
+		if(result2>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result2;
+		
+	}
+
 }

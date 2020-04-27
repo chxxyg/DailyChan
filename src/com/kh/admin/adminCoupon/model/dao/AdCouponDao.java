@@ -123,7 +123,53 @@ private Properties prop = new Properties();
 		}				
 		return list;
 	}
+
+	public int deleteCoupon(Connection conn, String cc) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cc);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int deleteMemberCoupon(Connection conn, String cc) {
+		
+		int result2 = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMemberCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cc);
+			
+			result2 = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result2;
+	}
 }
+
+
+
+
 
 
 
