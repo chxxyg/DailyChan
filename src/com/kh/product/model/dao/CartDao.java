@@ -179,34 +179,7 @@ public class CartDao {
 		return del;
 	}
 	
-	/** 5_1. 장바구니 - 주문상태 'Y'로 변경
-	 * @param conn
-	 * @param memberId
-	 * @param proCode
-	 * @return
-	 */
-	public int updateCartStatus(Connection conn, String memberId, String proCode) {
-		
-		int update = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("updateCartStatus");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
-			pstmt.setString(2, proCode);
-			
-			update = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return update;
-	}
-	
-	/** 5_2. ORDER_PRODUCT 테이블에 값 추가
+	/** 5_1. ORDER_PRODUCT 테이블에 값 추가
 	 * @param conn
 	 * @param memberId
 	 * @return
@@ -230,32 +203,41 @@ public class CartDao {
 		}
 		return insert;
 	}
-	/*
-	public String selectImg(Connection conn, String proCode) {
-		String fileName = null;
+	
+	/** 5_2. ORDER_PRODUCT 테이블에 값 추가
+	 * @param conn
+	 * @param memberId
+	 * @param proCode
+	 * @return
+	 */
+	public int updateOrdNoCart(Connection conn, String memberId, String proCode, String ranStr) {
+		
+		int update = 0;
 		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectOrdImg");
+		String sql = prop.getProperty("updateOrdNoCart");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, proCode);
-			rset = pstmt.executeQuery();
+			pstmt.setString(1, ranStr);
+			pstmt.setString(2, memberId);
+			pstmt.setString(3, proCode);
 			
-			if(rset.next()) {
-				fileName = rset.getString("FILE_NAME");
-			}
+			update = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(rset);
 			close(pstmt);
 		}
-		return fileName;
-		
-	}*/
+		return update;
+	}
 	
+	
+	/** 주석달아주세요
+	 * @param conn
+	 * @param userId
+	 * @return
+	 */
 	public OrderProduct orderNo(Connection conn, String userId)
 	{
 	    OrderProduct op = new OrderProduct();

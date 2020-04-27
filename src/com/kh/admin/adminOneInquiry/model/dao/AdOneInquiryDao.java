@@ -80,7 +80,8 @@ public class AdOneInquiryDao {
 						  			 rset.getString("MEMBER_ID"),
 						  			 rset.getString("INQUIRY_TITLE"),
 						  			 rset.getString("INQUIRY_CONTENT"),
-						  			 rset.getString("INQUIRY_RESPONSE_YN"));
+						  			 rset.getString("INQUIRY_RESPONSE_YN"),
+						  			 rset.getString("INQUIRY_RESPONSE"));
 			}
 			
 		} catch (SQLException e) {
@@ -112,7 +113,8 @@ public class AdOneInquiryDao {
 						  			 	  rset.getString("MEMBER_ID"),
 						  			 	  rset.getString("INQUIRY_TITLE"),
 						  			 	  rset.getString("INQUIRY_CONTENT"),
-						  			 	  rset.getString("INQUIRY_RESPONSE_YN")));
+						  			 	  rset.getString("INQUIRY_RESPONSE_YN"),
+						  			 	  rset.getString("INQUIRY_RESPONSE")));
 			}
 				
 		} catch (SQLException e) {
@@ -123,5 +125,47 @@ public class AdOneInquiryDao {
 		}
 		return list;
 	}
+
+	public int responseInquiry(Connection conn, AdOneInquiry i) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateInquiry");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, i.getInquiryResponse());
+			pstmt.setInt(2, i.getInquiryBoardNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}		
+		return result;
+	}
+
+	public int yn(Connection conn, int ibn) {
+		
+		int result2 = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("yn");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ibn);
+			
+			result2 = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}		
+		return result2;
+	}
+	
 
 }

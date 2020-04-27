@@ -19,7 +19,8 @@ public class MyOrderDao {
 	private Properties prop = new Properties();
 
 	public MyOrderDao() {
-		 String filePath = MemberDao.class.getResource("/sql/myPage/myOrder-query.properties").getPath();
+
+		String filePath = MemberDao.class.getResource("/sql/myPage/myOrder-query.properties").getPath();
 		
 		try {
 			prop.load(new FileReader(filePath));
@@ -28,7 +29,7 @@ public class MyOrderDao {
 		}
 	}
 	
-	/** 1. 주문/배송조회, 상세페이지조회, 최근구매한상품 조회용
+	/** 1_1. 주문배송조회
 	 * @param conn
 	 * @param memberId
 	 * @return
@@ -47,23 +48,14 @@ public class MyOrderDao {
 			rset=pstmt.executeQuery();
 			
 			while(rset.next()) {
-				myList.add(new Mypage(rset.getString("ORDER_NO"),
-									  rset.getDate("PAYMENT_DATE"),
-									  rset.getString("PRODUCT_CODE"),
-									  rset.getString("FILE_NAME"),
-									  rset.getString("PRODUCT_NAME"),
-									  rset.getInt("PRODUCT_PRICE"),
-									  rset.getInt("QUANTITY"),
-									  rset.getInt("PAYMENT_AMOUNT"),
-									  rset.getInt("STATUS"),
-									  rset.getString("COUPON_CODE"),
-									  rset.getInt("COUPON_PRICE"),
-									  rset.getString("PAYMENT_TYPE"),
-									  rset.getDate("PAYMENT_DATE"),
-									  rset.getString("RECIPIENT"),
-									  rset.getString("PHONE"),
-									  rset.getString("ADDRESS"),
-									  rset.getString("DELIVERY_REQUEST")));
+				myList.add(new Mypage( rset.getString("PRODUCT_CODE"),
+									   rset.getInt("PRICE"),
+									   rset.getInt("QUANTITY"),
+									   rset.getString("ORDER_NO"),
+									   rset.getDate("ORDER_DATE"),
+									   rset.getInt("STATUS"),
+									   rset.getString("PRODUCT_NAME"),
+									   rset.getString("FILE_NAME")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -72,6 +64,38 @@ public class MyOrderDao {
 			close(pstmt);
 		}
 		return myList;
+	}
+	
+	/** 1_2. 주문배송조회 : 한 주문번호에 몇 개 상품 담겼나
+	 * @param conn
+	 * @param memberId
+	 * @return
+	 */
+	public ArrayList<Mypage> countOrdNo(Connection conn, String memberId){
+		
+		ArrayList<Mypage> count = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countOrdNo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				count.add(new Mypage(rset.getInt(1)));
+			}
+			System.out.println(count);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return count;
 	}
 	
 	/** 2. 취소반품조회
@@ -92,18 +116,6 @@ public class MyOrderDao {
 			pstmt.setString(1, memberId);
 			rset=pstmt.executeQuery();
 			
-			while(rset.next()) {
-				myList.add(new Mypage(rset.getString("ORDER_NO"),
-									  rset.getDate("ORDER_Date"),
-									  rset.getString("product_code"),
-									  rset.getString("product_name"),
-									  rset.getInt("quantity"),
-									  rset.getInt("price"),
-									  rset.getString("payment_type"),
-									  rset.getDate("refund_date"),
-									  rset.getInt("Status")));
-						
-			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

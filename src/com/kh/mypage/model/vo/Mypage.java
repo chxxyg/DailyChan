@@ -12,7 +12,7 @@ public class Mypage {
 	private int price;			//상품가격
 	private int quantity;		//상품주문수량
 	private int payAmount;		//주문총가격
-	private int status;			//상태(0:결제전, 1:결제완료, 2:결제취소, 3:상품준비중, 4:배송중, 5:배송완료, 6:반품완료)
+	private int status;			//상태(0:결제완료, 1:결제취소, 2:상품준비중, 3:배송중, 4:배송완료, 5:반품완료)
 	private String couponCode;  //쿠폰코드
 	private int couponPrice;	//쿠폰금액
 	private String payType;		//결제방식
@@ -22,50 +22,32 @@ public class Mypage {
 	private String address;		//주소
 	private String delRequest;	//배송시요청사항
 	private Date refundDate;	//반품일시
+	private int countOrdNo;		//한 주문번호 안에 몇 개 상품 담겼나
 	
 	public Mypage() { }
 	
-	/* 주문/배송조회 */
-	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
-			int quantity, int payAmount, int status, String couponCode, int couponPrice, String payType, Date payDate,
-			String recipient, String phone, String address, String delRequest) {
+	/* 주문배송조회 */
+	public Mypage(String proCode, int price, int quantity, String orderNo, Date orderDate, int status, String proName, String fileName) {
 		super();
-		this.orderNo = orderNo;
-		this.orderDate = orderDate;
 		this.proCode = proCode;
-		this.fileName = fileName;
-		this.proName = proName;
 		this.price = price;
 		this.quantity = quantity;
-		this.payAmount = payAmount;
+		this.orderNo = orderNo;
+		this.orderDate = orderDate;
 		this.status = status;
-		this.couponCode = couponCode;
-		this.couponPrice = couponPrice;
-		this.payType = payType;
-		this.payDate = payDate;
-		this.recipient = recipient;
-		this.phone = phone;
-		this.address = address;
-		this.delRequest = delRequest;
+		this.proName = proName;
+		this.fileName = fileName;
 	}
 	
-
-	public Mypage(String orderNo, Date orderDate, String proCode, String proName, int quantity, int price, String payType, Date refundDate, int status) {
+	/* 한 주문코드에 담긴 상품들 개수 */
+	public Mypage(int countOrdNo) {
 		super();
-		this.orderNo = orderNo;
-		this.orderDate = orderDate;
-		this.proCode = proCode;
-		this.proName = proName;
-		this.quantity = quantity;
-		this.price = price;
-		this.payType = payType;
-		this.refundDate = refundDate;
-		this.status = status;
+		this.countOrdNo = countOrdNo;
 	}
-
+	
 	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
 			int quantity, int payAmount, int status, String couponCode, int couponPrice, String payType, Date payDate,
-			String recipient, String phone, String address, String delRequest, Date refundDate) {
+			String recipient, String phone, String address, String delRequest, Date refundDate, int countOrdNo) {
 		super();
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
@@ -85,6 +67,7 @@ public class Mypage {
 		this.address = address;
 		this.delRequest = delRequest;
 		this.refundDate = refundDate;
+		this.countOrdNo = countOrdNo;
 	}
 
 	public String getOrderNo() {
@@ -231,13 +214,22 @@ public class Mypage {
 		this.refundDate = refundDate;
 	}
 
+	public int getCountOrdNo() {
+		return countOrdNo;
+	}
+
+	public void setCountOrdNo(int countOrdNo) {
+		this.countOrdNo = countOrdNo;
+	}
+
 	@Override
 	public String toString() {
 		return "Mypage [orderNo=" + orderNo + ", orderDate=" + orderDate + ", proCode=" + proCode + ", fileName="
 				+ fileName + ", proName=" + proName + ", price=" + price + ", quantity=" + quantity + ", payAmount="
 				+ payAmount + ", status=" + status + ", couponCode=" + couponCode + ", couponPrice=" + couponPrice
 				+ ", payType=" + payType + ", payDate=" + payDate + ", recipient=" + recipient + ", phone=" + phone
-				+ ", address=" + address + ", delRequest=" + delRequest + ", refundDate=" + refundDate + "]";
+				+ ", address=" + address + ", delRequest=" + delRequest + ", refundDate=" + refundDate + ", countOrdNo="
+				+ countOrdNo + "]";
 	}
 
 }

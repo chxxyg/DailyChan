@@ -117,7 +117,6 @@ body {
                         <li><a href="<%=contextPath%>/pdEnrollForm.ad">상품등록</a></li>
                         <li><a href="<%=contextPath%>/productList.ad?currentPage=1">상품관리</a></li>
                         <li><a href="<%=contextPath%>/paymentList.ad?currentPage=1">결제관리</a></li>
-                        <li><a href="">XXX</a>
                         </li>
                     </ul>
                 </li>
@@ -127,7 +126,6 @@ body {
                         <li><a href="<%=contextPath%>/memberList.ad">회원관리</a></li>
                         <li><a href="<%=contextPath%>/blackList.ad">블랙리스트관리</a></li>
                         <li><a href="<%=contextPath%>/reportList.ad">신고내역</a></li>
-                        <li><a href="">XXX</a>
                         </li>
                     </ul>
                 </li>
@@ -137,7 +135,6 @@ body {
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
                         <li><a href="<%=contextPath%>/adOneInquiryList.ad">1:1 상담 관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
-                        <li><a href="">XXXX</a>
                         </li>
                     </ul>
                 </li>
@@ -145,9 +142,9 @@ body {
                 <li class="sub-menu">
                   <a href="javascript:void(0);"><i class="fa fa-gift"></i><span>이벤트관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                   <ul>
-                      <li><a href="http://localhost:9999/dailyChan/views/admin/adminProductDiscount/adminProductDiscountList.jsp">할인관리</a>
+                      <li><a href="<%=contextPath%>/discountList.ad">할인관리</a>
                       </li>
-                      <li><a href="">쿠폰관리</a>
+                      <li><a href="<%=contextPath%>/couponList.ad">쿠폰관리</a>
                       </li>
                       <li><a href="http://localhost:9999/dailyChan/views/admin/adminEvent/adminEventList.jsp">이벤트 리스트</a>
                       </li>
@@ -155,16 +152,10 @@ body {
               </li>
 
                 <li class="sub-menu">
-                    <a href=""><i class="fa fa-envelope"></i><span>XXX</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                </li>
-
-                <li class="sub-menu">
                     <a href="<%=contextPath%>/reviewList.ad"><i class="fa fa-comment"></i><span>리뷰관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
 
                 </li>
-                <li class="sub-menu">
-                    <a href=""><i class="fa fa-instagram"></i><span>인스타그램</span><i class="arrow fa fa-angle-right pull-right"></i></a>
-                </li>             
+                           
             </ul>
         </div>
     </aside>

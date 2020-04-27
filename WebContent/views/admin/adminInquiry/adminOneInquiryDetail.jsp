@@ -75,7 +75,7 @@
     <div id="adproductEnroll">
        <div id="outer">
         <h1>&nbsp;&nbsp;&nbsp;1:1상담 상세내역</h1>
-       <form id="collectForm" action="" method="post">      
+       <form id="collectForm" action="<%=contextPath%>/responseInquiry.ad" method="post">      
         <table id="adcate">
             <tr>
                 <td width="200" >번호</td>
@@ -100,10 +100,14 @@
              <tr>
                 <td width="200">답변여부</td>
                 <td><input type="text" value="<%=i.getInquiryResponseYn() %>" name="yn" readonly></td>
+            </tr>
+            <tr>
+                <td width="200">관리자답변</td>
+                <td><input type="text" value="<%= i.getInquiryResponse() %>" name="res"></td>
             </tr>         
         </table>
        		 <div id="enrollsubmit">
-        		<button type="button" onclick="responseInquiry();">답변하기</button>&nbsp;&nbsp;
+        		<button type="submit" onclick="return response();">답변하기</button>&nbsp;&nbsp;
         		<button type="button" onclick="location.href='<%=contextPath%>/adOneInquiryList.ad';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
@@ -113,15 +117,9 @@
     </div>
 
     <script>
-    	function deleteBlackList(){   		
-    		var bool = confirm("답변 하시겠습니까?");
-    		if(bool){
-    			location.href = "<%=contextPath%>/responseInquiry.ad?ibn=<%=i.getInquiryBoardNo()%>";
-    			alert("답변완료!");
-    		}else{
-    			alert("취소하였습니다.");
-    		}   			
-    	} 
+    	function response(){
+    		alert("답변완료!!");
+    	}
   	
     </script>
 </body>

@@ -91,24 +91,7 @@ public class CartService {
 		return del;
 	}
 	
-	/** 5_1. 장바구니 - 주문상태 'Y'로 변경
-	 * @param memberId
-	 * @param proCode
-	 * @return
-	 */
-	public int updateCartStatus(String memberId, String proCode) {
-		Connection conn = getConnection();
-		int update = new CartDao().updateCartStatus(conn, memberId, proCode);
-		if(update > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		close(conn);
-		return update;
-	}
-	
-	/** 5_2. ORDER_PRODUCT 테이블에 값 추가
+	/** 5_1. ORDER_PRODUCT 테이블에 값 추가
 	 * @param memberId
 	 * @return
 	 */
@@ -124,6 +107,27 @@ public class CartService {
 		return insert;
 	}
 	
+	/** 5_2. 장바구니에 orderNo 추가
+	 * @param memberId
+	 * @param proCode
+	 * @return
+	 */
+	public int updateOrdNoCart(String memberId, String proCode, String ranStr) {
+		Connection conn = getConnection();
+		int update = new CartDao().updateOrdNoCart(conn, memberId, proCode, ranStr);
+		if(update > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return update;
+	}
+	
+	/** 6. 주석달아주세요
+	 * @param userId
+	 * @return
+	 */
 	public OrderProduct orderNo(String userId)
 	{
 	    Connection conn = getConnection();

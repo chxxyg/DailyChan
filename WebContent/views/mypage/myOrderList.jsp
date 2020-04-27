@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="com.kh.mypage.model.vo.Mypage, java.util.ArrayList"%>
 <%
 	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList");
+	ArrayList<Mypage> count = (ArrayList<Mypage>)request.getAttribute("count");
 %>
 <!DOCTYPE html>
 <html>
@@ -12,10 +13,9 @@
 	/* 주문배송조회 */
 	.orderDeliveryList{
 		box-sizing:border-box;
-	}
-	.orderDeliveryList{
 		float:left;
 		width:800px;
+		margin-bottom:200px;
 	}
 	
 	/* 조회 기간 선택 영역 */
@@ -137,140 +137,44 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% for(Mypage my : myList) { %>
+				<% for(int i=0; i<myList.size(); i++) { %>
 					<tr height="100px">
 						<td class="firstTd">
-							<a style="color:blue; text-decoration: underline;" class="orderNo"><%=my.getOrderNo()%></a><br>
-							<%=my.getOrderDate() %><br>
+							<a style="color:blue; text-decoration: underline;" class="orderNo"><%=myList.get(i).getOrderNo()%></a><br>
+							<%=myList.get(i).getOrderDate() %><br>
 							<button class="orderDtBtn" type="button">상세확인 ></button>
 						</td>
 						<td id="myOrderInfo">
 							<div>
-								<input type="hidden" class="pCode" value="<%=my.getProCode()%>"><!-- 상품코드 -->
-								<a class="pName"><b><%=my.getProName()%></b></a><br>
-								<%=my.getQuantity() %>개 / <%=my.getPrice()%>원
+								<input type="hidden" class="pCode" value="<%=myList.get(i).getProCode()%>"><!-- 상품코드 -->
+								<a class="pName"><b><%=myList.get(i).getProName()%></b></a><br>
+								<%=myList.get(i).getQuantity() %>개 / <%=myList.get(i).getPrice()%>원
 							</div>
 						</td>
-						<td>결제전</td>
-						<td></td>
+						<td>
+							<% switch(myList.get(i).getStatus()) {
+								case 0: out.println("결제완료"); break;
+								case 1: out.println("결제취소"); break;
+								case 2: out.println("상품준비중"); break;
+								case 3: out.println("배송중"); break;
+								case 4: out.println("배송완료"); break;
+								case 5: out.println("반품완료"); break;
+							 } %>
+						</td>
+						<td>
+							<% switch(myList.get(i).getStatus()) {
+								case 0: %> <button type="button" class="cancelOrderBtn">즉시취소</button> <%; break;
+								case 1: break;
+								case 2: break;
+								case 3: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
+										   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
+								case 4: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
+										   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
+								case 5: break;
+							} %>
+						</td>
 					</tr>
 				<% } %>
-				<tr>
-					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo"></a>
-						<br>
-						<button class="orderDtBtn" type="button">상세확인 ></button>
-					</td>
-					<td id="myOrderInfo">
-						<div>
-							<input type="hidden" class="pCode" value=""><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 원
-						</div>
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-					</td>
-					<td>결제완료</td>
-					<td>
-						<button type="button" class="cancelOrderBtn">즉시취소</button>
-					</td>
-				</tr>
-				<tr height="100px">
-					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
-						2020-03-31<br>
-						<button class="orderDtBtn" type="button">상세확인 ></button>
-					</td>
-					<td id="myOrderInfo">
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-					</td>
-					<td>결제취소</td>
-					<td></td>
-				</tr>
-				<tr height="100px">
-					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
-						2020-03-31<br>
-						<button class="orderDtBtn" type="button">상세확인 ></button>
-					</td>
-					<td id="myOrderInfo">
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-					</td>
-					<td>배송준비중</td>
-					<td>
-						<button type="button" id="cancelOrdBlockBtn" onclick="cancelOrdBlock();">즉시취소</button>
-					</td>
-				</tr>
-				<tr height="100px">
-					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo">20200501-7654321</a>
-						2020-03-31<br>
-						<button class="orderDtBtn" type="button">상세확인 ></button>
-					</td>
-					<td id="myOrderInfo">
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-					</td>
-					<td>배송중</td>
-					<td>
-						<button type="button" id="trackShipmentBtn">배송조회</button><br>
-						<button type="button" class="requestRefundBtn">반품신청</button>
-					</td>
-				</tr>
-				<tr height="100px">
-					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
-						2020-03-31<br>
-						<button class="orderDtBtn" type="button">상세확인 ></button>
-					</td>
-					<td id="myOrderInfo">
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-					</td>
-					<td>배송완료</td>
-					<td>
-						<button type="button" id="trackShipmentBtn">배송조회</button><br>
-						<button type="button" class="requestRefundBtn">반품신청</button>
-					</td>
-				</tr>
-				<tr height="100px">
-					<td class="firstTd">
-						<a style="color:blue; text-decoration: underline;" class="orderNo">20200331-1234567</a>
-						2020-03-31<br>
-						<button class="orderDtBtn" type="button">상세확인 ></button>
-					</td>
-					<td id="myOrderInfo">
-						<div>
-							<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-							<a class="pName"><b>데일리찬 상품명</b></a><br>
-							1개 / 12,000원
-						</div>
-					</td>
-					<td>환불완료</td>
-					<td></td>
-				</tr>
 			</tbody>
 		</table>
 		

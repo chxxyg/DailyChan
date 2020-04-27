@@ -48,4 +48,40 @@ public class AdOneInquiryService {
 		return list;
 	}
 
-}
+	/*
+	 * 관리자답변
+	 */
+	public int responseInquiry(AdOneInquiry i) {
+		
+		Connection conn = getConnection();
+		
+		int result = new AdOneInquiryDao().responseInquiry(conn, i);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}close(conn);
+		
+		return result;
+		
+	}
+
+	/*
+	 * 관리자답변
+	 */
+	public int yn(int ibn) {
+		
+		Connection conn = getConnection();
+		int result2 = new AdOneInquiryDao().yn(conn, ibn);
+		
+		if(result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}		
+		return result2;
+	}
+	}
+
+

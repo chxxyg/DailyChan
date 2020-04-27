@@ -48,19 +48,19 @@ public class ToOrderFormServlet extends HttpServlet {
 			proCode = codeList.split(",");
 	    }
 		
-		/* 장바구니 - 주문상태 'Y'로 변경 */
-//		int update = 0;
-//		int result = 1;
-//		for(int i=0; i<proCode.length; i++) {
-//			update = new CartService().updateCartStatus(memberId, proCode[i]);
-//			result *= update;
-//		}
-//		
 		/* ORDER_PRODUCT 테이블에 값 추가 */
 		int ranNo = (int)(Math.random() * 1000000 + 1);
 		String ranStr = "-" + String.valueOf(ranNo);
 		
 		int insert = new CartService().insertOrderProduct(memberId, ranStr);
+		
+		/* 장바구니 - 주문 후 order_no 추가 */
+		int update = 0;
+		int result = 1;
+		for(int i=0; i<proCode.length; i++) {
+			update = new CartService().updateOrdNoCart(memberId, proCode[i], ranStr);
+			result *= update;
+		}
 		
 		/* 주문서 form 으로 값 넘기기*/
 		request.setAttribute("codeList", codeList);

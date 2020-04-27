@@ -13,7 +13,6 @@
 	int maxPage = pi.getMaxPage();
 	
 	String proCode = (String)request.getAttribute("proCode");
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -127,7 +126,7 @@
 					<div class="productBtn">
 						<button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png"></button>
 						<button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png"></button>
-					</div>
+					</div> 
 				</td>
 			</tr>
 		</table>
@@ -196,7 +195,7 @@
 							}
 						}
 					}, error:function(){
-						alert("ajax 에러:장바구니 담기 실패");
+						alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
 					}
 				});
 				
