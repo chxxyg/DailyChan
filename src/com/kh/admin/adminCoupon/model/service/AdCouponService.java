@@ -36,4 +36,17 @@ public class AdCouponService {
 		return c;
 	}
 
+	/*
+	 * 조회버튼
+	 */
+	public ArrayList<AdCoupon> searchCoupon(String couponCode) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<AdCoupon> list = new AdCouponDao().searchCoupon(conn, couponCode);
+		close(conn);
+		
+		return list;
+	}
+
 }

@@ -79,10 +79,10 @@ private Properties prop = new Properties();
 			
 			if(rset.next()) {
 				c = new AdCoupon(rset.getString("COUPON_CODE"),
-									  rset.getString("COUPON_NAME"),
-									  rset.getString("COUPON_CONDITION"),
-									  rset.getInt("COUPON_EXP_DATE"),
-									  rset.getInt("COUPON_PRICE"));
+								 rset.getString("COUPON_NAME"),
+								 rset.getString("COUPON_CONDITION"),
+								 rset.getInt("COUPON_EXP_DATE"),
+								 rset.getInt("COUPON_PRICE"));
 			}
 			
 		} catch (SQLException e) {
@@ -93,4 +93,37 @@ private Properties prop = new Properties();
 		}		
 		return c;
 	}
+
+	public ArrayList<AdCoupon> searchCoupon(Connection conn, String couponCode) {
+		
+		ArrayList<AdCoupon> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("searchCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + couponCode + "%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new AdCoupon(rset.getString("COUPON_CODE"),
+						  			  rset.getString("COUPON_NAME"),
+						  			  rset.getString("COUPON_CONDITION"),
+						  			  rset.getInt("COUPON_EXP_DATE"),
+						  			  rset.getInt("COUPON_PRICE")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}				
+		return list;
+	}
 }
+
+
+

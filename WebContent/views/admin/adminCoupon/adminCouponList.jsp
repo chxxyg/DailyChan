@@ -132,7 +132,7 @@
         <h1>&nbsp;&nbsp;&nbsp;쿠폰관리</h1>
         <br>
         	<form id="searchForm" action="<%=contextPath%>/couponSearch.ad" method="post">쿠폰코드
-        		<input type="text" name="productCode"> <button type="submit" onclick="">조회</button> 
+        		<input type="text" name="couponCode"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
                 <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
