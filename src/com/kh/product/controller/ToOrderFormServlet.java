@@ -49,13 +49,13 @@ public class ToOrderFormServlet extends HttpServlet {
 	    }
 		
 		/* 장바구니 - 주문상태 'Y'로 변경 */
-		int update = 0;
-		int result = 1;
-		for(int i=0; i<proCode.length; i++) {
-			update = new CartService().updateCartStatus(memberId, proCode[i]);
-			result *= update;
-		}
-		
+//		int update = 0;
+//		int result = 1;
+//		for(int i=0; i<proCode.length; i++) {
+//			update = new CartService().updateCartStatus(memberId, proCode[i]);
+//			result *= update;
+//		}
+//		
 		/* ORDER_PRODUCT 테이블에 값 추가 */
 		int ranNo = (int)(Math.random() * 1000000 + 1);
 		String ranStr = "-" + String.valueOf(ranNo);
@@ -69,7 +69,6 @@ public class ToOrderFormServlet extends HttpServlet {
 		request.setAttribute("quantityList", quantityList);
 		request.setAttribute("delivery", delivery);
 		request.setAttribute("payAmount", payAmount);
-		request.setAttribute("ranStr", ranStr);
 		
 		request.getRequestDispatcher("views/product/orderPage.jsp").forward(request, response);;
 	

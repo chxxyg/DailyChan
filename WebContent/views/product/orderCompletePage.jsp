@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String msg = request.getParameter("msg"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,39 +44,7 @@
                 </div>
             </td>
         </tr>
-        <tr>
-            <td>
-                <table id="ocProductWrap">
-                    <tr style="background: lightgray; height: 50px; font-size: 20px;">
-                        <th style="width: 500px;">상품정보</th>
-                        <th style="width: 150px;">판매금액</th>
-                        <th style="width: 150px;">수량</th>
-                        <th style="width: 200px;">구매금액</th>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <table class="ocProductInnerTable">
-                                <tr>
-                                    <td><a href=""><img class="ocProductImg" src=""></a></td>
-                                    <td><a href=""><div class="ocProductName">데일리찬 상품명</div></a></td>
-                                    <td><div class="ocProductPrice">12,000</div></td>
-                                    <td>
-                                        <div class="ocProductAmountWrap">
-                                            <button class="ocProductMinusBtn" type="button">-</button>
-                                            <span class="ocProductAmount">60</span>
-                                            <button class="ocProductPlusBtn" type="button">+</button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="ocProductTotalPrice">720,000 원</div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+        
         <tr>
             <td>
                 <div id="ocTotalLabel">결제정보</div>
@@ -132,7 +99,7 @@
     
     <script type="text/javascript">
     	
-    alert(<%=msg%>);
+		alert("결재 성공");
     
     </script>
 </body>

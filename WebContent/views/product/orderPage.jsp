@@ -5,8 +5,6 @@
 	String nameList = (String)request.getAttribute("nameList");
 	String priceList = (String)request.getAttribute("priceList");
 	String quantityList = (String)request.getAttribute("quantityList");
-	String ranStr = (String)request.getAttribute("ranStr");
-	
 	int delivery = (int)request.getAttribute("delivery");
 	int payAmount = (int)request.getAttribute("payAmount");
 
@@ -104,11 +102,10 @@
                             <table>
                                 <tr>
                                     <td style="background: white; width: 300px;">보유 적립금 : <%=loginUser.getPointSum() %>원</td>
-                                    <td><input type="text" id="orderInputPoint" placeholder="사용할 적립금 입력"></td>
-                                    <td><button type="button" id="orderCouponBtn">적용</button></td>
+                                    <td><input type="text" id="orderInputPoint" placeholder="사용할 적립금 입력" ></td>
                                 </tr>
                             </table>
-                        </td>
+                        </td>	
                     </tr>
                     <tr>
                         <td>쿠폰 할인</td>
@@ -121,7 +118,6 @@
                                             <option value=""></option>
                                         </select>
                                     </td>
-                                    <td><button type="button" id="orderCouponBtn">적용</button></td>
                                 </tr>
                             </table>
                         </td>
@@ -175,34 +171,13 @@
                     <tr>
                         <td>배송 요청 사항</td>
                         <td>
-                            <input type="text" id="orderDeliveryRequest" list="requestList" name="orderDeliveryRequest" placeholder="배송 요청 사항을 입력해주세요.">
+                            <input type="text" id="orderDeliveryRequest" list="requestList" name="orderDeliveryRequest" placeholder="배송 요청 사항을 입력해주세요." value="">
                             <datalist id="requestList">
-                                <option>배송전 연락 바랍니다.</option>
-                                <option>부재 시 경비실에 맡겨주세요.</option>
-                                <option>부재 시 집 앞에 놔주세요.</option>
+                                <option value="배송전 연락 바랍니다.">배송전 연락 바랍니다.</option>
+                                <option value="부재 시 경비실에 맡겨주세요.">부재 시 경비실에 맡겨주세요.</option>
+                                <option value="부재 시 집 앞에 놔주세요.">부재 시 집 앞에 놔주세요.</option>
                             </datalist>
                         </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td class="orderLabel">결제 수단 선택</td>
-        </tr>
-        <tr>
-            <td>
-                <table id="orderPaymentType">
-                    <tr>
-                        <td><input type="checkbox"><label>무통장입금</label></td>
-                        <td rowspan="3">
-							선택한 결제 방식에 해당하는 내용 나오게 하기
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"><label>신용카드</label></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"><label><img src=""></label></td>
                     </tr>
                 </table>
             </td>
@@ -227,7 +202,7 @@
                         </td>
                         <td style="font-size: 30px; width: 10px;">-</td>
                         <td style="width: 150px; font-size: 30px;">
-                            <span id="orderDeliveryPrice">3,000</span> 원
+                            <span id="orderDeliveryPrice">0</span> 원
                         </td>
                         <td style="font-size: 30px; width: 10px;">+</td>
                         <td style="width: 150px; font-size: 30px;">
@@ -235,7 +210,7 @@
                         </td>
                         <td style="font-size: 30px; width: 10px;">=</td>
                         <td style="width: 300px; font-size: 35px; font-weight: 550;">
-                            <span id="orderProductTotalPrice"><%= payAmount - delivery %></span> 원
+                            <span id="SumOrderProductTotalPrice"><%= payAmount - delivery %></span> 원
                         </td>
                     </tr>
                 </table>
@@ -248,14 +223,46 @@
             </td>
         </tr>
     </table>
-        
+        <input id="orderNo" type="hidden" value="">
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>
     
     <script>
-		
-		
 		$(document).ready(function(){
+			var orderNo = $("#orderNo").val();
+			var userId = "<%=loginUser.getMemberId()%>";
+			$.ajax({
+				url: "<%=contextPath%>/orderProList.pro",
+				type: "POST",
+				data : {userId : userId},
+				success: function(op){
+					$("#orderNo").val(op.orderNo);
+				}
+			});
+			
+			$("#orderInputPoint").blur(function(){
+				
+			var inputPoint = $("#orderInputPoint");
+			if(inputPoint.val() < 0)
+			{
+				alert("0원 이하는 입력할 수 없습니다.");
+				inputPoint.val('');
+			}
+			else if(inputPoint.val() > <%=loginUser.getPointSum() %>)
+			{
+				alert("보유하신 적립금보다 높게 사용하실 수 없습니다.");
+				inputPoint.val('');
+			}
+			else
+			{
+				$("#orderDeliveryPrice").html(inputPoint.val());
+				var price1 = <%= payAmount - delivery %>;
+				var totalPrice = price1 - inputPoint.val();
+				console.log(totalPrice);
+				$("#SumOrderProductTotalPrice").html(totalPrice);
+			}
+			
+			});
 			
 			
 			// 배송지 조회
@@ -310,11 +317,30 @@
 				$("#info_addr").html(address);
 			}
 			}); // 배송지 조회 종료
+
 			
 			
 			var price = $("#orderProductTotalPrice").html();
-			console.log(price);
 			$("#orderBtn").click(function(){
+				var obj = new Object();
+				obj.orderNo = $("#orderNo").val(); // 주문번호
+				obj.memberId = "<%=loginUser.getMemberId()%>";
+				obj.memberName= "<%= loginUser.getMemberName()%>";
+				obj.phone = "<%= loginUser.getPhone()%>";
+				obj.email = "<%=loginUser.getEmail() %>";
+				obj.recipient = $("#info_name").html();
+				obj.emergencyConcat = $("#info_phone").html();	
+				obj.address = $("#info_addr").html();
+				obj.deliveryRequest = $("#orderDeliveryRequest").val();
+				obj.useCoupon = $("#orderInputPoint").val();
+				obj.usePoint = $("#orderInputPoint").val();
+				obj.payAmount = $("#orderProductTotalPrice").html();
+
+				var jsonData = JSON.stringify(obj)
+				console.log(jsonData);
+				
+				
+				
 				var IMP = window.IMP;
 				IMP.init("imp27012123"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
 					
@@ -323,16 +349,32 @@
 				  pg: "inicis",
 				  pay_method: "card",
 				  merchant_uid:  'merchant_' + new Date().getTime(),
-				  name: "<%=ranStr%>",
-				  amount: price,
+				  name: "<%=nameList%>",
+				  //amount: price,
+				  amount: "100",
 				  buyer_email: "<%=loginUser.getEmail()%>",
 				  buyer_name: $("#info_name").html(),
 				  buyer_tel: $("#info_phone").html(),
 				  buyer_addr: $("#info_addr").html(),
 				  buyer_postcode: "01181",
-				  m_redirect_url : '/dailChan/orderComplete.pro'	// 결제 완료 후 보낼 컨트롤러의 메소드명
+				  m_redirect_url : '/dailyChan/orderComplete.pro'	// 결제 완료 후 보낼 컨트롤러의 메소드명
 				}, function (rsp) { // callback
 					if ( rsp.success ) {
+						// 주문 조회 입력
+						var userId = "<%=loginUser.getMemberId()%>";
+						$.ajax({
+						url: "<%=contextPath%>/insertOrder.pro",
+						type: "POST",
+						data : {jsonData : jsonData},
+						success: function(list) 
+						{
+							alert("주문입력 완료");
+						}
+						}); // 주문조회 입력 완료
+						
+							location.href = "/dailyChan/orderComplete.pro";
+					 
+						
 				        var msg = '결제가 완료되었습니다.';
 				        msg += '고유ID : ' + rsp.imp_uid;
 				        msg += '상점 거래ID : ' + rsp.merchant_uid;
