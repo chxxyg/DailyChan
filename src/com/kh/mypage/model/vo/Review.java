@@ -19,9 +19,6 @@ public class Review {
 	
 	
 	
-	
-	
-	
 
 
 	public Review(int reviewBoardNo, String memberId, String reviewTitle, String reviewContent, int reviewRating,
@@ -34,12 +31,6 @@ public class Review {
 		this.reviewRating = reviewRating;
 		this.reviewCreateDate = reviewCreateDate;
 	}
-
-
-
-
-
-
 
 
 

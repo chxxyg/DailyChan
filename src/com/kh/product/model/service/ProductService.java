@@ -1,7 +1,6 @@
 package com.kh.product.model.service;
 
-import static com.kh.common.JDBCTemplate.close;
-import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -72,6 +71,11 @@ public class ProductService {
 	public int couponDownload(String cpno, String memberId) {
 		Connection conn = getConnection();
 		int result = new ProductDao().couponDownload(conn, cpno, memberId);
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
 		return result;
 	}
