@@ -144,7 +144,7 @@ body {
                   <ul>
                       <li><a href="<%=contextPath%>/discountList.ad">할인관리</a>
                       </li>
-                      <li><a href="">쿠폰관리</a>
+                      <li><a href="<%=contextPath%>/couponList.ad">쿠폰관리</a>
                       </li>
                       <li><a href="http://localhost:9999/dailyChan/views/admin/adminEvent/adminEventList.jsp">이벤트 리스트</a>
                       </li>
