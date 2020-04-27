@@ -239,7 +239,7 @@ div#detailReview{
 
 #reviewImgs{
 	width:420px;
-	height:530px;
+	height:100px;
 	margin:10px 0px 0px 50px;
 	float:left;
 	/*border:1px solid red;*/
@@ -249,14 +249,10 @@ div#detailReview{
 	margin-left:10px;
 }
 #bigImg~img{margin-top:10px;}
-#reviewDetails{
-	width:500px;
-	height:450px;
-	margin:10px 0px 0px 10px;
-	float:left;
-}
+
 #reviewDetails>span{
 	font-size:15px;
+	margin-top: 10px;
 	margin-bottom:8px;
 }
 #reviewAvg{

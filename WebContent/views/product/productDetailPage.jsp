@@ -207,61 +207,17 @@
 				<td width="100">writerID</td>
 				<td width="100">2020-04-10</td>
 			</tr>
+			
 			<tr class="reviewContent">
 				<td colspan="5">
-					<div id="reviewImgs">
-						<img id="bigImg" src="" width="400" height="400">
-						<img src="" width="100" height="100"><img src="" width="100" height="100">
-					</div>
 					<div id="reviewDetails">
 						<span><b>작성자명*</b></span>&nbsp;<span>2020-03-31</span>
 						<p id="reviewAvg">★★★★☆ 4.7</p>
-						<textarea rows="23" cols="60" id="reviewContent" style="resize:none;" readonly></textarea>
+						<textarea rows="10" cols="100" id="reviewContent" style="resize:none;" readonly></textarea>
 						<div id="likeReportBtns">
-							<button type="button"><img src="<%= contextPath %>/resources/img/thumbsuplogo.png" width="30" height="30"></button><p>20</p>
 							<button type="button"><img id="reportBtn" src="<%= contextPath %>/resources/img/sirenlogo.png" width="25" height="25"></button><p>신고</p>
 						</div>
 					</div>
-					<div id="reviewBtns">
-						<button type="button" onclick="deleteReview();">삭제</button>
-						<button type="button" onclick="updateReview();">수정</button>
-					</div>
-		      	</td>
-			</tr>
-			<tr>
-				<td width="100">1234</td>
-				<td width="100">★★★★☆</td>
-				<td class="reviewTitle" width="600">데일리찬 리뷰 나야나~~!~!@!@#</td>
-				<td width="100">writerID</td>
-				<td width="100">2020-04-10</td>
-			</tr>
-			<tr class="reviewContent">
-				<td colspan="5">
-					<div id="reviewImgs">
-						<img id="bigImg" src="" width="400" height="400">
-						<img src="" width="100" height="100"><img src="" width="100" height="100">
-					</div>
-					<div id="reviewDetails">
-						<span><b>작성자명*</b></span>&nbsp;<span>2020-03-31</span>
-						<p id="reviewAvg">★★★★☆ 4.7</p>
-						<textarea rows="23" cols="60" id="reviewContent" style="resize:none;" readonly></textarea>
-						<div id="likeReportBtns">
-							<button type="button"><img src="<%= contextPath %>/resources/img/thumbsuplogo.png" width="30" height="30"></button><p>20</p>
-							<button type="button"><img id="reportBtn" src="<%= contextPath %>/resources/img/sirenlogo.png" width="25" height="25"></button><p>신고</p>
-						</div>
-					</div>
-					<div id="reviewBtns">
-						<button type="button" onclick="deleteReview();">삭제</button>
-						<button type="button" onclick="updateReview();">수정</button>
-					</div>
-		      	</td>
-			</tr>
-			<tr>
-				<td width="100">1234</td>
-				<td width="100">★★★★☆</td>
-				<td class="reviewTitle" width="600">데일리찬 리뷰 나야나~~!~!@!@#</td>
-				<td width="100">writerID</td>
-				<td width="100">2020-04-10</td>
 			</tr>
 
 		</table>
@@ -321,7 +277,7 @@
     	});
     	
     	function insertReview(){
-    		window.open("<%=contextPath%>/reviewPop.re", "후기 작성", "width=500, height=730, left=500");
+    		window.open("<%=contextPath%>/reviewPop.re?pno=<%=p.getProCode()%>", "후기 작성", "width=505, height=525, left=500");
     	}
     	
     
