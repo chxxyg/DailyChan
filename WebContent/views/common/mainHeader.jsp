@@ -255,8 +255,24 @@
                             <input type="search" id="search-input" name="keyword" placeholder="찾고 싶은 상품을 검색해보세요">
                         </div>
                         <div id="search-btn-area">
-                        	<button type="submit" id="search-btn"><img src="<%=contextPath%>/resources/img/searchlogo.png" width="30px" height="30px"></button>
+                        	<button type="button" id="search-btn"><img src="<%=contextPath%>/resources/img/searchlogo.png" width="30px" height="30px"></button>
                         </div>
+                        <script>
+                        	
+                        $("#search-btn-area").click(function(){
+                        	var searchInput = $("#search-input").val();
+                        	console.log(searchInput);
+                        	if(searchInput == '')
+                       		{
+                        		alert("검색어를 입력해주세요.");
+                       		}
+                        	else
+                       		{
+                       			$("#search-form").submit();
+                       		}
+                        });
+                        
+                        </script>
                     </form>
                 </div>
 
