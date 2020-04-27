@@ -141,7 +141,7 @@
 					<div class="productBtn">
 						<button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png"></button>
 						<button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png"></button>
-					</div>
+					</div> 
 				</td>
 			</tr>
 		</table>
