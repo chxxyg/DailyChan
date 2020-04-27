@@ -35,4 +35,14 @@ public class AdDiscountService {
 		return d;
 	}
 
+	public ArrayList<AdDiscount> searchDiscount(String productCode) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<AdDiscount> list = new AdDiscountDao().searchDiscount(conn, productCode);
+		close(conn);
+		
+		return list;
+	}
+
 }
