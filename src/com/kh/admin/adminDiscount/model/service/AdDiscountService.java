@@ -35,6 +35,9 @@ public class AdDiscountService {
 		return d;
 	}
 
+	/*
+	 * 조회버튼
+	 */
 	public ArrayList<AdDiscount> searchDiscount(String productCode) {
 		
 		Connection conn = getConnection();
@@ -43,6 +46,23 @@ public class AdDiscountService {
 		close(conn);
 		
 		return list;
+	}
+
+	/*
+	 * 삭제
+	 */
+	public int deleteDiscount(int dc) {
+
+		Connection conn = getConnection();
+		int result = new AdDiscountDao().deleteDiscount(conn, dc);
+		
+		if(result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
 	}
 
 }
