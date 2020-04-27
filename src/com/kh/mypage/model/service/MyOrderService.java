@@ -11,7 +11,7 @@ import com.kh.mypage.model.vo.Mypage;
 
 public class MyOrderService {
 
-	/** 1. 주문/배송조회, 상세페이지조회, 최근구매한상품 조회용
+	/** 1_1. 주문배송조회
 	 * @param memberId
 	 * @return
 	 */
@@ -20,9 +20,19 @@ public class MyOrderService {
 		Connection conn = getConnection();
 		ArrayList<Mypage> myList = new MyOrderDao().selectOrder(conn, memberId);
 		close(conn);
-		System.out.println(myList);
 		return myList;
+	}
+	
+	/** 1_2. 주문배송조회 : 한 주문번호에 몇 개 상품 담겼나
+	 * @param memberId
+	 * @return
+	 */
+	public ArrayList<Mypage> countOrdNo(String memberId){
 		
+		Connection conn = getConnection();
+		ArrayList<Mypage> count = new MyOrderDao().countOrdNo(conn, memberId);
+		close(conn);
+		return count;
 	}
 	
 	/** 2. 취소반품조회

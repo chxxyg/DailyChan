@@ -285,7 +285,7 @@
     		});
     		
     		
-    		/* 선택 상품 주문 버튼 서블릿 연결 */
+    		/* 주문 버튼 서블릿 연결 */
     		$("#cartSelectedOrder").click(function(){
 
     			var proCode = [];
