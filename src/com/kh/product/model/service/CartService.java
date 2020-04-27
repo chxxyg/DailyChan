@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.product.model.dao.CartDao;
-import com.kh.product.model.vo.AttachmentProduct;
+import com.kh.product.model.vo.OrderProduct;
 import com.kh.product.model.vo.ShoppingCart;
 
 public class CartService {
@@ -122,6 +122,16 @@ public class CartService {
 		}
 		close(conn);
 		return insert;
+	}
+	
+	public OrderProduct orderNo(String userId)
+	{
+	    Connection conn = getConnection();
+	    OrderProduct op = new CartDao().orderNo(conn, userId);
+	    
+	    close(conn);
+	    return op;
+	    
 	}
 	
 }

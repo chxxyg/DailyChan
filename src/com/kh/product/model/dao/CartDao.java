@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.product.model.vo.AttachmentProduct;
+import com.kh.product.model.vo.OrderProduct;
 import com.kh.product.model.vo.ShoppingCart;
 
 public class CartDao {
@@ -254,5 +255,40 @@ public class CartDao {
 		return fileName;
 		
 	}*/
+	
+	public OrderProduct orderNo(Connection conn, String userId)
+	{
+	    OrderProduct op = new OrderProduct();
+	    PreparedStatement pstmt = null;
+	    ResultSet rset = null;
+	    String sql = prop.getProperty("orderNo");
+	    
+	    try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            
+            rset = pstmt.executeQuery();
+            
+            if(rset.next())
+            {
+                op.setOrderNo(rset.getString("ORDER_NO"));
+                op.setMemberId(rset.getString("MEMBER_ID"));
+                op.setOrderStatus(rset.getString("ORDER_STATUS"));
+            }
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+	    finally
+	    {
+	        close(rset);
+	        close(pstmt);
+	    }
+	    
+	    
+	    return op;
+	}
 	
 }

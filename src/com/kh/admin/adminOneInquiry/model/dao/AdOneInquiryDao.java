@@ -62,4 +62,66 @@ public class AdOneInquiryDao {
 		return list;
 	}
 
+	public AdOneInquiry detailAdOneInquiry(Connection conn, int ibn) {
+		
+		AdOneInquiry i = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ibn);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				i = new AdOneInquiry(rset.getInt("INQUIRY_BOARD_NO"),
+						  			 rset.getDate("INQUIRY_CREATE_DATE"),
+						  			 rset.getString("MEMBER_ID"),
+						  			 rset.getString("INQUIRY_TITLE"),
+						  			 rset.getString("INQUIRY_CONTENT"),
+						  			 rset.getString("INQUIRY_RESPONSE_YN"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}		
+		return i;
+	}
+
+	public ArrayList<AdOneInquiry> search(Connection conn, String memberId) {
+		
+		ArrayList<AdOneInquiry> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset =  null;
+		
+		String sql = prop.getProperty("search");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + memberId + "%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new AdOneInquiry(rset.getInt("INQUIRY_BOARD_NO"),
+						  			 	  rset.getDate("INQUIRY_CREATE_DATE"),
+						  			 	  rset.getString("MEMBER_ID"),
+						  			 	  rset.getString("INQUIRY_TITLE"),
+						  			 	  rset.getString("INQUIRY_CONTENT"),
+						  			 	  rset.getString("INQUIRY_RESPONSE_YN")));
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+
 }

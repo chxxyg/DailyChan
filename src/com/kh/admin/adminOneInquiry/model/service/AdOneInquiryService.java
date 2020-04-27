@@ -22,4 +22,30 @@ public class AdOneInquiryService {
 		return list;
 	}
 
+	/*
+	 * 상세조회용
+	 */
+	public AdOneInquiry detailAdOneInquiry(int ibn) {
+		
+		Connection conn = getConnection();
+		
+		AdOneInquiry i = new AdOneInquiryDao().detailAdOneInquiry(conn, ibn);
+		close(conn);
+		
+		return i;
+	}
+
+	/*
+	 * 조회버튼용
+	 */
+	public ArrayList<AdOneInquiry> search(String memberId) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<AdOneInquiry> list = new AdOneInquiryDao().search(conn, memberId);
+		close(conn);
+		
+		return list;
+	}
+
 }
