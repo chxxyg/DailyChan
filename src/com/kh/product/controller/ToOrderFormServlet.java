@@ -62,9 +62,6 @@ public class ToOrderFormServlet extends HttpServlet {
 			result *= update;
 		}
 		
-		//System.out.println(result);
-		
-		
 		/* 주문서 form 으로 값 넘기기*/
 		request.setAttribute("codeList", codeList);
 		request.setAttribute("nameList", nameList);

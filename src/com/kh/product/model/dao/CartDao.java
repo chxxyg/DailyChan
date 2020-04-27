@@ -224,8 +224,6 @@ public class CartDao {
 			
 			update = pstmt.executeUpdate();
 			
-			System.out.println(update);
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
