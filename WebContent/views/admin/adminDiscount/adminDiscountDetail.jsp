@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.admin.adminReview.model.vo.AdReview" %> 
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminDiscount.model.vo.AdDiscount" %>
 <%
-	AdReview v = (AdReview)request.getAttribute("v");
+	AdDiscount d = (AdDiscount)request.getAttribute("d");
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>할인상세조회</title>
     <style>
     /*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -74,41 +74,33 @@
 
     <div id="adproductEnroll">
        <div id="outer">
-        <h1>&nbsp;&nbsp;&nbsp;리뷰정보</h1>
+        <h1>&nbsp;&nbsp;&nbsp;할인정보</h1>
        <form id="collectForm" action="" method="post">      
         <table id="adcate">
             <tr>
-                <td width="200" >번호</td>
-                <td><input type="text" value="<%=v.getReviewBoardNo() %>" name="rno"  readonly></td>
+                <td width="200" >할인코드</td>
+                <td><input type="text" value="<%=d.getDiscountCode() %>" name="dc"  readonly></td>
             </tr>
             <tr>
-                <td width="200" >주문번호</td>
-                <td><input type="text" value="<%=v.getOrderNo() %>" name="orderNo"  readonly></td>
+                <td width="200" >상품코드</td>
+                <td><input type="text" value="<%=d.getProductCode() %>" name="pco"  readonly></td>
             </tr>
             <tr>
-                <td width="200">상품코드</td>
-                <td><input type="text" value="<%=v.getProductCode() %>" name="productCode" readonly></td>
+                <td width="200">시작일</td>
+                <td><input type="text" value="<%=d.getDiscountStartDate() %>" name="start" readonly></td>
             </tr>
             <tr>
-                <td width="200">작성일자</td>
-                <td><input type="text" value="<%=v.getReviewCreateDate() %>" name="createDate" readonly></td>
+                <td width="200">종료일</td>
+                <td><input type="text" value="<%=d.getDiscountEndDate() %>" name="end" readonly></td>
             </tr>
             <tr>
-                <td width="200">아이디</td>
-                <td><input type="text" value="<%=v.getMemberId() %>"name="memberId" readonly></td>
-            </tr>
-            <tr>
-                <td width="200">제목</td>
-                <td><input type="text" value="<%=v.getReviewTitle() %>" name="title" readonly></td>
-            </tr>
-            <tr>
-                <td width="200">내용</td>
-                <td><input type="text" value="<%=v.getReviewContent() %>" name="content" readonly></td>
-            </tr>          
+                <td width="200">할인율</td>
+                <td><input type="text" value="<%=d.getDiscountRate() %>"name="rate" readonly></td>
+            </tr>         
         </table>
        		 <div id="enrollsubmit">
-        		<button type="button" onclick="reviewResponse();">삭제하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/discountList.ad';">목록으로</button>
+        		<button type="button" onclick="discountDelete();">삭제하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="location.href='<%=contextPath%>/reviewList.ad';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
         
@@ -117,10 +109,10 @@
     </div>
 
     <script>
-    	function reviewResponse(){   		
+    	function discountDelete(){   		
     		var bool = confirm("삭제하시겠습니까?");
     		if(bool){
-    			location.href = "<%=contextPath%>/reviewDelete.ad?rno=<%=v.getReviewBoardNo()%>";
+    			location.href = "<%=contextPath%>/discountDelete.ad?dc=<%=d.getDiscountCode()%>";
     			alert("삭제완료!");
     		}else{
     			alert("취소하였습니다.");

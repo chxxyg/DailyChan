@@ -61,4 +61,33 @@ public class AdDiscountDao {
 		}
 		return list;
 	}
+
+	public AdDiscount detailDiscount(Connection conn, int dc) {
+		
+		AdDiscount d = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailDiscount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dc);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				d = new AdDiscount(rset.getInt("DISCOUNT_CODE"),
+								   rset.getString("PRODUCT_CODE"),
+								   rset.getDate("DISCOUNT_STARTDATE"),
+								   rset.getDate("DISCOUNT_ENDDATE"),
+								   rset.getInt("DISCOUNT_RATE"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			close(rset);
+			close(pstmt);
+		}		
+		return d;
+	}
 }

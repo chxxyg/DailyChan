@@ -131,11 +131,11 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;할인관리</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/reviewSearch.ad" method="post">회원 ID 
+        	<form id="searchForm" action="<%=contextPath%>/discountSearch.ad" method="post">회원 ID 
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value=""> 개</div>
+                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
                 
         </div>  
         <table class="listMember">
@@ -171,9 +171,9 @@
    			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			var rbo = $(this).children().eq(0).text();
+	   			var dc = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/reviewDetail.ad?rbo=" + rbo; 
+	 			location.href="<%= contextPath%>/datailDiscount.ad?dc=" + dc; 
  			});
  
    		});   

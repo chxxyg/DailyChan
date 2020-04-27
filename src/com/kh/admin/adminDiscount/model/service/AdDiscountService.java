@@ -22,4 +22,17 @@ public class AdDiscountService {
 		return list;
 	}
 
+	/*
+	 * 상세조회
+	 */
+	public AdDiscount detailDiscount(int dc) {
+		
+		Connection conn = getConnection();
+		
+		AdDiscount d = new AdDiscountDao().detailDiscount(conn, dc);
+		close(conn);
+		
+		return d;
+	}
+
 }
