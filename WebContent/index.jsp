@@ -767,51 +767,7 @@
             </table>
         </div>
     </div>
-    
 
-    <div id="instaWrap">
-        
-        <table id="instaTable">
-            <tr>
-                <td colspan="2" style="height: 100px;">
-                <img id="instaLogo" src="<%=contextPath%>/resources/img/instalogo.png" alt="">
-                <div id="instaLabel">&nbsp;Instagram</div>
-                </td>
-                <td colspan="2">
-                    <div class="instaDetail">@dailychan_fotd</div>
-                    <div class="instaDetail">#dailychan #fotd</div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img id="instaImg1" class="instaImg" src="">
-                </td>
-                <td>
-                    <img id="instaImg2" class="instaImg" src="">
-                </td>
-                <td>
-                    <img id="instaImg3" class="instaImg" src="">
-                </td>
-                <td>
-                    <img id="instaImg4" class="instaImg" src="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img id="instaImg5" class="instaImg" src="">
-                </td>
-                <td>
-                    <img id="instaImg6" class="instaImg" src="">
-                </td>
-                <td>
-                    <img id="instaImg7" class="instaImg" src="">
-                </td>
-                <td>
-                    <img id="instaImg8" class="instaImg" src="">
-                </td>
-            </tr>
-        </table>
-    </div>
 	
 	<%@ include file="views/common/mainFooter.jsp" %>	
 	
