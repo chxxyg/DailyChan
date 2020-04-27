@@ -124,11 +124,12 @@
 							<div>
 								<label>상품에 대한 평점을 선택하세요. &nbsp; </label>
 								<select name="reviewSum" style="width: 50px; height: 20px; color: gray;">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
+									<option value=5>★★★★★</option>
+									<option value=4>★★★★☆</option>
+									<option value=3>★★★☆☆</option>
+									<option value=2>★★☆☆☆</option>
+									<option value=1>★☆☆☆☆</option>
+									<option value=0>☆☆☆☆☆</option>
 								</select>
 							</div>
 						</td>
