@@ -182,8 +182,21 @@
 	       
 		<div id="detailReview">
 			<span id="detailGpaLabel">구매 고객 평점&nbsp;&nbsp;</span>
-			<span id="detailGpa">★★★★☆ 4.7</span>
-			<span id="detailGpaInfo">등록된 리뷰 120건 기준</span>
+			<span id="detailGpa"><% if(p.getProReviewSum()<1){ %>
+                                    	☆☆☆☆☆
+                                 <% }else if(p.getProReviewSum()<2){ %>
+                                    	★☆☆☆☆ 
+                                 <% }else if(p.getProReviewSum()<3){ %>
+                                    	★★☆☆☆ 
+                                 <% }else if(p.getProReviewSum()<4){ %>
+                                    	★★★☆☆ 
+                                 <% }else if(p.getProReviewSum()<5){ %>
+                                    	★★★★☆
+                                 <% }else if(p.getProReviewSum()>=5){ %>
+                                    	★★★★★
+                                 <% } %>
+                                 <%=p.getProReviewSum() %></span>
+			<span id="detailGpaInfo">등록된 리뷰 <%=p.getProReviewCount()%>건 기준</span>
 		</div>
 	      
 		<table id="reviewList" width="1000">
@@ -250,83 +263,7 @@
 				<td width="100">writerID</td>
 				<td width="100">2020-04-10</td>
 			</tr>
-			<tr class="reviewContent">
-				<td colspan="5">
-					<div id="reviewImgs">
-						<img id="bigImg" src="" width="400" height="400">
-						<img src="" width="100" height="100"><img src="" width="100" height="100">
-					</div>
-					<div id="reviewDetails">
-						<span><b>작성자명*</b></span>&nbsp;<span>2020-03-31</span>
-						<p id="reviewAvg">★★★★☆ 4.7</p>
-						<textarea rows="23" cols="60" id="reviewContent" style="resize:none;" readonly></textarea>
-						<div id="likeReportBtns">
-							<button type="button"><img src="<%= contextPath %>/resources/img/thumbsuplogo.png" width="30" height="30"></button><p>20</p>
-							<button type="button"><img id="reportBtn" src="<%= contextPath %>/resources/img/sirenlogo.png" width="25" height="25"></button><p>신고</p>
-						</div>
-					</div>
-					<div id="reviewBtns">
-						<button type="button" onclick="deleteReview();">삭제</button>
-						<button type="button" onclick="updateReview();">수정</button>
-					</div>
-		      	</td>
-			</tr>
-			<tr>
-				<td width="100">1234</td>
-				<td width="100">★★★★☆</td>
-				<td class="reviewTitle" width="600">데일리찬 리뷰 나야나~~!~!@!@#</td>
-				<td width="100">writerID</td>
-				<td width="100">2020-04-10</td>
-			</tr>
-			<tr class="reviewContent">
-				<td colspan="5">
-					<div id="reviewImgs">
-						<img id="bigImg" src="" width="400" height="400">
-						<img src="" width="100" height="100"><img src="" width="100" height="100">
-					</div>
-					<div id="reviewDetails">
-						<span><b>작성자명*</b></span>&nbsp;<span>2020-03-31</span>
-						<p id="reviewAvg">★★★★☆ 4.7</p>
-						<textarea rows="23" cols="60" id="reviewContent" style="resize:none;" readonly></textarea>
-						<div id="likeReportBtns">
-							<button type="button"><img src="<%= contextPath %>/resources/img/thumbsuplogo.png" width="30" height="30"></button><p>20</p>
-							<button type="button"><img id="reportBtn" src="<%= contextPath %>/resources/img/sirenlogo.png" width="25" height="25"></button><p>신고</p>
-						</div>
-					</div>
-					<div id="reviewBtns">
-						<button type="button" onclick="deleteReview();">삭제</button>
-						<button type="button" onclick="updateReview();">수정</button>
-					</div>
-		      	</td>
-			</tr>
-			<tr>
-				<td width="100">1234</td>
-				<td width="100">★★★★☆</td>
-				<td class="reviewTitle" width="600">데일리찬 리뷰 나야나~~!~!@!@#</td>
-				<td width="100">writerID</td>
-				<td width="100">2020-04-10</td>
-			</tr>
-			<tr class="reviewContent">
-				<td colspan="5">
-					<div id="reviewImgs">
-						<img id="bigImg" src="" width="400" height="400">
-						<img src="" width="100" height="100"><img src="" width="100" height="100">
-					</div>
-					<div id="reviewDetails">
-						<span><b>작성자명*</b></span>&nbsp;<span>2020-03-31</span>
-						<p id="reviewAvg">★★★★☆ 4.7</p>
-						<textarea rows="23" cols="60" id="reviewContent" style="resize:none;" readonly></textarea>
-						<div id="likeReportBtns">
-							<button type="button"><img src="<%= contextPath %>/resources/img/thumbsuplogo.png" width="30" height="30"></button><p>20</p>
-							<button type="button"><img id="reportBtn" src="<%= contextPath %>/resources/img/sirenlogo.png" width="25" height="25"></button><p>신고</p>
-						</div>
-					</div>
-					<div id="reviewBtns">
-						<button type="button" onclick="deleteReview();">삭제</button>
-						<button type="button" onclick="updateReview();">수정</button>
-					</div>
-		      	</td>
-			</tr>
+
 		</table>
 	         
 		<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
