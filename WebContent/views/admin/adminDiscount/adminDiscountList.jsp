@@ -131,8 +131,8 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;할인관리</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/discountSearch.ad" method="post">회원 ID 
-        		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
+        	<form id="searchForm" action="<%=contextPath%>/discountSearch.ad" method="post">상품코드
+        		<input type="text" name="productCode"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
                 <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>

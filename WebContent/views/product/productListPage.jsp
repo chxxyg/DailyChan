@@ -13,7 +13,6 @@
 	int maxPage = pi.getMaxPage();
 	
 	String proCode = (String)request.getAttribute("proCode");
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -210,7 +209,7 @@
 							}
 						}
 					}, error:function(){
-						alert("ajax 에러:장바구니 담기 실패");
+						alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
 					}
 				});
 				

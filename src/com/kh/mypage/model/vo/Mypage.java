@@ -27,7 +27,7 @@ public class Mypage {
 	public Mypage() { }
 	
 	/* 주문배송조회 */
-	public Mypage(String proCode, int price, int quantity, String orderNo, Date orderDate, int status, String proName) {
+	public Mypage(String proCode, int price, int quantity, String orderNo, Date orderDate, int status, String proName, String fileName) {
 		super();
 		this.proCode = proCode;
 		this.price = price;
@@ -36,6 +36,7 @@ public class Mypage {
 		this.orderDate = orderDate;
 		this.status = status;
 		this.proName = proName;
+		this.fileName = fileName;
 	}
 	
 	/* 한 주문코드에 담긴 상품들 개수 */

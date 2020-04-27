@@ -90,4 +90,35 @@ public class AdDiscountDao {
 		}		
 		return d;
 	}
+
+	public ArrayList<AdDiscount> searchDiscount(Connection conn, String productCode) {
+		
+		ArrayList<AdDiscount> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("searchDiscount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + productCode + "%");
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new AdDiscount(rset.getInt("DISCOUNT_CODE"),
+										rset.getString("PRODUCT_CODE"),
+										rset.getDate("DISCOUNT_STARTDATE"),
+										rset.getDate("DISCOUNT_ENDDATE"),
+										rset.getInt("DISCOUNT_RATE")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
 }

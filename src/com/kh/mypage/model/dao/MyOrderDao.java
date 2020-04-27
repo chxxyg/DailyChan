@@ -54,7 +54,8 @@ public class MyOrderDao {
 									   rset.getString("ORDER_NO"),
 									   rset.getDate("ORDER_DATE"),
 									   rset.getInt("STATUS"),
-									   rset.getString("PRODUCT_NAME")));
+									   rset.getString("PRODUCT_NAME"),
+									   rset.getString("FILE_NAME")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
