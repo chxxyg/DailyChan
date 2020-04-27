@@ -3,6 +3,7 @@ package com.kh.admin.adminReview.model.service;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.admin.adminProduct.model.dao.AdProductDao;
 import com.kh.admin.adminReview.model.dao.AdReviewDao;
 import com.kh.admin.adminReview.model.vo.AdReview;
 
@@ -47,6 +48,26 @@ public class AdReviewService {
 		close(conn);
 		
 		return list;
+	}
+	/*
+	 * 삭제용
+	 */
+	public int deleteReview(int rno) {
+		
+		Connection conn = getConnection();
+
+		int result = new AdReviewDao().deleteReview(conn, rno);
+		
+		
+		
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);		
+		return result;
 	}
 
 }

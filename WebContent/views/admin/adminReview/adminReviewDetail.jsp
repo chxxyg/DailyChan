@@ -107,7 +107,7 @@
             </tr>          
         </table>
        		 <div id="enrollsubmit">
-        		<button type="button" onclick="reviewResponse();">답변하기</button>&nbsp;&nbsp;
+        		<button type="button" onclick="reviewResponse();">삭제하기</button>&nbsp;&nbsp;
         		<button type="button" onclick="location.href='<%=contextPath%>/reviewList.ad';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
@@ -118,10 +118,10 @@
 
     <script>
     	function reviewResponse(){   		
-    		var bool = confirm("답변하시겠습니까?");
+    		var bool = confirm("삭제하시겠습니까?");
     		if(bool){
-    			location.href = "<%=contextPath%>/reviewResponse.ad?rno=<%=v.getReviewBoardNo()%>";
-    			alert("답변완료!");
+    			location.href = "<%=contextPath%>/reviewDelete.ad?rno=<%=v.getReviewBoardNo()%>";
+    			alert("삭제완료!");
     		}else{
     			alert("취소하였습니다.");
     		}   			
