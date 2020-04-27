@@ -80,21 +80,7 @@
                 </table>
             </td>
         </tr>
-        <tr>
-            <td colspan="4" style="text-align: right;">
-                <div id="categoryFilter">
-                    <span><a href="">인기순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">최신순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">낮은가격순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">높은가격순</a></span>
-                    <span>&nbsp; | &nbsp;</span>
-                    <span><a href="">고객리뷰순</a></span>
-                </div>
-            </td>
-        </tr>
+
 	</table>
 	
 	<div id="productListWrap">
