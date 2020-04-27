@@ -77,7 +77,7 @@
     	$(function(){
     		
     		$("#couponBtn3").click(function(){
-    			
+				<% if(loginUser != null){ %>
     			$.ajax({
     				url:"/dailyChan/insert.cp",
     				data:{"cpno":"C0003"},
@@ -92,6 +92,9 @@
     					
     				}
     			});
+    			<% }else{%>
+				alert("로그인이 필요합니다.");
+				<%}%>
     		});
     	});
 
