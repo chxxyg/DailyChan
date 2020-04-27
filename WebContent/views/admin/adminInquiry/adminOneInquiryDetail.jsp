@@ -104,7 +104,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="button" onclick="responseInquiry();">답변하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/adOneInquiryList.ad;">목록으로</button>
+        		<button type="button" onclick="location.href='<%=contextPath%>/adOneInquiryList.ad';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
         

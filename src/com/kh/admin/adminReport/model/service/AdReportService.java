@@ -46,6 +46,6 @@ public class AdReportService {
 		ArrayList<adReport> list = new AdReportDao().searchReport(conn, memberId);
 		close(conn);		
 		return list;
-	}
+	} 
 
 }
