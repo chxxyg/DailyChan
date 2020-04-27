@@ -23,4 +23,17 @@ public class AdCouponService {
 		return list;
 	}
 
+	/*
+	 * 상세조회
+	 */
+	public AdCoupon detailCoupon(String cc) {
+
+		Connection conn = getConnection();
+		
+		AdCoupon c = new AdCouponDao().detailCoupon(conn, cc);
+		close(conn);
+		
+		return c;
+	}
+
 }

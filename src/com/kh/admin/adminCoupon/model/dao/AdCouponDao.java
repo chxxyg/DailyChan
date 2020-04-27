@@ -64,4 +64,33 @@ private Properties prop = new Properties();
 		
 		return list;
 	}
+
+	public AdCoupon detailCoupon(Connection conn, String cc) {
+		
+		AdCoupon c = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cc);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				c = new AdCoupon(rset.getString("COUPON_CODE"),
+									  rset.getString("COUPON_NAME"),
+									  rset.getString("COUPON_CONDITION"),
+									  rset.getInt("COUPON_EXP_DATE"),
+									  rset.getInt("COUPON_PRICE"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}		
+		return c;
+	}
 }
