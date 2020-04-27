@@ -82,28 +82,28 @@
                 <td><input type="text" value="<%=v.getReviewBoardNo() %>" name="rno"  readonly></td>
             </tr>
             <tr>
-                <td width="200" >아이디</td>
-                <td><input type="text" value="<%=v.getMemberId() %>" name="memberId"  readonly></td>
-            </tr>
-            <tr>
-                <td width="200">작성시간</td>
-                <td><input type="text" value="<%=v.getReviewCreateDate() %>" name="createDate" readonly></td>
+                <td width="200" >주문번호</td>
+                <td><input type="text" value="<%=v.getOrderNo() %>" name="orderNo"  readonly></td>
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input type="text" value="<%=v.getProductCode() %>" name="code" readonly></td>
+                <td><input type="text" value="<%=v.getProductCode() %>" name="productCode" readonly></td>
+            </tr>
+            <tr>
+                <td width="200">작성일자</td>
+                <td><input type="text" value="<%=v.getReviewCreateDate() %>" name="createDate" readonly></td>
+            </tr>
+            <tr>
+                <td width="200">아이디</td>
+                <td><input type="text" value="<%=v.getMemberId() %>"name="memberId" readonly></td>
             </tr>
             <tr>
                 <td width="200">제목</td>
-                <td><input type="text" value="<%=v.getReviewTitle() %>"name="title" readonly></td>
+                <td><input type="text" value="<%=v.getReviewTitle() %>" name="title" readonly></td>
             </tr>
             <tr>
                 <td width="200">내용</td>
                 <td><input type="text" value="<%=v.getReviewContent() %>" name="content" readonly></td>
-            </tr>
-            <tr>
-                <td width="200">첨부파일유무</td>
-                <td><input type="text" value="<%=v.getReviewAttachmentYn() %>" name="yn" readonly></td>
             </tr>          
         </table>
        		 <div id="enrollsubmit">

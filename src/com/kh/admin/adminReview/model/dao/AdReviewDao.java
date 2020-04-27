@@ -50,13 +50,12 @@ private Properties prop = new Properties();
 			
 			while(rset.next()) {
 				list.add(new AdReview(rset.getInt("REVIEW_BOARD_NO"),
-									  rset.getDate("REVIEW_CREATE_DATE"),
 									  rset.getString("ORDER_NO"),
+									  rset.getString("PRODUCT_CODE"),
+									  rset.getDate("REVIEW_CREATE_DATE"),
 									  rset.getString("MEMBER_ID"),
 									  rset.getString("REVIEW_TITLE"),
-									  rset.getString("REVIEW_CONTENT"),
-									  rset.getString("REVIEW_ATTACHMENT_YN"),
-									  rset.getString("REVIEW_RESPONSE_YN")));
+									  rset.getString("REVIEW_CONTENT")));
 			}
 			
 		} catch (SQLException e) {
@@ -82,12 +81,12 @@ private Properties prop = new Properties();
 			
 			if(rset.next()) {
 				v = new AdReview(rset.getInt("REVIEW_BOARD_NO"),
-								 rset.getString("MEMBER_ID"),
-								 rset.getDate("REVIEW_CREATE_DATE"),
-								 rset.getString("PRODUCT_CODE"),
-								 rset.getString("REVIEW_TITLE"),
-								 rset.getString("REVIEW_CONTENT"),
-								 rset.getString("REVIEW_ATTACHMENT_YN"));
+						  		 rset.getString("ORDER_NO"),
+						  		 rset.getString("PRODUCT_CODE"),
+						  		 rset.getDate("REVIEW_CREATE_DATE"),
+						  		 rset.getString("MEMBER_ID"),
+						  		 rset.getString("REVIEW_TITLE"),
+						  		 rset.getString("REVIEW_CONTENT"));
 			}
 			
 		} catch (SQLException e) {
@@ -116,13 +115,12 @@ private Properties prop = new Properties();
 			while(rset.next()) {
 				
 				list.add(new AdReview(rset.getInt("REVIEW_BOARD_NO"),
-									  rset.getDate("REVIEW_CREATE_DATE"),
-									  rset.getString("ORDER_NO"),
-									  rset.getString("MEMBER_ID"),
-									  rset.getString("REVIEW_TITLE"),
-									  rset.getString("REVIEW_CONTENT"),
-									  rset.getString("REVIEW_ATTACHMENT_YN"),
-									  rset.getString("REVIEW_RESPONSE_YN")));
+						  			  rset.getString("ORDER_NO"),
+						  			  rset.getString("PRODUCT_CODE"),
+						  			  rset.getDate("REVIEW_CREATE_DATE"),
+						  			  rset.getString("MEMBER_ID"),
+						  			  rset.getString("REVIEW_TITLE"),
+						  			  rset.getString("REVIEW_CONTENT")));
 			}
 			
 		} catch (SQLException e) {

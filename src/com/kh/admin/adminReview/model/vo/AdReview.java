@@ -26,19 +26,17 @@ public class AdReview {
 	/*
 	 * 리뷰리스트 조회용
 	 */
-	public AdReview(int reviewBoardNo, Date reviewCreateDate, String orderNo, String memberId, 
-			String reviewTitle, String reviewContent, String reviewAttachmentYn, 
-			String reviewResponseYn) {
+	public AdReview(int reviewBoardNo, String orderNo, String productCode, Date reviewCreateDate,  
+			String memberId, String reviewTitle, String reviewContent) {
 			
 			super();
 			this.reviewBoardNo = reviewBoardNo;
-			this.reviewCreateDate = reviewCreateDate;
 			this.orderNo = orderNo;
+			this.productCode = productCode;
+			this.reviewCreateDate = reviewCreateDate;
 			this.memberId = memberId;
 			this.reviewTitle = reviewTitle;
 			this.reviewContent = reviewContent;
-			this.reviewAttachmentYn = reviewAttachmentYn;
-			this.reviewResponseYn = reviewResponseYn;
 	}
 	
 	

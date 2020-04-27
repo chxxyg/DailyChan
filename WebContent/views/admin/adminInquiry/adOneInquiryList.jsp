@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReview.model.vo.AdReview" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminOneInquiry.model.vo.AdOneInquiry" %>
 <%
-	ArrayList<AdReview> list = (ArrayList<AdReview>)request.getAttribute("list"); 
+	ArrayList<AdOneInquiry> list = (ArrayList<AdOneInquiry>)request.getAttribute("list"); 
 %>    
-        
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>리뷰리스트</title>
-    <style>
+<meta charset="UTF-8">
+<title>1:1상담리스트</title>
+<style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
     	/*content전체 영역 건들지말것*/
@@ -99,27 +98,6 @@
 			background-color:#5554547e;
 			cursor:pointer;
 		}
-		.emphasis {
-			box-shadow:inset 0px 1px 0px 0px #181c20;
-			background:linear-gradient(#181c20);
-			background-color:#181c20;
-			border:1px solid #181c20;
-			cursor:pointer;
-			color:#ffffff;
-			font-family:Arial;
-			font-weight:bold;
-
-			text-decoration:none;
-			text-shadow:0px 1px 0px #181c20;
-		}
-		.emphasis:hover {
-			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
-			background-color:#5554547e;
-		}
-		.emphasis:active {
-			position:relative;
-			top:1px;
-		}
          
       
     </style>
@@ -129,37 +107,35 @@
 	
     <div id="adproduct">
       <div class="outer">
-        <h1>&nbsp;&nbsp;&nbsp;리뷰관리</h1>
+        <h1>&nbsp;&nbsp;&nbsp;1:1상담관리</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/reviewSearch.ad" method="post">회원 ID 
+        	<form id="searchForm" action="<%=contextPath%>/reportSearch.ad" method="post">회원 ID 
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
+                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value=""> 개</div>
                 
         </div>  
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="60">번호</th>
-                    <th width="70">주문번호</th>
-                    <th width="100">상품코드</th>
-                    <th width="150">작성시간</th> 
-                    <th width="150">아이디</th>
-                    <th width="150">제목</th>
-                    <th width="350">내용</th>
+                    <th width="100">신고번호</th>
+                    <th width="100">리뷰번호</th> 
+                    <th width="150">피신고인</th>
+                    <th width="150">신고인</th>
+                    <th width="200">신고날짜</th>
+                    <th width="400">신고내용</th>
                 </tr>
             </thead>
             <tbody>
-					<% for(AdReview v : list){ %>
+					<% for(adReport r : list){ %>
                 <tr>
-                    <td><%= v.getReviewBoardNo() %></td>
-                    <td><%= v.getOrderNo() %></td>
-                    <td><%= v.getProductCode() %></td>
-                    <td><%= v.getReviewCreateDate() %></td>
-                    <td><%= v.getMemberId() %></td>
-                    <td><%= v.getReviewTitle() %></td>
-                    <td><%= v.getReviewContent() %></td>
+                    <td><%= r.getReportNo() %></td>
+                    <td><%= r.getReviewBoardNo() %></td>
+                    <td><%= r.getMemberId() %></td>
+                    <td><%= r.getMemberId2() %></td>
+                    <td><%= r.getReportDate() %></td>
+                    <td><%= r.getReportContent() %></td>
                 </tr>
                 <% } %>
                
@@ -175,9 +151,9 @@
    			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			var rbo = $(this).children().eq(0).text();
+	   			var mid = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/reviewDetail.ad?rbo=" + rbo; 
+	 			location.href="<%= contextPath%>/reportDetail.ad?rno=" + rno; 
  			});
  
    		});   

@@ -135,7 +135,7 @@ body {
                     <a href="javascript:void(0);"><i class="fa fa-question"></i><span>문의관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminOneControlList.jsp">1:1 상담 관리</a></li>
+                        <li><a href="<%=contextPath%>//adOneInquiryList.ad">1:1 상담 관리</a></li>
                         <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
                         <li><a href="">XXXX</a>
                         </li>
