@@ -78,20 +78,24 @@
     		
     		$("#couponBtn4").click(function(){
     			
-    			$.ajax({
-    				url:"/dailyChan/insert.cp",
-    				data:{"cpno":"C0004"},
-    				type:"get",
-    				success:function(result){
-    					if(result > 0){
-    						alert("쿠폰이 성공적으로 담겼습니다.");
-    					}else{
-    						alert("이미 다운로드 받은 쿠폰입니다.");
-    					}
-    				}, error:function(){
-    					
-    				}
-    			});
+    				<% if(loginUser != null){ %>
+	    			$.ajax({
+	    				url:"/dailyChan/insert.cp",
+	    				data:{"cpno":"C0004"},
+	    				type:"get",
+	    				success:function(result){
+	    					if(result > 0){
+	    						alert("쿠폰이 성공적으로 담겼습니다.");
+	    					}else{
+	    						alert("이미 다운로드 받은 쿠폰입니다.");
+	    					}
+	    				}, error:function(){
+	    					
+	    				}
+	    			});
+	    			<% }else{%>
+    				alert("로그인이 필요합니다.");
+    				<%}%>
     		});
     	});
 

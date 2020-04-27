@@ -90,8 +90,9 @@
     	
     	$(function(){
     		
+
     		$("#couponBtn1").click(function(){
-    			
+				<% if(loginUser != null){ %>
     			$.ajax({
     				url:"/dailyChan/insert.cp",
     				data:{"cpno":"C0001"},
@@ -106,10 +107,14 @@
     					
     				}
     			});
+    			<% }else{%>
+				alert("로그인이 필요합니다.");
+				<%}%>
     		});
     		
-			$("#couponBtn2").click(function(){
-    			
+
+    		$("#couponBtn2").click(function(){
+				<% if(loginUser != null){ %>
     			$.ajax({
     				url:"/dailyChan/insert.cp",
     				data:{"cpno":"C0002"},
@@ -124,6 +129,9 @@
     					
     				}
     			});
+    			<% }else{%>
+				alert("로그인이 필요합니다.");
+				<%}%>
     		});
     	});
     
