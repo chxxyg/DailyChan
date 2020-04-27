@@ -22,4 +22,17 @@ public class AdOneInquiryService {
 		return list;
 	}
 
+	/*
+	 * 상세조회용
+	 */
+	public AdOneInquiry detailAdOneInquiry(int ibn) {
+		
+		Connection conn = getConnection();
+		
+		AdOneInquiry i = new AdOneInquiryDao().detailAdOneInquiry(conn, ibn);
+		close(conn);
+		
+		return i;
+	}
+
 }

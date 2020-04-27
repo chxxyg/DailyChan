@@ -176,7 +176,7 @@
 	   				
 	   			var ibn = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/reportDetail.ad?ibn=" + ibn; 
+	 			location.href="<%= contextPath%>/adOneInquiryDetail.ad?ibn=" + ibn; 
  			});
  
    		});   
