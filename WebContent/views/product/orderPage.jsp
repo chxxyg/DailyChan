@@ -362,13 +362,18 @@
 					if ( rsp.success ) {
 						// 주문 조회 입력
 						var userId = "<%=loginUser.getMemberId()%>";
+						
 						$.ajax({
-						url: "<%=contextPath%>/insertOrder.pro",
+						url: "<%=contextPath%>/insertOrder.od",
 						type: "POST",
 						data : {jsonData : jsonData},
-						success: function(list) 
+						success: function(msg) 
 						{
-							alert("주문입력 완료");
+							alert(msg);
+						},
+						error: function(e)
+						{
+							alert("ajax통신실패");
 						}
 						}); // 주문조회 입력 완료
 						
