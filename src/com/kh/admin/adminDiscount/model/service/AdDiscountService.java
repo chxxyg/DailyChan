@@ -64,5 +64,24 @@ public class AdDiscountService {
 		close(conn);
 		return result;
 	}
+	
+	/*
+	 * 할인추가
+	 */
+	public int insertDiscount(AdDiscount d) {
+		
+		Connection conn = getConnection();
+		
+		int result = new AdDiscountDao().insertDiscount(conn,d);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+		
+	}
 
 }

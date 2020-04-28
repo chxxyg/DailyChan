@@ -141,4 +141,29 @@ public class AdDiscountDao {
 		}		
 		return result;
 	}
+
+	public int insertDiscount(Connection conn, AdDiscount d) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertDiscount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, d.getProductCode());
+			pstmt.setString(2, d.getDiscountStartDateString());
+			pstmt.setString(3, d.getDiscountEndDateString());
+			pstmt.setInt(4, d.getDiscountRate());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+		
+		
+	}
 }

@@ -136,7 +136,7 @@
         	</form><br>
         <div id="allcount">
                 <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
-                
+                <div style="width:67%; text-align:right;"><button onclick="location.href='<%=contextPath%>/couponEnroll.ad'">추가</button> </div>
         </div>  
         <table class="listMember">
             <thead>
