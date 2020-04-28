@@ -81,7 +81,7 @@
 	            </tr>
 	           
 	         	<tr>
-	         		<td width="200">* 이미지</td>
+	         		<td width="200">* 이미지</td> 
 	         		<td><input type="file" name="ntUpfile"></td>
 	         	</tr>
 	                       
