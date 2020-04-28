@@ -79,7 +79,7 @@
 	                <td width="200" >* 공지사항 제목</td>
 	                <td><input type="text" width="300" required name="ntTitle"></td>
 	            </tr>
-	           
+	            
 	         	<tr>
 	         		<td width="200">* 이미지</td> 
 	         		<td><input type="file" name="ntUpfile"></td>
