@@ -38,8 +38,6 @@ public class ReviewListServlet extends HttpServlet {
 		request.setAttribute("rList", rList);
 		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 		
-		
-		
 		//location.href="/dailyChan/views/product/productDetailPage.jsp?rList="+ rList;
 		
 		System.out.println(proCode);
