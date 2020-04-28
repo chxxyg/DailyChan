@@ -46,10 +46,11 @@
 	.myOrderList td{
 		font-size:12px;
 		text-align:center;
+		border:1px solid lightgrey;
 	}
 	.myOrderList a{text-decoration:none; cursor:pointer;}
 	#myOrderInfo{
-		padding:20px 0px 10px 100px;
+		padding:20px 0px 10px 30px;
 	}
 	#myOrderInfo>div{
 		width:270px;
@@ -130,51 +131,104 @@
 		<table class="myOrderList" width="790px">
 			<thead>
 				<tr height="35px">
-					<th width="130px">주문번호/주문일</th>
-					<th width="400px">상품정보</th>
+					<th width="180px">주문번호/주문일</th>
+					<th width="350px">상품정보</th>
 					<th width="130px">진행상태</th>
 					<th width="130px">확인</th>
 				</tr>
 			</thead>
 			<tbody>
-				<% for(int i=0; i<myList.size(); i++) { %>
-					<tr height="100px">
-						<td class="firstTd">
-							<a style="color:blue; text-decoration: underline;" class="orderNo"><%=myList.get(i).getOrderNo()%></a><br>
-							<%=myList.get(i).getOrderDate() %><br>
-							<button class="orderDtBtn" type="button">상세확인 ></button>
-						</td>
-						<td id="myOrderInfo">
-							<div>
-								<input type="hidden" class="pCode" value="<%=myList.get(i).getProCode()%>"><!-- 상품코드 -->
-								<a class="pName"><b><%=myList.get(i).getProName()%></b></a><br>
-								<%=myList.get(i).getQuantity() %>개 / <%=myList.get(i).getPrice()%>원
-							</div>
-						</td>
-						<td>
-							<% switch(myList.get(i).getStatus()) {
-								case 0: out.println("결제완료"); break;
-								case 1: out.println("결제취소"); break;
-								case 2: out.println("상품준비중"); break;
-								case 3: out.println("배송중"); break;
-								case 4: out.println("배송완료"); break;
-								case 5: out.println("반품완료"); break;
-							 } %>
-						</td>
-						<td>
-							<% switch(myList.get(i).getStatus()) {
-								case 0: %> <button type="button" class="cancelOrderBtn">즉시취소</button> <%; break;
-								case 1: break;
-								case 2: break;
-								case 3: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
-										   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
-								case 4: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
-										   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
-								case 5: break;
-							} %>
-						</td>
-					</tr>
-				<% } %>
+				<% int i = 0; %>
+				<%for(Mypage c : count){ %>
+				
+					<% if(c.getCountOrdNo() == 1){ %>
+						<tr height="100px">
+							<td class="firstTd">
+								<a style="color:blue; text-decoration: underline;" class="orderNo"><%=myList.get(i).getOrderNo()%></a><br>
+								<%=myList.get(i).getOrderDate() %><br>
+								<button class="orderDtBtn" type="button">상세확인 ></button>
+							</td>
+							<td id="myOrderInfo">
+								<div>
+									<input type="hidden" class="pCosde" value="<%=myList.get(i).getProCode()%>">
+									<a class="pName"><b><%=myList.get(i).getProName()%></b></a><br>
+									<%=myList.get(i).getQuantity() %>개 / <%=myList.get(i).getPrice()%>원
+								</div>
+							</td>
+							<td>
+								<% switch(myList.get(i).getStatus()) {
+									case 0: out.println("결제완료"); break;
+									case 1: out.println("결제취소"); break;
+									case 2: out.println("상품준비중"); break;
+									case 3: out.println("배송중"); break;
+									case 4: out.println("배송완료"); break;
+									case 5: out.println("반품완료"); break;
+								 } %>
+							</td>
+							<td>
+								<% switch(myList.get(i).getStatus()) {
+									case 0: %> <button type="button" class="cancelOrderBtn">즉시취소</button> <%; break;
+									case 1: break;
+									case 2: break;
+									case 3: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
+											   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
+									case 4: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
+											   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
+									case 5: break;
+								} 
+								
+								%>
+							</td>
+						</tr>
+					<% }else { %>
+					
+						<% for(int tr=0; tr<c.getCountOrdNo(); tr++){ %>
+							<tr height="100px">	
+								<%if(tr == 0){ %>				
+									<td class="firstTd" rowspan="<%=c.getCountOrdNo()%>">
+										<a style="color:blue; text-decoration: underline;" class="orderNo"><%=myList.get(i).getOrderNo()%></a><br>
+										<%=myList.get(i).getOrderDate() %><br>
+										<button class="orderDtBtn" type="button">상세확인 ></button>
+									</td>
+								<%}%>
+								
+								<td id="myOrderInfo">
+									<div>
+										<input type="hidden" class="pCosde" value="<%=myList.get(i).getProCode()%>">
+										<a class="pName"><b><%=myList.get(i).getProName()%></b></a><br>
+										<%=myList.get(i).getQuantity() %>개 / <%=myList.get(i).getPrice()%>원
+									</div>
+								</td>
+								
+								<%if(tr == 0){ %>
+									<td rowspan="<%=c.getCountOrdNo()%>">
+										<% switch(myList.get(i).getStatus()) {
+											case 0: out.println("결제완료"); break;
+											case 1: out.println("결제취소"); break;
+											case 2: out.println("상품준비중"); break;
+											case 3: out.println("배송중"); break;
+											case 4: out.println("배송완료"); break;
+											case 5: out.println("반품완료"); break;
+										 } %>
+									</td>
+									<td rowspan="<%=c.getCountOrdNo()%>">
+										<% switch(myList.get(i).getStatus()) {
+											case 0: %> <button type="button" class="cancelOrderBtn">즉시취소</button> <%; break;
+											case 1: break;
+											case 2: break;
+											case 3: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
+													   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
+											case 4: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
+													   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
+											case 5: break;
+										} %>
+									</td>
+								<%} %>
+						<%} %>
+					
+					<% } i++;%>
+					
+				<%} %>
 			</tbody>
 		</table>
 		
@@ -193,7 +247,6 @@
 			});
 			
 			$(".orderDtBtn").click(function(){
-				console.log("클릭됨");
 				var orderNo = $(this).siblings(".orderNo").text();
 				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo;
 			})
