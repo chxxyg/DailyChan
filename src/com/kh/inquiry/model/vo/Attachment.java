@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Attachment {
 
 	private String attachmentNo;			// 첨부파일 번호
-	private int attachmentCategory;			// 10: 공지사항 20 : 리뷰 30 : 1:1문의 40: 이벤트
+	private int attachmentCategory;			// 10:공지사항  20:리뷰  30:1:1문의  40:이벤트
 	private int boardNo;					// 첨부파일 게시글 번호
 	private String changeName;				// 첨부파일 수정명
 	private String filePath;				// 첨부파일 저장경로

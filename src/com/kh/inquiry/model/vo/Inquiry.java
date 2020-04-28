@@ -3,21 +3,20 @@ package com.kh.inquiry.model.vo;
 import java.sql.Date;
 
 public class Inquiry {
-	
-	private int inquiryBoardNo;			// 1:1문의번호
-	private String memberId;			// 1:1문의 회원아이디
-	private String inquiryType;			// 1:1문의 상담유형
-	private String inquiryTitle;		// 1:1문의 제목
-	private String inquiryContent;		// 1:1문의 내용 
-	private String inquiryResponseYn;	// 1:1문의 답변여부
-	private String inquiryResponse;		// 1:1문의 답변내용
-	private String inquiryFileYn;		// 1:1문의 첨부파일 유무
-	private Date inquiryCreateDate;		// 1:1문의 문의일시
-	
+
+	private int inquiryBoardNo; // 1:1문의번호
+	private String memberId; // 1:1문의 회원아이디
+	private String inquiryType; // 1:1문의 상담유형
+	private String inquiryTitle; // 1:1문의 제목
+	private String inquiryContent; // 1:1문의 내용
+	private String inquiryResponseYn; // 1:1문의 답변여부
+	private String inquiryResponse; // 1:1문의 답변내용
+	private String inquiryFileYn; // 1:1문의 첨부파일 유무
+	private Date inquiryCreateDate; // 1:1문의 문의일시
+
 	public Inquiry() {
-		
+
 	}
-	
 
 	public Inquiry(String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
 			String inquiryFileYn) {
@@ -26,9 +25,7 @@ public class Inquiry {
 		this.inquiryType = inquiryType;
 		this.inquiryTitle = inquiryTitle;
 		this.inquiryContent = inquiryContent;
-		this.inquiryFileYn = inquiryFileYn;
 	}
-
 
 	public Inquiry(int inquiryBoardNo, String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
 			String inquiryResponseYn, String inquiryResponse, String inquireFileYn, Date inquireCreateDate) {
@@ -44,7 +41,6 @@ public class Inquiry {
 		this.inquiryCreateDate = inquireCreateDate;
 	}
 
-	
 	public int getInquiryBoardNo() {
 		return inquiryBoardNo;
 	}
@@ -124,9 +120,5 @@ public class Inquiry {
 				+ inquiryResponseYn + ", inquiryResponse=" + inquiryResponse + ", inquireFileYn=" + inquiryFileYn
 				+ ", inquireCreateDate=" + inquiryCreateDate + "]";
 	}
-
-
-	
-	
 
 }
