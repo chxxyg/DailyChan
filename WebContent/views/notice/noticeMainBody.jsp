@@ -213,10 +213,10 @@ table {
 	<div id="cst_content" class="sub_cont">
 
         <ul class="cst_quick">
-            <li class="q01"><a href="<%= contextPath%>/find.me"><img id="q01" src="<%=contextPath %>/resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
-            <li class="q02"><a href="<%= contextPath%>/orderList.my"><img id="q02" src="<%=contextPath %>/resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
-            <li class="q03"><a href="<%= contextPath%>/cancelOrder.my"><img id="q03" src="<%=contextPath %>/resources/img/returnback.png" onclick="">취소/반품 내역</a></li>
-            <li class="q04"><a href="<%= contextPath%>/nonOrd.od"><img id="q04" src="<%=contextPath %>/resources/img/Account.png" onclick="">비회원 주문조회</a></li>
+            <li class="q01"><a href="<%= request.getContextPath() %>/find.me"><img id="q01" src="<%=request.getContextPath() %>/resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
+            <li class="q02"><a href="<%= request.getContextPath()%>/orderList.my"><img id="q02" src="<%=request.getContextPath()%>/resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
+            <li class="q03"><a href="<%= request.getContextPath()%>/cancelOrder.my"><img id="q03" src="<%=request.getContextPath()%>/resources/img/returnback.png" onclick="">취소/반품 내역</a></li>
+            <li class="q04"><a href="<%= request.getContextPath()%>/nonOrd.od"><img id="q04" src="<%=request.getContextPath()%>/resources/img/Account.png" onclick="">비회원 주문조회</a></li>
         </ul>
         
         <div class="cst_faq">
@@ -271,13 +271,12 @@ table {
         <div class="cst_noti_main">
             <h3><a href="<%= request.getContextPath() %>/noticeList.no">공지사항</a></h3>
             <ul class="list">
+            		<!--  -->
+                <%-- <li><a href=""><p><%= n.getNoticeTitle %></p><p><%= n.getNoticeDate %></p></a></li> --%>
             
-                <li><a href="">[공지] 4월 국회의원선거일 배송 안내<span class="date thm">2020-04-08</span></a></li>
+          <li><a href="">[공지] 업체 신선 배송 오픈 안내<span class="date thm">2020-04-07</span></a></li>
             
-                <li><a href="">[공지] 업체 신선 배송 오픈 안내<span class="date thm">2020-04-07</span></a></li>
-            
-                <li><a href="">[공지] 빠른도착 카테고리 오픈 안내<span class="date thm">2020-04-07</span></a></li>
-            
+                <li><a href="">[공지] 빠른도착 카테고리 오픈 안내<span class="date thm">2020-04-07</span></a></li> 
             </ul>
             <a href="<%= request.getContextPath() %>/noticeList.no" onclick="" class="arrow_btn01">전체보기</a>
         </div>

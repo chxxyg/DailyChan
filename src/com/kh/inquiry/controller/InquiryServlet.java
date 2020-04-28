@@ -1,45 +1,76 @@
 package com.kh.inquiry.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.inquiry.model.service.InquiryService;
+import com.kh.inquiry.model.vo.Inquiry;
+
 /**
  * Servlet implementation class inquiryServlet
  */
 @WebServlet("/write.in")
+// 로그인 시 기본 작성 폼 보이는 
 public class InquiryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InquiryServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	
-	
-		request.getRequestDispatcher("views/inquiry/noticeWriteInquiry.jsp").forward(request, response);
-
-	
+	public InquiryServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// 아이디 유형 제목 내용
+
+		String memberId = request.getParameter("memberId");
+		String inquiryType = request.getParameter("inquiryType");
+		String inquiryTitle = request.getParameter("inquiryTitle");
+		String inquiryContent = request.getParameter("inquiryContent");
+
+		Inquiry i = new Inquiry();
+		i.setMemberId(memberId);
+		i.setInquiryType(inquiryType);
+		i.setInquiryTitle(inquiryTitle);
+		i.setInquiryContent(inquiryContent);
+
+		int result = new InquiryService().insertInquiry(i);
+
+		if (result > 0) {
+
+			request.getSession().setAttribute("msg", "게시글 등록 성공");
+			/* response.sendRedirect("/dailyChan/detail.bo"); */
+
+		} else {
+
+			request.setAttribute("msg", "게시글 등록 실패");
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			view.forward(request, response);
+		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

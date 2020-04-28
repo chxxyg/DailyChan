@@ -1,18 +1,22 @@
+<%@page import="com.kh.member.model.vo.Member"%>
+<%@page import="com.kh.inquiry.model.vo.Inquiry"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String MEMBERID = String.valueOf(session.getAttribute("memberId"));
-	String PASSWORD = String.valueOf(session.getAttribute("memberPwd"));
-	String MEMBERNAME = String.valueOf(session.getAttribute("memberName"));
-	/* Int PHONE = session.getAttribute("phone"); */
+	//Inquiry i = (Inquiry) request.getAttribute("i");
+
+	Member loginUser2 = (Member) session.getAttribute("loginUser");
+
+	String memberName = String.valueOf(session.getAttribute("memberName"));
+	/* String phone = String.valueOf(session.getAttribute("phone")); */
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>1:1상담신청</title>
+<title>1:1상담 신청 상세페이지</title>
 <style>
 .outer {
 	/* 	border:1px solid yellow; */
@@ -70,24 +74,6 @@ select {
 	font-size: 13px;
 	line-height: 24px;
 }
-
-select
-:not
- 
-(
-:-internal-list-box
- 
-)
-{
-overflow
-:
- 
-visible
- 
-!
-important
-;
-
 
 }
 .cst_slt dd {
@@ -319,22 +305,20 @@ button em {
 </style>
 
 </head>
-<!-- 상담유형(select)/ 주문내역(팝업으로 불러오기)/ 고객명->고정/아이디->고정/번호->고정/제목/내용/사진등록(필수아님) -->
 <body>
 	<%@ include file="../common/mainHeader.jsp"%>
 	<%@ include file="../common/mainSideBar.jsp"%>
 	<%@ include file="../notice/leftCategory.jsp"%>
 	<%@ include file="../notice/noticeSearch.jsp"%>
+
 	<div class="outer">
-		<form name="csCounselForm" id="form1" enctype="multipart/form-data"
-			method="post">
+		<form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post"  action="<%=request.getContextPath()%>/write.in">
 
 			<h2>1:1 친절상담</h2>
 			<div class="cst_slt">
 
 				<div class="info_txt">
-					<em class="req">*<!--<span class="ir">필수입력정보</span>--></em>표시정보는 필수
-					입력 사항입니다.
+					<em class="req">*</em>표시정보는 필수입력 사항입니다.
 				</div>
 				<dl>
 					<dt>
@@ -343,33 +327,28 @@ button em {
 
 					<dd>
 						<!-- value값 똑같이 지정 해놓기 번호말고 !!(-> "Counseling Type")  -->
-						<select id="c_sel" name="counsel_clss_no" title="상담유형 대분류 선택">
-							<option value="">상담 유형을 선택해 주세요.</option>
+						<select id="c_sel" name="counsel_clss_no" title="상담유형 대분류 선택"
+							placeholder="상담 유형을 선택해 주세요.">
 
-							<option value="Counseling Type">입금상담</option>
+							<option>입금상담</option>
 
-							<option value="Counseling Type">단순상담</option>
+							<option>단순상담</option>
 
-							<option value="Counseling Type">제품상담</option>
+							<option>제품상담</option>
 
-							<option value="Counseling Type">이벤트상담</option>
+							<option>기타상담</option>
 
-							<option value="Counseling Type">회원혜택상담</option>
+							<option>서비스 칭찬</option>
 
-							<option value="Counseling Type">기타상담</option>
+							<option>서비스 불편/제안</option>
 
-							<option value="Counseling Type">서비스 칭찬</option>
+							<option>환불상담</option>
 
-							<option value="Counseling Type">서비스 불편/제안</option>
+							<option>택배배송상담</option>
 
-							<option value="Counseling Type">환불상담</option>
+							<option>변경상담</option>
 
-							<option value="Counseling Type">택배배송상담</option>
-
-							<option value="Counseling Type">변경상담</option>
-
-							<option value="Counseling Type">취소상담</option>
-
+							<option>취소상담</option>
 
 						</select>
 					</dd>
@@ -379,17 +358,13 @@ button em {
 
 					<dt>상담 제품 선택</dt>
 					<dd class="slt_btns">
-						<!-- 레이어에서 제품 선택 된 후 case (class .on)  -->
 						<a type="button" href="" name="orderlist"
 							onclick="orderlistPop();">주문내역</a>
 					</dd>
 				</dl>
 			</div>
 
-
-
 			<div class="sltd_tbl">
-
 				<div id="selectedGoodsBoxDiv" class="tbl goodsDiv"></div>
 			</div>
 
@@ -403,19 +378,27 @@ button em {
 				<tbody>
 					<tr>
 						<th scope="row">고객명</th>
-						<td><p><%=MEMBERNAME%></p></td>
+						<td><p><%=loginUser.getMemberName()%></p></td>
 					</tr>
 					<tr>
 						<th scope="row">아이디</th>
-						<td><p><%=MEMBERID%></p></td>
+						<%-- <td><p><%=i.getMemberId()%></p></td> --%>
+						<td><p><%=loginUser.getMemberId()%></p></td>
+
 					</tr>
 					<tr>
 						<th scope="row">휴대폰 번호 *<label for="tel_no1"> <%-- <%= PHONE %> --%>
 						</label></th>
+						<%
+							String phone = loginUser.getPhone();
+							String phone1 = phone.substring(0, 2);
+							String phone2 = phone.substring(2, 6);
+							String phone3 = phone.substring(7);
+						%>
 
-						<td><select id="tel_no1" name="tel_no1"
-							message="전화번호를 숫자로 입력하세요.">
-								<option value="">선택</option>
+						<td><select id="tel_no1" name="tel_no1">
+								<!-- message="전화번호를 숫자로 입력하세요." -->
+								<option value="<%=phone1%>">선택</option>
 								<option value="010" selected="selected">010</option>
 								<option value="011">011</option>
 								<option value="016">016</option>
@@ -424,36 +407,36 @@ button em {
 								<option value="019">019</option>
 						</select> <span class="dash">-</span> <!-- value 값 회원 전화번호로 값 넘겨오기  --> <input
 							type="text" class="celluar" id="tel_no2" name="tel_no2"
-							title="휴대폰번호 가운데 자리 입력" <%-- value="<%=%>" --%> maxlength="4"> <span
-							class="dash">-</span> <input type="text" class="celluar"
+							title="휴대폰번호 가운데 자리 입력" value="<%=phone2%>" maxlength="4">
+							<span class="dash">-</span> <input type="text" class="celluar"
 							id="tel_no3" name="tel_no3" title="휴대폰번호 마지막 자리 입력"
-							<%-- value="<%=%>" --%> maxlength="4"></td>
+							value="<%=phone3%>" maxlength="4"></td>
 					</tr>
 
 					<tr>
 						<th scope="row"><label for="quest_title">제목</label></th>
 
 						<td><input type="text" class="w_tit" id="quest_title"
-							name="quest_title" title="제목 입력" placeholder="제목을 입력해 주세요."
-							onkeyup="fnLimitText('quest_title','50')"></td>
+							name="quest_title" title="제목 입력" placeholder="제목을 입력해 주세요.">
+						</td>
 					</tr>
-
 
 					<tr>
 						<th scope="row"><label for="quest_cont">내용</label></th>
-						<td><textarea id="quest_cont" name="quest_cont" cols="50"
-								rows="10" class="textarea wide"
-								placeholder="취소, 교환, 반품 신청은 주문배송 조회에서 ‘결제완료’ 상태인 경우에 즉시취소 가능합니다. 주문에 대한 문의일 경우, 상품을 선택하여 문의 주시면 보다 빠른 상담이 가능합니다."
-								title="내용" onkeyup="fnLimitText('quest_cont','1000')">
-							 </textarea></td>
+						<td><textarea id="quest_cont" name="quest_cont" cols="50" rows="10" class="textarea wide"
+								placeholder="취소, 교환, 반품 신청은 주문배송 조회에서 ‘결제완료’ 상태인 경우에 즉시취소 가능합니다. 주문에 대한 문의일 경우, 상품을 선택하여 문의 주시면 보다 빠른 상담이 가능합니다." title="내용">
+							 </textarea>
+						</td>
 					</tr>
 
+					<!-- 첨부파일 없애기 -->
+					<!-- 
 					<tr>
 						<th scope="row">사진 등록</th>
 						<td>
 							<dl class="file_inp">
 
-								<!--첨부 사진 파일찾기-->
+								첨부 사진 파일찾기
 								<dd>
 									<input type="file" name="file" id="file0" title="제품 사진 업로드">
 									<button type="button" class="del" name="deleteImgBtn"
@@ -466,29 +449,32 @@ button em {
 							</dl>
 							<div class="r_noti">
 								<ul>
-									<li><em>*</em> 사진의 크기는 20MB 이하의 jpg, png, gif 파일로 첨부
-										가능합니다.</li>
+									<li><em>*</em> 사진의 크기는 20MB 이하의 jpg, png, gif 파일로 첨부 가능합니다.</li>
 								</ul>
 							</div>
 						</td>
-					</tr>
+					</tr> -->
 
 				</tbody>
 			</table>
 
 			<br>
 			<p>※ 고객센터 운영시간(평일 9:00~18:00) 이후 문의는 고객센터 운영시간 내에 순차적으로 답변드립니다.</p>
+			
+			<!-- 확인/취소 버튼 -->
+			<div class="conf_btns">
+				<button type="submit">
+					<em>확인</em>
+				</button>
+				<button class="cancel" id="cancelBtn" type="reset">
+					<em>취소</em>
+				</button>
+			</div>
 		</form>
-
-
-		<div class="conf_btns">
-			<button class="confirm" onclick="save();">
-				<em>확인</em>
-			</button>
-			<button class="cancel" id="cancelBtn">
-				<em>취소</em>
-			</button>
-		</div>
+<!-- 
+		<form id="postForm" method="post">
+			
+		</form> -->
 
 		<div class="info_box01">
 			<strong class="box_tit">상담 TIP</strong>
@@ -500,19 +486,29 @@ button em {
 		</div>
 	</div>
 	<script>
-		$(function(){
-			$("#left_02").css("color", "rgb(247, 112, 46)");
-		});
 		
-		 		 
-		 <!-- 1:1 친절상담 주문내역 팝업 function -->
+			$(function(){
+				$("#left_02").css("color", "rgb(247, 112, 46)");
+			});
+
+			/* 1:1 친절상담 주문내역 팝업 function  */
 			function orderlistPop(){
 
-	           window.open("<%=contextPath%>/inquiryWrite.in", "주문내역팝업창", "width=638, height=450, top = 50, left = 500, location = no");
-	        }
-
+	           window.open()"<%=request.getContextPath()%>/inquiryWrite.in", "주문내역팝업창", "width=638, height=450, top = 50, left = 500, location = no");
+	        };
+			
+				<%-- $(".couns_tbl>tr").click(function(){
+					var ino = $("this").children().text();
+					console.log(ino);
+					location.href="<%=request.getContextPath()%>/write.in?ino=" + ino;
+			
+			
+				}); --%>
+				
+				
+				
 	</script>
 
-	<%@ include file="../common/mainFooter.jsp"%>
+<%@ include file="../common/mainFooter.jsp"%>
 </body>
 </html>

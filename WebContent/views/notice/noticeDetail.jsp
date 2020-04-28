@@ -18,7 +18,7 @@
 	<%@ include file="../common/mainSideBar.jsp"%>
 	<%@ include file="leftCategory.jsp"%>
 
-	<style>
+<style>
 .outer {
 	width: 1000px;
 	height: auto;
@@ -41,13 +41,17 @@
 
 			<table class="noti_tbl" border="1">
 				<tr>
+					<td>번호</td>
+					<td colspan="1">번호</td>
+				</tr>
+				<tr>
 					<td>제목</td>
 					<td colspan="3"><%= n.getNoticeTitle()%></td>
 				</tr>
 				<tr>
 					<td>작성일</td>
 					<td><%= n.getNoticeDate() %></td>
-			</tr>
+				</tr>
 				<tr>
 					<td colspan="4">내용</td>
 				</tr>
@@ -56,11 +60,7 @@
 				</tr>
 			</table>
 
-
 		</div>
-
-
-
 	</div>
 
 <%@ include file="../common/mainFooter.jsp"%>
