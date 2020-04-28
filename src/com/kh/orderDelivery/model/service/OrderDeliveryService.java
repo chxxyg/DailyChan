@@ -1,10 +1,16 @@
 package com.kh.orderDelivery.model.service;
 
-import com.kh.orderDelivery.model.dao.OrderDeliveryDao;
-import com.kh.orderDelivery.model.vo.OrderDelivery;
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+
+import com.kh.member.model.vo.Coupon;
+import com.kh.orderDelivery.model.dao.OrderDeliveryDao;
+import com.kh.orderDelivery.model.vo.OrderDelivery;
 
 public class OrderDeliveryService
 {
@@ -113,6 +119,12 @@ public class OrderDeliveryService
         return result;
     }
     
+    /**
+     * 3. 결제 확인 정보 리스트
+     * @param orderNo   --> 주문 번호
+     * @param userId    --> 아이디
+     * @return
+     */
     public OrderDelivery orderList(String orderNo, String userId)
     {
         Connection conn = getConnection();
@@ -123,5 +135,16 @@ public class OrderDeliveryService
         
         return od;
 
+    }
+    
+    public ArrayList<Coupon> couponList(String userId)
+    {
+        Connection conn = getConnection();
+        
+        ArrayList<Coupon> list = new OrderDeliveryDao().couponList(conn, userId);
+        
+        close(conn);
+        
+        return list;
     }
 }

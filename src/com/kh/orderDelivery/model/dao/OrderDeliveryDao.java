@@ -8,9 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.member.model.dao.MemberDao;
+import com.kh.member.model.vo.Coupon;
 import com.kh.orderDelivery.model.vo.OrderDelivery;
 
 public class OrderDeliveryDao
@@ -176,5 +178,44 @@ public class OrderDeliveryDao
             close(pstmt);
         }
         return od;
+    }
+    
+    public ArrayList<Coupon> couponList(Connection conn, String userId)
+    {
+        ArrayList<Coupon> list = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("couponList");
+        
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            
+            rset = pstmt.executeQuery();
+            
+            while(rset.next())
+            {
+                list.add(new Coupon(rset.getString("COUPON_CODE"),
+                                    rset.getString("COUPON_NAME"),
+                                    Integer.parseInt(rset.getString("COUPON_CONDITION")),
+                                    rset.getInt("COUPON_PRICE")
+                                    )
+                        );
+            }
+        }
+        catch (SQLException e )
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(rset);
+            close(pstmt);
+        }
+        
+        return list;
+                
     }
 }

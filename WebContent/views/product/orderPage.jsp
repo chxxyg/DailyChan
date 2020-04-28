@@ -102,7 +102,7 @@
                             <table>
                                 <tr>
                                     <td style="background: white; width: 300px;">보유 적립금 : <%=loginUser.getPointSum() %>원</td>
-                                    <td><input type="text" id="orderInputPoint" placeholder="사용할 적립금 입력" ></td>
+                                    <td><input type="text" id="orderInputPoint" placeholder="사용할 적립금 입력" value=""></td>
                                 </tr>
                             </table>
                         </td>	
@@ -114,8 +114,7 @@
                                 <tr>
                                     <td style="background: white; width: 300px;">보유 쿠폰 : 3개</td>
                                     <td>
-                                        <select name="" id="orderSelectCoupon">
-                                            <option value=""></option>
+                                        <select name="orderSelectCoupon" id="orderSelectCoupon">
                                         </select>
                                     </td>
                                 </tr>
@@ -229,6 +228,8 @@
     
     <script>
 		$(document).ready(function(){
+			
+			// 주문번호 조회
 			var orderNo = $("#orderNo").val();
 			var userId = "<%=loginUser.getMemberId()%>";
 			$.ajax({
@@ -240,6 +241,33 @@
 				}
 			});
 			
+			
+			// 쿠폰 조회 및 리스트 출력
+				$.ajax({
+					url: "<%=contextPath%>/couponList.od",
+					type: "POST",
+					data : {userId : userId},
+					success: function(list){
+						
+						console.log(list);
+						var result = "<option value='0' >쿠폰목록 조회</option>";
+						for(var i = 0; i < list.length; i++)
+						{
+							result += "<option value='" + list[i].couponPrice + "'>" + list[i].couponName + "</option>\n";
+												
+						}
+							console.log(result);
+							$("#orderSelectCoupon").html(result);
+							$("#orderSelectCoupon").change(function() {
+								var price1 = <%= payAmount - delivery %>;
+								var totalPrice = price1 - $("#orderInputPoint").val() - $("#orderSelectCoupon option:selected").val();
+								console.log(totalPrice);
+								$("#SumOrderProductTotalPrice").html(totalPrice);
+							});
+					}
+				});
+			
+			// 사용자 포인트 유효성검사
 			$("#orderInputPoint").blur(function(){
 				
 			var inputPoint = $("#orderInputPoint");
@@ -253,17 +281,21 @@
 				alert("보유하신 적립금보다 높게 사용하실 수 없습니다.");
 				inputPoint.val('');
 			}
-			else
-			{
-				$("#orderDeliveryPrice").html(inputPoint.val());
-				var price1 = <%= payAmount - delivery %>;
-				var totalPrice = price1 - inputPoint.val();
-				console.log(totalPrice);
-				$("#SumOrderProductTotalPrice").html(totalPrice);
-			}
 			
 			});
 			
+			$("#orderSelectCoupon, #orderInputPoint").change(function(){
+				if($("#orderInputPoint").val() == "")
+				{
+					$("#orderDeliveryPrice").html($("#orderSelectCoupon option:selected").val());
+				}
+				$("#orderDeliveryPrice").html(parseInt($("#orderInputPoint").val()) + parseInt($("#orderSelectCoupon option:selected").val()));
+				var price1 = <%= payAmount - delivery %>;
+				var totalPrice = price1 - $("#orderInputPoint").val() - $("#orderSelectCoupon option:selected").val();
+				console.log(totalPrice);
+				$("#SumOrderProductTotalPrice").html(totalPrice);
+			});
+				
 			
 			// 배송지 조회
 			var userId = "<%=loginUser.getMemberId()%>";
@@ -335,7 +367,7 @@
 				obj.address = $("#info_addr").html();
 				obj.deliveryRequest = $("#orderDeliveryRequest").val();
 				obj.useCoupon = $("#orderInputPoint").val();
-				obj.usePoint = $("#orderInputPoint").val();
+				obj.usePoint = $("#orderSelectCoupon option:selected").val();
 				obj.payAmount = $("#orderProductTotalPrice").html();
 
 				var jsonData = JSON.stringify(obj)
@@ -407,8 +439,6 @@
 								console.log("ajax통신실패");
 							}
 						});
-						
-						// 쿠폰 조회
 						
 						
 						var orderNo = $("#orderNo").val();
