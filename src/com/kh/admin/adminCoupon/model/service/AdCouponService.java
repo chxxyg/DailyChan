@@ -87,4 +87,23 @@ public class AdCouponService {
 		
 	}
 
+	/*
+	 * 쿠폰추가용
+	 */
+	public int insertCoupon(AdCoupon c) {
+		
+		Connection conn = getConnection();
+		
+		int result = new AdCouponDao().insertCoupon(conn, c);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+		
+	}
+
 }

@@ -9,6 +9,10 @@ public class AdCoupon {
 	private int couponPrice;			// 쿠폰금액
 	
 	
+	public AdCoupon() {
+		
+	}
+	
 	public AdCoupon(String couponCode, String couponName, String couponCondition, int couponExpDate, int couponPrice) {
 		super();
 		this.couponCode = couponCode;

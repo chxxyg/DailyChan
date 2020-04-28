@@ -165,6 +165,31 @@ private Properties prop = new Properties();
 		
 		return result2;
 	}
+
+	public int insertCoupon(Connection conn, AdCoupon c) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getCouponCode());
+			pstmt.setString(2, c.getCouponName());
+			pstmt.setString(3, c.getCouponCondition());
+			pstmt.setInt(4, c.getCouponExpDate());
+			pstmt.setInt(5, c.getCouponPrice());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}		
+		return result;
+	}
 }
 
 
