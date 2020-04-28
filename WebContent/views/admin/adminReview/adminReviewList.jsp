@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReview.model.vo.AdReview" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReview.model.vo.AdReview,  com.kh.admin.adminMember.model.vo.*" %>
 <%
 	ArrayList<AdReview> list = (ArrayList<AdReview>)request.getAttribute("list"); 
+
+	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
 %>    
         
 <!DOCTYPE html>
@@ -47,7 +53,7 @@
             border: 1px solid #181c20;
             position:relative;
             max-height:600px;
-            /*border-collapse:collapse; 테이블 간격 없애는구문*/
+            border-collapse:collapse;
             
         }
       	/*상품 등록 삭제 버튼css*/
@@ -120,7 +126,12 @@
 			position:relative;
 			top:1px;
 		}
-         
+        thead>tr>th{
+			height:30px;
+			font-weight: bold;
+			font-size:17px;
+			
+		}
       
     </style>
 </head>
@@ -132,6 +143,7 @@
         <h1>&nbsp;&nbsp;&nbsp;리뷰관리</h1>
         <br>
         	<form id="searchForm" action="<%=contextPath%>/reviewSearch.ad" method="post">회원 ID 
+        	<input type="hidden" name="currentPage" value="1">
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
@@ -168,6 +180,27 @@
             </tbody>
 
         </table>  
+                <br><br><br>
+       <div class="pagingArea" align="center">
+			<% if(currentPage!=1) {%>
+			<button onclick="location.href='reviewList.ad?currentPage=1'"> &lt;&lt; </button>
+			
+			<button onclick="location.href='reviewList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<% } %>
+			
+			<%for(int p=startPage; p<=endPage; p++){ %>
+				<% if(currentPage != p){%>
+				<button onclick="location.href='reviewList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<% }else { %>
+				<button disabled><%=p %></button>	
+				<% } %>
+			<%} %>
+			
+			<% if(currentPage!=maxPage) {%>
+			<button onclick="location.href='reviewList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='reviewList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<% } %>
+		</div>
        </div>
     </div>
     <script>

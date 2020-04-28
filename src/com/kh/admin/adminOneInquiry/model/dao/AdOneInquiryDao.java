@@ -1,6 +1,6 @@
 package com.kh.admin.adminOneInquiry.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.admin.adminOneInquiry.model.vo.AdOneInquiry;
 import com.kh.member.model.dao.MemberDao;
 
@@ -32,19 +33,24 @@ public class AdOneInquiryDao {
 		}
 	}
 
-	public ArrayList<AdOneInquiry> selectList(Connection conn) {
+	public ArrayList<AdOneInquiry> selectList(Connection conn, AdPageInfo pi) {
 		
 		ArrayList<AdOneInquiry> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectList");
 		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
 		try {
-			stmt = conn.createStatement();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 			
-			rset = stmt.executeQuery(sql);
+			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				list.add(new AdOneInquiry(rset.getInt("INQUIRY_BOARD_NO"),
 										  rset.getDate("INQUIRY_CREATE_DATE"),
@@ -56,6 +62,9 @@ public class AdOneInquiryDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(conn);
+			close(pstmt);
 		}
 		
 		
@@ -93,17 +102,23 @@ public class AdOneInquiryDao {
 		return i;
 	}
 
-	public ArrayList<AdOneInquiry> search(Connection conn, String memberId) {
+	public ArrayList<AdOneInquiry> search(Connection conn, String memberId, AdPageInfo pi) {
 		
 		ArrayList<AdOneInquiry> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset =  null;
 		
 		String sql = prop.getProperty("search");
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + memberId + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -166,6 +181,32 @@ public class AdOneInquiryDao {
 		}		
 		return result2;
 	}
+	
+	public int adOneCount(Connection conn) {
+		
+		int countOne = 0;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countOne");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			if(rset.next()) {
+				countOne = rset.getInt(1);
+			}
+		
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		return countOne;
+			
+	}
+
 	
 
 }

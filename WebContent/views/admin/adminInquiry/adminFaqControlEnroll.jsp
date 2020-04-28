@@ -93,7 +93,7 @@
                        
             <tr>
                 <td width="200">FAQ 상세내용</td>
-                <td><textarea cols="40" rows="25" style="resize:none" name="faqContent"></textarea></td>
+                <td><textarea cols="40" rows="25" style="resize:none" name="faqContent" required></textarea></td>
             </tr>
         </table>
        		 <div id="enrollsubmit">

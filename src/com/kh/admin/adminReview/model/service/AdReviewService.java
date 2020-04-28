@@ -1,24 +1,28 @@
 package com.kh.admin.adminReview.model.service;
 
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.admin.adminProduct.model.dao.AdProductDao;
 import com.kh.admin.adminReview.model.dao.AdReviewDao;
 import com.kh.admin.adminReview.model.vo.AdReview;
-
-import static com.kh.common.JDBCTemplate.*;
 
 public class AdReviewService {
 
 	/*
 	 * 총 리뷰리스트 조회
 	 */
-	public ArrayList<AdReview> selectList() {
+	public ArrayList<AdReview> selectList(AdPageInfo pi) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<AdReview> list = new AdReviewDao().selectList(conn);
+		ArrayList<AdReview> list = new AdReviewDao().selectList(conn, pi);
 		close(conn);
 		
 		return list;
@@ -40,11 +44,11 @@ public class AdReviewService {
 	/*
 	 * 리뷰조회버튼
 	 */
-	public ArrayList<AdReview> searchReview(String memberId) {
+	public ArrayList<AdReview> searchReview(String memberId, AdPageInfo pi) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<AdReview> list = new AdReviewDao().searchReview(conn, memberId);
+		ArrayList<AdReview> list = new AdReviewDao().searchReview(conn, memberId, pi);
 		close(conn);
 		
 		return list;
@@ -68,6 +72,16 @@ public class AdReviewService {
 		}
 		close(conn);		
 		return result;
+	}
+	
+	public int adReCount() {
+
+		Connection conn = getConnection();
+		
+		int countReview = new AdReviewDao().adReCount(conn);
+		
+		close(conn);
+		return countReview;
 	}
 
 }
