@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*, com.kh.mypage.model.vo.*"%>
 <% 
 	Product p = (Product)request.getAttribute("p");
 	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
-	
+	String proCode = (String)request.getAttribute("proCode");
 %>
 <!DOCTYPE html>
 <html>
@@ -291,7 +291,7 @@
     	});
     	
     	function insertReview(){
-    		window.open("<%=contextPath%>/reviewPop.re?pno=<%=p.getProCode()%>", "후기 작성", "width=510, height=580, left=500");
+    		window.open("<%=contextPath%>/reviewPop.re?proCode=<%=p.getProCode()%>", "후기 작성", "width=510, height=580, left=500");
     	}
     	
     

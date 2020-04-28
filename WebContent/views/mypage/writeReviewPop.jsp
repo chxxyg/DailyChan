@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*, com.kh.mypage.model.vo.*"%>
 <% 
 	String contextPath = request.getContextPath(); 
 	Product p = (Product)request.getAttribute("p");
+	String proCode = (String)request.getAttribute("proCode");
+	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
+	ArrayList<Review> rLsit = (ArrayList<Review>)request.getAttribute("rList");
 
 %>
 <!DOCTYPE html>
@@ -87,16 +90,17 @@
 <body>
 	<div class="writeReviewWrap">
 		<form action="<%= request.getContextPath() %>/insertReview.re" >
+			<input type="hidden" name="proCode" value="<%=proCode %>">
 			<table class="writeReview" width="490px">
 				<tbody>
 					<tr id="writeReview_tr1" height="100px">
 						<td>
-							<input type="hidden" class="pCode" value="<%=p.getProCode()%>"><!-- 상품코드 -->
-							<img class="pName" src="<%= request.getContextPath() %>/resources/attachment_product/<%= p.getAtFileName() %>" width="80" height="80">
+
+							<img class="pName" src="<%= request.getContextPath() %>/resources/attachment_product/<%=list.get(0).getAtFileName() %>" width="80" height="80">
 							<p class="pName" style="color: gray;"><b><%=p.getProName() %></b></p>
 							<% if(p.getProSaleYn().equals("Y")){ %>
-								<p class="pPrice" style="text-decoration: line-through; color: gray;"><%=p.getProPrice() %></p>
-                            	<p class="pPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %></p>
+								<p class="pPrice" style="text-decoration: line-through; color: gray;"><%=p.getProPrice() %>원</p>
+                            	<p class="pPrice" style="color: red;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %>원</p>
                             <% }else{ %>
 								<p class="pPrice" style="color: gray;"><%=p.getProPrice() %></p>
 							<% } %>
@@ -125,7 +129,7 @@
 					<tr id="writeReview_tr4" height="260px" style="text-align:center;">
 						<td>
 							<span id="reviewInfo" style="color: gray;">상품평을 남겨주세요. (최소 10자 이상)</span><span id="reviewCounter" style="color: gray;">0</span><span style="color: gray;"> / 1000</span>
-							<div><textarea name="content" required rows="12" cols="55" style="resize:none; padding: 12px; margin-top: 10px; color: gray; border: 1px solid lightgray;"></textarea></div>
+							<div><textarea name="content" id="reviewContent" required rows="12" cols="55" style="resize:none; padding: 12px; margin-top: 10px; color: gray; border: 1px solid lightgray;"></textarea></div>
 						</td>
 					</tr>
 				</tbody>
@@ -136,7 +140,7 @@
 			</div>
 		</form>
 	</div>
-<!-- 
+
 	<script>
         $(function(){
             $("#reviewContent").keyup(function(){
@@ -149,25 +153,12 @@
                     $("#reviewCounter").css("color", "gray");
                 }
             });
-            
-            $(".pName").click(function(){
-				var pCode = $(this).siblings(".pCode").val();
-				opener.parent.location="<%= request.getContextPath() %>/pDetail.pro?pCode=" + pCode;
-	        	window.close();
-			});
-            
+
             $("#reviewcancelBtn").click(function(){
         		window.close();
             })
         });
-        
-        function toProductDetail(){
-        	opener.parent.location="<%= request.getContextPath() %>/pDetail.pro";
-        	window.close();
-        }
-        
-        
     </script>
- -->
+
 </body>
 </html>

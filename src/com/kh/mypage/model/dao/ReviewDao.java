@@ -1,5 +1,7 @@
 package com.kh.mypage.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,9 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.kh.mypage.model.vo.Review;
 import com.kh.product.model.dao.ProductDao;
-
-import static com.kh.common.JDBCTemplate.*;
 
 
 public class ReviewDao {
@@ -27,7 +28,7 @@ public class ReviewDao {
 		}
 	}
 	
-	public int insertReview(Connection conn, String proCode) {
+	public int insertReview(Connection conn, Review re) {
 		// product_code, member_id, review_title, review_content, review_rating
 		
 		int result = 0;
@@ -37,11 +38,11 @@ public class ReviewDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(2, proCode);
-			pstmt.setString(3, "member_id");
-			pstmt.setString(4, "review_title");
-			pstmt.setString(5, "review_content");
-			pstmt.setInt(6, 4);
+			pstmt.setString(1, re.getProductCode());
+			pstmt.setString(2, re.getMemberId());
+			pstmt.setString(3, re.getReviewTitle());
+			pstmt.setString(4, re.getReviewContent());
+			pstmt.setInt(5, re.getReviewRating());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -49,7 +50,6 @@ public class ReviewDao {
 		} finally {
 			close(conn);
 		}
-		
 		return result;
 	}
 	

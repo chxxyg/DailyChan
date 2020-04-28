@@ -251,8 +251,7 @@ public class ProductDao {
 				p.setProReviewCount(rset.getInt("REVIEW_COUNT"));
 				p.setProSaleYn(rset.getString("PRODUCT_SALE_YN"));
 				p.setDiscountRate(rset.getDouble("DISCOUNT_RATE"));
-			}
-			
+			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

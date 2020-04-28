@@ -43,7 +43,7 @@ public class Review {
 		this.reviewContent = reviewContent;
 		this.reviewRating = reviewRating;
 		this.reviewCreateDate = reviewCreateDate;
-		this.reviewDelStatus = reviewDelStatus;
+		this.reviewDelStatus = reviewDelStatus; 
 	}
 
 

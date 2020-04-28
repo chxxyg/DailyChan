@@ -9,13 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.member.model.vo.Member;
+import com.kh.mypage.model.service.ReviewService;
+import com.kh.mypage.model.vo.Review;
 import com.kh.product.model.service.ProductService;
 import com.kh.product.model.vo.Product;
 
 /**
  * Servlet implementation class ReviewInsertServlet
  */
-@WebServlet("/insertReview.my")
+@WebServlet("/insertReview.re")
 public class ReviewInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,11 +35,28 @@ public class ReviewInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
 
+		String proCode = request.getParameter("proCode");
+		int rating = Integer.parseInt(request.getParameter("rating"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		
-		request.setAttribute("p", p);
+		Review re = new Review();
+		re.setProductCode(proCode);
+		re.setMemberId(memberId);
+		re.setReviewTitle(title);
+		re.setReviewContent(content);
+		re.setReviewRating(rating);
 		
-		request.getRequestDispatcher("views/mypage/writeReviewPop.jsp").forward(request, response);
+		System.out.println(re);
+		
+		int result = new ReviewService().insertReview(re);
+
+		request.setAttribute("result", result);
+		
+		response.sendRedirect("pDetail.pro");
 	
 	}
 
