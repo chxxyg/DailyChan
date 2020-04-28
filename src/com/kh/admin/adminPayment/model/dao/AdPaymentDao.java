@@ -124,6 +124,84 @@ public class AdPaymentDao {
 		
 	}
 	
+	/**
+	 * 결제 아이디로 검색하는 dao
+	 * @param conn
+	 * @param pi
+	 * @param payName
+	 * @return
+	 */
+	public ArrayList<OrderDelivery> searchPay(Connection conn, AdPageInfo pi, String payName){
+		
+		ArrayList<OrderDelivery> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("searchPay");
+		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + payName + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				list.add(new OrderDelivery(rset.getString("ORDER_NO"),
+						              rset.getString("MEMBER_ID"),
+						              rset.getString("MEMBER_NAME"),
+						              rset.getString("PHONE"),
+						              rset.getInt("PAYMENT_AMOUNT"),
+						              rset.getDate("ORDER_DATE"),
+						              rset.getInt("STATUS")));				
+			}			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	/**
+	 * 조회시 나오는 결제 총 갯수
+	 * * @return
+	 */
+	public int adPayCount(Connection conn, String payName) {
+		
+		int countPay =0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countListPay");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+payName+"%");
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				countPay=rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return countPay;
+		
+		
+	}
+	
 	
 	
 }

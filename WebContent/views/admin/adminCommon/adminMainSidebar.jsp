@@ -108,7 +108,7 @@ body {
         <div id="leftside-navigation" class="nano">
             <ul class="nano-content">
                 <li>
-                    <a href="" style="font-weight:900; font-size:20px;"><i class="fa fa-home"></i><span>HOME</span></a>
+                    <a href="<%=contextPath %>/mainPage.ad" style="font-weight:900; font-size:20px;"><i class="fa fa-home"></i><span>HOME</span></a>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-shopping-basket"></i><span>상품관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
@@ -123,7 +123,7 @@ body {
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-user"></i></i><span>회원현황</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
-                        <li><a href="<%=contextPath%>/memberList.ad">회원관리</a></li>
+                        <li><a href="<%=contextPath%>/memberList.ad?currentPage=1">회원관리</a></li>
                         <li><a href="<%=contextPath%>/blackList.ad">블랙리스트관리</a></li>
                         <li><a href="<%=contextPath%>/reportList.ad">신고내역</a></li>
                         </li>
@@ -132,9 +132,9 @@ body {
                 <li class="sub-menu">
                     <a href="javascript:void(0);"><i class="fa fa-question"></i><span>문의관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControl.jsp">FAQ 관리</a></li>
+                        <li><a href="<%=contextPath%>/faqList.ad?currentPage=1">FAQ 관리</a></li>
                         <li><a href="<%=contextPath%>/adOneInquiryList.ad">1:1 상담 관리</a></li>
-                        <li><a href="http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp">공지사항 관리</a></li>
+                        <li><a href="<%=contextPath%>/noticeList.ad?currentPage=1">공지사항 관리</a></li>
                         </li>
                     </ul>
                 </li>

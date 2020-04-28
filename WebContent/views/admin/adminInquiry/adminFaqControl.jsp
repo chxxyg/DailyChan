@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.frequentInquiry.model.vo.FrequentInquiry, com.kh.admin.adminMember.model.vo.* "%>
+<%
+	ArrayList<FrequentInquiry> list = (ArrayList<FrequentInquiry>)request.getAttribute("list");
+	
+	
+	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +28,9 @@
           .outer{
          	margin:15px;
          	padding:15px;
-         	width:1400px;
+         	width:1200px;
          	height:90%;
-         	background:rgb(255,240,240);
+         	background:white;
          	opacity:0.7;
         }
         
@@ -28,7 +39,7 @@
         #adproductcount{
             width:25px;
             border:none;
-            color:red;
+            color:#181c20;
         }
         
         #allcount{
@@ -36,29 +47,29 @@
         }
         
         /*테이블 영역*/
-        .listMember{
+        .listFaq{
             margin-top:30px;
             text-align:center;
-            width:1350px;
-            border: 1px solid yellow;
+            width:1150px;
+            border: 1px solid #181c20;
             position:relative;
             max-height:600px;
             /*border-collapse:collapse; 테이블 간격 없애는구문*/
-            
+            border-collapse:collapse;
         }
       	/*상품 등록 삭제 버튼css*/
-        #allcount{width:1350px; }
+        #allcount{width:1150px; }
         #allcount>div{float:left;}
         
         /*테이블 헤드*/
-        .listMember>thead>tr>th{
-            border:1px solid red;
+        .listFaq>thead>tr>th{
+            border:1px solid #181c20;
             
         }
        
         
-        .listMember>tbody>tr>td{
-            border: 1px solid blue;
+        .listFaq>tbody>tr>td{
+            border: 1px solid #181c20;
             table-layout:fixed;
             
             
@@ -66,13 +77,12 @@
         tbody{vertical-align: top;
         }
         table{table-layout:fixed;}
-        
-        Button {
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-			background-color:#ffc477;
+       Button {
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
 			border-radius:6px;
-			border:1px solid #eeb44f;
+			border:1px solid #181c20;
 			display:inline-block;
 			cursor:pointer;
 			color:#ffffff;
@@ -81,15 +91,20 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+			text-shadow:0px 1px 0px #181c20;
 		}
 		Button:hover {
-			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
 		}
 		Button:active {
 			position:relative;
 			top:1px;
+		}
+		.listFaq>tbody>tr:hover {
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
+			cursor:pointer;
 		}
         
       
@@ -102,45 +117,86 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;FAQ 관리</h1>
         <br>
-        	제목 <input type="text"> <button type="button" onclick="">조회</button><br>
+        	<form action="<%=contextPath%>/faqSearch.ad?currentPage=1" method="get">
+        	<input type="hidden" name="currentPage" value="1">
+        	카테고리 <select name="faqCategory">
+	        			<option value="1">주문/취소</option>
+	                	<option value="2">배송</option>
+	                	<option value="3">쿠폰/기타</option>
+	                	<option value="4">회원정보</option>
+	                	<option value="5">제품</option>
+        		  </select> <button type="submit" onclick="">조회</button><br>
+        	</form>
         <div id="allcount">
-                <div style="width:30%;">총 게시글 :  <input type="text" id="adproductcount"> 개</div>
-                <div style="width:70%; text-align:right;"><button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminInquiry/adminFaqControlEnroll.jsp'">작성하기</button> <button>선택삭제</button></div>
+                <div style="width:30%;">총 게시글 :  <input type="text" id="adproductcount" value="<%=pi.getListCount()%>"> 개</div>
+                <div style="width:70%; text-align:right;"><button onclick="location.href='<%=contextPath%>/faqEnrollForm.ad'">작성하기</button> </div>
         </div>  
-        <table class="listMember">
+        <table class="listFaq">
             <thead>
                 <tr>
-                    <th width="30"><input type="checkbox" checked style="cursor: pointer;" ></th>
                     <th width="50">번호</th>
-                    <th width="250">구분</th>
-                    <th width="600">제목</th>
-                    
-
+                    <th width="250">카테고리</th>
+                    <th width="450">제목</th>
+                   
                 </tr>
             </thead>
             <tbody>
+            		<% for(FrequentInquiry f : list){ %>
                 <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>2</td>
-                    <td>배송관련</td>
-                    <td>아무 이유 없이 그냥 내맘대로</td>
-                    
-                   
+                    <td><%=f.getFaqBoardNo() %></td>
+                    <% if(f.getFaqCategory()==1){ %>
+                    <td>주문/취소</td>
+                    <% }if(f.getFaqCategory()==2){ %>
+                    <td>배송</td>
+                    <% }if(f.getFaqCategory()==3){ %>
+                    <td>쿠폰/기타</td>
+                    <% }if(f.getFaqCategory()==4){ %>
+                    <td>회원정보</td>
+                    <% }if(f.getFaqCategory()==5){ %>
+                    <td>제품</td>
+                    <%} %>
+                    <td><%=f.getFaqTitle() %></td>
                 </tr>
-                 <tr>
-                    <td><input type="checkbox" ></td>
-                    <td>1</td>
-                    <td>배송관련</td>
-                    <td>아무 이유 없이 그냥 내맘대로</td>
-                   
-                </tr>
-               
-                
-                
+                <% } %>
             </tbody>
 
         </table>  
+           <br><br><br>
+       <div class="pagingArea" align="center">
+			<% if(currentPage!=1) {%>
+			<button onclick="location.href='faqList.ad?currentPage=1'"> &lt;&lt; </button>
+			
+			<button onclick="location.href='faqList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<% } %>
+			
+			<%for(int p=startPage; p<=endPage; p++){ %>
+				<% if(currentPage != p){%>
+				<button onclick="location.href='faqList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<% }else { %>
+				<button disabled><%=p %></button>	
+				<% } %>
+			<%} %>
+			
+			<% if(currentPage!=maxPage) {%>
+			<button onclick="location.href='faqList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='faqList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<% } %>
+		</div>                  
+               
        </div>
     </div>
+    <script>
+   		$(function(){
+   			$(".listFaq>tbody>tr").click(function(){
+   				// console.log("클릭");
+	   				
+	   			var mid = $(this).children().eq(0).text();
+	   			// faq번호 밸류값이 넘어감 
+	   			
+	 			location.href="<%= contextPath%>/faqDetail.ad?mid=" + mid; 
+ 			});
+ 
+   		});   
+    </script>
 </body>
 </html>
