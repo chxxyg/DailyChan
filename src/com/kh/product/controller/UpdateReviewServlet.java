@@ -1,7 +1,6 @@
-package com.kh.mypage.controller;
+package com.kh.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.mypage.model.service.ReviewService;
-import com.kh.mypage.model.vo.Review;
 
 /**
- * Servlet implementation class ReviewListServlet
+ * Servlet implementation class UpdateReviewServlet
  */
-@WebServlet("/review.my")
-public class ReviewListServlet extends HttpServlet {
+@WebServlet("/updateReview.pro")
+public class UpdateReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReviewListServlet() {
+    public UpdateReviewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,20 +29,12 @@ public class ReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		/*
+
 		String proCode = request.getParameter("proCode");
-		ArrayList<Review> rList = new ReviewService().selectReviewList(proCode);
-		//request.setAttribute("proCode", proCode);
-		request.setAttribute("rList", rList);
-		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 		
-		//location.href="/dailyChan/views/product/productDetailPage.jsp?rList="+ rList;
+		int result = new ReviewService().updateReviewSumCount(proCode);
 		
-		System.out.println(proCode);
-		System.out.println(rList);
-		*/
-		
+	
 	}
 
 	/**
