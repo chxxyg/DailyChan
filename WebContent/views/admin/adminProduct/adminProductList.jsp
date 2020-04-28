@@ -106,6 +106,12 @@
 			background-color:#5554547e;
 			cursor:pointer;
 		}
+		thead>tr>th{
+			height:30px;
+			font-weight: bold;
+			font-size:17px;
+			
+		}
         
       
     </style>
@@ -128,11 +134,11 @@
         <table class="listProduct">
             <thead>
                 <tr>
-                    <th width="170">상품코드</th>
-                    <th width="200">업체명</th>
-                    <th width="320">상품명</th>
-                    <th width="100">판매가</th>
-                    <th width="80">재고수량</th>
+                    <th width="170">상 품 코 드</th>
+                    <th width="180">업 체 명</th>
+                    <th width="320">상 품 명</th>
+                    <th width="100">판 매 가</th>
+                    <th width="100">재고수량</th>
                 </tr>
             </thead>
             <tbody>

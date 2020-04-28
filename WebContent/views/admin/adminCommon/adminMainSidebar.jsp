@@ -133,7 +133,7 @@ body {
                     <a href="javascript:void(0);"><i class="fa fa-question"></i><span>문의관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
                         <li><a href="<%=contextPath%>/faqList.ad?currentPage=1">FAQ 관리</a></li>
-                        <li><a href="<%=contextPath%>/adOneInquiryList.ad">1:1 상담 관리</a></li>
+                        <li><a href="<%=contextPath%>/adOneInquiryList.ad?currentPage=1">1:1 상담 관리</a></li>
                         <li><a href="<%=contextPath%>/noticeList.ad?currentPage=1">공지사항 관리</a></li>
                         </li>
                     </ul>
@@ -152,7 +152,7 @@ body {
               </li>
 
                 <li class="sub-menu">
-                    <a href="<%=contextPath%>/reviewList.ad"><i class="fa fa-comment"></i><span>리뷰관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <a href="<%=contextPath%>/reviewList.ad?currentPage=1"><i class="fa fa-comment"></i><span>리뷰관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
 
                 </li>
                            

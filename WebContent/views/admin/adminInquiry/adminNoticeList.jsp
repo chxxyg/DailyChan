@@ -105,7 +105,11 @@
 			background-color:#5554547e;
 			cursor:pointer;
 		}
-		
+        thead>tr>th{
+			height:30px;
+			font-weight: bold;
+			font-size:17px;
+		}		
 		
         
       

@@ -21,7 +21,7 @@ public class AdDiscountDetailServlet extends HttpServlet {
        
     /**
      * @see HttpServlet#HttpServlet()
-     */
+     */ 
     public AdDiscountDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
@@ -50,3 +50,4 @@ public class AdDiscountDetailServlet extends HttpServlet {
 	}
 
 }
+
