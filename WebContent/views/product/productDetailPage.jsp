@@ -4,6 +4,7 @@
 	Product p = (Product)request.getAttribute("p");
 	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
 	String proCode = (String)request.getAttribute("proCode");
+	ArrayList<Review> rLsit = (ArrayList<Review>)request.getAttribute("rList");
 %>
 <!DOCTYPE html>
 <html>
@@ -199,7 +200,7 @@
                                  <%=p.getProReviewSum() %></span>
 			<span id="detailGpaInfo">등록된 리뷰 <%=p.getProReviewCount()%>건 기준</span>
 		</div>
-	      
+	    
 		<table id="reviewList" width="1000" style="text-align: center;">
 			<tr>
 				<td width="100">1234</td>
@@ -233,7 +234,6 @@
 						
 					</div>
 			</tr>
-
 		</table>
 	         
 		<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
@@ -293,7 +293,6 @@
     	function insertReview(){
     		window.open("<%=contextPath%>/reviewPop.re?proCode=<%=p.getProCode()%>", "후기 작성", "width=510, height=580, left=500");
     	}
-    	
     
     
     </script>    

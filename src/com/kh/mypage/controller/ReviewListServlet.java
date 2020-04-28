@@ -1,11 +1,16 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.kh.mypage.model.service.ReviewService;
+import com.kh.mypage.model.vo.Review;
 
 /**
  * Servlet implementation class ReviewListServlet
@@ -27,8 +32,17 @@ public class ReviewListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher("views/mypage/myReview.jsp").forward(request, response);
-	
+		String proCode = request.getParameter("proCode");
+		ArrayList<Review> rList = new ReviewService().selectReviewList(proCode);
+		//request.setAttribute("proCode", proCode);
+		request.setAttribute("rList", rList);
+		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
+		
+		//location.href="/dailyChan/views/product/productDetailPage.jsp?rList="+ rList;
+		
+		System.out.println(proCode);
+		System.out.println(rList);
+		
 	}
 
 	/**
