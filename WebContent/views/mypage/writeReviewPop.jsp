@@ -136,7 +136,7 @@
 			</table>
 			<div id="reviewBtns">
 				<button id="reviewcancelBtn" type="button">취소</button>
-				<button id="reviewSubmitBtn" type="submit">등록</button>
+				<button id="reviewSubmitBtn" type="submit" onclick="location.href=<%=request.getContextPath() %>/updateReview.pro?proCode=<%=proCode%>">등록</button>
 			</div>
 		</form>
 	</div>
