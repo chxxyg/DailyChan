@@ -6,6 +6,7 @@ import static com.kh.common.JDBCTemplate.getConnection;
 import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.kh.mypage.model.dao.ReviewDao;
 import com.kh.mypage.model.vo.Review;
@@ -21,4 +22,20 @@ public class ReviewService {
 		return result;
 	}
 
+	public ArrayList<Review> selectReviewList(String proCode){
+		Connection conn = getConnection();
+		ArrayList<Review> rList = new ReviewDao().selectReviewList(conn, proCode);
+		close(conn);
+		return rList;
+	}
+	
+	public int updateReviewSumCount(String proCode) {
+		Connection conn = getConnection();
+		int result = new ReviewDao().updateReviewSumCount(conn, proCode);
+		if(result > 0){commit(conn);}
+        else{rollback(conn);}
+		close(conn);
+		return result;
+	}
+	
 }
