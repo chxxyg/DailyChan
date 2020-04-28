@@ -38,23 +38,23 @@ public class InquiryServlet extends HttpServlet {
 		// 아이디 유형 제목 내용
 
 		String memberId = request.getParameter("memberId");
-		String inquiryType = request.getParameter("inquiryType");
-		String inquiryTitle = request.getParameter("inquiryTitle");
-		String inquiryContent = request.getParameter("inquiryContent");
+		String inquiryType = request.getParameter("counsel_clss_no");
+		String inquiryTitle = request.getParameter("quest_title");
+		String inquiryContent = request.getParameter("quest_cont");
 
 		Inquiry i = new Inquiry();
 		i.setMemberId(memberId);
 		i.setInquiryType(inquiryType);
 		i.setInquiryTitle(inquiryTitle);
 		i.setInquiryContent(inquiryContent);
-
+		System.out.println(i);
 		int result = new InquiryService().insertInquiry(i);
 
 		if (result > 0) {
-
+			request.setAttribute("i", i);
 			request.getSession().setAttribute("msg", "게시글 등록 성공");
-			/* response.sendRedirect("/dailyChan/detail.bo"); */
-
+			RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryFormView.jsp");
+			view.forward(request, response);
 		} else {
 
 			request.setAttribute("msg", "게시글 등록 실패");

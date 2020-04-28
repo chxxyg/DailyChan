@@ -36,21 +36,19 @@ public class NoticeDao {
 		
 		ArrayList<Notice> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectList");
-		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+				pstmt = conn.prepareStatement(sql);
+				rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				
 				list.add(new Notice(rset.getInt("NOTICE_BOARD_NO"),
 									rset.getString("NOTICE_TITLE"),
 									rset.getDate("NOTICE_DATE"),
-									rset.getString("NOTICE_CONTENT"),
 									rset.getInt("NOTICE_COUNT")));
 			}
 			
@@ -58,9 +56,9 @@ public class NoticeDao {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
-		
+		/* System.out.println("test" + list); */
 		return list;
 		
 	}
@@ -83,11 +81,11 @@ public class NoticeDao {
 			if (rset.next()) {
 				n = new Notice();
 
-				n.setNoticeBoardNo(rset.getInt("NOTICE_BOARD_NO"));
+				/* n.setNoticeBoardNo(rset.getInt("NOTICE_BOARD_NO")); */
 				n.setNoticeTitle(rset.getString("NOTICE_TITLE"));
 				n.setNoticeDate(rset.getDate("NOTICE_DATE"));
 				n.setNoticeContent(rset.getString("NOTICE_CONTENT"));
-				n.setNoticeCount(rset.getInt("NOTICE_COUNT"));
+				/* n.setNoticeCount(rset.getInt("NOTICE_COUNT")); */
 
 			}
 

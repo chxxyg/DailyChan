@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>공지사항 내역</title>
 </head>
 <body>
 
@@ -42,20 +42,18 @@
 			<table class="noti_tbl" border="1">
 				<tr>
 					<td>번호</td>
-					<td colspan="1">번호</td>
+					<td colspan="1"><%=n.getNoticeBoardNo()%></td>
 				</tr>
 				<tr>
-					<td>제목</td>
-					<td colspan="3"><%= n.getNoticeTitle()%></td>
+					<th>제목</th>
+					<td colspan="2"><%= n.getNoticeTitle()%></td>
 				</tr>
 				<tr>
-					<td>작성일</td>
+					<th>작성일</th>
 					<td><%= n.getNoticeDate() %></td>
 				</tr>
 				<tr>
-					<td colspan="4">내용</td>
-				</tr>
-				<tr>
+					<th>내용</th>
 					<td colspan="4"><p><%= n.getNoticeContent()%></p></td>
 				</tr>
 			</table>
