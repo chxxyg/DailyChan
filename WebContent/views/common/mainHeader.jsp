@@ -241,7 +241,7 @@
 						
 						
 						<% if(loginUser != null && loginUser.getMemberId().equals("admin")){  %>
-							<a href="<%=contextPath%>/adminMain.ad" style="color:red;">관리페이지</a>
+							<a href="<%=contextPath%>/mainPage.ad" style="color:red;">관리페이지</a>
 						<% } %>
                     
                    	 </div>

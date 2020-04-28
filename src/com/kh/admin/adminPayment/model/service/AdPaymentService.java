@@ -51,6 +51,40 @@ public class AdPaymentService {
 		
 	}
 	
+	/**
+	 * 결제페이지 조회를 위한 서비스
+	 * @param pi
+	 * @param payName
+	 * @return
+	 */
+	public ArrayList<OrderDelivery> searchPay(AdPageInfo pi, String payName){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<OrderDelivery> list = new AdPaymentDao().searchPay(conn, pi, payName);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	/**
+	 * 조회시 나오는 결제 갯수를 위한 서비스
+	 * @param payName
+	 * @return
+	 */
+	public int adPayCount(String payName) {
+		
+		Connection conn = getConnection();
+		
+		int countPay = new AdPaymentDao().adPayCount(conn, payName);
+		
+		close(conn);
+		return countPay;
+		
+	}
+	
 	
 	
 	

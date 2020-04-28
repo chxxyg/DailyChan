@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
         <div id="header2"></div>
         <div id="header3">관리자<i class="fa fa-star"></i></div>
         <div id="header4"><a href="">로그아웃</a></div>
-        <div id="header5"><a href="">홈페이지</a></div>           
+        <div id="header5"><a href="http://localhost:9999/dailyChan">사용자 홈페이지</a></div>           
     </div>
 </body>
 </html>

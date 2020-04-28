@@ -158,7 +158,11 @@
                     <td><%= i.getMemberId() %></td>
                     <td><%= i.getInquiryTitle() %></td>
                     <td><%= i.getInquiryContent() %></td>
-                    <td class="emphasis"><%= i.getInquiryResponseYn() %></td>
+                     <% if (i.getInquiryResponseYn()==null){ %>
+                    <td class="emphasis"> 미답변</td>
+                    <% }else{ %>
+                    <td class="emphasis">답변완료</td>
+                    <%} %>
                 </tr>
                 <% } %>
                
