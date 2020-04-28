@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
-
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.admin.adminReview.model.dao.AdReviewDao;
 import com.kh.admin.adminReview.model.vo.AdReview;
 import com.kh.member.model.dao.MemberDao;
@@ -35,18 +35,25 @@ private Properties prop = new Properties();
 		}
 	}
 
-	public ArrayList<AdReview> selectList(Connection conn) {
+	public ArrayList<AdReview> selectList(Connection conn, AdPageInfo pi) {
 		
 		ArrayList<AdReview> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectReview");
 		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+
+		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				list.add(new AdReview(rset.getInt("REVIEW_BOARD_NO"),
@@ -62,7 +69,7 @@ private Properties prop = new Properties();
 			e.printStackTrace();
 		} finally {
 			close(conn);
-			close(stmt);
+			close(pstmt);
 		}
 		return list;
 	}
@@ -99,17 +106,23 @@ private Properties prop = new Properties();
 		return v;
 	}
 
-	public ArrayList<AdReview> searchReview(Connection conn, String memberId) {
+	public ArrayList<AdReview> searchReview(Connection conn, String memberId, AdPageInfo pi) {
 
 		ArrayList<AdReview> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("searchReview");
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + memberId + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -153,6 +166,32 @@ private Properties prop = new Properties();
 		}
 		return result;
 	}
+	
+	public int adReCount(Connection conn) {
+		
+		int countReview = 0;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countReview");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			if(rset.next()) {
+				countReview = rset.getInt(1);
+			}
+		
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		return countReview;
+			
+	}
+
 
 }
 

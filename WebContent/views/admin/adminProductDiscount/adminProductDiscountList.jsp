@@ -90,7 +90,11 @@
 			position:relative;
 			top:1px;
 		}
-        
+         thead>tr>th{
+			height:30px;
+			font-weight: bold;
+			font-size:17px;
+		}       
       
     </style>
 </head>

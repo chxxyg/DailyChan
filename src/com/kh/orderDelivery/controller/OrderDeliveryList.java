@@ -2,6 +2,7 @@ package com.kh.orderDelivery.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,13 +34,17 @@ public class OrderDeliveryList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    
 	    String orderNo = request.getParameter("orderNo");
 	    String userId = request.getParameter("userId");
+	    
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	    
 	    OrderDelivery od = new OrderDeliveryService().orderList(orderNo, userId);
 	    JSONObject jsonObj = new JSONObject();
         jsonObj.put("recipient", od.getOdRecipient());
         jsonObj.put("emergency_contact", od.getOdEmergencyContact());
-        //jsonObj.put("delivery_date", od.getOdDeliveryDate());
+        jsonObj.put("delivery_date", sdf.format(od.getOdDeliveryDate()));
         jsonObj.put("address", od.getOdAddress());
         
         response.setContentType("application/json; charset=utf-8"); 

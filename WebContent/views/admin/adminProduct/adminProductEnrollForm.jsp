@@ -105,7 +105,7 @@
             </tr>
             <tr>
                 <td width="200">상품코드</td>
-                <td><input type="text"  name="pdCode"></td>
+                <td><input type="text" required  name="pdCode"></td>
             </tr>
             <tr>
                 <td width="200">납품업체명</td>
@@ -117,24 +117,24 @@
             </tr>
             <tr>
                 <td width="200">기본이미지</td>
-                <td><input type="file" style="cursor:pointer;" name="pdUpfile1"></td>
+                <td><input type="file" style="cursor:pointer;" name="pdUpfile1" required></td>
             </tr>
             <tr>
                 <td width="200">세부 이미지 01</td>
-                <td><input type="file" style="cursor:pointer;" name="pdUpfile2"></td>
+                <td><input type="file" style="cursor:pointer;" name="pdUpfile2" required></td>
             </tr>
 
             <tr>
                 <td width="200">* 판매가</td>
-                <td><input type="text" required name="pdPrice"></td>
+                <td><input type="text" required name="pdPrice" required></td>
             </tr>
             <tr>
                 <td width="200">* 수량</td>
-                <td><input type="text" required name="pdStock"></td>
+                <td><input type="text" required name="pdStock" required></td>
             </tr>
             <tr>
                 <td width="200">상품 정보 이미지</td>
-                <td><input type="file" style="cursor:pointer;" name="pdUpfile3"></td>
+                <td><input type="file" style="cursor:pointer;" name="pdUpfile3" required></td>
             </tr>
        		 </table>
        		 <div id="enrollsubmit">
