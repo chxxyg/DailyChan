@@ -73,7 +73,7 @@ public class MyOrderDao {
 	 */
 	public ArrayList<Mypage> countOrdNo(Connection conn, String memberId){
 		
-		ArrayList<Mypage> count = null;
+		ArrayList<Mypage> count = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -87,7 +87,6 @@ public class MyOrderDao {
 			while(rset.next()) {
 				count.add(new Mypage(rset.getInt(1)));
 			}
-			System.out.println(count);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

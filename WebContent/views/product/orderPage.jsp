@@ -393,6 +393,21 @@
 						}
 						});
 						
+						// 장바구니 상태값 변경
+						$.ajax({
+							url: "<%=contextPath%>/modifyCartStatus.od",
+							type: "POST",
+							data: {orderNo : orderNo, userId : userId},
+							success: function(msg) 
+							{
+								console.log(msg);
+							},
+							error: function(e)
+							{
+								console.log("ajax통신실패");
+							}
+						});
+						
 						// 쿠폰 조회
 						
 						

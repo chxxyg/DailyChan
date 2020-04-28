@@ -115,4 +115,30 @@ public class OrderDeliveryDao
         
         return result;
     }
+    
+    public int modifyCartStatus(Connection conn, String orderNo, String userId)
+    {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("modifyCartStatus");
+        
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            pstmt.setString(2, orderNo);
+            
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+        }
+        
+        return result;
+    }
 }
