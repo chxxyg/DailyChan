@@ -12,6 +12,8 @@
 <meta charset="UTF-8">
 <title>제품 상세</title>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/productDetailPage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
@@ -34,7 +36,10 @@
             <td>
                 <table id="productInfo">
                     <tr>
-                        <td><div id="productName"><%=p.getProName() %></div></td>
+                        <td>
+                        	<input type="hidden" id="proCode" value="<%= p.getProCode() %>">
+                        	<div id="productName"><%=p.getProName() %></div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -44,7 +49,8 @@
                                     <td><div id="productPrice1">가격</div></td>
                                     <td>
                                     <div>
-                                    	<span id="productPrice2" style="text-decoration: line-through; color: gray; font-size: 20px; padding-left: 10px;"><%=p.getProPrice() %></span>
+                                    	<input type="hidden" class="sale" value="sale">
+                                    	<span class="productPrice2" style="text-decoration: line-through; color: gray; font-size: 20px; padding-left: 10px;"><%=p.getProPrice() %></span>
                                     	<span id="productPriceSale" style="color: red; font-size: 30px; padding-left:10px;"><%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %></span>
                                     </div>
                                     </td>
@@ -55,7 +61,10 @@
                             <table>
                                 <tr>
                                     <td><div id="productPrice1">가격</div></td>
-                                    <td><div id="productPrice2"><%=p.getProPrice() %></div></td>
+                                    <td>
+                                    	<input type="hidden" class="sale" value="nonSale">
+                                    	<div class="productPrice2"><%=p.getProPrice() %></div>
+                                    </td>
                                     <td><div id="productPrice3">원</div></td>
                                 </tr>
                             </table>
@@ -106,13 +115,22 @@
                                 <tr>
                                     <td>
                                         <div id="productAmountWrap">
-                                            <button id="productMinusBtn" type="button">-</button>
-                                            <span id="productAmount">60</span>
-                                            <button id="productPlusBtn" type="button">+</button>
+                                            <button class="minus" name="change_qty_button" data-role="-" data-cart-seq="0" type="button" title="수량감소">-</button>
+											<input name="cart_qty" class="input" data-cart-seq="0" type="text" maxlength="3" value="1" title="옵션수량입력">
+											<button class="plus" name="change_qty_button" data-role="+" data-cart-seq="0" type="button" title="수량증가">+</button>
                                         </div>
                                     </td>
-                                    <td><div id="productTotal">총 제품 금액</div></td>
-                                    <td><div id="productTotalPrice">600,000원</div></td>
+                                    <td><div id="productTotal">총 상품 금액</div></td>
+                                    <% if(p.getProSaleYn().equals("Y")){ %>
+                                    <td>
+                                    	<span class="productTotalPrice"><%=p.getProPrice()%></span><span>원</span>
+                                    </td>
+                                    <% } else { %>	
+                                    <td>
+                                    	<span class="productTotalPrice"><%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%></span><span>원</span>
+                                   	</td>
+                                    <% } %>
+                                    
                                 </tr>
                             </table>
                         </td>
@@ -122,7 +140,7 @@
                             <table>
                                 <tr>
                                     <td width="150px;"></td>
-                                    <td><button id="productBtn2" class="productBtn" type="button">장바구니</button></td>
+                                    <td><button id="productBtn2" class="productBtn toCart" type="button">장바구니</button></td>
                                     <td><button id="productBtn3" class="productBtn" type="button">찜하기</button></td>
                                 </tr>
                             </table>
@@ -276,8 +294,110 @@
         
         
     <script>
-    	<!--리뷰 슬라이드 다운-->
     	$(function(){
+    		
+    		/* 수량 -+ */
+    		$(".minus").click(function(){
+    			
+    			/* 수량 변경 */
+    			var q = Number($(this).next().val());
+    			$(this).next().val(q-1);
+    			
+    			/* 상품 세일 여부 */
+        		var saleYN = $(this).parents("#productDetail").find(".sale").val();
+    			
+    			console.log(saleYN);
+    			
+    			/* 총 상품 금액 변경 */
+    			if(saleYN == "sale"){
+    				$(".productTotalPrice").text((q-1)*<%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %>);
+    			}else{
+    				$(".productTotalPrice").text((q-1)*<%=p.getProPrice()%>);
+    			}
+    			
+    			/* 수량 1 미만 선택 시 */
+    			if(Number($(this).next().val())<1){
+    				alert("1개 이상일 경우 주문이 가능합니다.");
+    				$(this).next().val(1);
+    				if(saleYN == "Y"){
+    					$(".productTotalPrice").text(<%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%>);
+    				}else{
+    					$(".productTotalPrice").text(<%=p.getProPrice()%>);
+    				}
+    			}
+    			
+    		});
+    		
+    		$(".plus").click(function(){
+    			
+    			/* 수량 변경 */
+    			var q = Number($(this).prev().val());
+    			$(this).prev().val(q+1);
+    			
+    			/* 상품 세일 여부 */
+        		var saleYN = $(this).parents("#productDetail").find(".sale").val();
+    			
+    			/* 총 상품 금액 변경 */
+    			if(saleYN == "sale"){
+    				$(".productTotalPrice").text((q+1)*<%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %>);
+    			}else{
+    				$(".productTotalPrice").text((q+1)*<%=p.getProPrice()%>);
+    			}
+    			
+    			/* 수량 10 초과 선택 시 */
+    			if(Number($(this).prev().val())>10){
+    				alert("한 상품 당 10개 이하로 주문이 가능합니다.");
+    				$(this).prev().val(10);
+    				
+    				if(saleYN == "Y"){
+    					$(".productTotalPrice").text(10*<%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%>);
+    				}else{
+    					$(".productTotalPrice").text(10*<%=p.getProPrice()%>);
+    				}
+    			}
+    			
+    		});
+    		
+    		
+    		/* 장바구니 */
+    		$(".toCart").click(function(){
+    			
+    			console.log(클릭);
+    			
+    			var proCode = $("#proCode").val();
+    			var qty = $(".input").val();
+    			
+    			var saleYN = $(this).parents("#productDetail").find(".sale").val();
+    			var proPrice = 0;
+    			
+    			if(saleYN == "Y"){
+    				proPrice = <%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%>
+    			}else{
+    				proPrice = <%=p.getProPrice()%>
+    			}
+    			
+    			$.ajax({
+    				url:"detailToCart.pro",
+    				data:{proCode:proCode, proPrice:priPrice, qty:qyt},
+    				type:"post",
+    				success:function(msg){
+    					if(msg == 0){
+							alert("상품이 장바구니에 이미 존재합니다.");
+						}else{
+							var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+							if(result){
+								location.href="cartList.pro";
+							}
+						}
+    				}, error:function(){
+    					alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+    				}
+    			});
+    			
+    		});
+    		
+    		
+    		/* 리뷰 슬라이드 다운 */
     		$(".reviewTitle").click(function(){
     			var content = $(this).parent().next();
     			
@@ -288,6 +408,7 @@
 				    content.slideUp();
 				}
     		});
+
     	});
     	
     	function insertReview(){

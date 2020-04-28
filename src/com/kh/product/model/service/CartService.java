@@ -138,4 +138,23 @@ public class CartService {
 	    
 	}
 	
+	/** 7. 상품 상세페이지에서 장바구니 추가
+	 * @param memberId
+	 * @param proCode
+	 * @param proPrice
+	 * @param qyt
+	 * @return
+	 */
+	public int insertIntoCart(String memberId, String proCode, int proPrice, int qty) {
+		Connection conn = getConnection();
+		int result = new CartDao().insertIntoCart(conn, memberId, proCode, proPrice, qty);
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	
 }

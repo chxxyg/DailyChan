@@ -11,19 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.member.model.vo.Member;
 import com.kh.product.model.service.CartService;
-import com.kh.product.model.vo.ShoppingCart;
 
 /**
- * Servlet implementation class InsertCartServlet
+ * Servlet implementation class ProductToCartServlet
  */
-@WebServlet("/toCart.pro")
-public class InsertCartServlet extends HttpServlet {
+@WebServlet("/detailToCart.pro")
+public class ProductToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertCartServlet() {
+    public ProductToCartServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,9 +31,16 @@ public class InsertCartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		String proCode = request.getParameter("proCode");
+		int qty = Integer.parseInt(request.getParameter("qty"));
 		int proPrice = Integer.parseInt(request.getParameter("proPrice"));
+		
+		System.out.println(memberId);
+		System.out.println(proCode);
+		System.out.println(qty);
+		System.out.println(proPrice);
 		
 		int result = 0;
 		int msg = 0;
@@ -42,7 +48,7 @@ public class InsertCartServlet extends HttpServlet {
 		int exist = new CartService().searchCart(memberId, proCode);
 		
 		if(exist == 0) { // 상품이 장바구니에 없으니 장바구니에 담기
-			result = new CartService().insertCart(memberId, proCode, proPrice);
+			result = new CartService().insertIntoCart(memberId, proCode, proPrice, qty);
 			
 			if(result > 0) { // 장바구니에 담기 성공
 				msg=1;
@@ -58,7 +64,6 @@ public class InsertCartServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(msg);
-
 	}
 
 	/**

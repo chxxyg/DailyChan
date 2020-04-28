@@ -268,9 +268,38 @@ public class CartDao {
 	        close(rset);
 	        close(pstmt);
 	    }
-	    
-	    
 	    return op;
+	}
+	
+	/** 7. 상품 상세페이지에서 장바구니 추가
+	 * @param conn
+	 * @param memberId
+	 * @param proCode
+	 * @param proPrice
+	 * @param qty
+	 * @return
+	 */
+	public int insertIntoCart(Connection conn, String memberId, String proCode, int proPrice, int qty) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("productToCart");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setInt(2, proPrice);
+			pstmt.setString(3, proCode);
+			pstmt.setInt(4, qty);
+			
+			result = pstmt.executeUpdate();
+						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 	
 }

@@ -172,12 +172,9 @@
 		$(function(){
 			$(".cpCartLogo").click(function(){
 				var proCode = $(this).parents(".categoryInnerTable").prev().val();
-				/* var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text(); */
 				var proPrice = 0;
 				
 				var saleYN = $(this).parents(".categoryInnerTable").find(".sale").val();
-				
-				console.log(saleYN);
 				
 				if(saleYN == "sale"){
 					proPrice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
