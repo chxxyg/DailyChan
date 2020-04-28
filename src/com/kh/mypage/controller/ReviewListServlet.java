@@ -45,6 +45,8 @@ public class ReviewListServlet extends HttpServlet {
 		System.out.println(rList);
 		*/
 		
+		
+		
 	}
 
 	/**
