@@ -93,10 +93,10 @@
             <tr>
                 <td width="200">할인율</td>
                 <td><select name="discountRate">
-           			 	<option value="1" selected>10%</option>
-            		 	<option value="2">20%</option>
-            		 	<option value="3">30%</option>
-            		 	<option value="4">40%</option>
+           			 	<option value="0.1" selected>10%</option>
+            		 	<option value="0.2">20%</option>
+            		 	<option value="0.3">30%</option>
+            		 	<option value="0.4">40%</option>
         			</select></td>
             </tr>       
         </table>

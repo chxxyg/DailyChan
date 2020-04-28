@@ -50,7 +50,7 @@ public class AdDiscountDao {
 										rset.getString("PRODUCT_CODE"),
 										rset.getDate("DISCOUNT_STARTDATE"),
 										rset.getDate("DISCOUNT_ENDDATE"),
-										rset.getInt("DISCOUNT_RATE")));
+										rset.getDouble("DISCOUNT_RATE")));
 			}
 			
 		} catch (SQLException e) {
@@ -79,7 +79,7 @@ public class AdDiscountDao {
 								   rset.getString("PRODUCT_CODE"),
 								   rset.getDate("DISCOUNT_STARTDATE"),
 								   rset.getDate("DISCOUNT_ENDDATE"),
-								   rset.getInt("DISCOUNT_RATE"));
+								   rset.getDouble("DISCOUNT_RATE"));
 			}
 			
 		} catch (SQLException e) {
@@ -109,7 +109,7 @@ public class AdDiscountDao {
 										rset.getString("PRODUCT_CODE"),
 										rset.getDate("DISCOUNT_STARTDATE"),
 										rset.getDate("DISCOUNT_ENDDATE"),
-										rset.getInt("DISCOUNT_RATE")));
+										rset.getDouble("DISCOUNT_RATE")));
 			}
 			
 		} catch (SQLException e) {
@@ -151,9 +151,9 @@ public class AdDiscountDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, d.getProductCode());
-			pstmt.setString(2, d.getDiscountStartDateString());
+			pstmt.setString(2, d.getDiscountStartDateString()); //"2020-04-21"   "20200421"
 			pstmt.setString(3, d.getDiscountEndDateString());
-			pstmt.setInt(4, d.getDiscountRate());
+			pstmt.setDouble(4, d.getDiscountRate());
 			
 			result = pstmt.executeUpdate();
 			

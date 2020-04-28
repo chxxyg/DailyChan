@@ -157,6 +157,8 @@
                     <td><%= d.getDiscountStartDate() %></td>
                     <td><%= d.getDiscountEndDate() %></td>
                     <td><%= d.getDiscountRate() %></td>
+                    
+                    <%-- <%System.out.println(d.getDiscountRate()); %> --%>
                 </tr>
                 <% } %>
                

@@ -39,7 +39,7 @@ public class AdDiscountInsertServlet extends HttpServlet {
 		String productCode = request.getParameter("productCode");
 		String dst = request.getParameter("dst");
 		String det = request.getParameter("det");
-		int discountRate =  Integer.parseInt(request.getParameter("discountRate"));
+		Double discountRate =  Double.parseDouble(request.getParameter("discountRate"));
 		
 		AdDiscount d = new AdDiscount();
 		d.setProductCode(productCode);

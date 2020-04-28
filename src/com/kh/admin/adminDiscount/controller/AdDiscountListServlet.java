@@ -35,6 +35,7 @@ public class AdDiscountListServlet extends HttpServlet {
 		ArrayList<AdDiscount> list = new AdDiscountService().selectList();
 		
 		request.setAttribute("list", list);
+		System.out.println(list);
 		
 		request.getRequestDispatcher("views/admin/adminDiscount/adminDiscountList.jsp").forward(request, response);
 		

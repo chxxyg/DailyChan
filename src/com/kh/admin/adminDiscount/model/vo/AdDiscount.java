@@ -8,7 +8,7 @@ public class AdDiscount {
 	private String productCode;					// 상품코드
 	private Date discountStartDate;				// 할인시작일
 	private Date discountEndDate;				// 할인종료일
-	private int discountRate;					// 할인율
+	private double discountRate;					// 할인율
 	
 	private String discountStartDateString;		// 할인시작일 String
 	private String discountEndDateString;		// 할인종료일 String
@@ -19,7 +19,7 @@ public class AdDiscount {
 	}
 
 	public AdDiscount(int discountCode, String productCode, Date discountStartDate, Date discountEndDate,
-			int discountRate) {
+			double discountRate) {
 		super();
 		this.discountCode = discountCode;
 		this.productCode = productCode;
@@ -34,7 +34,7 @@ public class AdDiscount {
 	 * 할인추가용
 	 */
 	public AdDiscount(int discountCode, String productCode, String discountStartDateString,
-			String discountEndDateString, int discountRate) {
+			String discountEndDateString, double discountRate) {
 		super();
 		this.discountCode = discountCode;
 		this.productCode = productCode;
@@ -75,11 +75,11 @@ public class AdDiscount {
 		this.discountEndDate = discountEndDate;
 	}
 
-	public int getDiscountRate() {
+	public double getDiscountRate() {
 		return discountRate;
 	}
 
-	public void setDiscountRate(int discountRate) {
+	public void setDiscountRate(double discountRate) {
 		this.discountRate = discountRate;
 	}
 	
