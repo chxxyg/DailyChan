@@ -17,21 +17,6 @@ public class Review {
 	
 	public Review() {}
 	
-	
-	
-
-
-	public Review(int reviewBoardNo, String memberId, String reviewTitle, String reviewContent, int reviewRating,
-			Date reviewCreateDate) {
-		super();
-		this.reviewBoardNo = reviewBoardNo;
-		this.memberId = memberId;
-		this.reviewTitle = reviewTitle;
-		this.reviewContent = reviewContent;
-		this.reviewRating = reviewRating;
-		this.reviewCreateDate = reviewCreateDate;
-	}
-
 
 
 
