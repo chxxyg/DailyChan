@@ -133,16 +133,10 @@ li {
 		<a href="<%= request.getContextPath() %>/noticeMain.no"><h2 align="center">고객센터</h2></a>
 		<div id="left-category">
 			<ul>
-				<li><a id="left_01"
-					href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는
-						질문</a></li>
-				<li><a id="left_02"
-					href="<%= request.getContextPath() %>/detail.bo">1:1 친절상담</a></li>
-				<li><a id="left_03"
-					href="<%-- <%= request.getContextPath() %>/NoticeInquiryList.no --%>">1:1
-						상담내역</a></li>
-				<li><a id="left_04"
-					href="<%= request.getContextPath() %>/noticeList.no">공지사항</a></li>
+				<li><a id="left_01" href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는 질문</a></li>
+				<li><a id="left_02" href="<%= request.getContextPath() %>/detail.bo">1:1 친절상담</a></li>
+				<li><a id="left_03" href=" <%= request.getContextPath() %>/form.in">1:1 상담내역</a></li>
+				<li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no">공지사항</a></li>
 			</ul>
 		</div>
 
@@ -163,24 +157,25 @@ li {
 	</div>
 
 	<script>
-// a 쿼리스트링으로!!!!!
+	
+		$("#left_02").click(function(){
+			if(<%=loginUser1%> != null ){ 
+				response.sendRedirect("<%= request.getContextPath()%>/detail.bo"); 
+			}else{ 
+				window.open("<%=request.getContextPath()%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+				}		
+			});
 
 		$("#left_03").click(function(){
-			console.log("test");
-			if(<%=loginUser1%> != null )
-			{ 
+			/* console.log("test"); */
+			if(<%=loginUser1%> != null ){ 
 				response.sendRedirect("<%= request.getContextPath()%>/NoticeInquiryList.no"); 
-			}
-			else
-			{ 
+			}else{ 
 				window.open("<%=request.getContextPath()%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
-			
-			}		
-		});
-	
-	
+				}		
+			});
 
-</script>
+	</script>
 
 </body>
 </html>

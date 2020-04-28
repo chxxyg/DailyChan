@@ -32,4 +32,56 @@ public class OrderDeliveryService
         
         return result;
     }
+    
+    /**
+     * 2_1. 결제 성공 시 구매 상태 변경
+     * @param orderNo   --> 결제 완료된 주문 번호
+     * @param userId    --> 회원 아이디
+     * @return          --> update 여부
+     */
+    public int modifyStatus(String orderNo, String userId)
+    {
+        Connection conn = getConnection();
+        
+        int result = new OrderDeliveryDao().modifyStatus(conn, orderNo, userId);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
+        close(conn);
+        
+        return result;
+    }
+    
+    /**
+     * 2_2. 결제 성공 시 불필요한 데이터 제거
+     * @param orderNo
+     * @param userId
+     * @return
+     */
+    public int deleteOrder(String orderNo, String userId)
+    {
+        Connection conn = getConnection();
+        
+        int result = new OrderDeliveryDao().deleteOrder(conn, orderNo, userId);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        
+        close(conn);
+        
+        return result;
+    }
 }

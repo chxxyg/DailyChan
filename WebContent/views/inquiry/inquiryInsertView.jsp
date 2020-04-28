@@ -3,12 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	//Inquiry i = (Inquiry) request.getAttribute("i");
-
 	Member loginUser2 = (Member) session.getAttribute("loginUser");
 
 	String memberName = String.valueOf(session.getAttribute("memberName"));
-	/* String phone = String.valueOf(session.getAttribute("phone")); */
 %>
 
 
@@ -312,8 +309,8 @@ button em {
 	<%@ include file="../notice/noticeSearch.jsp"%>
 
 	<div class="outer">
-		<form name="csCounselForm" id="form1" enctype="multipart/form-data" method="post"  action="<%=request.getContextPath()%>/write.in">
-
+		<form name="csCounselForm" id="form1" method="post"  action="<%=request.getContextPath()%>/write.in">
+		<input type="hidden" name="memberId" value="<%=loginUser.getMemberId() %>">
 			<h2>1:1 친절상담</h2>
 			<div class="cst_slt">
 
@@ -392,7 +389,7 @@ button em {
 						<%
 							String phone = loginUser.getPhone();
 							String phone1 = phone.substring(0, 2);
-							String phone2 = phone.substring(2, 6);
+							String phone2 = phone.substring(3, 7);
 							String phone3 = phone.substring(7);
 						%>
 
@@ -423,37 +420,9 @@ button em {
 
 					<tr>
 						<th scope="row"><label for="quest_cont">내용</label></th>
-						<td><textarea id="quest_cont" name="quest_cont" cols="50" rows="10" class="textarea wide"
-								placeholder="취소, 교환, 반품 신청은 주문배송 조회에서 ‘결제완료’ 상태인 경우에 즉시취소 가능합니다. 주문에 대한 문의일 경우, 상품을 선택하여 문의 주시면 보다 빠른 상담이 가능합니다." title="내용">
-							 </textarea>
+						<td><textarea id="quest_cont" name="quest_cont" cols="50" rows="10" class="textarea wide" title="내용"></textarea>
 						</td>
 					</tr>
-
-					<!-- 첨부파일 없애기 -->
-					<!-- 
-					<tr>
-						<th scope="row">사진 등록</th>
-						<td>
-							<dl class="file_inp">
-
-								첨부 사진 파일찾기
-								<dd>
-									<input type="file" name="file" id="file0" title="제품 사진 업로드">
-									<button type="button" class="del" name="deleteImgBtn"
-										title="상품 사진 업로드 항목 삭제">
-										<img src="../../resources/img/minus.png" width="15px"
-											height="13px">
-									</button>
-									<input type="hidden" name="pre_file_nm" value="">
-								</dd>
-							</dl>
-							<div class="r_noti">
-								<ul>
-									<li><em>*</em> 사진의 크기는 20MB 이하의 jpg, png, gif 파일로 첨부 가능합니다.</li>
-								</ul>
-							</div>
-						</td>
-					</tr> -->
 
 				</tbody>
 			</table>
@@ -471,10 +440,6 @@ button em {
 				</button>
 			</div>
 		</form>
-<!-- 
-		<form id="postForm" method="post">
-			
-		</form> -->
 
 		<div class="info_box01">
 			<strong class="box_tit">상담 TIP</strong>
@@ -493,20 +458,19 @@ button em {
 
 			/* 1:1 친절상담 주문내역 팝업 function  */
 			function orderlistPop(){
-
 	           window.open()"<%=request.getContextPath()%>/inquiryWrite.in", "주문내역팝업창", "width=638, height=450, top = 50, left = 500, location = no");
 	        };
-			
-				<%-- $(".couns_tbl>tr").click(function(){
-					var ino = $("this").children().text();
-					console.log(ino);
-					location.href="<%=request.getContextPath()%>/write.in?ino=" + ino;
-			
-			
-				}); --%>
 				
-				
-				
+<%-- 
+	   	 $(".noti_tbl>tr").click(function(){
+	   		var ino = $("this").children().text();
+	   		console.log(ino);
+	   		location.href="<%=request.getContextPath()%>/form.in?ino=" + ino;
+
+	   	}); 
+	   	 --%>
+	        
+	        
 	</script>
 
 <%@ include file="../common/mainFooter.jsp"%>

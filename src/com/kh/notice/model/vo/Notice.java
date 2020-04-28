@@ -22,6 +22,15 @@ public class Notice {
 		this.noticeContent = noticeContent;
 		this.noticeCount = noticeCount;
 	}
+	
+
+	public Notice(int noticeBoardNo, String noticeTitle, Date noticeDate, int noticeCount) {
+		super();
+		this.noticeBoardNo = noticeBoardNo;
+		this.noticeTitle = noticeTitle;
+		this.noticeDate = noticeDate;
+		this.noticeCount = noticeCount;
+	}
 
 	public int getNoticeBoardNo() {
 		return noticeBoardNo;

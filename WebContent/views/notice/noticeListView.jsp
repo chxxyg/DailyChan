@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="com.kh.notice.model.vo.Notice, java.util.ArrayList"%>
 <%
-	 ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); 
-	
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -70,7 +69,7 @@ tbody tr {
 
 	<%@ include file="../common/mainHeader.jsp"%>
 	<%@ include file="../common/mainSideBar.jsp"%>
-	<%@ include file="leftCategory.jsp"%> 
+	<%@ include file="leftCategory.jsp"%>
 	<div class="outer">
 
 
@@ -79,7 +78,7 @@ tbody tr {
 			<h3>공지사항</h3>
 
 			<!-- 관리자로 로그인하면 작성하기 버튼 뜸 -->
-<%-- 			<% if(loginUser != null && loginUser.getMemberId().equals("admin")){ %>
+			<%-- <% if(loginUser != null && loginUser.getMemberId().equals("admin")){ %>
 			<button
 				onclick="location.href='<%= contextPath %>/<!-- 공지사항 작성 서블릿 연결해주기 -->';">작성하기</button>
 			<% } %> --%>
@@ -120,26 +119,23 @@ tbody tr {
 						<th scope="col">조회수</th> -->
 
 
-					<% if(list.isEmpty()){//리스트가 비어있을 경우 %>
-
+					<% if (list.isEmpty()) {//리스트가 비어있을 경우 %>
 					<tr>
 						<td colspan="5">존재하는 공지사항이 없습니다.</td>
 					</tr>
-
-					<%} else { %>
-					<% for(Notice n : list){ %>
-					<tr>
-						<td><%= n.getNoticeBoardNo() %></td>
-						<td><%= n.getNoticeTitle() %></td>
-						<td><%= n.getNoticeDate() %></td>
-						<td><%= n.getNoticeCount() %></td>
-					</tr>
-					<% } %>
-					<% } %>
+					<% } else { %>
+						<% for (Notice n : list) { %>
+							<tr>
+								<td><%=n.getNoticeBoardNo()%></td>
+								<td><%=n.getNoticeTitle()%></td>
+								<td><%=n.getNoticeDate()%></td>
+								<td><%=n.getNoticeCount()%></td>
+							</tr>
+						<%}%>
+					<%}%>
 				</tbody>
 			</table>
-			<br>
-			<br>
+			<br> <br>
 		</div>
 	</div>
 
@@ -149,7 +145,7 @@ tbody tr {
 		$("#left_04").css("color", "rgb(247, 112, 46)");
 	});
 	
-	$(function(){
+	<%-- $(function(){
 		$(".noti_tbl>tbody>tr").click(function(){
 			//console.log("클릭");
 			
@@ -157,12 +153,10 @@ tbody tr {
 			var nno = $(this).children().eq(0).text();
 			
 			// 쿼리스트링을 이용해서 전달값 전달
-			location.href="<%=contextPath%>/noticeList.no?nno=" + nno;
-		});
-	});
-
- 
-</script>
+			location.href= "<%=contextPath%>/noticeList.no?nno=" + nno;
+			});
+		}); --%>
+	</script>
 
 	<%@ include file="../common/mainFooter.jsp"%>
 
