@@ -1,15 +1,17 @@
 package com.kh.orderDelivery.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import com.kh.member.model.dao.MemberDao;
 import com.kh.orderDelivery.model.vo.OrderDelivery;
-import static com.kh.common.JDBCTemplate.*;
 
 public class OrderDeliveryDao
 {
@@ -140,5 +142,39 @@ public class OrderDeliveryDao
         }
         
         return result;
+    }
+    
+    public OrderDelivery orderList(Connection conn, String orderNo, String userId)
+    {
+        OrderDelivery od = new OrderDelivery();
+        PreparedStatement pstmt = null;
+        ResultSet rset = null;
+        String sql = prop.getProperty("orderList");
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+            pstmt.setString(2, orderNo);
+            
+            rset = pstmt.executeQuery();
+            
+            if(rset.next())
+            {
+                od.setOdRecipient(rset.getString("RECIPIENT"));
+                od.setOdEmergencyContact(rset.getString("EMERGENCY_CONTACT"));
+                od.setOdDeliveryDate(rset.getDate("DELIVERY_DATE"));
+                od.setOdAddress(rset.getString("ADDRESS"));
+            }
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(rset);
+            close(pstmt);
+        }
+        return od;
     }
 }

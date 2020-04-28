@@ -112,4 +112,16 @@ public class OrderDeliveryService
         
         return result;
     }
+    
+    public OrderDelivery orderList(String orderNo, String userId)
+    {
+        Connection conn = getConnection();
+
+        OrderDelivery od = new OrderDeliveryDao().orderList(conn, orderNo, userId);
+        
+        close(conn);
+        
+        return od;
+
+    }
 }

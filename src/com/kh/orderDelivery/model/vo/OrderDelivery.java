@@ -54,8 +54,19 @@ public class OrderDelivery {
 		this.odDeliveryCoNo = odDeliveryCoNo;
 		this.odStatus = odStatus;
 	}
+	
+	// 결제 완료 출력
+	public OrderDelivery(String odRecipient, String odEmergencyContact,
+            Date odDeliveryDate, String odAddress)
+    {
+        super();
+        this.odRecipient = odRecipient;
+        this.odEmergencyContact = odEmergencyContact;
+        this.odDeliveryDate = odDeliveryDate;
+        this.odAddress = odAddress;
+    }
 
-	/**
+    /**
 	 * 관리자 결제페이지 리스트 매개변수
 	 */
 	public OrderDelivery(String odOrderNo, String odMemberId, String odMemberName, String odPhone, int odPaymentAmount,

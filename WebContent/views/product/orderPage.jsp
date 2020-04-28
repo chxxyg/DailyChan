@@ -301,14 +301,14 @@
 						if(prePhone.length == 11)
 						{
 							phone = prePhone.substring(0, 3) + "-";
-							phone += prePhone.substring(3, 8) + "-";
-							phone += prePhone. substring(8);
+							phone += prePhone.substring(3, 7) + "-";
+							phone += prePhone. substring(7);
 						}
 						else
 						{
 							phone = prePhone.substring(0, 3) + "-";
-							phone += prePhone.substring(3, 7) + "-";
-							phone += prePhone. substring(7);
+							phone += prePhone.substring(3, 6) + "-";
+							phone += prePhone. substring(6);
 						}
 					}
 				}

@@ -56,8 +56,24 @@
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>
     
-    <script type="text/javascript">
-		
+    <script>
+		$("document").ready(function(){
+			
+		    $.ajax({
+				url: "<%=contextPath%>/orderDeliveryList.od",
+				type: "POST",
+				data: {orderNo :"<%=orderNo %>", userId : "<%=loginUser.getMemberId()%>"},
+				success: function(obj) 
+				{
+					console.log(obj);
+				},
+				error: function(e)
+				{
+					console.log("ajax통신실패");
+				}
+			});
+		});
+    
     </script>
 </body>
 </html>
