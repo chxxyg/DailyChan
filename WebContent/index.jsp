@@ -353,6 +353,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn1" class="bestBtn">
+                                	<input type="hidden" class="pCode" value="KOA138">
+                                	<input type="hidden" class="pPrice" value="17000">
                                     <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                     <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
@@ -385,6 +387,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn2" class="bestBtn">
+                                	<input type="hidden" class="pCode" value="ITB203">
+                                	<input type="hidden" class="pPrice" value="11500">
                                     <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                     <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
@@ -416,6 +420,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn3" class="bestBtn">
+                                	<input type="hidden" class="pCode" value="ITC201">
+                                	<input type="hidden" class="pPrice" value="17800">
                                     <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                     <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
@@ -449,6 +455,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn4" class="bestBtn">
+                                	<input type="hidden" class="pCode" value="ASA307">
+                                	<input type="hidden" class="pPrice" value="15500">
                                     <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                     <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
@@ -480,6 +488,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn5" class="bestBtn">
+                                	<input type="hidden" class="pCode" value="KOA107">
+                                	<input type="hidden" class="pPrice" value="16500">
                                     <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                     <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
@@ -511,6 +521,8 @@
                         <tr>
                             <td>
                                 <div id="bestBtn6" class="bestBtn">
+                                	<input type="hidden" class="pCode" value="KOB112">
+                                	<input type="hidden" class="pPrice" value="17000">
                                     <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                     <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                 </div>
@@ -550,6 +562,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn1" class="newBtn">
+                                    	<input type="hidden" class="pCode" value="ITD221">
+                                    	<input type="hidden" class="pPrice" value="8900">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -577,6 +591,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn2" class="newBtn">
+                                    	<input type="hidden" class="pCode" value="KOA132">
+                                    	<input type="hidden" class="pPrice" value="9900">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -604,6 +620,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn3" class="newBtn">
+                                    	<input type="hidden" class="pCode" value="KOA114">
+                                    	<input type="hidden" class="pPrice" value="18000">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -631,6 +649,8 @@
                             <tr>
                                 <td>
                                     <div id="newBtn4" class="newBtn">
+                                    	<input type="hidden" class="pCode" value="ITB207">
+                                    	<input type="hidden" class="pPrice" value="8900">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -669,6 +689,8 @@
                             <tr>
                                 <td>
                                     <div id="salevBtn1" class="saleBtn">
+                                    	<input type="hidden" class="pCode" value="KOA101">
+                                    	<input type="hidden" class="pPrice" value="16200">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -697,6 +719,8 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn2" class="saleBtn">
+                                    	<input type="hidden" class="pCode" value="KOA102">
+                                    	<input type="hidden" class="pPrice" value="14850">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -725,6 +749,8 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn3" class="saleBtn">
+                                    	<input type="hidden" class="pCode" value="ASA303">
+                                    	<input type="hidden" class="pPrice" value="11700">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -753,6 +779,8 @@
                             <tr>
                                 <td>
                                     <div id="saleBtn4" class="saleBtn">
+                                    	<input type="hidden" class="pCode" value="KOA109">
+                                    	<input type="hidden" class="pPrice" value="11250">
                                         <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
                                         <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
                                     </div>
@@ -764,6 +792,38 @@
             </table>
         </div>
     </div>
+    
+    <script>
+	
+		$(function(){
+			$(".cartLogo").click(function(){
+				var proCode = $(this).parent().siblings(".pCode").val();
+				var proPrice = Number($(this).parent().siblings(".pPrice").val());
+				
+				console.log(proCode);
+				console.log(proPrice);
+				
+				$.ajax({
+					url:"toCart.pro",
+					data:{proCode:proCode, proPrice:proPrice},
+					type:"post",
+					success:function(msg){
+						if(msg == 0){
+							alert("상품이 장바구니에 이미 존재합니다.");
+						}else{
+							var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+							if(result){
+								location.href="cartList.pro";
+							}
+						}
+					}, error:function(){
+						alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+					}
+				});
+				
+			});
+		});
+	</script>
     
 	
 	<%@ include file="views/common/mainFooter.jsp" %>	

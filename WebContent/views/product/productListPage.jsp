@@ -86,7 +86,6 @@
 		       
 		<% for(Product p : list){ %>
 		<input type="hidden" class="proCode" value="<%=p.getProCode()%>">
-		
 		<table class="categoryInnerTable" style="display:inline-block">
 			<tr>
 				<td>
@@ -172,14 +171,16 @@
 		$(function(){
 			$(".cpCartLogo").click(function(){
 				var proCode = $(this).parents(".categoryInnerTable").prev().val();
-				var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
+				/* var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text(); */
+				var proPrice = 0;
 				
-				/*
 				if(title.equals("SALE")){
-					proprice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
+					proPrice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
 				}else{
 					proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
-				*/
+				}
+				
+				console.log(proPrice);
 				
 				$.ajax({
 					url:"toCart.pro",
