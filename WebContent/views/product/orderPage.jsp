@@ -322,6 +322,8 @@
 			
 			var price = $("#orderProductTotalPrice").html();
 			$("#orderBtn").click(function(){
+				var orderNo = $("#orderNo").val();
+				console.log(orderNo);
 				var obj = new Object();
 				obj.orderNo = $("#orderNo").val(); // 주문번호
 				obj.memberId = "<%=loginUser.getMemberId()%>";
@@ -340,7 +342,6 @@
 				
 				var IMP = window.IMP;
 				IMP.init("imp27012123"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
-					
 				//IMP.request_pay(param, callback) 호출
 				IMP.request_pay({ // param
 				  pg: "inicis",
@@ -375,13 +376,29 @@
 						}); // 주문조회 입력 완료
 						
 						
-						// 주문번호 비우기
+						// 주문번호 상태 변경 및 비우기
+						var userId = "<%=loginUser.getMemberId()%>";
+						var orderNo = $("#orderNo").val();
+						$.ajax({
+						url: "<%=contextPath%>/modifyOrder.od",
+						type: "POST",
+						data : {orderNo : orderNo, userId : userId},
+						success: function(msg) 
+						{
+							console.log(msg);
+						},
+						error: function(e)
+						{
+							console.log("ajax통신실패");
+						}
+						});
+						
 						// 쿠폰 조회
 						
-							
-							var orderNo = $("#orderNo").val();
-							location.href = "/dailyChan/orderComplete.pro?orderNo=" + orederNo;
-					 
+						
+						var orderNo = $("#orderNo").val();
+						location.href = "/dailyChan/orderComplete.pro?orderNo=" + orderNo;
+				 
 						
 				        var msg = '결제가 완료되었습니다.';
 				    } else {

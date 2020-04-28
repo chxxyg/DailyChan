@@ -57,9 +57,7 @@
 <%@ include file="/views/common/mainFooter.jsp" %>
     
     <script type="text/javascript">
-    	
-		alert("결재 성공");
-    
+		
     </script>
 </body>
 </html>
