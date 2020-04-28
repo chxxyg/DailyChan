@@ -31,7 +31,16 @@ public class Notice {
 		this.noticeDate = noticeDate;
 		this.noticeCount = noticeCount;
 	}
+	/**
+	 * 관리자페이지 공지사항 등록 매개변수
+	 */
+	public Notice(String noticeTitle, String noticeContent) {
+		super();
+		this.noticeTitle = noticeTitle;
+		this.noticeContent = noticeContent;
+	}
 
+	
 	public int getNoticeBoardNo() {
 		return noticeBoardNo;
 	}

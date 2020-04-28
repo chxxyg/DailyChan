@@ -17,29 +17,33 @@
             margin-top:50px;
             line-height: 40px;
             font-weight: bolder;
-            height:500px;
+            height:280px;
         }
-        #outer{
+          #outer{
 			margin:15px;
          	padding:15px;
          	width:700px;
          	height:90%;
-         	background:rgb(255,240,240);
-         	opacity:0.7;      
+         	background:rgba(255,240,240,0.6);
+         	opacity:0.7;  
+         	border-radius:50px; 
+         	margin-left:50px;  
+             box-shadow:inset 1px 2px 5px 5px #aeb2b7;
+             
         }
         #enrollsubmit{
         	text-align:center;
-        	margin-top:50px;
+            margin-top:50px;
+            
         }
-       #adFaqSelect{
-       		width:200px;
-       }
-       Button {
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
-			background-color:#ffc477;
+       
+        
+        Button {
+			box-shadow:inset 0px 1px 0px 0px #181c20;
+			background:linear-gradient(#181c20);
+			background-color:#181c20;
 			border-radius:6px;
-			border:1px solid #eeb44f;
+			border:1px solid #181c20;
 			display:inline-block;
 			cursor:pointer;
 			color:#ffffff;
@@ -48,16 +52,17 @@
 			font-weight:bold;
 			padding:6px 11px;
 			text-decoration:none;
-			text-shadow:0px 1px 0px #cc9f52;
+			text-shadow:0px 1px 0px #181c20;
 		}
 		Button:hover {
-			background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
-			background-color:#fb9e25;
+			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
+			background-color:#5554547e;
 		}
 		Button:active {
 			position:relative;
 			top:1px;
 		}
+        
          
         
     </style>
@@ -68,29 +73,28 @@
     <div id="adproductEnroll">
        <div id="outer">
         <h1>&nbsp;&nbsp;&nbsp;공지사항 작성</h1>
-        <table id="adcate">
-            <tr>
-                <td width="200" >* 공지사항 제목</td>
-                <td><input type="text" width="300" required></td>
-            </tr>
-            <tr>
-                <td width="200">* 작성자</td>
-                <td><input type="text" required></td>
-            </tr>
-         	<tr>
-         		<td width="200">이미지</td>
-         		<td><input type="file"></td>
-         	</tr>
-                       
-            <tr>
-                <td width="200">공지사항 내용</td>
-                <td><textarea cols="40" rows="25" style="resize:none"></textarea></td>
-            </tr>
-        </table>
-       		 <div id="enrollsubmit">
-        		<button type="submit">공지사항 등록</button>&nbsp;&nbsp;
-        		<button onclick="location.href='http://localhost:9999/dailyChan/views/admin/adminInquiry/adminNoticeList.jsp'">목록으로</button>
-        	</div>        
+        <form action="<%=contextPath %>/noticeInsert.ad" method="post" enctype="multipart/form-data">
+	        <table id="adcate">
+	            <tr>
+	                <td width="200" >* 공지사항 제목</td>
+	                <td><input type="text" width="300" required name="ntTitle"></td>
+	            </tr>
+	           
+	         	<tr>
+	         		<td width="200">* 이미지</td>
+	         		<td><input type="file" name="ntUpfile"></td>
+	         	</tr>
+	                       
+	            <tr>
+	                <td width="200">* 공지사항 내용</td>
+	                <td><textarea cols="40" rows="25" style="resize:none" name="ntContent" required></textarea></td>
+	            </tr>
+	        </table>
+	       		 <div id="enrollsubmit">
+	        		<button type="submit">공지사항 등록</button>&nbsp;&nbsp;
+	        		<button onclick="location.href='<%=contextPath%>/noticeList.ad?currentPage=1'">목록으로</button>
+        		</div>        
+        </form>
        </div>
     </div>
 </body>

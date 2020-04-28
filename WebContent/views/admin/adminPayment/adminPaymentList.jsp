@@ -106,7 +106,11 @@
       <div class="outer">
         <h1>&nbsp;&nbsp;&nbsp;결제관리</h1>
         <br>
-        	아이디 <input type="text"> <button type="button" onclick="">조회</button><br>
+        <form action="<%=contextPath%>/paySearch.ad" method="get">
+        	<input type="hidden" name="currentPage" value="1">
+        	아이디 <input type="text" name="payName"> <button type="submit" onclick="">조회</button><br>
+        	
+        </form>	
         <div id="allcount">
             <div id="countcontent">
                 <div style="width:30%;">총 결제 : <input type="text" id="adproductcount" value="<%= count%>"> 개</div>

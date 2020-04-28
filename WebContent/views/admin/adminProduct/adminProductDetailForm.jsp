@@ -96,9 +96,9 @@
     <div id="adproductEnroll">
        <div id="outer">
         <h1>&nbsp;&nbsp;&nbsp;상품정보</h1>
+            <form id="PdinsertForm" action="<%= contextPath %>/updateProduct.ad" method="post" enctype="multipart/form-data">
         <table id="adcate">
             
-            <form id="PdinsertForm" action="<%= contextPath %>/updateProduct.ad" method="post" enctype="multipart/form-data">
             <tr>
                 <td width="200" > 카테고리</td>
                 <td>
@@ -119,16 +119,27 @@
                 </td>
             </tr>
             <tr>
+            	
+            	<% if (ap.get(0).getAtFileLevel() != 1){ %>
                 <td width="200">* 기본이미지</td>
-               <td><p class="file3">기존파일 : <a download="<%= ap.get(0).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(0).getAtFileName() %>" ><%=ap.get(0).getAtFileName() %></a> 
+                <td><p class="file3">기존파일 : <a download="<%= ap.get(0).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(0).getAtFileName() %>" ><%=ap.get(0).getAtFileName() %></a> 
                 	<br><input type="file" name="pdUpfile1" value=""></p>
                 </td>
+                <% }else{ %>
+                <td width="200">* 기본이미지<td>
+                		파일이 없습니다.<br><input type="file" name="pdUpfile1" value="">
+                <% } %>
             </tr>
             <tr>
+            	<% if (ap.get(1) != null){ %>
                 <td width="200">* 세부 이미지 01</td>
                 <td><p class="file3">기존파일 : <a download="<%= ap.get(1).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(1).getAtFileName() %>" ><%=ap.get(1).getAtFileName() %> </a>
                 	<br><input type="file" name="pdUpfile2" ></p>
                 </td>
+                <% }else{ %>
+                <td width="200">* 세부 이미지 01</td>
+                	파일이 없습니다.<br><input type="file" name="pdUpfile2" >
+                <% } %>
            		
             </tr>
 
@@ -142,10 +153,15 @@
                 <td><input type="text"  value="<%= p.getProStock() %>" name="pdStock"></td>
             </tr>
             <tr>
+                <% if (ap.get(2) != null){ %>
                 <td width="200">* 상품 정보 이미지</td>
                 <td><p class="file3">기존파일 : <a download="<%= ap.get(2).getAtFileName() %>"href="<%=contextPath%>/resources/attachment_product/<%=ap.get(2).getAtFileName() %>" ><%=ap.get(2).getAtFileName() %></a> 
                 	<br><input type="file" name="pdUpfile3" ></p>
                 </td>
+                <% }else{ %>
+                <td width="200">* 상품 정보 이미지</td>
+              	     <p class="file3">파일이 없습니다.<br><input type="file" name="pdUpfile3" ><p>
+              	<% } %>     
             </tr>
        		 </table>
        		 <div id="enrollsubmit">

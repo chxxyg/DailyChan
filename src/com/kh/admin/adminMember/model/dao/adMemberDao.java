@@ -1,6 +1,6 @@
 package com.kh.admin.adminMember.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.kh.admin.adminBlackList.model.vo.BlackList;
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
 
@@ -35,19 +35,26 @@ public class adMemberDao {
 		}
 	}
 
-	public ArrayList<Member> selectList(Connection conn) {
+	public ArrayList<Member> selectList(Connection conn, AdPageInfo pi) {
 		
 		ArrayList<Member> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectMember");
 		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
 		try {
-			stmt = conn.createStatement();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
 			
-			rset = stmt.executeQuery(sql);
+			
+			rset = pstmt.executeQuery();
+			
 			while(rset.next()) {
 				
 				list.add(new Member(rset.getString("MEMBER_ID"),
@@ -64,7 +71,7 @@ public class adMemberDao {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		return list;
 	}
@@ -94,17 +101,22 @@ public class adMemberDao {
 			
 	}
 
-	public ArrayList<Member> searchMember(Connection conn, String memberId) {
+	public ArrayList<Member> searchMember(Connection conn,AdPageInfo pi,  String memberId) {
 		
 		ArrayList<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("searchMember");
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + memberId + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -202,12 +214,37 @@ public class adMemberDao {
 		return m;
 	}
 
-
-	
-	
-
-	
+	public int listCountMember(Connection conn, String memberId) {
+		
+		int listCountMember = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countListMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+memberId+"%");
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				listCountMember = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCountMember;
+		
 	}
+
+	
+	
+
+	
+}
 
 	
 	

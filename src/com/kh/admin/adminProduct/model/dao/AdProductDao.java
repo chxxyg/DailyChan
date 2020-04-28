@@ -227,6 +227,7 @@ public class AdProductDao {
 			rset =pstmt.executeQuery();
 			
 			while(rset.next()) {
+				
 				ap.add(new AttachmentProduct(rset.getString("FILE_NAME")));
 			}
 			
