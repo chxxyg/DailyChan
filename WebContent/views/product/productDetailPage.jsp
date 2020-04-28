@@ -4,6 +4,8 @@
 	Product p = (Product)request.getAttribute("p");
 	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
 	String proCode = (String)request.getAttribute("proCode");
+	ArrayList<Review> rLsit = (ArrayList<Review>)request.getAttribute("rList");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -199,8 +201,9 @@
                                  <%=p.getProReviewSum() %></span>
 			<span id="detailGpaInfo">등록된 리뷰 <%=p.getProReviewCount()%>건 기준</span>
 		</div>
-	      
+	    
 		<table id="reviewList" width="1000" style="text-align: center;">
+	    <% for(Review re : list){ %>
 			<tr>
 				<td width="100">1234</td>
 				<td width="100">★★★★☆</td>
@@ -233,7 +236,7 @@
 						
 					</div>
 			</tr>
-
+			<% } %>
 		</table>
 	         
 		<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>

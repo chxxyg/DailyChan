@@ -1,6 +1,7 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -55,8 +56,12 @@ public class ReviewInsertServlet extends HttpServlet {
 		int result = new ReviewService().insertReview(re);
 
 		request.setAttribute("result", result);
-		
-		response.sendRedirect("pDetail.pro");
+		String url = "window.opener.location.replace('/dailyChan/pDetail.pro?proCode=" + proCode + "');";
+        PrintWriter out = response.getWriter();
+        out.println("<script>");
+        out.println(url);
+        out.println("window.close();");
+        out.println("</script>");
 	
 	}
 
