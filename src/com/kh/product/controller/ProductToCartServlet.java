@@ -64,6 +64,7 @@ public class ProductToCartServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(msg);
+		
 	}
 
 	/**

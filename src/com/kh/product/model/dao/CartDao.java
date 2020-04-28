@@ -280,7 +280,6 @@ public class CartDao {
 	 * @return
 	 */
 	public int insertIntoCart(Connection conn, String memberId, String proCode, int proPrice, int qty) {
-		
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("productToCart");

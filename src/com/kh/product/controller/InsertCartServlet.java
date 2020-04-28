@@ -50,7 +50,6 @@ public class InsertCartServlet extends HttpServlet {
 				request.setAttribute("message", "장바구니 담기 실패");
 				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			}
-						
 		}else { // 상품이 장바구니에 이미 존재함
 			msg=0;
 		}
@@ -58,7 +57,6 @@ public class InsertCartServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(msg);
-
 	}
 
 	/**
