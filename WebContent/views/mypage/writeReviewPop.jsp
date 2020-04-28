@@ -55,9 +55,8 @@
 	#writeReview_tr2 p{font-size:13px;}
 	
 	/* 리뷰작성 영역 */
-	#reviewInfo{margin-left:25px;}
-	#reviewCounter{margin-left:170px;}
-	#writeReview_tr3>td>div{text-align:center;}
+	#reviewInfo{margin-left:0px;}
+	#reviewCounter{margin-left:120px;}
 
 	#reviewcancelBtn{
 		width:100px;
@@ -81,6 +80,8 @@
 		width:260px;
 		margin:15px 0px 0px 120px;
 	}
+	
+	
 </style>
 </head>
 <body>
@@ -105,7 +106,7 @@
 						<td>
 							<div>
 								<label>상품에 대한 평점을 선택하세요. &nbsp; </label>
-								<select name="reviewSum" style="width: 100px; height: 35px; color: gray;">
+								<select name="rating" style="width: 100px; height: 35px; color: gray;">
 									<option value=5>★★★★★</option>
 									<option value=4>★★★★☆</option>
 									<option value=3>★★★☆☆</option>
@@ -116,10 +117,15 @@
 							</div>
 						</td>
 					</tr>
-					<tr id="writeReview_tr3" height="300px" >
+					<tr id="writeReview_tr3" height="70px" style="text-align:center;" >
 						<td>
-							<span id="reviewInfo" style="color: gray;">후기를 남겨주세요. (최소 10자 이상)</span><span id="reviewCounter" style="color: gray;">0</span><span style="color: gray;"> / 1000</span>
-							<div><textarea rows="12" cols="55" id="reviewContent" style="resize:none; padding: 12px; margin-top: 10px; color: gray; border: 1px solid lightgray;"></textarea></div>
+							<input name="title" type="text" placeholder="상품평 제목을 입력해주세요." required style="width:400px; height:30px; border: 1px solid lightgray; padding-left: 10px;">
+						</td>
+					</tr>
+					<tr id="writeReview_tr4" height="260px" style="text-align:center;">
+						<td>
+							<span id="reviewInfo" style="color: gray;">상품평을 남겨주세요. (최소 10자 이상)</span><span id="reviewCounter" style="color: gray;">0</span><span style="color: gray;"> / 1000</span>
+							<div><textarea name="content" required rows="12" cols="55" style="resize:none; padding: 12px; margin-top: 10px; color: gray; border: 1px solid lightgray;"></textarea></div>
 						</td>
 					</tr>
 				</tbody>

@@ -190,7 +190,7 @@
 }
 
 /* 리뷰 영역 */
-.reviewArea{width:1020px;margin:auto;}
+.reviewArea.qnaArea{width:1020px;margin:auto;}
 
 /*리뷰 영역 버튼*/
 div.detailBtns{
@@ -211,13 +211,13 @@ div#detailReview{
 }
 
 /* 리뷰 리스트 */
-#reviewList{
+.reviewList{
 	margin:auto;
 }
-#reviewList tr{
+.reviewList tr{
 	height:50px;
 }
-#reviewList, #reviewList tr, #reviewList td{
+.reviewList, .reviewList tr, .reviewList td{
 	border-top:1px solid lightgrey;
 	border-bottom:1px solid lightgrey;
 	border-collapse:collapse;

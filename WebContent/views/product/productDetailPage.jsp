@@ -217,7 +217,7 @@
                                     				☆☆☆☆☆
                                  			<% }else if(p.getProReviewSum()<2){ %>
                                     				★☆☆☆☆ 
-                                 			<% }else if(p.getProReviewSum()<3){ %>
+			                                <% }else if(p.getProReviewSum()<3){ %>
 			                                    	★★☆☆☆ 
 			                                <% }else if(p.getProReviewSum()<4){ %>
 			                                    	★★★☆☆ 
@@ -230,9 +230,10 @@
 						</span> &nbsp;  &nbsp; 
 						<span style="margin-left: 550px;">2020-03-31</span>
 						<textarea rows="10" cols="120" id="reviewContent" style="resize:none; margin-bottom: 15px;" readonly></textarea>
+						
 					</div>
-				</td>
 			</tr>
+
 		</table>
 	         
 		<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
@@ -252,26 +253,24 @@
                 </table>
             </td>
         </tr>
-        <table id="reviewList" width="1000" style="text-align: center;">
-			<tr>
-				<td width="100">1234</td>
-				<td width="100">문의분류</td>
-				<td class="reviewTitle" width="500">상품 문희는 포도</td>
-				<td width="150">writerID</td>
-				<td width="150">2020-04-10</td>
-			</tr>
-			
-			<tr class="reviewContent">
-				<td colspan="5">
-					<div id="reviewDetails" style="padding-top: 30px; text-align: left; padding-left: 70px;">
-						<b>작성자명*</b> &nbsp;  &nbsp; 
-						<span id="reviewAvg">문의분류</span> &nbsp;  &nbsp; 
-						<span style="margin-left: 550px;">2020-03-31</span>
-						<textarea rows="10" cols="120" id="reviewContent" style="resize:none; margin-bottom: 15px;" readonly></textarea>
-					</div>
-				</td>
-			</tr>
-		</table>
+        <tr>
+            <td>
+                <table id="detailQnaList">
+                    <tr>
+                        <td>1234</td>
+                        <td>배송문의</td>
+                        <td>데일리찬 배송 빨리해주시조</td>
+                        <td>writerID</td>
+                        <td>2020-04-10</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="detailQnaBtn" type="button">문의하기</button>
+            </td>
+        </tr>
         <!-- 상세조회(클릭 시 슬라이드 다운), 페이징 기능 추가하기 -->
     </table>
         
@@ -292,7 +291,7 @@
     	});
     	
     	function insertReview(){
-    		window.open("<%=contextPath%>/reviewPop.re?pno=<%=p.getProCode()%>", "후기 작성", "width=505, height=525, left=500");
+    		window.open("<%=contextPath%>/reviewPop.re?pno=<%=p.getProCode()%>", "후기 작성", "width=510, height=580, left=500");
     	}
     	
     

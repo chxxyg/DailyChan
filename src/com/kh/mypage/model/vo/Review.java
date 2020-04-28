@@ -20,6 +20,18 @@ public class Review {
 
 
 
+	public Review(String productCode, String memberId, String reviewTitle, String reviewContent, int reviewRating) {
+		super();
+		this.productCode = productCode;
+		this.memberId = memberId;
+		this.reviewTitle = reviewTitle;
+		this.reviewContent = reviewContent;
+		this.reviewRating = reviewRating;
+	}
+
+
+
+
 	public Review(int reviewBoardNo, String orderNo, String productCode, String memberId, String reviewTitle,
 			String reviewContent, int reviewRating, Date reviewCreateDate, String reviewDelStatus) {
 		super();
