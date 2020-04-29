@@ -139,15 +139,16 @@ public class MyOrderDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, orderNo);
 			pstmt.setString(2, memberId);
-			rset=pstmt.executeQuery();
-			
+			rset = pstmt.executeQuery();
+
 			while(rset.next()) {
 				detailList.add(new Mypage( rset.getString("PRODUCT_CODE"),
 											rset.getString("PRODUCT_NAME"),
 											rset.getInt("QUANTITY"),
 											rset.getInt("PRICE"),
 											rset.getInt("PAYMENT_AMOUNT"),
-											rset.getInt("USE_COUPONE"),
+											rset.getInt("USE_COUPON"),
+											rset.getInt("DELIVERY_CHARGE"),
 											rset.getString("RECIPIENT"),
 											rset.getString("PHONE"),
 											rset.getString("ADDRESS"),
@@ -157,6 +158,7 @@ public class MyOrderDao {
 											rset.getDate("PAYMENT_DATE"),
 											rset.getString("FILE_NAME")));
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

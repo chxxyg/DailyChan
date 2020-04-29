@@ -15,6 +15,7 @@ public class Mypage {
 	private int status;			//상태(0:결제완료, 1:상품준비중, 2:배송중, 3:배송완료)
 	private String couponCode;  //쿠폰코드
 	private int useCoupon;		//사용한쿠폰금액
+	private int deliveryCharge;	//배송비
 	private String payType;		//결제방식
 	private Date payDate;		//결제일시
 	private String recipient;	//배송받는사람
@@ -46,7 +47,7 @@ public class Mypage {
 	}
 	
 	/* 주문내역 상세조회 */
-	public Mypage(String proCode, String proName, int quantity, int price, int payAmount, int useCoupon,
+	public Mypage(String proCode, String proName, int quantity, int price, int payAmount, int useCoupon, int deliveryCharge,
 			String recipient, String phone, String address, String delRequest, int status, String payType, Date payDate, String fileName) {
 		super();
 		this.proCode = proCode;
@@ -55,6 +56,7 @@ public class Mypage {
 		this.price = price;
 		this.payAmount = payAmount;
 		this.useCoupon = useCoupon;
+		this.deliveryCharge = deliveryCharge;
 		this.recipient = recipient;
 		this.phone = phone;
 		this.address = address;
@@ -66,8 +68,9 @@ public class Mypage {
 	}
 
 	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
-			int quantity, int payAmount, int status, String couponCode, int useCoupon, String payType, Date payDate,
-			String recipient, String phone, String address, String delRequest, Date refundDate, int countOrdNo) {
+			int quantity, int payAmount, int status, String couponCode, int useCoupon, int deliveryCharge,
+			String payType, Date payDate, String recipient, String phone, String address, String delRequest,
+			Date refundDate, int countOrdNo) {
 		super();
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
@@ -80,6 +83,7 @@ public class Mypage {
 		this.status = status;
 		this.couponCode = couponCode;
 		this.useCoupon = useCoupon;
+		this.deliveryCharge = deliveryCharge;
 		this.payType = payType;
 		this.payDate = payDate;
 		this.recipient = recipient;
@@ -178,6 +182,14 @@ public class Mypage {
 		this.useCoupon = useCoupon;
 	}
 
+	public int getDeliveryCharge() {
+		return deliveryCharge;
+	}
+
+	public void setDeliveryCharge(int deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
+	}
+
 	public String getPayType() {
 		return payType;
 	}
@@ -247,9 +259,9 @@ public class Mypage {
 		return "Mypage [orderNo=" + orderNo + ", orderDate=" + orderDate + ", proCode=" + proCode + ", fileName="
 				+ fileName + ", proName=" + proName + ", price=" + price + ", quantity=" + quantity + ", payAmount="
 				+ payAmount + ", status=" + status + ", couponCode=" + couponCode + ", useCoupon=" + useCoupon
-				+ ", payType=" + payType + ", payDate=" + payDate + ", recipient=" + recipient + ", phone=" + phone
-				+ ", address=" + address + ", delRequest=" + delRequest + ", refundDate=" + refundDate + ", countOrdNo="
-				+ countOrdNo + "]";
+				+ ", deliveryCharge=" + deliveryCharge + ", payType=" + payType + ", payDate=" + payDate
+				+ ", recipient=" + recipient + ", phone=" + phone + ", address=" + address + ", delRequest="
+				+ delRequest + ", refundDate=" + refundDate + ", countOrdNo=" + countOrdNo + "]";
 	}
-	
+
 }

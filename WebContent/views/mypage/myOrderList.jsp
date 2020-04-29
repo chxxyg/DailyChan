@@ -195,18 +195,16 @@
 			
 			$(".orderNo").click(function(){
 				var orderNo = $(this).text();
-				var orderDate = $(this).next().text();
-				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo + "orderDate=" + orderDate;
+				var orderDate = $(this).siblings(".orderDate").text();
+				
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo + "&orderDate=" + orderDate;
 			});
 			
 			$(".orderDtBtn").click(function(){
 				var orderNo = $(this).siblings(".orderNo").text();
-				var orderDate = $(this).text();
+				var orderDate = $(this).siblings(".orderDate").text();
 				
-				//console.log(orderNo);
-				//console.log(orderDate);
-				
-				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo + "orderDate=" + orderDate;
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo + "&orderDate=" + orderDate;
 			});
 			
 			$(".pName").click(function(){

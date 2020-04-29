@@ -66,7 +66,7 @@
 	}
 	#orderDtail_td1>p{
 		float:left;
-		margin:18px 0px 0px 15px;
+		margin:18px 0px 0px 25px;
 		cursor:pointer;
 	}
 	#orderDtail_td2{padding-left:70px;}
@@ -146,17 +146,15 @@
 				<th width="130px">진행상태</th>
 			</tr>
 			
-			<% for(Mypage mp : detailList) { %>
 			<tr>
 				<td id="orderDtail_td1">
-					<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-					<img class="pName" src="" width="70px" height="70">
-					<p class="pName"><b><%= mp.getProName() %></b><br>
-						<%= mp.getQuantity() %>개 / <%= mp.getPrice() %>원
+					<input type="hidden" class="pCode" value="<%= detailList.get(0).getProCode() %>">
+					<img class="pName" src="<%= request.getContextPath() %>/resources/attachment_product/<%= detailList.get(0).getFileName() %>" width="70px" height="70">
+					<p class="pName"><b><%= detailList.get(0).getProName() %></b><br>
+						<%= detailList.get(0).getQuantity() %>개 / <%= detailList.get(0).getPrice() %>원
 					</p>
 				</td>
-			<% } %>
-				<td id="orderDtail_td2" rowspan="3">
+				<td id="orderDtail_td2" rowspan="<%= detailList.size()+1 %>">
 					<% switch(detailList.get(0).getStatus()) {
 						case 0 : out.println("결제완료"); break;
 						case 1 : out.println("상품준비중"); break;
@@ -164,9 +162,19 @@
 						case 3 : out.println("배송완료"); break;
 					}%>
 				</td>
-			<%{ %>
+			<tr>
+			<% for(int i=1; i<detailList.size(); i++) { %>
+			<tr>
+				<td id="orderDtail_td1">
+					<input type="hidden" class="pCode" value="<%=  detailList.get(i).getProCode() %>">
+					<img class="pName" src="<%= request.getContextPath() %>/resources/attachment_product/<%= detailList.get(i).getFileName() %>" width="70px" height="70">
+					<p class="pName"><b><%=  detailList.get(i).getProName() %></b><br>
+						<%=  detailList.get(i).getQuantity() %>개 / <%=  detailList.get(i).getPrice() %>원
+					</p>
+				</td>
 			</tr>
 			<% } %>
+			
 		</table>
 		<br>
 		
@@ -180,7 +188,7 @@
 				<th width="197">최종 결제금액</th>
 			</tr>
 			<tr height="50">
-				<td colspan="4"><p id="paymentInfo_first"><%= detailList.get(0).getPayAmount() %>원</p><span>+</span><p>3,000원</p><span>-</span><p><%= detailList.get(0).getUseCoupon() %>원</p><span>=</span><p id="paySum"><%= detailList.get(0).getPayAmount() - detailList.get(0).getUseCoupon()%>원</p></td>
+				<td colspan="4"><p id="paymentInfo_first"><%= detailList.get(0).getPayAmount() %>원</p><span>+</span><p><%= detailList.get(0).getDeliveryCharge() %>원</p><span>-</span><p><%= detailList.get(0).getUseCoupon() %>원</p><span>=</span><p id="paySum"><%= detailList.get(0).getPayAmount() + detailList.get(0).getDeliveryCharge() - detailList.get(0).getUseCoupon()%>원</p></td>
 			</tr>
 		</table>
 		<br>
@@ -216,7 +224,11 @@
 			</tr>
 			<tr height="45px">
 				<th width="130px">배송시 요청사항</th>
+				<% if(detailList.get(0).getDelRequest() != null) { %>
 				<td width="660px"><%= detailList.get(0).getDelRequest() %></td>
+				<% } else { %>
+				<td width="660px"></td>
+				<% } %>
 			</tr>
 		</table>
 		<br><br><br>
@@ -229,8 +241,8 @@
 			$("#selectOrder").css("color", "rgb(247, 112, 46)");
 			
 			$(".pName").click(function(){
-				var pCode = $(this).siblings(".pCode").val();
-				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
+				var proCode = $(this).siblings(".pCode").val();
+				location.href="<%=request.getContextPath()%>/pDetail.pro?proCode=" + proCode;
 			});
 			
 		});
