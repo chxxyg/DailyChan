@@ -153,6 +153,28 @@
     background: url(/dailyChan/resources/img/bu_box_gray.png) no-repeat 0 8px;
 	list-style: none;
 }
+	
+	
+	/* List CSS */
+.couponList{
+	margin:auto;
+	border-top: 1px solid #333;
+	border-bottom:1px solid #333;
+	border-collapse:collapse;
+	margin-top: 50px;
+	margin-left: 10px;
+	font-size:13px;
+}
+
+.couponList thead{
+	background:#f5f5f5;
+}
+	
+.couponList tbody>tr{
+	border-top: 1px solid lightgray;
+}
+	
+
 </style>
 </head>
 <body>
@@ -176,34 +198,31 @@
 						<!-- //LIST NONE -->
 						<% }else{ %>
 						
-						<div style="width: 700px;">
-						<table class="qnaList" width="700" style="text-align: center;">
-							<tr>
-								<th width="300">쿠폰명</th>
-								<th width="100">할인 가격</th>
-								<th width="200">사용 조건</th>
-								<th width="100">발급일</th>
-								<th width="100">유효기간</th>
-							</tr>
-
-						
+						<div style="width: 750px;">
+						<table class="couponList" width="750" style="text-align: center;">
+							<thead>
+								<tr height="40">
+									<th width="300">쿠폰명</th>
+									<th width="100">할인 가격</th>
+									<th width="200">사용 조건</th>
+									<th width="100">발급일</th>
+									<th width="100">유효기간</th>
+								</tr>
+							</thead>
+							<tbody>
 							<% for(int i=0; i<mcList.size(); i++ ){ %>
-							<tr>
-								<td><%=mcList.get(i).getCouponName() %></td>
-								<td><%=mcList.get(i).getCouponPrice() %>원</td>
-								<td><%=mcList.get(i).getCouponCondition() %>원 이상 구매시</td>
-								<td><%=mcList.get(i).getCouponIssueDate() %></td>
-								<td><%=mcList.get(i).getCouponExpDate() %>일</td>
-							</tr>
-							
+								<tr height="35">
+									<td><%=mcList.get(i).getCouponName() %></td>
+									<td><%=mcList.get(i).getCouponPrice() %>원</td>
+									<td><%=mcList.get(i).getCouponCondition() %>원 이상 구매 시</td>
+									<td><%=mcList.get(i).getCouponIssueDate() %></td>
+									<td><%=mcList.get(i).getCouponExpDate() %>일</td>
+								</tr>
 							<% } %>
-							
+							</tbody>
 						</table>     
 						</div>
-									
-						
 						<% } %>
-						
 					</li>
 
 					<li id="tab2">
