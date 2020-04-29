@@ -421,7 +421,6 @@
     			
     		});
     		
-    		
     		/* 리뷰 슬라이드 다운 */
     		$(".reviewTitle").click(function(){
     			var content = $(this).parent().next();
