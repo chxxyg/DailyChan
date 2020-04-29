@@ -7,7 +7,7 @@
 	ArrayList<Review> rList = (ArrayList<Review>)request.getAttribute("rList");
 	ArrayList<Inquiry> iList = (ArrayList<Inquiry>)request.getAttribute("iList");
 	
-	//System.out.println(rList);
+	Member loginUser3 = (Member) session.getAttribute("loginUser");
 %>
 <!DOCTYPE html>
 <html>

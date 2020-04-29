@@ -36,7 +36,7 @@ public class MyOrderListServlet extends HttpServlet {
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		ArrayList<Mypage> myList = new MyOrderService().selectOrder(memberId);
 		ArrayList<Mypage> count = new MyOrderService().countOrdNo(memberId);
-		System.out.println(myList);
+
 		request.setAttribute("myList", myList);
 		request.setAttribute("count", count);
 		request.getRequestDispatcher("views/mypage/myOrderList.jsp").forward(request, response);
