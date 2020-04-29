@@ -54,24 +54,24 @@ public class InquiryService {
 	 * @param memberId
 	 * @return
 	 */
-	/*
-	 * public ArrayList<Inquiry> selectInquiryList(String memberId) {
-	 * 
-	 * Connection conn = getConnection();
-	 * 
-	 * ArrayList<Inquiry> list = new InquiryDao().selectInquiryList(conn, memberId);
-	 * 
-	 * close(conn);
-	 * 
-	 * return list; }
-	 */
-		 
-	public Inquiry selectInquiryList(String memberId) {
-		Connection conn = getConnection();
-		Inquiry i = new InquiryDao().selectInquiryList(conn, memberId);
-		close(conn);
-		return i;
-	}
+	
+	  public ArrayList<Inquiry> selectInquiryList(String memberId) {
 	  
+	  Connection conn = getConnection();
+	  
+	  ArrayList<Inquiry> list = new InquiryDao().selectInquiryList(conn, memberId);
+	  
+	  close(conn);
+	  
+	  return list; }
+	 
+		 
+//	public Inquiry selectInquiryList(String memberId) {
+//		Connection conn = getConnection();
+//		Inquiry i = new InquiryDao().selectInquiryList(conn, memberId);
+//		close(conn);
+//		return i;
+//	}
+//	  
 	 
 }

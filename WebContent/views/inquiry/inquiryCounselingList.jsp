@@ -3,9 +3,7 @@
 <%@page import="com.kh.inquiry.model.vo.Inquiry"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% 
-	/* ArrayList<Inquiry> list = (ArrayList<Inquiry>)request.getAttribute("list"); */
-	Inquiry i = (Inquiry)request.getAttribute("i");
-	//System.out.println(i);
+	ArrayList<Inquiry> list = (ArrayList<Inquiry>)request.getAttribute("list"); 
 	Member loginUser4 = (Member) session.getAttribute("loginUser"); 
 
 %>
@@ -92,18 +90,19 @@ tbody tr td {
 
 					<tbody>
 					<!-- 원래 -->
+						<% for(int i = 0; i < list.size(); i++) {%>
 						  <tr>
-							<td id="i_1"><%=i.getInquiryType()%></td>
-							<td id="i_2"><%=i.getInquiryContent()%></td>
-							<td id="i_3"><%=i.getInquiryCreateDate()%></td>
+							<td id="i_1"><%=list.get(i).getInquiryType()%></td>
+							<td id="i_2"><%=list.get(i).getInquiryContent()%></td>
+							<td id="i_3"><%=list.get(i).getInquiryCreateDate()%></td>
 							
-							<% if (i.getInquiryResponseYn()==null){ %>
+							<% if (list.get(i).getInquiryFileYn() == null){ %>
 			                  <td class="emphasis"> 미답변</td>
 			                <% }else{ %>
 			                  <td class="emphasis">답변완료</td>
 			                <%} %>  
 						</tr> 
-						
+						<% } %>
 						<!-- 수정 -->
 						<%-- 
 						<% if (list.isEmpty()) {//리스트가 비어있을 경우 %>
