@@ -33,6 +33,17 @@ public class Inquiry {
 
 
 
+	public Inquiry(String inquiryType, String inquiryContent, Date inquiryCreateDate, String inquiryResponseYn) {
+		super();
+		this.inquiryType = inquiryType;
+		this.inquiryContent = inquiryContent;
+
+		this.inquiryCreateDate = inquiryCreateDate;
+		this.inquiryResponseYn = inquiryResponseYn;
+	}
+
+
+
 	public Inquiry(String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
 			String inquiryFileYn) {
 		super();
@@ -43,7 +54,7 @@ public class Inquiry {
 	}
 
 	public Inquiry(int inquiryBoardNo, String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
-			String inquiryResponseYn, String inquiryResponse, String inquireFileYn, Date inquireCreateDate) {
+			String inquiryResponseYn, String inquiryResponse, String inquiryFileYn, Date inquiryCreateDate) {
 		super();
 		this.inquiryBoardNo = inquiryBoardNo;
 		this.memberId = memberId;
@@ -52,8 +63,8 @@ public class Inquiry {
 		this.inquiryContent = inquiryContent;
 		this.inquiryResponseYn = inquiryResponseYn;
 		this.inquiryResponse = inquiryResponse;
-		this.inquiryFileYn = inquireFileYn;
-		this.inquiryCreateDate = inquireCreateDate;
+		this.inquiryFileYn = inquiryFileYn;
+		this.inquiryCreateDate = inquiryCreateDate;
 	}
 
 	public int getInquiryBoardNo() {
@@ -116,24 +127,24 @@ public class Inquiry {
 		return inquiryFileYn;
 	}
 
-	public void setInquiryFileYn(String inquireFileYn) {
-		this.inquiryFileYn = inquireFileYn;
+	public void setInquiryFileYn(String inquiryFileYn) {
+		this.inquiryFileYn = inquiryFileYn;
 	}
 
 	public Date getInquiryCreateDate() {
 		return inquiryCreateDate;
 	}
 
-	public void setInquireCreateDate(Date inquireCreateDate) {
-		this.inquiryCreateDate = inquireCreateDate;
+	public void setInquiryCreateDate(Date inquiryCreateDate) {
+		this.inquiryCreateDate = inquiryCreateDate;
 	}
 
 	@Override
 	public String toString() {
 		return "inquiry [inquiryBoardNo=" + inquiryBoardNo + ", memberId=" + memberId + ", inquiryType=" + inquiryType
 				+ ", inquiryTitle=" + inquiryTitle + ", inquiryContent=" + inquiryContent + ", inquiryResponseYn="
-				+ inquiryResponseYn + ", inquiryResponse=" + inquiryResponse + ", inquireFileYn=" + inquiryFileYn
-				+ ", inquireCreateDate=" + inquiryCreateDate + "]";
+				+ inquiryResponseYn + ", inquiryResponse=" + inquiryResponse + ", inquiryFileYn=" + inquiryFileYn
+				+ ", inquiryCreateDate=" + inquiryCreateDate + "]";
 	}
 
 }

@@ -47,9 +47,9 @@ public class InquiryServlet extends HttpServlet {
 		i.setInquiryType(inquiryType);
 		i.setInquiryTitle(inquiryTitle);
 		i.setInquiryContent(inquiryContent);
-		System.out.println(i);
+		//System.out.println(i);
 		int result = new InquiryService().insertInquiry(i);
-
+		
 		if (result > 0) {
 			request.setAttribute("i", i);
 			request.getSession().setAttribute("msg", "게시글 등록 성공");

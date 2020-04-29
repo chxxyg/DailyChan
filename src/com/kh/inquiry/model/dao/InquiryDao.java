@@ -1,6 +1,6 @@
 package com.kh.inquiry.model.dao;
 
-import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,9 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
-import com.kh.inquiry.model.vo.Attachment;
 import com.kh.inquiry.model.vo.Inquiry;
 
 public class InquiryDao {
@@ -71,33 +71,10 @@ public class InquiryDao {
 
 			if (rset.next()) {
 				i = new Inquiry();
-
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return i;
-
-	}
-
-	public Inquiry selectInquiryList(Connection conn, String memberId) {
-
-		Inquiry i = null;
-		PreparedStatement pstmt = null;
-
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectInquiryList");
-
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
-
-			rset = pstmt.executeQuery();
-
-			if (rset.next()) {
-				i = new Inquiry();
+				i.setInquiryType(rset.getString("INQUIRY_TYPE"));
+				i.setInquiryContent(rset.getString("INQUIRY_CONTENT"));
+				i.setInquiryCreateDate(rset.getDate("INQUIRY_CREATE_DATE"));
+				i.setInquiryResponseYn(rset.getString("INQUIRY_RESPONSE_YN"));
 
 			}
 
@@ -110,5 +87,63 @@ public class InquiryDao {
 	}
 
 	
+/*	public ArrayList<Inquiry> selectInquiryList(Connection conn) {
+
+		ArrayList<Inquiry> list = new ArrayList<>();
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String sql = prop.getProperty("selectInquiryList");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				list.add(new Inquiry(rset.getString("INQUIRY_TYPE"),
+									 rset.getString("INQUIRY_CONTENT"),
+									 rset.getDate("INQUIRY_CREATE_DATE"),
+									 rset.getString("INQUIRY_RESPONSE_YN")));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+
+	}
+	*/
+
+	
+	  public Inquiry selectInquiryList(Connection conn, String memberId) {
+	  
+	  Inquiry i = null;
+	  
+	  PreparedStatement pstmt = null; ResultSet rset = null;
+	  
+	  String sql = prop.getProperty("selectInquiryList");
+	  
+	  try { pstmt = conn.prepareStatement(sql); pstmt.setString(1, memberId);
+	  
+	  rset = pstmt.executeQuery();
+	  
+	  if (rset.next()) { i = new Inquiry();
+	  i.setInquiryType(rset.getString("INQUIRY_TYPE"));
+	  i.setInquiryContent(rset.getString("INQUIRY_CONTENT"));
+	  i.setInquiryCreateDate(rset.getDate("INQUIRY_CREATE_DATE"));
+	  i.setInquiryResponseYn(rset.getString("INQUIRY_RESPONSE_YN"));
+	  
+	  }
+	  
+	  } catch (SQLException e) { e.printStackTrace(); }
+	  
+	  return i;
+	  
+	  }
+	 
 	
 }

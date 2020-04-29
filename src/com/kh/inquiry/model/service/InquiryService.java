@@ -1,6 +1,8 @@
 package com.kh.inquiry.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+
 import static com.kh.common.JDBCTemplate.*;
 
 import com.kh.inquiry.model.dao.InquiryDao;
@@ -46,16 +48,30 @@ public class InquiryService {
 		return i;
 	}
 
-	
-	
+	/**
+	 * 리스트 조회용
+	 * 
+	 * @param memberId
+	 * @return
+	 */
+	/*
+	 * public ArrayList<Inquiry> selectInquiryList(String memberId) {
+	 * 
+	 * Connection conn = getConnection();
+	 * 
+	 * ArrayList<Inquiry> list = new InquiryDao().selectInquiryList(conn, memberId);
+	 * 
+	 * close(conn);
+	 * 
+	 * return list; }
+	 */
+		 
 	public Inquiry selectInquiryList(String memberId) {
-
 		Connection conn = getConnection();
-
 		Inquiry i = new InquiryDao().selectInquiryList(conn, memberId);
-
 		close(conn);
-
 		return i;
 	}
+	  
+	 
 }

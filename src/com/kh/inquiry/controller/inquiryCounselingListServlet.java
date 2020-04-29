@@ -1,6 +1,7 @@
 package com.kh.inquiry.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,11 +36,17 @@ public class inquiryCounselingListServlet extends HttpServlet {
 
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 
-		Inquiry i = new InquiryService().selectInquiryList(memberId);
+		 Inquiry i = new InquiryService().selectInquiryList(memberId); 
+
+		/*
+		 * ArrayList<Inquiry> list = new InquiryService().selectInquiryList(memberId);
+		 */
 
 		if (i != null) { // 조회성공
-
+			
+			
 			request.setAttribute("i", i);
+			/* request.setAttribute("list", list); */
 
 			RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryCounselingList.jsp");
 			view.forward(request, response);

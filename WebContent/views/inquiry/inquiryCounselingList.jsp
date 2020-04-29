@@ -1,9 +1,11 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.kh.member.model.vo.Member"%>
 <%@page import="com.kh.inquiry.model.vo.Inquiry"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% 
-
+	/* ArrayList<Inquiry> list = (ArrayList<Inquiry>)request.getAttribute("list"); */
 	Inquiry i = (Inquiry)request.getAttribute("i");
+	//System.out.println(i);
 	Member loginUser4 = (Member) session.getAttribute("loginUser"); 
 
 %>
@@ -84,15 +86,14 @@ tbody tr td {
 							<th id="q_1" style="width: 150px;">상담유형</th>
 							<th id="q_2" style="width: 500px;">내용</th>
 							<th id="q_3" style="width: 100px;">문의날짜</th>
-							
-							
 							<th id="q_4" style="width: 70px;">답변상태</th>
 						</tr>
 					</thead>
 
 					<tbody>
-						 <tr>
-						<td id="i_1"><%=i.getInquiryType()%></td>
+					<!-- 원래 -->
+						  <tr>
+							<td id="i_1"><%=i.getInquiryType()%></td>
 							<td id="i_2"><%=i.getInquiryContent()%></td>
 							<td id="i_3"><%=i.getInquiryCreateDate()%></td>
 							
@@ -101,7 +102,29 @@ tbody tr td {
 			                <% }else{ %>
 			                  <td class="emphasis">답변완료</td>
 			                <%} %>  
+						</tr> 
+						
+						<!-- 수정 -->
+						<%-- 
+						<% if (list.isEmpty()) {//리스트가 비어있을 경우 %>
+						<tr>
+							<td colspan="5">존재하는 공지사항이 없습니다. </td>
 						</tr>
+						<% } else { %>
+							<% for (Inquiry i : list) { %>
+								<tr>
+									<td id="i_1"><%=i.getInquiryType()%></td>
+									<td id="i_2"><%=i.getInquiryContent()%></td>
+									<td id="i_3"><%=i.getInquiryCreateDate()%></td>
+									<% if (i.getInquiryResponseYn()==null){ %>
+				                  <td class="emphasis"> 미답변</td>
+				                <% }else{ %>
+				                  <td class="emphasis">답변완료</td>
+				                <%} %>  
+								</tr>
+							<%}%>
+						<%}%> --%>
+
 					</tbody>
 				</table>
 
