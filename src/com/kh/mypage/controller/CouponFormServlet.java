@@ -28,6 +28,7 @@ public class CouponFormServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+		
 
 	    request.getRequestDispatcher("views/mypage/couponForm.jsp").forward(request, response);
 	   
