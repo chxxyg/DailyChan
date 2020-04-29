@@ -822,6 +822,11 @@
 				});
 				
 			});
+			
+			/* $(".likeLogo").click(function(){
+				
+			}); */
+			
 		});
 	</script>
 	
