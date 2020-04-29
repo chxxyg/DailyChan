@@ -3,6 +3,10 @@
 <%
 	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList"); // 10
 	ArrayList<Mypage> count = (ArrayList<Mypage>)request.getAttribute("count"); // 6
+	
+	System.out.println(myList);
+	System.out.println(count);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -138,57 +142,65 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% int i = 0; int p = 0;%>
+				<% if(myList.isEmpty()){ %>
+					<tr height="300px">
+						<td colspan="4">
+							<img src="<%= request.getContextPath() %>/resources/img/cautionlogo.png" width="50px" height="50px">
+							<br><br>
+							<div>장바구니에 담긴 상품이 없습니다.</div>
+						</td>
+					</tr>
 				
-				<%for(Mypage c : count){ %>
-				
-						<% for(int tr=0; tr<c.getCountOrdNo(); tr++){%>
-							<tr height="100px">
-								<%if(tr == 0){ %>				
-									<td class="firstTd" rowspan="<%=c.getCountOrdNo()%>">
-										<a style="color:blue; text-decoration: underline;" class="orderNo"><%=myList.get(i).getOrderNo()%></a><br>
-										<%=myList.get(i).getOrderDate() %><br>
-										<button class="orderDtBtn" type="button">상세확인 ></button>
-									</td>
-								<%}%>
-								
-								<td id="myOrderInfo">
-									<div>
-										<input type="hidden" class="pCosde" value="<%=myList.get(p).getProCode()%>">
-										<a class="pName"><b><%=myList.get(p).getProName()%></b></a><br>
-										<%=myList.get(p).getQuantity() %>개 / <%=myList.get(p).getPrice()%>원
-									</div>
-									<% p++; %>
-								</td>
-								
-								<%if(tr == 0){ %>
-									<td rowspan="<%=c.getCountOrdNo()%>">
-										<% switch(myList.get(i).getStatus()) {
-											case 0: out.println("결제완료"); break;
-											case 1: out.println("결제취소"); break;
-											case 2: out.println("상품준비중"); break;
-											case 3: out.println("배송중"); break;
-											case 4: out.println("배송완료"); break;
-											case 5: out.println("반품완료"); break;
-										 } %>
-									</td>
-									<td rowspan="<%=c.getCountOrdNo()%>">
-										<% switch(myList.get(i).getStatus()) {
-											case 0: %> <button type="button" class="cancelOrderBtn">즉시취소</button> <%; break;
-											case 1: break;
-											case 2: break;
-											case 3: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
-													   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
-											case 4: %> <button type="button" id="trackShipmentBtn">배송조회</button><br>
-													   <button type="button" class="requestRefundBtn">반품신청</button> <%; break;
-											case 5: break;
-										} %>
-									</td>
-								<%} %>
-							</tr>
-						<% } %>
+				<% } else { %>
+			
+			
+					<% int i = 0; int p = 0;%>
 					
-				<% i++; } %>
+					<%for(Mypage c : count){ %>
+					
+							<% for(int tr=0; tr<c.getCountOrdNo(); tr++){%>
+								<tr height="100px">
+									<%if(tr == 0){ %>				
+										<td class="firstTd" rowspan="<%=c.getCountOrdNo()%>">
+											<a style="color:blue; text-decoration: underline;" class="orderNo"><%=myList.get(i).getOrderNo()%></a><br>
+											<%=myList.get(i).getOrderDate() %><br>
+											<button class="orderDtBtn" type="button">상세확인 ></button>
+										</td>
+									<%}%>
+									
+									<td id="myOrderInfo">
+										<div>
+											<input type="hidden" class="pCosde" value="<%=myList.get(p).getProCode()%>">
+											<a class="pName"><b><%=myList.get(p).getProName()%></b></a><br>
+											<%=myList.get(p).getQuantity() %>개 / <%=myList.get(p).getPrice()%>원
+										</div>
+										<% p++; %>
+									</td>
+									
+									<%if(tr == 0){ %>
+										<td rowspan="<%=c.getCountOrdNo()%>">
+											<% switch(myList.get(i).getStatus()) {
+												case 0: out.println("결제완료"); break;
+												case 1: out.println("상품준비중"); break;
+												case 2: out.println("배송중"); break;
+												case 3: out.println("배송완료"); break;
+											 } %>
+										</td>
+										<td rowspan="<%=c.getCountOrdNo()%>">
+											<% switch(myList.get(i).getStatus()) {
+												case 0: break;
+												case 1: break;
+												case 2: %> <button type="button" id="trackShipmentBtn">배송조회</button><br><%; break;
+												case 3: %> <button type="button" id="trackShipmentBtn">배송조회</button><br><%; break;
+											} %>
+										</td>
+									<%} %>
+								</tr>
+							<% } %>
+						
+					<% i++; } %>
+				
+				<% } %>
 			</tbody>
 		</table>
 		
