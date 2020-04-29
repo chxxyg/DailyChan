@@ -187,6 +187,9 @@
 							</tr>
 						
 						
+						
+						
+						
 							<% for(int i=0; i<mcList.size(); i++ ){ %>
 							<tr>
 								<td width="100"><%=iList.get(i).getInquiryBoardNo() %></td>
