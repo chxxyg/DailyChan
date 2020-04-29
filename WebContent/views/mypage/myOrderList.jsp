@@ -76,7 +76,7 @@
 		font-size:10px;
 		cursor:pointer;
 	}
-	#trackShipmentBtn{
+	.trackShipmentBtn{
 		width:60px;
 		height:30px;
 		background:tomato;
@@ -121,7 +121,8 @@
 				<dl>
 					<dt>조회기간</dt>
 					<dd>
-						<input type="date" id="fromDate" name="fromDate" max="sysdate"><span>~</span>
+						<input type="date" id="fromDate" name="fromDate" max="sysdate">
+						<span>~</span>
 						<input type="date" id="toDate" name="toDate">
 					</dd>
 					<dd>
@@ -190,8 +191,8 @@
 											<% switch(myList.get(i).getStatus()) {
 												case 0: break;
 												case 1: break;
-												case 2: %> <button type="button" id="trackShipmentBtn">배송조회</button><br><%; break;
-												case 3: %> <button type="button" id="trackShipmentBtn">배송조회</button><br><%; break;
+												case 2: %> <button type="button" class="trackShipmentBtn">배송조회</button><br><%; break;
+												case 3: %> <button type="button" class="trackShipmentBtn">배송조회</button><br><%; break;
 											} %>
 										</td>
 									<%} %>
@@ -231,6 +232,11 @@
 			$(".requestRefundBtn").click(function(){
 				var orderNo = $(this).parent().siblings(".firstTd").children(".orderNo").text();
 				location.href="<%=contextPath%>/refund.my?orderNo=" + orderNo;
+			});
+			
+			$(".trackShipmentBtn").click(function(){
+				window.open("<%=contextPath%>/views/mypage/shipmentView.jsp", "배송조회", "width=300, top = 50, left = 500, location = no");
+				<%-- window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no"); --%>
 			});
 			
 			
