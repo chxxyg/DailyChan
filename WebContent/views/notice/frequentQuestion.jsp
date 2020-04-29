@@ -5,28 +5,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자주하는 질문</title>
 <style>
+body{
+	width: 1500px;
+	margin: auto;
+}
+.outer {
+	width: 1500px;
+	margin: auto;
+	float: left;
+}
 
 .cstOuter{
+	width:860px;
+	height:800px;
+ 	margin-top:50px; 
 
-	width:1500px;
-	margin:auto;
+	float:left;
 }
 .cstOuter_1{
-	width:980px;
-	height:800px;
-	margin:auto;
+	width:860px;
+ 	height:auto;
+	margin:auto; 
+	margin-top:10px;
+	margin-left:25px;
 	float:left;
 	padding:0px 20px 20px 20px;
 }
-.cst_top{
 
+h3 {
+	margin-top:0px;
+	margin-bottom:40px;
+}
+.cst_top{
     height: 35px;
 	float:left;
     top: 48px;
     left: 143px;
-    margin-top: auto;
+    margin-top: 70px;
     margin-left: auto; 
-    width:800px;
+    width:750px;
     margin: 15px 0 30px;
     padding: 42px 68px 41px 45px;
     border: 3px solid #dbdbdb;
@@ -88,7 +105,7 @@
 	margin-bottom:50px;
 } 
 #sch_faq{
-    width:330px;
+    width:260px;
     height: 32px;
     float: left;
 
@@ -275,23 +292,20 @@ margin-left:-50px;
 }
 
 span.icon{
-
 	margin-right:15px;
 }
 
 </style>
 </head>
 <body>
-
-
 <%@ include file="../common/mainHeader.jsp" %>
 <%@ include file="../common/mainSideBar.jsp" %>
+<%@ include file="leftCategory.jsp" %>
 
 <div class="cstOuter">
-<%@ include file="leftCategory.jsp" %>
-	
+
 	<div class="cstOuter_1">
-	<h3>자주하는 질문</h3>
+		<h3>자주하는 질문</h3>
 		<div class="cst_top">
 		
 	           <form id="topForm" method="get" action="<%=contextPath%>/Frequestion.fq">
@@ -520,17 +534,16 @@ span.icon{
 					            <p class="content"><span class="icon">A</span>데일리찬에서는 질좋은 국내산, 수입산 식재료를 이용하고 있습니다. 국내산 식재료의 수급이 어렵거나, 품질이 좋지 않은 경우 등의 사유로 수입산 식재료를 적절히 사용하여 품질을 유지하고 있습니다.</p>
 															
 				       		</div>
-
 					</li>
 				</ul>
 			</div>
 
 		    
-		   </div>  
-		
+		  </div>  
+	
 </div>
 
-		    <script>
+	<script>
 			$(function(){
 				$("#left_01").css("color", "rgb(247, 112, 46)");
 			});
@@ -566,20 +579,16 @@ span.icon{
                 });
             });
 
-         // 카테고리 선택 시 슬라이드 효과
+        	 // 카테고리 선택 시 슬라이드 효과
          
 			$(".tab").click(function(){
 			
 				$(this).next().show();
 				$(this).siblings("a").next().hide();
 			});
-         
-         
-         
-         
-         
-		    </script>
-		    
+
+	</script>
+	 
 <%@ include file="../common/mainFooter.jsp" %>
-</body>
+</body>   
 </html>

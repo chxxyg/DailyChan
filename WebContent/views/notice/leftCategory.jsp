@@ -134,9 +134,11 @@ li {
 		<div id="left-category">
 			<ul>
 				<li><a id="left_01" href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는 질문</a></li>
-				<li><a id="left_02" href="<%= request.getContextPath() %>/detail.bo">1:1 친절상담</a></li>
-				<li><a id="left_03" href=" <%= request.getContextPath() %>/form.in">1:1 상담내역</a></li>
-				<li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no">공지사항</a></li>
+				
+			
+				<li><a id="left_02" href="<%= request.getContextPath() %>/detail.bo" >1:1 친절상담</a></li>
+				<li><a id="left_03" href="<%= request.getContextPath() %>/form.in" >1:1 상담내역</a></li>
+				<li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no?currentPage=1">공지사항</a></li>
 			</ul>
 		</div>
 
@@ -159,19 +161,20 @@ li {
 	<script>
 	
 		$("#left_02").click(function(){
-			if(<%=loginUser1%> != null ){ 
-				response.sendRedirect("<%= request.getContextPath()%>/detail.bo"); 
-			}else{ 
-				window.open("<%=request.getContextPath()%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
-				}		
+			if(<%=loginUser1%> != null ){ //로그인 시
+				response.sendRedirect("<%= request.getContextPath()%>/detail.bo");
+			}else{ // 비로그인 시
+				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요");
+				$("#left_02").removeAttr("href");
+			}		
 			});
 
 		$("#left_03").click(function(){
-			/* console.log("test"); */
-			if(<%=loginUser1%> != null ){ 
+			if(<%=loginUser1%> != null ){ //로그인 시
 				response.sendRedirect("<%= request.getContextPath()%>/NoticeInquiryList.no"); 
-			}else{ 
-				window.open("<%=request.getContextPath()%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no");
+			}else{ // 비로그인 시
+				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요");
+				$("#left_03").removeAttr("href");
 				}		
 			});
 

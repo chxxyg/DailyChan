@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.inquiry.model.service.InquiryService;
+import com.kh.inquiry.model.vo.Inquiry;
+import com.kh.notice.model.service.NoticeService;
+
 /**
  * Servlet implementation class InquiryFormServlet
  */
@@ -29,8 +33,22 @@ public class InquiryFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryFormView.jsp");
-		view.forward(request, response);
+		int ino = Integer.parseInt(request.getParameter("ino"));
+
+		Inquiry i = new InquiryService().selectInquiry(ino);
+
+		if (i != null) { // 조회성공
+
+			request.setAttribute("i", i);
+
+			RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryFormView.jsp");
+			view.forward(request, response);
+
+		} else { // 조회실패
+			request.setAttribute("msg", "조회 실패");
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			view.forward(request, response);
+		}
 
 	}
 

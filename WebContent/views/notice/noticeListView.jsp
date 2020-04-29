@@ -1,8 +1,17 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="com.kh.notice.model.vo.Notice, java.util.ArrayList"%>
+<%@page import="com.kh.notice.model.vo.PageInfo"%>
 <%
 	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,27 +19,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항</title>
 <style>
+
+body{
+	width:1500px; 
+	margin: auto;
+}
 .outer {
-	width: 1000px;
+	width: 860px;
 	height: auto;
 	float: left;
+	margin-left:25px;
 }
 
 .sub_cont {
-	float: left;
 	width: 860px;
 	padding: 0 0 75px 30px;
-	/* 	border:1px solid blue; */
-	margin-top: 20px;
-}
-
-.sub_cont h3 {
-	margin: 0 0 15px;
-	font-size: 21px;
-	font-weight: 800;
-	line-height: 1;
-	color: #000;
+	margin-top: 50px;
 	float: left;
+}
+.sub_cont h3 {
+    margin: 0 0 15px;
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 1;
+    color: #000;
+    float: left;
 }
 
 .noti_tbl {
@@ -46,6 +59,8 @@
 	border-top: 1px solid #222;
 	background: #f4f4f4;
 	color: #333;
+	font-weight:normal;
+	font-size:12px;
 }
 
 table {
@@ -61,8 +76,10 @@ table {
 tbody tr {
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
-	border-collapse: collapse;
+ 	border-collapse: collapse; 
+	height:10px;
 }
+
 </style>
 </head>
 <body>
@@ -70,18 +87,11 @@ tbody tr {
 	<%@ include file="../common/mainHeader.jsp"%>
 	<%@ include file="../common/mainSideBar.jsp"%>
 	<%@ include file="leftCategory.jsp"%>
-	<div class="outer">
-
-
+	
+		<div class="outer">
 		<div id="cst_content" class="sub_cont">
 
 			<h3>공지사항</h3>
-
-			<!-- 관리자로 로그인하면 작성하기 버튼 뜸 -->
-			<%-- <% if(loginUser != null && loginUser.getMemberId().equals("admin")){ %>
-			<button
-				onclick="location.href='<%= contextPath %>/<!-- 공지사항 작성 서블릿 연결해주기 -->';">작성하기</button>
-			<% } %> --%>
 
 			<table class="noti_tbl">
 				<colgroup>
@@ -98,27 +108,8 @@ tbody tr {
 						<th scope="col">조회수</th>
 					</tr>
 				</thead>
-
-				<!--  반복문 돌리기 -->
+				
 				<tbody>
-					<!-- <tr height="10px">
-						<td class="title"><a class="nNum">20200331</a><br></td>
-						<td id="de">
-							<div>
-								<input type="hidden" class="" value="">
-								<a class="nTitle"><b>제목</b></a><br>
-							</div>
-						</td>
-						<td>날짜</td>
-						<td>조회수</td>
-					</tr> -->
-
-					<!--<th scope="col">번호</th>
-						<th scope="col">제목</th>
-						<th scope="col">날짜</th>
-						<th scope="col">조회수</th> -->
-
-
 					<% if (list.isEmpty()) {//리스트가 비어있을 경우 %>
 					<tr>
 						<td colspan="5">존재하는 공지사항이 없습니다.</td>
@@ -135,7 +126,37 @@ tbody tr {
 					<%}%>
 				</tbody>
 			</table>
-			<br> <br>
+			<br><br>
+			
+				<!-- 현재 페이지에 보여질 페이징바 -->
+			<div class="pagingArea" align="center">
+			
+				<% if(currentPage != 1){ %>
+				<!-- 맨 처음으로(<<) -->
+				<button onclick="location.href='noticeList.no?currentPage=1'"> &lt;&lt; </button>
+				
+				<!-- 이전 페이지로(<) -->
+				<button onclick="location.href='noticeList.no?currentPage=<%=currentPage-1 %>';"> &lt; </button>
+				<% } %>
+				<% for(int p=startPage; p<=endPage; p++){ %>
+					<% if(currentPage != p){ %>
+					<button onclick="location.href='noticeList.no?currentPage=<%=p%>';"><%= p %></button>
+				
+				<% }else{ %>
+				<button disabled><%= p %></button>
+					<% } %>
+				
+				<% } %>
+				
+				<% if(currentPage != maxPage){ %>
+	
+				<!-- 다음 페이지로(>) -->
+				<button onclick="location.href='noticeList.no?currentPage=<%=currentPage+1 %>';"> &gt; </button>
+				<!-- 맨 마지막으로(>>) -->
+				<button onclick="location.href='noticeList.no?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			
+				<% } %>
+			</div>
 		</div>
 	</div>
 
@@ -145,7 +166,7 @@ tbody tr {
 		$("#left_04").css("color", "rgb(247, 112, 46)");
 	});
 	
-	<%-- $(function(){
+	 $(function(){
 		$(".noti_tbl>tbody>tr").click(function(){
 			//console.log("클릭");
 			
@@ -153,9 +174,9 @@ tbody tr {
 			var nno = $(this).children().eq(0).text();
 			
 			// 쿼리스트링을 이용해서 전달값 전달
-			location.href= "<%=contextPath%>/noticeList.no?nno=" + nno;
+			location.href= "<%=contextPath%>/datail.no?nno=" + nno;
 			});
-		}); --%>
+		}); 
 	</script>
 
 	<%@ include file="../common/mainFooter.jsp"%>
