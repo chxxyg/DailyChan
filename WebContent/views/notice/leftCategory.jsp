@@ -1,11 +1,12 @@
+<%@page import="com.kh.inquiry.model.vo.Inquiry"%>
 <%@ page import="com.kh.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	Member loginUser1 = (Member)session.getAttribute("loginUser");
-	
+	Member m = (Member)session.getAttribute("loginUser");
+
  	String ableAttr = "";
-	if(loginUser1 == null){
+	if(m == null){
 		ableAttr = "disabled='disabled'";
 	}
  
@@ -135,8 +136,7 @@ li {
 			<ul>
 				<li><a id="left_01" href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는 질문</a></li>
 				<li><a id="left_02" href="<%= request.getContextPath() %>/detail.bo" >1:1 친절상담</a></li>
-				<li><a id="left_03" href="<%= request.getContextPath() %>/form.in">1:1 상담내역</a></li>
-				<!-- ?memberId<%= loginUser1.getMemberId() %>" -->
+				<li><a id="left_03" href="<%= request.getContextPath() %>/counselingList.in?memberId<%= m.getMemberId() %>">1:1 상담내역</a></li>
 				<li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no?currentPage=1">공지사항</a></li>
 			</ul>
 		</div>
@@ -160,7 +160,7 @@ li {
 	<script>
 	
 		$("#left_02").click(function(){
-			if(<%=loginUser1%> != null ){ //로그인 시
+			if(<%=m%> != null ){ //로그인 시
 				response.sendRedirect("<%= request.getContextPath()%>/detail.bo");
 			}else{ // 비로그인 시
 				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요");
@@ -169,7 +169,7 @@ li {
 			});
 
 		$("#left_03").click(function(){
-			if(<%=loginUser1%> != null ){ //로그인 시
+			if(<%=m%> != null ){ //로그인 시
 				response.sendRedirect("<%= request.getContextPath()%>/counselingList.in"); 
 			}else{ // 비로그인 시
 				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요");

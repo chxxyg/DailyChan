@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.inquiry.model.service.InquiryService;
+import com.kh.inquiry.model.vo.Inquiry;
+
 /**
  * Servlet implementation class inquiryCounselingListServlet
  */
@@ -29,12 +32,22 @@ public class inquiryCounselingListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		/* String memberId = request.getParameter("memberId"); */
-		
-		
-		RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryCounselingList.jsp");
-		view.forward(request, response);
-	
+		String memberId = request.getParameter("memberId");
+
+		Inquiry i = new InquiryService().selectInquiryList(memberId);
+
+		if (i != null) { // 조회성공
+
+			request.setAttribute("i", i);
+
+			RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryCounselingList.jsp");
+			view.forward(request, response);
+
+		} else { // 조회실패
+			request.setAttribute("msg", "조회 실패");
+			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			view.forward(request, response);
+		}
 	
 	}
 

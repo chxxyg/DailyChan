@@ -46,4 +46,16 @@ public class InquiryService {
 		return i;
 	}
 
+	
+	
+	public Inquiry selectInquiryList(String memberId) {
+
+		Connection conn = getConnection();
+
+		Inquiry i = new InquiryDao().selectInquiryList(conn, memberId);
+
+		close(conn);
+
+		return i;
+	}
 }
