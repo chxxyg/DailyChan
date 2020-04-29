@@ -43,7 +43,7 @@ public class AdBlackListDeleteServlet extends HttpServlet {
 		int result2 = new adMemberService().deleteBlackList(mid);
 		
 		if(result > 0 && result2 > 0) {	// 성공
-			response.sendRedirect("blackListDetail.ad?bno=" + bno);
+			response.sendRedirect("blackList.ad");
 		}else {
 			
 		}
