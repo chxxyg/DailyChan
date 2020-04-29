@@ -354,5 +354,27 @@ public class ProductDao {
 		
 		return result2;
 	}
+
+
+	public int insertAd2(Connection conn, String pdc) {
+		
+		int result2 = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAd2");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pdc);
+			
+			result2 = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result2;
+	}
 	
 }

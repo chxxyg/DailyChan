@@ -107,5 +107,20 @@ public class ProductService {
 		close(conn);
 		return result2;
 	}
+
+	public int insertAd2(String pdc) {
+		
+Connection conn = getConnection();
+		
+		int result2 = new ProductDao().insertAd2(conn, pdc);
+		
+		if(result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result2;
+	}
 	
 }

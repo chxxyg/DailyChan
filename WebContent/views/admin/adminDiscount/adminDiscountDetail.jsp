@@ -112,7 +112,7 @@
     	function discountDelete(){   		
     		var bool = confirm("삭제하시겠습니까?");
     		if(bool){
-    			location.href = "<%=contextPath%>/discountDelete.ad?dc=<%=d.getDiscountCode()%>";
+    			location.href = "<%=contextPath%>/discountDelete.ad?dc=<%=d.getDiscountCode()%>&pdc=<%=d.getProductCode()%>";
     			alert("삭제완료!");
     		}else{
     			alert("취소하였습니다.");

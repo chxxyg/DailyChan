@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.admin.adminDiscount.model.service.AdDiscountService;
 import com.kh.admin.adminDiscount.model.vo.AdDiscount;
+import com.kh.product.model.service.ProductService;
 
 /**
  * Servlet implementation class AdDiscountDeleteServlet
@@ -34,8 +35,10 @@ public class AdDiscountDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int dc = Integer.parseInt(request.getParameter("dc"));
+		String pdc = request.getParameter("pdc");
 		
 		int result = new AdDiscountService().deleteDiscount(dc);
+		int result2 = new ProductService().insertAd2(pdc);
 		
 		if(result > 0) {
 			response.sendRedirect("discountList.ad");

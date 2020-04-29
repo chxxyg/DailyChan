@@ -95,7 +95,7 @@
             </tr>
             <tr>
                 <td width="200">내용</td>
-                <td><input type="text" value="<%=i.getInquiryContent() %>" name="content" readonly></td>
+                <td><textarea cols="35" rows="6" style="resize:none" name="content" readonly ><%=i.getInquiryContent() %></textarea></td>
             </tr>
              <tr>
                 <td width="200">답변여부</td>
@@ -103,12 +103,12 @@
             </tr>
             <tr>
                 <td width="200">관리자답변</td>
-                <td><input type="text" value="<%= i.getInquiryResponse() %>" name="res"></td>
+                <td><textarea cols="35" rows="6" style="resize:none" name="res"><%= i.getInquiryResponse() %></textarea></td>
             </tr>         
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit" onclick="return response();">답변하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/adOneInquiryList.ad';">목록으로</button>
+        		<button type="button" onclick="location.href='<%=contextPath%>/adOneInquiryList.ad?currentPage=1';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
         
