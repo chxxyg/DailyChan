@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*, com.kh.mypage.model.vo.*"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*, com.kh.mypage.model.vo.*, com.kh.inquiry.model.vo.*"%>
 <% 
 	Product p = (Product)request.getAttribute("p");
 	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
 	String proCode = (String)request.getAttribute("proCode");
 	ArrayList<Review> rList = (ArrayList<Review>)request.getAttribute("rList");
+	ArrayList<Inquiry> iList = (ArrayList<Inquiry>)request.getAttribute("iList");
 	
 	//System.out.println(rList);
 %>
@@ -223,38 +224,58 @@
 	    
 	    <div style="width: 1000px;">
 			<table class="reviewList" width="1000" style="text-align: center;">
+			
+			
+			    <% for(int i=0; i<rList.size(); i++ ){ %>
 				<tr>
-					<td width="100">1234</td>
-					<td width="100">★★★★☆</td>
-					<td class="reviewTitle" width="500">데일리찬 리뷰 나야나~~!~!@!@#</td>
-					<td width="150">writerID</td>
-					<td width="150">2020-04-10</td>
+					<td width="100"><%= rList.get(i).getReviewBoardNo() %></td>
+					<td width="100">
+									<% if(rList.get(i).getReviewRating()<1){ %>
+										☆☆☆☆☆
+									<% }else if(rList.get(i).getReviewRating()<2){ %>
+										★☆☆☆☆ 
+									<% }else if(rList.get(i).getReviewRating()<3){ %>
+										★★☆☆☆ 
+									<% }else if(rList.get(i).getReviewRating()<4){ %>
+										★★★☆☆ 
+									<% }else if(rList.get(i).getReviewRating()<5){ %>
+										★★★★☆
+									<% }else if(rList.get(i).getReviewRating()>=5){ %>
+										★★★★★
+									<% } %>
+					</td>
+					<td class="reviewTitle" width="500"><%=rList.get(i).getReviewTitle() %></td>
+					<td width="150"><%= rList.get(i).getMemberId() %></td>
+					<td width="150"><%= rList.get(i).getReviewCreateDate() %></td>
 				</tr>
 				
 				<tr class="reviewContent">
 					<td colspan="5">
-						<div id="reviewDetails" style="padding-top: 30px; text-align: left; padding-left: 70px;">
-							<b>작성자명*</b> &nbsp;  &nbsp; 
-							<span id="reviewAvg"><% if(p.getProReviewSum()<1){ %>
+						<div id="reviewDetails" style="padding-top: 30px; text-align: left; padding-left: 80px;">
+							<b><%= rList.get(i).getMemberId() %></b> &nbsp;  &nbsp; 
+							<span id="reviewAvg"><% if(rList.get(i).getReviewRating()<1){ %>
 	                                    				☆☆☆☆☆
-	                                 			<% }else if(p.getProReviewSum()<2){ %>
+	                                 			<% }else if(rList.get(i).getReviewRating()<2){ %>
 	                                    				★☆☆☆☆ 
-				                                <% }else if(p.getProReviewSum()<3){ %>
+				                                <% }else if(rList.get(i).getReviewRating()<3){ %>
 				                                    	★★☆☆☆ 
-				                                <% }else if(p.getProReviewSum()<4){ %>
+				                                <% }else if(rList.get(i).getReviewRating()<4){ %>
 				                                    	★★★☆☆ 
-				                                <% }else if(p.getProReviewSum()<5){ %>
+				                                <% }else if(rList.get(i).getReviewRating()<5){ %>
 				                                    	★★★★☆
-				                                <% }else if(p.getProReviewSum()>=5){ %>
+				                                <% }else if(rList.get(i).getReviewRating()>=5){ %>
 				                                    	★★★★★
 				                                <% } %>
-				                                <%=(Math.round(p.getProReviewSum()*10)/10.0) %>
+				                                <%=rList.get(i).getReviewRating() %>
 							</span> &nbsp;  &nbsp; 
-							<span style="margin-left: 550px;">2020-03-31</span>
-							<textarea rows="10" cols="120" id="reviewContent" style="resize:none; margin-bottom: 15px;" readonly></textarea>
+							<span style="margin-left: 550px;"><%= rList.get(i).getReviewCreateDate() %></span>
+							<textarea rows="7" cols="110" id="reviewContent" style="resize:none; margin-bottom: 15px; padding: 20px;" readonly><%=rList.get(i).getReviewContent() %></textarea>
 							
 						</div>
 				</tr>
+				<% } %>
+				
+				
 			</table>
 		         
 			<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
@@ -272,24 +293,29 @@
 
 	    <div style="width: 1000px;">
 			<table class="qnaList" width="1000" style="text-align: center;">
+			
+			
+				<% for(int i=0; i<iList.size(); i++ ){ %>
 				<tr>
-					<td width="100">1234</td>
-					<td width="100">문의유형</td>
-					<td class="qnaTitle" width="500">문의는 포도가 먹고찌푼데</td>
-					<td width="150">writerID</td>
-					<td width="150">2020-04-10</td>
+					<td width="100"><%=iList.get(i).getInquiryBoardNo() %></td>
+					<td width="100"><%=iList.get(i).getInquiryType() %></td>
+					<td class="qnaTitle" width="500"><%=iList.get(i).getInquiryTitle() %></td>
+					<td width="150"><%=iList.get(i).getMemberId() %></td>
+					<td width="150"><%=iList.get(i).getInquiryCreateDate() %></td>
 				</tr>
 				
 				<tr class="qnaContent">
 					<td colspan="5">
-						<div id="qnaDetails" style="padding-top: 30px; text-align: left; padding-left: 70px;">
-							<b>작성자명*</b> &nbsp;  &nbsp; 
-							<span>문의유형</span> &nbsp;  &nbsp; 
-							<span style="margin-left: 550px;">2020-03-31</span>
-							<textarea rows="10" cols="120" id="qnaContent" style="resize:none; margin-bottom: 15px;" readonly></textarea>
+						<div id="qnaDetails" style="padding-top: 30px; text-align: left; padding-left: 90px;">
+							<b><%=iList.get(i).getMemberId() %></b> &nbsp;  &nbsp; 
+							<span><%=iList.get(i).getInquiryType() %></span> &nbsp;  &nbsp; 
+							<span style="margin-left: 550px;"><%=iList.get(i).getInquiryCreateDate() %></span>
+							<textarea rows="7" cols="110" id="reviewContent" style="resize:none; margin-bottom: 15px; padding: 20px;" readonly><%=iList.get(i).getInquiryContent() %></textarea>
 						</div>
 					</td>
 				</tr>
+				<% } %>
+				
 			</table>     
         	<button id="detailQnaBtn" type="button" style="margin-bottom: 30px;">문의하기</button>
 		</div>

@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.inquiry.model.vo.Inquiry;
 import com.kh.mypage.model.vo.Review;
 import com.kh.product.model.dao.ProductDao;
 
@@ -112,8 +113,38 @@ public class ReviewDao {
 		} finally {
 			close(pstmt);
 		}
-		System.out.println(result);
 		return result;
+	}
+	
+	public ArrayList<Inquiry> selectInquiryList(Connection conn) {
+		
+		ArrayList<Inquiry> iList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = "";
+		
+		sql = prop.getProperty("selectInquiryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				iList.add(new Inquiry(rset.getInt("INQUIRY_BOARD_NO"),
+									 rset.getString("MEMBER_ID"),
+									 rset.getString("INQUIRY_TYPE"),
+									 rset.getString("INQUIRY_TITLE"),
+									 rset.getString("INQUIRY_CONTENT"),
+									 rset.getDate("INQUIRY_CREATE_DATE")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return iList;
 	}
 
 }

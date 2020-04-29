@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.inquiry.model.vo.Inquiry;
 import com.kh.mypage.model.service.ReviewService;
 import com.kh.mypage.model.vo.Review;
 import com.kh.product.model.service.ProductService;
@@ -42,6 +43,8 @@ public class ProductDetailServlet extends HttpServlet {
 		ArrayList<AttachmentProduct> list = new ProductService().selectAttachment(proCode);
 		
 		ArrayList<Review> rList = new ReviewService().selectReviewList(proCode);
+		
+		ArrayList<Inquiry> iList = new ReviewService().selectInquiryList();
 
 		
 		request.setAttribute("p", p);
@@ -49,6 +52,7 @@ public class ProductDetailServlet extends HttpServlet {
 		
 		request.setAttribute("rList", rList);
 		
+		request.setAttribute("iList", iList);
 		
 		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 	
