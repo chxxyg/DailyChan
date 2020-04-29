@@ -85,7 +85,7 @@ tbody tr {
 }
 
 .noti_tbl>tbody>tr:hover {
-	background: #dcdcdc;
+	background-color: rgba(236, 142, 34, 0.089);
 	cursor: pointer;
 }
 </style>
