@@ -82,4 +82,33 @@ public class InquiryDao {
 
 	}
 
+	public Inquiry selectInquiryList(Connection conn, String memberId) {
+
+		Inquiry i = null;
+		PreparedStatement pstmt = null;
+
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectInquiryList");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+
+			rset = pstmt.executeQuery();
+
+			if (rset.next()) {
+				i = new Inquiry();
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return i;
+
+	}
+
+	
+	
 }

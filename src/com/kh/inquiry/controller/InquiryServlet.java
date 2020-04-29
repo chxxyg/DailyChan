@@ -53,8 +53,9 @@ public class InquiryServlet extends HttpServlet {
 		if (result > 0) {
 			request.setAttribute("i", i);
 			request.getSession().setAttribute("msg", "게시글 등록 성공");
-			RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryFormView.jsp");
-			view.forward(request, response);
+//			RequestDispatcher view = request.getRequestDispatcher("views/inquiry/inquiryFormView.jsp");
+//			view.forward(request, response);
+			response.sendRedirect("counselingList.in");
 		} else {
 
 			request.setAttribute("msg", "게시글 등록 실패");

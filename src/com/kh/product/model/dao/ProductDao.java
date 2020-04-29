@@ -330,5 +330,29 @@ public class ProductDao {
 		}
 		return result;
 	}
+
+	/*
+	 * 관리자용 할인추가시 상품 할인상태 컬럼변경
+	 */
+	public int insertAd(Connection conn, String productCode) {
+
+		int result2 = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, productCode);
+			
+			result2 = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result2;
+	}
 	
 }

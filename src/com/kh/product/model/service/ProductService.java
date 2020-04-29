@@ -89,5 +89,23 @@ public class ProductService {
 		close(conn);
 		return result;
 	}
+
+	/*
+	 * 관리자용 할인추가시 상품 할인상태 컬럼변경
+	 */
+	public int insertAd(String productCode) {
+		
+		Connection conn = getConnection();
+		
+		int result2 = new ProductDao().insertAd(conn, productCode);
+		
+		if(result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result2;
+	}
 	
 }

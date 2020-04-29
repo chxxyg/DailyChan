@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.admin.adminBlackList.model.service.AdBlackListService;
 import com.kh.admin.adminDiscount.model.service.AdDiscountService;
 import com.kh.admin.adminDiscount.model.vo.AdDiscount;
+import com.kh.product.model.service.ProductService;
 
 /**
  * Servlet implementation class AdDiscountInsertServlet
@@ -50,15 +51,17 @@ public class AdDiscountInsertServlet extends HttpServlet {
 		
 		int result = new AdDiscountService().insertDiscount(d);
 		
+		int result2 = new ProductService().insertAd(productCode);
+		
 		request.setAttribute("d", d);
-		if(result > 0) {	
+		if(result > 0 && result2 > 0) {	
 			response.sendRedirect("discountList.ad");
 		}else {						
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('실패했습니다');history.back();</script>");
+			out.println("<script>alert('없는상품이거나 이미 할인중인상품입니다.');history.back();</script>");
 			
 			out.flush();
 		}

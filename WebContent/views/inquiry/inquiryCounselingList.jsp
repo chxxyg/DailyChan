@@ -91,15 +91,16 @@ tbody tr td {
 					</thead>
 
 					<tbody>
-						<tr>
+						 <tr>
 						<td id="i_1"><%=i.getInquiryType()%></td>
 							<td id="i_2"><%=i.getInquiryContent()%></td>
 							<td id="i_3"><%=i.getInquiryCreateDate()%></td>
+							
 							<% if (i.getInquiryResponseYn()==null){ %>
 			                  <td class="emphasis"> 미답변</td>
 			                <% }else{ %>
 			                  <td class="emphasis">답변완료</td>
-			                 <%} %>  
+			                <%} %>  
 						</tr>
 					</tbody>
 				</table>

@@ -151,9 +151,10 @@ public class AdDiscountDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, d.getProductCode());
-			pstmt.setString(2, d.getDiscountStartDateString()); //"2020-04-21"   "20200421"
-			pstmt.setString(3, d.getDiscountEndDateString());
-			pstmt.setDouble(4, d.getDiscountRate());
+			pstmt.setString(2, d.getProductCode());
+			pstmt.setString(3, d.getDiscountStartDateString()); //"2020-04-21"   "20200421"
+			pstmt.setString(4, d.getDiscountEndDateString());
+			pstmt.setDouble(5, d.getDiscountRate());
 			
 			result = pstmt.executeUpdate();
 			
