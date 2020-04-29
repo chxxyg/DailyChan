@@ -13,7 +13,7 @@ public class MemberCoupon {
 	
 	private String couponName;
 	private String couponCondition;
-	private Date couponExpDate;
+	private int couponExpDate;
 	private int couponPrice;
 	
 	public MemberCoupon() {}
@@ -30,7 +30,7 @@ public class MemberCoupon {
 	 * @param couponExpDate
 	 * @param couponPrice
 	 */
-	public MemberCoupon(Date couponIssueDate, String couponName, String couponCondition, Date couponExpDate,
+	public MemberCoupon(Date couponIssueDate, String couponName, String couponCondition, int couponExpDate,
 			int couponPrice) {
 		super();
 		this.couponIssueDate = couponIssueDate;
@@ -45,7 +45,7 @@ public class MemberCoupon {
 
 
 	public MemberCoupon(String memberId, String couponCode, Date couponIssueDate, String couponStatus,
-			Date couponUseDate, String couponUseNo, String couponName, String couponCondition, Date couponExpDate,
+			Date couponUseDate, String couponUseNo, String couponName, String couponCondition, int couponExpDate,
 			int couponPrice) {
 		super();
 		this.memberId = memberId;
@@ -124,11 +124,11 @@ public class MemberCoupon {
 		this.couponCondition = couponCondition;
 	}
 
-	public Date getCouponExpDate() {
+	public int getCouponExpDate() {
 		return couponExpDate;
 	}
 
-	public void setCouponExpDate(Date couponExpDate) {
+	public void setCouponExpDate(int couponExpDate) {
 		this.couponExpDate = couponExpDate;
 	}
 

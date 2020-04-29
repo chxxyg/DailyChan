@@ -50,7 +50,7 @@ public class CouponDao {
 				mcList.add(new MemberCoupon(rset.getDate("COUPON_ISSUE_DATE"),
 											rset.getString("COUPON_NAME"),
 											rset.getString("COUPON_CONDITION"),
-											rset.getDate("COUPON_EXP_DATE"),
+											rset.getInt("COUPON_EXP_DATE"),
 											rset.getInt("COUPON_PRICE")));
 			}
 		} catch (SQLException e) {
