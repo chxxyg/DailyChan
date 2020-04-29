@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	ArrayList<MemberCoupon> mcList = (ArrayList<MemberCoupon>)request.getAttribute("mcList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,12 +167,53 @@
 				<ul>
 					<li id="tab1" class="on">
 						<a href="#" onclick="changeTab('1')" class="tab t1">사용 가능쿠폰 (0건)</a>
-
+						
+						<% if(msList.isEmpty()){ %>
 						<!-- LIST NONE -->
 						<div class="mys_none">
 							<span class="txt">사용 가능쿠폰이 없습니다.</span>
 						</div>
 						<!-- //LIST NONE -->
+						<% }else{ %>
+						
+						<div style="width: 1000px;">
+						<table class="qnaList" width="1000" style="text-align: center;">
+							<tr>
+								<th>쿠폰명</th>
+								<th>할인 가격</th>
+								<th>사용 조건</th>
+								<th>발급일</th>
+								<th>유효기간</th>
+							</tr>
+						
+						
+							<% for(int i=0; i<mcList.size(); i++ ){ %>
+							<tr>
+								<td width="100"><%=iList.get(i).getInquiryBoardNo() %></td>
+								<td width="100"><%=iList.get(i).getInquiryType() %></td>
+								<td class="qnaTitle" width="500"><%=iList.get(i).getInquiryTitle() %></td>
+								<td width="150"><%=iList.get(i).getMemberId() %></td>
+								<td width="150"><%=iList.get(i).getInquiryCreateDate() %></td>
+							</tr>
+							
+							<tr class="qnaContent">
+								<td colspan="5">
+									<div id="qnaDetails" style="padding-top: 30px; text-align: left; padding-left: 90px;">
+										<b><%=iList.get(i).getMemberId() %></b> &nbsp;  &nbsp; 
+										<span><%=iList.get(i).getInquiryType() %></span> &nbsp;  &nbsp; 
+										<span style="margin-left: 550px;"><%=iList.get(i).getInquiryCreateDate() %></span>
+										<textarea rows="7" cols="110" id="reviewContent" style="resize:none; margin-bottom: 15px; padding: 20px;" readonly><%=iList.get(i).getInquiryContent() %></textarea>
+									</div>
+								</td>
+							</tr>
+							<% } %>
+							
+						</table>     
+			        	<button id="detailQnaBtn" type="button" style="margin-bottom: 30px;">문의하기</button>
+					</div>
+									
+						
+						<% } %>
 						
 					</li>
 

@@ -11,9 +11,9 @@ import com.kh.mypage.model.vo.MemberCoupon;
 
 public class CouponService {
 	
-	public ArrayList<MemberCoupon> selectMemberCouponList(String memberId){
+	public ArrayList<MemberCoupon> selectMemberCouponList(String userId){
 		Connection conn = getConnection();
-		ArrayList<MemberCoupon> mcList = new CouponDao().selectMemberCouponList(conn, memberId);
+		ArrayList<MemberCoupon> mcList = new CouponDao().selectMemberCouponList(conn, userId);
 		close(conn);
 		return mcList;
 	}

@@ -29,7 +29,7 @@ public class CouponDao {
 	}
 	
 	
-	public ArrayList<MemberCoupon> selectMemberCouponList(Connection conn, String memberId){
+	public ArrayList<MemberCoupon> selectMemberCouponList(Connection conn, String userId){
 		
 		ArrayList<MemberCoupon> mcList = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -41,7 +41,7 @@ public class CouponDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, memberId);
+			pstmt.setString(1, userId);
 			pstmt.setString(2, "N");
 			
 			rset = pstmt.executeQuery();
