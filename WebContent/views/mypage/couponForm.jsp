@@ -2,8 +2,6 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.mypage.model.vo.*"%>
 <% 
 	ArrayList<MemberCoupon> mcList = (ArrayList<MemberCoupon>)request.getAttribute("mcList");
-
-	System.out.println(mcList);
 %>
 <!DOCTYPE html>
 <html>
