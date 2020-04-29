@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.admin.adminBlackList.model.service.AdBlackListService;
 import com.kh.admin.adminBlackList.model.vo.BlackList;
+import com.kh.admin.adminMember.model.service.adMemberService;
 
 /**
  * Servlet implementation class AdBlackListDeleteServlet
@@ -33,11 +34,15 @@ public class AdBlackListDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int bno = Integer.parseInt(request.getParameter("bno"));
+		int bno = Integer.parseInt(request.getParameter("bno"));		
+		String mid = request.getParameter("mid");
+		
+
 		
 		int result = new AdBlackListService().deleteBlackList(bno);
+		int result2 = new adMemberService().deleteBlackList(mid);
 		
-		if(result > 0) {	// 성공
+		if(result > 0 && result2 > 0) {	// 성공
 			response.sendRedirect("blackListDetail.ad?bno=" + bno);
 		}else {
 			
