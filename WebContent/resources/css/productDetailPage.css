@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+div{margin: auto;}
+
 #productDetail, .line, #detailWrap, #productDetail table, #productDetail div{box-sizing: border-box;}
 #productDetail a, #detailWrap a{text-decoration: none;}
 
@@ -221,21 +223,21 @@ div#detailReview{
 }
 
 /* 리뷰 리스트 */
-.reviewList{
+.reviewList, .qnaList{
 	margin:auto;
 }
-.reviewList tr{
+.reviewList tr, .qnaList tr{
 	height:50px;
 }
-.reviewList, .reviewList tr, .reviewList td{
+.reviewList, .reviewList tr, .reviewList td, .qnaList, .qnaList tr, .qnaList td{
 	border-top:1px solid lightgrey;
 	border-bottom:1px solid lightgrey;
 	border-collapse:collapse;
 }
-.reviewTitle{cursor:pointer;}
+.reviewTitle, .qnaTitle{cursor:pointer;}
 
 /* 리뷰 내용 */
-.reviewContent{display:none;}
+.reviewContent, .qnaContent{display:none;}
 
 #reviewImgs{
 	width:420px;
@@ -261,7 +263,7 @@ div#detailReview{
 	font-size:18px;
 	margin:0px;
 }
-#reviewDetails>textarea{
+#reviewDetails>textarea, #qnaDetails>textarea{
 	margin-top:15px;
 	background:#f5f5f5;
 }

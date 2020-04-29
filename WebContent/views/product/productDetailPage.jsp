@@ -5,6 +5,8 @@
 	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
 	String proCode = (String)request.getAttribute("proCode");
 	ArrayList<Review> rLsit = (ArrayList<Review>)request.getAttribute("rList");
+	
+	// System.out.println(rList);
 %>
 <!DOCTYPE html>
 <html>
@@ -92,7 +94,7 @@
                                     						<% }else if(p.getProReviewSum()>=5){ %>
                                     							★★★★★
                                     						<% } %>
-                                    						<%=p.getProReviewSum() %>
+                                    						<%=(Math.round(p.getProReviewSum()*10)/10.0) %>
                                     	</div></td>
                                     <td><div id="productReview">리뷰(<%=p.getProReviewCount() %>건)</div></td>
                                 </tr>
@@ -193,14 +195,14 @@
 
 	<!-- 리뷰 영역 -->
 	<div class="reviewArea">       
-	    <div class="detailBtns">
+	    <div class="detailBtns" style="margin-top: 80px;">
 			<a href=""><div class="detailBtn" id="detailBtnA3">상세설명</div></a>
 			<a href=""><div class="detailBtn" id="detailBtnB3">상품정보</div></a>
 			<a href=""><div class="detailBtn" id="detailBtnC3">리뷰(<%=p.getProReviewCount() %>건)</div></a>
 			<a href=""><div class="detailBtn" id="detailBtnD3">상품문의</div></a>
 	    </div>
 	       
-		<div id="detailReview">
+		<div id="detailReview" style="margin: auto;">
 			<span id="detailGpaLabel">구매 고객 평점&nbsp;&nbsp;</span>
 			<span id="detailGpa"><% if(p.getProReviewSum()<1){ %>
                                     	☆☆☆☆☆
@@ -215,87 +217,94 @@
                                  <% }else if(p.getProReviewSum()>=5){ %>
                                     	★★★★★
                                  <% } %>
-                                 <%=p.getProReviewSum() %></span>
+                                 <%=(Math.round(p.getProReviewSum()*10)/10.0) %></span>
 			<span id="detailGpaInfo">등록된 리뷰 <%=p.getProReviewCount()%>건 기준</span>
 		</div>
 	    
-		<table id="reviewList" width="1000" style="text-align: center;">
-			<tr>
-				<td width="100">1234</td>
-				<td width="100">★★★★☆</td>
-				<td class="reviewTitle" width="500">데일리찬 리뷰 나야나~~!~!@!@#</td>
-				<td width="150">writerID</td>
-				<td width="150">2020-04-10</td>
-			</tr>
-			
-			<tr class="reviewContent">
-				<td colspan="5">
-					<div id="reviewDetails" style="padding-top: 30px; text-align: left; padding-left: 70px;">
-						<b>작성자명*</b> &nbsp;  &nbsp; 
-						<span id="reviewAvg"><% if(p.getProReviewSum()<1){ %>
-                                    				☆☆☆☆☆
-                                 			<% }else if(p.getProReviewSum()<2){ %>
-                                    				★☆☆☆☆ 
-			                                <% }else if(p.getProReviewSum()<3){ %>
-			                                    	★★☆☆☆ 
-			                                <% }else if(p.getProReviewSum()<4){ %>
-			                                    	★★★☆☆ 
-			                                <% }else if(p.getProReviewSum()<5){ %>
-			                                    	★★★★☆
-			                                <% }else if(p.getProReviewSum()>=5){ %>
-			                                    	★★★★★
-			                                <% } %>
-			                                <%=p.getProReviewSum() %>
-						</span> &nbsp;  &nbsp; 
-						<span style="margin-left: 550px;">2020-03-31</span>
-						<textarea rows="10" cols="120" id="reviewContent" style="resize:none; margin-bottom: 15px;" readonly></textarea>
-						
-					</div>
-			</tr>
-		</table>
-	         
-		<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
+	    <div style="width: 1000px;">
+			<table class="reviewList" width="1000" style="text-align: center;">
+				<tr>
+					<td width="100">1234</td>
+					<td width="100">★★★★☆</td>
+					<td class="reviewTitle" width="500">데일리찬 리뷰 나야나~~!~!@!@#</td>
+					<td width="150">writerID</td>
+					<td width="150">2020-04-10</td>
+				</tr>
+				
+				<tr class="reviewContent">
+					<td colspan="5">
+						<div id="reviewDetails" style="padding-top: 30px; text-align: left; padding-left: 70px;">
+							<b>작성자명*</b> &nbsp;  &nbsp; 
+							<span id="reviewAvg"><% if(p.getProReviewSum()<1){ %>
+	                                    				☆☆☆☆☆
+	                                 			<% }else if(p.getProReviewSum()<2){ %>
+	                                    				★☆☆☆☆ 
+				                                <% }else if(p.getProReviewSum()<3){ %>
+				                                    	★★☆☆☆ 
+				                                <% }else if(p.getProReviewSum()<4){ %>
+				                                    	★★★☆☆ 
+				                                <% }else if(p.getProReviewSum()<5){ %>
+				                                    	★★★★☆
+				                                <% }else if(p.getProReviewSum()>=5){ %>
+				                                    	★★★★★
+				                                <% } %>
+				                                <%=(Math.round(p.getProReviewSum()*10)/10.0) %>
+							</span> &nbsp;  &nbsp; 
+							<span style="margin-left: 550px;">2020-03-31</span>
+							<textarea rows="10" cols="120" id="reviewContent" style="resize:none; margin-bottom: 15px;" readonly></textarea>
+							
+						</div>
+				</tr>
+			</table>
+		         
+			<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
+		</div>
 	</div>
             
         <!-- 상세조회(클릭 시 슬라이드 다운), 페이징 기능 추가하기 -->
-	<table id="detailWrap">
-        <tr>
-            <td>
-                <table class="detailBtns">
-                    <tr>
-                        <td><a href=""><div class="detailBtn" id="detailBtnA4">상세설명</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnB4">상품정보</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnC4">리뷰(<%=p.getProReviewCount() %>건)</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnD4">상품문의</div></a></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table id="detailQnaList">
-                    <tr>
-                        <td>1234</td>
-                        <td>배송문의</td>
-                        <td>데일리찬 배송 빨리해주시조</td>
-                        <td>writerID</td>
-                        <td>2020-04-10</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button id="detailQnaBtn" type="button">문의하기</button>
-            </td>
-        </tr>
+        
+    <div class="qnaArea">       
+		<div class="detailBtns" style="margin-top: 80px; margin-bottom: 40px;">
+			<a href=""><div class="detailBtn" id="detailBtnA4">상세설명</div></a>
+			<a href=""><div class="detailBtn" id="detailBtnB4">상품정보</div></a>
+			<a href=""><div class="detailBtn" id="detailBtnC4">리뷰(<%=p.getProReviewCount() %>건)</div></a>
+			<a href=""><div class="detailBtn" id="detailBtnD4">상품문의</div></a>
+	    </div>
+
+	    <div style="width: 1000px;">
+			<table class="qnaList" width="1000" style="text-align: center;">
+				<tr>
+					<td width="100">1234</td>
+					<td width="100">문의유형</td>
+					<td class="qnaTitle" width="500">문의는 포도가 먹고찌푼데</td>
+					<td width="150">writerID</td>
+					<td width="150">2020-04-10</td>
+				</tr>
+				
+				<tr class="qnaContent">
+					<td colspan="5">
+						<div id="qnaDetails" style="padding-top: 30px; text-align: left; padding-left: 70px;">
+							<b>작성자명*</b> &nbsp;  &nbsp; 
+							<span>문의유형</span> &nbsp;  &nbsp; 
+							<span style="margin-left: 550px;">2020-03-31</span>
+							<textarea rows="10" cols="120" id="qnaContent" style="resize:none; margin-bottom: 15px;" readonly></textarea>
+						</div>
+					</td>
+				</tr>
+			</table>     
+        	<button id="detailQnaBtn" type="button">문의하기</button>
+		</div>
+
+
+
         <!-- 상세조회(클릭 시 슬라이드 다운), 페이징 기능 추가하기 -->
-    </table>
+    </div>
         
         
     <script>
     	$(function(){
     		
+
     		/* 수량 -+ */
     		$(".minus").click(function(){
     			
@@ -407,16 +416,32 @@
 				    content.slideUp();
 				}
     		});
+    		
+    		$(".qnaTitle").click(function(){
+    			var content = $(this).parent().next();
+    			
+				if(content.css("display") == "none") {
+				    $(this).parent().siblings(".qnaContent").slideUp();
+				    content.slideDown();
+				}else {
+				    content.slideUp();
+				}
+    		});
 
     	});
     	
-    	function insertReview(){
-    		window.open("<%=contextPath%>/reviewPop.re?proCode=<%=p.getProCode()%>", "후기 작성", "width=510, height=580, left=500");
-    	}
-    
+    	
+
+		$("#detailReviewBtn").click(function(){
+			<% if(loginUser != null){ %>
+			window.open("<%=contextPath%>/reviewPop.re?proCode=<%=p.getProCode()%>", "후기 작성", "width=510, height=580, left=500");
+    		<% }else{%>
+				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+			<%}%>
+		});
+		
     
     </script>    
-        
         
 <!-- Footer -->
 <%@ include file="/views/common/mainFooter.jsp" %>
