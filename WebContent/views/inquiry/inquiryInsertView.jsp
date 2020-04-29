@@ -260,7 +260,7 @@ strong {
 	width: 720px;
 	margin-top: 50px;
 	float: left;
-	padding: 42px 30px 42px 106px;
+	padding: 32px 20px 32px 70px;
 	background-color: #efefef;
 }
 
@@ -317,7 +317,10 @@ input#tel_no3.celluar{
 	padding: 4px 4px 7px 8px;
 }
 input#quest_title.w_tit{
-	width:363px;
+	width:630px;
+}
+textarea#quest_cont.textarea.wide{
+width:650px;
 }
 
 </style>
@@ -443,7 +446,8 @@ input#quest_title.w_tit{
 
 					<tr>
 						<th scope="row"><label for="quest_cont">내용</label></th>
-						<td><textarea id="quest_cont" name="quest_cont" cols="50" rows="10" class="textarea wide" title="내용"></textarea>
+						<td><textarea id="quest_cont" name="quest_cont" cols="50" rows="10" class="textarea wide" title="내용" 
+						placeholder="취소, 교환, 반품 신청은 주문배송 조회에서 ‘결제완료’ 상태인 경우에 즉시취소 가능합니다. 주문에 대한 문의일 경우, 상품을 선택하여 문의 주시면 보다 빠른 상담이 가능합니다."></textarea>
 						</td>
 					</tr>
 

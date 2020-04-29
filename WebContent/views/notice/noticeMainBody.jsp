@@ -10,7 +10,7 @@
 body{
 	width: 1500px;
 	margin: auto;
-	height:800px;
+	height:1200px;
 }
 
 .outer{
@@ -270,7 +270,7 @@ table {
         </div>
         <!--  .cst_noti_main h3 a -->
         <div class="cst_noti_main">
-            <h3><a href="<%= request.getContextPath() %>/noticeList.no">공지사항</a></h3>
+            <h3><a href="<%= request.getContextPath() %>/noticeList.no?currentPage=1">공지사항</a></h3>
             <ul class="list">
             		<!--  -->
                 <%-- <li><a href=""><p><%= n.getNoticeTitle %></p><p><%= n.getNoticeDate %></p></a></li> --%>
@@ -279,7 +279,7 @@ table {
             
                 <li><a href="">[공지] 빠른도착 카테고리 오픈 안내<span class="date thm">2020-04-07</span></a></li> 
             </ul>
-            <a href="<%= request.getContextPath() %>/noticeList.no" onclick="" class="arrow_btn01">전체보기</a>
+            <a href="<%= request.getContextPath() %>/noticeList.no?currentPage=1" onclick="" class="arrow_btn01">전체보기</a>
         </div>
         
        </div>

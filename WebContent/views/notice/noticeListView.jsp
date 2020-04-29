@@ -19,16 +19,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항</title>
 <style>
-
-body{
-	width:1500px; 
+body {
+	width: 1500px;
 	margin: auto;
 }
+
 .outer {
 	width: 860px;
 	height: auto;
 	float: left;
-	margin-left:25px;
+	margin-left: 25px;
 }
 
 .sub_cont {
@@ -37,13 +37,14 @@ body{
 	margin-top: 50px;
 	float: left;
 }
+
 .sub_cont h3 {
-    margin: 0 0 15px;
-    font-size: 21px;
-    font-weight: normal;
-    line-height: 1;
-    color: #000;
-    float: left;
+	margin: 0 0 15px;
+	font-size: 21px;
+	font-weight: normal;
+	line-height: 1;
+	color: #000;
+	float: left;
 }
 
 .noti_tbl {
@@ -59,8 +60,8 @@ body{
 	border-top: 1px solid #222;
 	background: #f4f4f4;
 	color: #333;
-	font-weight:normal;
-	font-size:12px;
+	font-weight: normal;
+	font-size: 12px;
 }
 
 table {
@@ -76,10 +77,17 @@ table {
 tbody tr {
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
- 	border-collapse: collapse; 
-	height:10px;
+	border-collapse: collapse;
 }
 
+.notice_p {
+	text-align: center;
+}
+
+.noti_tbl>tbody>tr:hover {
+	background: #dcdcdc;
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -117,10 +125,10 @@ tbody tr {
 					<% } else { %>
 						<% for (Notice n : list) { %>
 							<tr>
-								<td><%=n.getNoticeBoardNo()%></td>
-								<td><%=n.getNoticeTitle()%></td>
-								<td><%=n.getNoticeDate()%></td>
-								<td><%=n.getNoticeCount()%></td>
+								<td><p class="notice_p"><%=n.getNoticeBoardNo()%></p></td>
+								<td><p><%=n.getNoticeTitle()%></p></td>
+								<td><p class="notice_p"><%=n.getNoticeDate()%></p></td>
+								<td><p class="notice_p"><%=n.getNoticeCount()%></p></td>
 							</tr>
 						<%}%>
 					<%}%>
@@ -130,7 +138,7 @@ tbody tr {
 			
 				<!-- 현재 페이지에 보여질 페이징바 -->
 			<div class="pagingArea" align="center">
-			
+		
 				<% if(currentPage != 1){ %>
 				<!-- 맨 처음으로(<<) -->
 				<button onclick="location.href='noticeList.no?currentPage=1'"> &lt;&lt; </button>

@@ -44,8 +44,7 @@ public class NoticeDao {
 				pstmt = conn.prepareStatement(sql);
 				rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				
+				while(rset.next()) {
 				list.add(new Notice(rset.getInt("NOTICE_BOARD_NO"),
 									rset.getString("NOTICE_TITLE"),
 									rset.getDate("NOTICE_DATE"),
@@ -81,10 +80,10 @@ public class NoticeDao {
 			if (rset.next()) {
 				n = new Notice();
 
-				/* n.setNoticeBoardNo(rset.getInt("NOTICE_BOARD_NO")); */
+				n.setNoticeBoardNo(rset.getInt("NOTICE_BOARD_NO"));
 				n.setNoticeTitle(rset.getString("NOTICE_TITLE"));
-				n.setNoticeDate(rset.getDate("NOTICE_DATE"));
 				n.setNoticeContent(rset.getString("NOTICE_CONTENT"));
+				n.setNoticeDate(rset.getDate("NOTICE_DATE"));
 				/* n.setNoticeCount(rset.getInt("NOTICE_COUNT")); */
 
 			}
