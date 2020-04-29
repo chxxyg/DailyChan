@@ -95,6 +95,7 @@ tbody tr td {
 						<td id="i_1"><%=i.getInquiryType()%></td>
 							<td id="i_2"><%=i.getInquiryContent()%></td>
 							<td id="i_3"><%=i.getInquiryCreateDate()%></td>
+							
 							<% if (i.getInquiryResponseYn()==null){ %>
 			                  <td class="emphasis"> 미답변</td>
 			                <% }else{ %>

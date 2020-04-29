@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.inquiry.model.service.InquiryService;
 import com.kh.inquiry.model.vo.Inquiry;
+import com.kh.member.model.vo.Member;
 
 /**
  * Servlet implementation class inquiryCounselingListServlet
@@ -32,7 +33,7 @@ public class inquiryCounselingListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String memberId = request.getParameter("memberId");
+		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 
 		Inquiry i = new InquiryService().selectInquiryList(memberId);
 
