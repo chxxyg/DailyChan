@@ -42,9 +42,7 @@ body{
 #content{
 	background-color:#f9f9f9;
 }
-/*  #n1, #n2, #n3, #n4, #n5{
-	border-right-style:1px solid gray;
-}     */
+
 
 </style>
 
