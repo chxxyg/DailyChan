@@ -35,17 +35,17 @@ public class MyOrderService {
 		return count;
 	}
 	
-	/** 2. 취소반품조회
+	/** 2. 메인 아우터 주문건수 조회
 	 * @param memberId
 	 * @return
 	 */
-	public ArrayList<Mypage> selectRefund(String memberId){
+	public int ordCount(String memberId) {
 		
 		Connection conn = getConnection();
-		ArrayList<Mypage> myList = new MyOrderDao().selectRefund(conn, memberId);
+		int ordCount = new MyOrderDao().ordCount(conn, memberId);
 		close(conn);
-		System.out.println(myList);
-		return myList;
+		return ordCount;
 		
 	}
+	
 }

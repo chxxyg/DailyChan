@@ -113,9 +113,9 @@
                 <img src="<%= contextPath %>/resources/img/positionlogo.png">
             </div>
 			<div><b><%= memberName %></b>님</div>
-			<div id="order_count">주문/배송<br><a href="<%= contextPath %>/orderList.my">0</a>건</div>
+			<div id="order_count">주문/배송<br><a href="<%= contextPath %>/orderList.my">0</a> 건</div>
 			<div id="coupon_count">쿠폰<br><a href="<%= contextPath%>/couponForm.my">0</a>장</div>
-			<div>적립금<br><a href="<%= contextPath%>/pointForm.my"><%=m.getPointSum() %></a>원</div>
+			<div>적립금<br><a href="<%= contextPath%>/pointForm.my"><%=m.getPointSum() %></a> 원</div>
                 
         </div>
        <br>
@@ -182,13 +182,10 @@
         	$.ajax({
     			url: "<%=contextPath%>/countOrd.my",
     			type: "POST",
-    			data : {memberId : userId},
-    			success: function(count)
+    			data : {userId : userId},
+    			success: function(ordCount)
     			{
-    				var length = count.length;
-    				console.log(length);
-    				
-    				$("order_count a").html(length);
+    				$("#order_count a").html(ordCount);
     			}
     		});
         	

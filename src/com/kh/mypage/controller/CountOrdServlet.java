@@ -1,11 +1,15 @@
 package com.kh.mypage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.kh.mypage.model.service.MyOrderService;
 
 /**
  * Servlet implementation class CountOrdServlet
@@ -27,6 +31,12 @@ public class CountOrdServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String memberId = request.getParameter("userId");
+		int ordCount = new MyOrderService().ordCount(memberId);
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(ordCount);
 	
 	}
 
