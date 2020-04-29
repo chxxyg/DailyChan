@@ -176,7 +176,7 @@
 	                    	<option value=6>반품완료</option>
 	                    </select>
                     </td>
-                    <td> <button type="submit" onclick="">변경</button></td>
+                    <td> <button type="submit" >변경</button></td>
                     </form>
                 	</tr>
                 	<% } %>

@@ -1,26 +1,23 @@
-package com.kh.product.controller;
+package com.kh.mypage.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.mypage.model.service.ReviewService;
-
 /**
- * Servlet implementation class UpdateReviewServlet
+ * Servlet implementation class CountOrdServlet
  */
-@WebServlet("/updateReview.pro")
-public class UpdateReviewServlet extends HttpServlet {
+@WebServlet("/countOrd.my")
+public class CountOrdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateReviewServlet() {
+    public CountOrdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,10 +26,7 @@ public class UpdateReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String proCode = request.getParameter("proCode");
-
-		int result = new ReviewService().updateReviewSumCount(proCode);
+		
 	
 	}
 

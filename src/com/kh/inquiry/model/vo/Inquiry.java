@@ -17,6 +17,21 @@ public class Inquiry {
 	public Inquiry() {
 
 	}
+	
+	
+
+	public Inquiry(int inquiryBoardNo, String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
+			Date inquiryCreateDate) {
+		super();
+		this.inquiryBoardNo = inquiryBoardNo;
+		this.memberId = memberId;
+		this.inquiryType = inquiryType;
+		this.inquiryTitle = inquiryTitle;
+		this.inquiryContent = inquiryContent;
+		this.inquiryCreateDate = inquiryCreateDate;
+	}
+
+
 
 	public Inquiry(String memberId, String inquiryType, String inquiryTitle, String inquiryContent,
 			String inquiryFileYn) {

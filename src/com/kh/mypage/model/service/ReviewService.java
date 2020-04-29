@@ -8,6 +8,7 @@ import static com.kh.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.inquiry.model.vo.Inquiry;
 import com.kh.mypage.model.dao.ReviewDao;
 import com.kh.mypage.model.vo.Review;
 
@@ -36,6 +37,14 @@ public class ReviewService {
         else{rollback(conn);}
 		close(conn);
 		return result;
+	}
+	
+
+	public ArrayList<Inquiry> selectInquiryList(){
+		Connection conn = getConnection();
+		ArrayList<Inquiry> iList = new ReviewDao().selectInquiryList(conn);
+		close(conn);
+		return iList;
 	}
 	
 }
