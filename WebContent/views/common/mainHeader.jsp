@@ -16,21 +16,27 @@
 	    box-sizing:border-box;
 	    vertical-align:middle;
 	}
-	#hd_wrap{width:1004px; margin:auto; background:white;}
+	#hd_wrap{width:1104px; margin:auto; background:white;}
 
 	#hd_navi{
-	    width:1000px;
+	    width:1100px;
 	    height:240px;
-	    /*margin:auto;*/
+	    margin:auto;
 	}
-	#header{width:1000; height:200px;}
-	#navigator{width:1000px; height:40px; background:white;}
+	#header{width:1100; height:200px; margin:auto;}
+	#navigator{
+		width:1100px;
+		height:50px;
+		background:white;
+		margin:auto;
+		padding-top:8px;
+	}
 	
 	#header>div{float:left;}
-	#header_1{width:1000px; height:30px;}
-	#header_2{width:300px; height:170px; position:relative;}
-	#header_3{width:400px; height:170px; position:relative;}
-	#header_4{width:296px; height:170px; position:relative;}
+	#header_1{width:1100px; height:30px;}
+	#header_2{width:350px; height:170px; margin:auto;}
+	#header_3{width:400px; height:170px; margin:auto;}
+	#header_4{width:350px; height:170px; margin:auto;}
 	
 	#hd_top a, #navi a{
 	    text-decoration:none;
@@ -42,7 +48,7 @@
 	    width:500px;
 	    height:30px;
 	    float:left;
-	    margin-left:600px;
+	    margin-left:700px;
 	}
 	#hd_top a, #hd_top b{
 	    width:100px;
@@ -63,23 +69,12 @@
 	#hd_top b{
 		font-size:13px;
 	}
-/* 	#hd_top>button{
-	    width:70px;
-	    height:30px;
-	    display:table-cell;
-	    font-size:12px;
-	    text-align:center;
-	    border:none;
-	    background:white;
-	    float:left;
-	} */
 	
 	/* header : 검색창 */
 	#search-form{
 	    width:240px;
 	    height:30px;
-	    margin:auto;
-	    position:absolute;
+	    margin: 65px; auto;
 	    top:0px;
 	    bottom:0px;
 	    left:0;
@@ -120,7 +115,7 @@
 	    width:220px;
 	    height:40px;
 	    margin-top:60px;
-	    margin-left:35px;
+	    margin-left:50px;
 	}
 	
 	#hd_right img, #hd_right p{
@@ -142,17 +137,16 @@
 	
 	/* 네비게이터 */
 	#navi{
-
 	    list-style-type:none;
 	    padding:0;
 	    margin:auto;
 	    height:100%;
-	    border-bottom: 1px lightgrey solid;
+	    border-bottom: 2px lightgrey solid;
 	}
 	#navi>li{
 	    float: left;
 	    height: 70px;
-	    width: 140px;
+	    width: 157px;
 	    text-align: center;
 	    margin:auto;
 	}
@@ -183,9 +177,9 @@
 	#navi>li>ul:hover{
 	    display: block;
 	}
-	#navi>li>ul>li>a{
+	/* #navi>li>ul>li>a{
 	    font-size: 15px;
-	}
+	} */
 	
 	.naviFixed {
 	    position: fixed;
@@ -321,37 +315,11 @@
 
                     <li><a href="<%= contextPath %>/pList.pro?category=sale&currentPage=1">SALE</a></li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=KO&currentPage=1">한식</a>
-                        <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KO&currentPage=1">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOA&currentPage=1">국/탕/찌개</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOB&currentPage=1">조림/볶음/구이</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOC&currentPage=1">면요리</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=KOD&currentPage=1">분식</a></li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=KO&currentPage=1">한식</a></li>
 
-                        </ul>
-                    </li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=IT&currentPage=1">양식</a></li>
 
-                    <li><a href="<%= contextPath %>/pList.pro?category=IT&currentPage=1">양식</a>
-                        <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=IT&currentPage=1">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITA&currentPage=1">스테이크</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITB&currentPage=1">파스타</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITC&currentPage=1">사이드</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ITD&currentPage=1">샐러드</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="<%= contextPath %>/pList.pro?category=AS&currentPage=1">아시안</a>
-                        <ul>
-                            <li><a href="<%= contextPath %>/pList.pro?category=AS&currentPage=1">전체보기</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASA&currentPage=1">중식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASB&currentPage=1">일식</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASC&currentPage=1">베트남</a></li>
-                            <li><a href="<%= contextPath %>/pList.pro?category=ASD&currentPage=1">퓨전</a></li>
-
-                        </ul>
-                    </li>
+                    <li><a href="<%= contextPath %>/pList.pro?category=AS&currentPage=1">아시안</a></li>
 
                     <li><a href="<%= contextPath %>/eMain.pro">EVENT</a></li>
 
