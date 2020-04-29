@@ -31,7 +31,7 @@ public class UpdateReviewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String proCode = request.getParameter("proCode");
-		
+		System.out.println(proCode);
 		int result = new ReviewService().updateReviewSumCount(proCode);
 		
 	

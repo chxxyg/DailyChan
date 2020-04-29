@@ -154,9 +154,9 @@
                 }
             });
 
-            $("#reviewcancelBtn").click(function(){
+       /*      $("#reviewcancelBtn").click(function(){
         		window.close();
-            })
+            }); */
         });
     </script>
     

@@ -96,7 +96,7 @@ public class ReviewDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("updateReveiwSumCount");
+		String sql = prop.getProperty("updateReviewSumCount");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -112,6 +112,7 @@ public class ReviewDao {
 		} finally {
 			close(pstmt);
 		}
+		System.out.println(result);
 		return result;
 	}
 

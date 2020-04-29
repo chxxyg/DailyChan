@@ -4,9 +4,9 @@
 	Product p = (Product)request.getAttribute("p");
 	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
 	String proCode = (String)request.getAttribute("proCode");
-	ArrayList<Review> rLsit = (ArrayList<Review>)request.getAttribute("rList");
+	ArrayList<Review> rList = (ArrayList<Review>)request.getAttribute("rList");
 	
-	// System.out.println(rList);
+	//System.out.println(rList);
 %>
 <!DOCTYPE html>
 <html>

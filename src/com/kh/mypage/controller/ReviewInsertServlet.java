@@ -53,7 +53,8 @@ public class ReviewInsertServlet extends HttpServlet {
 		
 		
 		int result = new ReviewService().insertReview(re);
-
+		int result2 = new ReviewService().updateReviewSumCount(proCode);
+		
 		request.setAttribute("result", result);
 		String url = "window.opener.location.replace('/dailyChan/pDetail.pro?proCode=" + proCode + "');";
         PrintWriter out = response.getWriter();
