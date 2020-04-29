@@ -4,9 +4,6 @@
 	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList"); // 10
 	ArrayList<Mypage> count = (ArrayList<Mypage>)request.getAttribute("count"); // 6
 	
-	System.out.println(myList);
-	System.out.println(count);
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -197,9 +194,9 @@
 										</td>
 									<%} %>
 								</tr>
-							<% } %>
+							<% i++;} %>
 						
-					<% i++; } %>
+					<%  } %>
 				
 				<% } %>
 			</tbody>
