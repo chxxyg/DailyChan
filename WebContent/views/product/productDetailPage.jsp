@@ -6,7 +6,6 @@
 	String proCode = (String)request.getAttribute("proCode");
 	ArrayList<Review> rList = (ArrayList<Review>)request.getAttribute("rList");
 	ArrayList<Inquiry> iList = (ArrayList<Inquiry>)request.getAttribute("iList");
-	
 %>
 <!DOCTYPE html>
 <html>
