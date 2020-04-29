@@ -126,8 +126,8 @@
 			<div><a id="selectOrder" href="<%= contextPath %>/orderList.my">주문/배송 조회</a></div>
 			<div><a id="selectCancel" href="<%= contextPath%>/cancelOrder.my">취소/반품 조회</a></div>
 			<div class="myCateFirst">구매혜택</div>
-			<div><a id="selectCoupon" href="<%= contextPath%>/couponForm.my">쿠폰 조회</a></div>
-			<div><a id="selectPoint" href="<%= contextPath%>/pointForm.my">적립금 조회</a></div>
+			<div><a id="selectCoupon" href="<%= contextPath%>/couponForm.my?userId=<%=m.getMemberId() %>">쿠폰 조회</a></div>
+			<div><a id="selectPoint" href="<%= contextPath%>/pointForm.my?userId=<%=m.getMemberId() %>">적립금 조회</a></div>
 			<div class="myCateFirst">활동내역</div>
 			<div><a id="selectRecent" href="<%= contextPath%>/recentView.my">최근 구매한 상품</a></div>
 			<div><a id="selectReview" href="<%= contextPath%>/review.my">고객 후기</a></div>
