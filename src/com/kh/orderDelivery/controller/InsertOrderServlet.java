@@ -13,7 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import com.kh.orderDelivery.model.service.OrderDeliveryService;
-import com.kh.orderDelivery.model.vo.OrderDelivery;
+import com.kh.orderDelivery.model.vo.InsertOrder;
 /**
  * Servlet implementation class InsertOrderServlet
  */
@@ -34,7 +34,8 @@ public class InsertOrderServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    String jsonData = request.getParameter("jsonData");
-	    OrderDelivery od = new OrderDelivery();
+	    
+	    InsertOrder io = new InsertOrder();
 	    try
 	    {
 	        
@@ -42,12 +43,22 @@ public class InsertOrderServlet extends HttpServlet {
 	        JSONParser jsonParser = new JSONParser();
 	        JSONObject jsonObject = (JSONObject)jsonParser.parse(jsonData);
 	        
-	        od.setOdMemberId((String)jsonObject.get("memberId"));                 // 아이디
-	        od.setOdOrderNo((String)jsonObject.get("orderNo"));                    // 주문번호
-	        od.setOdMemberName((String)jsonObject.get("memberName"));              // 회원이름
-	        od.setOdPhone((String)jsonObject.get("phone"));                        // 전화번호
-	        od.setOdEmail((String)jsonObject.get("email"));                        // 이메일
-	        od.setOdRecipient((String)jsonObject.get("recipient"));                // 받는사람 이름
+	        
+	        io.setOdMemberId((String)jsonObject.get("memberId"));                 // 아이디
+	        io.setOdOrderNo((String)jsonObject.get("orderNo"));                    // 주문번호
+	        io.setOdMemberName((String)jsonObject.get("memberName"));              // 회원이름
+	        io.setOdPhone((String)jsonObject.get("phone"));                        // 전화번호
+	        io.setOdEmail((String)jsonObject.get("email"));                        // 이메일
+	        String recipient = (String)jsonObject.get("recipient");
+	        if(recipient.equals(""))
+	        {
+	            io.setOdRecipient((String)jsonObject.get("memberName"));
+	        }
+	        else
+	        {
+	            io.setOdRecipient(recipient);
+	        }
+	        
 	        String prePhone = (String)jsonObject.get("emergencyConcat");
 	        String phone = "";
 	        if(prePhone.length() == 13)
@@ -63,45 +74,48 @@ public class InsertOrderServlet extends HttpServlet {
                 phone += prePhone.substring(8);
 	        }
 	        
-	        od.setOdEmergencyContact(phone);    // 비상연락망
-	        od.setOdAddress((String)jsonObject.get("address"));                    // 배송지
+	        io.setOdEmergencyContact(phone);    // 비상연락망
+	        io.setOdAddress((String)jsonObject.get("address"));                    // 배송지
 	        String deliveryRequest = (String)jsonObject.get("deliveryRequest");    // 배송시 요청사항
 	        if(deliveryRequest.equals(""))
 	        {
-	            od.setOdDeliveryRequest("없음");
+	            io.setOdDeliveryRequest("없음");
 	        }
 	        else
 	        {
-	            od.setOdDeliveryRequest(deliveryRequest);
+	            io.setOdDeliveryRequest(deliveryRequest);
 	        }
 	        
 	        String useCoupon = (String)jsonObject.get("useCoupon");                      // 사용 쿠폰 금액
 	        if(useCoupon == "")
 	        {
-	            od.setOdUseCoupon(0);
+	            io.setOdUseCoupon("0");
 	        }
 	        else
 	        {
-	            od.setOdUseCoupon(Integer.parseInt(useCoupon));
+	            io.setOdUseCoupon(useCoupon);
 	        }
-	        String usePoint = (String)jsonObject.get("usePoint");                        // 사용 포인트
+	        String usePoint = (String)jsonObject.get("usePoint");                          // 사용 포인트
 	        if(usePoint == "")
             {
-                od.setOdUsePoint(0);
+	            io.setOdUsePoint("0");
             }
             else
             {
-                od.setOdUsePoint(Integer.parseInt(usePoint));
+                io.setOdUsePoint(usePoint);
             }
-	        int payAmount = (int)jsonObject.get("payAmount");                      // 총 가격
+	        String payAmount = (String)jsonObject.get("payAmount");
+	        io.setOdPaymentAmount(payAmount);                      // 총 가격
 	        
+	        String delivery = (String)jsonObject.get("delivery");
+	        io.setDeliveryCharge(delivery);
 	    }
 	    catch(Exception e)
 	    {
 	        e.printStackTrace();
 	    }
-	    
-	    int result = new OrderDeliveryService().insertOrder(od);
+	    System.out.println(io);
+	    int result = new OrderDeliveryService().insertOrder(io);
 	    
 	    response.setCharacterEncoding("utf8");
 	    PrintWriter out = response.getWriter();

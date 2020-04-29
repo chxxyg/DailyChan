@@ -53,9 +53,10 @@ public class AdressInsertServlet extends HttpServlet {
 	    {
 	        int result21 = new MypageService().defaultAddressY(userId, index); 
 	        int result22 = new MypageService().defaultAddressN(userId, index);
+	        System.out.println("resulet21 " + result21);
+	        System.out.println("resulet22 " + result22);
 	        result2 = result21 * result22;
         }
-	    
 	    int result = result1 * result2;
 	    
 	    response.setCharacterEncoding("utf-8");

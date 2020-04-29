@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Coupon;
+import com.kh.orderDelivery.model.vo.InsertOrder;
 import com.kh.orderDelivery.model.vo.OrderDelivery;
 
 public class OrderDeliveryDao
@@ -30,7 +31,7 @@ public class OrderDeliveryDao
         }
     }
     
-    public int insertOrder(Connection conn, OrderDelivery od)
+    public int insertOrder(Connection conn, InsertOrder io)
     {
         int result = 0;
         PreparedStatement pstmt = null;
@@ -40,18 +41,19 @@ public class OrderDeliveryDao
         try
         {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, od.getOdOrderNo());
-            pstmt.setString(2, od.getOdMemberId());
-            pstmt.setString(3, od.getOdMemberName());
-            pstmt.setString(4, od.getOdPhone());
-            pstmt.setString(5, od.getOdEmail());
-            pstmt.setString(6, od.getOdRecipient());
-            pstmt.setString(7, od.getOdEmergencyContact());
-            pstmt.setString(8, od.getOdAddress());
-            pstmt.setString(9, od.getOdDeliveryRequest());
-            pstmt.setInt(10, od.getOdUseCoupon());
-            pstmt.setInt(11, od.getOdUsePoint());
-            pstmt.setInt(12, od.getOdPaymentAmount());
+            pstmt.setString(1, io.getOdOrderNo());
+            pstmt.setString(2, io.getOdMemberId());
+            pstmt.setString(3, io.getOdMemberName());
+            pstmt.setString(4, io.getOdPhone());
+            pstmt.setString(5, io.getOdEmail());
+            pstmt.setString(6, io.getOdRecipient());
+            pstmt.setString(7, io.getOdEmergencyContact());
+            pstmt.setString(8, io.getOdAddress());
+            pstmt.setString(9, io.getOdDeliveryRequest());
+            pstmt.setInt(10, Integer.parseInt(io.getOdUseCoupon()));
+            pstmt.setInt(11, Integer.parseInt(io.getOdUsePoint()));
+            pstmt.setInt(12, Integer.parseInt(io.getOdPaymentAmount()));
+            pstmt.setInt(13, Integer.parseInt(io.getDeliveryCharge()));
             
             result = pstmt.executeUpdate();
             

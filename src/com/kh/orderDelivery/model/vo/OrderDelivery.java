@@ -25,35 +25,42 @@ public class OrderDelivery {
 	private String odPaymentType;		// 결제방식
 	private String odDeliveryCoNo;		// 택배 업체 사업자 번호
 	private int odStatus;				// 입금/배송상태
+	private int deliveryCharge; 
 
 	public OrderDelivery() {}
 
 	/**
 	 * 전체 매개변수
 	 */
-	public OrderDelivery(String odOrderNo, String odMemberId, String odMemberName, String odPhone, String odEmail,
-			String odRecipient, String odEmergencyContact, String odAddress, Date odDeliveryDate,
-			String odDeliveryRequest, int odUseCoupon, int odUsePoint, int odPaymentAmount, Date odOrderDate,
-			String odPaymentType, String odDeliveryCoNo, int odStatus) {
-		super();
-		this.odOrderNo = odOrderNo;
-		this.odMemberId = odMemberId;
-		this.odMemberName = odMemberName;
-		this.odPhone = odPhone;
-		this.odEmail = odEmail;
-		this.odRecipient = odRecipient;
-		this.odEmergencyContact = odEmergencyContact;
-		this.odAddress = odAddress;
-		this.odDeliveryDate = odDeliveryDate;
-		this.odDeliveryRequest = odDeliveryRequest;
-		this.odUseCoupon = odUseCoupon;
-		this.odUsePoint = odUsePoint;
-		this.odPaymentAmount = odPaymentAmount;
-		this.odOrderDate = odOrderDate;
-		this.odPaymentType = odPaymentType;
-		this.odDeliveryCoNo = odDeliveryCoNo;
-		this.odStatus = odStatus;
-	}
+
+    public OrderDelivery(String odOrderNo, String odMemberId,
+            String odMemberName, String odPhone, String odEmail,
+            String odRecipient, String odEmergencyContact, String odAddress,
+            Date odDeliveryDate, String odDeliveryRequest, int odUseCoupon,
+            int odUsePoint, int odPaymentAmount, Date odOrderDate,
+            String odPaymentType, String odDeliveryCoNo, int odStatus,
+            int deliveryCharge)
+    {
+        super();
+        this.odOrderNo = odOrderNo;
+        this.odMemberId = odMemberId;
+        this.odMemberName = odMemberName;
+        this.odPhone = odPhone;
+        this.odEmail = odEmail;
+        this.odRecipient = odRecipient;
+        this.odEmergencyContact = odEmergencyContact;
+        this.odAddress = odAddress;
+        this.odDeliveryDate = odDeliveryDate;
+        this.odDeliveryRequest = odDeliveryRequest;
+        this.odUseCoupon = odUseCoupon;
+        this.odUsePoint = odUsePoint;
+        this.odPaymentAmount = odPaymentAmount;
+        this.odOrderDate = odOrderDate;
+        this.odPaymentType = odPaymentType;
+        this.odDeliveryCoNo = odDeliveryCoNo;
+        this.odStatus = odStatus;
+        this.deliveryCharge = deliveryCharge;
+    }
 	
 	// 결제 완료 출력
 	public OrderDelivery(String odRecipient, String odEmergencyContact,
@@ -65,6 +72,7 @@ public class OrderDelivery {
         this.odDeliveryDate = odDeliveryDate;
         this.odAddress = odAddress;
     }
+
 
     /**
 	 * 관리자 결제페이지 리스트 매개변수
@@ -81,152 +89,201 @@ public class OrderDelivery {
 		this.odStatus = odStatus;
 	}
 
-	public String getOdOrderNo() {
-		return odOrderNo;
-	}
+    public String getOdOrderNo()
+    {
+        return odOrderNo;
+    }
 
-	public void setOdOrderNo(String odOrderNo) {
-		this.odOrderNo = odOrderNo;
-	}
+    public void setOdOrderNo(String odOrderNo)
+    {
+        this.odOrderNo = odOrderNo;
+    }
 
-	public String getOdMemberId() {
-		return odMemberId;
-	}
+    public String getOdMemberId()
+    {
+        return odMemberId;
+    }
 
-	public void setOdMemberId(String odMemberId) {
-		this.odMemberId = odMemberId;
-	}
+    public void setOdMemberId(String odMemberId)
+    {
+        this.odMemberId = odMemberId;
+    }
 
-	public String getOdMemberName() {
-		return odMemberName;
-	}
+    public String getOdMemberName()
+    {
+        return odMemberName;
+    }
 
-	public void setOdMemberName(String odMemberName) {
-		this.odMemberName = odMemberName;
-	}
+    public void setOdMemberName(String odMemberName)
+    {
+        this.odMemberName = odMemberName;
+    }
 
-	public String getOdPhone() {
-		return odPhone;
-	}
+    public String getOdPhone()
+    {
+        return odPhone;
+    }
 
-	public void setOdPhone(String odPhone) {
-		this.odPhone = odPhone;
-	}
+    public void setOdPhone(String odPhone)
+    {
+        this.odPhone = odPhone;
+    }
 
-	public String getOdEmail() {
-		return odEmail;
-	}
+    public String getOdEmail()
+    {
+        return odEmail;
+    }
 
-	public void setOdEmail(String odEmail) {
-		this.odEmail = odEmail;
-	}
+    public void setOdEmail(String odEmail)
+    {
+        this.odEmail = odEmail;
+    }
 
-	public String getOdRecipient() {
-		return odRecipient;
-	}
+    public String getOdRecipient()
+    {
+        return odRecipient;
+    }
 
-	public void setOdRecipient(String odRecipient) {
-		this.odRecipient = odRecipient;
-	}
+    public void setOdRecipient(String odRecipient)
+    {
+        this.odRecipient = odRecipient;
+    }
 
-	public String getOdEmergencyContact() {
-		return odEmergencyContact;
-	}
+    public String getOdEmergencyContact()
+    {
+        return odEmergencyContact;
+    }
 
-	public void setOdEmergencyContact(String odEmergencyContact) {
-		this.odEmergencyContact = odEmergencyContact;
-	}
+    public void setOdEmergencyContact(String odEmergencyContact)
+    {
+        this.odEmergencyContact = odEmergencyContact;
+    }
 
-	public String getOdAddress() {
-		return odAddress;
-	}
+    public String getOdAddress()
+    {
+        return odAddress;
+    }
 
-	public void setOdAddress(String odAddress) {
-		this.odAddress = odAddress;
-	}
+    public void setOdAddress(String odAddress)
+    {
+        this.odAddress = odAddress;
+    }
 
-	public Date getOdDeliveryDate() {
-		return odDeliveryDate;
-	}
+    public Date getOdDeliveryDate()
+    {
+        return odDeliveryDate;
+    }
 
-	public void setOdDeliveryDate(Date odDeliveryDate) {
-		this.odDeliveryDate = odDeliveryDate;
-	}
+    public void setOdDeliveryDate(Date odDeliveryDate)
+    {
+        this.odDeliveryDate = odDeliveryDate;
+    }
 
-	public String getOdDeliveryRequest() {
-		return odDeliveryRequest;
-	}
+    public String getOdDeliveryRequest()
+    {
+        return odDeliveryRequest;
+    }
 
-	public void setOdDeliveryRequest(String odDeliveryRequest) {
-		this.odDeliveryRequest = odDeliveryRequest;
-	}
+    public void setOdDeliveryRequest(String odDeliveryRequest)
+    {
+        this.odDeliveryRequest = odDeliveryRequest;
+    }
 
-	public int getOdUseCoupon() {
-		return odUseCoupon;
-	}
+    public int getOdUseCoupon()
+    {
+        return odUseCoupon;
+    }
 
-	public void setOdUseCoupon(int odUseCoupon) {
-		this.odUseCoupon = odUseCoupon;
-	}
+    public void setOdUseCoupon(int odUseCoupon)
+    {
+        this.odUseCoupon = odUseCoupon;
+    }
 
-	public int getOdUsePoint() {
-		return odUsePoint;
-	}
+    public int getOdUsePoint()
+    {
+        return odUsePoint;
+    }
 
-	public void setOdUsePoint(int odUsePoint) {
-		this.odUsePoint = odUsePoint;
-	}
+    public void setOdUsePoint(int odUsePoint)
+    {
+        this.odUsePoint = odUsePoint;
+    }
 
-	public int getOdPaymentAmount() {
-		return odPaymentAmount;
-	}
+    public int getOdPaymentAmount()
+    {
+        return odPaymentAmount;
+    }
 
-	public void setOdPaymentAmount(int odPaymentAmount) {
-		this.odPaymentAmount = odPaymentAmount;
-	}
+    public void setOdPaymentAmount(int odPaymentAmount)
+    {
+        this.odPaymentAmount = odPaymentAmount;
+    }
 
-	public Date getOdOrderDate() {
-		return odOrderDate;
-	}
+    public Date getOdOrderDate()
+    {
+        return odOrderDate;
+    }
 
-	public void setOdOrderDate(Date odOrderDate) {
-		this.odOrderDate = odOrderDate;
-	}
+    public void setOdOrderDate(Date odOrderDate)
+    {
+        this.odOrderDate = odOrderDate;
+    }
 
-	public String getOdPaymentType() {
-		return odPaymentType;
-	}
+    public String getOdPaymentType()
+    {
+        return odPaymentType;
+    }
 
-	public void setOdPaymentType(String odPaymentType) {
-		this.odPaymentType = odPaymentType;
-	}
+    public void setOdPaymentType(String odPaymentType)
+    {
+        this.odPaymentType = odPaymentType;
+    }
 
-	public String getOdDeliveryCoNo() {
-		return odDeliveryCoNo;
-	}
+    public String getOdDeliveryCoNo()
+    {
+        return odDeliveryCoNo;
+    }
 
-	public void setOdDeliveryCoNo(String odDeliveryCoNo) {
-		this.odDeliveryCoNo = odDeliveryCoNo;
-	}
+    public void setOdDeliveryCoNo(String odDeliveryCoNo)
+    {
+        this.odDeliveryCoNo = odDeliveryCoNo;
+    }
 
-	public int getOdStatus() {
-		return odStatus;
-	}
+    public int getOdStatus()
+    {
+        return odStatus;
+    }
 
-	public void setOdStatus(int odStatus) {
-		this.odStatus = odStatus;
-	}
+    public void setOdStatus(int odStatus)
+    {
+        this.odStatus = odStatus;
+    }
 
-	@Override
-	public String toString() {
-		return "OrderDelivery [odOrderNo=" + odOrderNo + ", odMemberId=" + odMemberId + ", odMemberName=" + odMemberName
-				+ ", odPhone=" + odPhone + ", odEmail=" + odEmail + ", odRecipient=" + odRecipient
-				+ ", odEmergencyContact=" + odEmergencyContact + ", odAddress=" + odAddress + ", odDeliveryDate="
-				+ odDeliveryDate + ", odDeliveryRequest=" + odDeliveryRequest + ", odUseCoupon=" + odUseCoupon
-				+ ", odUsePoint=" + odUsePoint + ", odPaymentAmount=" + odPaymentAmount + ", odOrderDate=" + odOrderDate
-				+ ", odPaymentType=" + odPaymentType + ", odDeliveryCoNo=" + odDeliveryCoNo + ", odStatus=" + odStatus
-				+ "]";
-	}
-	
+    public int getDeliveryCharge()
+    {
+        return deliveryCharge;
+    }
+
+    public void setDeliveryCharge(int deliveryCharge)
+    {
+        this.deliveryCharge = deliveryCharge;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "OrderDelivery [odOrderNo=" + odOrderNo + ", odMemberId="
+                + odMemberId + ", odMemberName=" + odMemberName + ", odPhone="
+                + odPhone + ", odEmail=" + odEmail + ", odRecipient="
+                + odRecipient + ", odEmergencyContact=" + odEmergencyContact
+                + ", odAddress=" + odAddress + ", odDeliveryDate="
+                + odDeliveryDate + ", odDeliveryRequest=" + odDeliveryRequest
+                + ", odUseCoupon=" + odUseCoupon + ", odUsePoint=" + odUsePoint
+                + ", odPaymentAmount=" + odPaymentAmount + ", odOrderDate="
+                + odOrderDate + ", odPaymentType=" + odPaymentType
+                + ", odDeliveryCoNo=" + odDeliveryCoNo + ", odStatus="
+                + odStatus + ", deliveryCharge=" + deliveryCharge + "]";
+    }
+
 	
 }

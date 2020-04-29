@@ -370,12 +370,22 @@
 				obj.emergencyConcat = $("#info_phone").html();	
 				obj.address = $("#info_addr").html();
 				obj.deliveryRequest = $("#orderDeliveryRequest").val();
-				obj.useCoupon = $("#orderInputPoint").val();
-				obj.usePoint = $("#orderSelectCoupon option:selected").val();
-				obj.payAmount = $("#orderProductTotalPrice").html();
-
-				var jsonData = JSON.stringify(obj)
+				if($("#orderInputPoint").val() == "")
+				{
+					obj.usePoint = "0";
+				}
+				else
+				{
+					obj.usePoint = $("#orderInputPoint").val();
+				}
 				
+				obj.useCoupon = $("#orderSelectCoupon option:selected").val();
+				obj.payAmount = $("#orderProductTotalPrice").html();
+				obj.delivery = "<%=delivery%>";
+				
+				
+				var jsonData = JSON.stringify(obj)
+				console.log(obj);
 				var IMP = window.IMP;
 				IMP.init("imp27012123"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
 				//IMP.request_pay(param, callback) 호출

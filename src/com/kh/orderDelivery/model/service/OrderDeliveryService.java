@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import com.kh.member.model.vo.Coupon;
 import com.kh.orderDelivery.model.dao.OrderDeliveryDao;
+import com.kh.orderDelivery.model.vo.InsertOrder;
 import com.kh.orderDelivery.model.vo.OrderDelivery;
 
 public class OrderDeliveryService
@@ -19,11 +20,11 @@ public class OrderDeliveryService
      * @param od    --> 주문 정보 데이터
      * @return      --> 디비 입력 결과
      */
-    public int insertOrder(OrderDelivery od)
+    public int insertOrder(InsertOrder io)
     {
         Connection conn = getConnection();
         
-        int result = new OrderDeliveryDao().insertOrder(conn, od);
+        int result = new OrderDeliveryDao().insertOrder(conn, io);
         
         if(result > 0)
         {
