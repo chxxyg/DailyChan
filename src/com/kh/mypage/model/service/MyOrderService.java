@@ -45,7 +45,6 @@ public class MyOrderService {
 		int ordCount = new MyOrderDao().ordCount(conn, memberId);
 		close(conn);
 		return ordCount;
-		
 	}
 	
 }

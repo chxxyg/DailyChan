@@ -40,7 +40,6 @@ public class CancelRefundListServlet extends HttpServlet {
 		
 		//request.setAttribute("myList", myList);
 		request.getRequestDispatcher("views/mypage/myCancelRefundList.jsp").forward(request, response);
-		
 	}
 
 	/**

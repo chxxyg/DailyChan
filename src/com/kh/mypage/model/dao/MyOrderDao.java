@@ -125,7 +125,6 @@ public class MyOrderDao {
 			close(pstmt);
 		}
 		return ordCount;
-		
 	}
 	
 }
