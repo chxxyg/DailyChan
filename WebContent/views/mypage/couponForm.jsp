@@ -210,6 +210,7 @@
 								</tr>
 							</thead>
 							<tbody>
+							
 							<% for(int i=0; i<mcList.size(); i++ ){ %>
 								<tr height="35">
 									<td><%=mcList.get(i).getCouponName() %></td>
@@ -218,7 +219,9 @@
 									<td><%=mcList.get(i).getCouponIssueDate() %></td>
 									<td><%=mcList.get(i).getCouponExpDate() %>일</td>
 								</tr>
+								
 							<% } %>
+							
 							</tbody>
 						</table>     
 						</div>
