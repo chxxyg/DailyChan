@@ -127,4 +127,42 @@ public class MyOrderDao {
 		return ordCount;
 	}
 	
+	public ArrayList<Mypage> ordDetailList(Connection conn, String memberId, String orderNo){
+		
+		ArrayList<Mypage> detailList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("ordDetailList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, orderNo);
+			pstmt.setString(2, memberId);
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				detailList.add(new Mypage( rset.getString("PRODUCT_CODE"),
+											rset.getString("PRODUCT_NAME"),
+											rset.getInt("QUANTITY"),
+											rset.getInt("PRICE"),
+											rset.getInt("PAYMENT_AMOUNT"),
+											rset.getString("RECIPIENT"),
+											rset.getString("PHONE"),
+											rset.getString("ADDRESS"),
+											rset.getString("DELIVERY_REQUEST"),
+											rset.getInt("STATUS"),
+											rset.getString("PAYMENT_TYPE"),
+											rset.getDate("PAYMENT_DATE"),
+											rset.getString("FILE_NAME")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return detailList;
+	}
+	
 }

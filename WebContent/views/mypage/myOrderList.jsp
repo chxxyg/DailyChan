@@ -112,23 +112,6 @@
 		<h3>주문/배송 조회</h3>
 		<hr>
 		
-		<!-- 주문배송 조회기간 선택 -->
-		<div id="orderPeriodSch">
-			<form>
-				<dl>
-					<dt>조회기간</dt>
-					<dd>
-						<input type="date" id="fromDate" name="fromDate" max="sysdate">
-						<span>~</span>
-						<input type="date" id="toDate" name="toDate">
-					</dd>
-					<dd>
-						<button type="button" class="bt_sch" id="searchBtn">조회</button>
-					</dd>
-				</dl>
-			</form>
-		</div>
-		
 		<!-- 주문배송 조회 리스트 -->
 		<table class="myOrderList" width="790px">
 			<thead>
@@ -145,7 +128,7 @@
 						<td colspan="4">
 							<img src="<%= request.getContextPath() %>/resources/img/cautionlogo.png" width="50px" height="50px">
 							<br><br>
-							<div>장바구니에 담긴 상품이 없습니다.</div>
+							<div>주문 내역이 없습니다.</div>
 						</td>
 					</tr>
 				
@@ -161,7 +144,7 @@
 									<%if(tr == 0){ %>				
 										<td class="firstTd" rowspan="<%=c.getCountOrdNo()%>">
 											<a style="color:blue; text-decoration: underline;" class="orderNo"><%=myList.get(i).getOrderNo()%></a><br>
-											<%=myList.get(i).getOrderDate() %><br>
+											<span class="orderDate"><%=myList.get(i).getOrderDate() %></span><br>
 											<button class="orderDtBtn" type="button">상세확인 ></button>
 										</td>
 									<%}%>
@@ -213,12 +196,14 @@
 			
 			$(".orderNo").click(function(){
 				var orderNo = $(this).text();
-				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo;
+				var orderDate = $(this).next().text();
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo + "orderDate=" + orderDate;
 			});
 			
 			$(".orderDtBtn").click(function(){
 				var orderNo = $(this).siblings(".orderNo").text();
-				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo;
+				var orderDate = $(this).text();
+				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo + "orderDate=" + orderDate;
 			})
 			
 			$(".pName").click(function(){
@@ -226,35 +211,14 @@
 				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
 			})
 			
-			$(".requestRefundBtn").click(function(){
-				var orderNo = $(this).parent().siblings(".firstTd").children(".orderNo").text();
-				location.href="<%=contextPath%>/refund.my?orderNo=" + orderNo;
-			});
-			
+						
 			$(".trackShipmentBtn").click(function(){
 				window.open("<%=contextPath%>/views/mypage/shipmentView.jsp", "배송조회", "width=300, top = 50, left = 500, location = no");
 				<%-- window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no"); --%>
 			});
 			
 			
-			/*Ajax로 값만 서블릿으로 전달하고 이 페이지에 머물도록!!!(refund.my 지우고)*/
-			$(".cancelOrderBtn").click(function(){
-				var orderNo = $(this).parent().siblings(".firstTd").children(".orderNo").text();
-				
-				var result = confirm("주문을 즉시취소하시겠습니까?")
-	            if(result){
-	            	$.ajax({
-	            		url:"deleteOrd.my",
-	            		data:{orderNo:orderNo},
-	            		type:"get",
-	            		success:function(){
-	            			alert("주문취소 처리가 완료되었습니다.");
-	            		}, error:function(){
-	            			colsole.log("통신 실패");
-	            		}
-	            	});	
-	            }
-			});
+			
 			
 		});	
 		

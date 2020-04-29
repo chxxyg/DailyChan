@@ -34,9 +34,15 @@ public class OrderDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		ArrayList<Mypage> myList = new MyOrderService().selectOrder(memberId);
 		
-		request.setAttribute("myList", myList);
+		String orderNo = request.getParameter("orderNo");
+		String orderDate = request.getParameter("orderDate");
+		
+		ArrayList<Mypage> detailList = new MyOrderService().ordDetailList(memberId, orderNo);
+		
+		request.setAttribute("detailList", detailList);
+		request.setAttribute("orderNo", orderNo);
+		request.setAttribute("orderDate", orderDate);
 		request.getRequestDispatcher("views/mypage/myOrderDetailView.jsp").forward(request, response);
 		
 	}

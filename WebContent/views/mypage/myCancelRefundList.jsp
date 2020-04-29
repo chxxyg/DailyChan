@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.mypage.model.vo.Mypage"%>
-<%
-	ArrayList<Mypage> myList = (ArrayList<Mypage>)request.getAttribute("myList");
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,20 +122,17 @@
 			
 			<tbody>
 				<tr>
-					<% for(Mypage my : myList) { %>
 						<td>
-							<span style="color:blue;"><%= my.getOrderNo() %></span><br>
-							<%= my.getOrderDate() %><br>
+							<span style="color:blue;">20200301-222222</span><br>
+							2020-03-01<br>
 						</td>
 						<td id="myCancelInfo">
-										
-						<div>
-							<input type="hidden" class="pCode" value="<%= my.getProCode() %>"><!-- 상품코드 -->
-							<a class="pName"><b><%= my.getProName() %></b></a><br>
-							<%= my.getQuantity() %>개 / <%= my.getPrice() %>원
-							<p>결제수단 : <%= my.getPayType() %></p>
-						</div>
-					<% } %>
+							<div>
+								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
+								<a class="pName"><b>데일리찬 상품명</b></a><br>
+								1개 / 12,000원
+								<p>결제수단 : 신용카드</p>
+							</div>
 							<div>
 								<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
 								<a class="pName"><b>데일리찬 상품명</b></a><br>

@@ -47,4 +47,14 @@ public class MyOrderService {
 		return ordCount;
 	}
 	
+	public ArrayList<Mypage> ordDetailList(String memberId, String orderNo){
+		
+		Connection conn = getConnection();
+		ArrayList<Mypage> detailList = new MyOrderDao().ordDetailList(conn, memberId, orderNo);
+		close(conn);
+		return detailList;
+	}
+	
+	
+	
 }

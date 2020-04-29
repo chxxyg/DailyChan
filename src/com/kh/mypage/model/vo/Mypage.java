@@ -12,7 +12,7 @@ public class Mypage {
 	private int price;			//상품가격
 	private int quantity;		//상품주문수량
 	private int payAmount;		//주문총가격
-	private int status;			//상태(0:결제완료, 1:결제취소, 2:상품준비중, 3:배송중, 4:배송완료, 5:반품완료)
+	private int status;			//상태(0:결제완료, 1:상품준비중, 2:배송중, 3:배송완료)
 	private String couponCode;  //쿠폰코드
 	private int couponPrice;	//쿠폰금액
 	private String payType;		//결제방식
@@ -43,6 +43,25 @@ public class Mypage {
 	public Mypage(int countOrdNo) {
 		super();
 		this.countOrdNo = countOrdNo;
+	}
+	
+	/* 주문내역 상세조회 */
+	public Mypage(String proCode, String proName, int quantity, int price, int payAmount,
+			String recipient, String phone, String address, String delRequest, int status, String payType, Date payDate, String fileName) {
+		super();
+		this.proCode = proCode;
+		this.proName = proName;
+		this.quantity = quantity;
+		this.price = price;
+		this.payAmount = payAmount;
+		this.recipient = recipient;
+		this.phone = phone;
+		this.address = address;
+		this.delRequest = delRequest;
+		this.status = status;
+		this.payType = payType;
+		this.payDate = payDate;
+		this.fileName = fileName;
 	}
 	
 	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,

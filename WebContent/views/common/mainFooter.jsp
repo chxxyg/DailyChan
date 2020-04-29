@@ -10,9 +10,9 @@
 <style>
 	#footer{
 		width: 1002px;
-	    height: 180px;
+	    height: 200px;
 	    margin:auto;
-	    margin-top:50px;
+	    padding-top:50px;
 	    box-sizing:border-box;
 	}
 	#center_1 a{

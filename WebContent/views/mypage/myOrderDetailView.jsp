@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.mypage.model.vo.Mypage, java.util.ArrayList"%>
+<%
+	ArrayList<Mypage> detailList = (ArrayList<Mypage>)request.getAttribute("detailList");
+	String orderNo = String.valueOf(request.getAttribute("orderNo"));
+	String orderDate = String.valueOf(request.getAttribute("orderDate"));
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +69,7 @@
 		margin:18px 0px 0px 15px;
 		cursor:pointer;
 	}
-	#orderDtail_td2{padding-left:40px;}
+	#orderDtail_td2{padding-left:70px;}
 	#orderDtail_td3, #orderDtail_td4{padding-left:35px;}
 	.cancelOrderBtn{
 		width:60px;
@@ -131,52 +136,37 @@
 		<hr>
 			
 		&emsp;<span>주문번호 : </span>
-		<span id="orderNo">20200331-1234567</span>
+		<span id="orderNo"><%= orderNo %></span>
 		<span>주문일 : </span>
-		<span>2020-03-31</span>
-		<button id="cartAgainBtn" onclick="toCart();">장바구니 다시담기</button>
+		<span><%= orderDate %></span>
 		
 		<table class="orderDetail" width="790px">
 			<tr height="35px">
 				<th width="400px">제품명</th>
 				<th width="130px">진행상태</th>
-				<th width="130px">희망배송일</th>
-				<th width="130px">확인</th>
 			</tr>
+			
+			<% for(Mypage mp : detailList) { %>
 			<tr>
 				<td id="orderDtail_td1">
 					<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
 					<img class="pName" src="" width="70px" height="70">
-					<p class="pName"><b>데일리찬 상품명</b><br>
-						1개 / 12,000원
+					<p class="pName"><b><%= mp.getProName() %></b><br>
+						<%= mp.getQuantity() %>개 / <%= mp.getPrice() %>원
 					</p>
 				</td>
-				<td id="orderDtail_td2" rowspan="3">결제완료</td>
-				<td id="orderDtail_td3" rowspan="3">
-					2020-03-31<br>
+			<% } %>
+				<td id="orderDtail_td2" rowspan="3">
+					<% switch(detailList.get(0).getStatus()) {
+						case 0 : out.println("결제완료"); break;
+						case 1 : out.println("상품준비중"); break;
+						case 2 : out.println("배송중"); break;
+						case 3 : out.println("배송완료"); break;
+					}%>
 				</td>
-				<td id="orderDtail_td4" rowspan="3">
-					<button type="button" class="cancelOrderBtn">즉시취소</button>
-				</td>
+			<%{ %>
 			</tr>
-			<tr>
-				<td id="orderDtail_td1">
-					<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-					<img class="pName" src="" width="70px" height="70">
-					<p class="pName"><b>데일리찬 상품명</b><br>
-						1개 / 12,000원
-					</p>
-				</td>
-			</tr>
-			<tr>
-				<td id="orderDtail_td1">
-					<input type="hidden" class="pCode" value="ITC202"><!-- 상품코드 -->
-					<img class="pName" src="" width="70px" height="70">
-					<p class="pName"><b>데일리찬 상품명</b><br>
-						1개 / 12,000원
-					</p>
-				</td>
-			</tr>
+			<% } %>
 		</table>
 		<br>
 		
@@ -190,7 +180,7 @@
 				<th width="197">최종 결제금액</th>
 			</tr>
 			<tr height="50">
-				<td colspan="4"><p id="paymentInfo_first">49,800원</p><span>+</span><p>3,000</p><span>-</span><p>5,000원 </p><span>=</span><p id="paySum">49,800원</p></td>
+				<td colspan="4"><p id="paymentInfo_first">49,800</p>원<span>+</span><p>3,000</p><span>-</span><p>5,000</p>원<span>=</span><p id="paySum">49,800</p>원</td>
 			</tr>
 		</table>
 		<br>
@@ -212,10 +202,6 @@
 		<!-- 배송정보 -->
 		<h4>배송정보</h4>
 		<table id="orderDetail_shipmentInfo">
-			<tr height="45px">
-				<th width="130px">희망배송일</th>
-				<td width="660px">2020-03-31</td>
-			</tr>
 			<tr height="45px">
 				<th width="130px">배송 받으실 분</th>
 				<td width="660px">강보람님</td>
@@ -245,25 +231,6 @@
 			$(".pName").click(function(){
 				var pCode = $(this).siblings(".pCode").val();
 				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
-			});
-			
-			/*Ajax로 값만 서블릿으로 전달하고 이 페이지에 머물도록!!!*/
-			$(".cancelOrderBtn").click(function(){
-				var orderNo = $("#orderNo").text();
-				
-				var result = confirm("주문을 즉시취소하시겠습니까?")
-	            if(result){
-					$.ajax{
-						url:"deleteOrd.my",
-						data:{orderNo:orderno},
-						type:"get",
-						success:function(){
-							 alert("주문취소 처리가 완료되었습니다.");
-						}, error:function(){
-							colsole.log("통신 실패");
-						}
-					}
-	            }
 			});
 			
 		});
