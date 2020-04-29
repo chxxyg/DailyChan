@@ -270,7 +270,6 @@
 							</span> &nbsp;  &nbsp; 
 							<span style="margin-left: 550px;"><%= rList.get(i).getReviewCreateDate() %></span>
 							<textarea rows="7" cols="110" id="reviewContent" style="resize:none; margin-bottom: 15px; padding: 20px;" readonly><%=rList.get(i).getReviewContent() %></textarea>
-							
 						</div>
 				</tr>
 				<% } %>
