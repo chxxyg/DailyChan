@@ -36,10 +36,19 @@ public class AdBlackListInsertServlet extends HttpServlet {
 
 		String memberId = request.getParameter("memberId");
 		String penaltyCuase = request.getParameter("penaltyCuase");
+		//int bno = Integer.parseInt(request.getParameter("bno"));
+		//String date = request.getParameter("date");
+		//String yn = request.getParameter("yn");
+		
+		
 
 		BlackList b = new BlackList();
+		//b.setBlackNo(bno);
 		b.setMemberId(memberId);
 		b.setPenaltyCuase(penaltyCuase);
+		//b.setPenaltyDateString(date);
+		//b.setNonblockYn(yn);
+		
 		
 		int result = new AdBlackListService().insertBlackList(b);
 		
@@ -51,7 +60,7 @@ public class AdBlackListInsertServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('아이디를 다시입력해주세요');history.back();</script>");
+			out.println("<script>alert('이미 블랙리스트이거나 없는회원입니다.');history.back();</script>");
 			
 			out.flush();
 		}
@@ -65,5 +74,6 @@ public class AdBlackListInsertServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 
 }

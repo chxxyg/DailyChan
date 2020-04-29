@@ -157,7 +157,8 @@ private Properties prop = new Properties();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, b.getMemberId());
-			pstmt.setString(2, b.getPenaltyCuase());
+			pstmt.setString(2, b.getMemberId());
+			pstmt.setString(3, b.getPenaltyCuase());
 			
 			result = pstmt.executeUpdate();
 			
@@ -171,4 +172,5 @@ private Properties prop = new Properties();
 	}
 
 }
+
 

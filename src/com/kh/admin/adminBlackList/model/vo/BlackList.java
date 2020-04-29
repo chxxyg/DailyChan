@@ -9,6 +9,7 @@ public class BlackList {
 	private String penaltyCuase;	// 블랙리스트 사유
 	private Date penaltyDate;		// 제제일자
 	private String nonblockYn;		// 해제여부
+	private String penaltyDateString;	// 제제일자 스트링
 	
 	public BlackList() {
 		
@@ -42,6 +43,17 @@ public class BlackList {
 	}
 	
 	
+	
+	
+
+	public BlackList(int blackNo, String memberId, String penaltyCuase, String nonblockYn, String penaltyDateString) {
+		super();
+		this.blackNo = blackNo;
+		this.memberId = memberId;
+		this.penaltyCuase = penaltyCuase;
+		this.nonblockYn = nonblockYn;
+		this.penaltyDateString = penaltyDateString;
+	}
 
 	public int getBlackNo() {
 		return blackNo;
@@ -83,6 +95,14 @@ public class BlackList {
 		this.nonblockYn = nonblockYn;
 	}
 
+	public String getPenaltyDateString() {
+		return penaltyDateString;
+	}
+
+	public void setPenaltyDateString(String penaltyDateString) {
+		this.penaltyDateString = penaltyDateString;
+	}
+
 	@Override
 	public String toString() {
 		return "BlackList [blackNo=" + blackNo + ", memberId=" + memberId + ", penaltyCuase=" + penaltyCuase
@@ -94,3 +114,4 @@ public class BlackList {
 	
 
 }
+
