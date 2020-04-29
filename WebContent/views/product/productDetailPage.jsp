@@ -260,9 +260,8 @@
 			<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
 		</div>
 	</div>
+	
             
-        <!-- 상세조회(클릭 시 슬라이드 다운), 페이징 기능 추가하기 -->
-        
     <div class="qnaArea">       
 		<div class="detailBtns" style="margin-top: 80px; margin-bottom: 40px;">
 			<a href=""><div class="detailBtn" id="detailBtnA4">상세설명</div></a>
@@ -294,17 +293,12 @@
 			</table>     
         	<button id="detailQnaBtn" type="button">문의하기</button>
 		</div>
-
-
-
-        <!-- 상세조회(클릭 시 슬라이드 다운), 페이징 기능 추가하기 -->
     </div>
         
         
     <script>
     	$(function(){
     		
-
     		/* 수량 -+ */
     		$(".minus").click(function(){
     			
@@ -438,7 +432,6 @@
 				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
 			<%}%>
 		});
-		
     
     </script>    
         
