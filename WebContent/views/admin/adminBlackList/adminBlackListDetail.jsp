@@ -112,7 +112,7 @@
     	function deleteBlackList(){   		
     		var bool = confirm("정말 해제시키겠습니까?");
     		if(bool){
-    			location.href = "<%=contextPath%>/blackListDelete.ad?bno=<%=b.getBlackNo()%>";
+    			location.href = "<%=contextPath%>/blackListDelete.ad?bno=<%=b.getBlackNo()%>&mid=<%=b.getMemberId()%>";
     			alert("해제되었습니다.");
     		}else{
     			alert("취소하였습니다.");
