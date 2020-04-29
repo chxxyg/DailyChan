@@ -286,12 +286,3 @@ public class adMemberDao {
 
 	
 }
-
-	
-	
-
-
-
-
-
-
