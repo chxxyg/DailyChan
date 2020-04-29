@@ -280,7 +280,6 @@
 			<button id="detailReviewBtn" type="button" onclick="insertReview();">리뷰 작성</button>
 		</div>
 	</div>
-	
             
     <div class="qnaArea">       
 		<div class="detailBtns" style="margin-top: 80px; margin-bottom: 40px;">
