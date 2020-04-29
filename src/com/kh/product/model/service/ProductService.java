@@ -60,6 +60,10 @@ public class ProductService {
 		return p;
 	}
 	
+	/**
+	 * ProductDetail 사진 띄워주는 메소드
+	 * @return
+	 */
 	public ArrayList<AttachmentProduct> selectAttachment(String proCode){
 		Connection conn = getConnection();
 		ArrayList<AttachmentProduct> list = new ProductDao().selectAttachment(conn, proCode);
@@ -68,6 +72,12 @@ public class ProductService {
 	}
 	
 	
+	/**
+	 * EventPage 쿠폰 다운로드 메소드
+	 * @param cpno
+	 * @param memberId
+	 * @return
+	 */
 	public int couponDownload(String cpno, String memberId) {
 		Connection conn = getConnection();
 		int result = new ProductDao().couponDownload(conn, cpno, memberId);
@@ -80,28 +90,4 @@ public class ProductService {
 		return result;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
 }

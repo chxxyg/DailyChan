@@ -231,6 +231,12 @@ public class ProductDao {
 	}
 	
 	
+	/**
+	 * ProductDetail 조회 (해당하는 상품 불러와 상세 페이지 채우는 메소드)
+	 * @param conn
+	 * @param proCode
+	 * @return
+	 */
 	public Product selectDetail(Connection conn, String proCode){
 		Product p = null;
 		PreparedStatement pstmt = null;
@@ -262,6 +268,12 @@ public class ProductDao {
 	}
 	
 	
+	/**
+	 * ProductDetail 사진 띄워주는 메소드
+	 * @param conn
+	 * @param proCode
+	 * @return
+	 */
 	public ArrayList<AttachmentProduct> selectAttachment(Connection conn, String proCode){
 		
 		ArrayList<AttachmentProduct> list = new ArrayList<>();
@@ -291,6 +303,13 @@ public class ProductDao {
 	}
 	
 	
+	/**
+	 * EventPage 쿠폰 다운로드 메소드
+	 * @param conn
+	 * @param cpno
+	 * @param memberId
+	 * @return
+	 */
 	public int couponDownload(Connection conn, String cpno, String memberId) {
 		
 		int result = 0;
@@ -312,22 +331,4 @@ public class ProductDao {
 		return result;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
 }

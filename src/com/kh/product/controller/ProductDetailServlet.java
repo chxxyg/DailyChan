@@ -49,6 +49,8 @@ public class ProductDetailServlet extends HttpServlet {
 		
 		request.setAttribute("rList", rList);
 		
+		System.out.println(rList);
+		
 		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 	
 	}

@@ -51,7 +51,6 @@ public class ReviewInsertServlet extends HttpServlet {
 		re.setReviewContent(content);
 		re.setReviewRating(rating);
 		
-		System.out.println(re);
 		
 		int result = new ReviewService().insertReview(re);
 

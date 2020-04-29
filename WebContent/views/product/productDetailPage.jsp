@@ -160,10 +160,10 @@
             <td>
                 <table class="detailBtns">
                     <tr>
-                        <td><a href=""><div class="detailBtn" id="detailBtnA1">상세설명</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnB1">상품정보</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnC1">리뷰(<%=p.getProReviewCount() %>건)</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnD1">상품문의</div></a></td>
+                        <td><div class="detailBtn" id="detailBtnA1">상세설명</div></td>
+                        <td><div class="detailBtn" id="detailBtnB1">상품정보</div></td>
+                        <td><div class="detailBtn" id="detailBtnC1">리뷰(<%=p.getProReviewCount() %>건)</div></td>
+                        <td><div class="detailBtn" id="detailBtnD1">상품문의</div></td>
                     </tr>
                 </table>
             </td>
@@ -177,10 +177,10 @@
             <td>
                 <table class="detailBtns">
                     <tr>
-                        <td><a href=""><div class="detailBtn" id="detailBtnA2">상세설명</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnB2">상품정보</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnC2">리뷰(<%=p.getProReviewCount() %>건)</div></a></td>
-                        <td><a href=""><div class="detailBtn" id="detailBtnD2">상품문의</div></a></td>
+                        <td><div class="detailBtn" id="detailBtnA2">상세설명</div></td>
+                        <td><div class="detailBtn" id="detailBtnB2">상품정보</div></td>
+                        <td><div class="detailBtn" id="detailBtnC2">리뷰(<%=p.getProReviewCount() %>건)</div></td>
+                        <td><div class="detailBtn" id="detailBtnD2">상품문의</div></td>
                     </tr>
                 </table>
             </td>
@@ -196,10 +196,10 @@
 	<!-- 리뷰 영역 -->
 	<div class="reviewArea">       
 	    <div class="detailBtns" style="margin-top: 80px;">
-			<a href=""><div class="detailBtn" id="detailBtnA3">상세설명</div></a>
-			<a href=""><div class="detailBtn" id="detailBtnB3">상품정보</div></a>
-			<a href=""><div class="detailBtn" id="detailBtnC3">리뷰(<%=p.getProReviewCount() %>건)</div></a>
-			<a href=""><div class="detailBtn" id="detailBtnD3">상품문의</div></a>
+			<div class="detailBtn" id="detailBtnA3">상세설명</div>
+			<div class="detailBtn" id="detailBtnB3">상품정보</div>
+			<div class="detailBtn" id="detailBtnC3">리뷰(<%=p.getProReviewCount() %>건)</div>
+			<div class="detailBtn" id="detailBtnD3">상품문의</div>
 	    </div>
 	       
 		<div id="detailReview" style="margin: auto;">
@@ -264,10 +264,10 @@
             
     <div class="qnaArea">       
 		<div class="detailBtns" style="margin-top: 80px; margin-bottom: 40px;">
-			<a href=""><div class="detailBtn" id="detailBtnA4">상세설명</div></a>
-			<a href=""><div class="detailBtn" id="detailBtnB4">상품정보</div></a>
-			<a href=""><div class="detailBtn" id="detailBtnC4">리뷰(<%=p.getProReviewCount() %>건)</div></a>
-			<a href=""><div class="detailBtn" id="detailBtnD4">상품문의</div></a>
+			<div class="detailBtn" id="detailBtnA4">상세설명</div>
+			<div class="detailBtn" id="detailBtnB4">상품정보</div>
+			<div class="detailBtn" id="detailBtnC4">리뷰(<%=p.getProReviewCount() %>건)</div>
+			<div class="detailBtn" id="detailBtnD4">상품문의</div>
 	    </div>
 
 	    <div style="width: 1000px;">
@@ -291,7 +291,7 @@
 					</td>
 				</tr>
 			</table>     
-        	<button id="detailQnaBtn" type="button">문의하기</button>
+        	<button id="detailQnaBtn" type="button" style="margin-bottom: 30px;">문의하기</button>
 		</div>
     </div>
         
