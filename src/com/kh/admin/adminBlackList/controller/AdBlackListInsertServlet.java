@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.admin.adminBlackList.model.service.AdBlackListService;
 import com.kh.admin.adminBlackList.model.vo.BlackList;
+import com.kh.admin.adminMember.model.service.adMemberService;
 
 /**
  * Servlet implementation class AdBlackListInsertServlet
@@ -52,8 +53,10 @@ public class AdBlackListInsertServlet extends HttpServlet {
 		
 		int result = new AdBlackListService().insertBlackList(b);
 		
+		int result2 = new adMemberService().insertBlackList(memberId);
+		
 		request.setAttribute("b", b);
-		if(result > 0) {	
+		if(result > 0 && result2 > 0) {	
 			response.sendRedirect("blackList.ad");
 		}else {						
 			response.setContentType("text/html; charset=UTF-8");
@@ -77,3 +80,5 @@ public class AdBlackListInsertServlet extends HttpServlet {
 	
 
 }
+
+

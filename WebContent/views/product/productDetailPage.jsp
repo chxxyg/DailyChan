@@ -126,11 +126,11 @@
                                     <td><div id="productTotal">총 상품 금액</div></td>
                                     <% if(p.getProSaleYn().equals("Y")){ %>
                                     <td>
-                                    	<span class="productTotalPrice"><%=p.getProPrice()%></span><span>원</span>
+                                    	<span class="productTotalPrice"><%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%></span><span>원</span>
                                     </td>
                                     <% } else { %>	
                                     <td>
-                                    	<span class="productTotalPrice"><%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%></span><span>원</span>
+                                    	<span class="productTotalPrice"><%=p.getProPrice()%></span><span>원</span>
                                    	</td>
                                     <% } %>
                                     
@@ -388,7 +388,6 @@
     		
     		/* 장바구니 */
     		$(".toCart").click(function(){
-    			console.log(클릭);
     			
     			var proCode = $("#proCode").val();
     			var qty = $(".input").val();
@@ -396,7 +395,7 @@
     			var saleYN = $(this).parents("#productDetail").find(".sale").val();
     			var proPrice = 0;
     			
-    			if(saleYN == "Y"){
+    			if(saleYN == "sale"){
     				proPrice = <%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%>
     			}else{
     				proPrice = <%=p.getProPrice()%>
@@ -404,7 +403,7 @@
     			
     			$.ajax({
     				url:"detailToCart.pro",
-    				data:{proCode:proCode, proPrice:priPrice, qty:qyt},
+    				data:{proCode:proCode, proPrice:proPrice, qty:qty},
     				type:"post",
     				success:function(msg){
     					if(msg == 0){
@@ -421,7 +420,6 @@
     			});
     			
     		});
-    		
     		
     		/* 리뷰 슬라이드 다운 */
     		$(".reviewTitle").click(function(){

@@ -97,24 +97,26 @@ public class MyOrderDao {
 		return count;
 	}
 	
-	/** 2. 취소반품조회
-	 * @param conn
+	/** 2. 메인 아우터 주문건수 조회
 	 * @param memberId
 	 * @return
 	 */
-	public ArrayList<Mypage> selectRefund(Connection conn, String memberId){
+	public int ordCount(Connection conn, String memberId) {
 		
-		ArrayList<Mypage> myList = new ArrayList<>();
+		int ordCount =  0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectRefundList");
+		String sql = prop.getProperty("ordCount");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberId);
-			rset=pstmt.executeQuery();
+			rset = pstmt.executeQuery();
 			
+			if(rset.next()) {
+				ordCount = rset.getInt(1);
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -122,9 +124,7 @@ public class MyOrderDao {
 			close(rset);
 			close(pstmt);
 		}
-		
-		return myList;
-		
+		return ordCount;
 	}
 	
 }
