@@ -111,7 +111,11 @@
 			width:100%;
 			height:30%;
 		}
-        
+                thead>tr>th{
+			height:30px;
+			font-weight: bold;
+			font-size:17px;
+		}		
       
     </style>
 </head>
@@ -175,8 +179,8 @@
                     <th width="70">문의번호</th>
                     <th width="150">문의일시</th> 
                     <th width="120">아이디</th>
-                    <th width="250">제목</th>
-                    <th width="150">내용</th>
+                    <th width="250">제 목</th>
+                    <th width="150">내 용</th>
                     <th width="70">답변여부</th>
                 </tr>
             </thead>
@@ -207,7 +211,7 @@
                 <tr onClick="location.href='<%=contextPath%>/productList.ad?currentPage=1'">
                     <th width="170">상품코드</th>
                     <th width="200">업체명</th>
-                    <th width="320">상품명</th>
+                    <th width="320">상 품 명</th>
                     <th width="100">판매가</th>
                     <th width="80">재고수량</th>
                 </tr>

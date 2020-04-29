@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%
 	String contextPath = request.getContextPath(); 
+
+
 %>
 
 
@@ -101,6 +103,7 @@ body {
 </head>
 <body>
 
+						
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
   
 
@@ -146,8 +149,6 @@ body {
                       </li>
                       <li><a href="<%=contextPath%>/couponList.ad">쿠폰관리</a>
                       </li>
-                      <li><a href="http://localhost:9999/dailyChan/views/admin/adminEvent/adminEventList.jsp">이벤트 리스트</a>
-                      </li>
                   </ul>
               </li>
 
@@ -164,8 +165,8 @@ body {
         $("#leftside-navigation .sub-menu > a").click(function (e) {
     $("#leftside-navigation ul ul").slideUp(), $(this).next().is(":visible") || $(this).next().slideDown(),
         e.stopPropagation()
-})
+	})
     </script>
-    
+
 </body>
 </html>
