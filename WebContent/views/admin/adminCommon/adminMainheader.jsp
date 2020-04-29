@@ -29,8 +29,8 @@
         }
       	#header1{width:15%;font-size:20px;}
         #header2{width:60%;}
-        #header3{width:10%; font-size:18px; padding-top:6px; color:#e1ffff;}
-        #header4,#header5{width:15%;font-size:18px; padding-top: 6px;}
+        #header3{width:10%; font-size:18px; margin-left:60px; padding-top:6px; color:#e1ffff;}
+        #header4{width:10%;font-size:18px; margin-left:-20px; padding-top: 6px;}
         #header a:hover{
             color:#d19b3d;
         }
