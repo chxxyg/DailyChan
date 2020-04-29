@@ -825,6 +825,7 @@
 		});
 	</script>
 	
+	
 	<%@ include file="views/common/mainFooter.jsp" %>	
 	
 </body>
