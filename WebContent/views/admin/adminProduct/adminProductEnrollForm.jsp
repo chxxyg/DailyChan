@@ -79,7 +79,7 @@
             
                 <td width="200" >* 카테고리</td>
                 <td>
-			        <select id="dailyList"  name="pdCategoryList" style="width:174px" >
+			        <select id="dailyList"  name="pdCategoryList" style="width:162px" >
 			            <option value="한식 - 국/탕/찌개">한식 - 국/탕/찌개</option>
 			            <option value="한식 - 조림/볶음/구이">한식 - 조림/볶음/구이</option>
 			            <option value="한식 - 면요리">한식 - 면요리</option>
@@ -109,7 +109,7 @@
             </tr>
             <tr>
                 <td width="200">납품업체명</td>
-                <td><select name="pdEnterPrise" style="width:174px">
+                <td><select name="pdEnterPrise" style="width:162px">
 						<option value="1234567890">집반찬연구소</option>
 						<option value="1111111111">동원홈푸드</option>                
                 	</select>

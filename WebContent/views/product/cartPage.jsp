@@ -48,6 +48,8 @@
       	<br>
         <h1 style="font-size: 50px; font-weight: 600; text-align: center; padding-bottom: 50px;">장바구니</h1>
         
+        <div id="refundNotice">상품이 주문된 이후에는 조리되어 취소/환불처리가 불가능하니 신중한 주문 부탁드립니다.<br>상품을 배송받으신 후 위생상 하자가 있는 경우에는 고객센터로 환불 문의가 가능합니다.</div>
+        
         <table id="cartProductWrap">
             <tr style="background: lightgray; height: 50px; font-size: 20px;">
                 <th colspan="3" width="430">상품정보</th>

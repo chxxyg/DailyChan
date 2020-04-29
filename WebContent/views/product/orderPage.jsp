@@ -112,7 +112,7 @@
                         <td>
                             <table>
                                 <tr>
-                                    <td style="background: white; width: 300px;">보유 쿠폰 : 3개</td>
+                                    <td style="background: white; width: 300px;">보유 쿠폰 : 2개</td>
                                     <td>
                                         <select name="orderSelectCoupon" id="orderSelectCoupon">
                                         </select>
@@ -209,7 +209,7 @@
                         </td>
                         <td style="font-size: 30px; width: 10px;">=</td>
                         <td style="width: 300px; font-size: 35px; font-weight: 550;">
-                            <span id="SumOrderProductTotalPrice"><%= payAmount - delivery %></span> 원
+                            <span id="SumOrderProductTotalPrice"><%= payAmount + delivery %></span> 원
                         </td>
                     </tr>
                 </table>
@@ -259,7 +259,7 @@
 							console.log(result);
 							$("#orderSelectCoupon").html(result);
 							$("#orderSelectCoupon").change(function() {
-								var price1 = <%= payAmount - delivery %>;
+								var price1 = <%= payAmount + delivery %>;
 								var totalPrice = price1 - $("#orderInputPoint").val() - $("#orderSelectCoupon option:selected").val();
 								console.log(totalPrice);
 								$("#SumOrderProductTotalPrice").html(totalPrice);
@@ -289,8 +289,12 @@
 				{
 					$("#orderDeliveryPrice").html($("#orderSelectCoupon option:selected").val());
 				}
-				$("#orderDeliveryPrice").html(parseInt($("#orderInputPoint").val()) + parseInt($("#orderSelectCoupon option:selected").val()));
-				var price1 = <%= payAmount - delivery %>;
+				else
+				{
+					$("#orderDeliveryPrice").html(parseInt($("#orderInputPoint").val()) + parseInt($("#orderSelectCoupon option:selected").val()));
+				
+				}
+				var price1 = <%= payAmount + delivery %>;
 				var totalPrice = price1 - $("#orderInputPoint").val() - $("#orderSelectCoupon option:selected").val();
 				console.log(totalPrice);
 				$("#SumOrderProductTotalPrice").html(totalPrice);

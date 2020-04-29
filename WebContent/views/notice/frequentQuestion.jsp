@@ -26,7 +26,7 @@ body{
 	width:860px;
  	height:auto;
 	margin:auto; 
-	margin-top:10px;
+	margin-top:-15px;
 	margin-left:25px;
 	float:left;
 	padding:0px 20px 20px 20px;
@@ -76,7 +76,8 @@ h3 {
     top: 30px;
     left: 580px;
     margin:auto;
-    float:left;	
+    float:left;
+    padding-top:0px;
 }
 .fav_word li{
     list-style: none;

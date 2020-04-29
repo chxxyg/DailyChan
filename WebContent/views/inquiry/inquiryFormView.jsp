@@ -14,19 +14,53 @@
 </head>
 <style>
 .outer {
-	width: 1000px;
+	width: 1200px;
+	height: 700px;
+	margin: auto;
+}
+
+.outer_1 {
+	/* border:1px solid skyblue; */
+	width: 870px;
 	height: auto;
+	padding: 5px 5px 25px 40px;
 	float: left;
+	margin-top: 50px;
 }
 
 .sub_cont {
 	float: left;
 	width: 860px;
-	padding: 0 0 75px 30px;
-	/* 	border:1px solid blue; */
-	margin-top: 20px;
+	padding: 5px 5px 5px 5px;
+/* 	border: 1px solid blue; */
+	margin-top: 30px;
 }
 
+thead tr th {
+	text-align: center;
+	border-bottom: 1px solid gray;
+	background-color: #f4f4f4;
+}
+
+thead tr {
+	font-size: 13px;
+}
+
+tbody tr td {
+	text-align: center;
+}
+
+.noti_tbl {	
+	border: 2px ridge gray; 
+}
+
+#i_1, #i_2, #i_3 {
+	border-right-style: ridge;
+}
+
+#q_1, #q_2, #q_3 {
+	border-right-style: ridge;
+}
 </style>
 <body>
 	<%@ include file="../common/mainHeader.jsp"%>
@@ -34,52 +68,45 @@
 	<%@ include file="../notice/leftCategory.jsp"%>
 	<%@ include file="../notice/noticeSearch.jsp"%>
 
-	<h2><1:1상담></h2>
-	
-<!-- loginUser의 정보를 담아야 함 -->
 	<div class="outer">
-		<br>
-		<div id="cst_content" class="sub_cont">
+		
 
-			<table class="noti_tbl" border="1">
-				<tr>
-					<th>상담유형</th>
-					<td colspan="2"><%= i.getInquiryType() %></td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td colspan="3"><%= i.getInquiryContent()%></td>
-				</tr>
-				<tr>
-					<th>문의날짜</th>
-					<td colspan="1"><%= i.getInquiryCreateDate()%></td>
-				</tr>
-				<tr>
-					<th>답변상태</th>
-					<td colspan="2"><%= i.getInquiryResponseYn()%></td>
-				</tr>
-			</table>
+		<!-- loginUser의 정보를 담아야 함 -->
+		<div class="outer_1">
+		<h2>1:1상담</h2>
+			<br>
+			<div id="cst_content" class="sub_cont">
+
+				<table class="noti_tbl">
+					<thead>
+						<tr>
+							<th id="q_1" style="width: 150px;">상담유형</th>
+							<th id="q_2" style="width: 500px;">내용</th>
+							<th id="q_3" style="width: 100px;">문의날짜</th>
+							<th id="q_4" style="width: 70px;">답변상태</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td id="i_1"><%=i.getInquiryType()%></td>
+							<td id="i_2"><%=i.getInquiryContent()%></td>
+							<td id="i_3"><%=i.getInquiryCreateDate()%></td>
+							<td id="i_4"><%=i.getInquiryResponseYn()%></td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
 
 		</div>
 
 	</div>
 	
-	
 	<script>
 	
-	<%-- 
-	 $(".noti_tbl>tr").click(function(){
-		var ino = $("this").children().text();
-		console.log(ino);
-		location.href="<%=request.getContextPath()%>/form.in?ino=" + ino;
-
-	}); 
-	 --%>
-	
 	</script>
+	
 	<%@ include file="../common/mainFooter.jsp"%>
-	
-	
-	
 </body>
 </html>

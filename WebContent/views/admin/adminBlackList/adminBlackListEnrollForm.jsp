@@ -78,12 +78,24 @@
        <form id="blackListForm" action="<%=contextPath%>/blackListInsert.ad" method="post">      
         <table id="adcate">
             <tr>
+                <td width="200" >번호</td>
+                <td><input type="text" value="" name="bno" placeholder="자동부여"></td>
+            </tr>
+            <tr>
                 <td width="200" >아이디</td>
                 <td><input type="text" value="" name="memberId"></td>
             </tr>
             <tr>
                 <td width="200">사유</td>
                 <td><input type="text" value="" name="penaltyCuase"></td>
+            </tr>
+            <tr>
+                <td width="200" >제제날짜</td>
+                <td><input type="text" value="" name="date" placeholder="자동부여"></td>
+            </tr>
+            <tr>
+                <td width="200" >해제여부</td>
+                <td><input type="text" value="" name="yn" placeholder="자동부여"></td>
             </tr>         
         </table>
        		 <div id="enrollsubmit">
@@ -98,3 +110,4 @@
    
 </body>
 </html>
+

@@ -112,6 +112,23 @@ public class adMemberService {
 		close(conn);
 		return listCountMember;
 	}
+	
+	public int deleteBlackList(String mid) {
+		
+		Connection conn = getConnection();
+		
+		int result2 = new adMemberDao().deleteBlackList(conn, mid);
+		
+		if(result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result2;
+		
+		
+	}
 
 	
 

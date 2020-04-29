@@ -10,6 +10,14 @@
     text-decoration: none;
     color: black;
 }
+#refundNotice{
+	width:1000px;
+	text-align:center;
+	color:red;
+	font-size:14px;
+	margin-bottom:60px;
+}
+
 #cartProductWrap{
 	width:1000px;
 }

@@ -10,7 +10,7 @@
 .cst_top{
 /*  border:1px solid red;  */
     background-color: #79aff1;
-    width: 1020px;
+    width: 938px;
     height: 120px;
 /* 	position: absolute; */
 	top: 120px;
@@ -50,6 +50,7 @@
     top: 50px;
     left: 580px;
     float:left;
+    padding-top:15px;
 }
 .fav_word li{
     list-style: none;

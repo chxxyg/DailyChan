@@ -134,10 +134,8 @@ li {
 		<div id="left-category">
 			<ul>
 				<li><a id="left_01" href="<%= request.getContextPath() %>/Frequestion.fq" onclick="">자주하는 질문</a></li>
-				
-			
 				<li><a id="left_02" href="<%= request.getContextPath() %>/detail.bo" >1:1 친절상담</a></li>
-				<li><a id="left_03" href="<%= request.getContextPath() %>/form.in" >1:1 상담내역</a></li>
+				<li><a id="left_03" href="<%= request.getContextPath() %>/write.in" >1:1 상담내역</a></li>
 				<li><a id="left_04" href="<%= request.getContextPath() %>/noticeList.no?currentPage=1">공지사항</a></li>
 			</ul>
 		</div>
