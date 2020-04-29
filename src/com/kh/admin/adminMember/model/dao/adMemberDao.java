@@ -260,6 +260,27 @@ public class adMemberDao {
 		return result2;
 	}
 
+	public int insertBlackList(Connection conn, String memberId) {
+
+		int result2 = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertBlackList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			
+			result2 = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return result2;
+	}
+
 	
 	
 

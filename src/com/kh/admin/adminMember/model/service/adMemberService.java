@@ -129,6 +129,20 @@ public class adMemberService {
 		
 		
 	}
+	public int insertBlackList(String memberId) {
+		
+		Connection conn = getConnection();
+		
+		int result2 = new adMemberDao().insertBlackList(conn, memberId);
+		
+		if(result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result2;
+	}
 
 	
 
