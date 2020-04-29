@@ -112,6 +112,16 @@
 		<h3>주문/배송 조회</h3>
 		<hr>
 		
+		<!-- 주문배송 조회기간 선택 -->
+		<div id="cancelPeriodSch">
+			<form>
+				<p>조회기간</p>
+				
+				
+				
+			</form>
+		</div>
+		
 		<!-- 주문배송 조회 리스트 -->
 		<table class="myOrderList" width="790px">
 			<thead>
@@ -171,8 +181,8 @@
 											<% switch(myList.get(i).getStatus()) {
 												case 0: break;
 												case 1: break;
-												case 2: %> <button type="button" class="trackShipmentBtn">배송조회</button><br><%; break;
-												case 3: %> <button type="button" class="trackShipmentBtn">배송조회</button><br><%; break;
+												case 2: %> <button type="button" class="trackShipmentBtn" onclick="shipment();">배송조회</button><br><%; break;
+												case 3: %> <button type="button" class="trackShipmentBtn" onclick="shipment();">배송조회</button><br><%; break;
 											} %>
 										</td>
 									<%} %>
@@ -211,16 +221,12 @@
 				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
 			})
 			
-						
-			$(".trackShipmentBtn").click(function(){
-				window.open("<%=contextPath%>/views/mypage/shipmentView.jsp", "배송조회", "width=300, top = 50, left = 500, location = no");
-				<%-- window.open("<%=contextPath%>/loginPop.me", "로그인팝업창", "width=500, height=700, top = 50, left = 500, location = no"); --%>
-			});
-			
-			
-			
 			
 		});	
+		
+		function shipment() {
+			window.open("<%=contextPath%>/views/mypage/shipmentView.jsp", "배송조회", "width=510, height=340 top=50, left=500, location=no, resizable=no");
+		}
 		
 		function cancelOrdBlock(){
 			alert("                즉시취소는 결제완료 단계까지 가능합니다.\r\n              상품준비중 이후의 단계에서는 상품이 조리되어\r\n              취소처리가 불가능하니 이점 양해 부탁드립니다.");
