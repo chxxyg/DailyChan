@@ -430,7 +430,6 @@
 
     	});
     	
-    	
 
 		$("#detailReviewBtn").click(function(){
 			<% if(loginUser != null){ %>
