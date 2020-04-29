@@ -1,6 +1,6 @@
 package com.kh.notice.model.dao;
 
-import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -122,5 +122,83 @@ public class NoticeDao {
 		return result;
 	}
 	
+	public int getListCount(Connection conn) {
+		
+		int listCount = 0;
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("getListCount");
+
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+			
+		}
+		
+		return listCount;
+	}
+	
+	public ArrayList<Notice> selectListA(Connection conn, PageInfo pi){
+		
+		ArrayList<Notice> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListA");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage() -1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(new Notice(rset.getInt("NOTICE_BOARD_NO"),
+									rset.getString("NOTICE_TITLE"),
+									rset.getDate("NOTICE_DATE"),
+									rset.getString("NOTICE_CONTENT"),
+									rset.getInt("NOTICE_COUNT"))); 
+
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+			
+		}
+		
+		return list;
+		
+		
+	}
+	
 	
 }
+
+
+
+
+
+
+
+
+
+

@@ -38,7 +38,7 @@ public class NoticeDetailServlet extends HttpServlet {
 
 		Notice n = new NoticeService().selectNotice(nno);
 
-		if (n != null) { // 조회성공
+		if (n != null) { // 조회 성공
 
 			// 조회 성공했기 때문에 해당 글 조회수 1증가 시키는 서비스 요청
 			new NoticeService().increaseCount(nno);

@@ -57,7 +57,11 @@
 					<td colspan="4"><p><%= n.getNoticeContent()%></p></td>
 				</tr>
 			</table>
-
+			<br>
+			
+			<div class="btns" align="center">
+				<button onclick="location.href='<%=contextPath%>/noticeList.no'">목록으로</button>
+			</div>
 		</div>
 	</div>
 

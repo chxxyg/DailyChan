@@ -15,9 +15,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>1:1상담 신청 상세페이지</title>
 <style>
+body{
+	width:1500px; 
+	margin: auto;
+}
 .outer {
 	/* 	border:1px solid yellow; */
-	width: 1000px;
+	width: 860px;
 	height: auto;
 	float: left;
 	margin-left: 15px;
@@ -299,6 +303,23 @@ button em {
 	display: block;
 	margin-top: -2px;
 }
+
+input#tel_no2.celluar{
+
+	height:19px;
+	width: 48px;
+	padding: 4px 4px 7px 8px;
+}
+input#tel_no3.celluar{
+
+	height:19px;
+	width: 48px;
+	padding: 4px 4px 7px 8px;
+}
+input#quest_title.w_tit{
+	width:363px;
+}
+
 </style>
 
 </head>
@@ -393,7 +414,8 @@ button em {
 							String phone3 = phone.substring(7);
 						%>
 
-						<td><select id="tel_no1" name="tel_no1">
+						<td>
+						<select id="tel_no1" name="tel_no1">
 								<!-- message="전화번호를 숫자로 입력하세요." -->
 								<option value="<%=phone1%>">선택</option>
 								<option value="010" selected="selected">010</option>
@@ -402,19 +424,20 @@ button em {
 								<option value="017">017</option>
 								<option value="018">018</option>
 								<option value="019">019</option>
-						</select> <span class="dash">-</span> <!-- value 값 회원 전화번호로 값 넘겨오기  --> <input
-							type="text" class="celluar" id="tel_no2" name="tel_no2"
-							title="휴대폰번호 가운데 자리 입력" value="<%=phone2%>" maxlength="4">
-							<span class="dash">-</span> <input type="text" class="celluar"
-							id="tel_no3" name="tel_no3" title="휴대폰번호 마지막 자리 입력"
-							value="<%=phone3%>" maxlength="4"></td>
+						</select> 
+							<span class="dash">-</span>
+							 <!-- value 값 회원 전화번호로 값 넘겨오기  --> 
+							 <input type="text" class="celluar" id="tel_no2" name="tel_no2" title="휴대폰번호 가운데 자리 입력" value="<%=phone2%>" maxlength="4">
+							 <span class="dash">-</span>
+							 <input type="text" class="celluar" id="tel_no3" name="tel_no3" title="휴대폰번호 마지막 자리 입력" value="<%=phone3%>" maxlength="4">
+						 </td>
 					</tr>
 
 					<tr>
 						<th scope="row"><label for="quest_title">제목</label></th>
 
-						<td><input type="text" class="w_tit" id="quest_title"
-							name="quest_title" title="제목 입력" placeholder="제목을 입력해 주세요.">
+						<td>
+							<input type="text" class="w_tit" id="quest_title" name="quest_title" title="제목 입력" placeholder="제목을 입력해 주세요.">
 						</td>
 					</tr>
 
@@ -432,7 +455,7 @@ button em {
 			
 			<!-- 확인/취소 버튼 -->
 			<div class="conf_btns">
-				<button type="submit">
+				<button type="submit" class="confirm">
 					<em>확인</em>
 				</button>
 				<button class="cancel" id="cancelBtn" type="reset">

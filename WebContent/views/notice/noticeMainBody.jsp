@@ -10,10 +10,17 @@
 body{
 	width: 1500px;
 	margin: auto;
+	height:800px;
+}
+
+.outer{
+	width:860px;
+	height:800px;
+	margin-top:200px;
 }
 .sub_cont 
 {
-	width: 1000px;
+	width: 860px;
 	margin-top: 153px;
 	margin-left: 400px;
 	
@@ -24,16 +31,9 @@ body{
     width: 852px;
     height: 98px;
     margin-bottom: 38px;
-/*     padding: 20px 0; */
     border: 4px solid #efefef;
 }
-/* .sub_cont{
-	float:right;
-	position:relative;
-	width:860px;
-	min-height:800px;
-	padding: 0 0 75px 30px;
-} */
+
 .sub_cont .cst_quick li{
 	float:left;
 }
@@ -212,6 +212,7 @@ table {
 <%@ include file="noticeSearch.jsp" %>
 	<div id="cst_content" class="sub_cont">
 
+	<div class="outer">
         <ul class="cst_quick">
             <li class="q01"><a href="<%= request.getContextPath() %>/find.me"><img id="q01" src="<%=request.getContextPath() %>/resources/img/lock.png" onclick="">아이디/비밀번호 찾기</a></li>
             <li class="q02"><a href="<%= request.getContextPath()%>/orderList.my"><img id="q02" src="<%=request.getContextPath()%>/resources/img/delivery.png" onclick="">주문/배송 조회</a></li>
@@ -280,6 +281,8 @@ table {
             </ul>
             <a href="<%= request.getContextPath() %>/noticeList.no" onclick="" class="arrow_btn01">전체보기</a>
         </div>
+        
+       </div>
     </div>
 
             <script>
