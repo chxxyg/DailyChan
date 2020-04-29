@@ -326,7 +326,7 @@
 	</script>
 	    
     <div id="bestWrap">
-        <div id="bestLabel"><a class="aLabel" href="">실시간 베스트</a></div>
+        <div id="bestLabel"><a class="aLabel" href="<%= contextPath %>/pList.pro?category=best&currentPage=1">실시간 베스트</a></div>
         <table id="bestTable">
             <tr>
                 <td>
@@ -537,7 +537,7 @@
 
     <div id="newSaleWrap">
         <div id="newWrap">
-            <div id="newLabel"><a class="aLabel" href="">NEW</a></div>
+            <div id="newLabel"><a class="aLabel" href="<%= contextPath %>/pList.pro?category=new&currentPage=1">NEW</a></div>
             <table id="newTable">
                 <tr>
                     <td>
@@ -663,7 +663,7 @@
         </div>
 
         <div id="saleWrap">
-            <div id="saleLabel"><a class="aLabel" href="">SALE</a></div>
+            <div id="saleLabel"><a class="aLabel" href="<%= contextPath %>/pList.pro?category=sale&currentPage=1">SALE</a></div>
             <table id="saleTable">
                 <tr>
                     <td>
