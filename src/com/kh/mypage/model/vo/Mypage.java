@@ -14,7 +14,7 @@ public class Mypage {
 	private int payAmount;		//주문총가격
 	private int status;			//상태(0:결제완료, 1:상품준비중, 2:배송중, 3:배송완료)
 	private String couponCode;  //쿠폰코드
-	private int couponPrice;	//쿠폰금액
+	private int useCoupon;		//사용한쿠폰금액
 	private String payType;		//결제방식
 	private Date payDate;		//결제일시
 	private String recipient;	//배송받는사람
@@ -46,7 +46,7 @@ public class Mypage {
 	}
 	
 	/* 주문내역 상세조회 */
-	public Mypage(String proCode, String proName, int quantity, int price, int payAmount,
+	public Mypage(String proCode, String proName, int quantity, int price, int payAmount, int useCoupon,
 			String recipient, String phone, String address, String delRequest, int status, String payType, Date payDate, String fileName) {
 		super();
 		this.proCode = proCode;
@@ -54,6 +54,7 @@ public class Mypage {
 		this.quantity = quantity;
 		this.price = price;
 		this.payAmount = payAmount;
+		this.useCoupon = useCoupon;
 		this.recipient = recipient;
 		this.phone = phone;
 		this.address = address;
@@ -63,9 +64,9 @@ public class Mypage {
 		this.payDate = payDate;
 		this.fileName = fileName;
 	}
-	
+
 	public Mypage(String orderNo, Date orderDate, String proCode, String fileName, String proName, int price,
-			int quantity, int payAmount, int status, String couponCode, int couponPrice, String payType, Date payDate,
+			int quantity, int payAmount, int status, String couponCode, int useCoupon, String payType, Date payDate,
 			String recipient, String phone, String address, String delRequest, Date refundDate, int countOrdNo) {
 		super();
 		this.orderNo = orderNo;
@@ -78,7 +79,7 @@ public class Mypage {
 		this.payAmount = payAmount;
 		this.status = status;
 		this.couponCode = couponCode;
-		this.couponPrice = couponPrice;
+		this.useCoupon = useCoupon;
 		this.payType = payType;
 		this.payDate = payDate;
 		this.recipient = recipient;
@@ -169,12 +170,12 @@ public class Mypage {
 		this.couponCode = couponCode;
 	}
 
-	public int getCouponPrice() {
-		return couponPrice;
+	public int getUseCoupon() {
+		return useCoupon;
 	}
 
-	public void setCouponPrice(int couponPrice) {
-		this.couponPrice = couponPrice;
+	public void setUseCoupon(int useCoupon) {
+		this.useCoupon = useCoupon;
 	}
 
 	public String getPayType() {
@@ -245,10 +246,10 @@ public class Mypage {
 	public String toString() {
 		return "Mypage [orderNo=" + orderNo + ", orderDate=" + orderDate + ", proCode=" + proCode + ", fileName="
 				+ fileName + ", proName=" + proName + ", price=" + price + ", quantity=" + quantity + ", payAmount="
-				+ payAmount + ", status=" + status + ", couponCode=" + couponCode + ", couponPrice=" + couponPrice
+				+ payAmount + ", status=" + status + ", couponCode=" + couponCode + ", useCoupon=" + useCoupon
 				+ ", payType=" + payType + ", payDate=" + payDate + ", recipient=" + recipient + ", phone=" + phone
 				+ ", address=" + address + ", delRequest=" + delRequest + ", refundDate=" + refundDate + ", countOrdNo="
 				+ countOrdNo + "]";
 	}
-
+	
 }

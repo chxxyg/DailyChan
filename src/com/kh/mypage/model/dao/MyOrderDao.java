@@ -147,6 +147,7 @@ public class MyOrderDao {
 											rset.getInt("QUANTITY"),
 											rset.getInt("PRICE"),
 											rset.getInt("PAYMENT_AMOUNT"),
+											rset.getInt("USE_COUPONE"),
 											rset.getString("RECIPIENT"),
 											rset.getString("PHONE"),
 											rset.getString("ADDRESS"),

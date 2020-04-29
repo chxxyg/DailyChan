@@ -180,7 +180,7 @@
 				<th width="197">최종 결제금액</th>
 			</tr>
 			<tr height="50">
-				<td colspan="4"><p id="paymentInfo_first">49,800</p>원<span>+</span><p>3,000</p><span>-</span><p>5,000</p>원<span>=</span><p id="paySum">49,800</p>원</td>
+				<td colspan="4"><p id="paymentInfo_first"><%= detailList.get(0).getPayAmount() %>원</p><span>+</span><p>3,000원</p><span>-</span><p><%= detailList.get(0).getUseCoupon() %>원</p><span>=</span><p id="paySum"><%= detailList.get(0).getPayAmount() - detailList.get(0).getUseCoupon()%>원</p></td>
 			</tr>
 		</table>
 		<br>
@@ -188,13 +188,13 @@
 			<tr height="45px">
 				<th width="130px">결제수단</th>
 				<td width="660px">
-					비씨카드 (1234********5678) 일시불 <br>
-					2020-03-31 20:19:24
+					<%= detailList.get(0).getPayType() %> <br>
+					<%= detailList.get(0).getPayDate() %>
 				</td>
 			</tr>
 			<tr height="45px">
 				<th width="130px">결제금액</th>
-				<td width="660px">49,800원</td>
+				<td width="660px"><%= detailList.get(0).getPayAmount() - detailList.get(0).getUseCoupon() %>원</td>
 			</tr>
 		</table>
 		<br>
@@ -204,19 +204,19 @@
 		<table id="orderDetail_shipmentInfo">
 			<tr height="45px">
 				<th width="130px">배송 받으실 분</th>
-				<td width="660px">강보람님</td>
+				<td width="660px"><%= detailList.get(0).getRecipient() %>님</td>
 			</tr>
 			<tr height="45px">
 				<th width="130px">휴대전화</th>
-				<td width="660px">010-1111-2222</td>
+				<td width="660px"><%= detailList.get(0).getPhone() %></td>
 			</tr>
 			<tr height="45px">
 				<th width="130px">주소</th>
-				<td width="660px">(12345) 서울시 강남구 테헤란로14길 6 남도빌딩 3F</td>
+				<td width="660px"><%= detailList.get(0).getAddress() %></td>
 			</tr>
 			<tr height="45px">
 				<th width="130px">배송시 요청사항</th>
-				<td width="660px"></td>
+				<td width="660px"><%= detailList.get(0).getDelRequest() %></td>
 			</tr>
 		</table>
 		<br><br><br>
@@ -239,13 +239,6 @@
 			history.back();
 		}
 		
-		
-		/*Ajax로 값만 서블릿 전달!!*/
-		function toCart(){
-			
-			window.alert("장바구니에 상품이 담겼습니다.");
-			
-		}
 	
 	</script>
 		
