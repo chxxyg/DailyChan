@@ -37,11 +37,6 @@ public class ProductToCartServlet extends HttpServlet {
 		int qty = Integer.parseInt(request.getParameter("qty"));
 		int proPrice = Integer.parseInt(request.getParameter("proPrice"));
 		
-		System.out.println(memberId);
-		System.out.println(proCode);
-		System.out.println(qty);
-		System.out.println(proPrice);
-		
 		int result = 0;
 		int msg = 0;
 		

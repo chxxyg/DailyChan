@@ -175,7 +175,7 @@
     <script>
   		  function deleteProduct(){   		
     		
-	    		var bool = confirm("정말 탈퇴시키겠습니까?");
+	    		var bool = confirm("정말 삭제 시키겠습니까?");
 	    		if(bool){
 	    			location.href = "<%=contextPath%>/deleteProduct.ad?mid=<%=p.getProCode()%>";	
 	    		}else{
@@ -185,7 +185,7 @@
     		}
   		  function updateProduct(){
   			  
-  			  var bool = confirm("정말 수정하겠습니까?");
+  			  var bool = confirm("정말 수정 하겠습니까?");
   			  if(bool){
   				  return true;
   			  }else{

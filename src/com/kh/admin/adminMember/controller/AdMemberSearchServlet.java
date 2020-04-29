@@ -69,12 +69,12 @@ public class AdMemberSearchServlet extends HttpServlet {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
-				
+		String Remem = "1";		
 		AdPageInfo pi = new AdPageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
 			
 		ArrayList<Member> list = new adMemberService().searchMember(pi,memberId);
 			
-		
+		request.setAttribute("Remem", Remem);
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		if(list.isEmpty()) {	

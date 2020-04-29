@@ -43,7 +43,7 @@ public class AdMemberDeleteServlet extends HttpServlet {
 		
 		if(result > 0) {	// 성공
 			
-			response.sendRedirect("memberList.ad?mid="+mid);
+			response.sendRedirect("memberList.ad?currentPage=1");
 		}else {	// 실패
 			request.setAttribute("msg", "삭제 실패!");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);

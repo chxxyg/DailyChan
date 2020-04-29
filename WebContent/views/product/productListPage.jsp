@@ -13,6 +13,8 @@
 	int maxPage = pi.getMaxPage();
 	
 	String proCode = (String)request.getAttribute("proCode");
+	
+	
 %>
 <!DOCTYPE html>
 <html>

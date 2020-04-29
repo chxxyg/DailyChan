@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReview.model.vo.AdReview,  com.kh.admin.adminMember.model.vo.*" %>
 <%
 	ArrayList<AdReview> list = (ArrayList<AdReview>)request.getAttribute("list"); 
+	String Remem = (String)request.getAttribute("Remem");
 
 	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
 	int currentPage = pi.getCurrentPage();
@@ -147,8 +148,11 @@
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
-                
+                <% if(Remem == "1" ){ %>
+                	<div style="width:15%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
+				<%}if(Remem != "1"){ %>                
+                	<div style="width:15%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= pi.getListCount() %>"> 개</div>    
+                <%} %>
         </div>  
         <table class="listMember">
             <thead>
