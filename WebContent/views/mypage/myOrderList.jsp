@@ -30,6 +30,9 @@
 		float:left;
 		font-size:12px;
 	}
+	#orderPeriodSch input{margin: 10px 5px 0px 10px;}
+	#orderPeriodSch span{margin: 10px 0px 0px 5px;}
+	#orderPeriodSch button{margin:5px 0px 0px 10px;}
 	
 	/* 주문/배송 리스트 영역*/
 	.myOrderList{
@@ -73,7 +76,7 @@
 		font-size:10px;
 		cursor:pointer;
 	}
-	.trackShipmentBtn{
+	.trackShipmentBtn, #priodSchBtn{
 		width:60px;
 		height:30px;
 		background:tomato;
@@ -81,22 +84,6 @@
 		font-size:10px;
 		color:white;
 		margin-bottom:5px;
-		cursor:pointer;
-	}
-	.cancelOrderBtn, .requestRefundBtn{
-		width:60px;
-		height:30px;
-		background:white;
-		border:1px solid black;
-		font-size:10px;
-		cursor:pointer;
-	}
-	#cancelOrdBlockBtn{
-		width:60px;
-		height:30px;
-		background:white;
-		border:1px solid black;
-		font-size:10px;
 		cursor:pointer;
 	}
 </style>
@@ -113,11 +100,13 @@
 		<hr>
 		
 		<!-- 주문배송 조회기간 선택 -->
-		<div id="cancelPeriodSch">
+		<div id="orderPeriodSch">
 			<form>
 				<p>조회기간</p>
-				
-				
+					<input type=date id="startDate">
+					<span> ~ </span>
+					<input type=date id="endDate">
+					<button type=submit id="priodSchBtn">조회</button>
 				
 			</form>
 		</div>
@@ -213,14 +202,23 @@
 			$(".orderDtBtn").click(function(){
 				var orderNo = $(this).siblings(".orderNo").text();
 				var orderDate = $(this).text();
+				
+				//console.log(orderNo);
+				//console.log(orderDate);
+				
 				location.href="<%=contextPath%>/orderDetail.my?orderNo=" + orderNo + "orderDate=" + orderDate;
-			})
+			});
 			
 			$(".pName").click(function(){
 				var pCode = $(this).prev().val();
 				location.href="<%=contextPath%>/pDetail.pro?pCode=" + pCode;
-			})
+			});
 			
+			$("#priodSchBtn").click(function(){
+				var startDate = $(this).siblings("#startDate").val();
+				var endDate = $(this).siblings("#endDate").val();
+						
+			});
 			
 		});	
 		
