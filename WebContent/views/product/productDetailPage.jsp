@@ -6,8 +6,6 @@
 	String proCode = (String)request.getAttribute("proCode");
 	ArrayList<Review> rList = (ArrayList<Review>)request.getAttribute("rList");
 	ArrayList<Inquiry> iList = (ArrayList<Inquiry>)request.getAttribute("iList");
-	
-	Member loginUser3 = (Member) session.getAttribute("loginUser");
 %>
 <!DOCTYPE html>
 <html>
@@ -443,10 +441,8 @@
 				    content.slideUp();
 				}
     		});
-
     	});
     	
-
 		$("#detailReviewBtn").click(function(){
 			<% if(loginUser != null){ %>
 			window.open("<%=contextPath%>/reviewPop.re?proCode=<%=p.getProCode()%>", "후기 작성", "width=510, height=580, left=500");
