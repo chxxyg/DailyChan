@@ -59,12 +59,12 @@ $(document).ready(function() {
     		return false;
     	}
     	
-    	var regExp = /^[a-zA-Z]+$/;
+    	var regExp = /^[a-zA-Z0-9]+$/;
     	if(!regExp.test(sVal))
 		{
-    		fnMsgShow($("#caution1"),"아이디는 영문 만 가능합니다.");
+    		fnMsgShow($("#caution1"),"아이디는 영문과 숫자 만 가능합니다.");
     		if(isAlert) {
-    			alert("아이디는 영문 만 가능합니다.");
+    			alert("아이디는 영문과 숫자 만 가능합니다.");
     		}
     		return;
 		}

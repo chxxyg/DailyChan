@@ -14,6 +14,7 @@
 	    background: #f5f5f5;
 	    text-align: center;
 	    margin: auto;
+	    margin-top: 20px;
 	    width: 1000px;
 	    height: 600px;
 	}
