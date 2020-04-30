@@ -81,10 +81,26 @@
             padding: 12px;
             font-size: 12px;
         }
-
         #login
         {
         	height: 100px;
+        }
+        #cart
+        {
+        	width: 100%;
+        }
+        #lately
+        {
+    		width: 100%;
+    		height: 260px;
+        }
+        #lately img
+        {
+        	margin: 10px;
+        }
+        .lately
+        {
+        	margin: 10px 0;
         }
 		#sideBar_login_btn
 		{
@@ -156,7 +172,10 @@
        	</div>
         <div id="lately">
             	최근 본 상품
+			<a href="/dailyChan/pDetail.pro?proCode=KOA105"><img alt="" src="/dailyChan/resources/attachment_product/서울식 소불고기전골.jpg" style="width:90px; height:90px;" ></a>
+        	<a href="/dailyChan/pDetail.pro?proCode=KOD124"><img alt="" src="/dailyChan/resources/attachment_product/치즈 짜장떡볶이.jpg" style="width:90px; height:90px;"></a>
         </div>
+
 		<button id="top_btn" type="button" onClick="javascript:window.scrollTo(0,0)"><b>TOP</b></button>
     </div>
             
