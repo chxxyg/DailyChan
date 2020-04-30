@@ -172,6 +172,11 @@
 	
 .couponList tbody>tr{
 	border-top: 1px solid lightgray;
+	font-size: 15px;
+}
+#coupon_Name
+{
+	font-weight: bold;
 }
 	
 
@@ -212,8 +217,8 @@
 							<tbody>
 							
 							<% for(int i=0; i<mcList.size(); i++ ){ %>
-								<tr height="35">
-									<td><%=mcList.get(i).getCouponName() %></td>
+								<tr height="100">
+									<td id="coupon_Name"><%=mcList.get(i).getCouponName() %></td>
 									<td><%=mcList.get(i).getCouponPrice() %>원</td>
 									<td><%=mcList.get(i).getCouponCondition() %>원 이상 구매 시</td>
 									<td><%=mcList.get(i).getCouponIssueDate() %></td>
@@ -266,101 +271,5 @@
 	
 	
 	<%@ include file="../../views/common/mainFooter.jsp" %>
-	
-	
-	
-	
-	
-	
-	<script type="text/javascript">
-	var _global_param = {
-			date_divi :'6', 
-			date_divi_tp : 'month', 
-			startCalObj : $('#cal_start'), 
-			endCalObj : $('#cal_end'),
-			startInputObj : $('#date_start'),
-			endInputObj : $('#date_end') 
-			}
-	
-	var checkPeriod = 12;
-	
-	$(document).ready(function(){
-		if($("#checkPeriod").length > 0) {
-			checkPeriod = 6;
-		}
-		//검색기간 클릭 이벤트
-		$(".d_gradeSelect").each(function(){
-			var $this = $(this);
-			var $links = $this.find("button");
-			$links.on("click",function(e){
-				$links.removeClass("on");
-	
-				$(this).addClass("on");
-				
-				//기간 버튼 클릭시 달력영역 날짜 세팅
-				overpass.mypage.searchFilter.selectPeriodBtn($(this));
-			})
-		});
-		
-		//달력 초기화
-		overpass.mypage.searchFilter.initCal(_global_param.startCalObj, _global_param.startInputObj, _global_param.endInputObj, checkPeriod);
-		overpass.mypage.searchFilter.initCal(_global_param.endCalObj, _global_param.startInputObj, _global_param.endInputObj, checkPeriod);
-		
-		//검색 버튼 초기화
-		//overpass.mypage.searchFilter.initBtn();		
-		if(_global_param.date_divi_tp=='week' || _global_param.date_divi_tp=='month'){
-			overpass.mypage.searchFilter.initBtn($('.d_gradeSelect > span > button[data-val='+_global_param.date_divi+'][data-type='+_global_param.date_divi_tp+']'));
-		}
-		
-		//검색기간 readonly처리
-		$('#date_start').attr("readonly", true);
-		$('#date_end').attr("readonly", true);
-		
-		//크롬에서 float:left 깨짐 버그를 방지하기 위해 한번 더 왼쪽 붙임 작업 수행
-		$(".mys_sch > dl dd .sel button").css("float","left");
-	});
-	
-	// 현재 선택된 검색 조건을 form 에 append 한다.
-	var _checkValidationAndAppendDataToForm = function(formObj){
-		
-		//_preventDefault();
-		
-		var date_divi_tp='';
-		var date_divi='';
-		var date_start='';
-		var date_end='';
-		
-		$('[id^=period_]').each(function(){
-			if($(this).attr("class")=="on"){
-				date_divi = $(this).data("val");
-				date_divi_tp = $(this).data("type");
-			}
-		});
-		
-		if(date_divi_tp == '' && $('#date_start').val()!='' && $('#date_end').val()!=''){
-			date_divi_tp='menual';
-			date_divi='';
-		}
-		
-		date_start=$('#date_start').val();
-		date_end=$('#date_end').val();
-		
-		if(date_divi_tp==''){
-			alert('검색 조건을 설정해 주세요.');	
-			return false;
-		}
-		
-		if(!overpass.mypage.searchFilter.checkPeriodCondition(checkPeriod)){
-			return false;
-		}
-		
-	    $('#'+formObj).append("<input type='hidden' value='"+date_divi_tp+"' name='date_divi_tp'/>");
-		$('#'+formObj).append("<input type='hidden' value='"+date_divi+"' name='date_divi'/>");
-		$('#'+formObj).append("<input type='hidden' value='"+date_start+"' name='date_start'/>");
-		$('#'+formObj).append("<input type='hidden' value='"+date_end+"' name='date_end'/>");
-		
-		return true;
-	}
-</script>
 </body>
 </html>
