@@ -41,24 +41,6 @@ public class PwdFindServlet extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	out.print(memberPwd);
 	
-	
-		/*
-		 * if(memberPwd != null) {
-		 * 
-		 * HttpSession session = request.getSession(); session.setAttribute("memberPwd",
-		 * memberPwd);
-		 * 
-		 * request.getRequestDispatcher("views/member/findBox.jsp").forward(request,
-		 * response);
-		 * 
-		 * }else {
-		 * 
-		 * request.getRequestDispatcher("views/member/findBox.jsp").forward(request,
-		 * response);
-		 * 
-		 * }
-		 */
-		
 	}
 
 	/**

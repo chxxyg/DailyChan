@@ -41,14 +41,6 @@ public class IdFindServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(memberId);
-	
-		//HttpSession session = request.getSession();
-		//session.setAttribute("memberId", memberId);
-	
-		//response.sendRedirect("views/member/findBox.jsp");
-		
-		//request.getRequestDispatcher("views/member/findBox.jsp").forward(request, response);
-		
 
 	
 	}

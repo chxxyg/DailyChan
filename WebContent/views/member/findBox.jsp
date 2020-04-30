@@ -43,6 +43,9 @@
 	margin-left: 35px;
 	margin-top:75px;
 }
+.login_box_id_find h2{
+	padding:30px 0px 10px 0px;
+}
 
 .login_box_pw_find {
 	margin-left: 20px;
@@ -59,9 +62,12 @@
 	width: 360px;
 	height: 44px;
 	margin-left: 0px;
-	margin-top: 40px;
+	margin-top: 50px;
 }
+#login_set_pw.login_set.login_set_pw{
 
+	margin-top:20px;
+}
 #pw_name, #id_email {
 	width: 360px;
 	height: 44px;
@@ -99,6 +105,7 @@
 	width: 350px;
 	height: 300px;
 	margin: auto;
+	margin-top:43px;
 	border-top: 1px solid gray;
 }
 
@@ -192,6 +199,9 @@
 .find_box td {
 	border: 1px solid blue;
 }
+#pwdlogo{
+	padding:25px 0px 15px 0px;
+}
 </style>
 
 </head>
@@ -260,7 +270,7 @@
 
 				<div class="login_box_pw_find">
 					<div class="pwdFind_before">
-						<h2 align="center">비밀번호 찾기</h2>
+						<h2 id="pwdlogo" align="center">비밀번호 찾기</h2>
 						<form name="findPwForm" action="<%= contextPath %>/pwdFind.me"
 							id="findPwForm" method="post">
 							<div class="login_type login_set_pw"></div>
@@ -313,11 +323,13 @@
 			 $(".pwdFind_before").show();
 			 $(".pwdFind_after").hide();
 		});
-
+		
+		/* 아이디 찾기 */
 		$("#btn_find_id").click(function(){
 			var id_name = $("#id_name").val();
 			var id_email = $("#id_email").val();
 			var id_result = $("#id_result");
+
 			
 			$.ajax({
 				url:"/dailyChan/idFind.me",
@@ -328,7 +340,7 @@
 					if(memberId == null){
 						$(".idFind_before").show();
 						$(".idFind_after").hide();
-						alert("실패");
+						alert("아이디 찾기에 실패했습니다.");
 						
 					}else{
 						$(".idFind_after").show();
@@ -344,6 +356,7 @@
 		});
 
 		
+		/* 비밀번호 찾기 */
 		$("#btn_find_pw").click(function(){
 			var pw_id = $("#pw_id").val();
 			var pw_name = $("#pw_name").val();
@@ -358,7 +371,7 @@
 					if(memberPwd == null){
 						$(".pwdFind_before").show();
 						$(".pwdFind_after").hide();
-						alert("실패");
+						alert("비밀번호 찾기에 실패했습니다.");
 						
 					}else{
 						$(".pwdFind_after").show();

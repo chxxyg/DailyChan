@@ -15,6 +15,7 @@
     width: 1000px;
     min-width: 1000px;
     margin: auto;
+    margin-top:100px;
     padding: 0;
 }
 .wrap_box{
@@ -46,10 +47,12 @@
     background:white;
     float:left;
     margin-left:25px;
+    margin-top:-20px;
 }
 .login_box_id_find{
 
    margin-left:10px;
+   margin-top:-20px;
 }
 #loginMemId{
 	
@@ -70,7 +73,7 @@
 	padding:50px 0px 50px 0px;
 }
 #idlogo{
-	padding:50px 0px 50px 0px;
+	padding:50px 0px 20px 0px;
 }
 
 
@@ -81,7 +84,7 @@
 	font-weight:800;
 	font-size:20px;
 	margin:auto;
-	margin-top:50px;
+	margin-top:150px;
 	color:#999;
 
 }
