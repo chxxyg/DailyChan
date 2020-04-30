@@ -19,7 +19,7 @@
  --%>
 	<script>
 		
-		window.alert("실패");
+		window.alert("조회 실패 다시 이용해주세요.");
 		
 	</script>
 
