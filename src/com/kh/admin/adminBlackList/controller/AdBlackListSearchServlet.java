@@ -78,9 +78,17 @@ public class AdBlackListSearchServlet extends HttpServlet {
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 
-		RequestDispatcher view = request.getRequestDispatcher("views/admin/adminBlackList/adminBlackListSearch.jsp");
-		view.forward(request, response);
+		if(list.isEmpty()) {	
+			response.setContentType("text/html; charset=UTF-8");
 			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('조회된 결과가 없습니다');history.back();</script>");
+			
+			out.flush();
+		}else {	
+			request.getRequestDispatcher("views/admin/adminBlackList/adminBlackListSearch.jsp").forward(request, response);				
+		}
 		
 	}
 

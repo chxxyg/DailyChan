@@ -74,7 +74,19 @@ public class AdReviewSearchServlet extends HttpServlet {
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/admin/adminReview/adminReviewSearch.jsp").forward(request, response);		
+		
+		if(list.isEmpty()) {	
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('조회된 결과가 없습니다');history.back();</script>");
+			
+			out.flush();
+		}else {
+			
+			request.getRequestDispatcher("views/admin/adminReview/adminReviewSearch.jsp").forward(request, response);		
+		}
 		
 	}
 

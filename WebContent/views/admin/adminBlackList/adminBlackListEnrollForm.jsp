@@ -100,7 +100,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit" onclick="">추가하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/blackList.ad';">목록으로</button>
+        		<button type="button" onclick="location.href='<%=contextPath%>/blackList.ad?currentPage=1';">목록으로</button>
         	</div>        
         
        </form>

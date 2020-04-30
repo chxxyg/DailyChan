@@ -57,7 +57,7 @@ public class AdBlackListInsertServlet extends HttpServlet {
 		
 		request.setAttribute("b", b);
 		if(result > 0 && result2 > 0) {	
-			response.sendRedirect("blackList.ad");
+			response.sendRedirect("blackList.ad?currentPage=1");
 		}else {						
 			response.setContentType("text/html; charset=UTF-8");
 			

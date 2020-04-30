@@ -100,7 +100,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="button" onclick="deleteBlackList();">해제하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/blackList.ad';">목록으로</button>
+        		<button type="button" onclick="location.href='<%=contextPath%>/blackList.ad?currentPage=1';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
         
