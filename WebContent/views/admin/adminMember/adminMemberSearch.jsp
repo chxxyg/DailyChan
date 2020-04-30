@@ -58,7 +58,6 @@
             border: 1px solid #181c20;
             position:relative;
             max-height:600px;
-            border-collapse:collapse; 
             
         }
       	/*상품 등록 삭제 버튼css*/
