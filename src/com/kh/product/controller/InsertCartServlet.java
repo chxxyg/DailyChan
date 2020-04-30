@@ -32,6 +32,7 @@ public class InsertCartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
 		String proCode = request.getParameter("proCode");
 		int proPrice = Integer.parseInt(request.getParameter("proPrice"));

@@ -249,7 +249,6 @@
 		function preOrderDetail(){
 			history.back();
 		}
-		
 	
 	</script>
 		
