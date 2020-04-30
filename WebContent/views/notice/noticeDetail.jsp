@@ -15,8 +15,8 @@
 <style>
 
 body{
-	width:1200px;
-	height:800px;
+	width:1500px;
+	height:1000px;
 	margin:auto;
 }
 .outer {
@@ -44,8 +44,12 @@ body{
 }
 .btns{
 	cursor:hover;
+	float:bottom;
 }
-
+#cst_content.sub_cont{
+	margin-left:30px;
+	height:1000px;
+}
 </style>
 
 <body>
@@ -76,9 +80,9 @@ body{
 			
 		</div>
 		
-	</div>
 	<div class="btns" align="center">
 		<button onclick="location.href='<%=contextPath%>/noticeList.no?currentPage=1'">목록으로</button>
+	</div>
 	</div>
 
 <%@ include file="../common/mainFooter.jsp"%>

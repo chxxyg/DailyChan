@@ -24,7 +24,7 @@
 	height: 623px;
 	font-size: 12px;
 	text-decoration: none;
-	margin-left: 150px;
+	margin-left: 200px;
 	margin-top: 0;
 }
 

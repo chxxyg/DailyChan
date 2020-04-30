@@ -67,7 +67,10 @@
 	border-top:1px solid gray;
 }
 .login_set h2{
-	padding:30px 0px 30px 0px;
+	padding:50px 0px 50px 0px;
+}
+#idlogo{
+	padding:50px 0px 50px 0px;
 }
 
 
@@ -151,6 +154,10 @@ margin-top:50px;
 	
 }
 
+#login_set_id2.login_set{
+
+	margin-top:50px;
+}
 </style>
 </head>
 <body>
@@ -164,7 +171,8 @@ margin-top:50px;
 			<table class="find_box">
 				<div class="login_box_id_find">
 					<div class="login_set" id="login_set_id">
-					<h2 align="center">아이디 찾기</h2>
+					
+					<h2 id="idlogo" align="center">아이디 찾기</h2>
 						<div id="loginMemId">
 							<div id="find-info">회원님의 아이디를 찾았습니다.</div>
 							<div id="loginMemPwd_result" style="color: hsl(28, 100%, 50%);">

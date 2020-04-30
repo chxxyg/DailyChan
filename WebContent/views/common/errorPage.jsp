@@ -23,8 +23,6 @@
 		
 	</script>
 
-
-
 	<%@ include file="../common/mainFooter.jsp" %>
 </body>
 </html>

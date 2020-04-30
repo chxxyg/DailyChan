@@ -10,13 +10,13 @@
 .cst_top{
 /*  border:1px solid red;  */
     background-color: #79aff1;
-    width: 938px;
+    width: 934px;
     height: 120px;
 /* 	position: absolute; */
 	top: 120px;
     left: 142px; 
-/*     margin-top: 158px;
-    margin-left: 180px; */
+/*     margin-top: 158px;*/
+    margin-left:0px;
     float:left;
 }
 

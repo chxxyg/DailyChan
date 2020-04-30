@@ -111,15 +111,19 @@ margin:auto;
         <div>
             <form id="loginLayerForm" method="post" action="<%= contextPath%>/login.me">
 				<!-- 쿠기 적용 전 -->
-                <input name="userId" id="userId" type="text" placeholder="아이디" maxlength="50" required  value="<%= saveId ? userIdSaved : "" %>"><br><br>
-                <input name="userPwd" id="pwd" type="password" placeholder="비밀번호" maxlength="20" required><br><br>
+                <input name="userId" id="userId" type="text" placeholder="아이디" maxlength="50"
+                 	required  value="<%= saveId ? userIdSaved : "" %>">																									<br><br>
+                <input name="userPwd" id="pwd" type="password" placeholder="비밀번호" maxlength="20" required>																												<br><br>
                 <button id="loginBtn" type="submit" onclick="inputLogin();">로그인</button><br>
-      			 
-            
-        </div>
+       	</div>
         
-	        <!-- 쿠키 적용 후 -->
-	        <input type="checkbox" id="idSaveCheck" name="saveId" <% if(saveId){ %> checked="checked"<%} %>>아이디 저장
+	        	<!-- 쿠키 적용 후 -->
+	        	<input type="checkbox" id="idSaveCheck" name="saveId" <% if(saveId){ %> checked="checked"<%} %>>아이디 저장
+	        
+	        
+	        
+	        
+	        
 			<%-- <input type="text" name="userId" id="userId" value="<%= saveId ? userIdSaved : "" %>"> --%>
 			</form>
             <br><br>

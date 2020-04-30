@@ -14,7 +14,7 @@ body{
 }
 
 .outer{
-	width:860px;
+	width:900px;
 	height:800px;
 	margin-top:200px;
 }
@@ -25,12 +25,16 @@ body{
 	margin-left: 400px;
 	
 }
+/* ul.cst_quick{
+	width:80px;
+} */
 
 .cst_quick{
     display: block;
-    width: 852px;
+    width: 880px;
     height: 98px;
     margin-bottom: 38px;
+    margin-left:30px;
     border: 4px solid #efefef;
 }
 
@@ -70,6 +74,7 @@ body{
     width: 870px;
     height: auto;
     cursor: pointer;
+     margin-left:30px;
 
 }
 
@@ -94,6 +99,7 @@ body{
 .cst_noti_main{
     position: relative;
     margin: 38px 0 0;
+     margin-left:30px;
 }
 .cst_noti_main li{
     list-style: none;
