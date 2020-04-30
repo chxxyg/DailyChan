@@ -14,10 +14,20 @@
 <title>상담내역</title>
 </head>
 <style>
+body {
+	width: 1500px;
+	margin: auto;
+}
+
 .outer {
 	width: 1200px;
-	height: 700px;
+	min-height: 1000px;
+	height: auto;
 	margin: auto;
+}
+
+talbe.noti_tbl {
+	border: 3px solid #f0eded;
 }
 
 .outer_1 {
@@ -33,7 +43,7 @@
 	float: left;
 	width: 860px;
 	padding: 5px 5px 5px 5px;
-/* 	border: 1px solid blue; */
+	/* 	border: 1px solid blue; */
 	margin-top: 30px;
 }
 
@@ -47,21 +57,67 @@ thead tr {
 	font-size: 13px;
 }
 
+tbody tr {
+	border-bottom-style: 1px solid;
+	height: 28px;
+	font-size: 12px;
+}
+
 tbody tr td {
 	text-align: center;
 }
 
-.noti_tbl {	
-	border: 2px ridge gray; 
+table.noti_tbl {
+	border: 3px solid #f0eded;
+}
+
+td#i_1 {
+	border-right-style: ridge;
+	border-bottom-style: ridge;
+	height: 30px;
+}
+
+td#i_2 {
+	border-right-style: ridge;
+	border-bottom-style: ridge;
+	height: 30px;
+}
+
+td#i_3 {
+	border-right-style: ridge;
+	border-bottom-style: ridge;
+	height: 30px;
+}
+
+td.emphasis {
+	border-bottom-style: ridge;
+	height: 35px;
 }
 
 #i_1, #i_2, #i_3 {
-	border-right-style: ridge;
+	border-right-style:;
 }
 
 #q_1, #q_2, #q_3 {
 	border-right-style: ridge;
+	font-size: 14px;
+	height:35px;
+	font-weight:500;
 }
+#q_4{
+font-size: 14px;
+height:35px;
+font-weight:500;
+
+}
+.noti_tbl>tbody>tr:hover {
+	background-color: rgba(236, 142, 34, 0.089);
+	cursor: pointer;
+}
+td.emphasis{
+	font-color:red;
+}
+
 </style>
 <body>
 
@@ -103,27 +159,7 @@ tbody tr td {
 			                <%} %>  
 						</tr> 
 						<% } %>
-						<!-- 수정 -->
-						<%-- 
-						<% if (list.isEmpty()) {//리스트가 비어있을 경우 %>
-						<tr>
-							<td colspan="5">존재하는 공지사항이 없습니다. </td>
-						</tr>
-						<% } else { %>
-							<% for (Inquiry i : list) { %>
-								<tr>
-									<td id="i_1"><%=i.getInquiryType()%></td>
-									<td id="i_2"><%=i.getInquiryContent()%></td>
-									<td id="i_3"><%=i.getInquiryCreateDate()%></td>
-									<% if (i.getInquiryResponseYn()==null){ %>
-				                  <td class="emphasis"> 미답변</td>
-				                <% }else{ %>
-				                  <td class="emphasis">답변완료</td>
-				                <%} %>  
-								</tr>
-							<%}%>
-						<%}%> --%>
-
+						
 					</tbody>
 				</table>
 
@@ -132,6 +168,7 @@ tbody tr td {
 		</div>
 
 	</div>
+	<br><br><br><br>
 
 <%@ include file="../common/mainFooter.jsp"%>
 </body>
