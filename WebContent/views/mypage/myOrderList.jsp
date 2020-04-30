@@ -100,7 +100,7 @@
 		<hr>
 		
 		<!-- 주문배송 조회기간 선택 -->
-		<div id="orderPeriodSch">
+		<!-- <div id="orderPeriodSch">
 			<form>
 				<p>조회기간</p>
 					<input type=date id="startDate">
@@ -109,7 +109,7 @@
 					<button type=submit id="priodSchBtn">조회</button>
 				
 			</form>
-		</div>
+		</div> -->
 		
 		<!-- 주문배송 조회 리스트 -->
 		<table class="myOrderList" width="790px">
