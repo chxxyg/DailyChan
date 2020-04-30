@@ -40,7 +40,8 @@
 	margin-top:75px;
 }
 .login_box_id_find {
-	margin-left: 10px;
+	margin-left: 35px;
+	margin-top:75px;
 }
 
 .login_box_pw_find {
