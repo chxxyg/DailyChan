@@ -74,8 +74,9 @@ public class LoginServlet extends HttpServlet {
             
         }else {// 로그인 실패했을 경우 --> 에러페이지
             
-            response.sendRedirect("/dailyChan/loginPop.me");
+            //response.sendRedirect("/dailyChan/loginPop.me");
             request.setAttribute("msg", "로그인에 실패하였습니다.");
+            request.getRequestDispatcher("views/member/loginView.jsp").forward(request, response);
         }
 
     

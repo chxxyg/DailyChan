@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String contextPath = request.getContextPath();
+	String msg = (String)request.getAttribute("msg");
 
 	boolean saveId = false;
 	String userIdSaved = "";
@@ -100,7 +101,14 @@ margin:auto;
 <title>Insert title here</title>
 </head>
 <body>
-
+	<script>
+	$(function(){
+		var message = "<%=msg%>";
+		if(message != "null"){
+			alert(message);
+		}
+	});
+	</script>
 <div class="outer">
  <div class="login-box">
             
@@ -133,7 +141,6 @@ margin:auto;
 
        <div class="bt_set">
 			<button id="find_mem" type="submit" onclick="findMem();">아이디/비밀번호찾기</button>
-			<button id="no_mem" type="submit" onclick="nonMemOrd();">비회원 주문조회</button>
        </div>
     </div>
 </div>
