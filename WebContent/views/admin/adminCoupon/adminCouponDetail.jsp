@@ -83,7 +83,7 @@
             </tr>
             <tr>
                 <td width="200" >쿠폰이름</td>
-                <td><input type="text" value="<%= c.getCouponName() %>" name="cname"  readonly></td>
+                 <td><textarea cols="30" rows="3" style="resize:none" name="cname" readonly ><%= c.getCouponName() %></textarea></td>
             </tr>
             <tr>
                 <td width="200">사용조건</td>

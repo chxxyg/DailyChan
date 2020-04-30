@@ -83,7 +83,7 @@
             </tr>
             <tr>
                 <td width="200" >주문번호</td>
-                <td><input type="text" value="<%=v.getOrderNo() %>" name="orderNo"  readonly></td>
+                <td><input type="text" value="1123667" name="orderNo"  readonly></td>
             </tr>
             <tr>
                 <td width="200">상품코드</td>
@@ -99,11 +99,11 @@
             </tr>
             <tr>
                 <td width="200">제목</td>
-                <td><input type="text" value="<%=v.getReviewTitle() %>" name="title" readonly></td>
+                <td><textarea cols="30" rows="3" style="resize:none" name="title" readonly ><%=v.getReviewTitle() %></textarea></td>
             </tr>
             <tr>
                 <td width="200">내용</td>
-                <td><input type="text" value="<%=v.getReviewContent() %>" name="content" readonly></td>
+                <td><textarea cols="30" rows="3" style="resize:none" name="content" readonly ><%=v.getReviewContent() %></textarea></td>
             </tr>          
         </table>
        		 <div id="enrollsubmit">

@@ -71,9 +71,9 @@ public class AdReviewListServlet extends HttpServlet {
 		
 		 ArrayList<AdReview> list = new AdReviewService().selectList(pi);
 		
-		 request.setAttribute("list", list);
 		 request.setAttribute("pi", pi);
-		request.getRequestDispatcher("views/admin/adminReview/adminReviewList.jsp").forward(request, response);
+		 request.setAttribute("list", list);
+		 request.getRequestDispatcher("views/admin/adminReview/adminReviewList.jsp").forward(request, response);
 		
 		
 		

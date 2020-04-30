@@ -39,7 +39,7 @@ public class AdCouponDeleteServlet extends HttpServlet {
 		int result = new AdCouponService().deleteCoupon(cc);
 		
 		if(result>0) {
-			response.sendRedirect("couponList.ad");
+			response.sendRedirect("couponList.ad?currentPage=1");
 		}
 		
 	}

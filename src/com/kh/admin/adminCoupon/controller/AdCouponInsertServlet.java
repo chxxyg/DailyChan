@@ -51,7 +51,7 @@ public class AdCouponInsertServlet extends HttpServlet {
 		
 		request.setAttribute("c", c);
 		if(result > 0) {	
-			response.sendRedirect("couponList.ad");
+			response.sendRedirect("couponList.ad?currentPage=1");
 		}else {						
 			response.setContentType("text/html; charset=UTF-8");
 			

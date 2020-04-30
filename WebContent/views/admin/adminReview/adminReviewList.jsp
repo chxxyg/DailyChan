@@ -165,7 +165,7 @@
 					<% for(AdReview v : list){ %>
                 <tr>
                     <td><%= v.getReviewBoardNo() %></td>
-                    <td><%= v.getOrderNo() %></td>
+                    <td>1123667</td>
                     <td><%= v.getProductCode() %></td>
                     <td><%= v.getReviewCreateDate() %></td>
                     <td><%= v.getMemberId() %></td>

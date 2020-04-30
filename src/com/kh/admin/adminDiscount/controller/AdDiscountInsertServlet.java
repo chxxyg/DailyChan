@@ -55,7 +55,7 @@ public class AdDiscountInsertServlet extends HttpServlet {
 		
 		request.setAttribute("d", d);
 		if(result > 0 && result2 > 0) {	
-			response.sendRedirect("discountList.ad");
+			response.sendRedirect("discountList.ad?currentPage=1");
 		}else {						
 			response.setContentType("text/html; charset=UTF-8");
 			

@@ -91,20 +91,28 @@
             </tr>
             <tr>
                 <td width="200">제목</td>
-                <td><input type="text" value="<%=i.getInquiryTitle() %>" name="title" readonly></td>
+                 <td><textarea cols="35" rows="3" style="resize:none" name="title" readonly ><%=i.getInquiryTitle() %></textarea></td>
             </tr>
             <tr>
                 <td width="200">내용</td>
-                <td><textarea cols="35" rows="6" style="resize:none" name="content" readonly ><%=i.getInquiryContent() %></textarea></td>
+                <td><textarea cols="35" rows="5" style="resize:none" name="content" readonly ><%=i.getInquiryContent() %></textarea></td>
             </tr>
              <tr>
                 <td width="200">답변여부</td>
-                <td><input type="text" value="<%=i.getInquiryResponseYn() %>" name="yn" readonly></td>
+                <% if (i.getInquiryResponseYn()==null){ %>
+                <td><input type="text" value="미답변" name="yn" readonly></td>
+                <% }else{ %>
+                <td><input type="text" value="답변완료" name="yn" readonly></td>
+                <%} %>
             </tr>
             <tr>
                 <td width="200">관리자답변</td>
-                <td><textarea cols="35" rows="6" style="resize:none" name="res"><%= i.getInquiryResponse() %></textarea></td>
-            </tr>         
+                <% if (i.getInquiryResponse()==null){ %>
+                <td><textarea cols="35" rows="5" style="resize:none" name="res"></textarea></td>
+            	<% }else{ %>
+            	<td><textarea cols="35" rows="5" style="resize:none" name="res"><%=i.getInquiryResponse() %></textarea></td>
+            	<%} %>
+            </tr>     
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit" onclick="return response();">답변하기</button>&nbsp;&nbsp;

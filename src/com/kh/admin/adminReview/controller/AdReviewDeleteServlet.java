@@ -36,7 +36,7 @@ public class AdReviewDeleteServlet extends HttpServlet {
 		int result = new AdReviewService().deleteReview(rno);
 		
 		if(result > 0) {	// 성공
-			response.sendRedirect("reviewList.ad");
+			response.sendRedirect("reviewList.ad?currentPage=1");
 		}else {
 			
 		}

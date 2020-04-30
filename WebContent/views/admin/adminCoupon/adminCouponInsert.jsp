@@ -80,11 +80,11 @@
             </tr>
             <tr>
                 <td width="200">쿠폰이름</td>
-                <td><input type="text" value="" name="couponName"></td>
+                <td><textarea cols="30" rows="3" style="resize:none" name="couponName" required></textarea></td>
             </tr>
             <tr>
                 <td width="200">사용조건</td>
-                <td><textarea cols="35" rows="8" style="resize:none" name="condition" required></textarea></td>
+                <td><textarea cols="30" rows="3" style="resize:none" name="condition" required></textarea></td>
             </tr>  
             <tr>
                 <td width="200">유효기간</td>
@@ -98,7 +98,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="submit" onclick="">추가하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/couponList.ad';">목록으로</button>
+        		<button type="button" onclick="location.href='<%=contextPath%>/couponList.ad?currentPage=1';">목록으로</button>
         	</div>        
         
        </form>

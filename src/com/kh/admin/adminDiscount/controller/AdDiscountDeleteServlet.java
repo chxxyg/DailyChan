@@ -40,8 +40,8 @@ public class AdDiscountDeleteServlet extends HttpServlet {
 		int result = new AdDiscountService().deleteDiscount(dc);
 		int result2 = new ProductService().insertAd2(pdc);
 		
-		if(result > 0) {
-			response.sendRedirect("discountList.ad");
+		if(result > 0 && result2 > 0) {
+			response.sendRedirect("discountList.ad?currentPage=1");
 		}
 		
 	}
