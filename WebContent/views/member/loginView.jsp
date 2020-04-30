@@ -142,26 +142,22 @@ margin:auto;
 		function inputLogin() {
 			
 			if(document.getElementById("userId").value == "")
-			{
+			{	
 				alert("아이디를 입력해주세요");
 				userId.focus();
 				return false;
 				
-			}
-			
-			if(document.getElementById("pwd").value == "")
-			{
+			}if(document.getElementById("pwd").value == "")
+			{	
 				alert("비밀번호를 입력해주세요");
 				pwd.focus();
 				return false;
 			}
-		 
-	
 		}
 
+		
 		function enrollForm() {
-			
-			opener.parent.location="<%=contextPath%>/enrollForm.me";			
+			opener.parent.location = "<%=contextPath%>/enrollForm.me";			
 			window.close();
 		}
 		

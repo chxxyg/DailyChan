@@ -41,6 +41,7 @@ body{
 }
 #content{
 	background-color:#f9f9f9;
+	text-align:center;
 }
 .btns{
 	cursor:hover;
