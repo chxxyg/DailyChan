@@ -336,13 +336,13 @@
 				data:{"id_name":id_name, "id_email":id_email},
 				type:"post",
 				success:function(memberId){
-					
-					if(memberId == null){
+					if(memberId == "null"){
+						alert("아이디 찾기에 실패했습니다.");
 						$(".idFind_before").show();
 						$(".idFind_after").hide();
-						alert("아이디 찾기에 실패했습니다.");
 						
 					}else{
+					console.log(memberId);					
 						$(".idFind_after").show();
 						$(".idFind_before").hide();
 						id_result.text(memberId);
@@ -368,7 +368,7 @@
 				type:"post",
 				success:function(memberPwd){
 					
-					if(memberPwd == null){
+					if(memberPwd == "null"){
 						$(".pwdFind_before").show();
 						$(".pwdFind_after").hide();
 						alert("비밀번호 찾기에 실패했습니다.");
