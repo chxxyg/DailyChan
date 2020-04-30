@@ -24,7 +24,7 @@
 	height: 700px;
 	background: #f5f5f5;
 	text-align: center;
-	margin: 0;
+	margin-top: 100px;
 }
 
 .login_box_id_find, .login_box_pw_find {
@@ -35,13 +35,17 @@
 	float: left;
 	margin-top: 35px;
 }
-
+.login_box_id_find.idFind_before{
+	margin-left:35px;
+	margin-top:75px;
+}
 .login_box_id_find {
 	margin-left: 10px;
 }
 
 .login_box_pw_find {
-	margin-left: 10px;
+	margin-left: 20px;
+	margin-top:75px;
 }
 
 #login_set_id, #login_set_pw {

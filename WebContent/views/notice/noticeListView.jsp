@@ -26,7 +26,7 @@ body {
 
 .outer {
 	width: 860px;
-	height: auto;
+	height: 1000px;
 	float: left;
 	margin-left: 25px;
 }
@@ -52,6 +52,7 @@ body {
 	height: 719px;
 	margin: 30px 0 0;
 	float: left;
+
 }
 
 .noti_tbl thead th {
@@ -88,6 +89,7 @@ tbody tr {
 	background-color: rgba(236, 142, 34, 0.089);
 	cursor: pointer;
 }
+
 </style>
 </head>
 <body>
@@ -135,7 +137,7 @@ tbody tr {
 				</tbody>
 			</table>
 			<br><br>
-			
+			<hr>
 				<!-- 현재 페이지에 보여질 페이징바 -->
 			<div class="pagingArea" align="center">
 		

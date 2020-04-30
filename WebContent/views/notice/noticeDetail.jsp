@@ -42,7 +42,9 @@ body{
 #content{
 	background-color:#f9f9f9;
 }
-
+.btns{
+	cursor:hover;
+}
 
 </style>
 
@@ -56,7 +58,7 @@ body{
 		<br>
 		<div id="cst_content" class="sub_cont">
 
-			<table class="noti_tbl" style="width: 760px; border: 1px solid lightgray;">
+			<table class="noti_tbl" style="width: 790px; border: 1px solid lightgray;">
 					<tr>
 						<th id="n1" style="width:30px;">번호</th>
 						<td id="n2" style="width:20px;"><%= n.getNoticeBoardNo()%></td>

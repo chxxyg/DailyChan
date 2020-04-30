@@ -114,9 +114,7 @@ font-weight:500;
 	background-color: rgba(236, 142, 34, 0.089);
 	cursor: pointer;
 }
-td.emphasis{
-	font-color:red;
-}
+
 
 </style>
 <body>
@@ -153,7 +151,7 @@ td.emphasis{
 							<td id="i_3"><%=list.get(i).getInquiryCreateDate()%></td>
 							
 							<% if (list.get(i).getInquiryFileYn() == null){ %>
-			                  <td class="emphasis"> 미답변</td>
+			                  <td class="emphasis" style="color:#E56D29;"> 미답변</td>
 			                <% }else{ %>
 			                  <td class="emphasis">답변완료</td>
 			                <%} %>  
