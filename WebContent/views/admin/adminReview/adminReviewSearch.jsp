@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminDiscount.model.vo.AdDiscount,  com.kh.admin.adminMember.model.vo.*" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReview.model.vo.AdReview,  com.kh.admin.adminMember.model.vo.*" %>
 <%
-	ArrayList<AdDiscount> list = (ArrayList<AdDiscount>)request.getAttribute("list"); 
+	ArrayList<AdReview> list = (ArrayList<AdReview>)request.getAttribute("list"); 
 
 	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
 	int currentPage = pi.getCurrentPage();
@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>할인리스트</title>
+    <title>리뷰리스트</title>
     <style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -53,7 +53,7 @@
             border: 1px solid #181c20;
             position:relative;
             max-height:600px;
-            /*border-collapse:collapse; 테이블 간격 없애는구문*/
+            border-collapse:collapse;
             
         }
       	/*상품 등록 삭제 버튼css*/
@@ -130,7 +130,8 @@
 			height:30px;
 			font-weight: bold;
 			font-size:17px;
-		}         
+			
+		}
       
     </style>
 </head>
@@ -139,38 +140,37 @@
 	
     <div id="adproduct">
       <div class="outer">
-        <h1>&nbsp;&nbsp;&nbsp;할인관리</h1>
+        <h1>&nbsp;&nbsp;&nbsp;리뷰관리</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/discountSearch.ad" method="post">상품코드
-        		<input type="text" name="productCode"> <button type="submit" onclick="">조회</button> 
-        		        	<input type="hidden" name="currentPage" value="1">
-        		
+        	<form id="searchForm" action="<%=contextPath%>/reviewSearch.ad" method="post">회원 ID 
+        		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
+        	<input type="hidden" name="currentPage" value="1">
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= pi.getListCount() %>"> 개</div>
-                <div style="width:60%; text-align:right;"><button onclick="location.href='<%=contextPath%>/discountEnroll.ad'">추가</button> </div>
-                
+                	<div style="width:15%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= list.size()%>"> 개</div>    
         </div>  
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="150">할인코드</th>
-                    <th width="150">상품코드</th>
-                    <th width="150">할인시작일</th>
-                    <th width="150">할인종료일</th> 
-                    <th width="150">할인율</th>
+                    <th width="60">번호</th>
+                    <th width="70">주문번호</th>
+                    <th width="100">상품코드</th>
+                    <th width="150">작성시간</th> 
+                    <th width="150">아이디</th>
+                    <th width="150">제목</th>
+                    <th width="350">내용</th>
                 </tr>
             </thead>
             <tbody>
-					<% for(AdDiscount d : list){ %>
+					<% for(AdReview v : list){ %>
                 <tr>
-                    <td><%= d.getDiscountCode() %></td>
-                    <td><%= d.getProductCode() %></td>
-                    <td><%= d.getDiscountStartDate() %></td>
-                    <td><%= d.getDiscountEndDate() %></td>
-                    <td><%= d.getDiscountRate() %></td>
-                    
-                    <%-- <%System.out.println(d.getDiscountRate()); %> --%>
+                    <td><%= v.getReviewBoardNo() %></td>
+                    <td><%= v.getOrderNo() %></td>
+                    <td><%= v.getProductCode() %></td>
+                    <td><%= v.getReviewCreateDate() %></td>
+                    <td><%= v.getMemberId() %></td>
+                    <td><%= v.getReviewTitle() %></td>
+                    <td><%= v.getReviewContent() %></td>
                 </tr>
                 <% } %>
                
@@ -179,29 +179,27 @@
             </tbody>
 
         </table>  
-        <br><br><br>
-        
-        <div class="pagingArea" align="center">
+                <br><br><br>
+       <div class="pagingArea" align="center">
 			<% if(currentPage!=1) {%>
-			<button onclick="location.href='discountList.ad?currentPage=1'"> &lt;&lt; </button>
+			<button onclick="location.href='reviewSearch.ad?currentPage=1'"> &lt;&lt; </button>
 			
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<button onclick="location.href='reviewSearch.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
 			<% } %>
 			
 			<%for(int p=startPage; p<=endPage; p++){ %>
 				<% if(currentPage != p){%>
-				<button onclick="location.href='discountList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<button onclick="location.href='reviewSearch.ad?currentPage=<%=p%>';"><%=p%></button>
 				<% }else { %>
 				<button disabled><%=p %></button>	
 				<% } %>
 			<%} %>
 			
 			<% if(currentPage!=maxPage) {%>
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
-			<button onclick="location.href='discountList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<button onclick="location.href='reviewSearch.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='reviewSearch.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
 			<% } %>
 		</div>
-        
        </div>
     </div>
     <script>
@@ -209,9 +207,9 @@
    			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			var dc = $(this).children().eq(0).text();
+	   			var rbo = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/datailDiscount.ad?dc=" + dc; 
+	 			location.href="<%= contextPath%>/reviewDetail.ad?rbo=" + rbo; 
  			});
  
    		});   

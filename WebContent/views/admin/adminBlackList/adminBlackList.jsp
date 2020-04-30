@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminBlackList.model.vo.BlackList" %> 
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminBlackList.model.vo.BlackList, com.kh.admin.adminMember.model.vo.*" %> 
     
 <%
 
@@ -7,7 +7,11 @@
 	ArrayList<BlackList> list = (ArrayList<BlackList>)request.getAttribute("list");
 	//PageInfo pi = (pageInfo)request.getAttribute("pi");
 	//int count = (Integer)request.getAttribute("count");
-			
+	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();		
 	
 %>    
 <!DOCTYPE html>
@@ -142,10 +146,11 @@
         <h1>&nbsp;&nbsp;&nbsp;블랙리스트</h1>
         <br>
         	<form id="blackListForm" action="<%=contextPath%>/blackListSearch.ad" method="post">회원 ID 
+        	 <input type="hidden" name="currentPage" value="1">
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>       	
         <div id="allcount">
-                <div style="width:30%;">총 인원 수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 명</div>
+                <div style="width:30%;">총 인원 수 : <input type="text" id="adproductcount" value="<%= pi.getListCount() %>"> 명</div>
                 <div style="width:70%; text-align:right;"><button onclick="location.href='<%=contextPath%>/blackListEnroll.ad'">추가</button> </div>
         </div>  
         <table class="listMember">
@@ -172,6 +177,27 @@
             </tbody>
 
         </table>  
+        <br><br><br>
+        <div class="pagingArea" align="center">
+			<% if(currentPage!=1) {%>
+			<button onclick="location.href='blackList.ad?currentPage=1'"> &lt;&lt; </button>
+			
+			<button onclick="location.href='blackList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<% } %>
+			
+			<%for(int p=startPage; p<=endPage; p++){ %>
+				<% if(currentPage != p){%>
+				<button onclick="location.href='blackList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<% }else { %>
+				<button disabled><%=p %></button>	
+				<% } %>
+			<%} %>
+			
+			<% if(currentPage!=maxPage) {%>
+			<button onclick="location.href='blackList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='blackList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<% } %>
+		</div>
        </div>
     </div>
     <script>

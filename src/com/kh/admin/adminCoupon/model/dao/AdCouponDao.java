@@ -1,6 +1,6 @@
 package com.kh.admin.adminCoupon.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.admin.adminCoupon.model.vo.AdCoupon;
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.member.model.dao.MemberDao;
 
 public class AdCouponDao {
@@ -34,18 +35,23 @@ private Properties prop = new Properties();
 
 	}
 
-	public ArrayList<AdCoupon> selectList(Connection conn) {
+	public ArrayList<AdCoupon> selectList(Connection conn, AdPageInfo pi) {
 
 		ArrayList<AdCoupon> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectCoupon");
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+				
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				list.add(new AdCoupon(rset.getString("COUPON_CODE"),
@@ -58,8 +64,8 @@ private Properties prop = new Properties();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			close(conn);
-			close(stmt);
+			close(rset);
+			close(pstmt);
 		}
 		
 		return list;
@@ -94,7 +100,7 @@ private Properties prop = new Properties();
 		return c;
 	}
 
-	public ArrayList<AdCoupon> searchCoupon(Connection conn, String couponCode) {
+	public ArrayList<AdCoupon> searchCoupon(Connection conn,AdPageInfo pi, String couponCode) {
 		
 		ArrayList<AdCoupon> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -102,9 +108,14 @@ private Properties prop = new Properties();
 		
 		String sql = prop.getProperty("searchCoupon");
 		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + couponCode + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -190,5 +201,56 @@ private Properties prop = new Properties();
 		}		
 		return result;
 	}
+	public int adCuCount(Connection conn) {
+		
+		int countCu = 0;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countCu");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			if(rset.next()) {
+				countCu = rset.getInt(1);
+			}
+		
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		return countCu;
+			
+	}
+	public int adCupCount(Connection conn, String couponCode) {
+		
+		int countCup = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countCup");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+couponCode+"%");
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				countCup = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return countCup;
+		
+	}
+		
+	
 }
 

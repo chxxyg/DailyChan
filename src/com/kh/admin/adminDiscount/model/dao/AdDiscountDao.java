@@ -1,6 +1,6 @@
 package com.kh.admin.adminDiscount.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.admin.adminDiscount.model.vo.AdDiscount;
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.member.model.dao.MemberDao;
 
 public class AdDiscountDao {
@@ -33,18 +34,24 @@ public class AdDiscountDao {
 
 }
 
-	public ArrayList<AdDiscount> selectList(Connection conn) {
+	public ArrayList<AdDiscount> selectList(Connection conn, AdPageInfo pi) {
 
 		ArrayList<AdDiscount> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectDiscount");
 		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				list.add(new AdDiscount(rset.getInt("DISCOUNT_CODE"),
 										rset.getString("PRODUCT_CODE"),
@@ -57,7 +64,7 @@ public class AdDiscountDao {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		return list;
 	}
@@ -91,7 +98,7 @@ public class AdDiscountDao {
 		return d;
 	}
 
-	public ArrayList<AdDiscount> searchDiscount(Connection conn, String productCode) {
+	public ArrayList<AdDiscount> searchDiscount(Connection conn, AdPageInfo pi, String productCode) {
 		
 		ArrayList<AdDiscount> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -99,9 +106,14 @@ public class AdDiscountDao {
 		
 		String sql = prop.getProperty("searchDiscount");
 		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + productCode + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -165,6 +177,55 @@ public class AdDiscountDao {
 		}
 		return result;
 		
+		
+	}
+	
+	public int adDisCount(Connection conn) {
+		
+		int countDis = 0;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countDis");
+		
+		try {
+			stmt= conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			if(rset.next()) {
+				countDis = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		return countDis;
+		
+	}
+	public int adDissCount(Connection conn, String productCode) {
+		
+		int countDiss = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countDiss");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+productCode+"%");
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				countDiss = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return countDiss;
 		
 	}
 }

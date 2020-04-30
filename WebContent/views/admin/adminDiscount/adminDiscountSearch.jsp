@@ -183,22 +183,22 @@
         
         <div class="pagingArea" align="center">
 			<% if(currentPage!=1) {%>
-			<button onclick="location.href='discountList.ad?currentPage=1'"> &lt;&lt; </button>
+			<button onclick="location.href='discountSearch.ad?currentPage=1'"> &lt;&lt; </button>
 			
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<button onclick="location.href='discountSearch.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
 			<% } %>
 			
 			<%for(int p=startPage; p<=endPage; p++){ %>
 				<% if(currentPage != p){%>
-				<button onclick="location.href='discountList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<button onclick="location.href='discountSearch.ad?currentPage=<%=p%>';"><%=p%></button>
 				<% }else { %>
 				<button disabled><%=p %></button>	
 				<% } %>
 			<%} %>
 			
 			<% if(currentPage!=maxPage) {%>
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
-			<button onclick="location.href='discountList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<button onclick="location.href='discountSearch.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='discountSearch.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
 			<% } %>
 		</div>
         

@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminCoupon.model.vo.AdCoupon" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminCoupon.model.vo.AdCoupon, com.kh.admin.adminMember.model.vo.*" %>
 <%
 	ArrayList<AdCoupon> list = (ArrayList<AdCoupon>)request.getAttribute("list"); 
+	
+	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
 %>    
         
 <!DOCTYPE html>
@@ -136,10 +142,11 @@
         <h1>&nbsp;&nbsp;&nbsp;쿠폰관리</h1>
         <br>
         	<form id="searchForm" action="<%=contextPath%>/couponSearch.ad" method="post">쿠폰코드
+        	    <input type="hidden" name="currentPage" value="1">
         		<input type="text" name="couponCode"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
+                <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= pi.getListCount() %>"> 개</div>
                 <div style="width:67%; text-align:right;"><button onclick="location.href='<%=contextPath%>/couponEnroll.ad'">추가</button> </div>
         </div>  
         <table class="listMember">
@@ -168,6 +175,27 @@
             </tbody>
 
         </table>  
+        <br><br><br>
+        <div class="pagingArea" align="center">
+			<% if(currentPage!=1) {%>
+			<button onclick="location.href='couponSearch.ad?currentPage=1'"> &lt;&lt; </button>
+			
+			<button onclick="location.href='couponSearch.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<% } %>
+			
+			<%for(int p=startPage; p<=endPage; p++){ %>
+				<% if(currentPage != p){%>
+				<button onclick="location.href='couponSearch.ad?currentPage=<%=p%>';"><%=p%></button>
+				<% }else { %>
+				<button disabled><%=p %></button>	
+				<% } %>
+			<%} %>
+			
+			<% if(currentPage!=maxPage) {%>
+			<button onclick="location.href='couponSearch.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='couponSearch.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<% } %>
+		</div>
        </div>
     </div>
     <script>

@@ -47,7 +47,6 @@
             position:relative;
             max-height:600px;
             /*border-collapse:collapse; 테이블 간격 없애는구문*/
-            border-collapse:collapse;
         }
       	/*상품 등록 삭제 버튼css*/
         #allcount{width:1150px; }
@@ -175,7 +174,7 @@
       	<h2>최근 1:1상담</h2>
          <table class="listBody">
          	<thead>
-                <tr onClick="location.href='<%=contextPath%>/adOneInquiryList.ad'">
+                <tr onClick="location.href='<%=contextPath%>/adOneInquiryList.ad?currentPage=1'">
                     <th width="70">문의번호</th>
                     <th width="150">문의일시</th> 
                     <th width="120">아이디</th>
@@ -186,7 +185,7 @@
             </thead>
             <tbody>
             	<% for(AdOneInquiry i : list2){ %>
-                <tr onClick="location.href='<%=contextPath%>/adOneInquiryList.ad'">
+                <tr onClick="location.href='<%=contextPath%>/adOneInquiryList.ad?currentPage=1'">
                     <td><%= i.getInquiryBoardNo() %></td>
                     <td><%= i.getInquiryCreateDate() %></td>
                     <td><%= i.getMemberId() %></td>

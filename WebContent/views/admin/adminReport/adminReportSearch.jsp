@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminDiscount.model.vo.AdDiscount,  com.kh.admin.adminMember.model.vo.*" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminReport.model.vo.adReport, com.kh.admin.adminMember.model.vo.*" %>
 <%
-	ArrayList<AdDiscount> list = (ArrayList<AdDiscount>)request.getAttribute("list"); 
-
+	ArrayList<adReport> list = (ArrayList<adReport>)request.getAttribute("list"); 
+	
 	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
-	int maxPage = pi.getMaxPage();
+	int maxPage = pi.getMaxPage();		
 %>    
         
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>할인리스트</title>
+    <title>신고내역리스트</title>
     <style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -105,32 +105,12 @@
 			background-color:#5554547e;
 			cursor:pointer;
 		}
-		.emphasis {
-			box-shadow:inset 0px 1px 0px 0px #181c20;
-			background:linear-gradient(#181c20);
-			background-color:#181c20;
-			border:1px solid #181c20;
-			cursor:pointer;
-			color:#ffffff;
-			font-family:Arial;
-			font-weight:bold;
-
-			text-decoration:none;
-			text-shadow:0px 1px 0px #181c20;
-		}
-		.emphasis:hover {
-			background:linear-gradient(to bottom, #1d1d1d 5%, #e9e7e5 100%);
-			background-color:#5554547e;
-		}
-		.emphasis:active {
-			position:relative;
-			top:1px;
-		}
         thead>tr>th{
 			height:30px;
 			font-weight: bold;
 			font-size:17px;
-		}         
+			
+		}
       
     </style>
 </head>
@@ -139,38 +119,36 @@
 	
     <div id="adproduct">
       <div class="outer">
-        <h1>&nbsp;&nbsp;&nbsp;할인관리</h1>
+        <h1>&nbsp;&nbsp;&nbsp;신고관리</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/discountSearch.ad" method="post">상품코드
-        		<input type="text" name="productCode"> <button type="submit" onclick="">조회</button> 
-        		        	<input type="hidden" name="currentPage" value="1">
-        		
+        	<form id="searchForm" action="<%=contextPath%>/reportSearch.ad" method="post">회원 ID 
+        	<input type="hidden" name="currentPage" value="1">
+        		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
                 <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= pi.getListCount() %>"> 개</div>
-                <div style="width:60%; text-align:right;"><button onclick="location.href='<%=contextPath%>/discountEnroll.ad'">추가</button> </div>
                 
         </div>  
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="150">할인코드</th>
-                    <th width="150">상품코드</th>
-                    <th width="150">할인시작일</th>
-                    <th width="150">할인종료일</th> 
-                    <th width="150">할인율</th>
+                    <th width="100">신고번호</th>
+                    <th width="100">리뷰번호</th> 
+                    <th width="150">피신고인</th>
+                    <th width="150">신고인</th>
+                    <th width="200">신고날짜</th>
+                    <th width="400">신고내용</th>
                 </tr>
             </thead>
             <tbody>
-					<% for(AdDiscount d : list){ %>
+					<% for(adReport r : list){ %>
                 <tr>
-                    <td><%= d.getDiscountCode() %></td>
-                    <td><%= d.getProductCode() %></td>
-                    <td><%= d.getDiscountStartDate() %></td>
-                    <td><%= d.getDiscountEndDate() %></td>
-                    <td><%= d.getDiscountRate() %></td>
-                    
-                    <%-- <%System.out.println(d.getDiscountRate()); %> --%>
+                    <td><%= r.getReportNo() %></td>
+                    <td><%= r.getReviewBoardNo() %></td>
+                    <td><%= r.getMemberId() %></td>
+                    <td><%= r.getMemberId2() %></td>
+                    <td><%= r.getReportDate() %></td>
+                    <td><%= r.getReportContent() %></td>
                 </tr>
                 <% } %>
                
@@ -178,30 +156,28 @@
                 
             </tbody>
 
-        </table>  
+        </table>
         <br><br><br>
-        
         <div class="pagingArea" align="center">
 			<% if(currentPage!=1) {%>
-			<button onclick="location.href='discountList.ad?currentPage=1'"> &lt;&lt; </button>
+			<button onclick="location.href='reportSearch.ad?currentPage=1'"> &lt;&lt; </button>
 			
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<button onclick="location.href='reportSearch.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
 			<% } %>
 			
 			<%for(int p=startPage; p<=endPage; p++){ %>
 				<% if(currentPage != p){%>
-				<button onclick="location.href='discountList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<button onclick="location.href='reportSearch.ad?currentPage=<%=p%>';"><%=p%></button>
 				<% }else { %>
 				<button disabled><%=p %></button>	
 				<% } %>
 			<%} %>
 			
 			<% if(currentPage!=maxPage) {%>
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
-			<button onclick="location.href='discountList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<button onclick="location.href='reportSearch.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='reportSearch.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
 			<% } %>
-		</div>
-        
+		</div>  
        </div>
     </div>
     <script>
@@ -209,9 +185,9 @@
    			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			var dc = $(this).children().eq(0).text();
+	   			var mid = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/datailDiscount.ad?dc=" + dc; 
+	 			location.href="<%= contextPath%>/reportDetail.ad?rno=" + rno; 
  			});
  
    		});   

@@ -1,23 +1,28 @@
 package com.kh.admin.adminCoupon.model.service;
 
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.admin.adminCoupon.model.dao.AdCouponDao;
 import com.kh.admin.adminCoupon.model.vo.AdCoupon;
-
-import static com.kh.common.JDBCTemplate.*;
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
+import com.kh.admin.adminProduct.model.dao.AdProductDao;
 
 public class AdCouponService {
 
 	/*
 	 * 쿠폰리스트
 	 */
-	public ArrayList<AdCoupon> selectList() {
+	public ArrayList<AdCoupon> selectList(AdPageInfo pi) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<AdCoupon> list = new AdCouponDao().selectList(conn);
+		ArrayList<AdCoupon> list = new AdCouponDao().selectList(conn, pi);
 		close(conn);
 		
 		return list;
@@ -39,11 +44,11 @@ public class AdCouponService {
 	/*
 	 * 조회버튼
 	 */
-	public ArrayList<AdCoupon> searchCoupon(String couponCode) {
+	public ArrayList<AdCoupon> searchCoupon(AdPageInfo pi, String couponCode) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<AdCoupon> list = new AdCouponDao().searchCoupon(conn, couponCode);
+		ArrayList<AdCoupon> list = new AdCouponDao().searchCoupon(conn,pi, couponCode);
 		close(conn);
 		
 		return list;
@@ -103,6 +108,28 @@ public class AdCouponService {
 		}
 		close(conn);
 		return result;
+		
+	}
+	
+	public int adCuCount() {
+		
+		Connection conn = getConnection();
+		
+		int countCu = new AdCouponDao().adCuCount(conn);
+		
+		close(conn);
+		return countCu;
+		
+	}
+	
+	public int adCupCount(String couponCode) {
+		
+		Connection conn = getConnection();
+		
+		int countCup = new AdCouponDao().adCupCount(conn, couponCode);
+		
+		close(conn);
+		return countCup;
 		
 	}
 

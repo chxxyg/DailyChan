@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminDiscount.model.vo.AdDiscount,  com.kh.admin.adminMember.model.vo.*" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.admin.adminCoupon.model.vo.AdCoupon, com.kh.admin.adminMember.model.vo.*" %>
 <%
-	ArrayList<AdDiscount> list = (ArrayList<AdDiscount>)request.getAttribute("list"); 
-
+	ArrayList<AdCoupon> list = (ArrayList<AdCoupon>)request.getAttribute("list"); 
+	
 	AdPageInfo pi = (AdPageInfo)request.getAttribute("pi");
 	int currentPage = pi.getCurrentPage();
 	int startPage = pi.getStartPage();
@@ -14,7 +14,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>할인리스트</title>
+    <title>쿠폰리스트</title>
     <style>
    		/*content*/
     	body{margin:0px;padding:0px; left:0; top:0; box-sizing:border-box;}
@@ -130,7 +130,7 @@
 			height:30px;
 			font-weight: bold;
 			font-size:17px;
-		}         
+	    }     
       
     </style>
 </head>
@@ -139,38 +139,34 @@
 	
     <div id="adproduct">
       <div class="outer">
-        <h1>&nbsp;&nbsp;&nbsp;할인관리</h1>
+        <h1>&nbsp;&nbsp;&nbsp;쿠폰관리</h1>
         <br>
-        	<form id="searchForm" action="<%=contextPath%>/discountSearch.ad" method="post">상품코드
-        		<input type="text" name="productCode"> <button type="submit" onclick="">조회</button> 
-        		        	<input type="hidden" name="currentPage" value="1">
-        		
+        	<form id="searchForm" action="<%=contextPath%>/couponSearch.ad" method="post">쿠폰코드
+        	    <input type="hidden" name="currentPage" value="1">
+        		<input type="text" name="couponCode"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
                 <div style="width:30%;">총 개수 : <input type="text" id="adproductcount" value="<%= pi.getListCount() %>"> 개</div>
-                <div style="width:60%; text-align:right;"><button onclick="location.href='<%=contextPath%>/discountEnroll.ad'">추가</button> </div>
-                
+                <div style="width:67%; text-align:right;"><button onclick="location.href='<%=contextPath%>/couponEnroll.ad'">추가</button> </div>
         </div>  
         <table class="listMember">
             <thead>
                 <tr>
-                    <th width="150">할인코드</th>
-                    <th width="150">상품코드</th>
-                    <th width="150">할인시작일</th>
-                    <th width="150">할인종료일</th> 
-                    <th width="150">할인율</th>
+                    <th width="100">쿠폰코드</th>
+                    <th width="350">쿠폰이름</th>
+                    <th width="400">사용조건</th>
+                    <th width="150">유효기간</th> 
+                    <th width="150">쿠폰금액</th>
                 </tr>
             </thead>
             <tbody>
-					<% for(AdDiscount d : list){ %>
+					<% for(AdCoupon c : list){ %>
                 <tr>
-                    <td><%= d.getDiscountCode() %></td>
-                    <td><%= d.getProductCode() %></td>
-                    <td><%= d.getDiscountStartDate() %></td>
-                    <td><%= d.getDiscountEndDate() %></td>
-                    <td><%= d.getDiscountRate() %></td>
-                    
-                    <%-- <%System.out.println(d.getDiscountRate()); %> --%>
+                    <td><%= c.getCouponCode() %></td>
+                    <td><%= c.getCouponName() %></td>
+                    <td><%= c.getCouponCondition() %></td>
+                    <td><%= c.getCouponExpDate() %></td>
+                    <td><%= c.getCouponPrice() %></td>
                 </tr>
                 <% } %>
                
@@ -180,28 +176,26 @@
 
         </table>  
         <br><br><br>
-        
         <div class="pagingArea" align="center">
 			<% if(currentPage!=1) {%>
-			<button onclick="location.href='discountList.ad?currentPage=1'"> &lt;&lt; </button>
+			<button onclick="location.href='couponList.ad?currentPage=1'"> &lt;&lt; </button>
 			
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
+			<button onclick="location.href='couponList.ad?currentPage=<%=currentPage-1%>';"> &lt;</button>
 			<% } %>
 			
 			<%for(int p=startPage; p<=endPage; p++){ %>
 				<% if(currentPage != p){%>
-				<button onclick="location.href='discountList.ad?currentPage=<%=p%>';"><%=p%></button>
+				<button onclick="location.href='couponList.ad?currentPage=<%=p%>';"><%=p%></button>
 				<% }else { %>
 				<button disabled><%=p %></button>	
 				<% } %>
 			<%} %>
 			
 			<% if(currentPage!=maxPage) {%>
-			<button onclick="location.href='discountList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
-			<button onclick="location.href='discountList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
+			<button onclick="location.href='couponList.ad?currentPage=<%=currentPage+1%>';"> &gt;</button>
+			<button onclick="location.href='couponList.ad?currentPage=<%=maxPage%>';"> &gt;&gt; </button>
 			<% } %>
 		</div>
-        
        </div>
     </div>
     <script>
@@ -209,9 +203,9 @@
    			$(".listMember>tbody>tr").click(function(){
    				// console.log("클릭");
 	   				
-	   			var dc = $(this).children().eq(0).text();
+	   			var cc = $(this).children().eq(0).text();
 	   				
-	 			location.href="<%= contextPath%>/datailDiscount.ad?dc=" + dc; 
+	 			location.href="<%= contextPath%>/datailCoupon.ad?cc=" + cc; 
  			});
  
    		});   

@@ -1,6 +1,9 @@
 package com.kh.admin.adminNotice.controller;
 
+import java.io.File;
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,14 +81,27 @@ public class AdNoticeUpdateServlet extends HttpServlet {
 			
 			if(result > 0) { // 성공
 				
-				request.getSession().setAttribute("msg", "게시글 등록 성공");
+				request.getSession().setAttribute("msg", "게시글 수정 성공");
 				response.sendRedirect("noticeList.ad?currentPage=1");
 				
+			}else {
+			
+			
+					// 서버에 업로드된 파일 찾아서 삭제
+					if(at != null) {
+						File deleteFile = new File(savePath + at.getChangeName());
+						deleteFile.delete();
+					}
+			
+					request.setAttribute("msg", "게시판 등록 실패");
+					RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+					view.forward(request, response);
+				}
 			}
 		
 		}	
 	
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

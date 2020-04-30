@@ -1,23 +1,28 @@
 package com.kh.admin.adminBlackList.model.service;
 
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.admin.adminBlackList.model.dao.AdBlackListDao;
 import com.kh.admin.adminBlackList.model.vo.BlackList;
-
-import static com.kh.common.JDBCTemplate.*;
+import com.kh.admin.adminCoupon.model.dao.AdCouponDao;
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 
 public class AdBlackListService {
 
 	/*
 	 * 총 블랙리스트 조회용 서비스
 	 */
-	public ArrayList<BlackList> selectList() {
+	public ArrayList<BlackList> selectList(AdPageInfo pi) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<BlackList> list = new AdBlackListDao().selectList(conn);
+		ArrayList<BlackList> list = new AdBlackListDao().selectList(conn, pi);
 		close(conn);
 		
 		return list;
@@ -53,11 +58,11 @@ public class AdBlackListService {
 	/*
 	 * 조회버튼클릭
 	 */
-	public ArrayList<BlackList> searchOneBlackList(String memberId) {
+	public ArrayList<BlackList> searchOneBlackList(AdPageInfo pi, String memberId) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<BlackList> list = new AdBlackListDao().searchOneBlackList(conn, memberId);
+		ArrayList<BlackList> list = new AdBlackListDao().searchOneBlackList(conn,pi, memberId);
 		close(conn);
 		return list;
 		
@@ -79,6 +84,27 @@ public class AdBlackListService {
 		close(conn);
 		return result;
 		
+	}
+	
+	public int adBlCount() {
+		
+		Connection conn = getConnection();
+		
+		int countBl = new AdBlackListDao().adBlCount(conn);
+		
+		close(conn);
+		return countBl;
+		
+	}
+	
+	public int adBliCount(String memberId) {
+		
+		Connection conn = getConnection();
+		
+		int countBli = new AdBlackListDao().adBliCount(conn, memberId);
+		
+		close(conn);
+		return countBli;
 	}
 
 }

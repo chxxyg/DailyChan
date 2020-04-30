@@ -1,6 +1,6 @@
 package com.kh.admin.adminBlackList.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.admin.adminBlackList.model.vo.BlackList;
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 import com.kh.member.model.dao.MemberDao;
-import com.kh.product.model.vo.Product;
 
 
 public class AdBlackListDao {
@@ -34,18 +34,23 @@ private Properties prop = new Properties();
 		}
 	}
 
-	public ArrayList<BlackList> selectList(Connection conn) {
+	public ArrayList<BlackList> selectList(Connection conn, AdPageInfo pi) {
 		
 		ArrayList<BlackList> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectBlackList");
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+				
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				list.add(new BlackList(rset.getInt("BLACKLIST_NO"),
@@ -59,7 +64,7 @@ private Properties prop = new Properties();
 			e.printStackTrace();
 		}finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		
 		return list;
@@ -115,7 +120,7 @@ private Properties prop = new Properties();
 		return result;
 	}
 
-	public ArrayList<BlackList> searchOneBlackList(Connection conn, String memberId) {
+	public ArrayList<BlackList> searchOneBlackList(Connection conn,AdPageInfo pi, String memberId) {
 		
 		ArrayList<BlackList> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -123,9 +128,14 @@ private Properties prop = new Properties();
 		
 		String sql = prop.getProperty("searchOneBlackList");
 		
+		int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+		int endRow = startRow + pi.getBoardLimit() -1;
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%" + memberId + "%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -170,7 +180,55 @@ private Properties prop = new Properties();
 		
 		return result;
 	}
-
+	public int adBlCount(Connection conn) {
+		
+		int countBl = 0;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countBl");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			if(rset.next()) {
+				countBl = rset.getInt(1);
+			}
+		
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		return countBl;
+			
+	}
+	public int adBliCount(Connection conn, String memberId) {
+		
+		int countBli = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("countBli");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+memberId+"%");
+			rset=pstmt.executeQuery();
+			if(rset.next()) {
+				countBli = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return countBli;
+		
+	}
 }
 
 

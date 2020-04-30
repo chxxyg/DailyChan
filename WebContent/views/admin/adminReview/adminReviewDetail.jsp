@@ -108,7 +108,7 @@
         </table>
        		 <div id="enrollsubmit">
         		<button type="button" onclick="reviewResponse();">삭제하기</button>&nbsp;&nbsp;
-        		<button type="button" onclick="location.href='<%=contextPath%>/discountList.ad';">목록으로</button>
+        		<button type="button" onclick="location.href='<%=contextPath%>/reviewList.ad?currentPage=1';">목록으로</button>
         		<!-- 버튼타입 버튼으로 해줘야 int값 충돌 X -->
         	</div>        
         

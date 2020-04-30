@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.admin.adminCoupon.model.service.AdCouponService;
 import com.kh.admin.adminCoupon.model.vo.AdCoupon;
+import com.kh.admin.adminMember.model.vo.AdPageInfo;
 
 /**
  * Servlet implementation class AdCouponSearchServlet
@@ -33,22 +35,51 @@ public class AdCouponSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// ------------------------ 페이징 처리 -------------------
+		int listCount;			// 총 게시글 갯수
+		int currentPage;		// 현재 페이지 (즉, 요청한 페이지)
+		int startPage;			// 현재 페이지 하단에 보여지는 페이징바의 시작수
+		int endPage;			// 현재 페이지 하단에 보여지는 페이징바의 끝 수
+		int maxPage;			// 전체 페이지에서의 가장 마지막 페이지
+		
+		int pageLimit;			// 한 페이지 하단에 보여질 페이지 최대 갯수
+		int boardLimit;			// 한 페이지에 보여질 게시글 최대 갯수
+		
 		String couponCode = request.getParameter("couponCode");
+		// * listCount : 총 게시글 갯수
+		listCount = new AdCouponService().adCupCount(couponCode);
 		
-		ArrayList<AdCoupon> list = new AdCouponService().searchCoupon(couponCode);
+		// * currentPage : 현재 페이지 (즉, 요청한 페이지)
+		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		
-		request.setAttribute("list", list);
-		if(list.isEmpty()) {	
-			response.setContentType("text/html; charset=UTF-8");
-			
-			PrintWriter out = response.getWriter();
-			
-			out.println("<script>alert('조회된 결과가 없습니다');history.back();</script>");
-			
-			out.flush();
-		}else {	
-			request.getRequestDispatcher("views/admin/adminCoupon/adminCouponList.jsp").forward(request, response);		
+		// * pageLimit : 한 페이지 하단에 보여질 페이지 최대 갯수
+		pageLimit = 10;
+		
+		// * boardLimit : 한 페이지에 보여질 게시글 최대 갯수
+		boardLimit = 10;
+		
+		maxPage = (int)Math.ceil((double)listCount / boardLimit);
+		
+		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
+		endPage = startPage + pageLimit - 1;
+		
+		if(endPage > maxPage) {
+			endPage = maxPage;
 		}
+				
+		AdPageInfo pi = new AdPageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
+
+		
+		
+		
+		ArrayList<AdCoupon> list = new AdCouponService().searchCoupon(pi, couponCode);
+		
+		request.setAttribute("pi", pi);
+		request.setAttribute("list", list);
+		
+		RequestDispatcher view = request.getRequestDispatcher("views/admin/adminCoupon/adminCouponSearch.jsp");
+		view.forward(request, response);
+		
 		
 	}
 

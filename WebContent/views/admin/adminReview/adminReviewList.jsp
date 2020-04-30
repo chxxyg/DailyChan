@@ -148,11 +148,7 @@
         		<input type="text" name="memberId"> <button type="submit" onclick="">조회</button> 
         	</form><br>
         <div id="allcount">
-                <% if(Remem == "1" ){ %>
-                	<div style="width:15%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= list.size() %>"> 개</div>
-				<%}if(Remem != "1"){ %>                
                 	<div style="width:15%;">총 리뷰 : <input type="text" id="adproductcount" value="<%= pi.getListCount() %>"> 개</div>    
-                <%} %>
         </div>  
         <table class="listMember">
             <thead>
@@ -179,7 +175,7 @@
                 </tr>
                 <% } %>
                
-                
+                 	
                 
             </tbody>
 

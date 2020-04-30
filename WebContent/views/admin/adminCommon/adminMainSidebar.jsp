@@ -127,8 +127,8 @@ body {
                     <a href="javascript:void(0);"><i class="fa fa-user"></i></i><span>회원현황</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                     <ul>
                         <li><a href="<%=contextPath%>/memberList.ad?currentPage=1">회원관리</a></li>
-                        <li><a href="<%=contextPath%>/blackList.ad">블랙리스트관리</a></li>
-                        <li><a href="<%=contextPath%>/reportList.ad">신고내역</a></li>
+                        <li><a href="<%=contextPath%>/blackList.ad?currentPage=1">블랙리스트관리</a></li>
+                        <li><a href="<%=contextPath%>/reportList.ad?currentPage=1">신고내역</a></li>
                         </li>
                     </ul>
                 </li>
@@ -145,9 +145,9 @@ body {
                 <li class="sub-menu">
                   <a href="javascript:void(0);"><i class="fa fa-gift"></i><span>이벤트관리</span><i class="arrow fa fa-angle-right pull-right"></i></a>
                   <ul>
-                      <li><a href="<%=contextPath%>/discountList.ad">할인관리</a>
+                      <li><a href="<%=contextPath%>/discountList.ad?currentPage=1">할인관리</a>
                       </li>
-                      <li><a href="<%=contextPath%>/couponList.ad">쿠폰관리</a>
+                      <li><a href="<%=contextPath%>/couponList.ad?currentPage=1">쿠폰관리</a>
                       </li>
                   </ul>
               </li>
