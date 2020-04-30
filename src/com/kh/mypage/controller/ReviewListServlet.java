@@ -37,7 +37,7 @@ public class ReviewListServlet extends HttpServlet {
 		ArrayList<Review> rList = new ReviewService().selectReviewList(proCode);
 		//request.setAttribute("proCode", proCode);
 		request.setAttribute("rList", rList);
-		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
+		
 		
 		//location.href="/dailyChan/views/product/productDetailPage.jsp?rList="+ rList;
 		
@@ -45,7 +45,7 @@ public class ReviewListServlet extends HttpServlet {
 		System.out.println(rList);
 		*/
 		
-		
+		request.getRequestDispatcher("views/mypage/myReview.jsp").forward(request, response);
 		
 	}
 
