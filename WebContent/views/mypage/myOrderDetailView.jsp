@@ -79,7 +79,6 @@
 		font-size:10px;
 		cursor:pointer;
 	}
-	
 	/* 결제 정보, 배송정보 */
 	#orderDetail_PaymentInfo1, #orderDetail_PaymentInfo2, #orderDetail_shipmentInfo {
 		margin:20px 5px 0px 5px;
