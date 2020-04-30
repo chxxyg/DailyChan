@@ -38,7 +38,6 @@
             border: 1px solid ;
             position:relative;
             max-height:600px;
-            border-collapse:collapse;
         }
         .listProduct>thead>tr>th{
             border:1px solid black;

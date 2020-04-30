@@ -55,7 +55,6 @@
             position:relative;
             max-height:600px;
             /*border-collapse:collapse; 테이블 간격 없애는구문*/
-            border-collapse:collapse;
         }
       	/*상품 등록 삭제 버튼css*/
         #allcount{width:1150px; }
