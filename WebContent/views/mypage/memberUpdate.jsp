@@ -329,7 +329,7 @@ select {
 								<tr>
 									<th scope="row"><label for="email">이메일</label><em class="es">필수입력</em></th>
 									<td>
-										<span class="tx"><input type="text" id="email" name="email" class="input" validate="empty" value="<%=loginUser.getEmail()%>"></span>
+										<span class="tx"><input type="text" id="email" name="email" class="input" validate="empty" value="<%=loginUser.getEmail()%>" readonly="readonly"></span>
 										<span class="sm" name="email" style="display:none;"></span>
 										<span class="sms">주문관련 정보에 대한 이메일과 SMS는 자동으로 전송됩니다.</span>
 									</td>
