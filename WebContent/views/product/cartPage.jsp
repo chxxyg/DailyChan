@@ -139,6 +139,7 @@
     <script>
     	$(function(){
     		
+    		/* 전체선택된 상태로 로딩 */
     		$("input:checkbox[name=checkBtn]").prop('checked', true);
     		$("#cartTotalCheck").prop('checked', true);
     		
