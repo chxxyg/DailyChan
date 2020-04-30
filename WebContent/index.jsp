@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
-<% 
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -799,9 +796,6 @@
 			$(".cartLogo").click(function(){
 				var proCode = $(this).parent().siblings(".pCode").val();
 				var proPrice = Number($(this).parent().siblings(".pPrice").val());
-				
-				console.log(proCode);
-				console.log(proPrice);
 				
 				$.ajax({
 					url:"toCart.pro",
