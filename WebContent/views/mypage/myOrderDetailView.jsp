@@ -202,7 +202,7 @@
 			</tr>
 			<tr height="45px">
 				<th width="130px">결제금액</th>
-				<td width="660px"><%= detailList.get(0).getPayAmount() - detailList.get(0).getUseCoupon() %>원</td>
+				<td width="660px"><%= detailList.get(0).getPayAmount() + detailList.get(0).getDeliveryCharge() - detailList.get(0).getUseCoupon()%>원</td>
 			</tr>
 		</table>
 		<br>
