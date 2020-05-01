@@ -91,14 +91,19 @@
 	        	<input type="hidden" name="mid" value="<%=mid%>">
 	            <tr>
 	                <td width="200" >* 공지사항 제목</td>
-	                <td><input type="text" width="300" required name="ntTitle" value="<%=n.getNoticeTitle()%>"></td>
+	                <td><input type="text" style="width:300px;" required name="ntTitle" value="<%=n.getNoticeTitle()%>"></td>
 	            </tr>
 	           
 	         	<tr>
 	         		<td width="200">* 이미지</td>
+	         		<%if(at != null){ %>
 	         		<td><p class="file">기존파일 : <a download="<%= at.getChangeName()%>"href="<%=contextPath%>/resources/attachment_notice/<%=at.getChangeName()%>"><%=at.getChangeName() %></a>
 	         		     <br><input type="file" name="ntUpfile"></p>
 	         		</td>
+	         		<%}else{ %>
+	         		<td>첨부파일이 없습니다.<br><input type="file" name="ntUpfile"></td>
+	         		
+	         		<%} %>
 	         	</tr>
 	                       
 	            <tr>

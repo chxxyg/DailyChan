@@ -96,7 +96,7 @@
             </tr>
             <tr>
                 <td width="200">* 제목</td>
-                <td><input type="text" required name="faqTitle" value="<%=f.getFaqTitle() %>"></td>
+                <td><input type="text" style="width:300px"required name="faqTitle" value="<%=f.getFaqTitle() %>"></td>
             </tr>
                        
             <tr>
