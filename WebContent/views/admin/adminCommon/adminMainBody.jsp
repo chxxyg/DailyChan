@@ -129,7 +129,7 @@
       	
       	<table class="listBody">
             <thead>
-                <tr onClick="location.href='<%=contextPath%>/productList.ad?currentPage=1'">
+                <tr onClick="location.href='<%=contextPath%>/paymentList.ad?currentPage=1'">
                     <th width="150">주문번호</th>
                     <th width="120">회원아이디</th>
                     <th width="120">주문자</th>
@@ -141,7 +141,7 @@
             </thead>
             <tbody>
       			 <% for(OrderDelivery o : list1){ %>
-                	<tr onClick="location.href='<%=contextPath%>/productList.ad?currentPage=1'">
+                	<tr onClick="location.href='<%=contextPath%>/paymentList.ad?currentPage=1'">
                 	
                     <td><%= o.getOdOrderNo() %></td>
                     <td><%= o.getOdMemberId() %></td>
