@@ -757,6 +757,8 @@
     </div>
     
     <script>
+    
+    	
 	
 		$(function(){
 			$(".cartLogo").click(function(){
