@@ -12,7 +12,7 @@
 		width: 1002px;
 	    height: 200px;
 	    margin:auto;
-	    padding-top:50px;
+	    padding-top:100px;
 	    box-sizing:border-box;
 	}
 	#center_1 a{
