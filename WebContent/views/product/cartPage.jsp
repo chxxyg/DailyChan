@@ -204,10 +204,10 @@
     		
     		/* 전체 상품 선택 시 금액 변경*/
     		$("#cartTotalCheck").change(function(){
-				
-   	    		var sum = 0;
-    			
-    			if($("input:checkbox[name=checkBtn]").is(":checked")){
+   	    		
+    			var sum = 0;
+
+   	    		if($("input:checkbox[name=checkBtn]").is(":checked")){
     				
     	    		var pSum = new Array();
     	    		
@@ -227,7 +227,7 @@
    	    		/* 배송비 추가 여부 */
 	   	 		var totalPrice = $(".totalPrice").val()
 	   	 		
-	   	 		if(totalPrice > 30000 || totalPrice == 0){
+	   	 		if(totalPrice > delivery || totalPrice == 0){
 	   	 			$(".deliveryPrice").val(0);
 	   	 		}else{
 	   	 			$(".deliveryPrice").val(dCharge);
@@ -240,7 +240,6 @@
 	   	 		$(".cartTotalPrice").val(newTotal+deliveryChg);
 	   	 		
     		});
-			
     		
 			/* 상품 부분 선택 시 금액 변경 */
     		$(".cartProductCheck").change(function(){
@@ -266,7 +265,7 @@
     			/* 배송비 추가 여부 */
 	   	 		var totalPrice = $(".totalPrice").val()
 	   	 		
-		   	 	if(totalPrice > 30000 || totalPrice == 0){
+		   	 	if(totalPrice > delivery || totalPrice == 0){
 	   	 			$(".deliveryPrice").val(0);
 	   	 		}else{
 	   	 			$(".deliveryPrice").val(dCharge);
