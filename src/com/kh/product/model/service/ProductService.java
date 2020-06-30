@@ -9,6 +9,7 @@ import com.kh.product.model.dao.ProductDao;
 import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.PageInfo;
 import com.kh.product.model.vo.Product;
+import com.kh.product.model.vo.WishList;
 
 public class ProductService {
 	
@@ -35,6 +36,14 @@ public class ProductService {
 		ArrayList<Product> list = new ProductDao().selectProList(conn, category, pi);
 		close(conn);
 		return list;
+	}
+
+	public ArrayList<WishList> selectWishList(String memberId)
+	{
+	    Connection conn = getConnection();
+        ArrayList<WishList> list = new ProductDao().selectWishList(conn, memberId);
+        close(conn);
+        return list;
 	}
 	
 	/**
@@ -110,7 +119,7 @@ public class ProductService {
 
 	public int insertAd2(String pdc) {
 		
-Connection conn = getConnection();
+	    Connection conn = getConnection();
 		
 		int result2 = new ProductDao().insertAd2(conn, pdc);
 		

@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.PageInfo;
 import com.kh.product.model.vo.Product;
+import com.kh.product.model.vo.WishList;
 
 public class ProductDao {
 	
@@ -193,6 +194,40 @@ public class ProductDao {
 			}
 		}
 		return list;
+	}
+	
+	
+	public ArrayList<WishList> selectWishList(Connection conn, String memberId)
+	{
+	    ArrayList<WishList> list = new ArrayList<>();
+	    PreparedStatement pstmt = null;
+	    ResultSet rset = null;
+	    String sql = prop.getProperty("selectWishList");
+	    
+	    try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, memberId);
+            
+            rset = pstmt.executeQuery();
+            
+            while(rset.next())
+            {
+                list.add(new WishList(rset.getString("MEMBER_ID"),
+                                      rset.getString("PRODUCT_CODE")));
+            }
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+	    finally
+	    {
+	        close(rset);
+	        close(pstmt);
+	    }
+	    
+	    return list;
 	}
 	
 	/**

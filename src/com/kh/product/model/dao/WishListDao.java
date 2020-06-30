@@ -82,6 +82,30 @@ public class WishListDao
         }
         
         return result;
+    }
+    
+    public int deleteWishList(Connection conn, String procode, String memberId)
+    {
+        int result = 0;
+        PreparedStatement pstmt = null;
+        String sql = prop.getProperty("deleteWishList");
         
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, memberId);
+            pstmt.setString(2, procode);
+            
+            result = pstmt.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(pstmt);
+        }
+        return result;
     }
 }

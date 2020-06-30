@@ -35,4 +35,21 @@ public class WishListService
         
         return result;
     }
+    
+    public int deleteWishList(String proCode, String memberId)
+    {
+        Connection conn = getConnection();
+        int result = new WishListDao().deleteWishList(conn, proCode, memberId);
+        
+        if(result > 0)
+        {
+            commit(conn);
+        }
+        else
+        {
+            rollback(conn);
+        }
+        close(conn);
+        return result;
+    }
 }

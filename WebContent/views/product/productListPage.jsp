@@ -4,6 +4,7 @@
 	String category = (String)request.getAttribute("category");
 	String title = (String)request.getAttribute("title");
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list"); 
+	ArrayList<WishList> wishListYN = (ArrayList<WishList>)request.getAttribute("wishList");
 	
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	
@@ -127,7 +128,37 @@
 				<td>
 					<div class="productBtn">
 						<button type="button" style="border: none; background-color: white;"><img class="cpCartLogo" src="<%= request.getContextPath() %>/resources/img/cartlogo.png"></button>
-						<button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo" src="<%= request.getContextPath() %>/resources/img/likelogo.png"></button>
+						<%
+							if(loginUser != null)
+							{
+								int wishListCount = 0;
+								for(WishList w : wishListYN){
+								    
+								    if(p.getProCode().equals(w.getProCode()))
+								    {
+								        wishListCount = 1;
+								    }
+								}
+								if(wishListCount == 1)
+								{
+						%>						
+							    <button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo wishList_Y" src="<%= request.getContextPath() %>/resources/img/likelogo_orange.png"></button>
+						<%
+								}
+								else
+								{
+						%>
+								<button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo wishList_N" src="<%= request.getContextPath() %>/resources/img/likelogo.png"></button>
+						<%    
+								}
+							}
+							else
+							{
+					    %>
+								<button type="button" style="border: none; background-color: white;"><img class="cpLikeLogo wishList_N" src="<%= request.getContextPath() %>/resources/img/likelogo.png"></button>
+						<%    
+							}
+						%>
 					</div> 
 				</td>
 			</tr>
@@ -205,9 +236,8 @@
 			});
 		});
 		
-		$(".cpLikeLogo").click(function(){
+		$(".wishList_N").click(function(){
 			var proCode = $(this).parents(".categoryInnerTable").prev().val();
-			console.log(proCode);
 			<% if(loginUser != null) {%>
 				$.ajax({
 					url:"toWishList.pro",
@@ -222,10 +252,10 @@
 							{
 								location.href="wishList.pro";
 							}
-						}
-						else
-						{
-							alert("상품이 찜목록에 이미 존재합니다.");
+							else
+							{
+								location.reload();
+							}
 						}
 					},
 					error:function()
@@ -236,6 +266,39 @@
 			<% }else{ %>
 				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
 			<%}%>
+		});
+		
+		$(".wishList_Y").click(function(){
+			var proCode = $(this).parents(".categoryInnerTable").prev().val();
+			console.log(proCode);
+			$.ajax({
+				url:"deleteWishList.pro",
+				data:{"proCode" : proCode},
+				type: "post",
+				success:function(result)
+				{
+					if(result > 0)
+					{
+						var sel = confirm("상품이 찜목록에서 삭제되었습니다. 찜목록을 확인하시겠습니까?");
+						if(sel)
+						{
+							location.href="wishList.pro";
+						}
+						else
+						{
+							location.reload();
+						}
+					}
+					else
+					{
+						console.log("DB삭제 오류");
+					}
+				},
+				error:function()
+				{
+					console.log("ajax통신 에러");
+				}
+			});
 		});
 	</script>
 	

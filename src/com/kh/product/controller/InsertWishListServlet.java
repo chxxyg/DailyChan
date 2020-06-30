@@ -42,7 +42,6 @@ public class InsertWishListServlet extends HttpServlet {
 	    
 	    // wishList 등록 확인
 	    int count = new WishListService().countWishList(memberId, proCode);
-	    System.out.println(count);
 	    
 	    if(count == 0)
 	    {
