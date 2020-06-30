@@ -291,7 +291,7 @@
                             <p>장바구니</p>                
                         </a>
                         <!-- 찜 -->
-                        <a href="" class="a_wish">
+                        <a href="<%=contextPath%>/wishList.pro" class="a_wish">
                             <img id="wish_img" src="<%=contextPath%>/resources/img/likelogo.png" width="30px" height="30px" style="margin-bottom:5px;">
                             <p>찜</p>
                         </a>

@@ -204,6 +204,39 @@
 				
 			});
 		});
+		
+		$(".cpLikeLogo").click(function(){
+			var proCode = $(this).parents(".categoryInnerTable").prev().val();
+			console.log(proCode);
+			<% if(loginUser != null) {%>
+				$.ajax({
+					url:"toWishList.pro",
+					data:{"proCode" : proCode},
+					type: "post",
+					success:function(result)
+					{
+						if(result == 0)
+						{
+							var sel = confirm("상품이 찜목록에 추가되었습니다. 찜목록을 확인하시겠습니까?");
+							if(sel)
+							{
+								location.href="wishList.pro";
+							}
+						}
+						else
+						{
+							alert("상품이 찜목록에 이미 존재합니다.");
+						}
+					},
+					error:function()
+					{
+						console.log("ajax통신 에러");
+					}
+				});
+			<% }else{ %>
+				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+			<%}%>
+		});
 	</script>
 	
 	    
