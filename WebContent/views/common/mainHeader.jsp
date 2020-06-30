@@ -19,13 +19,13 @@
 	#hd_wrap{width:1104px; margin:auto; background:white;}
 
 	#hd_navi{
-	    width:1100px;
+	    width:1000px;
 	    height:240px;
 	    margin:auto;
 	}
-	#header{width:1100; height:200px; margin:auto;}
+	#header{width:1000; height:200px; margin:auto;}
 	#navigator{
-		width:1100px;
+		width:1000px;
 		height:50px;
 		background:white;
 		margin:auto;
@@ -33,10 +33,10 @@
 	}
 	
 	#header>div{float:left;}
-	#header_1{width:1100px; height:30px;}
-	#header_2{width:350px; height:170px; margin:auto;}
+	#header_1{width:1000px; height:30px;}
+	#header_2{width:300px; height:170px; margin:auto;}
 	#header_3{width:400px; height:170px; margin:auto;}
-	#header_4{width:350px; height:170px; margin:auto;}
+	#header_4{width:300px; height:170px; margin:auto;}
 	
 	#hd_top a, #navi a{
 	    text-decoration:none;
@@ -48,7 +48,7 @@
 	    width:500px;
 	    height:30px;
 	    float:left;
-	    margin-left:700px;
+	    margin-left:620px;
 	}
 	#hd_top a, #hd_top b{
 	    width:100px;
@@ -141,12 +141,12 @@
 	    padding:0;
 	    margin:auto;
 	    height:100%;
-	    border-bottom: 2px lightgrey solid;
+	    /* border-bottom: 2px lightgrey solid; */
 	}
 	#navi>li{
 	    float: left;
 	    height: 70px;
-	    width: 157px;
+	    width: 142px;
 	    text-align: center;
 	    margin:auto;
 	}
@@ -154,7 +154,7 @@
 	    text-decoration: none;
 	    font-size: 18px;
 	    color: black;
-	    font-weight: 900;
+	    font-weight: 600;
 	    padding-top: 3px;
 	    display: block;
 	    height: 94%;
@@ -185,6 +185,7 @@
 	    position: fixed;
 	    top: 0px;
 	    z-index:10000;
+	    border-bottom: 2px lightgrey solid;
 	}
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

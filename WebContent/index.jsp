@@ -17,10 +17,10 @@
 	}
 	#bestLabel{
 	    height: 60px;
-	    font-size: 40px;
+	    font-size: 35px;
 	    font-weight: 600;
 	    padding: 25px;
-	    margin-bottom: 50px;
+	    margin-bottom: 35px;
 	}
 	#bestTable{
 	    width: 1000px;
@@ -40,7 +40,7 @@
 	    font-size: 20px;
 	    font-weight: 600;
 	    text-align: left;
-	    padding-left: 20px;
+	    padding-left: 5px;
 	    margin-top: 5px;
 	}
 	.bestInfo{
@@ -49,14 +49,14 @@
 	    font-size: 15px;
 	    font-weight: 600;
 	    text-align: left;
-	    padding-left: 20px;
+	    padding-left: 5px;
 	}
 	.bestPrice{padding-right: 5px;}
 	.bestFor{padding-left: 5px;}
 	.bestBtn{
 	    height: 40px;
 	    text-align: right;
-	    padding-right: 30px;
+	    padding-right: 20px;
 	}
 	
 	
@@ -66,14 +66,13 @@
 	    margin: auto;
 	    box-sizing: border-box;
 	    height: 870px;
-	    margin-bottom: 100px;
 	}
 	#newLabel, #saleLabel{
 	    height: 40px;
-	    font-size: 40px;
+	    font-size: 35px;
 	    font-weight: 600;
 	    padding: 25px;
-	    margin-bottom: 40px;
+	    margin-bottom: 25px;
 	}
 	#newWrap{
 	    width: 500px;
@@ -101,12 +100,15 @@
 	.newName, .saleName{
 	    width: 300px;
 	    height: 40px;
+	    padding-top: 10px;
+	    padding-left: 5px;
 	    font-size: 20px;
 	    font-weight: 600;
 	}
 	.newInfo, .saleInfo{
 	    width: 300px;
 	    height: 40px;
+	    padding-left: 5px;
 	    font-size: 15px;
 	    font-weight: 600;
 	}
@@ -139,42 +141,6 @@
 	    height: 30px;
 	}
 	
-	/* 인스타그램 */
-	#instaWrap{
-	    width: 1000px;
-	    margin: auto;
-	    box-sizing: border-box;
-	    height: 600px;
-	    margin-bottom: 100px;
-	}
-	#instaLabel{
-	    width: 300px;
-	    height: 100px;
-	    font-size: 50px;
-	    font-weight: 600;
-	    box-sizing: border-box;
-	    display: inline-block;
-	    vertical-align: top;
-	    padding-bottom: 30px;
-	}
-	#instaLogo{
-	    width: 80px;
-	    height: 80px;
-	}
-	.instaDetail{
-	    width: 490px;
-	    height: 40px;
-	    font-size: 20px;
-	    font-weight: 500;
-	    text-align: right;
-	    padding-right: 10px;
-	}
-	
-	.instaImg{
-	    width: 250px;
-	    height: 250px;
-	}
-
 	
 	/* mainBanner slideShow */
 	* {box-sizing: border-box;}
@@ -263,31 +229,31 @@
     
 	    
 	<div class="slideshow-container">
-	
-	<div class="mySlides fade">
-	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner1.jpg" style="width:100%">
-	</div>
-	
-	<div class="mySlides fade">
-	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner2.png" style="width:100%">
-	</div>
-	
-	<div class="mySlides fade">
-	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner3.png" style="width:100%">
-	</div>
-	
-	<div class="mySlides fade">
-	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner4.png" style="width:100%">
-	</div>
-	
-	<div class="mySlides fade">
-	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner5.png" style="width:100%">
-	</div>
-	
-	<div class="mySlides fade">
-	  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner6.jpg" style="width:100%">
-	</div>
-	
+		
+		<div class="mySlides fade">
+		  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner1.jpg" style="width:100%">
+		</div>
+		
+		<div class="mySlides fade">
+		  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner2.png" style="width:100%">
+		</div>
+		
+		<div class="mySlides fade">
+		  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner3.png" style="width:100%">
+		</div>
+		
+		<div class="mySlides fade">
+		  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner4.png" style="width:100%">
+		</div>
+		
+		<div class="mySlides fade">
+		  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner5.png" style="width:100%">
+		</div>
+		
+		<div class="mySlides fade">
+		  <img src="<%=contextPath%>/resources/mainBannerImg/mainbanner6.jpg" style="width:100%">
+		</div>
+		
 	</div>
 	<br>
 	
@@ -791,6 +757,8 @@
     </div>
     
     <script>
+    
+    	
 	
 		$(function(){
 			$(".cartLogo").click(function(){
