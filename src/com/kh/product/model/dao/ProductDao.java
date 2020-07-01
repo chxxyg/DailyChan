@@ -365,6 +365,38 @@ public class ProductDao {
 		}
 		return result;
 	}
+	
+	
+	public ArrayList<Product> selectMainBest(Connection conn){
+		
+		ArrayList<Product> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMainBest");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(new Product(rset.getString("PRODUCT_CODE"),
+									 rset.getString("PRODUCT_NAME"),
+									 rset.getInt("PRODUCT_PRICE"),
+									 rset.getInt("PRODUCT_STANDARD"),
+									 rset.getString("FILE_NAME"),
+									 rset.getString("PRODUCT_SALE_YN")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+		
+	}
+	
+	
 
 	/*
 	 * 관리자용 할인추가시 상품 할인상태 컬럼변경

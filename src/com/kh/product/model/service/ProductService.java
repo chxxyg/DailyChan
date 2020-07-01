@@ -98,6 +98,19 @@ public class ProductService {
 		close(conn);
 		return result;
 	}
+	
+	
+	/**
+	 * MainBest 조회
+	 * @return
+	 */
+	public ArrayList<Product> selectMainBest(){
+		Connection conn = getConnection();
+		ArrayList<Product> list = new ProductDao().selectMainBest(conn);
+		close(conn);
+		return list;
+	}
+	
 
 	/*
 	 * 관리자용 할인추가시 상품 할인상태 컬럼변경

@@ -290,211 +290,8 @@
 	    
     <div id="bestWrap">
         <div id="bestLabel"><a class="aLabel" href="<%= contextPath %>/pList.pro?category=best&currentPage=1">실시간 베스트</a></div>
-        <table id="bestTable">
-            <tr>
-                <td>
-                    <table class="bestInnerTable"> <!-- KOA138 -->
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA138"><img id="bestImg1" class="bestImg" src="<%=contextPath%>/resources/attachment_product/3마리 꽃게탕.jpg"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName1" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA138">3마리 꽃게탕</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo1" class="bestInfo">
-                                    <span id="bestPrice1" class="bestPrice">17000 원</span>
-                                    <span>|</span>
-                                    <span id="bestFor1" class="bestFor">2인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn1" class="bestBtn">
-                                	<input type="hidden" class="pCode" value="KOA138">
-                                	<input type="hidden" class="pPrice" value="17000">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                
-                    <table class="bestInnerTable"> <!-- ITB203 -->
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITB203"><img id="bestImg2" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알리오올리오.jpg"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName2" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITB203">감바스 알리오올리오</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo2" class="bestInfo">
-                                    <span id="bestPrice2" class="bestPrice">11500 원</span>
-                                    <span>|</span>
-                                    <span id="bestFor2" class="bestFor">2인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn2" class="bestBtn">
-                                	<input type="hidden" class="pCode" value="ITB203">
-                                	<input type="hidden" class="pPrice" value="11500">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="bestInnerTable"> <!-- ITC201 -->
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITC201"><img id="bestImg3" class="bestImg" src="<%=contextPath%>/resources/attachment_product/감바스 알아히오.jpg"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName3" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITC201">감바스 알아히오</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo3" class="bestInfo">
-                                    <span id="bestPrice3" class="bestPrice">17800 원</span>
-                                    <span>|</span>
-                                    <span id="bestFor3" class="bestFor">2인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn3" class="bestBtn">
-                                	<input type="hidden" class="pCode" value="ITC201">
-                                	<input type="hidden" class="pPrice" value="17800">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table class="bestInnerTable"> <!-- ASA307 -->
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ASA307"><img id="bestImg4" class="bestImg" src="<%=contextPath%>/resources/attachment_product/고추잡채&꽃빵.jpg"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName4" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ASA307">고추잡채&꽃빵</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo4" class="bestInfo">
-                                    <span id="bestPrice4" class="bestPrice">15500 원</span>
-                                    <span>|</span>
-                                    <span id="bestFor4" class="bestFor">2인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn4" class="bestBtn">
-                                	<input type="hidden" class="pCode" value="ASA307">
-                                	<input type="hidden" class="pPrice" value="15500">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="bestInnerTable"> <!-- KOA107 -->
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA107"><img id="bestImg5" class="bestImg" src="<%=contextPath%>/resources/attachment_product/곱도리탕.jpg"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName5" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA107">곱도리탕</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo5" class="bestInfo">
-                                    <span id="bestPrice5" class="bestPrice">16500 원</span>
-                                    <span>|</span>
-                                    <span id="bestFor5" class="bestFor">2인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn5" class="bestBtn">
-                                	<input type="hidden" class="pCode" value="KOA107">
-                                	<input type="hidden" class="pPrice" value="16500">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="bestInnerTable"> <!-- KOB112 -->
-                        <tr>
-                            <td>
-                                <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOB112"><img id="bestImg6" class="bestImg" src="<%=contextPath%>/resources/attachment_product/구름치즈 안동식찜닭.jpg"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestName6" class="bestName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOB112">구름치즈 안동식찜닭</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestInfo6" class="bestInfo">
-                                    <span id="bestPrice6" class="bestPrice">17000 원</span>
-                                    <span>|</span>
-                                    <span id="bestFor6" class="bestFor">2인분</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="bestBtn6" class="bestBtn">
-                                	<input type="hidden" class="pCode" value="KOB112">
-                                	<input type="hidden" class="pPrice" value="17000">
-                                    <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                    <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+        <div id="bestTable">
+        </div>
     </div>
 
 
@@ -755,11 +552,9 @@
             </table>
         </div>
     </div>
-    
-    <script>
-    
+ 
     	
-	
+    	<script>
 		$(function(){
 			$(".cartLogo").click(function(){
 				var proCode = $(this).parent().siblings(".pCode").val();
@@ -782,13 +577,7 @@
 						alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
 					}
 				});
-				
 			});
-			
-			/* $(".likeLogo").click(function(){
-				
-			}); */
-			
 		});
 	</script>
 	
