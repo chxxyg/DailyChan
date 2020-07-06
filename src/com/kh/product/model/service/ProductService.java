@@ -111,6 +111,28 @@ public class ProductService {
 		return list;
 	}
 	
+	/**
+	 * MainNew 조회
+	 * @return
+	 */
+	public ArrayList<Product> selectMainNew(){
+		Connection conn = getConnection();
+		ArrayList<Product> list = new ProductDao().selectMainNew(conn);
+		close(conn);
+		return list;
+	}
+	
+	/**
+	 * MainSale 조회
+	 * @return
+	 */
+	public ArrayList<Product> selectMainSale(){
+		Connection conn = getConnection();
+		ArrayList<Product> list = new ProductDao().selectMainSale(conn);
+		close(conn);
+		return list;
+	}
+	
 
 	/*
 	 * 관리자용 할인추가시 상품 할인상태 컬럼변경

@@ -367,6 +367,11 @@ public class ProductDao {
 	}
 	
 	
+	/**
+	 * MainBest 조회
+	 * @param conn
+	 * @return
+	 */
 	public ArrayList<Product> selectMainBest(Connection conn){
 		
 		ArrayList<Product> list = new ArrayList<>();
@@ -396,6 +401,76 @@ public class ProductDao {
 		
 	}
 	
+	
+	/**
+	 * MainNew 조회
+	 * @param conn
+	 * @return
+	 */
+	public ArrayList<Product> selectMainNew(Connection conn){
+		
+		ArrayList<Product> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMainNew");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(new Product(rset.getString("PRODUCT_CODE"),
+									 rset.getString("PRODUCT_NAME"),
+									 rset.getInt("PRODUCT_PRICE"),
+									 rset.getInt("PRODUCT_STANDARD"),
+									 rset.getString("FILE_NAME"),
+									 rset.getString("PRODUCT_SALE_YN")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+		
+	}
+	
+	
+	/**
+	 * MainSale 조회
+	 * @param conn
+	 * @return
+	 */
+	public ArrayList<Product> selectMainSale(Connection conn){
+		
+		ArrayList<Product> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMainSale");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(new Product(rset.getString("PRODUCT_CODE"),
+									 rset.getString("PRODUCT_NAME"),
+									 rset.getInt("PRODUCT_PRICE"),
+									 rset.getInt("PRODUCT_STANDARD"),
+									 rset.getString("FILE_NAME"),
+									 rset.getDouble("DISCOUNT_RATE"),
+									 rset.getString("PRODUCT_SALE_YN")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+		
+	}
 	
 
 	/*

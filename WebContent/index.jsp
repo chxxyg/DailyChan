@@ -29,6 +29,8 @@
 	.bestInnerTable{
 	    display: inline-block;
 	    padding-bottom: 30px;
+	    padding-left: 10px;
+	    padding-right: 10px;
 	}
 	.bestImg{
 	    width: 300px;
@@ -294,271 +296,194 @@
         </div>
     </div>
 
-
     <div id="newSaleWrap">
+    
         <div id="newWrap">
             <div id="newLabel"><a class="aLabel" href="<%= contextPath %>/pList.pro?category=new&currentPage=1">NEW</a></div>
-            <table id="newTable">
-                <tr>
-                    <td>
-                        <table class="newInnerTable"> <!-- ITD221 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITD221"><img id="newImg1" class="newImg" src="<%=contextPath%>/resources/attachment_product/훈제연어 샐러드.png"></a>
-                                </td>
-                                <td>
-                                    <div id="newName1" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITD221">훈제연어 샐러드</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newInfo1" class="newInfo">
-                                        <span id="newPrice1" class="newPrice">8900 원</span>
-                                        <span>|</span>
-                                        <span id="newFor1" class="newFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newBtn1" class="newBtn">
-                                    	<input type="hidden" class="pCode" value="ITD221">
-                                    	<input type="hidden" class="pPrice" value="8900">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="newInnerTable"> <!-- KOA132 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA132"><img id="newImg2" class="newImg" src="<%=contextPath%>/resources/attachment_product/황태해장국.jpg"></a>
-                                </td>
-                                <td>
-                                    <div id="newName2" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA132">황태해장국</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newInfo2" class="newInfo">
-                                        <span id="newPrice2" class="newPrice">9900 원</span>
-                                        <span>|</span>
-                                        <span id="newFor2" class="newFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newBtn2" class="newBtn">
-                                    	<input type="hidden" class="pCode" value="KOA132">
-                                    	<input type="hidden" class="pPrice" value="9900">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="newInnerTable"> <!-- KOA114 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA114"><img id="newImg3" class="newImg" src="<%=contextPath%>/resources/attachment_product/해물짬뽕순두부.jpg"></a>
-                                </td>
-                                <td>
-                                    <div id="newName3" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA114">해물짬뽕순두부</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newInfo3" class="newInfo">
-                                        <span id="newPrice3" class="newPrice">18000 원</span>
-                                        <span>|</span>
-                                        <span id="newFor3" class="newFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newBtn3" class="newBtn">
-                                    	<input type="hidden" class="pCode" value="KOA114">
-                                    	<input type="hidden" class="pPrice" value="18000">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="newInnerTable"> <!-- ITB207 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ITB207"><img id="newImg4" class="newImg" src="<%=contextPath%>/resources/attachment_product/트리플머쉬룸로제파스타.jpg"></a>
-                                </td>
-                                <td>
-                                    <div id="newName4" class="newName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ITB207">트리플머쉬룸로제파스타</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newInfo4" class="newInfo">
-                                        <span id="newPrice4" class="newPrice">8900 원</span>
-                                        <span>|</span>
-                                        <span id="newFor4" class="newFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="newBtn4" class="newBtn">
-                                    	<input type="hidden" class="pCode" value="ITB207">
-                                    	<input type="hidden" class="pPrice" value="8900">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+            <div id="newTable">
+			</div>
         </div>
 
         <div id="saleWrap">
             <div id="saleLabel"><a class="aLabel" href="<%= contextPath %>/pList.pro?category=sale&currentPage=1">SALE</a></div>
-            <table id="saleTable">
-                <tr>
-                    <td>
-                        <table class="saleInnerTable"> <!-- KOA101 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA101"><img id="saleImg1" class="saleImg" src="<%=contextPath%>/resources/attachment_product/어복쟁반.jpg"></a>
-                                </td>
-                                <td>
-                                    <div id="saleName1" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA101">어복쟁반</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="saleInfo1" class="saleInfo">
-                                        <span id="salePrice1" class="salePrice" style="text-decoration: line-through; color: gray;">18000 원</span>
-										<span class="salePrice" style="color: red;">16200 원</span>
-                                        <span>|</span>
-                                        <span id="saleFor1" class="saleFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="salevBtn1" class="saleBtn">
-                                    	<input type="hidden" class="pCode" value="KOA101">
-                                    	<input type="hidden" class="pPrice" value="16200">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="saleInnerTable"> <!-- KOA102 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA102"><img id="saleImg2" class="saleImg" src="<%=contextPath%>/resources/attachment_product/사골만두전골.jpg"></a>
-                                </td>
-                                <td>
-                                    <div id="saleName2" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA102">사골만두전골</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="saleInfo2" class="saleInfo">
-                                        <span id="salePrice2" class="salePrice" style="text-decoration: line-through; color: gray;">16500 원</span>
-										<span class="salePrice" style="color: red;">14850 원</span>
-                                        <span>|</span>
-                                        <span id="saleFor2" class="saleFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="saleBtn2" class="saleBtn">
-                                    	<input type="hidden" class="pCode" value="KOA102">
-                                    	<input type="hidden" class="pPrice" value="14850">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="saleInnerTable"> <!-- ASA303 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=ASA303"><img id="saleImg3" class="saleImg" src="<%=contextPath%>/resources/attachment_product/홍콩식 마파두부.jpg"></a>
-                                </td>
-                                <td>
-                                    <div id="saleName3" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=ASA303">홍콩식 마파두부</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="saleInfo3" class="saleInfo">
-                                        <span id="salePrice3" class="salePrice" style="text-decoration: line-through; color: gray;">13000 원</span>
-										<span class="salePrice" style="color: red;">11700 원</span>
-                                        <span>|</span>
-                                        <span id="saleFor3" class="saleFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="saleBtn3" class="saleBtn">
-                                    	<input type="hidden" class="pCode" value="ASA303">
-                                    	<input type="hidden" class="pPrice" value="11700">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="saleInnerTable"> <!-- KOA109 -->
-                            <tr>
-                                <td rowspan="3">
-                                    <a class="aProductImg" href="<%=contextPath%>/pDetail.pro?proCode=KOA109"><img id="saleImg4" class="saleImg" src="<%=contextPath%>/resources/attachment_product/햄듬뿍 부대찌개.jpg"></a>
-                                </td>
-                                <td>
-                                    <div id="saleName4" class="saleName"><a class="aProductLabel" href="<%=contextPath%>/pDetail.pro?proCode=KOA109">햄듬뿍 부대찌개</a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="saleInfo4" class="saleInfo">
-                                        <span id="salePrice4" class="salePrice" style="text-decoration: line-through; color: gray;">12500 원</span>
-										<span class="salePrice" style="color: red;">11250 원</span>
-                                        <span>|</span>
-                                        <span id="saleFor4" class="saleFor">2인분</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div id="saleBtn4" class="saleBtn">
-                                    	<input type="hidden" class="pCode" value="KOA109">
-                                    	<input type="hidden" class="pPrice" value="11250">
-                                        <button type="button"><img class="cartLogo" src="<%=contextPath%>/resources/img/cartlogo.png" alt=""></button>
-                                        <button type="button"><img class="likeLogo" src="<%=contextPath%>/resources/img/likelogo.png" alt=""></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+            <div id="saleTable">
+            </div>
         </div>
+        
     </div>
+    
  
+    <!-- best ajax -->
+    <script>
+    	$(function(){
+    		$.ajax({
+    			url:"mainBest.pro",
+    			type:"get",
+    			success:function(list){
+    				var value = "";
+    				
+    				for(var i=0; i<list.length; i++){
+	    				value +=
+			                "<input type='hidden' class='pCode' value='" + list[i].proCode + "'>" + 
+	                        "<table class='bestInnerTable categoryInnerTable'>" +
+			                    "<tr>" +
+			                        "<td>" + 
+			                            "<a class='aProductImg' href='${pageContext.servletContext.contextPath }/pDetail.pro?proCode=" + list[i].proCode + "'><img class='bestImg' src='${pageContext.servletContext.contextPath }/resources/attachment_product/" + list[i].atFileName + "'></a>" +
+			                        "</td>" + 
+			                    "</tr>" +
+			                    "<tr>" + 
+			                        "<td>" + 
+			                            "<div class='bestName'><a class='aProductLabel' href='${pageContext.servletContext.contextPath }/pDetail.pro?proCode=" + list[i].proCode + "'>" + list[i].proName + "</a></div>" +
+			                        "</td>" + 
+			                    "</tr>" +
+			                    "<tr>" +
+			                        "<td>" +
+			                            "<div class='bestInfo'>" + 
+			                                "<span class='bestPrice'>" + list[i].proPrice + "원</span>" +
+			                                "<span> | </span>" +
+			                                "<span class='bestFor'>" + list[i].proStandard + "인분</span>" +
+			                            "</div>" + 
+			                        "</td>" + 
+			                    "</tr>" + 
+			                    "<tr>" + 
+			                        "<td>" + 
+			                            "<div class='bestBtn'>" + 
+			                            	"<input type='hidden' class='pPrice' value='" + list[i].proPrice + "'>" +
+			                                "<button type='button'><img class='cartLogo' src='${pageContext.servletContext.contextPath }/resources/img/cartlogo.png' alt=''></button>" + 
+			                                "<button type='button'><img class='likeLogo' src='${pageContext.servletContext.contextPath }/resources/img/likelogo.png' alt=''></button>" +
+			                            "</div>" + 
+			                        "</td>" + 
+			                    "</tr>" +
+			                "</table>";
+    				}
+    				
+    				$("#bestTable").html(value);
+    				
+    			}, error:function(){
+    				console.log("main best ajax failed");
+    			}
+    		});
+    	});
+   	</script>
+   	
+   	<!-- new ajax -->
+   	<script>
+    	$(function(){
+    		$.ajax({
+    			url:"mainNew.pro",
+    			type:"get",
+    			success:function(list){
+    				var value = "";
+    				
+    				for(var i=0; i<list.length; i++){
+	    				value +=
+		                    "<input type='hidden' class='pCode' value='" + list[i].proCode + "'>" +
+	                        "<table class='newInnerTable categoryInnerTable'>" + 
+		                        "<tr>" +
+		                            "<td rowspan='3'>" + 
+		                                "<a class='aProductImg' href='${pageContext.servletContext.contextPath }/pDetail.pro?proCode=" + list[i].proCode + "'><img class='newImg' src='${pageContext.servletContext.contextPath }/resources/attachment_product/" + list[i].atFileName + "'></a>" +
+		                            "</td>" +
+		                            "<td>" +
+		                                "<div class='newName'><a class='aProductLabel' href='${pageContext.servletContext.contextPath }/pDetail.pro?proCode=" + list[i].proCode + "'>" + list[i].proName + "</a></div>" +
+		                            "</td>" + 
+		                        "</tr>" +
+		                        "<tr>" +
+		                            "<td>" +
+		                                "<div class='newInfo'>" +
+		                                    "<span class='newPrice'>" + list[i].proPrice + "원</span>" +
+		                                    "<span> | </span>" +
+		                                    "<span class='newFor'>" + list[i].proStandard + "인분</span>" +
+		                                "</div>" +
+		                            "</td>" +
+		                        "</tr>" +
+		                        "<tr>" +
+		                            "<td>" +
+		                                "<div class='newBtn'>" +
+		                                	"<input type='hidden' class='pPrice' value='" + list[i].proPrice + "'>" +
+		                                    "<button type='button'><img class='cartLogo' src='${pageContext.servletContext.contextPath }/resources/img/cartlogo.png' alt=''></button>" +
+		                                    "<button type='button'><img class='likeLogo' src='${pageContext.servletContext.contextPath }/resources/img/likelogo.png' alt=''></button>" +
+		                                "</div>" +
+		                            "</td>" +
+		                        "</tr>" +
+		                    "</table>";
+    				}
+    				
+    				$("#newTable").html(value);
+    				
+    			}, error:function(){
+    				console.log("main new ajax failed");
+    			}
+    		});
+    	});
+   	</script>
+   	
+	<!-- sale ajax -->
+   	<script>
+    	$(function(){
+    		$.ajax({
+    			url:"mainSale.pro",
+    			type:"get",
+    			success:function(list){
+    				var value = "";
+    				
+    				for(var i=0; i<list.length; i++){
+	    				value +=
+	                        "<input type='hidden' class='pCode' value='" + list[i].proCode + "'>" +
+	    	                "<table class='saleInnerTable categoryInnerTable'>" + 
+	                        "<tr>" +
+	                            "<td rowspan='3'>" + 
+	                                "<a class='aProductImg' href='${pageContext.servletContext.contextPath }/pDetail.pro?proCode=" + list[i].proCode + "'><img class='saleImg' src='${pageContext.servletContext.contextPath }/resources/attachment_product/" + list[i].atFileName + "'></a>" +
+	                            "</td>" +
+	                            "<td>" +
+	                                "<div class='saleName'><a class='aProductLabel' href='${pageContext.servletContext.contextPath }/pDetail.pro?proCode=" + list[i].proCode + "'>" + list[i].proName + "</a></div>" +
+	                            "</td>" + 
+	                        "</tr>" +
+	                        "<tr>" +
+	                            "<td>" +
+	                                "<div class='saleInfo'>" +
+	                                "<input type='hidden' class='sale' value='sale'>" + 
+	                                    "<span class='salePrice' style='text-decoration: line-through; color: gray;'>" + list[i].proPrice + "원</span>" +
+	                                    "<span class='salePrice discountPrice' style='color: red;'> " + (list[i].proPrice * (1 - list[i].discountRate)) + "원</span>" +
+	                                    "<span> | </span>" +
+	                                    "<span class='saleFor'>" + list[i].proStandard + "인분</span>" +
+	                                "</div>" +
+	                            "</td>" +
+	                        "</tr>" +
+	                        "<tr>" +
+	                            "<td>" +
+	                                "<div class='saleBtn'>" +
+	                                	"<input type='hidden' class='pPrice' value='" + list[i].proPrice + "'>" +
+	                                    "<button type='button'><img class='cartLogo' src='${pageContext.servletContext.contextPath }/resources/img/cartlogo.png' alt=''></button>" +
+	                                    "<button type='button'><img class='likeLogo' src='${pageContext.servletContext.contextPath }/resources/img/likelogo.png' alt=''></button>" +
+	                                "</div>" +
+	                            "</td>" +
+	                        "</tr>" +
+	                    "</table>";
+    				}
+    				
+    				$("#saleTable").html(value);
+    				
+    			}, error:function(){
+    				console.log("main sale ajax failed");
+    			}
+    		});
+    	});
+   	</script>
     	
-    	<script>
-		$(function(){
-			$(".cartLogo").click(function(){
-				var proCode = $(this).parent().siblings(".pCode").val();
-				var proPrice = Number($(this).parent().siblings(".pPrice").val());
+    	
+   	<script>
+   		
+   		$(document).on("click", ".cartLogo", function(){
+				var proCode = $(this).parents(".categoryInnerTable").prev().val();
+				var proPrice = 0;
+				
+				var saleYN = $(this).parents(".categoryInnerTable").find(".sale").val();
+				
+				if(saleYN == "sale"){
+					proPrice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
+				}else{
+					proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
+				}
 				
 				$.ajax({
 					url:"toCart.pro",
@@ -577,6 +502,71 @@
 						alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
 					}
 				});
+		});
+   		
+		
+		$(".wishList_N").click(function(){
+			var proCode = $(this).parents(".categoryInnerTable").prev().val();
+			<% if(loginUser != null) {%>
+				$.ajax({
+					url:"toWishList.pro",
+					data:{"proCode" : proCode},
+					type: "post",
+					success:function(result)
+					{
+						if(result == 0)
+						{
+							var sel = confirm("상품이 찜목록에 추가되었습니다. 찜목록을 확인하시겠습니까?");
+							if(sel)
+							{
+								location.href="wishList.pro";
+							}
+							else
+							{
+								location.reload();
+							}
+						}
+					},
+					error:function()
+					{
+						console.log("ajax통신 에러");
+					}
+				});
+			<% }else{ %>
+				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+			<%}%>
+		});
+		
+		$(".wishList_Y").click(function(){
+			var proCode = $(this).parents(".categoryInnerTable").prev().val();
+			console.log(proCode);
+			$.ajax({
+				url:"deleteWishList.pro",
+				data:{"proCode" : proCode},
+				type: "post",
+				success:function(result)
+				{
+					if(result > 0)
+					{
+						var sel = confirm("상품이 찜목록에서 삭제되었습니다. 찜목록을 확인하시겠습니까?");
+						if(sel)
+						{
+							location.href="wishList.pro";
+						}
+						else
+						{
+							location.reload();
+						}
+					}
+					else
+					{
+						console.log("DB삭제 오류");
+					}
+				},
+				error:function()
+				{
+					console.log("ajax통신 에러");
+				}
 			});
 		});
 	</script>

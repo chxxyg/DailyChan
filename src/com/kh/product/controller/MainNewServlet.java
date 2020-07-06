@@ -14,16 +14,16 @@ import com.kh.product.model.service.ProductService;
 import com.kh.product.model.vo.Product;
 
 /**
- * Servlet implementation class MainBestServlet
+ * Servlet implementation class MainNewServlet
  */
-@WebServlet("/mainBest.pro")
-public class MainBestServlet extends HttpServlet {
+@WebServlet("/mainNew.pro")
+public class MainNewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MainBestServlet() {
+    public MainNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,14 +32,14 @@ public class MainBestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		ArrayList<Product> list = new ProductService().selectMainBest();
+		
+		ArrayList<Product> list = new ProductService().selectMainNew();
 		
 		response.setContentType("application/json; charset=utf-8");
 		
 		Gson gson = new Gson();
 		gson.toJson(list, response.getWriter());
-	
+		
 	}
 
 	/**
