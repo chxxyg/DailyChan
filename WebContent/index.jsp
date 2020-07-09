@@ -443,8 +443,8 @@
 	                                "<div class='saleInfo'>" +
 	                                "<input type='hidden' class='sale' value='sale'>" + 
 	                                    "<span class='salePrice' style='text-decoration: line-through; color: gray;'>" + list[i].proPrice + "원</span>" +
-	                                    "<span class='salePrice discountPrice' style='color: red;'> " + (list[i].proPrice * (1 - list[i].discountRate)) + "원</span>" +
-	                                    "<span> | </span>" +
+	                                    "<span class='salePrice discountPrice' style='color: red;'>" + (list[i].proPrice * (1 - list[i].discountRate)) + "</span>" +
+	                                    "<span>원 | </span>" +
 	                                    "<span class='saleFor'>" + list[i].proStandard + "인분</span>" +
 	                                "</div>" +
 	                            "</td>" +
@@ -475,16 +475,14 @@
    		
    		$(document).on("click", ".cartLogo", function(){
 				var proCode = $(this).parents(".categoryInnerTable").prev().val();
-				var proPrice = 0;
+				var proPrice = $(this).parent().prev().val();
 				
 				var saleYN = $(this).parents(".categoryInnerTable").find(".sale").val();
 				
 				if(saleYN == "sale"){
 					proPrice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
-				}else{
-					proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
 				}
-				
+
 				$.ajax({
 					url:"toCart.pro",
 					data:{proCode:proCode, proPrice:proPrice},
