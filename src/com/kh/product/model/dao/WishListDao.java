@@ -1,13 +1,18 @@
 package com.kh.product.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
+
+import com.kh.product.model.dto.WishListDto;
+import com.kh.product.model.vo.WishList;
 
 public class WishListDao
 {
@@ -107,5 +112,41 @@ public class WishListDao
             close(pstmt);
         }
         return result;
+    }
+    
+    public ArrayList<WishListDto> selectWishList(Connection conn, String memberId)
+    {
+    	ArrayList<WishListDto> list = new ArrayList<>();
+    	PreparedStatement pstmt = null;
+    	ResultSet rset = null;
+    	String sql = prop.getProperty("selectWishList");
+    	
+    	try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next())
+			{
+				list.add(new WishListDto(
+											rset.getString("PRODUCT_CODE"),
+											rset.getString("PRODUCT_NAME"),
+											rset.getInt("PRODUCT_PRICE"),
+											rset.getInt("PRODUCT_STANDARD"),
+											rset.getString("FILE_NAME")
+									    )
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	finally
+    	{
+    		close(rset);
+    		close(pstmt);
+    	}
+    	
+    	return list;
     }
 }

@@ -1,10 +1,15 @@
 package com.kh.product.model.service;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.kh.product.model.dao.WishListDao;
+import com.kh.product.model.dto.WishListDto;
 
 
 public class WishListService
@@ -51,5 +56,16 @@ public class WishListService
         }
         close(conn);
         return result;
+    }
+    
+    public ArrayList<WishListDto> selectWishList(String memberId)
+    {
+    	Connection conn = getConnection();
+    	
+    	ArrayList<WishListDto> list = new WishListDao().selectWishList(conn, memberId);
+    	
+    	close(conn);
+    	
+    	return list;
     }
 }

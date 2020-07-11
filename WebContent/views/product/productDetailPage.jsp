@@ -3,9 +3,10 @@
 <% 
 	Product p = (Product)request.getAttribute("p");
 	ArrayList<AttachmentProduct> list = (ArrayList<AttachmentProduct>)request.getAttribute("list");
-	String proCode = (String)request.getAttribute("proCode");
+	String proCode = request.getParameter("proCode");
 	ArrayList<Review> rList = (ArrayList<Review>)request.getAttribute("rList");
 	ArrayList<Inquiry> iList = (ArrayList<Inquiry>)request.getAttribute("iList");
+	int wishYn = (int)request.getAttribute("wishYn");
 %>
 <!DOCTYPE html>
 <html>
@@ -142,7 +143,20 @@
                                 <tr>
                                     <td width="150px;"></td>
                                     <td><button id="productBtn2" class="productBtn toCart" type="button">장바구니</button></td>
-                                    <td><button id="productBtn3" class="productBtn" type="button">찜하기</button></td>
+                                    <%
+                                    	if(wishYn == 0)
+                                    	{
+                                    %>
+	                                    <td><button id="productBtn3" class="productBtn cpLikeLogo wishList_N" type="button">찜하기</button></td>
+                                    <%
+                                    	}
+                                    	else
+                                    	{
+                                    %>
+                                    	<td><button id="productBtn3" class="productBtn cpLikeLogo wishList_Y" type="button">찜취소</button></td>
+                                    <%
+                                    	}
+                                    %>
                                 </tr>
                             </table>
                         </td>
@@ -331,8 +345,6 @@
     			/* 상품 세일 여부 */
         		var saleYN = $(this).parents("#productDetail").find(".sale").val();
     			
-    			console.log(saleYN);
-    			
     			/* 총 상품 금액 변경 */
     			if(saleYN == "sale"){
     				$(".productTotalPrice").text((q-1)*<%= (int)(p.getProPrice()*(1-p.getDiscountRate())) %>);
@@ -451,6 +463,69 @@
 			<%}%>
 		});
     
+		$(".wishList_N").click(function(){
+			var proCode = "<%=proCode%>";
+			<% if(loginUser != null) {%>
+				$.ajax({
+					url:"toWishList.pro",
+					data:{"proCode" : proCode},
+					type: "post",
+					success:function(result)
+					{
+						if(result == 0)
+						{
+							var sel = confirm("상품이 찜목록에 추가되었습니다. 찜목록을 확인하시겠습니까?");
+							if(sel)
+							{
+								location.href="wishList.pro";
+							}
+							else
+							{
+								location.reload();
+							}
+						}
+					},
+					error:function()
+					{
+						console.log("ajax통신 에러");
+					}
+				});
+			<% }else{ %>
+				alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+			<%}%>
+		});
+		
+		$(".wishList_Y").click(function(){
+			var proCode = "<%=proCode%>";		
+			$.ajax({
+				url:"deleteWishList.pro",
+				data:{"proCode" : proCode},
+				type: "post",
+				success:function(result)
+				{
+					if(result > 0)
+					{
+						var sel = confirm("상품이 찜목록에서 삭제되었습니다. 찜목록을 확인하시겠습니까?");
+						if(sel)
+						{
+							location.href="wishList.pro";
+						}
+						else
+						{
+							location.reload();
+						}
+					}
+					else
+					{
+						console.log("DB삭제 오류");
+					}
+				},
+				error:function()
+				{
+					console.log("ajax통신 에러");
+				}
+			});
+		});
     </script>    
         
 <!-- Footer -->

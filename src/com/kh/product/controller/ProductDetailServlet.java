@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.inquiry.model.vo.Inquiry;
+import com.kh.member.model.vo.Member;
 import com.kh.mypage.model.service.ReviewService;
 import com.kh.mypage.model.vo.Review;
 import com.kh.product.model.service.ProductService;
 import com.kh.product.model.vo.AttachmentProduct;
 import com.kh.product.model.vo.Product;
+import com.kh.product.model.vo.WishList;
 
 /**
  * Servlet implementation class ProductDetailServlet
@@ -45,6 +47,21 @@ public class ProductDetailServlet extends HttpServlet {
 		ArrayList<Review> rList = new ReviewService().selectReviewList(proCode);
 		
 		ArrayList<Inquiry> iList = new ReviewService().selectInquiryList();
+		
+		ArrayList<WishList> wishList = null;
+		int wishYn = 0;
+		if(request.getSession().getAttribute("loginUser") != null)
+		{
+		    wishList = new ProductService().selectWishList(((Member)request.getSession().getAttribute("loginUser")).getMemberId());
+		    
+		    for(int i = 0; i < wishList.size(); i++)
+		    {
+		    	if(wishList.get(i).getProCode().equals(proCode))
+		    	{
+		    		wishYn = 1;
+		    	}
+		    }
+		}
 
 		
 		request.setAttribute("p", p);
@@ -53,6 +70,7 @@ public class ProductDetailServlet extends HttpServlet {
 		request.setAttribute("rList", rList);
 		
 		request.setAttribute("iList", iList);
+		request.setAttribute("wishYn", wishYn);
 		
 		request.getRequestDispatcher("views/product/productDetailPage.jsp").forward(request, response);
 	

@@ -268,7 +268,6 @@
 		
 		$(".wishList_Y").click(function(){
 			var proCode = $(this).parents(".categoryInnerTable").prev().val();
-			console.log(proCode);
 			$.ajax({
 				url:"deleteWishList.pro",
 				data:{"proCode" : proCode},
