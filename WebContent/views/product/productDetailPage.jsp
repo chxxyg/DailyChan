@@ -403,31 +403,33 @@
     			var qty = $(".input").val();
     			
     			var saleYN = $(this).parents("#productDetail").find(".sale").val();
-    			var proPrice = 0;
+    			var proPrice = <%=p.getProPrice()%>
     			
     			if(saleYN == "sale"){
     				proPrice = <%=(int)(p.getProPrice()*(1-p.getDiscountRate()))%>
-    			}else{
-    				proPrice = <%=p.getProPrice()%>
     			}
     			
-    			$.ajax({
-    				url:"detailToCart.pro",
-    				data:{proCode:proCode, proPrice:proPrice, qty:qty},
-    				type:"post",
-    				success:function(msg){
-    					if(msg == 0){
-							alert("상품이 장바구니에 이미 존재합니다.");
-						}else{
-							var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
-							if(result){
-								location.href="cartList.pro";
+    			<% if(loginUser != null) {%>
+	    			$.ajax({
+	    				url:"detailToCart.pro",
+	    				data:{proCode:proCode, proPrice:proPrice, qty:qty},
+	    				type:"post",
+	    				success:function(msg){
+	    					if(msg == 0){
+								alert("상품이 장바구니에 이미 존재합니다.");
+							}else{
+								var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+								if(result){
+									location.href="cartList.pro";
+								}
 							}
-						}
-    				}, error:function(){
-    					alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
-    				}
-    			});
+	    				}, error:function(){
+	    					console.log("ajax통신 에러");
+	    				}
+	    			});
+    			<% }else{%>
+					alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+				<%}%>
     			
     		});
     		

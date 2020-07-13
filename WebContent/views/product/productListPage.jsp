@@ -203,34 +203,35 @@
 		$(function(){
 			$(".cpCartLogo").click(function(){
 				var proCode = $(this).parents(".categoryInnerTable").prev().val();
-				var proPrice = 0;
+				var proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
 				
 				var saleYN = $(this).parents(".categoryInnerTable").find(".sale").val();
 				
 				if(saleYN == "sale"){
 					proPrice = $(this).parents(".categoryInnerTable").find(".discountPrice").text();		
-				}else{
-					proPrice = $(this).parents(".categoryInnerTable").find(".productPrice").text();
 				}
 				
-				$.ajax({
-					url:"toCart.pro",
-					data:{proCode:proCode, proPrice:proPrice},
-					type:"post",
-					success:function(msg){
-						if(msg == 0){
-							alert("상품이 장바구니에 이미 존재합니다.");
-						}else{
-							var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
-							if(result){
-								location.href="cartList.pro";
+				<% if(loginUser != null) {%>
+					$.ajax({
+						url:"toCart.pro",
+						data:{proCode:proCode, proPrice:proPrice},
+						type:"post",
+						success:function(msg){
+							if(msg == 0){
+								alert("상품이 장바구니에 이미 존재합니다.");
+							}else{
+								var result = confirm("상품이 장바구니에 담겼습니다. 장바구니를 확인하시겠습니까?");
+								if(result){
+									location.href="cartList.pro";
+								}
 							}
+						}, error:function(){
+							console.log("ajax통신 에러");
 						}
-					}, error:function(){
-						alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
-					}
-				});
-				
+					});
+				<% }else{ %>
+					alert("로그인이 필요한 서비스입니다. 로그인 후 이용해주세요.");
+				<%}%>
 			});
 		});
 		
